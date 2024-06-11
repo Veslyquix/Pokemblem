@@ -29,3 +29,22 @@ StrongConID_Link:
 WORD StrongConstitutionID 
 GutsID_Link:
 WORD GutsID 
+
+#include "SpeedBoost/SpeedBoost.lyn.event" 
+ALIGN 4
+SpeedBoostID_Link:
+WORD SpeedBoostID
+
+PlusAura:
+#incbin "Plus/Plus.dmp" 
+POIN AuraSkillCheck
+POIN SkillTester
+WORD PlusID
+WORD MinusID
+
+MinusAura:
+#incbin "Minus/Minus.dmp" 
+POIN AuraSkillCheck
+POIN SkillTester
+WORD PlusID
+WORD MinusID

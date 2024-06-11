@@ -18,7 +18,7 @@ POIN BtlLoopList
 
 ALIGN 4
 BtlLoopList:
-POIN BC_DefRes BC_Power BC_ASpd BC_Hit BC_Avo BC_Crit CritUpSkill BC_Dodge BC_Support BC_WRank BC_Status //these are the existing battle calculation routines
+POIN BC_DefRes BC_Power BC_ASpd BC_Hit BC_Avo BC_Crit SuperLuck CritUpSkill BC_Dodge BC_Support BC_WRank BC_Status //these are the existing battle calculation routines
 POIN InitializePreBattleLoop
 POIN Lull //This is effectively a stat modifier routine, so it has to go first
 POIN FaireCheck HolyAura
@@ -35,9 +35,10 @@ POIN Wrath SpurStr SpurMag SpurSpd SpurDef SpurRes
 POIN DriveStr DriveMag DriveSpd DriveDef DriveRes
 POIN LuckySeven OddRhythm EvenRhythm QuickBurn SlowBurn
 POIN Demoiselle Gentilhomme MaleficAura Intimidate Tantivy Focus Inspiration DivinelyInspiring Charm Solidarity VoiceOfPeace Anathema LilysPoise Charisma Hex Loyalty Infiltrator
-POIN ElbowRoom NaturalCover Gamble FieryBlood LifeAndDeath WindDisciple Perfectionist Puissance Hawkeye LightWeight Trample Opportunist BattleVeteran SilentPride Thunderstorm Outrider HeavyStrikes Charge Vanity KnightAspirant AssassinateDamageBonus ArcaneBlade
-POIN Daunt BloodTide WhitePool NightTide Insight Prescience Vigilance DefiantAvo DefiantCrit TowerShield ShortShield IndoorFighter OutdoorFighter Deadeye Fortune ChaosStyle StunningSmile HeavyBlade
-POIN BlueFlame BlueFlameAura DoubleLion Cultured Thighdeology Thotslayer KeepUp Armorboost Horseguard Skyguard ForeignPrincess ChargePlus
+POIN TrueStrike CriticalPierce CatchingUp Detonate SandRush SlushRush SwiftSwim Technician SolarPower Analytic ElbowRoom NaturalCover Gamble FieryBlood LifeAndDeath NoGuard WindDisciple Perfectionist Puissance Hawkeye LightWeight Trample Opportunist BattleVeteran SilentPride Thunderstorm Outrider HeavyStrikes Charge Vanity KnightAspirant AssassinateDamageBonus ArcaneBlade LadyBlade LunarBraceSkill PursuerPre
+POIN Merciless StoneBody TrueStrike CriticalPierce CatchingUp Detonate SandRush SlushRush SwiftSwim Technician SolarPower Analytic ElbowRoom NaturalCover Gamble FieryBlood LifeAndDeath NoGuard WindDisciple Perfectionist Puissance Hawkeye LightWeight Trample Opportunist BattleVeteran SilentPride Thunderstorm Outrider HeavyStrikes Charge Vanity KnightAspirant AssassinateDamageBonus ArcaneBlade LadyBlade LunarBraceSkill
+POIN Daunt BloodTide WhitePool NightTide Insight Prescience Vigilance DefiantAvo DefiantCrit TowerShield ShortShield IndoorFighter OutdoorFighter Deadeye Fortune ChaosStyle StunningSmile HeavyBlade Decapitator
+POIN BlueFlame BlueFlameAura DoubleLion Cultured Thighdeology Thotslayer Armorboost Horseguard Skyguard ForeignPrincess ChargePlus
 POIN Frenzy // This was moved here because Str/Mag Split conflict, and... I'm not sure why it wouldn't be here in the first place.
 POIN UpWithArch
 POIN AxefaithHit
@@ -56,9 +57,9 @@ POIN LethalitySkill NonGBALethalitySkill
 
 POIN KeenFighter SteadyBrawler // % Damage reduction if doubling goes near end 
 //tower shield plus needs to go after every other skill that may affect defender's attack
-POIN TowerShieldPlus
+POIN TowerShieldPlus WonderGuard
 // Dragonskin goes after anything effecting atk or def
-POIN Dragonskin
+POIN Dragonskin MultiscaleEffect FlankEffect SwarmEffect
 // Because of how killing machine works, critical check should always be done last
 POIN CriticalCheck
 #ifdef CANNOT_CRIT
@@ -104,6 +105,7 @@ AuraSkillEntry(DriveResID)
 AuraSkillEntry(BloodTideID)
 AuraSkillEntry(WhitePoolID)
 AuraSkillEntry(NightTideID)
+AuraSkillEntry(PastelVeilID)
 
 PUSH
 ORG 0x2a3f8

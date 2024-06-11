@@ -376,7 +376,121 @@ StunningSmile:
 POIN SkillTester
 WORD StunningSmileID
 
+ALIGN 4
+LadyBlade:
+#incbin "LadyBlade/LadyBlade.dmp"
+POIN SkillTester
+WORD LadyBladeID
+
+ALIGN 4
+NoGuard:
+#incbin "NoGuard/NoGuard.dmp"
+POIN SkillTester
+WORD NoGuardID
+
+ALIGN 4
+WonderGuard:
+#incbin "WonderGuard/WonderGuard.dmp"
+POIN SkillTester
+WORD WonderGuardID
+
+ALIGN 4
+Analytic:
+#incbin "Analytic/Analytic.dmp"
+POIN SkillTester
+WORD AnalyticID
+
+ALIGN 4
+SuperLuck:
+#incbin "SuperLuck/SuperLuck.dmp"
+POIN SkillTester
+WORD SuperLuckID
+
+ALIGN 4
+Technician:
+#incbin "Technician/Technician.dmp"
+POIN SkillTester
+WORD TechnicianID
+
+ALIGN 4
+SolarPower:
+#incbin "SolarPower/SolarPower.dmp"
+POIN SkillTester
+WORD SolarPowerID
+
+ALIGN 4
+TrueStrike:
+#incbin "TrueStrike/TrueStrike.dmp"
+POIN SkillTester
+WORD TrueStrikeID
+
+ALIGN 4
+CriticalPierce:
+#incbin "CriticalPierce/CriticalPierce.dmp"
+POIN SkillTester
+WORD CriticalPierceID
+
+ALIGN 4
+CatchingUp:
+#incbin "CatchingUp/CatchingUp.dmp"
+POIN SkillTester
+WORD CatchingUpID
+
+ALIGN 4
+Detonate:
+#incbin "Detonate/Detonate.dmp"
+
+ALIGN 4
+LunarBraceSkill:
+#incbin "LunarBraceSkill/LunarBraceSkill.dmp"
+POIN SkillTester
+WORD LunarBraceID
+
+ALIGN 4
+SandRush:
+#incbin "SandRush/SandRush.dmp"
+POIN SkillTester
+WORD SandRushID
+
+ALIGN 4
+SlushRush:
+#incbin "SlushRush/SlushRush.dmp"
+POIN SkillTester
+WORD SlushRushID
+
+ALIGN 4
+SwiftSwim:
+#incbin "SwiftSwim/SwiftSwim.dmp"
+POIN SkillTester
+WORD SwiftSwimID
+
+ALIGN 4
+Merciless:
+#incbin "Merciless/Merciless.dmp"
+POIN SkillTester
+WORD MercilessID
+
+ALIGN 4
+StoneBody:
+#incbin "StoneBody/StoneBody.dmp"
+POIN SkillTester
+WORD StoneBodyID
+
+ALIGN 4
+PursuerPre:
+#incbin "PursuerPre/Pursuer.dmp"
+POIN SkillTester
+WORD PursuerID
+
+ALIGN 4
+Decapitator:
+#incbin "Decapitator/Decapitator.dmp"
+POIN SkillTester
+WORD DecapitatorID
+
+
 #include "KeenFighter/Installer.event" 
+#include "FlankSwarmScale/Installer.event" 
 
 
 #ifdef MODULAR_PRE_BATTLE_SKILLS

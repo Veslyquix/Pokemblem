@@ -27,7 +27,7 @@
 // If uncommented, a full str/split will be implemented without replacing any stats
 // TODO: Define an item ID for Spirit Dust (Mag statbooster) in "Strmag/Str Mag Split/Installer.event". Energy Ring is used by default!
 // Item icon for Spirit Dust is included! Define your icon ID in "Strmag/_Master Asm Installer.event". Default is Green Note.
-//#define USE_STRMAG_SPLIT
+// #define USE_STRMAG_SPLIT
 
 // If uncommented, the statscreen will have a moving background similar to FE6 and FE7.
 // Customization of graphical assets is possible in Necessary/ModularStatScreen/Background/Graphics/Graphics.event.
@@ -226,7 +226,7 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 #define NewUnitLoadBufferLoc 0x2026E30
 
 // If uncommented, unit branched promotion list will be expanded to 6
-#define CLASS_CHG_EXPANSION
+//#define CLASS_CHG_EXPANSION
 
 // =================================
 // = SKILL BEHAVIOUR CONFIGURATION =
@@ -278,6 +278,10 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 
 //If commented, Triangle Attack will use a skill check instead of a bitflag.
 //#define VANILLA_TRIANGLE_ATTACK
+
+//If uncommented, RNG will remain consistent, but enemies will be unable to use Galeforce.
+//The current implementation of Galeforce causes RNG to change when reloading a suspend save.
+// #define GALEFORCE_RNG_FIX
 
 //If HEROES_MOVEMENT_SKILL_REQUIRED is not defined, this setting will control whether or not skills can still be used.
 #define ALSO_USE_MOVEMENT_SKILL_CHECK True
@@ -359,11 +363,31 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 //If true, the stat colors for player units will reflect their growth in the stat.
 #define USE_STAT_COLORS True
 
+//When leveling up, the game rerolls (up to 5 times) until you gain at least this many points
+#define MIN_STAT_GAIN 1 // vanilla is 1 
+
+// If true, fixed/bracketed levels will consider your lowest level as the level inputted in the character table
+#define BRACKETING_USE_BASE_LEVEL False 
+
 //If true, Fixed Growths mode will exist.
+// Note: this takes promotion level into account, but does not take stat boosters into account 
 #define FIXED_GROWTHS_MODE False
 
-//ID of flag to use for fixed growths mode, if enabled
+//ID of flag to use for fixed growths mode, if enabled (also works if flag here is defined as 0)
 #define FIXED_GROWTHS_FLAG_ID 0xEF
+
+//If true, Stat bracketing mode will exist. This keeps your stats within X points of the average. 
+// Note: this takes promotion level into account, but does not take stat boosters into account 
+#define STAT_BRACKETING_EXISTS False 
+
+//ID of flag to use for bracketed growths mode, if enabled (also works if flag here is defined as 0)
+#define BRACKETED_GROWTHS_FLAG_ID 0xED // 0xEE is used to hide dmg numbers in battle
+
+//If using stat bracketing and your stat is below average by this many points, always gain it on levelup 
+#define FORCE_WHEN_BELOW_AVERAGE_BY_AMOUNT 3 
+
+//If using stat bracketing and your stat is above average by this many points, never gain it on levelup 
+#define PREVENT_WHEN_ABOVE_AVERAGE_BY_AMOUNT 5 
 
 //If true, passive growth boosters and metis tome will not affect growths in fixed growths mode.
 #define FIXED_GROWTHS_DONT_BOOST True

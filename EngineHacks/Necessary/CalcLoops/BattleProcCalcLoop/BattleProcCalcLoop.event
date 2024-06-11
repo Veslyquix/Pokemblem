@@ -4,7 +4,7 @@
 
 ProcLoopParent:
 #incbin "ProcLoop/proc_loop.dmp"
-POIN Proc_Start	//start
+POIN ProcLoop_Start	//start
 
 POIN Proc_Devil	//devil effect
 
@@ -25,6 +25,7 @@ POIN Proc_Moonbow
 #endif // COMBAT_ARTS
 
 POIN Proc_Eclipse	//skills that do damage and all that
+POIN Proc_Pursuer
 
 POIN Proc_Impale Proc_Colossus 
 #ifndef COMBAT_ARTS
@@ -61,6 +62,10 @@ POIN Proc_StealHP
 #else // COMBAT_ARTS
 	POIN CombatArt_Sol
 #endif // COMBAT_ARTS
+
+POIN Proc_SolarBrace
+
+POIN Proc_Pickup
 
 POIN Proc_AetherHeal	//skills that heal based on final damage
 

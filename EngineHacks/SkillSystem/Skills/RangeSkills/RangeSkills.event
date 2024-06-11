@@ -13,3 +13,11 @@ PointBlankBonus:
 ALIGN 4
 TomeRangeBonus:
 #incbin "TomeRange/TomeRange.dmp"
+
+ALIGN 4
+HighGroundBonus:
+#include "HighGround/HighGround.event"
+
+ALIGN 4
+RunningStartBonus:
+#incbin "RunningStart/RunningStart.dmp"

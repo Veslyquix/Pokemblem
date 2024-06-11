@@ -124,6 +124,10 @@ POIN PowerstaffEvent
 
 #include "Cultured/Cultured.event"
 
+
+#include "FailGale/Installer.event" 
+
+
 ALIGN 4
 Gridmaster:
 #incbin "Gridmaster/Gridmaster.dmp"
@@ -134,6 +138,12 @@ WORD ACTION_MOVEACTIVE
 WORD ACTION_SWAP
 WORD ACTION_PUSH
 WORD ACTION_SWARP
+
+ALIGN 4
+PoisonPoint:
+#incbin "PoisonPoint/PoisonPoint.dmp"
+POIN SkillTester
+WORD PoisonPointID
 
 
 PUSH //some changes to vanilla code to make everything work
@@ -156,7 +166,10 @@ SHORT 0x2110
 ORG $323A0 //making dance not clear the galeforce flag
 SHORT 0xFFBD
 SHORT 0xFFFF
-ORG $39B98 //this sets 00040000 to the status bitfield thing for some reason on non-player units
-SHORT 0x46C0
-POP
 
+#ifndef GALEFORCE_RNG_FIX
+  ORG $39B98 //this sets 00040000 to the status bitfield thing for some reason on non-player units
+  SHORT 0x46C0
+#endif // GALEFORCE_RNG_FIX
+
+POP
