@@ -316,7 +316,7 @@ Victory Road[X]
 Indigo Plateau[X]
 
 ## LoreleiChText
-[Tact] VS Lorelei[X]
+VS Lorelei[X]
 
 ## BrunoChText
 VS Bruno[X]

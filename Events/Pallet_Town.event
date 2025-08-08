@@ -165,6 +165,7 @@ Seize(10,2)
 END_MAIN
 
 VisitHome:
+SetBG(Pallet_Ash_house_BG)
 CHECK_EVENTID CinnabarMomCallFlag
 BEQ 0 sC s0 
 CHECK_EVENTID MomGaveItemFlag 

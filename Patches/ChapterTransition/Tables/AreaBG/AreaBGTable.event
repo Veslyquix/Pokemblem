@@ -18,8 +18,8 @@ FILL MAX_CHAPTERS 0xFF // default is to skip
 
 ALIGN 4 
 
-AreaBGEntry(OaksLabCh, Pallet_Town_Professor_Oaks_Laboratory_BGData, Pallet_Town_Professor_Oaks_Laboratory_BGPal) 
-AreaBGEntry(PalletCh, Pallet_Ash_house_BGData, Pallet_Ash_house_BGPal) 
+// AreaBGEntry(OaksLabCh, Pallet_Town_Professor_Oaks_Laboratory_BGData, Pallet_Town_Professor_Oaks_Laboratory_BGPal) // unused 
+AreaBGEntry(PalletCh, Pallet_Town_Professor_Oaks_Laboratory_BGData, Pallet_Town_Professor_Oaks_Laboratory_BGPal) 
 AreaBGEntry(Route1Ch, Kanto_Route_1_overview_SM_BGData, Kanto_Route_1_overview_SM_BGPal)
 AreaBGEntry(ViridianCh, Viridian_City_anime_BGData, Viridian_City_anime_BGPal)
 AreaBGEntry(Route2SCh, Route2s_pal_BGData, Route2s_pal_BGPal)
