@@ -1,6 +1,6 @@
-Pallet: Nothing
-Route1: 500g, Super Repel, MuscleBandAccessory
-Viridian: 600g, LeechLife, ReliefSS
+Pallet: Rest (after Cinnabar)
+Route1: 500g, Super Repel, MuscleBandAccessory, VantageAccessory/QuickClaw 
+Viridian: 600g, LeechLife, ReliefSS, JellyDonut 
 store: FocusSS, Tackle, Scratch, TailWhip, Bite, Ember, Bubble, LeafFlurry
 Route2S: WiseGlassesAccessory, WarpCrystal, RareCandy(Cut), PinMissile(Cut)
 ViridianForestS: 400g
@@ -22,11 +22,11 @@ Route25: ChivalrySS, OldWardAccessory,
 CeruleanGym: Bubblebeam, RenewalRingAccessory
 Route5: PerfectionistSS
 Route6: CertainBlowAccessory, SealSpdAccessory 
-VermilionCity: PoisonStrikeAccessory, Saddle
+VermilionCity: Saddle
 store: PatienceSS, MagicalLeaf, WaterGun, Scorch, Dig, Headbutt, SignalBeam, Magnitude, Confusion
 Diglett'sCave: , Carbos  
 Route11: Scorch, SealResAccessory, Iron 
-SSAnne: QuickClawAccessory, BodySlam
+SSAnne: PoisonStrikeID, BodySlam
 VermilionGym: Thunderbolt, Surge'sSigilAccessory
 Route9W: InsightSS, SealStrAccessory
 Route9E: PaddedShieldAccessory, HealPulse, 1000g, HelixFossil
@@ -46,7 +46,7 @@ Fuschia: AuroraBeam, MagicWard, FireStone
 SafariS: FocusBandAcc(Miracle), ExoticCandy 
 SafariE: Psybeam, Protein
 SafariN: ChargeSS, EnergyBandT2 
-SafariW: BugBite, HPUp 
+SafariW: BugBite, HPUp, VantageSkillScroll
 FuschiaGym: PoisonJab, SavageBlowAcc
 Route18: DrillPeck, QuickBoots, 
 Route17S: PursuitSS, CounterMagicAcc
@@ -66,7 +66,7 @@ Route8: QuickDrawSS, LeafStone, 800g
 PowerPlant: Thunder, VintageBoots, ThunderStone, Carbos 
 Route19: Ancientpower, HoneClaws
 Route20E: ExoticCandy , Surf 
-Seafoam: WaterStone, EarthPower, Calcium, MaxPotion, Blizzard, 
+Seafoam: Waterfall, WaterStone, EarthPower, Calcium, MaxPotion, Blizzard, 
 Route20W: EnhancedWard, 1500g 
 Cinnabar: Solarbeam, WiseGlassesT3
 Mansion: Sludge, Zinc, 1500g , FireStone 
@@ -82,7 +82,9 @@ VictoryRoadB2: Outrage, Protein, RenewalSS
 VictoryRoadB3: DarkPulse, MaxPotion 
 Route 23N: EnergyBandT4
 VictoryRoad: Megahorn 
-CeruleanCove: MeteorMash
+League store: MeteorMash
+CeruleanCove: Psystrike, PoisonStrikeSS, MiracleSS, SavageBlowSS, ExoticCandy, FurySS 
+
 
 
 

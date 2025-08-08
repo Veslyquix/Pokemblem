@@ -180,6 +180,7 @@ int FMU_ShouldWeYieldForEvent(struct FMUProc* proc);
 /*------------- Events --------------*/
 void pFMU_RunMiscBasedEvents(struct FMUProc*);
 int pFMU_RunLocBasedAsmcAuto(struct FMUProc*);
+int pFMU_RunLocBasedAsmcAutoAndUpdateCoord(struct FMUProc *proc); 
 bool FMUmisc_RunMapEvents(struct FMUProc*);
 bool FMUmisc_RunTalkEvents(struct FMUProc*);
 bool FMU_RunTrapASMC(FMUProc*);
@@ -208,6 +209,7 @@ const void MuCtr_OnEnd(Proc* proc);                                       //! FE
 extern int CenterCameraOntoPosition(struct Proc* parent, int x, int y);
 extern u8 MapEventEngineExists(void); 
 void FMU_StartPlayerPhase(void);
+void UpdateDestCoord(struct FMUProc *proc, int x, int y); 
 
 void FMU_EnableDR(void);
 void pFMU_DoNothing(struct Proc* proc);

@@ -96,14 +96,22 @@ DisableFreeMovement
 //ASMC SaveGame_ASMC
 //LOMA HallOfFameCh 
 //FADU 16 
-EVBIT_MODIFY 4 
+EVBIT_MODIFY 0//4
 Text(OakLeagueText4)
 ENUF LoreleiDefeatedTemp 
 ENUF BrunoDefeatedTemp 
 ENUF AgathaDefeatedTemp 
 ENUF LanceDefeatedTemp 
 ENUF ChampionDefeatedTemp 
-FADU 16 
+// FADU 16 
+EVBIT_MODIFY 1 // stop here 
+FADI 2 
+SetBG(0x35)
+// FADI 16 
+// BGM 
+ASMC StartCreditsProc_ASMC 
+
+
 //LOMA PalletCh 
 //MOVE (-1) 0x101 [6,8]
 CALL HandleProtag 

@@ -92,7 +92,7 @@ Tutorial:
 END_MAIN
 
 Units1:
-UNIT Eirika  PikachuID 0x1 Level(0,Ally,True)   [5,5] 0b 0x0 0x0 0x0 [ThunderStone,0,0,0] [0x0,0x0,0x0,0x0]
+UNIT Eirika  AlakazamID 0x1 Level(0,Ally,True)   [5,5] 0b 0x0 0x0 0x0 [0,0,0,0] [0x0,0x0,0x0,0x0]
 UNIT 2  CaterpieID 0x1 Level(0,Ally,True)  [5,6] 0b 0x0 0x0 0x0 [0x0,0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
 UNIT 4  DragoniteID 0x1 Level(0,Ally,True)    [5,7] 0b 0x0 0x0 0x0 [0x0,0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
 UNIT 3  MewtwoID 0x1 Level(0,Ally,True)   [6,5] 0b 0x0 0x0 0x0 [0x0,0,0,0x0] [0x0,0x0,0x0,0x0]
@@ -305,9 +305,11 @@ ENUT GirlProtagFlag
 SetTactName(VeslyName)
 ASMC SaveGameSeed
 
-ENUT RandomizeBaseStatsFlag
-ENUT RandomizeWeaponStatsFlag
-ENUT RandomizeFoundItemsFlag
+// ENUT RandomizeBaseStatsFlag
+// ENUT RandomizeWeaponStatsFlag
+// ENUT RandomizeFoundItemsFlag
+ENUT DisableTutMsgsFlag
+
 //ENUT CannotEvolveFlag
 //ASMC ClearPCBoxUnitsBuffer
 //ASMC ClearAllBoxUnitsASMC
@@ -372,7 +374,7 @@ SilentGiveItemWithDurability(Amelia, WiseGlasses, 1|0x80)
 //SilentGiveItemWithDurability(Eirika, SpellScroll, Fissure)
 //GiveSkillAccessory(0, BlossomID)
 //EquipNewSkillAccessory(1, Intimidate2ID) // GiveSkillAccessory(0, RenewalID)
-EquipNewSkillAccessory(1, SilphScopeID) // GiveSkillAccessory(0, RenewalID)
+// EquipNewSkillAccessory(1, SilphScopeID) // GiveSkillAccessory(0, RenewalID)
 //
 //EquipNewSkillAccessory(1, DowngradeID) // GiveSkillAccessory(0, RenewalID)
 //EquipNewSkillAccessory(1, DowngradeID) // GiveSkillAccessory(0, RenewalID)
@@ -557,6 +559,7 @@ ENUT DomeFossilFlag
 
 ENUT PokefluteFlag
 
+ENUT SilphCoDefeated
 ENUT BoulderbadgeObtained 
 ENUT CascadebadgeObtained 
 ENUT ThunderbadgeObtained 
@@ -569,7 +572,7 @@ ENUT RainbowbadgeObtained
 ENUT MarshbadgeObtained
 Write_Byte(SquirtleID, GaryStarterClass) 
 ENUT VolcanobadgeObtained 
-ENUT EarthbadgeObtained 
+// ENUT EarthbadgeObtained 
 ENUT FlyFlag
 ENUT SaffronArrived
 ENUT CinnabarArrived
@@ -577,18 +580,22 @@ ENUT IndigoPlateauArrived
 ENUT SecretKeyObtained
 ENUT CompletedPokemonLeague
 
+ENUT RematchNotify1
+ENUT RematchNotify2
+
 ENUT MoltresFledFlag  
 ENUT ArticunoFledFlag 
 ENUT ZapdosFledFlag 
 ENUT MewFledFlag 
 ENUT CannotEvolveFlag 
+// ENUT SurgePowerPlantFlag 
 
 //ENUF CasualModeFlag 
 
 //ASMC FillPokedex // 3e2F4 
 //ASMC SeePokedex
-Write_Byte(24, XCoordNewArea)    // Placeholder chapter does not use this 
-Write_Byte(24, YCoordNewArea)  
+Write_Byte(5, XCoordNewArea)    // Placeholder chapter does not use this 
+Write_Byte(5, YCoordNewArea)  
 
 //Write_Byte(15, XCoordNewArea)    // Placeholder chapter does not use this 
 //Write_Byte(18, YCoordNewArea) 
@@ -602,9 +609,11 @@ Write_Byte(24, YCoordNewArea)
 //MNC2 Route5Ch
 //MNC2 CeladonCh
 //MNC2 ViridianForestSCh
-ENUT MissingnoFlag
+// ENUT MissingnoFlag
 //MNC2 CinnabarCh 
-MNC2 VermilionCh
+//MNC2 VermilionCh
+// MNC2 HallOfFameCh
+MNC2 PalletCh
 //SetUnitStatus(1, Exp, 99)
 //MNC2 CeruleanGymCh
 //MNC2 PewterGymCh

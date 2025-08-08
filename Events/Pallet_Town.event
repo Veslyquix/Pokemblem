@@ -24,7 +24,7 @@ END_MAIN
 ALIGN 32 
 CharacterBasedEvents:
 CharacterEventBothWays(0,GlobalTalkEvent, 0xFF, Ephraim)
-CHAR PurchasedLaprasFlag PurchaseLaprasevent [0x0, OaksAide] 0 // NPC
+CHAR 0 PurchaseLaprasevent [0x0, OaksAide] 0 // NPC
 TrainerPostBattleTalk(OaksAide) // NPC talk again 
 END_MAIN
 
@@ -58,6 +58,7 @@ DISA TempAlly
 GOTO 63
 
 LABEL 20
+ENUT PurchasedLaprasFlag
 CHECK_COORDS 0x7fff
 SADD sA sC s0  
 SET_ACTIVE 0
@@ -149,7 +150,7 @@ ENDA
 
 ALIGN 32
 LocationBasedEvents:
-House(0,VisitPokecenter,6,7) 
+House(0,VisitHome,6,7) 
 
 House(0,VisitGaryHouse,15,7) //gary's house 
 //House(0,VisitPokecenter,16,13) //oak's lab 
@@ -162,6 +163,30 @@ House(0,HouseEvent,6,24)
 Seize(10,2)
 */
 END_MAIN
+
+VisitHome:
+CHECK_EVENTID CinnabarMomCallFlag
+BEQ 0 sC s0 
+CHECK_EVENTID MomGaveItemFlag 
+BNE 0 sC s0 
+Text(MomGiveItemText)
+ENUT MomGaveItemFlag 
+SVAL r3 20000 
+GIVETOMAIN 0 
+GiveItemWithDurability_Rand(0, SpellScroll, Rest)
+LABEL 0 
+
+CHECK_EVENTID CompletedPokemonLeague
+BEQ 1 sC s0 
+Text(MomPostLeagueText)
+GOTO 10 
+LABEL 1
+
+Text(MomWelcomeHomeText)
+LABEL 10
+CALL VisitPokecenter
+NoFade 
+ENDA 
 
 
 TutMsg1: 

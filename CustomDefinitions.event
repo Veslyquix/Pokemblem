@@ -1,4 +1,6 @@
-//PROTECT $14B7A70
+
+// PROTECT $1cc10 $1cc30
+// PROTECT $27330 $2734c
 //PROTECT $144F944
 // 7BCA8 // ~5 extra frames than needed? nvm 
 // gProc_PopR_AnimsOnWrapper ~3 frames? 
@@ -9,30 +11,42 @@
 #define FreeSpace_Low 0xb2a610
 #define POKEMBLEM
 
+#define ProtagMug 179 
 //#define SkillSys_HookAiTryDoOffensiveAction
 // Shade+ (in AiSkills), Steal+, and Barricade hook this function so I've disabled them 
 
 //#define FreeSpace2_End 0xFFFFFF
-#define FreeSpace_Low_End 0xC00000
+#define FreeSpace_Low_End 0x8C00000
 //#define FreeSpaceBLRange 0x1c1ec0
 
 // Comment out for public releases
-//#define DEBUG_MODE 
+#define DEBUG_MODE 
+
+#define MAX_CHAPTERS 127 // for fill 
+
+#define USE_DEBUGGER 
 
 #define TESTING_RANGES
+
+
+#define StalVar(Min, Default) "BYTE $4B $0D Default Min; POIN StalVariableSleep|1; STAL 1" 
+// ASMC returns EVC_ADVANCE_YIELD but STAL returns EVC_STOP_YIELD - we need the latter, so we call STAL the next frame 
+#define StalVar(Default) "BYTE $4B $0D Default 0; POIN StalVariableSleep|1; STAL 1" 
+
+
 
 // Config options 
 #define INSTALL_FMU 
 #define ENABLE_FMU 
 #define ENABLE_RANDOMIZER 
 #define ENABLE_DAMAGE_REDUCTION
-//#define INSTALL_OTHER_LANGUAGES
-//#define INSTALL_SPANISH 
+#define INSTALL_OTHER_LANGUAGES
+#define INSTALL_SPANISH 
 #define USE_HGSS_SPRITES
 //#define USE_PMD_SPRITES
 
 PUSH; ORG $D74D0	//{U}
-String("V1.14.03              Apr 2024") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+String("V1.16.00           August 2025") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 //String("V1.14.07 DEBUG BUILD  Mar 2024") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 
 #define ProtagID 0x45 
@@ -79,7 +93,7 @@ String("V1.14.03              Apr 2024") ; BYTE 0; POP // this overflows into th
 #include "Events/DefinitionsUnitAndClass.event" 
 
 #include "Enumerate/ClassIDList.enu.event"
-
+#include "Graphics/BGs/GeneratedDefinitions.event" 
 #include "Enumerate/ClassSpriteList.enu.event"
 #include "Enumerate/ItemIcons.event"
 #include "EngineHacks/ExternalHacks/AccessoriesAndForging/AccessoryEffectDefinitions.event"
@@ -184,6 +198,7 @@ String("V1.14.03              Apr 2024") ; BYTE 0; POP // this overflows into th
 #define PokedexCaughtFlagOffset 0x1C0 // RegisterPokemon in trap rework because most pokemblem ram usage is there i guess 
 #define PokedexSeenFlagOffset 0x1E0 
 #define HelpMsgFlagOffset 0x200 // until 0x220 
+#define EventFlags 0x220 // until 0x240 is 256 flags 
 
 
 #define BuffDepletePerTurnAmount 2 // -2 from buffs per turn 
@@ -398,10 +413,35 @@ String("V1.14.03              Apr 2024") ; BYTE 0; POP // this overflows into th
 #define CardKeyFlag 0xEC 
 // 0xED BracketedGrowths 
 // 0xEF fixed growths 
+#define DebuggerFlag 0xF0 
+#define NoExpFlag 0xF1 
+
+#define ViridianBrockFlag 0xF2 
+#define BillMtMoonFlag 0xF3 
+#define SurgePowerPlantFlag 0xF4 
+#define BlaineSeafoamFlag 0xF5 
+#define KogaSafariFlag 0xF6 
+#define KogaSafariFlag2 0xF7 
+
+#define SkippableCutscenesFlag 0xFF
+// 0xF7 - 0x10C free 
+
+// New flags 0x12D - 0x22D or more even 
+#define VisitedViridianPokecenterFlag 0x12D 
+#define ViridianMomCallFlag 0x12E
+#define SafariTroubleFlag 0x12F
+#define CinnabarMomCallFlag 0x130
+#define MomGaveItemFlag 0x131
+#define ErikaRoute14Flag 0x132 
+#define SabrinaCeruleanCaveFlag 0x133 
+#define MistyRoute1Flag 0x134
+#define MistyRoute5Flag 0x135
+
+ 
 
 // Pewter City: visit gym with flag 0x12C 
 
-#define PewterGymClosedFlag 0x12C // final flag 
+#define PewterGymClosedFlag 0x12C // final vanilla flag 
 #define CeruleanGymClosedFlag 0x12B 
 #define VermilionGymClosedFlag 0x12A
 #define FuschiaGymClosedFlag 0x129 
@@ -446,9 +486,14 @@ String("V1.14.03              Apr 2024") ; BYTE 0; POP // this overflows into th
 // Unit IDs 
 #define OaksAide 0xEA 
 #define OaksAide2 0xEC // used in Saffron for Hitmons 
+#define GymLeader 0xEC 
+#define GymLeaderPkmn 0xEA
 #define OaksAidePkmn 0xEB
 #define OaksAidePkmn2 0xED
 #define OaksAideClass gentlemanID 
+
+
+#define BossPkmn 0xEE 
 
 // Flags 
 #define DebugPlaceUnitsFlag 0xAA 

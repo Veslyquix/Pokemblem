@@ -12,20 +12,25 @@ SkillSystems - circles, Sme, & others
 Trap Rework - Sme
 Gaiden Magic - Snek, Gamma 
 Equippable Accessories - Kirb 
-FreeMovement - Sme (eventually to be inserted)
+FreeMovement - Mokha, Sme
 Map/chapter transitions - Huichelaar
 
 # Special Thanks
 7743, without whom this project would not be possible. He’s added many features and patches to FEBuilder that I greedily requested, and has always offered support when I was having trouble.
+
+# Decomp contributors 
+Eebit, Mokha, StanH, laqieer, jiangzhengwenjz, NoahNelson, camthesaxman, BlueAnthem37510, RevoSucks, CT075, minirop, Kirb  
 
 # Learnsets 
 FabulaFares, ScubaLuigi, ChilanBerry, Rurouni
 
 # Assets
 
-Title screen - redppr 
-
-Most item icons - Lukirioh
+Title screen - redppr  
+  
+Most item icons - Lukirioh  
+  
+Portraits - Eden  
 
 Map Sprites - redppr 
 
@@ -102,7 +107,7 @@ TheGreatUncleYga
 YourHiro 
 
 # Additional Thanks to: 
-Sme, Tequila, Pikmin1211
+Sme, Tequila, Pikmin1211, Contro, Eebit 
 
 # Patches
 
@@ -152,7 +157,7 @@ Submenu - 7743
 UnitActionRework - Stanh
 L-Button Cycling - Aura Wolf
 Telephone - Sme 
-
+Mirror Map Sprite - Contro 
 
 
 

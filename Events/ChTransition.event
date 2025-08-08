@@ -184,6 +184,7 @@ GenericDisappearEffect(2, VisitPokecenter) //
 //GenericDisappearEffect(14, ObtainDomeFossilEvent) // 
 //GenericDisappearEffect(15, ObtainKeyCardEvent) // 
 //GenericDisappearEffect(16, MewTruckEvent) 
+//GenericDisappearEffect(17, ObtainBillsRopeEvent) 
 
 CallSuspiciousRockEvent: 
 TutText_B(SuspiciousRockText)
@@ -220,6 +221,42 @@ UNCR(0x7FFE, Hide)
 LABEL 99 
 NoFade 
 ENDA 
+
+WarpMoveEvent: // not functional with FMU for teleporters 
+// so I'm just going to use ForcedChapterTransition for them in Silph Co instead 
+CHECK_COORDS 0x7FFF 
+SADD sB sC s0 
+ASMC 0x804EF21 // EndAllMenus 
+ASMC 0x804E885 //ClearBG0BG1
+PauseFreeMovement 
+EVBIT_MODIFY 1 
+// CALL MyWarpOutEvent
+// STAL 12 
+// SADD sB sA s0 
+// SPAWN_NPC 0xFD [-1, -1]
+// CHECK_COORDS 0x7FFE 
+// SADD sB sC s0 
+// MOVEONTO 	(-1) 0x7ffe 0xFD
+// ENUN 
+// CAM1 0xFD 
+// DISA 0xFD
+// STAL 5 
+// Text(0x9df)
+SADD sB sA s0 
+ASMC SetActorCoords 
+SADD sB sA s0 
+SADD sA sA s0 
+SVAL sD 0
+
+CALL EnqueueREDAFromCoords
+
+MOVEFORCED (-1) 0x7FFF (-1)
+ENUN
+// CALL MyWarpInEvent 
+NoFade 
+ENDA 
+
+
 
 ToggleMansionFlagEvent:
 CHECK_EVENTID ToggleMansionFlag 
@@ -524,6 +561,15 @@ BNE 20 sC s0
 CHECK_EVENTID EarthbadgeObtained // open other gyms 
 BNE 11 sC s0 
 
+// i dunno why this is needed but whatever 
+ENUF PewterGymClosedFlag 
+ENUF CeruleanGymClosedFlag 
+ENUF VermilionGymClosedFlag
+ENUF FuschiaGymClosedFlag 
+ENUF CeladonGymClosedFlag 
+ENUF SaffronGymClosedFlag 
+ENUF CinnabarGymClosedFlag 
+
 // this part is for compatibility with save files before 1.12 
 CHECK_EVENTID BoulderbadgeObtained
 BEQ 1 sC s0 
@@ -566,11 +612,20 @@ ENUF ViridianGymClosedFlag
 LABEL 10 // Defeated Giovanni already 
 ENUF PewterGymClosedFlag 
 ENUF CeruleanGymClosedFlag 
-ENUF VermilionGymClosedFlag
+
+CHECK_EVENTID SurgePowerPlantFlag 
+BEQ 12 sC s0 
+    ENUF VermilionGymClosedFlag
+LABEL 12 
 ENUF FuschiaGymClosedFlag 
 ENUF CeladonGymClosedFlag 
 ENUF SaffronGymClosedFlag 
-ENUF CinnabarGymClosedFlag 
+
+
+CHECK_EVENTID BlaineSeafoamFlag 
+BEQ 17 sC s0 
+    ENUF CinnabarGymClosedFlag
+LABEL 17 
 
 LABEL 99 
 NoFade 
@@ -604,6 +659,7 @@ LoadAndPlaceProtag:
 CHECK_EVENTID GirlProtagFlag 
 BEQ 0 sC s0 
 LOAD1 1 ProtagUnitGroupFemale
+UNCM(ProtagID, 1<<23) // Portrait id+1
 GOTO 1 
 LABEL 0 
 LOAD1 1 ProtagUnitGroupMale 
@@ -626,7 +682,6 @@ SVAL r1 0xFD //1st player unit
 SVAL r3 0x11 	// Y coord 
 SVAL r4 0x03 	// Byte
 ASMC SetUnitStatus
-
 MOVENEXTTO 	(-1) ProtagID 0xFD 
 ENUN 
 CAM1 0xFD 
@@ -1181,8 +1236,49 @@ NoFade
 ENDA 
 
 
+IsPowerOut:
+CHECK_EVENTID SurgePowerPlantFlag
+BNE 0 sC s0 
+CHECK_EVENTID StrengthBoulderFlag
+BEQ 0 sC s0 
+
+// Power is out for these areas after getting strength 
+CHECK_CHAPTER_NUMBER
+SADD sA sC s0 
+SVAL s1 VermilionCh 
+BEQ 1 sA s1 
+SVAL s1 CeruleanCh 
+
+BEQ 1 sA s1 
+SVAL s1 LavenderCh
+BEQ 1 sA s1 
+SVAL s1 SaffronCh
+BEQ 1 sA s1 
+
+GOTO 0 
+LABEL 1 
+SVAL s1 1 
+GOTO 99 
+LABEL 0 
+SVAL s1 0 
+LABEL 99 
+NoFade 
+ENDA 
+
+
+PowerOutEvent: 
+CALL IsPowerOut 
+BEQ 99 s1 s0 
+EVBIT_MODIFY 1 
+TutText(PowerOutText)
+CALL EventBEnd 
+LABEL 99 
+NoFade 
+ENDA 
+
 
 VisitPokecenter:
+CALL PowerOutEvent
 CHECK_COORDS 0x7FFF
 SADD rB rC r0 
 
@@ -1201,6 +1297,7 @@ Write_Byte(CurrentChapter)
 Write_Byte(TeleportChapter) // teleport chapter needs to know where you last visited 
 CALL HandleProtag 
 MNC2 PCBoxCh 
+LABEL 99 
 NoFade 
 ENDA 
 
@@ -1349,6 +1446,7 @@ NoFade
 ENDA 
 
 ReviveAndSaveEvent:
+CALL PowerOutEvent
 ReviveParty 
 CALL SaveWithHeal 
 NoFade 

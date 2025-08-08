@@ -1,0 +1,341 @@
+
+#include "EAstdlib.event" 
+#include "C_Code.lyn.event" 
+
+ALIGN 4 
+HeldButtonSpeed: 
+WORD 2
+DefaultSpeed:
+WORD 4 // go up a pixel every 4 frames 
+Width_BigChar: 
+WORD 12 // 8 is overlapping, 12 has no overlap, more than 12 has some space between characters 
+DarkenAmount: // default 
+// WORD 0xC0 // Backgrounds are 25% darker during credits 
+// WORD 0x80 // 50% darker 
+WORD 0x60 // 62.5% darker 
+// WORD 0x40 // 75% darker 
+SkipWithStartEnabled:
+WORD 0 // 1 for enabled 
+
+
+
+#define LyonStoneCG 2 
+#define DemonKingCG 5
+
+
+#define PondBG 0x21 
+#define BurningBG 0x2B 
+#define BlackBG 0x35 
+#define RandomBG 0x37 
+ 
+
+#define BG_Type 1
+#define CG_Type 2 
+
+
+#define CreditsEntryBG(header, body, bgID, darkenAmount) "POIN header body; BYTE bgID BG_Type darkenAmount 0" 
+#define CreditsEntryBG(header, body, bgID) "POIN header body; BYTE bgID BG_Type 0 0" 
+#define CreditsEntryCG(header, body, cgID, darkenAmount) "POIN header body; BYTE cgID CG_Type darkenAmount 0" 
+#define CreditsEntryCG(header, body, cgID) "POIN header body; BYTE cgID CG_Type 0 0" 
+#define CreditsEntry(header, body) "POIN header body; BYTE 0xFF 0 0 0" 
+#define CreditsEnd "WORD 0 0 (-1) 0 0 (-1) 0 0 (-1)" 
+
+// Pewter_Gym_anime_BG
+// Ceruleancity2_old_BG
+// Vermilion_Gym_JN_BG
+// Pokemon_Ninja_School_BG
+// Celadon_Gym_JN_BG
+// SaffronGym_BG
+// Cinnabar_Gym_Battlefield_BG
+// Viridian_Gym_anime_BG
+// Elite_Four_PO_BG or Champion_League_Stadium_BG
+// Pallet_Ash_house_BG
+
+ALIGN 4 
+gCreditsData: 
+CreditsEntryBG(HeadDevelopment, BodyDevelopment, Kanto_Route_1_overview_SM_BG) 
+CreditsEntry(HeadLeadArtists, BodyLeadArtists) 
+CreditsEntryBG(HeadAdditionalArt, BodyAdditionalArt, Pewter_Gym_anime_BG) 
+CreditsEntryBG(HeadDecomp, BodyDecomp, Ceruleancity2_old_BG)
+CreditsEntryBG(HeadSystems, BodySystems, Vermilion_Gym_JN_BG) 
+CreditsEntryBG(Head7743, Body7743, Celadon_Gym_JN_BG ) 
+
+CreditsEntryBG(HeadEarlyPlaytesters, BodyEarlyPlaytesters, Pokemon_Ninja_School_BG)  
+CreditsEntryBG(HeadInterns, BodyInterns, SaffronGym_BG) 
+CreditsEntryBG(HeadMisc, BodyMisc, Cinnabar_Gym_Battlefield_BG) 
+CreditsEntryBG(HeadMisc, BodyMisc2, Viridian_Gym_anime_BG) 
+CreditsEntryBG(HeadSkillsysContributors, BodySkillsysContributors, Champion_League_Stadium_BG) 
+ 
+CreditsEntry(emptyString, emptyStringLong)
+CreditsEntryBG(theEnd, emptyString, Pallet_Ash_house_BG)
+CreditsEntry(emptyString, emptyString)
+CreditsEntry(emptyString, emptyString)
+CreditsEntryBG(emptyString, emptyStringMed, BlackBG)
+// CreditsEntry(emptyString, emptyString)
+CreditsEnd // Terminator 
+
+
+#define NL "BYTE 1;"
+#define NL2 "BYTE 1 1;"
+
+
+    
+#ifndef txt
+#inctbl "fe8TR" "fe8_tr.tbl"
+    #define txt(string2) STRING string2 "fe8TR"; BYTE 0 0; // fe6 version 
+#endif 
+
+theEnd: 
+txt("  T h e   E n d") 
+
+// with notepad++, replace (ctrl+h) (extended) your line endings with \\ 
+/* \r\n */ // find 
+/* \\\\\r\n */ // replace line ends with two backslashes followed by line end 
+// replace in selection 
+// then, replace all space \\\\ 
+
+HeadDevelopment: 
+txt("Development"); 
+
+BodyDevelopment: 
+txt(" By Vesly\\
+  "); 
+
+
+HeadLeadArtists:
+txt("Lead Artists")
+
+BodyLeadArtists:
+txt(" Eden\\
+redppr\\
+Lukirioh\\
+Jester252\\
+Akim2007\\
+N426\\
+Zaim\\
+  \\
+  ")
+
+
+HeadSystems: 
+txt("Systems"); 
+BodySystems: 
+txt(" DangerRadius - Huichelaar\\
+Capture - Tequila\\
+EffectivenessRework - Tequila\\
+SkillSystems - circles, Sme, & others\\
+Trap Rework - Sme\\
+Gaiden Magic - Snek, Gamma\\
+Equippable Accessories - Kirb\\
+FreeMovement - Mokha, Sme\\
+Map/chapter transitions - Huichelaar\\
+  \\
+  "); 
+
+Head7743: 
+txt("Special Thanks")
+Body7743: 
+txt( "7743, without whom this project\\
+would not be possible. He's added many\\
+features and patches to FEBuilder that\\
+I greedily requested, and has always\\
+offered support when I was having trouble.\\
+  \\
+  ") 
+
+
+HeadDecomp: 
+txt("Decomp wizards"); BYTE 0 
+BodyDecomp: 
+txt(" Eebit\\
+Mokha\\
+StanH\\
+laqieer\\
+jiangzhengwenjz\\
+NoahNelson\\
+camthesaxman\\
+BlueAnthem37510\\
+RevoSucks\\
+CT075\\
+minirop\\
+Kirb\\
+  \\
+  "); BYTE 0 
+
+
+HeadInterns: 
+txt("Unpaid Interns")
+
+BodyInterns: 
+txt(" FabulaFares\\
+ScubaLuigi\\
+ChilanBerry\\
+Rurouni\\
+ImportedCheese\\
+...and everyone else mentioned\\
+    in these credits.\\
+  \\
+  ") 
+
+HeadAdditionalArt:
+txt("More Art")
+
+BodyAdditionalArt:
+txt(" SD9k\\
+Zoramine\\
+Aqua\\
+Epicer\\
+Gabriel Knight\\
+HusbandoEmblem\\
+Halbreadier\\
+  \\
+  ") 
+
+HeadEarlyPlaytesters:
+txt("Playtesters")
+
+BodyEarlyPlaytesters:
+txt(" Akim, Ariadna, Aqua, BayouPup, bpat,\\
+bowser for lesbians, ChilanBerry, Contro,\\
+darknight97, Elzaim, FabulaFares, FickleRick,\\
+FlamingZelda, Fpkfor, Gaston, Miki Brock,\\
+Leche, Luis, Kyle, Missiri, LackadasicalDerp,\\
+MournfulRelic, Paulean, Pf987, Piku, Rurouni,\\
+Scub, Tbone, TheIcyCharmander, mitltl\\
+TheGreatUncleYga, YourHiro\\
+  \\
+  ")
+
+
+HeadMisc:
+txt("Misc.")
+BodyMisc:
+txt(" AI4 as group ai - PhantomSentine\\
+Examine item fix - Sme\\
+Fates exp - Crazycolorz5\\
+EventParameters - Snek\\
+Full Heal item - MintX\\
+Hide portraits during promotion - Tequila\\
+CheckInDanger - Stanh\\
+16 Tracks/12 Sounds Fix (credit Agro/Brendor)\\
+256 Col Title Screen - Leonarth\\
+Anti-Huffman - Hextator\\
+CSA - Hextator, Circles\\
+CasualMode - circles\\
+CG Fade Fix - 7743\\
+Ch titles as text - circles\\
+CompareTactName - 7743\\
+Convert MemorySlot to String - 7743\\
+Count Units in Range - 7743\\
+DisablePrepStore - 7743\\
+DisableStatusScreenForClasses - 7743\\
+Disable Enemy Control Glitch - Brendon, 7743\\
+Display 10-Divided CG - 7743\\
+Drumfix - circles\\
+remove control enemy - Brendor\\
+Split menu - Stan, circles\\
+Escape - ngmansion, aera\\
+Fix LZ77 - Tequila\\
+  \\
+  ")
+
+HeadMisc2:
+txt("Misc.")
+BodyMisc2:
+txt(" GetPressedKeys - Shuusuke, 7743\\
+GetDifficulty - 7743\\
+GetUnitDistance - Snakey1\\
+HigherPromoBonuses - Scraiza\\
+RescueEvent - circles\\
+EMS - Stan\\
+Ai & LeaderAI fix - Stan\\
+Battle Stats - Tequila\\
+UNCM - Tequila\\
+AIDangerMapFix - Gamma\\
+HPBars - Circles, Tequila\\
+ImprovedSoundMixer - ipatix\\
+MagicSwordRework - Sme\\
+MMB - Zane\\
+NarrowFont - Scraiza\\
+RNGRandomizer - TR143\\
+PreventTradingCertainItems - Circles, Pawkkie\\
+Reserve Tact TextID - 7743\\
+SendAll - 7743\\
+ShowEmoticon - 7743, Kenpuku\\
+Sound_NIMAP - circles, Alusq\\
+Submenu - 7743\\
+UnitActionRework - Stanh\\
+L-Button Cycling - Aura Wolf\\
+Telephone - Sme\\
+Mirror Map Sprite - Contro\\
+  \\
+  ") 
+
+HeadSkillsysContributors:
+txt("SkillSys")
+
+BodySkillsysContributors:
+txt(" Sme, circleseverywhere, Pikmin1211, Snakey1,\\
+Tequila, Colorz, 7743, StanH, Leonarth,\\
+Teraspark, Zeta, Kirb, Vesly, Dragz, Ditto,\\
+JesterWizard, Rossendale, Darrman, SD9k,\\
+kao, blademaster, Ganzap, Mikey Seregon,\\
+Jopettajah, RobertFPY, Someone, Blaze,\\
+vlak, 2WB, Alice, VelvetKitsune, Zaim,\\
+Reds, Dragz, Monkeybard\\
+  \\
+  ")
+
+emptyString: 
+txt("  "); BYTE 0 // should be 2 or more spaces lol 
+emptyStringMed: // bunch of blank lines while above text finishes displaying  
+txt("  \\
+  "); BYTE 0 
+emptyStringLong: // bunch of blank lines while above text finishes displaying  
+txt("  \\
+  \\
+  \\
+  \\
+  \\
+  \\
+  \\
+  "); BYTE 0 
+
+
+
+
+// #define TESTING_CREDITS 
+
+PUSH 
+
+ORG $B65F8 
+SHORT $E002 // b 0x80b6600 
+SHORT 0 0 0 // so FEBuilder will recognize the CG patch 
+WORD $46C04778 $E59FC000 $E12FFF1C
+POIN DisplayCGfx
+
+#ifdef TESTING_CREDITS
+ORG $8B0917
+// BYTE 1 // fade to black //map 
+
+ORG $9EEBFC // Prologue start event 
+FADI 4 // slow fade to black (optional)
+ASMC StartCreditsProc_ASMC
+
+// direct to background 
+// SetBg(0)
+// Text(0x9df) 
+// FADI 4 
+
+// direct to title 
+MNTS 0
+
+// direct to map 
+// CLEAN 
+// FADU 4 
+NoFade 
+ENDA 
+#endif 
+
+
+POP 
