@@ -1,10 +1,13 @@
 //Generated! Do not edit!
 
 BGEntry(ACity_Violet_City_anime_BGData, ACity_Violet_City_anime_BGPal)
+BGEntry(Agatha_Generations_BGData, Agatha_Generations_BGPal)
+BGEntry(BluePokemonTheOriginsAnime_BGData, BluePokemonTheOriginsAnime_BGPal)
 BGEntry(Brock_HouseDaycare_BGData, Brock_HouseDaycare_BGPal)
 BGEntry(Celadon_Gym_JN_BGData, Celadon_Gym_JN_BGPal)
 BGEntry(Celadon_Gym_M20_BGData, Celadon_Gym_M20_BGPal)
 BGEntry(Ceruleancity2_old_BGData, Ceruleancity2_old_BGPal)
+BGEntry(Cerulean_City_Evolutions_BGData, Cerulean_City_Evolutions_BGPal)
 BGEntry(Champion_League_Stadium_BGData, Champion_League_Stadium_BGPal)
 BGEntry(Cinnabar_Gym_Battlefield_BGData, Cinnabar_Gym_Battlefield_BGPal)
 BGEntry(Cinnabar_Island_anime_BGData, Cinnabar_Island_anime_BGPal)
@@ -31,12 +34,16 @@ BGEntry(FL_Victory_Road_BGData, FL_Victory_Road_BGPal)
 BGEntry(FL_Viridian_Forest_BGData, FL_Viridian_Forest_BGPal)
 BGEntry(forkedroad_old_BGData, forkedroad_old_BGPal)
 BGEntry(Fuchsia_City_anime_2_BGData, Fuchsia_City_anime_2_BGPal)
+BGEntry(Fuchsia_City_past_anime_BGData, Fuchsia_City_past_anime_BGPal)
+BGEntry(generic_mountain_mtmoon_BGData, generic_mountain_mtmoon_BGPal)
+BGEntry(Hall_of_Fame_PO_BGData, Hall_of_Fame_PO_BGPal)
 BGEntry(HGSS_Cerulean_CaveDay_BGData, HGSS_Cerulean_CaveDay_BGPal)
 BGEntry(HGSS_Digletts_CaveDay_BGData, HGSS_Digletts_CaveDay_BGPal)
 BGEntry(HGSS_Mt_MoonDay_BGData, HGSS_Mt_MoonDay_BGPal)
 BGEntry(HGSS_Rock_TunnelNight_BGData, HGSS_Rock_TunnelNight_BGPal)
 BGEntry(HGSS_Seafoam_IslandsDay_BGData, HGSS_Seafoam_IslandsDay_BGPal)
 BGEntry(HGSS_Victory_RoadDay_BGData, HGSS_Victory_RoadDay_BGPal)
+BGEntry(Indigo_Plateau_PO_BGData, Indigo_Plateau_PO_BGPal)
 BGEntry(Kanto_Route_16_BGData, Kanto_Route_16_BGPal)
 BGEntry(Kanto_Route_17_AG155_BGData, Kanto_Route_17_AG155_BGPal)
 BGEntry(Kanto_Route_1_overview_SM_BGData, Kanto_Route_1_overview_SM_BGPal)
@@ -48,6 +55,8 @@ BGEntry(Kanto_Route_8_anime_BGData, Kanto_Route_8_anime_BGPal)
 BGEntry(Lavender_Pokemon_Tower_PO_BGData, Lavender_Pokemon_Tower_PO_BGPal)
 BGEntry(Lavender_Town_PO_BGData, Lavender_Town_PO_BGPal)
 BGEntry(lighthouse_old_BGData, lighthouse_old_BGPal)
+BGEntry(LoreleiIce_BGData, LoreleiIce_BGPal)
+BGEntry(Nugget_Bridge_Evolutions_BGData, Nugget_Bridge_Evolutions_BGPal)
 BGEntry(Pallet_Ash_house_BGData, Pallet_Ash_house_BGPal)
 BGEntry(Pallet_Town_anime_BGData, Pallet_Town_anime_BGPal)
 BGEntry(Pallet_Town_Professor_Oaks_Laboratory_BGData, Pallet_Town_Professor_Oaks_Laboratory_BGPal)
@@ -55,6 +64,9 @@ BGEntry(pewtergym_old_BGData, pewtergym_old_BGPal)
 BGEntry(Pewter_City_anime_BGData, Pewter_City_anime_BGPal)
 BGEntry(Pewter_Gym_anime_BGData, Pewter_Gym_anime_BGPal)
 BGEntry(Pewter_Museum_of_Science_anime_BGData, Pewter_Museum_of_Science_anime_BGPal)
+BGEntry(pokecenter_BGData, pokecenter_BGPal)
+BGEntry(pokemonbrunoelitefourmember_BGData, pokemonbrunoelitefourmember_BGPal)
+BGEntry(Pokemonlance_BGData, Pokemonlance_BGPal)
 BGEntry(Pokemon_Ninja_School_BGData, Pokemon_Ninja_School_BGPal)
 BGEntry(Route2s_pal_BGData, Route2s_pal_BGPal)
 BGEntry(Route_24_anime_BGData, Route_24_anime_BGPal)
@@ -62,6 +74,7 @@ BGEntry(Safari_Zone_anime_BGData, Safari_Zone_anime_BGPal)
 BGEntry(SaffronGym_BGData, SaffronGym_BGPal)
 BGEntry(Saffron_City_PO_BGData, Saffron_City_PO_BGPal)
 BGEntry(Saffron_City_Pokemon_Center_BGData, Saffron_City_Pokemon_Center_BGPal)
+BGEntry(SS_Anne_anime_BGData, SS_Anne_anime_BGPal)
 BGEntry(UnusedShop_BGData, UnusedShop_BGPal)
 BGEntry(Vermilion_City_Ports_BGData, Vermilion_City_Ports_BGPal)
 BGEntry(Vermilion_Gym_JN_BGData, Vermilion_Gym_JN_BGPal)
@@ -81,6 +94,18 @@ ACity_Violet_City_anime_BGData:
 ALIGN 4
 ACity_Violet_City_anime_BGPal:
 #incbin "data/ACity_Violet_City_animePal.dmp"
+ALIGN 4
+Agatha_Generations_BGData:
+#incbin "data/Agatha_Generations.dmp"
+ALIGN 4
+Agatha_Generations_BGPal:
+#incbin "data/Agatha_GenerationsPal.dmp"
+ALIGN 4
+BluePokemonTheOriginsAnime_BGData:
+#incbin "data/BluePokemonTheOriginsAnime.dmp"
+ALIGN 4
+BluePokemonTheOriginsAnime_BGPal:
+#incbin "data/BluePokemonTheOriginsAnimePal.dmp"
 ALIGN 4
 Brock_HouseDaycare_BGData:
 #incbin "data/Brock_HouseDaycare.dmp"
@@ -105,6 +130,12 @@ Ceruleancity2_old_BGData:
 ALIGN 4
 Ceruleancity2_old_BGPal:
 #incbin "data/Ceruleancity2_oldPal.dmp"
+ALIGN 4
+Cerulean_City_Evolutions_BGData:
+#incbin "data/Cerulean_City_Evolutions.dmp"
+ALIGN 4
+Cerulean_City_Evolutions_BGPal:
+#incbin "data/Cerulean_City_EvolutionsPal.dmp"
 ALIGN 4
 Champion_League_Stadium_BGData:
 #incbin "data/Champion_League_Stadium.dmp"
@@ -262,6 +293,24 @@ ALIGN 4
 Fuchsia_City_anime_2_BGPal:
 #incbin "data/Fuchsia_City_anime_2Pal.dmp"
 ALIGN 4
+Fuchsia_City_past_anime_BGData:
+#incbin "data/Fuchsia_City_past_anime.dmp"
+ALIGN 4
+Fuchsia_City_past_anime_BGPal:
+#incbin "data/Fuchsia_City_past_animePal.dmp"
+ALIGN 4
+generic_mountain_mtmoon_BGData:
+#incbin "data/generic_mountain_mtmoon.dmp"
+ALIGN 4
+generic_mountain_mtmoon_BGPal:
+#incbin "data/generic_mountain_mtmoonPal.dmp"
+ALIGN 4
+Hall_of_Fame_PO_BGData:
+#incbin "data/Hall_of_Fame_PO.dmp"
+ALIGN 4
+Hall_of_Fame_PO_BGPal:
+#incbin "data/Hall_of_Fame_POPal.dmp"
+ALIGN 4
 HGSS_Cerulean_CaveDay_BGData:
 #incbin "data/HGSS_Cerulean_CaveDay.dmp"
 ALIGN 4
@@ -297,6 +346,12 @@ HGSS_Victory_RoadDay_BGData:
 ALIGN 4
 HGSS_Victory_RoadDay_BGPal:
 #incbin "data/HGSS_Victory_RoadDayPal.dmp"
+ALIGN 4
+Indigo_Plateau_PO_BGData:
+#incbin "data/Indigo_Plateau_PO.dmp"
+ALIGN 4
+Indigo_Plateau_PO_BGPal:
+#incbin "data/Indigo_Plateau_POPal.dmp"
 ALIGN 4
 Kanto_Route_16_BGData:
 #incbin "data/Kanto_Route_16.dmp"
@@ -364,6 +419,18 @@ ALIGN 4
 lighthouse_old_BGPal:
 #incbin "data/lighthouse_oldPal.dmp"
 ALIGN 4
+LoreleiIce_BGData:
+#incbin "data/LoreleiIce.dmp"
+ALIGN 4
+LoreleiIce_BGPal:
+#incbin "data/LoreleiIcePal.dmp"
+ALIGN 4
+Nugget_Bridge_Evolutions_BGData:
+#incbin "data/Nugget_Bridge_Evolutions.dmp"
+ALIGN 4
+Nugget_Bridge_Evolutions_BGPal:
+#incbin "data/Nugget_Bridge_EvolutionsPal.dmp"
+ALIGN 4
 Pallet_Ash_house_BGData:
 #incbin "data/Pallet_Ash_house.dmp"
 ALIGN 4
@@ -406,6 +473,24 @@ ALIGN 4
 Pewter_Museum_of_Science_anime_BGPal:
 #incbin "data/Pewter_Museum_of_Science_animePal.dmp"
 ALIGN 4
+pokecenter_BGData:
+#incbin "data/pokecenter.dmp"
+ALIGN 4
+pokecenter_BGPal:
+#incbin "data/pokecenterPal.dmp"
+ALIGN 4
+pokemonbrunoelitefourmember_BGData:
+#incbin "data/pokemonbrunoelitefourmember.dmp"
+ALIGN 4
+pokemonbrunoelitefourmember_BGPal:
+#incbin "data/pokemonbrunoelitefourmemberPal.dmp"
+ALIGN 4
+Pokemonlance_BGData:
+#incbin "data/Pokemonlance.dmp"
+ALIGN 4
+Pokemonlance_BGPal:
+#incbin "data/PokemonlancePal.dmp"
+ALIGN 4
 Pokemon_Ninja_School_BGData:
 #incbin "data/Pokemon_Ninja_School.dmp"
 ALIGN 4
@@ -447,6 +532,12 @@ Saffron_City_Pokemon_Center_BGData:
 ALIGN 4
 Saffron_City_Pokemon_Center_BGPal:
 #incbin "data/Saffron_City_Pokemon_CenterPal.dmp"
+ALIGN 4
+SS_Anne_anime_BGData:
+#incbin "data/SS_Anne_anime.dmp"
+ALIGN 4
+SS_Anne_anime_BGPal:
+#incbin "data/SS_Anne_animePal.dmp"
 ALIGN 4
 UnusedShop_BGData:
 #incbin "data/UnusedShop.dmp"
@@ -498,5 +589,5 @@ _UnusedInn_BGPal:
 
 ALIGN 12
 MaxBGID:
-WORD 69
+WORD 82
 

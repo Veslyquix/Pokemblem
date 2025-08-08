@@ -69,12 +69,15 @@ EscapeTileTerminator ; }
 
 
 ToRoute24N:
+ENUT SkipChTransitionFlag
 ChapterTransition(Route24Ch, 23,4)
 
 ToRoute24M:
+ENUT SkipChTransitionFlag
 ChapterTransition(Route24Ch, 23,8)
 
 ToRoute24S:
+ENUT SkipChTransitionFlag
 ChapterTransition(Route24Ch, 23,11)
 
 

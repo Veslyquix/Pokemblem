@@ -78,8 +78,10 @@ EscapeTileTerminator ; }
 #endif 
 
 ToSeafoamB1E:
+ENUT SkipChTransitionFlag
 ChapterTransition(SeafoamB1Ch, 31,5)
 ToSeafoamB1W:
+ENUT SkipChTransitionFlag
 ChapterTransition(SeafoamB1Ch, 6,5)
 
 ToSeafoamB3E:

@@ -91,6 +91,7 @@ EscapeTileEntry(33, 18)
 EscapeTileTerminator ; } 
 #endif 
 ToB1:
+ENUT SkipChTransitionFlag
 EndMMS  
 EARTHQUAKE_START 0 // 0 - Sway, 1 - Tremor 
 STARTFADE 

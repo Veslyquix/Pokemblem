@@ -315,6 +315,22 @@ Victory Road[X]
 ## IndigoPlateauChText
 Indigo Plateau[X]
 
+## LoreleiChText
+[Tact] VS Lorelei[X]
+
+## BrunoChText
+VS Bruno[X]
+
+## AgathaChText
+VS Agatha[X]
+
+## LanceChText
+VS Lance[X]
+
+## RivalChText
+VS Gary[X]
+
+
 ## DebugChText
 Debug Room[X]
 

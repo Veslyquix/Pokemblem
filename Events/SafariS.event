@@ -82,6 +82,7 @@ EscapeTileTerminator ; }
 #endif 
 
 ToFuschia:
+ENUT SkipChTransitionFlag
 ChapterTransition(FuschiaCh, 21,5)
 
 ToSafariE:

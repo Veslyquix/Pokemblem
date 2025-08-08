@@ -66,6 +66,7 @@ EscapeTileTerminator ; }
 #endif 
 
 ToRoute23N:
+ENUT SkipChTransitionFlag
 ENUF VR_BoulderInHoleFlag
 ChapterTransition(Route23NCh, 5,46)
 ToVictoryRoadB2:

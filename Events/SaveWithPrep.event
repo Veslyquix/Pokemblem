@@ -44,7 +44,6 @@ ENUF PlayableCutsceneFlag
 LOAD3 0x0 Units1 // Do not load dead / non-existent units 
 ENUN 
 ASMC UnequipAccessories 
-//ENUT SkipIntroFlag
 GotoPrepScreen
 
 ASMC AutoEquipAccessories 

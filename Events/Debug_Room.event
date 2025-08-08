@@ -613,7 +613,7 @@ Write_Byte(5, YCoordNewArea)
 //MNC2 CinnabarCh 
 //MNC2 VermilionCh
 // MNC2 HallOfFameCh
-MNC2 PalletCh
+MNC2 LoreleiCh
 //SetUnitStatus(1, Exp, 99)
 //MNC2 CeruleanGymCh
 //MNC2 PewterGymCh

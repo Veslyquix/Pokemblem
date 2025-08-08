@@ -59,6 +59,7 @@ NoFade
 ENDA 
 
 ToSilphCo1F:
+ENUT SkipChTransitionFlag
 CheckTrainerFlag(0xEF) // based on unit IDs 0xE0-0xEF per chapter 
 BEQ 20 rC r0 
 ENUT SilphCoDefeated

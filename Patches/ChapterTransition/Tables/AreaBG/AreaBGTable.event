@@ -1,6 +1,6 @@
 
 
-#define AreaBGEntry(chID, gfx, pal) "PUSH; ORG AreaBGTable + (4 * chID); POIN gfx; ORG gAreaBgPal + (4 * chID); POIN pal; POP" 
+#define AreaBGEntry(chID, gfx, pal) "PUSH; ORG AreaBGTable + (4 * chID); POIN gfx; ORG gAreaBgPal + (4 * chID); POIN pal; ORG SkipIntroTable + chID; BYTE 0; POP" 
 // Area BGs
 ALIGN 4
 AreaBGTable:
@@ -12,13 +12,127 @@ gAreaBgPal:
 FILL 4*MAX_CHAPTERS
 // ORG gAreaBgPal
 
+ALIGN 4
+SkipIntroTable:
+FILL MAX_CHAPTERS 0xFF // default is to skip 
 
-AreaBGEntry(OaksLabCh, 0, 0) 
+ALIGN 4 
+
+AreaBGEntry(OaksLabCh, Pallet_Town_Professor_Oaks_Laboratory_BGData, Pallet_Town_Professor_Oaks_Laboratory_BGPal) 
 AreaBGEntry(PalletCh, Pallet_Ash_house_BGData, Pallet_Ash_house_BGPal) 
+AreaBGEntry(Route1Ch, Kanto_Route_1_overview_SM_BGData, Kanto_Route_1_overview_SM_BGPal)
+AreaBGEntry(ViridianCh, Viridian_City_anime_BGData, Viridian_City_anime_BGPal)
+AreaBGEntry(Route2SCh, Route2s_pal_BGData, Route2s_pal_BGPal)
+AreaBGEntry(ViridianForestSCh, Viridianforest_pal2_BGData, Viridianforest_pal2_BGPal)
+AreaBGEntry(ViridianForestNCh, Viridianforest_pal2_BGData, Viridianforest_pal2_BGPal)
+AreaBGEntry(Route2NCh, Route_24_anime_BGData, Route_24_anime_BGPal) // route 24 is nugget bridge, and this looks fitting
+AreaBGEntry(PewterCh, Pewter_City_anime_BGData, Pewter_City_anime_BGPal)
+AreaBGEntry(PewterGymCh, Pewter_Gym_anime_BGData, Pewter_Gym_anime_BGPal)
+AreaBGEntry(Route3Ch, forkedroad_old_BGData, forkedroad_old_BGPal)
+AreaBGEntry(Route4WCh, pokecenter_BGData, pokecenter_BGPal)
+AreaBGEntry(MtMoonB1Ch, HGSS_Mt_MoonDay_BGData, HGSS_Mt_MoonDay_BGPal)
+// AreaBGEntry(MtMoonB2Ch, HGSS_Mt_MoonDay_BGData, HGSS_Mt_MoonDay_BGPal)
+AreaBGEntry(MtMoonB3Ch, HGSS_Mt_MoonDay_BGData, HGSS_Mt_MoonDay_BGPal)
+AreaBGEntry(Route4ECh, Kanto_Route_4_anime_BGData, Kanto_Route_4_anime_BGPal)
+AreaBGEntry(CeruleanCh, Cerulean_City_Evolutions_BGData, Cerulean_City_Evolutions_BGPal)
+AreaBGEntry(CeruleanGymCh, Ceruleancity2_old_BGData, Ceruleancity2_old_BGPal)
+AreaBGEntry(Route24Ch, Nugget_Bridge_Evolutions_BGData, Nugget_Bridge_Evolutions_BGPal)
+AreaBGEntry(Route25Ch, lighthouse_old_BGData, lighthouse_old_BGPal)
+AreaBGEntry(Route5Ch, Brock_HouseDaycare_BGData, Brock_HouseDaycare_BGPal)
+// AreaBGEntry(Route6Ch, 
+AreaBGEntry(VermilionCh, Vermilion_City_Ports_BGData, Vermilion_City_Ports_BGPal)
+AreaBGEntry(VermilionGymCh, Vermilion_Gym_JN_BGData, Vermilion_Gym_JN_BGPal)
+// AreaBGEntry(SSAnneCh, SS_Anne_anime_BGData, SS_Anne_anime_BGPal) // also there's SSAnneDocksCh 
+AreaBGEntry(DiglettsCaveCh, HGSS_Digletts_CaveDay_BGData, HGSS_Digletts_CaveDay_BGPal)
+// AreaBGEntry(Route11Ch, // outside diglett's cave 
+// AreaBGEntry(Route9WCh, 
+// AreaBGEntry(Route9ECh,  
+AreaBGEntry(Route10Ch, pokecenter_BGData, pokecenter_BGPal)
+AreaBGEntry(RockTunnelB1Ch, HGSS_Rock_TunnelNight_BGData, HGSS_Rock_TunnelNight_BGPal) // entrance and exit are here 
+// AreaBGEntry(RockTunnelB2Ch, HGSS_Rock_TunnelNight_BGData, HGSS_Rock_TunnelNight_BGPal)
+AreaBGEntry(LavenderCh, Lavender_Town_PO_BGData, Lavender_Town_PO_BGPal)
+// AreaBGEntry(Route8Ch, 
+AreaBGEntry(PokemonTowerF1Ch, Lavender_Pokemon_Tower_PO_BGData, Lavender_Pokemon_Tower_PO_BGPal)
+// AreaBGEntry(PokemonTowerF2Ch, 
+// AreaBGEntry(PokemonTowerF3Ch, 
+// AreaBGEntry(PokemonTowerF4Ch, 
+// AreaBGEntry(PokemonTowerF5Ch, 
+// AreaBGEntry(Route12NCh, // docks? 
+// AreaBGEntry(Route12SCh, // snorlax? 
+// AreaBGEntry(Route13Ch, 
+// AreaBGEntry(Route14Ch, 
+// AreaBGEntry(Route15Ch, 
+AreaBGEntry(FuschiaCh, Fuchsia_City_past_anime_BGData, Fuchsia_City_past_anime_BGPal)
+AreaBGEntry(SafariSCh, Safari_Zone_anime_BGData, Safari_Zone_anime_BGPal)
+// AreaBGEntry(SafariECh, 
+// AreaBGEntry(SafariNCh, 
+// AreaBGEntry(SafariWCh, 
+AreaBGEntry(FuschiaGymCh, Pokemon_Ninja_School_BGData, Pokemon_Ninja_School_BGPal)
+AreaBGEntry(Route18Ch, CyclingRoad_Kanto_Route_17_anime_BGData, CyclingRoad_Kanto_Route_17_anime_BGPal)
+// AreaBGEntry(Route17SCh, 
+// AreaBGEntry(Route17NCh, 
+// AreaBGEntry(Route16Ch, 
+// AreaBGEntry(CeladonCh, Celadon_Gym_M20_BGData, Celadon_Gym_M20_BGPal)
+AreaBGEntry(CeladonCh, Saffron_City_Pokemon_Center_BGData, Saffron_City_Pokemon_Center_BGPal)
+AreaBGEntry(CeladonGymCh, Celadon_Gym_JN_BGData, Celadon_Gym_JN_BGPal)
+// AreaBGEntry(Route7Ch, 
+AreaBGEntry(SaffronCh, Saffron_City_PO_BGData, Saffron_City_PO_BGPal)
+// AreaBGEntry(SaffronDojoCh, 
+AreaBGEntry(SaffronGymCh, SaffronGym_BGData, SaffronGym_BGPal)
+// AreaBGEntry(Route19Ch, 
+// AreaBGEntry(Route20ECh, 
+// AreaBGEntry(Route20WCh, 
+AreaBGEntry(CinnabarCh, Cinnabar_Island_anime_BGData, Cinnabar_Island_anime_BGPal)
+AreaBGEntry(CinnabarGymCh, Cinnabar_Gym_Battlefield_BGData, Cinnabar_Gym_Battlefield_BGPal)
+// AreaBGEntry(Route21Ch, 
+AreaBGEntry(ViridianGymCh, Viridian_Gym_anime_BGData, Viridian_Gym_anime_BGPal)
+// AreaBGEntry(Route22Ch, 
+// AreaBGEntry(Route23SCh, 
+// AreaBGEntry(Route23MCh, 
+AreaBGEntry(Route23NCh, Indigo_Plateau_PO_BGData, Indigo_Plateau_PO_BGPal) // only when exiting Victory Road
+// AreaBGEntry(PCBoxCh, 
+// AreaBGEntry(SlotMachineCh, 
+AreaBGEntry(SilphCo1FCh, FL_Silph_Company_BGData, FL_Silph_Company_BGPal)
+// AreaBGEntry(SilphCo2FCh, 
+// AreaBGEntry(SilphCo3FCh, 
+// AreaBGEntry(SilphCo4FCh, 
+// AreaBGEntry(SilphCo5FCh, 
+AreaBGEntry(SeafoamB1Ch, HGSS_Seafoam_IslandsDay_BGData, HGSS_Seafoam_IslandsDay_BGPal)
+// AreaBGEntry(SeafoamB2Ch, 
+// AreaBGEntry(SeafoamB3Ch, 
+// AreaBGEntry(SeafoamB4Ch, 
+// AreaBGEntry(SeafoamB5Ch, 
+AreaBGEntry(MansionB1Ch, FL_Pokemon_Mansion_BGData, FL_Pokemon_Mansion_BGPal) // this gets stretched 
+// AreaBGEntry(MansionB2Ch, 
+// AreaBGEntry(MansionB3Ch, 
+// AreaBGEntry(MansionB4Ch, 
+AreaBGEntry(PowerPlantCh, FL_Power_Plant_BGData, FL_Power_Plant_BGPal) // this gets stretched 
+AreaBGEntry(CeruleanCaveB1Ch, HGSS_Cerulean_CaveDay_BGData, HGSS_Cerulean_CaveDay_BGPal)
+// AreaBGEntry(CeruleanCaveB2Ch, 
+// AreaBGEntry(CeruleanCaveB3Ch, 
+AreaBGEntry(VictoryRoadB1Ch, HGSS_Victory_RoadDay_BGData, HGSS_Victory_RoadDay_BGPal)
+// AreaBGEntry(VictoryRoadB2Ch, HGSS_Victory_RoadDay_BGData, HGSS_Victory_RoadDay_BGPal)
+AreaBGEntry(VictoryRoadB3Ch, HGSS_Victory_RoadDay_BGData, HGSS_Victory_RoadDay_BGPal)
+// AreaBGEntry(PokecenterLeagueCh, 
+AreaBGEntry(LoreleiCh, LoreleiIce_BGData, LoreleiIce_BGPal)
+AreaBGEntry(BrunoCh, pokemonbrunoelitefourmember_BGData, pokemonbrunoelitefourmember_BGPal)
+AreaBGEntry(AgathaCh, Agatha_Generations_BGData, Agatha_Generations_BGPal)
+AreaBGEntry(LanceCh, Pokemonlance_BGData, Pokemonlance_BGPal)
+AreaBGEntry(ChampionCh, BluePokemonTheOriginsAnime_BGData, BluePokemonTheOriginsAnime_BGPal)
+// AreaBGEntry(PokecenterCh, 
+AreaBGEntry(HallOfFameCh, Hall_of_Fame_PO_BGData, Hall_of_Fame_PO_BGPal)
+// AreaBGEntry(SaveWithHealCh, 
+// AreaBGEntry(SaveWithoutHealCh, 
+AreaBGEntry(ViridianGym2Ch, Viridian_Gym_anime_BGData, Viridian_Gym_anime_BGPal)
+AreaBGEntry(SSAnneDocksCh, SS_Anne_anime_BGData, SS_Anne_anime_BGPal) // skip when coming from ss anne 
+// AreaBGEntry(DebugCh, 
+// AreaBGEntry(Debug2Ch,
 
 
 
+/*
 
+ALIGN 4 
 POIN Route3 //Oak's lab 
 
 // POIN Pallet
@@ -44,83 +158,7 @@ POIN cerulean
 POIN route24
 POIN Pokecenter
 POIN Pokecenter
+*/
 
 
 
-
-
-// Palettes
-ALIGN 4
-AreaBGPalettes:
-#incbin "../../Graphics/AreaBG/route 3_pal_pal.dmp" //oaks lab
-#incbin "../../Graphics/AreaBG/Pallet_pal_pal.dmp"
-//#incbin "../../Graphics/AreaBG/IlexForestTest_8bit_pal.dmp"
-
-
-#incbin "../../Graphics/AreaBG/Route 1_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/viridiancity_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/Route 2s_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/viridianforest_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/viridianforest_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/Route 2n_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/Pewter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/Pewter gym_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/route 3_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/mt moon_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/mt moon_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/mt moon_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/route4new_pal_pal.dmp"
-//#incbin "../../Graphics/AreaBG/route 4E_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/Cerulean city2_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/Cerulean city2_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/route 24_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-#incbin "../../Graphics/AreaBG/pokecenter_pal_pal.dmp"
-
-//#incbin "../../Graphics/AreaBG/VictoryRoadAft_pal.dmp"
-//#incbin "../../Graphics/AreaBG/NationalParkAft_pal.dmp"
-//#incbin "../../Graphics/AreaBG/IlexForestMor_pal.dmp"

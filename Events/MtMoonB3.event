@@ -91,19 +91,15 @@ EscapeTileTerminator ; }
 #endif 
 
 ToMtMoonB2_ME:
-ENUT SkipIntroFlag
 ChapterTransition(MtMoonB2Ch, 22,22)
 
 ToMtMoonB2_SW:
-ENUT SkipIntroFlag
 ChapterTransition(MtMoonB2Ch, 11, 30)
 
 ToMtMoonB2_NE:
-ENUT SkipIntroFlag
 ChapterTransition(MtMoonB2Ch, 13, 14)
 
 ToMtMoonB2_Exit:
-ENUT SkipIntroFlag
 ChapterTransition(MtMoonB2Ch, 20, 6)
 
 
@@ -162,7 +158,6 @@ ALIGN 4
 
 
 BeginningScene:
-ENUF SkipIntroFlag
 CALL GlobalBeginningScene
 CALL LoadAndPlacePlayers 
 

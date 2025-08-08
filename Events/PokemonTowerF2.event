@@ -66,6 +66,7 @@ EscapeTileTerminator ; }
 #endif 
 
 ToPokeTowerF1:
+ENUT SkipChTransitionFlag
 ChapterTransition(PokemonTowerF1Ch, 17,9)
 
 ToPokeTowerF3:

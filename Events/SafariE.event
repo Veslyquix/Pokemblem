@@ -127,6 +127,7 @@ NoFade
 ENDA 
 
 ToSafariS:
+ENUT SkipChTransitionFlag
 ChapterTransition(SafariSCh, 38,11)
 
 ToSafariN:

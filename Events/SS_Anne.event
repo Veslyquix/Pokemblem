@@ -79,6 +79,7 @@ EscapeTileTerminator ; }
 #endif 
 
 ToSSAnneDocks:
+ENUT SkipChTransitionFlag
 CHECK_EVENTID PlayableCutsceneFlag 
 BNE 20 rC r0 
 ChapterTransition(SSAnneDocksCh, 21,14)
