@@ -1454,6 +1454,8 @@ NoFade
 ENDA 
 
 SaveWithHeal:
+_MUSICSOMETHING 0x7FFF 
+SOUN 0x19 // Pokecenter chime 
 CHECK_COORDS 0x7FFF
 SADD rB rC r0 
 CALL ConvertFromMemSlotBCoord

@@ -612,8 +612,8 @@ Write_Byte(17, YCoordNewArea)
 // ENUT MissingnoFlag
 //MNC2 CinnabarCh 
 //MNC2 VermilionCh
-// MNC2 HallOfFameCh
-MNC2 PalletCh
+MNC2 HallOfFameCh
+// MNC2 PalletCh
 // MNC2 LoreleiCh
 //SetUnitStatus(1, Exp, 99)
 //MNC2 CeruleanGymCh

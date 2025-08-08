@@ -86,6 +86,7 @@ ALIGN 4
 
 
 BeginningScene:
+MUSCFAST HallOfFameBGM
 CALL GlobalBeginningScene
 CALL LoadAndPlacePlayers 
 #ifdef INSTALL_FMU
@@ -96,7 +97,7 @@ DisableFreeMovement
 //ASMC SaveGame_ASMC
 //LOMA HallOfFameCh 
 //FADU 16 
-EVBIT_MODIFY 0//4
+EVBIT_MODIFY 4
 Text(OakLeagueText4)
 ENUF LoreleiDefeatedTemp 
 ENUF BrunoDefeatedTemp 
@@ -109,6 +110,8 @@ FADI 2
 SetBG(0x35)
 // FADI 16 
 // BGM 
+_MUSICSOMETHING 0x7FFF 
+MUSCFAST CreditsBGM
 ASMC StartCreditsProc_ASMC 
 
 
