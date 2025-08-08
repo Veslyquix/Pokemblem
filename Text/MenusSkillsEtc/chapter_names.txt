@@ -330,6 +330,8 @@ VS Lance[X]
 ## RivalChText
 VS Gary[X]
 
+## HallOfFameChText
+Hall of Fame[X]
 
 ## DebugChText
 Debug Room[X]

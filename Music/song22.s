@@ -6187,7 +6187,8 @@ song22_004:
  .byte   W96
 @  #04 @042   ----------------------------------------
  .byte   Cs4
- .byte   N06 ,Cs5 ,v044
+ .byte W00 @ added 
+ @.byte   N06 ,Cs5 ,v044 @ 0xD5 0x55 0x2C 0x86 
  .byte   W06
  .byte   Dn5
  .byte   W06
@@ -9470,8 +9471,10 @@ Label_01056E35:
  .byte   W96
 @  #06 @043   ----------------------------------------
  .byte   Cn2
- .byte   PAN , c_v-51
- .byte   N06 ,An4 ,v036
+ .byte W00 @ added 
+ .byte W00
+ @.byte   PAN , c_v-51
+ @.byte   N06 ,An4 ,v036
  .byte   W06
  .byte   Bn4
  .byte   W06
@@ -13860,9 +13863,9 @@ song22:
 	.word	song22_001
 	.word	song22_002
 	.word	song22_003
-	.word	song22_004
+	.word	song22_004 @ broken 
 	.word	song22_005
-	.word	song22_006
+	.word	song22_006 @ broken 
 	.word	song22_007
 	.word	song22_008
 	.word	song22_009

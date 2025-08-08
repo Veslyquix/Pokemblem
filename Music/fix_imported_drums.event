@@ -71,16 +71,14 @@ BYTE  $80 $00 $00 $00 $F0 $31 $22 $08 $00 $00 $00 $00;
 ORG $01080D50
 BYTE  $80 $00 $00 $00 $F0 $31 $22 $08 $00 $00 $00 $00;
 
-
-ORG $1058238 
-// POIN 0x8222fB0 
-// 82231F0
-// 8222D70
-
 // song22.s is crashing between #06 @041 and #06 @042, #04 @041 and #04 @042
-//  @.byte   N06 ,Cs5 ,v044 // commented out this line in track 4 
-// @.byte   N06 ,An4 ,v036 // and these two lines in track 6 
-// @.byte   PAN , c_v-51
+ORG $1055eC8 //  @.byte   N06 ,Cs5 ,v044 // commented out this line in track 4  0xD5 0x55 0x2C 0x86
+BYTE 0x80 0x80 0x80 
+ORG $1056e92
+BYTE 0x80 0x80 0x80 0x80 0x80 
+// @.byte   PAN , c_v-51 // and these two lines in track 6 0xD 0xD5 0x51 0x24 0x86 0x53 0x86
+// @.byte   N06 ,An4 ,v036 
+
 
 
 
