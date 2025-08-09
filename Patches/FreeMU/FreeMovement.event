@@ -9,7 +9,9 @@
 
 #include FreeMovementInternal.event
 
-
+ALIGN 4 
+MarshbadgeObtained_Link:
+WORD MarshbadgeObtained 
 
 ALIGN 4 
 EquippedAirBalloon_Link:
