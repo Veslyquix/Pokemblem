@@ -187,6 +187,10 @@ int UseUnitSprite(u32 id)
             }
             default:
         }
+        if (!data)
+        {
+            data = NewStandingMapSpriteTable[id].sheet;
+        }
 
         Decompress(data, gGenericBuffer);
 

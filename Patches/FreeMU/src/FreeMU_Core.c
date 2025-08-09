@@ -1384,11 +1384,11 @@ void FMU_SetMuSpecialSprite(struct MuProc * proc, Unit * unit, const u16 * pal)
 // u8 EWRAM_DATA gSMSGfxBuffer[3][8*0x20*0x20] = {};
 void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 {
-
     if (!unit->pMapSpriteHandle)
     {
         return;
     }
+    facing &= 3;
     u32 tileIndex = (unit->pMapSpriteHandle->oam2Base & 0x3FF) - 0x80;
 
     u16 size = NewStandingMapSpriteTable[smsID].size;
@@ -1401,32 +1401,34 @@ void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
     srcOffs[1] = (srcOffs[0] << ((7 + size)) * 3 * 2);
     srcOffs[2] = (srcOffs[0] << ((7 + size)) * 3 * 4);
 
+    int hasFacing = FMU_idleSMSGfxTable_left[smsID] != NULL;
     // Do nothing if no different-direction facing idle sprites exist.
-    if (FMU_idleSMSGfxTable_left[smsID] == NULL)
-        return;
+
     // I've had issue with using this at the same time as the map is being
     // updated, which also uses gGenericBuffer, so I moved it 0x1500 in.
-    if (facing == MU_FACING_LEFT)
+    if (facing == MU_FACING_LEFT && hasFacing)
     {
         Decompress(FMU_idleSMSGfxTable_left[smsID] + srcOffs[0], gGenericBuffer2);
         // Decompress(FMU_idleSMSGfxTable_left[smsID]+srcOffs[0], gGenericBuffer);
         // Decompress(FMU_idleSMSGfxTable_left[smsID]+srcOffs[0], gGenericBuffer);
     }
 
-    if (facing == MU_FACING_RIGHT)
+    if (facing == MU_FACING_RIGHT && hasFacing)
     {
         Decompress(FMU_idleSMSGfxTable_right[smsID] + srcOffs[0], gGenericBuffer2);
         // Decompress(FMU_idleSMSGfxTable_right[smsID]+srcOffs[0], gGenericBuffer);
         // Decompress(FMU_idleSMSGfxTable_right[smsID]+srcOffs[0], gGenericBuffer);
     }
-    if (facing == MU_FACING_UP)
+    if (facing == MU_FACING_UP && hasFacing)
     {
+
         Decompress(FMU_idleSMSGfxTable_up[smsID] + srcOffs[0], gGenericBuffer2);
         // Decompress(FMU_idleSMSGfxTable_up[smsID]+srcOffs[0], gGenericBuffer);
         // Decompress(FMU_idleSMSGfxTable_up[smsID]+srcOffs[0], gGenericBuffer);
     }
-    if (facing == MU_FACING_DOWN)
+    if (facing == MU_FACING_DOWN || !hasFacing)
     {
+
         Decompress(NewStandingMapSpriteTable[smsID].pGraphics + srcOffs[0], gGenericBuffer2);
         // Decompress(NewStandingMapSpriteTable[smsID].pGraphics+srcOffs[0],
         // gGenericBuffer);
