@@ -1304,8 +1304,83 @@ int BuildStraightLineRangeFromUnit(struct Unit * unit)
 }
 
 extern const struct SMSData NewStandingMapSpriteTable[];
-
+extern const void * GetMuAnimForJid(u16 classId);
 extern u8 gGenericBuffer2[0x1000];
+
+enum
+{
+    // MU Magic Constants
+
+    // Maximum move command count
+    MOVE_CMD_MAX_COUNT = 0x40,
+
+};
+
+struct MuConfig;
+
+struct MuProc
+{
+    PROC_HEADER;
+
+    /* 2C */ struct Unit * unit;
+    /* 30 */ struct APHandle * sprite_anim;
+    /* 34 */ struct MuConfig * config;
+    /* 38 */ void * pGfxVRAM;
+
+    /* 3C */ u8 slot;
+    /* 3D */ u8 _u3D;
+    /* 3E */ u8 cam_b;
+    /* 3F */ u8 state;
+    /* 40 */ u8 hidden_b;
+    /* 41 */ u8 jid;
+    /* 42 */ s8 facing;
+    /* 43 */ u8 step_sound_clock;
+    /* 44 */ u8 fast_walk_b;
+    /* 46 */ u16 layer;
+    /* 48 */ u16 move_clock_q4;
+    /* 4A */ short moveConfig;
+
+    // Coordinates are in 16th of pixel
+    /* 4C */ short x_q4;
+    /* 4E */ short y_q4;
+    /* 50 */ short x_offset_q4;
+    /* 52 */ short y_offset_q4;
+};
+
+#define MU_GetDisplayXOrg(proc) ((((proc)->x_q4 + (proc)->x_offset_q4) >> MU_SUBPIXEL_PRECISION) + 8)
+#define MU_GetDisplayYOrg(proc) ((((proc)->y_q4 + (proc)->y_offset_q4) >> MU_SUBPIXEL_PRECISION) + 8)
+
+struct MuConfig
+{
+    /* 00 */ u8 slot;
+    /* 01 */ u8 pal;
+    /* 02 */ u16 chr;
+    /* 04 */ u8 pc;
+    /* 05 */ s8 movescr[MOVE_CMD_MAX_COUNT];
+    /* 45 */ // 3 byte padding
+    /* 48 */ struct MuProc * mu;
+};
+extern void * GetMuImgBufById(int slot);
+extern const void * GetMuImg(struct MuProc * proc);
+extern void SetMuFacing(struct MuProc * proc, int facing);
+// needed for surfing
+void FMU_SetMuSpecialSprite(struct MuProc * proc, Unit * unit, const u16 * pal)
+{
+    int facing = GetUnitFacing(unit);
+    int jid = unit->pClassData->number;
+    proc->sprite_anim->frameTimer = 0;
+    proc->sprite_anim->frameInterval = 0;
+
+    proc->jid = jid;
+
+    AP_SetDefinition(proc->sprite_anim, GetMuAnimForJid(proc->jid));
+
+    // Decompress(FMU_idleSMSGfxTable_left[unit->pClassData->SMSId], GetMuImgBufById(proc->config->slot));
+    Decompress(GetMuImg(proc), GetMuImgBufById(proc->config->slot));
+    SetMuFacing(proc, facing);
+    // ApplyPalette(pal, 0x10 + proc->config->pal);
+}
+
 // u8 EWRAM_DATA gSMSGfxBuffer[3][8*0x20*0x20] = {};
 void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 {

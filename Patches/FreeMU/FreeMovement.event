@@ -12,10 +12,14 @@
 ALIGN 4 
 MarshbadgeObtained_Link:
 WORD MarshbadgeObtained 
+// GirlProtagFlag_Link:
+// WORD GirlProtagFlag; 
 RedPokeballSMS_Link:
 BYTE RedPokeballSMS 
 SurfingClass_Link:
-BYTE LaprasID
+BYTE RedSurfID
+SurfingClass2_Link:
+BYTE GreenSurfID
 
 ALIGN 4 
 EquippedAirBalloon_Link:

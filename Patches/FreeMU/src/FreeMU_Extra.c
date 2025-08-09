@@ -163,6 +163,7 @@ inline s8 FMU_CanUnitCrossTerrain(struct Unit * unit, int terrain)
 }
 
 extern int SurfingClass_Link;
+extern int SurfingClass2_Link;
 // previously had a hook: PrepScreenShowPokeballSprites
 extern u8 PokecenterChLabel;
 extern u8 RedPokeballSMS_Link;
@@ -182,20 +183,38 @@ int FMU_GetUnitSMSId(Unit * unit)
     return unit->pClassData->SMSId;
 }
 
+extern int GirlProtagFlag_Link;
+extern struct MuProc * GetUnitMu(Unit * unit);
+extern const u16 gPal_MapSprite[];
+extern void SetMuSpecialSprite(struct MuProc * proc, int jid, const u16 * pal);
+extern void FMU_SetMuSpecialSprite(struct MuProc * proc, Unit * unit, const u16 * pal);
+extern int GetUnitSpritePalette(Unit * unit);
+extern void RefreshUnitSprites(void);
 void AdjustSpriteForWater(Unit * unit, struct FMUProc * proc, int ontoWater)
 {
-    brk;
     // int savedClass = proc->savedClass;
     if (ontoWater)
     {
         proc->savedClass = unit->pClassData->number;
-        unit->pClassData = GetClassData(SurfingClass_Link);
+        if (CheckFlag(GirlProtagFlag_Link))
+        {
+            unit->pClassData = GetClassData(SurfingClass2_Link);
+        }
+        else
+        {
+            unit->pClassData = GetClassData(SurfingClass_Link);
+        }
     }
     else
     {
         unit->pClassData = GetClassData(proc->savedClass);
     }
-
+    // RefreshUnitSprites();
+    struct MuProc * muProc = GetUnitMu(unit);
+    if (muProc)
+    {
+        FMU_SetMuSpecialSprite(muProc, unit, gPal_MapSprite);
+    }
     FreeMoveRam->onWater = ontoWater;
     // ram
 }
@@ -233,9 +252,13 @@ bool FMU_CanUnitBeOnPos(Unit * unit, s8 x, s8 y, struct FMUProc * proc)
         return 0;
     // if (gMapHidden[y][x] & 1)
     // return 0; // a hidden unit is occupying this position
-    SurfingCheck(unit, x, y, proc);
+    int result = FMU_CanUnitCrossTerrain(unit, gMapTerrain[y][x]); // CanUnitCrossTerrain(unit, gMapTerrain[y][x]);
+    if (result)
+    {
+        SurfingCheck(unit, x, y, proc);
+    }
 
-    return FMU_CanUnitCrossTerrain(unit, gMapTerrain[y][x]); // CanUnitCrossTerrain(unit, gMapTerrain[y][x]);
+    return result;
 }
 
 void EnableFreeMovementBits(void)

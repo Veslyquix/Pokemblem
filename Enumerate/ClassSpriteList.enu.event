@@ -242,8 +242,8 @@
 #define MegaBlastoiseSMS 0xF1
 #define HealingTileSMS 0xF2
 #define MissingnoSMS 0xF3
-#define Unused71SMS 0xF4
-#define Unused72SMS 0xF5
+#define RedSurfSMS 0xF4
+#define GreenSurfSMS 0xF5
 #define Unused73SMS 0xF6
 #define Unused74SMS 0xF7
 #define Unused75SMS 0xF8
@@ -496,8 +496,8 @@
 #define MegaBlastoiseMMS 0xF2
 #define HealingTileMMS 0xF3
 #define MissingnoMMS 0xF4
-#define Unused71MMS 0xF5
-#define Unused72MMS 0xF6
+#define RedSurfMMS 0xF5
+#define GreenSurfMMS 0xF6
 #define Unused73MMS 0xF7
 #define Unused74MMS 0xF8
 #define Unused75MMS 0xF9

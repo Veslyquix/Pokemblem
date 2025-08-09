@@ -243,8 +243,8 @@ MegaCharizardXSMS
 MegaBlastoiseSMS
 HealingTileSMS
 MissingnoSMS
-Unused71SMS
-Unused72SMS
+RedSurfSMS
+GreenSurfSMS
 Unused73SMS
 Unused74SMS
 Unused75SMS
@@ -508,8 +508,8 @@ MegaCharizardXMMS
 MegaBlastoiseMMS
 HealingTileMMS
 MissingnoMMS
-Unused71MMS
-Unused72MMS
+RedSurfMMS
+GreenSurfMMS
 Unused73MMS
 Unused74MMS
 Unused75MMS

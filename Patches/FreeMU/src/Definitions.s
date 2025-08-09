@@ -1,5 +1,14 @@
 
 .include "C:/devkitPro/FE-CLib/reference/FE8U-20190316.s"
+SET_FUNC RefreshUnitSprites, 0x80271a1
+SET_FUNC GetUnitMu, 0x8079bb9 
+SET_FUNC GetMuAnimForJid, 0x8079589
+SET_FUNC GetMuImgBufById, 0x8079559
+SET_FUNC GetMuImg, 0x8079575 
+SET_FUNC SetMuFacing, 0x8078695
+SET_FUNC SetMuSpecialSprite, 0x8079b19
+SET_FUNC GetUnitSpritePalette, 0x8027169 
+SET_DATA gPal_MapSprite, 0x859ee20 
 SET_FUNC FMU_GetUnitSMSId, 0x8017905
 SET_DATA gGenericBuffer2, 0x2021188 
 @SET_DATA PCBoxUnitsBuffer, 0x2026E30	// size: 0x2028	- normally used by debug printing

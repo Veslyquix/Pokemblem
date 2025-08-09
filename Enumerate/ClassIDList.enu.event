@@ -242,8 +242,8 @@
 #define MegaBlastoiseID 0xF2
 #define HealingTileClassID 0xF3
 #define MissingnoID 0xF4
-#define Unused71ID 0xF5
-#define Unused72ID 0xF6
+#define RedSurfID 0xF5
+#define GreenSurfID 0xF6
 #define Unused73ID 0xF7
 #define Unused74ID 0xF8
 #define Unused75ID 0xF9
