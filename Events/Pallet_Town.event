@@ -151,6 +151,7 @@ ENDA
 ALIGN 32
 LocationBasedEvents:
 House(0,VisitHome,6,7) 
+House(0,VisitLab,16,13) 
 
 House(0,VisitGaryHouse,15,7) //gary's house 
 //House(0,VisitPokecenter,16,13) //oak's lab 
@@ -163,6 +164,44 @@ House(0,HouseEvent,6,24)
 Seize(10,2)
 */
 END_MAIN
+
+
+PokedexRatingEvent: 
+MemSlotToString(s9) 
+TEXTSTART 
+TEXTSHOW (-1)
+TEXTEND 
+MemSlotToString(sA) 
+TEXTCONT 
+TEXTEND 
+TEXTCONT 
+TEXTEND 
+REMA 
+ENDA 
+
+VisitLab:
+SetBG(Pallet_Town_Professor_Oaks_Laboratory_BG)
+ASMC CountSeenASMC 
+SADD s9 sC s0 
+ASMC CountCaughtASMC
+SADD sA sC s0 
+SVAL s1 3 
+BLE 0 sA s1 
+SVAL s2 PokedexRatingSeenText
+CALL PokedexRatingEvent
+GOTO 99 
+
+
+LABEL 0 
+Text(EnterOaksLabText) // world awaits you 
+// FADI 16 
+// CLEAN 
+// Fade 
+LABEL 99 
+// no NoFade so BG will be erased 
+ENDA 
+
+
 
 VisitHome:
 SetBG(Pallet_Ash_house_BG)
@@ -230,7 +269,7 @@ Traps1:
 
 //BerryTree(10,4,5)
 
-EnterTrap(16,13, EnterOaksLabText) 
+// EnterTrap(16,13, EnterOaksLabText) 
 
 
 

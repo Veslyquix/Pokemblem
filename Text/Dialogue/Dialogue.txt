@@ -668,6 +668,18 @@ It knows what I did...[A][X]
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]A world of catching[N]
 Pokémon awaits you![A][X]
 
+## EnterOaksLabText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]A world of catching[N]
+Pokémon awaits you![A][X]
+
+
+## PokedexRatingSeenText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+//## PokedexRatingSeenText_1
+Wow! Keep up the good work![A][X]
+
+
 
 //## EnterOaksLabText
 //[OpenMidRight][LoadOak][OpenMidRight]Hmm, let me rate your Pokedex...[.....][NL]

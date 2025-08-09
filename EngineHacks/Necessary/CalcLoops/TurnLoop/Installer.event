@@ -12,6 +12,7 @@ ALIGN 4
 TurnCalcLoop_Silent: // Effects that do not pause the game 
 POIN ProcessDebuffs ArmorMarch_StartOfTurn VigorDanceReset  // Standalone things that loop through all units and do not pause the game 
 POIN UpdateSMSDir_All // first turn only... 
+// POIN SeeAllDeployedPokemon // called in GlobalTurnEvent
 WORD 0 
 
 

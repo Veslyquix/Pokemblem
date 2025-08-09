@@ -181,6 +181,29 @@ pop {r1}
 bx r1 
 .ltorg 
 
+.global CountSeenASMC 
+.type CountSeenASMC, %function 
+CountSeenASMC: 
+push {r4, lr} 
+ldr r4, =MemorySlot 
+bl CountSeen 
+str r0, [r4, #4*0x0C] 
+pop {r4} 
+pop {r1} 
+bx r1 
+.ltorg 
+
+.global CountCaughtASMC 
+.type CountCaughtASMC, %function 
+CountCaughtASMC: 
+push {r4, lr} 
+ldr r4, =MemorySlot 
+bl CountCaught
+str r0, [r4, #4*0x0C] 
+pop {r4} 
+pop {r1} 
+bx r1 
+.ltorg 
 
 .global CheckIfCaught
 .type CheckIfCaught, %function 
