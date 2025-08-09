@@ -116,7 +116,7 @@ EscapeTileTerminator ; }
 #endif 
 
 ToRoute21Water:
-ChapterTransition(Route21Ch, 8, 1)
+ChapterTransition(Route21Ch, 7, 2)
 
 ToRoute21EBush:
 ChapterTransition(Route21Ch, 11, 1)

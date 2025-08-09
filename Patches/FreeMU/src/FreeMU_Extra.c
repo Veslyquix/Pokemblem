@@ -48,7 +48,7 @@ bool FMU_CheckForIce(struct FMUProc * proc, int x, int y)
 { // checks tile we're moving to
     if (gMapTerrain[y][x] == IceTerrainTypeLink)
     {
-        if (FMU_CanUnitBeOnPos(gActiveUnit, x, y))
+        if (FMU_CanUnitBeOnPos(gActiveUnit, x, y, proc))
         {
             if (!IsPosInvaild(x, y))
             {
@@ -88,7 +88,7 @@ bool FMU_CheckForLedge(struct FMUProc * proc, int x, int y)
     if ((gMapTerrain[y][x] == LEDGE_JUMP) && (proc->smsFacing == MU_FACING_DOWN))
     {
         y += (proc->smsFacing == MU_FACING_DOWN);
-        if (FMU_CanUnitBeOnPos(gActiveUnit, x, y))
+        if (FMU_CanUnitBeOnPos(gActiveUnit, x, y, proc))
         {
             if (!IsPosInvaild(x, y))
             {
@@ -114,15 +114,116 @@ bool FMU_CheckForLedge(struct FMUProc * proc, int x, int y)
     return false;
 }
 
+int IsUnitProtag(struct Unit * unit)
+{
+    return unit->pCharacterData->number == ProtagID_Link;
+}
+enum
+{
+    TERRAIN_RIVER = 0x10, // unused I think
+    TERRAIN_SEA = 0x15,   // sea
+    TERRAIN_LAKE = 0x16,  // shallow
+    TERRAIN_WATER = 0x3C, // unused I think
+};
+
+int IsTerrainWater(int terrain)
+{
+    return (terrain == TERRAIN_SEA || terrain == TERRAIN_LAKE);
+}
+
+int IsCoordWater(s8 x, s8 y)
+{
+    return IsTerrainWater(gMapTerrain[y][x]);
+}
+int IsUnitOnWater(struct Unit * unit) // used in GetUnitSMSId
+{
+    return IsCoordWater(unit->xPos, unit->yPos);
+}
+
+extern int CheckFlag(int);
 extern int MarshbadgeObtained_Link;
 inline s8 FMU_CanUnitCrossTerrain(struct Unit * unit, int terrain)
 {
-
+    if (CheckFlag(MarshbadgeObtained_Link))
+    {
+        if (IsUnitProtag(unit))
+        {
+            if (IsTerrainWater(terrain))
+            {
+                return true;
+            }
+        }
+        else
+        { // shouldn't reach this
+            return CanUnitCrossTerrain(unit, terrain);
+        }
+    }
     const s8 * lookup = (s8 *)GetUnitMovementCost(unit);
     return (lookup[terrain] > 0) ? TRUE : FALSE;
 }
 
-bool FMU_CanUnitBeOnPos(Unit * unit, s8 x, s8 y)
+extern int SurfingClass_Link;
+// previously had a hook: PrepScreenShowPokeballSprites
+extern u8 PokecenterChLabel;
+extern u8 RedPokeballSMS_Link;
+int FMU_GetUnitSMSId(Unit * unit)
+{
+    if (gChapterData.chapterIndex == PokecenterChLabel)
+    {
+        return RedPokeballSMS_Link;
+    }
+    // if (IsUnitProtag(unit))
+    // {
+    // if (IsUnitOnWater(unit))
+    // {
+    // return 6;
+    // }
+    // }
+    return unit->pClassData->SMSId;
+}
+
+void AdjustSpriteForWater(Unit * unit, struct FMUProc * proc, int ontoWater)
+{
+    brk;
+    // int savedClass = proc->savedClass;
+    if (ontoWater)
+    {
+        proc->savedClass = unit->pClassData->number;
+        unit->pClassData = GetClassData(SurfingClass_Link);
+    }
+    else
+    {
+        unit->pClassData = GetClassData(proc->savedClass);
+    }
+
+    FreeMoveRam->onWater = ontoWater;
+    // ram
+}
+
+void SurfingCheck(Unit * unit, s8 x, s8 y, struct FMUProc * proc)
+{
+    int onWater = FreeMoveRam->onWater;
+    int ontoWater = IsCoordWater(x, y);
+    if (ontoWater && onWater)
+    { // already on water
+        return;
+    }
+    if (!ontoWater && !onWater)
+    { // not on water / not moving onto water
+        return;
+    }
+    if (ontoWater)
+    {
+        AdjustSpriteForWater(unit, proc, true);
+        return;
+    }
+    else
+    {
+        AdjustSpriteForWater(unit, proc, false);
+    }
+}
+
+bool FMU_CanUnitBeOnPos(Unit * unit, s8 x, s8 y, struct FMUProc * proc)
 {
     if (x < 0 || y < 0)
         return 0; // position out of bounds
@@ -132,6 +233,8 @@ bool FMU_CanUnitBeOnPos(Unit * unit, s8 x, s8 y)
         return 0;
     // if (gMapHidden[y][x] & 1)
     // return 0; // a hidden unit is occupying this position
+    SurfingCheck(unit, x, y, proc);
+
     return FMU_CanUnitCrossTerrain(unit, gMapTerrain[y][x]); // CanUnitCrossTerrain(unit, gMapTerrain[y][x]);
 }
 
@@ -222,6 +325,7 @@ void End6CInternal_FreeMU()
     FreeMoveRam->use_dir = false;
     if (proc)
     {
+        AdjustSpriteForWater(proc->FMUnit, proc, false); // ensure they aren't surfing now
         // EndAllMenus();
         ProcGoto((Proc *)proc, 0xF);
         BreakEachProcLoop(FMU_IdleProc);

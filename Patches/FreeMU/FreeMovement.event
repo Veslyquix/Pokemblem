@@ -12,6 +12,10 @@
 ALIGN 4 
 MarshbadgeObtained_Link:
 WORD MarshbadgeObtained 
+RedPokeballSMS_Link:
+BYTE RedPokeballSMS 
+SurfingClass_Link:
+BYTE LaprasID
 
 ALIGN 4 
 EquippedAirBalloon_Link:

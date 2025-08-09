@@ -54,7 +54,7 @@ ORG 0x9DEC
 
 
 ORG $17910 
-jumpToHack(PrepScreenShowPokeballSprites)
+// jumpToHack(PrepScreenShowPokeballSprites)
 
 
 POP

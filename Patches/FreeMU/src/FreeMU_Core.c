@@ -561,6 +561,8 @@ void FMU_InitVariables(struct FMUProc * proc)
     proc->updateCameraAfterEvent = false;
     proc->updateAfterStatusScreen = false;
     proc->updateDangerZone = false;
+    FreeMoveRam->onWater = false;
+    proc->savedClass = gActiveUnit->pClassData->number;
     // FreeMoveRam->silent = false;
 
     if (FreeMoveRam->running)
@@ -583,7 +585,7 @@ void FMU_InitVariables(struct FMUProc * proc)
     // proc->smsFacing = GetUnitFacing(gActiveUnit); //FreeMoveRam->dir;
     proc->smsFacing = FreeMoveRam->dir;
     SetUnitFacing(gActiveUnit, proc->smsFacing);
-    UpdateSMSDir(gActiveUnit, gActiveUnit->pClassData->SMSId, proc->smsFacing);
+    UpdateSMSDir(gActiveUnit, FMU_GetUnitSMSId(gActiveUnit), proc->smsFacing);
 }
 void FMU_OnButton_ToggleSpeed(struct FMUProc * proc)
 {
@@ -709,7 +711,7 @@ int FMU_HandleContinuedMovement(void)
     //	proc->command[1] = 0xFF;
     // }
 
-    if (!FMU_CanUnitBeOnPos(gActiveUnit, x, y))
+    if (!FMU_CanUnitBeOnPos(gActiveUnit, x, y, proc))
     {
         return (-1);
     }
@@ -726,8 +728,8 @@ int FMU_HandleContinuedMovement(void)
 
     struct CamMoveProc * camProc = (struct CamMoveProc *)ProcFind((const ProcInstruction *)&gProcScr_CamMove);
     if (camProc)
-    {   // idk
-        // camProc->distance++;
+    { // idk
+      // camProc->distance++;
     }
 
     ctrProc->xPos = x;
@@ -856,7 +858,7 @@ int pFMU_MoveUnit(struct FMUProc * proc, u16 iKeyCur)
 
             if (!gMapUnit[y][x])
             { // a unit is occupying under the cliff
-                if (FMU_CanUnitBeOnPos(gActiveUnit, x, y))
+                if (FMU_CanUnitBeOnPos(gActiveUnit, x, y, proc))
                 {
                     if (!IsPosInvaild(x, y))
                     {
@@ -914,7 +916,7 @@ int pFMU_MoveUnit(struct FMUProc * proc, u16 iKeyCur)
         //	proc->command[1] = 0xFF;
         // }
 
-        if (FMU_CanUnitBeOnPos(gActiveUnit, x, y))
+        if (FMU_CanUnitBeOnPos(gActiveUnit, x, y, proc))
         {
             if (!IsPosInvaild(x, y))
             {
@@ -1180,7 +1182,7 @@ void SetUnitFacingASMC(void)
 
     //((struct unitFacing*)&unit->supports[5])->dir = dir;
     PackData(GetUnitDebuffEntry(unit), FacingBitOffset_Link, DirectionNumberOfBits_Link, dir);
-    u8 smsID = unit->pClassData->SMSId;
+    u8 smsID = FMU_GetUnitSMSId(unit);
     UpdateSMSDir(unit, smsID, dir);
 }
 
@@ -1200,7 +1202,7 @@ void UpdateFacingAllIdenticalSpriteUnits(int smsID, int dir)
         {
             continue;
         }
-        if (unit->pClassData->SMSId != smsID)
+        if (FMU_GetUnitSMSId(unit) != smsID)
         {
             continue;
         }
@@ -1212,7 +1214,7 @@ void SetUnitFacingAndUpdateGfx(struct Unit * unit, int dir)
 {
     //((struct unitFacing*)&unit->supports[5])->dir = dir;
     PackData(GetUnitDebuffEntry(unit), FacingBitOffset_Link, DirectionNumberOfBits_Link, dir);
-    u8 smsID = unit->pClassData->SMSId;
+    u8 smsID = FMU_GetUnitSMSId(unit);
     UpdateSMSDir(unit, smsID, dir);
     UpdateFacingAllIdenticalSpriteUnits(smsID, dir);
 }
@@ -1421,7 +1423,7 @@ void UpdateSMSDir_All(void)
         dir = GetUnitFacing(unit); // MU_FACING_DOWN
         if (dir != MU_FACING_DOWN)
         {
-            smsID = unit->pClassData->SMSId;
+            smsID = FMU_GetUnitSMSId(unit);
             UpdateSMSDir(unit, smsID, dir);
             limit--;
             if (limit < 1)
@@ -1435,7 +1437,7 @@ void UpdateSMSDir_All(void)
 void pFMU_UpdateSMS(struct FMUProc * proc)
 {
     struct Unit * unit = proc->FMUnit;
-    u8 smsID = proc->FMUnit->pClassData->SMSId;
+    u8 smsID = FMU_GetUnitSMSId(unit);
     int facing = proc->smsFacing;
     UpdateSMSDir(unit, smsID, facing);
 }
@@ -1550,7 +1552,7 @@ freely proc->facingId = mD[0] - 6;
                         proc->yTo = y;
                 }
 
-                if( FMU_CanUnitBeOnPos(gActiveUnit, x, y) ){
+                if( FMU_CanUnitBeOnPos(gActiveUnit, x, y, proc) ){
                         if( !IsPosInvaild(x,y) ) { }
                                 MU_StartMoveScript(muProc, &mD[0]);
                                 gActiveUnit->xPos = x;

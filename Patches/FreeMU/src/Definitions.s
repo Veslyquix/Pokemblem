@@ -1,12 +1,13 @@
 
 .include "C:/devkitPro/FE-CLib/reference/FE8U-20190316.s"
+SET_FUNC FMU_GetUnitSMSId, 0x8017905
 SET_DATA gGenericBuffer2, 0x2021188 
 @SET_DATA PCBoxUnitsBuffer, 0x2026E30	// size: 0x2028	- normally used by debug printing
 SET_FUNC RemoveItemFromConvoy 0x80315cd
 SET_FUNC ProcFun_ResetCursorPosition, 0x801def1 
 SET_FUNC GetPlayerStartCursorPosition, 0x801DE31 
 SET_FUNC GetEnemyStartCursorPosition, 0x801de89 
-
+SET_FUNC CheckFlag, 0x8083da9
 SET_FUNC StatScreen_OnClose, 0x80888b5
 SET_DATA gProcScr_SSGlowyBlendCtrl, 0x8a00844
 SET_FUNC PhaseSwitchGfx_BreakIfNoUnits, 0x801F2AD
