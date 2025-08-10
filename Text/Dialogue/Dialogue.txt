@@ -1309,7 +1309,7 @@ because I just made it up! Ha ha ha![A][X]
 
 
 ## MistyRoute1Text
-[OpenMidLeft][LoadJenny][OpenMidRight][LoadMisty][OpenMidRight]Officer, I’m telling you.[N]
+[OpenMidLeft][LoadJenny][OpenMidRight][LoadMisty][OpenMidRight]Officer, I'm telling you.[N]
 Some kid with a Pikachu stole my bike![A][N]
 [OpenMidLeft]I'll file a report...[A][N]
 [OpenMidRight]Just ran off with it like it was his![N]
@@ -1328,7 +1328,7 @@ Baby Pokémon are[N]
 just too cute![A][N]
 I want to raise one[N]
 from an Egg someday![A][N]
-But for now I’m just saving[N]
+But for now I'm just saving[N]
 up for a new bike.[A][N]
 Honestly, being around[N]
 all these cuties...[A][N]
@@ -2561,13 +2561,43 @@ Pokémon roaming about![A][X]
 ## SafariWHouse_AText
 Watch out for Scyther![A][X]
 
-## SafariWHouse_BText
-Hmm? A special reward?[N]
-Well, alright.[A][X]
+## WardenAText
+[OpenFarRight][LoadWarden][OpenRight][LoadGun][OpenFarRight]Halt! Who goes there![A][N]
+[OpenMidLeft][LoadProtag][OpenFarRight]Hm? A kid, eh?[A][N]
+//It's my second amendment[N]
+//right, afterall.[A][N]
+What? The Kanto region's in Japan?[N]
+With gun laws?[A][N]
+Nonsense, this is 'merica.[A][N]
+On TV, I can't point this at you...[.....][N]
+some crap about being “too intense”.[A][N]
+They cut my whole episode![N]
+Banned outside Asia![A][N]
+But guess what, kid?[N]
+I'm still here.[A][N]
+This ain't no watered-down remake.[N]
+This is the real deal.[A][N]
+Now, before you faint[N]
+I'll holster Thunderbolt.[A][CloseSpeechSlow][OpenRight][ClearFace][N]
+[OpenFarRight][MoveRight]You came here to[N]
+learn something, right?[A][N]
+Here's a move they can't censor:[N]
+Rock Smash![A][N]
+Just think of the boulder as a threat,[N]
+and your guns as the law.[A][N]
+Boom. Problem solved![A][N]
+There. Now you know Rock Smash.[A][N]
+Good. Now scram, kid.[A][N]
+If the cameras catch me again,[N]
+we'll BOTH get pulled off the air.[A][X]
+//A man's gotta enjoy the quiet,[N]
+//before the next fool wanders in.[A][X]
 
-## SafariWHouse_CText
+
+## WardenBText
 You learn the ability[N]
 to Smash Rocks.[A][X]
+
 
 ## CompleteGymFirst
 I should complete the[N]
@@ -3541,17 +3571,17 @@ And remember to wash your clothes![A][X]
 
 
 ## MomCinnabarText
-[OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]Hi, sweetie! I hear you’ve[N]
+[OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]Hi, sweetie! I hear you've[N]
 almost collected all the Gym Badges![A][N]
-You’ve come so far. I’m so proud of you![A][N]
+You've come so far. I'm so proud of you![A][N]
 It must be exhausting, but I hope you're[N]
 still taking care of yourself out there.[A][N]
-If you’re ever passing through Pallet Town,[N]
+If you're ever passing through Pallet Town,[N]
 stop by - I have a little something for you.[A][X]
 
 ## MomGiveItemText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]You’ve come such a long way, sweetie.[N]
-I’m so proud of everything you’ve done![A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]You've come such a long way, sweetie.[N]
+I'm so proud of everything you've done![A][N]
 I put aside some money for you...[A][N]
 And please take this. Just a little[N]
 something from your biggest fan.[A][X]
@@ -3559,7 +3589,7 @@ something from your biggest fan.[A][X]
 
 
 ## MomPostLeagueText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadMom][OpenMidRight][ToggleSmile][Tact], you’re home![N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadMom][OpenMidRight][ToggleSmile][Tact], you're home![N]
 I saw your League victory on TV![A][N]
 You must be exhausted...[N]
 Come, take a quick rest, dear.[A][X]
@@ -3925,7 +3955,7 @@ Why did I lose?[A][N]
 I never made any mistakes raising[N]
 my Pokémon...[A][N]
 Darn it! You're the new Pokémon[N]
-League CHAMPION![A][N]
+League Champion![A][N]
 Although I don't like to admit it...[A][X]
 
 ## GaryTalkText
@@ -4121,9 +4151,9 @@ The mushrooms are blooming after yesterday's[N]
 rain. A fleeting gift from the forest.[A][N]
 I come here to study fungi and wild herbs,[N]
 far from the bustle of Celadon City.[A][N]
-Oh, forgive me. I’m Erika, a botanist,[N]
+Oh, forgive me. I'm Erika, a botanist,[N]
 herbalist, and Gym Leader of Celadon.[A][N]
-Grass types are my heart’s calling...[N]
+Grass types are my heart's calling...[N]
 gentle, resilient, and full of quiet power.[A][N]
 Here, please take this. Perhaps[N]
 one of your Pokémon is ready to bloom.[A][X]

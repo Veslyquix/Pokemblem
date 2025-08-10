@@ -65,13 +65,22 @@ NoFade
 ENDA 
 
 LocationBasedEvents:
-House(RockSmashFlag, RockSmashEvent, 8,7)
+House(0, RockSmashEvent, 8,7)
 END_MAIN
 
+
+
 RockSmashEvent:
+CHECK_EVENTID RockSmashFlag 
+BNE 0 sC s0 
 EVBIT_MODIFY 4 
-WallText(SafariWHouse_BText)
-TutText(SafariWHouse_CText)
+LABEL 0 
+Text(WardenAText)
+CHECK_EVENTID RockSmashFlag 
+BNE 99 sC s0 
+ENUT RockSmashFlag
+TutText(WardenBText)
+LABEL 9 
 NoFade 
 ENDA 
 

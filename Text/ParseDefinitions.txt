@@ -27,7 +27,8 @@
 [FarFarRight] = [OpenFarFarRight]
 [OpenQuote] = [0xC2][0x93]
 [CloseQuote] = [0xC2][0x94]
-
+[SendToBack] = [0x1C]
+[SendBack] = [0x1C]
 
 
 [<-......] = [FarFarLeft]
