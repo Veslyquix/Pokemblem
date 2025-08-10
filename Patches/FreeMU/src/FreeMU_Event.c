@@ -328,3 +328,56 @@ static bool RunTalkEventTemplate(u8 SubjectCharID, s8 x, s8 y)
     }
     return 0;
 }
+
+enum
+{
+    // Menu action bits
+
+    MENU_ACT_SKIPCURSOR = (1 << 0),
+    MENU_ACT_END = (1 << 1),
+    MENU_ACT_SND6A = (1 << 2),
+    MENU_ACT_SND6B = (1 << 3),
+    MENU_ACT_CLEAR = (1 << 4),
+    MENU_ACT_ENDFACE = (1 << 5),
+    MENU_ACT_UNUSED6 = (1 << 6),
+    MENU_ACT_DOOM = (1 << 7),
+};
+struct SelectTarget
+{
+    /* 00 */ s8 x, y;
+    /* 02 */ s8 uid;
+    /* 03 */ s8 extra;
+
+    /* 04 */ struct SelectTarget * next;
+    /* 08 */ struct SelectTarget * prev;
+};
+u8 TalkSelection_OnSelect(Proc * proc, struct SelectTarget * target)
+{
+
+    gActionData.unitActionType = UNIT_ACTION_TALK;
+    gActionData.targetIndex = target->uid;
+    struct FMUProc * FMUproc = (FMUProc *)ProcFind(FreeMovementControlProc);
+    if (FMUproc)
+    {
+        FMUmisc_RunTalkEvents(FMUproc);
+    }
+    return MENU_ACT_SKIPCURSOR | MENU_ACT_END | MENU_ACT_SND6A | MENU_ACT_CLEAR;
+}
+
+extern u8 MenuFrozenHelpBox(struct MenuProc * proc, int msgid);
+u8 VisitCommandEffect(struct MenuProc * menu, struct MenuItemProc * menuItem)
+{
+    if (menuItem->availability == 3)
+    {
+        MenuFrozenHelpBox(menu, 0x84C); // TODO: msgid "You can't visit villages or[.][NL]houses while Silenced."
+        return MENU_ACT_SND6B;
+    }
+
+    gActionData.unitActionType = UNIT_ACTION_VISIT;
+    struct FMUProc * FMUproc = (FMUProc *)ProcFind(FreeMovementControlProc);
+    if (FMUproc)
+    {
+        FMUmisc_RunMapEvents(FMUproc);
+    }
+    return MENU_ACT_SKIPCURSOR | MENU_ACT_END | MENU_ACT_SND6A | MENU_ACT_CLEAR;
+}
