@@ -668,31 +668,127 @@ It knows what I did...[A][X]
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]A world of catching[N]
 Pokémon awaits you![A][X]
 
-## EnterOaksLabText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]A world of catching[N]
-Pokémon awaits you![A][X]
-
-
-## PokedexRatingSeenText
+## PokedexRating_Text_Generic
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 //## PokedexRatingSeenText_1
 Wow! Keep up the good work![A][X]
 
 
+## PokedexRating_Text_LessThan10
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+You still have lots to do.[A][N]
+Go into every patch of grass you[N]
+see and look for Pokémon![A][X]
 
-//## EnterOaksLabText
-//[OpenMidRight][LoadOak][OpenMidRight]Hmm, let me rate your Pokedex...[.....][NL]
-//...[....]   ...[....]   ...[....][A][NL]
-//Oh wait, I never gave you one![A][....][NL]
-//Thing is, I gave my last one to Gary.[NL]
-//He is my grandson, afterall.[A][NL]
-//I knew you'd understand.[A][2NL]
-//What? How will you track your collection?[....][NL]
-//Welp,[....] beats me.[A][LoadOverworldFaces][NL]
-//...fine. You have a number of Pokémon.[NL]
-//(Hey, one is a number too.)[A][NL]
-//Keep up the hard work.[A][X]
+## PokedexRating_Text_LessThan20
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+It looks as if you're getting on[N]
+the right track![A][X]
+// flash normally 
+
+## PokedexRating_Text_LessThan30
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Your Pokédex could use a bit more[N]
+volume still![A][N]
+Try to catch other species of[N]
+Pokémon![A][X]
+
+## PokedexRating_Text_LessThan40
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Good, it's apparent that you're[N]
+trying hard![A][X]
+// itemfinder normally
+
+## PokedexRating_Text_LessThan50
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Your Pokédex is coming along quite[N]
+well![A][X]
+// amulet coin normally 
+
+## PokedexRating_Text_LessThan60
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Ah, you've finally topped 50[N]
+species![A][X]
+// exp share normally 
+
+## PokedexRating_Text_LessThan70
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Hoho! This is turning into quite the[N]
+respectable Pokédex![A][X]
+
+## PokedexRating_Text_LessThan80
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Very good![A][N]
+I think you'd collect even more[N]
+Pokémon if the dev coded fishing![A][X]
+
+## PokedexRating_Text_LessThan90
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Wonderful! Let me guess... You[N]
+like to collect things, don't you?[A][X]
+
+## PokedexRating_Text_LessThan100
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+I'm impressed![N]
+It must have been difficult to do![A][X]
+
+## PokedexRating_Text_LessThan110
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+You've finally hit 100 species![N]
+I can't believe how good you are![A][X]
+
+## PokedexRating_Text_LessThan120
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+You even have the evolved forms[N]
+of Pokémon! Super![A][X]
+
+## PokedexRating_Text_LessThan130
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Excellent! Try asking friends where[N]
+to get some more![A][X]
+
+## PokedexRating_Text_LessThan140
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Outstanding![N]
+You've become a real pro at this![A][X]
+
+## PokedexRating_Text_LessThan150
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+I have nothing left to say![N]
+You're the Pokémon PROFESSOR now![A][X]
+
+## PokedexRating_Text_Complete
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
+and caught a total of [G].[A][N]
+Your Pokédex is entirely complete![N]
+Congratulations!![A][N]
+Since you've worked so hard, let me explain[N]
+a special Pokédex feature I installed.[A][N]
+Press [ToggleRed]L[ToggleRed], [ToggleRed]LEFT[ToggleRed], and [ToggleRed]UP[ToggleRed] simultaneously[N]
+in grid mode to access [ToggleRed]Gameshark[ToggleRed].[A][N]
+Then, press [ToggleRed]B[ToggleRed] on anyone to access[N]
+a plethora of cheats and debug tools.[A][N]
+It's always available, even on a fresh save[N]
+file, so you can cheat as much as you like.[A][N]
+It's rare to press [ToggleRed]L[ToggleRed], [ToggleRed]LEFT[ToggleRed], and [ToggleRed]UP[ToggleRed],[N]
+so most players never find it...[A][X]
+
 
 ## EnterGaryHouseText
 You find a world map![NL]
