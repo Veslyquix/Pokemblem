@@ -56,6 +56,7 @@ BGEntry(Lavender_Pokemon_Tower_PO_BGData, Lavender_Pokemon_Tower_PO_BGPal)
 BGEntry(Lavender_Town_PO_BGData, Lavender_Town_PO_BGPal)
 BGEntry(lighthouse_old_BGData, lighthouse_old_BGPal)
 BGEntry(LoreleiIce_BGData, LoreleiIce_BGPal)
+BGEntry(MonsterHouseFFVII_BGData, MonsterHouseFFVII_BGPal)
 BGEntry(Nugget_Bridge_Evolutions_BGData, Nugget_Bridge_Evolutions_BGPal)
 BGEntry(Pallet_Ash_house_BGData, Pallet_Ash_house_BGPal)
 BGEntry(Pallet_Town_anime_BGData, Pallet_Town_anime_BGPal)
@@ -425,6 +426,12 @@ ALIGN 4
 LoreleiIce_BGPal:
 #incbin "data/LoreleiIcePal.dmp"
 ALIGN 4
+MonsterHouseFFVII_BGData:
+#incbin "data/MonsterHouseFFVII.dmp"
+ALIGN 4
+MonsterHouseFFVII_BGPal:
+#incbin "data/MonsterHouseFFVIIPal.dmp"
+ALIGN 4
 Nugget_Bridge_Evolutions_BGData:
 #incbin "data/Nugget_Bridge_Evolutions.dmp"
 ALIGN 4
@@ -589,5 +596,5 @@ _UnusedInn_BGPal:
 
 ALIGN 12
 MaxBGID:
-WORD 82
+WORD 83
 

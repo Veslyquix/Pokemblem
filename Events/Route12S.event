@@ -98,8 +98,8 @@ House(0, EnterRoute12SHouse, 12,20)
 END_MAIN
 
 EnterRoute12SHouse:
-TutText(Route12FisherHouseText)
-NoFade 
+SetBG(MonsterHouseFFVII_BG)
+BottomWallText(Route12FisherHouseText)
 ENDA 
 
 MiscBasedEvents:

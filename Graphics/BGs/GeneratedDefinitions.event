@@ -224,112 +224,116 @@
   #define LoreleiIce_BG (FirstBG_ID+55)
 #endif
 
+#ifndef MonsterHouseFFVII_BG
+  #define MonsterHouseFFVII_BG (FirstBG_ID+56)
+#endif
+
 #ifndef Nugget_Bridge_Evolutions_BG
-  #define Nugget_Bridge_Evolutions_BG (FirstBG_ID+56)
+  #define Nugget_Bridge_Evolutions_BG (FirstBG_ID+57)
 #endif
 
 #ifndef Pallet_Ash_house_BG
-  #define Pallet_Ash_house_BG (FirstBG_ID+57)
+  #define Pallet_Ash_house_BG (FirstBG_ID+58)
 #endif
 
 #ifndef Pallet_Town_anime_BG
-  #define Pallet_Town_anime_BG (FirstBG_ID+58)
+  #define Pallet_Town_anime_BG (FirstBG_ID+59)
 #endif
 
 #ifndef Pallet_Town_Professor_Oaks_Laboratory_BG
-  #define Pallet_Town_Professor_Oaks_Laboratory_BG (FirstBG_ID+59)
+  #define Pallet_Town_Professor_Oaks_Laboratory_BG (FirstBG_ID+60)
 #endif
 
 #ifndef pewtergym_old_BG
-  #define pewtergym_old_BG (FirstBG_ID+60)
+  #define pewtergym_old_BG (FirstBG_ID+61)
 #endif
 
 #ifndef Pewter_City_anime_BG
-  #define Pewter_City_anime_BG (FirstBG_ID+61)
+  #define Pewter_City_anime_BG (FirstBG_ID+62)
 #endif
 
 #ifndef Pewter_Gym_anime_BG
-  #define Pewter_Gym_anime_BG (FirstBG_ID+62)
+  #define Pewter_Gym_anime_BG (FirstBG_ID+63)
 #endif
 
 #ifndef Pewter_Museum_of_Science_anime_BG
-  #define Pewter_Museum_of_Science_anime_BG (FirstBG_ID+63)
+  #define Pewter_Museum_of_Science_anime_BG (FirstBG_ID+64)
 #endif
 
 #ifndef pokecenter_BG
-  #define pokecenter_BG (FirstBG_ID+64)
+  #define pokecenter_BG (FirstBG_ID+65)
 #endif
 
 #ifndef pokemonbrunoelitefourmember_BG
-  #define pokemonbrunoelitefourmember_BG (FirstBG_ID+65)
+  #define pokemonbrunoelitefourmember_BG (FirstBG_ID+66)
 #endif
 
 #ifndef Pokemonlance_BG
-  #define Pokemonlance_BG (FirstBG_ID+66)
+  #define Pokemonlance_BG (FirstBG_ID+67)
 #endif
 
 #ifndef Pokemon_Ninja_School_BG
-  #define Pokemon_Ninja_School_BG (FirstBG_ID+67)
+  #define Pokemon_Ninja_School_BG (FirstBG_ID+68)
 #endif
 
 #ifndef Route2s_pal_BG
-  #define Route2s_pal_BG (FirstBG_ID+68)
+  #define Route2s_pal_BG (FirstBG_ID+69)
 #endif
 
 #ifndef Route_24_anime_BG
-  #define Route_24_anime_BG (FirstBG_ID+69)
+  #define Route_24_anime_BG (FirstBG_ID+70)
 #endif
 
 #ifndef Safari_Zone_anime_BG
-  #define Safari_Zone_anime_BG (FirstBG_ID+70)
+  #define Safari_Zone_anime_BG (FirstBG_ID+71)
 #endif
 
 #ifndef SaffronGym_BG
-  #define SaffronGym_BG (FirstBG_ID+71)
+  #define SaffronGym_BG (FirstBG_ID+72)
 #endif
 
 #ifndef Saffron_City_PO_BG
-  #define Saffron_City_PO_BG (FirstBG_ID+72)
+  #define Saffron_City_PO_BG (FirstBG_ID+73)
 #endif
 
 #ifndef Saffron_City_Pokemon_Center_BG
-  #define Saffron_City_Pokemon_Center_BG (FirstBG_ID+73)
+  #define Saffron_City_Pokemon_Center_BG (FirstBG_ID+74)
 #endif
 
 #ifndef SS_Anne_anime_BG
-  #define SS_Anne_anime_BG (FirstBG_ID+74)
+  #define SS_Anne_anime_BG (FirstBG_ID+75)
 #endif
 
 #ifndef UnusedShop_BG
-  #define UnusedShop_BG (FirstBG_ID+75)
+  #define UnusedShop_BG (FirstBG_ID+76)
 #endif
 
 #ifndef Vermilion_City_Ports_BG
-  #define Vermilion_City_Ports_BG (FirstBG_ID+76)
+  #define Vermilion_City_Ports_BG (FirstBG_ID+77)
 #endif
 
 #ifndef Vermilion_Gym_JN_BG
-  #define Vermilion_Gym_JN_BG (FirstBG_ID+77)
+  #define Vermilion_Gym_JN_BG (FirstBG_ID+78)
 #endif
 
 #ifndef Viridianforest_pal2_BG
-  #define Viridianforest_pal2_BG (FirstBG_ID+78)
+  #define Viridianforest_pal2_BG (FirstBG_ID+79)
 #endif
 
 #ifndef Viridian_City_anime_BG
-  #define Viridian_City_anime_BG (FirstBG_ID+79)
+  #define Viridian_City_anime_BG (FirstBG_ID+80)
 #endif
 
 #ifndef Viridian_Gym_AG132_BG
-  #define Viridian_Gym_AG132_BG (FirstBG_ID+80)
+  #define Viridian_Gym_AG132_BG (FirstBG_ID+81)
 #endif
 
 #ifndef Viridian_Gym_anime_BG
-  #define Viridian_Gym_anime_BG (FirstBG_ID+81)
+  #define Viridian_Gym_anime_BG (FirstBG_ID+82)
 #endif
 
 #ifndef _UnusedInn_BG
-  #define _UnusedInn_BG (FirstBG_ID+82)
+  #define _UnusedInn_BG (FirstBG_ID+83)
 #endif
 
 
