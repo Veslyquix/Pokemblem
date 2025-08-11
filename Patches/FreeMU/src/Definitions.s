@@ -1,5 +1,7 @@
 
 .include "C:/devkitPro/FE-CLib/reference/FE8U-20190316.s"
+
+SET_FUNC SetMuDefaultFacing, 0x80786bd
 SET_FUNC MenuFrozenHelpBox, 0x804F581
 SET_FUNC VisitCommandEffect, 0x80230C1
 SET_FUNC TalkSelection_OnSelect, 0x8023d01

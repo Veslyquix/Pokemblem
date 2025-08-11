@@ -1380,6 +1380,21 @@ void FMU_SetMuSpecialSprite(struct MuProc * proc, Unit * unit, const u16 * pal)
     // ApplyPalette(pal, 0x10 + proc->config->pal);
 }
 
+void SetMuDefaultFacing(struct MuProc * proc)
+{
+    int facing = GetUnitFacing(proc->unit);
+    int id = proc->unit->pCharacterData->number;
+
+    if (id < 0xE0 || id > 0xEF)
+    {
+        if (!facing)
+        {
+            facing = MU_FACING_DOWN;
+        }
+    }
+    SetMuFacing(proc, facing);
+}
+
 // u8 EWRAM_DATA gSMSGfxBuffer[3][8*0x20*0x20] = {};
 void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 {
