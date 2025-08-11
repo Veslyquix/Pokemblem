@@ -1188,7 +1188,6 @@ void SetUnitFacingASMC(void)
 
 void SetUnitFacing(struct Unit * unit, int dir)
 {
-    //((struct unitFacing*)&unit->supports[5])->dir = dir;
     PackData(GetUnitDebuffEntry(unit), FacingBitOffset_Link, DirectionNumberOfBits_Link, dir);
 }
 
@@ -1498,7 +1497,7 @@ void UpdateSMSDir_All(void)
         }
 
         dir = GetUnitFacing(unit); // MU_FACING_DOWN
-        if (dir != MU_FACING_DOWN)
+        if (dir != MU_FACING_LEFT)
         {
             smsID = FMU_GetUnitSMSId(unit);
             UpdateSMSDir(unit, smsID, dir);

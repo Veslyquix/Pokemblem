@@ -3558,7 +3558,7 @@ You should take a quick rest.[A][X]
 ## MomViridianText
 [OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]Did you reach Viridian City safely?[N]
 Oh, my little [Tact] is all grown up...[A][N]
-[ToggleSmile]All boys leave home some day.[N]
+[ToggleSmile]All kids leave home some day.[N]
 It said so on TV.[A][N]
 [ToggleSmile]It feels like just yesterday you were playing[N]
 with Poké Dolls in the living room.[A][N]

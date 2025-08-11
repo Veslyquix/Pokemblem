@@ -134,6 +134,18 @@ extern void * FMU_idleSMSGfxTable_up[0xFF];
 extern UnitIconWait unit_icon_wait_table[];
 #define GetInfo(id) (unit_icon_wait_table[(id) & ((1 << 7) - 1)])
 
+#define LVFACELEFT 2 // -> becomes 0 when calling HookUnitLoadForDirection
+#define LVFACERIGHT 1
+#define LVFACEDOWN 0 // becomes 2 in HookUnitLoadForDirection
+#define LVFACEUP 3
+
+//
+
+// first turn / after resume on first turn, all sprites face down fsr
+// up works
+// left in level makes down
+//
+
 extern int FMU_GetUnitSMSId(struct Unit * unit);
 extern int GetUnitFacing(struct Unit * unit);
 int GetUnitSMSAndDir(struct Unit * unit)
@@ -165,22 +177,22 @@ int UseUnitSprite(u32 id)
     {
         switch (dir)
         {
-            case 0:
-            {
-                data = NewStandingMapSpriteTable[id].sheet;
-                break;
-            } // down
-            case 1:
+            case MU_FACING_LEFT:
             {
                 data = FMU_idleSMSGfxTable_left[id];
                 break;
-            }
-            case 2:
+            } // down
+            case MU_FACING_RIGHT:
             {
                 data = FMU_idleSMSGfxTable_right[id];
                 break;
             }
-            case 3:
+            case MU_FACING_DOWN:
+            {
+                data = NewStandingMapSpriteTable[id].sheet;
+                break;
+            }
+            case MU_FACING_UP:
             {
                 data = FMU_idleSMSGfxTable_up[id];
                 break;
