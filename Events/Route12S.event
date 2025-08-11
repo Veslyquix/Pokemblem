@@ -105,6 +105,7 @@ ENDA
 MiscBasedEvents:
 CauseGameOverIfLordDies
 AFEV 0 GlobalAfev 0
+AFEV 0 CheckSnorlax 0
 //AFEV flagID eventOffset activationFlag
 //AREA flagID eventOffset [corner1x, corner1y] [corner2x, corner2y]
 //AFEV 0 RefreshIfNotInDanger 0 
@@ -122,6 +123,17 @@ EscapeTileEntry(14,53)
 EscapeTileEntry(15,53)
 EscapeTileTerminator ; } 
 #endif 
+
+CheckSnorlax: 
+CHECK_EXISTS 0xEE
+BNE 99 sC s0
+CHECK_EXISTS 0xDE 
+BNE 99 sC s0
+ENUT SnorlaxFlag
+
+LABEL 99 
+NoFade 
+ENDA 
 
 ToRoute11:
 ChapterTransition(Route11Ch, 50,10)
@@ -204,10 +216,17 @@ RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(8,46,11,52)) //S patch
 
 AutoLevelUnits(WildLvl, True, 0x50FF) // Wilds  
  // Bushes
+ 
+CHECK_EVENTID SnorlaxFlag 
+BNE 13 sC s0 
 LOAD1 0x1 SnorlaxGroup
 ENUN 
 MarkTrainerAsDefeated(0xEE)
-ENUT 0x10 
+ENUT 0x10
+GOTO 14  
+LABEL 13 
+RemoveTrap(9,6)
+LABEL 14 
 
  
 LOAD1 0x1 HumanTrainers
