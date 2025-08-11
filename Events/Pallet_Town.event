@@ -214,54 +214,54 @@ SVAL s1 20
 BGE 13 sA s1 
 SVAL s1 10 
 BGE 14 sA s1 
-SVAL s2 PokedexRating_Text_LessThan10
+SVAL s2 DexRating_Text_LessThan10
 
 GOTO 20 
 
 LABEL 0 // 150 / Complete dex 
-SVAL s2 PokedexRating_Text_Complete
+SVAL s2 DexRating_Text_Complete
 GOTO 20 
 LABEL 1 // 140 
-SVAL s2 PokedexRating_Text_LessThan150
+SVAL s2 DexRating_Text_LessThan150
 GOTO 20 
 LABEL 2 // 130 
-SVAL s2 PokedexRating_Text_LessThan140
+SVAL s2 DexRating_Text_LessThan140
 GOTO 20 
 LABEL 3 // 120 
-SVAL s2 PokedexRating_Text_LessThan130
+SVAL s2 DexRating_Text_LessThan130
 GOTO 20 
 LABEL 4 // 110 
-SVAL s2 PokedexRating_Text_LessThan120
+SVAL s2 DexRating_Text_LessThan120
 GOTO 20 
 LABEL 5 // 100 
-SVAL s2 PokedexRating_Text_LessThan110
+SVAL s2 DexRating_Text_LessThan110
 GOTO 20 
 LABEL 6 // 90 
-SVAL s2 PokedexRating_Text_LessThan100
+SVAL s2 DexRating_Text_LessThan100
 GOTO 20 
 LABEL 7 // 80 
-SVAL s2 PokedexRating_Text_LessThan90
+SVAL s2 DexRating_Text_LessThan90
 GOTO 20 
 LABEL 8 // 70 
-SVAL s2 PokedexRating_Text_LessThan80
+SVAL s2 DexRating_Text_LessThan80
 GOTO 20 
 LABEL 9 // 60 
-SVAL s2 PokedexRating_Text_LessThan70
+SVAL s2 DexRating_Text_LessThan70
 GOTO 20 
 LABEL 10 // 50 
-SVAL s2 PokedexRating_Text_LessThan60
+SVAL s2 DexRating_Text_LessThan60
 GOTO 20 
 LABEL 11 // 40 
-SVAL s2 PokedexRating_Text_LessThan50
+SVAL s2 DexRating_Text_LessThan50
 GOTO 20 
 LABEL 12 // 30 
-SVAL s2 PokedexRating_Text_LessThan40
+SVAL s2 DexRating_Text_LessThan40
 GOTO 20 
 LABEL 13 // 20 
-SVAL s2 PokedexRating_Text_LessThan30
+SVAL s2 DexRating_Text_LessThan30
 GOTO 20 
 LABEL 14 // 10 
-SVAL s2 PokedexRating_Text_LessThan20
+SVAL s2 DexRating_Text_LessThan20
 GOTO 20 
 
 

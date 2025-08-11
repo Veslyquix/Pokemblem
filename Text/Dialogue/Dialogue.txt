@@ -668,28 +668,27 @@ It knows what I did...[A][X]
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]A world of catching[N]
 Pokémon awaits you![A][X]
 
-## PokedexRating_Text_Generic
+## DexRating_Text_Generic
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
-//## PokedexRatingSeenText_1
 Wow! Keep up the good work![A][X]
 
 
-## PokedexRating_Text_LessThan10
+## DexRating_Text_LessThan10
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 You still have lots to do.[A][N]
 Go into every patch of grass you[N]
 see and look for Pokémon![A][X]
 
-## PokedexRating_Text_LessThan20
+## DexRating_Text_LessThan20
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 It looks as if you're getting on[N]
 the right track![A][X]
 // flash normally 
 
-## PokedexRating_Text_LessThan30
+## DexRating_Text_LessThan30
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Your Pokédex could use a bit more[N]
@@ -697,83 +696,83 @@ volume still![A][N]
 Try to catch other species of[N]
 Pokémon![A][X]
 
-## PokedexRating_Text_LessThan40
+## DexRating_Text_LessThan40
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Good, it's apparent that you're[N]
 trying hard![A][X]
 // itemfinder normally
 
-## PokedexRating_Text_LessThan50
+## DexRating_Text_LessThan50
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Your Pokédex is coming along quite[N]
 well![A][X]
 // amulet coin normally 
 
-## PokedexRating_Text_LessThan60
+## DexRating_Text_LessThan60
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Ah, you've finally topped 50[N]
 species![A][X]
 // exp share normally 
 
-## PokedexRating_Text_LessThan70
+## DexRating_Text_LessThan70
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Hoho! This is turning into quite the[N]
 respectable Pokédex![A][X]
 
-## PokedexRating_Text_LessThan80
+## DexRating_Text_LessThan80
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Very good![A][N]
 I think you'd collect even more[N]
 Pokémon if the dev coded fishing![A][X]
 
-## PokedexRating_Text_LessThan90
+## DexRating_Text_LessThan90
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Wonderful! Let me guess... You[N]
 like to collect things, don't you?[A][X]
 
-## PokedexRating_Text_LessThan100
+## DexRating_Text_LessThan100
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 I'm impressed![N]
 It must have been difficult to do![A][X]
 
-## PokedexRating_Text_LessThan110
+## DexRating_Text_LessThan110
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 You've finally hit 100 species![N]
 I can't believe how good you are![A][X]
 
-## PokedexRating_Text_LessThan120
+## DexRating_Text_LessThan120
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 You even have the evolved forms[N]
 of Pokémon! Super![A][X]
 
-## PokedexRating_Text_LessThan130
+## DexRating_Text_LessThan130
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Excellent! Try asking friends where[N]
 to get some more![A][X]
 
-## PokedexRating_Text_LessThan140
+## DexRating_Text_LessThan140
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Outstanding![N]
 You've become a real pro at this![A][X]
 
-## PokedexRating_Text_LessThan150
+## DexRating_Text_LessThan150
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 I have nothing left to say![N]
 You're the Pokémon PROFESSOR now![A][X]
 
-## PokedexRating_Text_Complete
+## DexRating_Text_Complete
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight][ToggleSmile]You've seen [G] Pokémon[LoadOverworldFaces][N]
 and caught a total of [G].[A][N]
 Your Pokédex is entirely complete![N]
@@ -1660,7 +1659,6 @@ All I found was rocks...[A][X]
 
 
 ## GaryCeruleanChallengeText
-// Rival Gary 
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Hey! It's whatsyourface![A][NL]
 I stomped you back[NL]
 in Viridian.[A][NL]
@@ -1963,7 +1961,7 @@ coming along?[A][N]
 What? You haven't even[N]
 beaten Surge yet?[A][N]
 [LoadGaryPoint]Haha, some trainer you are.[A][NL]
-How about your POKEDEX?[N]
+How about your Pokédex?[N]
 I already caught 40 kinds, pal.[A][N]
 [LoadGaryBattle]I hope you can swim, 'cause I'm[N]
 about to knock you overboard![A][X]
@@ -3014,26 +3012,23 @@ in the name of Team Rocket![A][X]
 Don't get defiant![N]
 Or I'll have to hurt you![A][X]
 
-
 ## GarySilphCoChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]What kept you,[N]
-[Tact]?[A][Clear]
-Hahaha! I thought you'd[N]
-turn up if I waited here![A][N]
-[LoadGaryBattle]I saw you in Saffron, so I decided[N]
-to see if you got better![A][X]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Finally decided to show up, [Tact]?[A][N]
+I saw you in Saffron, but I was starting[N]
+to get bored waiting here.[A][N]
+Thought maybe you'd chickened out.[A][N]
+[LoadGaryBattle]I never back down.[A][X]
 
 ## GarySilphCoDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Oh, man![N]
-So, you are ready for Boss[A][Clear]
-Rocket![A][Clear][N]
-[LoadGaryPoint]Well, [Tact]![N]
-I'm moving on up and ahead![A][N]
-I'm going to the Pokémon League to[N]
-boot out the Elite Four.[A][N]
-I'll become the world's most[N]
-powerful trainer![A][N]
-Smell ya later![A][X]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Oh, man! You sure lucked out.[A][N]
+You wouldn't stand a chance[N]
+against my ace Pokémon.[A][N]
+Lucky for you, Gramps has it right now.[A][N]
+Don't think this changes anything.[A][N]
+I'm going to snag the last badges[N]
+and boot out the Elite Four.[A][N]
+I'll crush anyone who gets in my way.[A][N]
+Smell ya later, twerp![A][X]
  
 
 ## OutOfServiceText
@@ -3515,23 +3510,25 @@ Cinnabar Gym[X]
 Cinnabar Mansion[X]
 
 ## GaryRoute22ChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]What? [Tact]![N]
-What a surprise to see you here![A][N]
-[LoadGaryShrug]So you're going to the Pokémon[N]
-League?[A][N]
-You collected all the BADGES, too?[N]
-That's cool![A][N]
-[LoadGaryBattle]Then I'll whip you as a warm-up[N]
-for the Pokémon League![A][N]
-Come on![A][X]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]What? [Tact]?[N]
+You got the badges too, huh?[A][N]
+Not bad, I guess.[....][N]
+But you still can't catch up.[A][N]
+I beat all the gyms first, and you got[N]
+no chance of overtaking me now.[A][N]
+[OpenMidRight][LoadGaryShrug]Of course, I finished them ages ago.[N]
+Just wanted to give you a chance.[A][N]
+[LoadGaryBattle]I'll crush you as a warm-up for[A][N]
+the League! Let's go![A][X]
+
 
 ## GaryRoute22DefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]What!?[N]
 I was just careless, you![A][Clear]
 [LoadGaryShrug]That loosened me up.[N]
-I'm ready for the Pokémon League![A][N]
-[Tact], you[N]
-need more practice.[A][N]
+I’m saving my real power for the League.[A][N]
+[Tact], you still have[N]
+a long way to go.[A][N]
 But hey, you know that![N]
 I'm out of here. Smell ya![A][X]
 
@@ -3918,22 +3915,20 @@ League Champion.[A][X]
 
 
 ## GaryChallengeText
-[OpenMidRight][LoadProtag][OpenMidLeft][LoadGaryPoint][OpenMidLeft]Hey, [Tact]![N]
-I was looking forward to[A][N]
-meeting you here.[A][N]
-My rival should be strong[N]
-to keep me sharp.[A][N]
-While working on my Pokédex,[N]
-I looked all over for Pokémon.[A][N]
-Not only that, I assembled teams[N]
-that would beat any Pokémon type.[A][N]
-And now...[A][N]
-I'm the Pokémon League Champion![A][N]
-[Tact]![N]
-Do you know what that means?[A][N]
-I'll tell you.[A][N]
-[OpenMidLeft][LoadGaryBattle]I am the most powerful trainer in[N]
-the world![A][X]
+[OpenMidRight][LoadProtag][OpenMidLeft][LoadGaryPoint][OpenMidLeft]Uggh, of course you'd show up the[N]
+moment I won, [Tact].[A][N]
+[OpenMidLeft][LoadGaryShrug]Guess I softened them up for you.[A][N]
+Can't you wait 'til my Gramps shows up?[A][N]
+Fine, whatever.[A][N]
+[OpenMidLeft][LoadGaryPoint]I've worked hard on my Pokédex,[N]
+tracked down every kind of Pokémon.[A][N]
+Built teams designed to crush anything.[A][N]
+But you keep getting in my way.[A][N]
+I'm the Pokémon League Champion,[N]
+and I'll prove why.[A][N]
+Get ready.[N]
+[OpenMidLeft][LoadGaryBattle]And face the most powerful trainer alive![A][X]
+
 
 ## GaryDefeatPhaseOneText
 [OpenMidRight][LoadGaryPoint][OpenMidRight][ToggleColorInvert]NO![N]
@@ -3945,32 +3940,27 @@ Impossible![A][N]
 Gary took out his [ToggleRed]Gameshark![ToggleRed][A][X]
 
 ## GaryDefeatText
-[OpenMidRight][LoadProtag][OpenMidLeft][LoadGaryPoint][OpenMidLeft]You beat me at my best![A][N]
-After all that work to become[N]
-the League Champ?[A][N]
-My reign is over already?[N]
-It's not fair![A][N]
-Why?[N]
-Why did I lose?[A][N]
-I never made any mistakes raising[N]
-my Pokémon...[A][N]
-Darn it! You're the new Pokémon[N]
-League Champion![A][N]
-Although I don't like to admit it...[A][X]
+[OpenMidRight][LoadProtag][OpenMidLeft][LoadGaryPoint][OpenMidLeft]No way...[....] you actually beat me![....][N]
+You're always the one to ruin everything![A][N]
+Why?! Why do you keep beating me?![N]
+I use only the best Pokémon![A][N]
+Humph. Whatever.[A][N]
+Really, I was the first to become Champion.[N]
+So technically, I beat you to it![A][N]
+Enjoy your title, loser.[N]
+Hanging out here was getting lame, anyway.[A][X]
+
 
 ## GaryTalkText
-You beat me at my best![A][N]
-After all that work to become[N]
-the League Champ?[A][N]
-My reign is over already?[N]
-It's not fair![A][N]
-Why?[N]
-Why did I lose?[A][N]
-I never made any mistakes raising[N]
-my Pokémon...[A][N]
-Darn it! You're the new Pokémon[N]
-League Champion![A][N]
-Although I don't like to admit it...[A][X]
+No way...[....] you actually beat me![....][N]
+You're always the one to ruin everything![A][N]
+Why?! Why do you keep beating me?![N]
+I use only the best Pokémon![A][N]
+Humph. Whatever.[A][N]
+Really, I was the first to become Champion.[N]
+So technically, I beat you to it![A][N]
+Enjoy your title, loser.[N]
+Hanging out here was getting lame, anyway.[A][X]
 
 
 ## OakLeagueText
@@ -4060,9 +4050,8 @@ but rules are rules...[A][X]
 Take this![A][X]
 
 ## LtSurgeRewardText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight][ToggleSmile]This here'll make the[N]
-difference 'tween life and[A][N]
-death, sometimes![A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight][ToggleSmile]This here'll make the difference[N]
+'tween life and death, sometimes![A][N]
 'Course, it can come[N]
 back to bite ya.[A][X]
 
@@ -4083,31 +4072,28 @@ you on the force.[A][X]
 
 
 ## KogaChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]Fwahahaha![N]
-You're but a child![A][N]
-[ToggleSmile]You dare challenge me?[N]
-Very well, you shall know true terror.[A][N]
-Prepare to be the victim[N]
-of my sinister technique.[A][X]
-
-
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]The moon wanes...[....] the shadows stir...[N]
+A mere child dares step onto my stage?[A][N]
+[ToggleSmile]Fwahahaha![N]
+I am Koga, ninja master![A][N]
+My art is a tapestry of stealth and strikes...[A][N]
+Silent steps, creeping poison...[N]
+until you bow to darkness itself![A][X]
 	
 ## KogaDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph! You have[N]
-proven your worth![A][N]
-Here![N]
-Take the Soul Badge![A][X]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[N]
+The shadow yields to the rising sun.[A][N]
+Take the Soul Badge![N]
+You have earned it.[A][X]
 
 ## KogaWaitText
 [OpenMidRight][LoadKoga][OpenMidRight]Ah![N]
 Take this, too![A][X]
 
 ## KogaRewardText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]This ancient artifact will damage[N]
-nearby enemies after attacking.[A][N]
-It is a secret technique dating[N]
-back some four hundred years.[A][X]
-
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Silent as the dusk,[N]
+the second blow comes unseen...[N]
+foes wither away.[A][X]
 
 ## KogaSafariText
 [OpenMidRight][LoadKoga][OpenMidRight]Fufufu..[N]
@@ -4126,23 +4112,24 @@ The air is thick with danger...[N]
 just how I like it.[A][X]
 
 ## KogaSafariText4
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Strike first... and your enemy[N]
-has no time to react.[A][N]
-Remember: the best defense is a[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Strike swiftly...[....][N]
+before your foe can breathe.[A][N]
+The deadliest defense is[N]
 swift and merciless offense![A][X]
 
 
 
-
 ## KogaRematchText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]Fufufu.. we meet again.[N]
-I rule the shadows as a ninja![A][N]
-[ToggleSmile]My intricate style will[N]
-confound and destroy you![A][X]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]Fufufu... destiny draws us together once more.[N]
+I am the unseen blade in the shadows.[A][N]
+[ToggleSmile]My art weaves confusion and despair,[N]
+to confound and destroy you![A][X]
+
 
 ## KogaRematchDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]My efforts failed again.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]The shadows betray me again.[N]
 I must hone my skills.[A][X]
+
 
 ## ErikaRoute14Text 
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadErika][OpenMidRight][ToggleSmile]Ah... how rare to find another soul[N]
