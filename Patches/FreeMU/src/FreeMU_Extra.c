@@ -167,7 +167,10 @@ extern int SurfingClass2_Link;
 // previously had a hook: PrepScreenShowPokeballSprites
 extern u8 PokecenterChLabel;
 extern u8 RedPokeballSMS_Link;
-int FMU_GetUnitSMSId(Unit * unit)
+
+// // if visible on screen, use SMS?
+// else, use pokeball sprite?
+int GetUnitSMSId(const struct Unit * unit)
 {
     if (gChapterData.chapterIndex == PokecenterChLabel)
     {
@@ -181,6 +184,10 @@ int FMU_GetUnitSMSId(Unit * unit)
     // }
     // }
     return unit->pClassData->SMSId;
+}
+int FMU_GetUnitSMSId(struct Unit * unit)
+{
+    return GetUnitSMSId(unit);
 }
 
 extern int GirlProtagFlag_Link;
