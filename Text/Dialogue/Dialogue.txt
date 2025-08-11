@@ -137,11 +137,11 @@ They are immune to attacks until[N]
 their spawns are defeated.[A][X]
 
 ## SkipTutorialText
-Skip catching tutorial?[NL]
+Skip catching tutorial?[N]
 [No][X]
 
 ## RematchText
-Rematch trainer?[NL]
+Rematch trainer?[N]
 [Yes][X]
 
 ## SavingHelpText
@@ -268,7 +268,7 @@ Effective Dmg[X]
 Effectiveness[X]
 
 ## GM_Effectiveness
-Super effective attacks[NL]
+Super effective attacks[N]
 deal around 150% damage.[N]
 The user takes 75% damage.[N]
 Resisted attacks deal 50%.[X]
@@ -283,7 +283,7 @@ Ineffective Dmg[X]
 Resistance[X]
 
 ## GM_Resist
-Resisted attacks[NL]
+Resisted attacks[N]
 deal 50% damage.[X]
 
 ## GM_TypeCombinations_SH
@@ -386,7 +386,7 @@ special effect.[X]
 
 ## PalletTrainerTipsText 
 Save and revive Pokémon by visiting[N]
-home or a Pokecenter.[NL]
+home or a Pokecenter.[N]
 [ToggleRed]There is no permadeath.[ToggleRed][N]
             -Trainer's Tips[A][X]
 
@@ -459,8 +459,8 @@ Attacks cannot miss in this game.[N]
 But they will sometimes deal a[N]
 glancing blow instead,[A][N]
 which deals half damage.[N]
-//Some enemies will [ToggleRed]ZONE[ToggleRed][NL]
-//you out, avoiding combat.[NL]
+//Some enemies will [ToggleRed]ZONE[ToggleRed][N]
+//you out, avoiding combat.[N]
         - Trainer's Tips.[A][X]
 
 ## TrainerTip_Accessory
@@ -567,7 +567,7 @@ Upgrade your moves via TMs.[N]
 
 			
 ## UnusedTrainerTips1
-Manage your party at a Pokecenter.[NL]
+Manage your party at a Pokecenter.[N]
           - Trainer's Tips[A][X]
 
 
@@ -575,22 +575,22 @@ Manage your party at a Pokecenter.[NL]
 
 
 // UNUSED 
-//Repels reduce the amount[NL]
+//Repels reduce the amount[N]
 //of wild Pokémon found.[A][X]
 
 ## UnusedTrainerTips2
-You can carry up to 6 Pokémon[NL]
-with you at once.[NL]
+You can carry up to 6 Pokémon[N]
+with you at once.[N]
             - Trainer's Tips.[A][X]
 
 ## UnusedTrainerTips3
-Hold Down after Wait to[NL]
-quickly jump down ledges.[NL]
+Hold Down after Wait to[N]
+quickly jump down ledges.[N]
       - Trainer's Tips.[A][X]
 
 ## SetNameTest
-Mewtwo[NL]
-Placeholder text[NL]
+Mewtwo[N]
+Placeholder text[N]
 is being used.[A][X]
 
 
@@ -626,15 +626,15 @@ of Pokémon to progress.[A][X]
 
 
 ## SignsFastTravel
-Some signs allow[NL]
+Some signs allow[N]
 for fast travel.[A][X]
 
 ## KnowledgeArea
-Your knowledge of this area[NL]
+Your knowledge of this area[N]
 allows for fast travel.[A][X]
 
 ## RetreatCenter
-Retreat to last Pokecenter?[NL]
+Retreat to last Pokecenter?[N]
 [No][X]
 
 ## ViridianGymText
@@ -644,11 +644,11 @@ Viridian Gym[A][X]
 Viridian Gym[A][X]
 
 ## LearnMoveText
-Learn the new move?[NL]
+Learn the new move?[N]
 [Yes][X]
 
 ## ProceedAreaText
-Proceed to next area?[NL]
+Proceed to next area?[N]
 [Yes][X]
 
 ## ExitAreaText
@@ -790,8 +790,8 @@ so most players never find it...[A][X]
 
 
 ## EnterGaryHouseText
-You find a world map![NL]
-...but it is all scribbled over.[A][NL]
+You find a world map![N]
+...but it is all scribbled over.[A][N]
 You decide to leave it.[A][X]
 
 
@@ -1026,33 +1026,32 @@ I know Lapras will serve you well.[A][X]
 
 
 ## GiveUpLearnMoveText
-Give up on new move?[NL]
+Give up on new move?[N]
 [Yes][X]
 
 
 
 ## CannotEscapeTrainerBattleText
-[OpenMidRight][LoadOak][OpenMidRight]There's no running from[NL]
+[OpenMidRight][LoadOak][OpenMidRight]There's no running from[N]
 this Trainer battle![A][X]
 
 ## GaryRoute2SChallengeText
-[OpenMidLeft][LoadProtag][OpenRight][LoadGaryShrug][OpenRight]Hah, I wondered when[NL]
-you'd show up.[A][NL]
+[OpenMidLeft][LoadProtag][OpenRight][LoadGaryShrug][OpenRight]Hah, I wondered when[N]
+you'd show up.[A][N]
 It's sad to see that you're[N]
 struggling along back here.[A][N]
-[LoadGaryPoint]I've already caught 3 Pokémon![A][NL]
+[LoadGaryPoint]I've already caught 3 Pokémon![A][N]
 [LoadGaryBattle]More than enough to[N]
 [ToggleRed]ambush[ToggleRed] and defeat you![A][X]
 
 
 ## GaryRoute2SDefeatText
-[OpenMidLeft][LoadProtag][OpenMidLeft][LoadGaryShrug][OpenMidLeft]Whatever, man.[NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Whatever, man.[N]
 I was goin' easy on ya.[A][X]
 
 
-		  
 ## ViridianForestNBirdkeeperText
-[OpenMidLeft][LoadBirdkeeper][OpenMidLeft]We won't let anyone through![NL]
+[OpenMidLeft][LoadBirdkeeper][OpenMidLeft]We won't let anyone through![N]
 This is our turf, now.[A][2NL]
 Quick, form a [ToggleRed]line of defense[ToggleRed]![A][X]
 
@@ -1088,9 +1087,9 @@ Jump down?
 
 		
 ## ViridianUpperHouseText
-The gym here's been[NL]
-closed quite a while.[A][NL]
-Shouldn't the league[NL]
+The gym here's been[N]
+closed quite a while.[A][N]
+Shouldn't the league[N]
 appoint somebody new?[A][X]
 
 ## ViridianUpperHouseText_Lategame
@@ -1098,9 +1097,9 @@ The new gym leader here[N]
 is shrouded in mystery...[A][X]
 
 ## ViridianGrumpyManText
-HMM? Whatcha doin' bargin'[NL]
-up in here like ya own the place?[A][NL]
-This is private property![NL]
+HMM? Whatcha doin' bargin'[N]
+up in here like ya own the place?[A][N]
+This is private property![N]
 Let me sip my coffee in peace.[A][X]
 
 ## MissingNoHintText
@@ -1130,11 +1129,11 @@ they all say...[A][X]
 
 
 ## PewterMuseumText
-This Museum is where we[NL]
-study evolution based on fossils.[A][NL]
-What? You've seen Pokémon evolve?[A][NL]
-Don't be absurd![NL]
-Evolution takes millions of years.[.....][NL]
+This Museum is where we[N]
+study evolution based on fossils.[A][N]
+What? You've seen Pokémon evolve?[A][N]
+Don't be absurd![N]
+Evolution takes millions of years.[.....][N]
 You're thinking of [ToggleRed]Metamorphosis.[A][X]
 
 ## PewterSWHouseText
@@ -1142,10 +1141,10 @@ Life here's pretty peaceful, y'know?[N]
 Being an NPC's not bad![A][X]
 
 ## PewterNEHouseText
-I'll trade my Haunter [NL]
+I'll trade my Haunter [N]
 if you bring me a Mewtwo.[A][2NL]
-Haha, I'm just messin'[NL]
-with you. I don't even[NL]
+Haha, I'm just messin'[N]
+with you. I don't even[N]
 have a Haunter.[A][X]
 
 ## PewterMuseumSignText
@@ -1154,23 +1153,23 @@ Pewter Museum.[A][X]
 
 
 ## PewterGymSignText
-Pewter Gym.[NL]
+Pewter Gym.[N]
 Rock-type Pokémon.[A][X]
 
 ## BrockIntroText
-[OpenFarLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight]I believe in rock hard[NL]
-defense and determination![A][NL]
-That's why my Pokémon are[NL]
-all the rock-type.[A][CloseSpeechSlow][LoadOverworldFaces][NL]
-[ToggleSmile]Hmm? What about my Diglett,[NL]
-Sandshrew, and Vulpix?[A][NL]
-[ToggleSmile]Those don't count.[A][CloseSpeechSlow][LoadOverworldFaces][OpenMidRight][ToggleSmile][MoveLeft][OpenLeft]There there, sweetie.[NL]
+[OpenFarLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight]I believe in rock hard[N]
+defense and determination![A][N]
+That's why my Pokémon are[N]
+all the rock-type.[A][CloseSpeechSlow][LoadOverworldFaces][N]
+[ToggleSmile]Hmm? What about my Diglett,[N]
+Sandshrew, and Vulpix?[A][N]
+[ToggleSmile]Those don't count.[A][CloseSpeechSlow][LoadOverworldFaces][OpenMidRight][ToggleSmile][MoveLeft][OpenLeft]There there, sweetie.[N]
 Daddy loves you.[A][CloseSpeechSlow][LoadOverworldFaces][OpenLeft][ToggleSmile][MoveMidRight][OpenMidRight]Ahem. Let's battle![A][X]
 ## PewterCityText
 The city of Boulders.[A][X]
 
 ## NoBoulderbadgeText2
-You need the Boulderbadge[NL]
+You need the Boulderbadge[N]
 to progress through here.[A][X]
 
 ## NoBoulderbadgeText
@@ -1193,41 +1192,41 @@ This area is closed.[A][X]
 
 
 ## BrockDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight][ToggleSmile]As proof of your victory, [NL]
-here's the Boulder Badge![A][NL]
-Wear it proud, knowing[NL]
-you've completed my gym.[A][NL]
-[ToggleSmile]The others won't be[NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight][ToggleSmile]As proof of your victory, [N]
+here's the Boulder Badge![A][N]
+Wear it proud, knowing[N]
+you've completed my gym.[A][N]
+[ToggleSmile]The others won't be[N]
 quite so easy.[A][X]
 
 ## BrockDryingPanText
-[OpenMidRight][LoadBrock][OpenMidRight]Wait![NL]
+[OpenMidRight][LoadBrock][OpenMidRight]Wait![N]
 Take this.[A][X]
 
 ## BrockDryingPanText2
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight][ToggleSmile]This trusty pan will negate[NL]
-any weakness to water moves.[A][NL]
-I am sad to part with it, but[NL]
-I know you'll take good care of it.[A][NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight][ToggleSmile]This trusty pan will negate[N]
+any weakness to water moves.[A][N]
+I am sad to part with it, but[N]
+I know you'll take good care of it.[A][N]
 Good luck, [Tact]![A][LoadOverworldFaces][X]
 
 
 ## PokemonCapturedText
-[OpenLeft][LoadDex][OpenLeft][FastPrint]Pokémon captured.[NL]
+[OpenLeft][LoadDex][OpenLeft][FastPrint]Pokémon captured.[N]
 [ToggleRed]300[Gold][ToggleRed] consumed.[A][X]
 
 ## CannotCaptureText
-[OpenLeft][LoadDex][OpenLeft][FastPrint]PC Box full.[NL]
+[OpenLeft][LoadDex][OpenLeft][FastPrint]PC Box full.[N]
 Please release some Pokémon.[A][X]
 
 
 ## RocketMagikarpText_A
-[OpenRight][LoadBlankFace][OpenRight]Hello, there![A][NL]
+[OpenRight][LoadBlankFace][OpenRight]Hello, there![A][N]
 Have I got a deal for you![A][2NL]
-I'll let you have[NL]
-a swell MAGIKARP[A][NL]
-for just 2000[Gold]![A][NL]
-What do you say?[NL]
+I'll let you have[N]
+a swell MAGIKARP[A][N]
+for just 2000[Gold]![A][N]
+What do you say?[N]
      [No][X]
 
 ## RocketMagikarpText_B
@@ -1247,44 +1246,44 @@ The door is locked.[A][X]
 
 
 ## UnusedBillQuote
-There's a Pokemaniac who[NL]
-lives just up north of here.[A][NL]
-We're safer off that way,[NL]
-if you ask me.[A] Who knows[NL]
+There's a Pokemaniac who[N]
+lives just up north of here.[A][N]
+We're safer off that way,[N]
+if you ask me.[A] Who knows[N]
 what he gets up to?[A][X]
 
 
 ## MistyChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight][ToggleSmile]My policy is an all-out offensive[NL]
-with water-type Pokémon![A][NL]
-If you want to turn pro, you should [NL]
-come up with your own strategy.[A][NL]
-Hm? You're interested in a [NL]
-monotype team as well?[A][NL]
-[ToggleSmile]That's a bad idea.[A] [NL]
-What'll happen when some loser[NL]
-decides to catch 6 Pikachu?[A][NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight][ToggleSmile]My policy is an all-out offensive[N]
+with water-type Pokémon![A][N]
+If you want to turn pro, you should [N]
+come up with your own strategy.[A][N]
+Hm? You're interested in a [N]
+monotype team as well?[A][N]
+[ToggleSmile]That's a bad idea.[A] [N]
+What'll happen when some loser[N]
+decides to catch 6 Pikachu?[A][N]
 Still can't believe I lost...[A][2NL]
-Enough chatter! My Pokémon[NL]
+Enough chatter! My Pokémon[N]
 will scrub the floor with you![A][X]
 
 ## MistyDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight]Ack! Washed away![A] Welp,[NL]
-I guess you've earned this.[A][NL]
-[ToggleSmile]The Cascade Badge is a[NL]
-symbol of your victory.[A][NL]
-Show it off - you've[NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight]Ack! Washed away![A] Welp,[N]
+I guess you've earned this.[A][N]
+[ToggleSmile]The Cascade Badge is a[N]
+symbol of your victory.[A][N]
+Show it off - you've[N]
 done well.[A][X]
 
 
 ## MistyRewardText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight][ToggleSmile]This soothing ring will restore[NL]
-your health every turn.[A][NL]
-I'm going to teach my Starmie Renewal,[NL]
-so I don't really need it anymore.[A][NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight][ToggleSmile]This soothing ring will restore[N]
+your health every turn.[A][N]
+I'm going to teach my Starmie Renewal,[N]
+so I don't really need it anymore.[A][N]
 Keep at it, [Tact]![A][LoadOverworldFaces][X]
 ## MistyWaitText
-[OpenMidRight][LoadMisty][OpenMidRight]Wait![NL]
+[OpenMidRight][LoadMisty][OpenMidRight]Wait![N]
 Take this.[A][X]
 
 ## MistyRematchText
@@ -1335,16 +1334,16 @@ I could watch them[N]
 wobble around all day![A][X]
 
 ## SaveCostText
-[OpenLeft][LoadDex][OpenLeft][FastPrint]Save for [G][Gold]?[NL]
+[OpenLeft][LoadDex][OpenLeft][FastPrint]Save for [G][Gold]?[N]
 [Yes][X]
 
 ## TooPoorToSaveText
-[OpenLeft][LoadDex][OpenLeft][FastPrint]Insufficient funds.[NL]
+[OpenLeft][LoadDex][OpenLeft][FastPrint]Insufficient funds.[N]
 Requires 500[Gold].[A][X]
 
 
 ## ViridianForestTrainerE4Text
-I like shorts![A][NL]
+I like shorts![A][N]
 They're comfy and easy to wear![A][X]
 
 ## ViridianForestTrainerE4DefeatText
@@ -1352,28 +1351,28 @@ Awww..[A][X]
 
 
 ## VF_0xE5_BQ
-I might be little, but I won't like[NL]
+I might be little, but I won't like[N]
 it if you go easy on me![A][X]
 
 ## VF_0xE5_BD
-That totally stinks! I'm going to[NL]
+That totally stinks! I'm going to[N]
 catch some stronger ones![A][X]
 
 
 ## R1_0xE1_BQ
-I might be little, but I won't like[NL]
+I might be little, but I won't like[N]
 it if you go easy on me![A][X]
 
 ## R1_0xE1_BD
-That totally stinks! I'm going to[NL]
+That totally stinks! I'm going to[N]
 catch some stronger ones![A][X]
 	
 
 
 ## R1_0xE0_BQ
-I just lost, so I'm trying[NL]
-to find more Pokémon.[A][NL]
-Wait! You look weak![NL]
+I just lost, so I'm trying[N]
+to find more Pokémon.[A][N]
+Wait! You look weak![N]
 Come on, let's battle![A][X]
 
 ## R1_0xE0_BD
@@ -1381,8 +1380,8 @@ Ugh. I don't have any more Pokémon.[A][X]
 
 
 ## R2_0xE1_BQ
-Are you going to Viridian Forest?[NL]
-It's a natural maze in there.[A][NL]
+Are you going to Viridian Forest?[N]
+It's a natural maze in there.[A][N]
 How about a battle?[A][X]
 
 ## R2_0xE1_BD
@@ -1391,8 +1390,8 @@ I got lost there, and lost here![A][X]
 
 ## VFS_0xE0_BQ
 // Viridian Forest (south) trainer 0xE0 Battle Quote / Defeat
-I came here with some friends to[NL]
-catch us some BUG Pokémon![A][NL]
+I came here with some friends to[N]
+catch us some BUG Pokémon![A][N]
 Let's battle![A][X]
 
 ## VFS_0xE0_BD
@@ -1403,19 +1402,19 @@ Ack! I lost?[A][X]
 I'm itching for a battle![A][X]
 
 ## VF_0xE0_BD
-Oh, boo.[NL]
+Oh, boo.[N]
 Nothing went right.[A][X]
 
 
 ## VF_0xE1_BQ
-Hey! You have Pokémon![NL]
+Hey! You have Pokémon![N]
 Come on! Let's battle'em![A][X]
 
 ## VF_0xE1_BD
 No! CATERPIE can't cut it![A][X]
 
 ## VF_0xE2_BQ
-Yo! You can't jam out if[NL]
+Yo! You can't jam out if[N]
 you're a Pokémon trainer![A][X]
 ## VF_0xE2_BD
 Huh? I ran out of Pokémon![A][X]
@@ -1424,7 +1423,7 @@ Huh? I ran out of Pokémon![A][X]
 ## VF_0xE3_BQ
 Eek! I don't want any trouble![A][X]
 ## VF_0xE3_BD
-My mom gave me these Pokémon[NL]
+My mom gave me these Pokémon[N]
 to protect me...[A][X]
 
 
@@ -1453,7 +1452,7 @@ when you're done.[A][X]
 
 
 ## R3_0xE0_BQ
-Hey![NL]
+Hey![N]
 I saw you in Viridian Forest![A][X]
 
 ## R3_0xE0_BD
@@ -1462,7 +1461,7 @@ You beat me again![A][X]
 
 
 ## R3_0xE1_BQ
-Excuse me![NL]
+Excuse me![N]
 You looked at me, didn't you?[A][X]
 
 ## R3_0xE1_BD
@@ -1470,9 +1469,9 @@ You're mean![A][X]
 
 
 ## R3_0xE2_BQ
-Hi![NL]
-I like shorts![A][NL]
-They're delightfully comfy and[NL]
+Hi![N]
+I like shorts![A][N]
+They're delightfully comfy and[N]
 easy to wear![A][X]
 
 ## R3_0xE2_BD
@@ -1480,33 +1479,33 @@ I don't believe it![A][X]
 
 
 ## R3_0xE3_BQ
-Eek![NL]
+Eek![N]
 Did you touch me?[A][X]
 
 ## R3_0xE3_BD
 That's it?[A][X]
 
 ## R3_0xE4_BQ
-Are you a trainer?[NL]
+Are you a trainer?[N]
 Let's get with it right away![A][X]
 
 ## R3_0xE4_BD
-If I had new Pokémon,[NL]
+If I had new Pokémon,[N]
 I would've won![A][X]
 
 ## R3_0xE5_BQ
-That look you gave me...[NL]
+That look you gave me...[N]
 It's so intriguing![A][X]
 
 ## R3_0xE5_BD
 Be nice![A][X]
 
 ## R3_0xE6_BQ
-Hey! You're not wearing shorts![NL]
+Hey! You're not wearing shorts![N]
 What's wrong with you?[A][X]
 
 ## R3_0xE6_BD
-I always wear shorts, even in[NL]
+I always wear shorts, even in[N]
 winter. That's my policy.[A][X]
 
 
@@ -1516,15 +1515,15 @@ winter. That's my policy.[A][X]
 
 
 ## MMB1_0xE0_BQ
-What?[NL]
-I'm waiting for my friends to find[A][NL]
+What?[N]
+I'm waiting for my friends to find[A][N]
 me here.[A][X]
 
 ## MMB1_0xE0_BD
 I lost?[A][X]
 
 ## MMB1_0xE1_BQ
-Did you come to explore the cave,[NL]
+Did you come to explore the cave,[N]
 too?[A][X]
 
 ## MMB1_0xE1_BD
@@ -1533,7 +1532,7 @@ I feel at home in here.[A][X]
 
 
 ## MMB1_0xE2_BQ
-What![NL]
+What![N]
 Don't sneak up on me![A][X]
 
 ## MMB1_0xE2_BD
@@ -1541,67 +1540,67 @@ My Pokémon won't do![A][X]
 
 
 ## MMB1_0xE3_BQ
-Wow! It's way bigger in here than[NL]
+Wow! It's way bigger in here than[N]
 I thought![A][X]
 
 ## MMB1_0xE3_BD
 Oh! I lost it! 
-How do you get out of here?[NL]
+How do you get out of here?[N]
 It's so big, I may get lost.[A][X]
 
 ## MMB1_0xE4_BQ
-WHOA![NL]
-You shocked me![A][NL]
+WHOA![N]
+You shocked me![A][N]
 ...Oh, you're just a kid![A][X]
 
 ## MMB1_0xE4_BD
-Wow![NL]
+Wow![N]
 Shocked again![A][X]
 
 ## MMB1_0xE5_BQ
-Suspicious men are in the cave.[NL]
+Suspicious men are in the cave.[N]
 What about you?[A][X]
 
 ## MMB1_0xE5_BD
-You got me![A][NL]
-I saw them![NL]
+You got me![A][N]
+I saw them![N]
 I'm sure they're from Team Rocket![A][X]
 
 
 
 
 ## MMB2_0xE0_BQ
-I came because I heard there are[NL]
+I came because I heard there are[N]
 some very rare fossils here.[A][X]
 
 ## MMB2_0xE0_BD
 I lost.[A][X]
 
 ## MMB2_0xE1_BQ
-This way's a dead end![NL]
-I just came back from it, so I know.[A][NL]
+This way's a dead end![N]
+I just came back from it, so I know.[A][N]
 Let's battle![A][X]
 
 ## MMB2_0xE1_BD
-You need to go through this cave[NL]
+You need to go through this cave[N]
 to get to Cerulean City.[A][X]
 
 
 
 
 ## MMB3_0xE0_BQ
-We, Team Rocket, shall find the[NL]
-fossils![A][NL]
-Reviving Pokémon from them will[NL]
+We, Team Rocket, shall find the[N]
+fossils![A][N]
+Reviving Pokémon from them will[N]
 earn us huge riches.[A][X]
 
 ## MMB3_0xE0_BD
-Urgh![NL]
+Urgh![N]
 Now I'm mad![A][X]
 
 ## MMB3_0xE1_BQ
-We, Team Rocket, are Pokémon[NL]
-gangsters![A][NL]
+We, Team Rocket, are Pokémon[N]
+gangsters![A][N]
 We strike fear with our strength![A][X]
 
 ## MMB3_0xE1_BD
@@ -1609,7 +1608,7 @@ I blew it![A][X]
 
 
 ## MMB3_0xE2_BQ
-We're pulling a big job here![NL]
+We're pulling a big job here![N]
 Get lost, kid.[A][X]
 
 ## MMB3_0xE2_BD
@@ -1617,8 +1616,8 @@ So, you are good...[A][X]
 
 
 ## MMB3_0xE3_BQ
-Little kids shouldn't be messing[NL]
-around with grown-ups![A][NL]
+Little kids shouldn't be messing[N]
+around with grown-ups![A][N]
 It could be bad news.[A][X]
 
 ## MMB3_0xE3_BD
@@ -1628,9 +1627,9 @@ I'm steamed![A][X]
 
 
 ## MMB3_0xE4_BQ
-“Hey, stop![A][NL]
-I found these fossils!”,[A][NL]
-I told them.[NL]
+“Hey, stop![A][N]
+I found these fossils!”,[A][N]
+I told them.[N]
 But they didn't listen...[A][X]
 
 ## MMB3_0xE4_BD
@@ -1651,7 +1650,7 @@ Blasting off again![A][X]
 
 
 ## R4_0xE0_BQ
-I came to MT. MOON in search of[NL]
+I came to MT. MOON in search of[N]
 new rock Pokémon.[A][X]
 
 ## R4_0xE0_BD
@@ -1659,25 +1658,25 @@ All I found was rocks...[A][X]
 
 
 ## GaryCeruleanChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Hey! It's whatsyourface![A][NL]
-I stomped you back[NL]
-in Viridian.[A][NL]
-[LoadGaryShrug]Hm? What are you[NL]
-blabbering about.[A][NL]
-[LoadGaryBattle]I have some steam[NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Hey! It's whatsyourface![A][N]
+I stomped you back[N]
+in Viridian.[A][N]
+[LoadGaryShrug]Hm? What are you[N]
+blabbering about.[A][N]
+[LoadGaryBattle]I have some steam[N]
 to blow off. Let's go![A][X]
 
 ## GaryCeruleanDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Tcch. I coulda won.[NL]
-These rules are dumb.[A][NL]
-I already beat Misty, y'kno.[A][NL]
-She didn't stand a chance[NL]
-against my team of Pikachu.[A][NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Tcch. I coulda won.[N]
+These rules are dumb.[A][N]
+I already beat Misty, y'kno.[A][N]
+She didn't stand a chance[N]
+against my team of Pikachu.[A][N]
 Smell ya later, loser.[A][X]
 
 
 ## NoCascadeBadgeText
-I'm on patrol for[NL]
+I'm on patrol for[N]
 Team Rocket.[A][X]
 
 
@@ -1688,7 +1687,7 @@ Cerulean Gym[A][X]
 Bicycle Shop[A][X]
 
 ## BicycleShopText
-Want to buy a Bicycle?[NL]
+Want to buy a Bicycle?[N]
 That'll be 1,000,000[Gold]![A][X]
 
 
@@ -1705,18 +1704,18 @@ candy you find on the ground.[A][N]
 It isn't healthy.[A][X]
 
 ## CeruleanCityWHouseText
-You're a Trainer, too?[A][NL]
-Collecting, battling...[NL]
+You're a Trainer, too?[A][N]
+Collecting, battling...[N]
 It's a tough life, isn't it?[A][X]
 	
 ## CeruleanCityNHouseText
-Sigh...[NL]
-Too much time, too little to do...[A][NL]
-Is nothing entertaining happening[NL]
+Sigh...[N]
+Too much time, too little to do...[A][N]
+Is nothing entertaining happening[N]
 anywhere?[A][X]
 
 ## CeruleanCitySHouseText
-Did you know that you can CUT down[NL]
+Did you know that you can CUT down[N]
 small trees with the right HM?[A][X]
 
 // 1 house is just door locked 
@@ -1726,7 +1725,7 @@ small trees with the right HM?[A][X]
 
 
 ## UNUSED_0xE1_BD
-Losing stinks![NL]
+Losing stinks![N]
 It's so uncool.[A][X]
 
 
@@ -1736,79 +1735,79 @@ It's so uncool.[A][X]
 
 
 ## R24_0xE0_BQ
-Here I come![NL]
+Here I come![N]
 I won't be easy![A][X]
 	
 ## R24_0xE0_BD
-Ow![NL]
+Ow![N]
 Stomped flat![A][X]
 	
 
 ## R24_0xE1_BQ	
-Okay! I'm ready![NL]
+Okay! I'm ready![N]
 I'll stomp you![A][X]
 
 ## R24_0xE1_BD
-Whoa![NL]
+Whoa![N]
 Too much![A][X]
 
 ## R24_0xE2_BQ
-By the way, how would you like to[NL]
-join Team Rocket?[A][NL]
-We're a group of professional[NL]
-criminals specializing in Pokémon![A][NL]
-Want to join?[A][NL]
-Are you sure?[A][NL]
-Come on, join us![A][NL]
-I'm telling you to join![A][NL]
-...Okay, you need convincing![A][NL]
-I'll make you an offer you can't[NL]
+By the way, how would you like to[N]
+join Team Rocket?[A][N]
+We're a group of professional[N]
+criminals specializing in Pokémon![A][N]
+Want to join?[A][N]
+Are you sure?[A][N]
+Come on, join us![A][N]
+I'm telling you to join![A][N]
+...Okay, you need convincing![A][N]
+I'll make you an offer you can't[N]
 refuse![A][X]
 
 ## R24_0xE2_BD
-Arrgh![NL]
+Arrgh![N]
 You are good![A][X]
 
 
 
 ## R25_0xE0_BQ
-Local trainers come here to[NL]
+Local trainers come here to[N]
 practice.[A][X]
 ## R25_0xE0_BD
 You're decent.[A][X]
 
 ## R25_0xE1_BQ
-I had this feeling...[NL]
+I had this feeling...[N]
 I knew I had to battle you![A][X]
 ## R25_0xE1_BD
 I knew I'd lose, too![A][X]
 
 ## R25_0xE3_BQ
-My friend has many cute Pokémon.[NL]
+My friend has many cute Pokémon.[N]
 I'm so jealous![A][X]
 ## R25_0xE3_BD
 I'm not so jealous![A][X]
 
 ## R25_0xE2_BQ
-I just got down from MT. MOON,[NL]
+I just got down from MT. MOON,[N]
 but I've still got gas in the tank![A][X]
 ## R25_0xE2_BD
-Drat![NL]
+Drat![N]
 A ZUBAT bit me back in that cave.[A][X]
 
 ## DaycareHouseText
 //Brock's Daycare service.[N]
 //Closed.[A][X]
-I run the DAY-CARE service.[A][NL]
-You'd like me to raise one of[NL]
+I run the DAY-CARE service.[A][N]
+You'd like me to raise one of[N]
 your Pokémon?[A][2NL]
-I can put you down on the wait list,[NL]
-but it's several months long...[A][NL]
+I can put you down on the wait list,[N]
+but it's several months long...[A][N]
 Sorry, but could you come back later?[A][X]
 
 
 ## UndergroundPassText
-After a long walk, you[NL]
+After a long walk, you[N]
 emerge at the other side.[A][X]
 
 
@@ -1854,7 +1853,7 @@ There aren't many bugs out here.[A][X]
 
 ## R6_0xE2_BD
 No![N]
-You're kidding![A][NL]
+You're kidding![A][N]
 I like bugs, so I'm going back to[N]
 Viridian Forest.[A][X]
 
@@ -1951,16 +1950,16 @@ You spark plug![A][X]
 
 
 ## SSA_0xE0_BQ
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Bonjour,[NL]
-[Tact]![A][NL]
-Imagine seeing you here![A][NL]
-Were you really invited?[NL]
-Tcch, no way.[A][NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Bonjour,[N]
+[Tact]![A][N]
+Imagine seeing you here![A][N]
+Were you really invited?[N]
+Tcch, no way.[A][N]
 How's your badge collection[N]
 coming along?[A][N]
 What? You haven't even[N]
 beaten Surge yet?[A][N]
-[LoadGaryPoint]Haha, some trainer you are.[A][NL]
+[LoadGaryPoint]Haha, some trainer you are.[A][N]
 How about your Pokédex?[N]
 I already caught 40 kinds, pal.[A][N]
 [LoadGaryBattle]I hope you can swim, 'cause I'm[N]
@@ -1968,7 +1967,7 @@ about to knock you overboard![A][X]
 
 ## SSA_0xE0_BD
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Humph![A][2NL]
-If I didn't waste time[NL]
+If I didn't waste time[N]
 catching so many, I woulda won.[A][X]
 
 
@@ -2013,14 +2012,14 @@ around Vermilion City?[A][X]
 
 
 ## CaptainTeachHMText
-You want to see my hidden CUT[NL]
-technique?[A][NL]
-Watch closely...[NL]
-...[A][NL]
-..[NL]
+You want to see my hidden CUT[N]
+technique?[A][N]
+Watch closely...[N]
+...[A][N]
+..[N]
 ....[A][2NL]
-Ho-haah![A][NL]
-..[NL]
+Ho-haah![A][N]
+..[N]
 ...[A][X]
 
 ## LearnedCutText
