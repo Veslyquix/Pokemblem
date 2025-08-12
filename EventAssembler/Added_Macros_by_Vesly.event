@@ -10,6 +10,8 @@
 #define QuickSave "ASMC 0x80B5D5D"
 #define RefreshSMS "ASMC 0x8026689" //SMS_Init - refresh SMS OBJ space in case we've exceeded because >16 'mons 
 
+#define FadeToBlack "CALL FadeToBlackEvent;" // if already faded, don't fade again 
+#define FadeFromBlack "CALL FadeFromBlackEvent;"
 
 // Text 
 #define TutText(text) "PauseFreeMovement; SVAL 0xB 0xFFFFFFFF; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Centered 

@@ -1157,7 +1157,7 @@ Pewter Gym.[N]
 Rock-type Pokémon.[A][X]
 
 ## BrockIntroText
-[OpenFarLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight]I believe in rock hard[N]
+[OpenMidRight][LoadBrock][OpenMidRight]I believe in rock hard[N]// no protag loaded because Brock moves to Vulpix
 defense and determination![A][N]
 That's why my Pokémon are[N]
 all the rock-type.[A][CloseSpeechSlow][LoadOverworldFaces][N]

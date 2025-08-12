@@ -44,10 +44,29 @@
 08039d10 .thumb
 */
 ALIGN 4 
+FadeToBlackEvent:
+CHECK_EVBIT 8 
+BNE 99 
+FADI 16 
+LABEL 99 
+// NoFade 
+ENDA 
+
+ALIGN 4 
+FadeFromBlackEvent:
+CHECK_EVBIT 7 
+BNE 99 
+FADU 16 
+LABEL 99 
+NoFade 
+ENDA 
+
+
+ALIGN 4 
 HandleProtag:
 DisableFreeMovement 
 SendAllTransporter(ProtagID)
-FADI 16 
+FadeToBlack 
 ASMC 0x8009261 //@ ap_clearall 
 ASMC 0x80053a5 //@ ClearSprites // maybe helpful? 
 DISA ProtagID 
