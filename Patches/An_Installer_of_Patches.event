@@ -19,7 +19,6 @@
 #include "bmidoten/Installer.event" // range stuff 
 #include "Boxes/Installer.event" 
 #include "Prebattle/Installer.event" 
-#include "bmudisp/Installer.event" 
 #include "SelectAvatarMenu/Installer.event" 
 
 #include "FreeMU/FreeMovement.event" // If defined, start cities in FreeMovement mode 

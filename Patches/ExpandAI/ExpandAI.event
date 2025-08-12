@@ -38,7 +38,7 @@ NewAI1Entry(31, TrainerSummonTeamAILabel)
 NewAI1Entry(32, MoveTowardsCommanderAILabel)
 NewAI1Entry(33, TrainerFleeSummonTeamAILabel)
 NewAI1Entry(34, GuidePlayerAILabel)
-
+NewAI2Entry(35, DoNothingAI1)
 
 // AI 2 list
 // Vanilla entries take up 0 - 18
@@ -58,7 +58,7 @@ NewAI2Entry(31, TrainerSummonTeamAILabel)
 NewAI2Entry(32, MoveTowardsCommanderAILabel)
 NewAI2Entry(33, TrainerFleeSummonTeamAILabel)
 NewAI2Entry(34, DoNothingAI2)
-
+NewAI2Entry(35, DoNothingAI2)
 /*
 To have AI1 do AI2 instead:
 ```
@@ -101,7 +101,7 @@ b Exit
 #define TrainerFleeAI [33, 3, 0, 0] 
 #define AttackIfWithin2 [0, 6] 
 #define GuidePlayerAI [34, 34, 0, 0]
-
+#define TrainerStandAI [31, 35, 0, 0] // works because TrainerMovementBane checks for 0x23 ai2 to set Mov to 0 
 
 ALIGN 4 
 TrainerAIListToDoAI2:
@@ -121,6 +121,11 @@ Routine_AI(TrainerFleeSummonTeamAIFunc, 0)
 Goto(0)
 ALIGN 32
 
+ALIGN 32
+TrainerStandSummonTeamAILabel:
+Routine_AI(TrainerSummonTeamAIFunc, 0)
+Goto(0)
+ALIGN 32
 
 ALIGN 32
 TrainerSummonTeamAILabel:

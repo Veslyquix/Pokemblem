@@ -1,7 +1,7 @@
 #include "gbafe.h"
 //! This file uses decomp-based headers
 // https://github.com/MokhaLeee/FE-CLib-Mokha
-
+#define brk asm("mov r11, r11");
 extern int gSMSSyncFlag;
 extern UnitIconWait unit_icon_wait_table[];
 extern struct SMSHandle gSMSHandleArray[100];
@@ -134,9 +134,9 @@ extern void * FMU_idleSMSGfxTable_up[0xFF];
 extern UnitIconWait unit_icon_wait_table[];
 #define GetInfo(id) (unit_icon_wait_table[(id) & ((1 << 7) - 1)])
 
-#define LVFACELEFT 2 // -> becomes 0 when calling HookUnitLoadForDirection
+#define LVFACEDOWN 0 // became 2 in HookUnitLoadForDirection previously
 #define LVFACERIGHT 1
-#define LVFACEDOWN 0 // becomes 2 in HookUnitLoadForDirection
+#define LVFACELEFT 2 // -> became 0 when calling HookUnitLoadForDirection
 #define LVFACEUP 3
 
 //
@@ -177,22 +177,22 @@ int UseUnitSprite(u32 id)
     {
         switch (dir)
         {
-            case MU_FACING_LEFT:
+            case LVFACELEFT: //
             {
                 data = FMU_idleSMSGfxTable_left[id];
                 break;
             } // down
-            case MU_FACING_RIGHT:
+            case LVFACERIGHT:
             {
                 data = FMU_idleSMSGfxTable_right[id];
                 break;
             }
-            case MU_FACING_DOWN:
+            case LVFACEDOWN:
             {
                 data = NewStandingMapSpriteTable[id].sheet;
                 break;
             }
-            case MU_FACING_UP:
+            case LVFACEUP:
             {
                 data = FMU_idleSMSGfxTable_up[id];
                 break;

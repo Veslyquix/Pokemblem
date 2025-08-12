@@ -1950,10 +1950,10 @@ You spark plug![A][X]
 
 
 ## SSA_0xE0_BQ
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Bonjour,[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight][ToggleSmile]Bonjour,[N]
 [Tact]![A][N]
 Imagine seeing you here![A][N]
-Were you really invited?[N]
+[OpenMidRight][LoadGaryShrug]Were you really invited?[N]
 Tcch, no way.[A][N]
 How's your badge collection[N]
 coming along?[A][N]

@@ -11,6 +11,12 @@ typedef int (*UsabilityFunc)(struct FMUProc*);
 
 #define LEDGE_JUMP 0x26 // terrain type 
 
+#define LVFACEDOWN 0 // became 2 in HookUnitLoadForDirection previously
+#define LVFACERIGHT 1
+#define LVFACELEFT 2 // -> became 0 when calling HookUnitLoadForDirection
+#define LVFACEUP 3
+
+
 extern struct Unit* GetUnitStructFromEventParameter(int id); 
 
 struct FMUProc {
@@ -142,6 +148,8 @@ extern void RunLocationEvents(int x, int y);
 
 
 /*------------- External --------------*/
+int MUToSMSDir(int dir); 
+int SMSToMUDir(int dir); 
 int FMU_GetUnitSMSId(Unit * unit); 
 bool FMU_CanUnitBeOnPos(Unit*, s8, s8, struct FMUProc*);
 void EnableFreeMovementASMC(void);

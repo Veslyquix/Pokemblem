@@ -56,7 +56,7 @@ bool FMU_CheckForIce(struct FMUProc * proc, int x, int y)
                 {
                     proc->usedIce = true;
                     proc->commandID = 0;
-                    proc->command[0] = proc->smsFacing;
+                    proc->command[0] = SMSToMUDir(proc->smsFacing);
                     proc->command[1] = 0xFF;
                     // proc->yield_move = true;
                     // proc->yield = true;
@@ -85,9 +85,9 @@ bool FMU_CheckForIce(struct FMUProc * proc, int x, int y)
 
 bool FMU_CheckForLedge(struct FMUProc * proc, int x, int y)
 {
-    if ((gMapTerrain[y][x] == LEDGE_JUMP) && (proc->smsFacing == MU_FACING_DOWN))
+    if ((gMapTerrain[y][x] == LEDGE_JUMP) && (SMSToMUDir(proc->smsFacing) == MU_FACING_DOWN))
     {
-        y += (proc->smsFacing == MU_FACING_DOWN);
+        y += (SMSToMUDir(proc->smsFacing) == MU_FACING_DOWN);
         if (FMU_CanUnitBeOnPos(gActiveUnit, x, y, proc))
         {
             if (!IsPosInvaild(x, y))

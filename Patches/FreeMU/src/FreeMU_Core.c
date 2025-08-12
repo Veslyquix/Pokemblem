@@ -391,7 +391,7 @@ void FMU_ResetMoveSpeed(void)
 }
 void FMU_ResetDirection(void)
 {
-    FreeMoveRam->dir = 2; // facing down
+    FreeMoveRam->dir = LVFACEDOWN; // facing down
 }
 
 u16 CountAvailableBlueUnits(void)
@@ -694,6 +694,7 @@ int FMU_HandleContinuedMovement(void)
     if (dir == MU_FACING_UP)
         y--;
 
+    dir = MUToSMSDir(dir);
     if (dir != proc->smsFacing)
     {
         proc->smsFacing = dir;
@@ -701,6 +702,7 @@ int FMU_HandleContinuedMovement(void)
         SetUnitFacing(gActiveUnit, dir);
         return (-1);
     }
+    dir = SMSToMUDir(dir);
 
     FMU_CheckForIce(proc, x, y);   // enables scripted movement
     FMU_CheckForLedge(proc, x, y); // enables scripted movement
@@ -812,25 +814,25 @@ int pFMU_MoveUnit(struct FMUProc * proc, u16 iKeyCur)
         if (iKeyCur & 0x10)
         {
             x++;
-            proc->smsFacing = MU_FACING_RIGHT;
+            proc->smsFacing = LVFACERIGHT;
             // mD[0] = MU_COMMAND_MOVE_RIGHT;
         }
         else if (iKeyCur & 0x20)
         {
             x--;
-            proc->smsFacing = MU_FACING_LEFT;
+            proc->smsFacing = LVFACELEFT;
             // mD[0] = MU_COMMAND_MOVE_LEFT;
         }
         else if (iKeyCur & 0x40)
         {
             y--;
-            proc->smsFacing = MU_FACING_UP;
+            proc->smsFacing = LVFACEUP;
             // mD[0] = MU_COMMAND_MOVE_UP;
         }
         else if (iKeyCur & 0x80)
         {
             y++;
-            proc->smsFacing = MU_FACING_DOWN;
+            proc->smsFacing = LVFACEDOWN;
             // mD[0] = MU_COMMAND_MOVE_DOWN;
         }
     }
@@ -845,11 +847,12 @@ int pFMU_MoveUnit(struct FMUProc * proc, u16 iKeyCur)
     }
     else
     {
+        facingCur = SMSToMUDir(facingCur);
         if (FMU_CheckForIce(proc, x, y))
         {
             return yield;
         }
-        if ((gMapTerrain[y][x] == LEDGE_JUMP) && (proc->smsFacing == MU_FACING_DOWN))
+        if ((gMapTerrain[y][x] == LEDGE_JUMP) && (SMSToMUDir(proc->smsFacing) == MU_FACING_DOWN))
         {
             // x += (facingCur == MU_FACING_RIGHT);
             // x -= (facingCur == MU_FACING_LEFT);
@@ -1258,7 +1261,7 @@ int BuildStraightLineRangeFromUnit(struct Unit * unit)
     {
         return result;
     }
-    int facing = GetUnitFacing(unit);
+    int facing = SMSToMUDir(GetUnitFacing(unit));
 
     int addX = 0;
     int addY = 0;
@@ -1365,7 +1368,7 @@ extern void SetMuFacing(struct MuProc * proc, int facing);
 // needed for surfing
 void FMU_SetMuSpecialSprite(struct MuProc * proc, Unit * unit, const u16 * pal)
 {
-    int facing = GetUnitFacing(unit);
+    int facing = SMSToMUDir(GetUnitFacing(unit));
     int jid = unit->pClassData->number;
     proc->sprite_anim->frameTimer = 0;
     proc->sprite_anim->frameInterval = 0;
@@ -1382,7 +1385,7 @@ void FMU_SetMuSpecialSprite(struct MuProc * proc, Unit * unit, const u16 * pal)
 
 void SetMuDefaultFacing(struct MuProc * proc)
 {
-    int facing = GetUnitFacing(proc->unit);
+    int facing = SMSToMUDir(GetUnitFacing(proc->unit));
     int id = proc->unit->pCharacterData->number;
 
     if (id < 0xE0 || id > 0xEF)
@@ -1393,6 +1396,57 @@ void SetMuDefaultFacing(struct MuProc * proc)
         }
     }
     SetMuFacing(proc, facing);
+}
+
+int MUToSMSDir(int dir)
+{
+    dir &= 3;
+    switch (dir)
+    {
+
+        case MU_FACING_DOWN:
+        {
+            return LVFACEDOWN;
+        }
+        case MU_FACING_UP:
+        {
+            return LVFACEUP;
+        }
+        case MU_FACING_LEFT:
+        {
+            return LVFACELEFT;
+        }
+        case MU_FACING_RIGHT:
+        {
+            return LVFACERIGHT;
+        }
+    }
+    return LVFACEDOWN;
+}
+int SMSToMUDir(int dir)
+{
+    dir &= 3;
+    switch (dir)
+    {
+
+        case LVFACEDOWN:
+        {
+            return MU_FACING_DOWN;
+        }
+        case LVFACEUP:
+        {
+            return MU_FACING_UP;
+        }
+        case LVFACELEFT:
+        {
+            return MU_FACING_LEFT;
+        }
+        case LVFACERIGHT:
+        {
+            return MU_FACING_RIGHT;
+        }
+    }
+    return MU_FACING_DOWN;
 }
 
 // u8 EWRAM_DATA gSMSGfxBuffer[3][8*0x20*0x20] = {};
@@ -1420,27 +1474,27 @@ void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 
     // I've had issue with using this at the same time as the map is being
     // updated, which also uses gGenericBuffer, so I moved it 0x1500 in.
-    if (facing == MU_FACING_LEFT && hasFacing)
+    if (facing == LVFACELEFT && hasFacing)
     {
         Decompress(FMU_idleSMSGfxTable_left[smsID] + srcOffs[0], gGenericBuffer2);
         // Decompress(FMU_idleSMSGfxTable_left[smsID]+srcOffs[0], gGenericBuffer);
         // Decompress(FMU_idleSMSGfxTable_left[smsID]+srcOffs[0], gGenericBuffer);
     }
 
-    if (facing == MU_FACING_RIGHT && hasFacing)
+    if (facing == LVFACERIGHT && hasFacing)
     {
         Decompress(FMU_idleSMSGfxTable_right[smsID] + srcOffs[0], gGenericBuffer2);
         // Decompress(FMU_idleSMSGfxTable_right[smsID]+srcOffs[0], gGenericBuffer);
         // Decompress(FMU_idleSMSGfxTable_right[smsID]+srcOffs[0], gGenericBuffer);
     }
-    if (facing == MU_FACING_UP && hasFacing)
+    if (facing == LVFACEUP && hasFacing)
     {
 
         Decompress(FMU_idleSMSGfxTable_up[smsID] + srcOffs[0], gGenericBuffer2);
         // Decompress(FMU_idleSMSGfxTable_up[smsID]+srcOffs[0], gGenericBuffer);
         // Decompress(FMU_idleSMSGfxTable_up[smsID]+srcOffs[0], gGenericBuffer);
     }
-    if (facing == MU_FACING_DOWN || !hasFacing)
+    if (facing == LVFACEDOWN || !hasFacing)
     {
 
         Decompress(NewStandingMapSpriteTable[smsID].pGraphics + srcOffs[0], gGenericBuffer2);
@@ -1512,7 +1566,7 @@ void UpdateSMSDir_All(void)
         }
 
         dir = GetUnitFacing(unit); // MU_FACING_DOWN
-        if (dir != MU_FACING_LEFT)
+        if (dir != LVFACEDOWN)
         {
             smsID = FMU_GetUnitSMSId(unit);
             UpdateSMSDir(unit, smsID, dir);

@@ -612,7 +612,7 @@ Write_Byte(9, YCoordNewArea)
 // ENUT MissingnoFlag
 //MNC2 CinnabarCh 
 //MNC2 VermilionCh
-MNC2 Route2SCh
+MNC2 CeruleanGymCh
 // MNC2 HallOfFameCh
 // MNC2 PalletCh
 // MNC2 LoreleiCh

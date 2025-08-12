@@ -103,14 +103,22 @@ bool FMUmisc_RunMapEvents(struct FMUProc * proc)
         LocEventType++;
     }
 
-    if (proc->smsFacing == 0)
+    if (proc->smsFacing == LVFACELEFT)
+    {
         x--;
-    else if (proc->smsFacing == 1)
+    }
+    else if (proc->smsFacing == LVFACERIGHT)
+    {
         x++;
-    else if (proc->smsFacing == 2)
+    }
+    else if (proc->smsFacing == LVFACEUP)
+    {
         y++;
-    else
+    }
+    else if (proc->smsFacing == LVFACEDOWN)
+    {
         y--;
+    }
 
     if (RunMapDoorEventTemplate(x, y))
         return 1;
@@ -148,19 +156,19 @@ bool FMU_RunTrapASMC(FMUProc * proc)
     int result = FMU_RunTrap(proc, trap, x, y);
     if (!result)
     {
-        if (proc->smsFacing == 0)
+        if (proc->smsFacing == LVFACELEFT)
         {
             x--;
         }
-        else if (proc->smsFacing == 1)
+        else if (proc->smsFacing == LVFACERIGHT)
         {
             x++;
         }
-        else if (proc->smsFacing == 2)
+        else if (proc->smsFacing == LVFACEUP)
         {
             y++;
         }
-        else
+        else if (proc->smsFacing == LVFACEDOWN)
         {
             y--;
         }
@@ -179,19 +187,19 @@ bool FMU_RunTrapASMC_Auto(FMUProc * proc)
     int result = FMU_RunTrap(proc, trapEff, x, y);
     if (!result)
     {
-        if (proc->smsFacing == 0)
+        if (proc->smsFacing == LVFACELEFT)
         {
             x--;
         }
-        else if (proc->smsFacing == 1)
+        else if (proc->smsFacing == LVFACERIGHT)
         {
             x++;
         }
-        else if (proc->smsFacing == 2)
+        else if (proc->smsFacing == LVFACEUP)
         {
             y++;
         }
-        else
+        else if (proc->smsFacing == LVFACEDOWN)
         {
             y--;
         }
@@ -250,14 +258,22 @@ bool FMUmisc_RunTalkEvents(struct FMUProc * proc)
     u8 y = gActiveUnit->yPos;
     u8 SubjectCharID = proc->FMUnit->pCharacterData->number;
 
-    if (proc->smsFacing == 0)
+    if (proc->smsFacing == LVFACELEFT)
+    {
         x--;
-    else if (proc->smsFacing == 1)
+    }
+    else if (proc->smsFacing == LVFACERIGHT)
+    {
         x++;
-    else if (proc->smsFacing == 2)
+    }
+    else if (proc->smsFacing == LVFACEUP)
+    {
         y++;
-    else
+    }
+    else if (proc->smsFacing == LVFACEDOWN)
+    {
         y--;
+    }
 
     if (IsPosInvaild(x, y))
     {
@@ -284,19 +300,19 @@ void ChangeTargetFacing(struct Unit * UnitTowards)
     int dirY = activeY - targetY;
     if (dirX > 0)
     { //
-        SetUnitFacingAndUpdateGfx(UnitTowards, MU_FACING_RIGHT);
+        SetUnitFacingAndUpdateGfx(UnitTowards, LVFACERIGHT);
     }
     if (dirX < 0)
     { //
-        SetUnitFacingAndUpdateGfx(UnitTowards, MU_FACING_LEFT);
+        SetUnitFacingAndUpdateGfx(UnitTowards, LVFACELEFT);
     }
     if (dirY > 0)
     { //
-        SetUnitFacingAndUpdateGfx(UnitTowards, MU_FACING_DOWN);
+        SetUnitFacingAndUpdateGfx(UnitTowards, LVFACEDOWN);
     }
     if (dirY < 0)
     { //
-        SetUnitFacingAndUpdateGfx(UnitTowards, MU_FACING_UP);
+        SetUnitFacingAndUpdateGfx(UnitTowards, LVFACEUP);
     }
 }
 

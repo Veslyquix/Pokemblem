@@ -72,10 +72,10 @@ cmp r1, #2
 beq FaceLeft 
 b StoreFace
 FaceDown: 
-mov r1, #2 
+@mov r1, #2 
 b StoreFace 
 FaceLeft: 
-mov r1, #0 
+@mov r1, #0 
 b StoreFace 
 
 StoreFace: 
