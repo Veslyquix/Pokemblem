@@ -142,14 +142,22 @@ bool FMU_OnButton_ViewStatusScreen(FMUProc * proc)
     struct Unit * unit = NULL;
     s8 x = gActiveUnit->xPos;
     s8 y = gActiveUnit->yPos;
-    if (proc->smsFacing == 0)
+    if (proc->smsFacing == LVFACELEFT)
+    {
         x--;
-    else if (proc->smsFacing == 1)
+    }
+    else if (proc->smsFacing == LVFACERIGHT)
+    {
         x++;
-    else if (proc->smsFacing == 2)
+    }
+    else if (proc->smsFacing == LVFACEDOWN)
+    {
         y++;
-    else
+    }
+    else if (proc->smsFacing == LVFACEUP)
+    {
         y--;
+    }
 
     int deploymentID = gMapUnit[y][x];
     if (deploymentID)

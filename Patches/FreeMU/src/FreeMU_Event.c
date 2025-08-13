@@ -111,11 +111,11 @@ bool FMUmisc_RunMapEvents(struct FMUProc * proc)
     {
         x++;
     }
-    else if (proc->smsFacing == LVFACEUP)
+    else if (proc->smsFacing == LVFACEDOWN)
     {
         y++;
     }
-    else if (proc->smsFacing == LVFACEDOWN)
+    else if (proc->smsFacing == LVFACEUP)
     {
         y--;
     }
@@ -164,11 +164,11 @@ bool FMU_RunTrapASMC(FMUProc * proc)
         {
             x++;
         }
-        else if (proc->smsFacing == LVFACEUP)
+        else if (proc->smsFacing == LVFACEDOWN)
         {
             y++;
         }
-        else if (proc->smsFacing == LVFACEDOWN)
+        else if (proc->smsFacing == LVFACEUP)
         {
             y--;
         }
@@ -195,11 +195,11 @@ bool FMU_RunTrapASMC_Auto(FMUProc * proc)
         {
             x++;
         }
-        else if (proc->smsFacing == LVFACEUP)
+        else if (proc->smsFacing == LVFACEDOWN)
         {
             y++;
         }
-        else if (proc->smsFacing == LVFACEDOWN)
+        else if (proc->smsFacing == LVFACEUP)
         {
             y--;
         }
@@ -266,11 +266,11 @@ bool FMUmisc_RunTalkEvents(struct FMUProc * proc)
     {
         x++;
     }
-    else if (proc->smsFacing == LVFACEUP)
+    else if (proc->smsFacing == LVFACEDOWN)
     {
         y++;
     }
-    else if (proc->smsFacing == LVFACEDOWN)
+    else if (proc->smsFacing == LVFACEUP)
     {
         y--;
     }
