@@ -9,9 +9,17 @@
 
 #include FreeMovementInternal.event
 
-#define EnableFreeMovement "ASMC EnableFreeMovementASMC"
-#define DisableFreeMovement "ASMC End6CInternal_FreeMU"
-#define PauseFreeMovement "ASMC PauseFreeMovementASMC" 
+ALIGN 4 
+MarshbadgeObtained_Link:
+WORD MarshbadgeObtained 
+// GirlProtagFlag_Link:
+// WORD GirlProtagFlag; 
+RedPokeballSMS_Link:
+BYTE RedPokeballSMS 
+SurfingClass_Link:
+BYTE RedSurfID
+SurfingClass2_Link:
+BYTE GreenSurfID
 
 ALIGN 4 
 EquippedAirBalloon_Link:

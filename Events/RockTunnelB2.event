@@ -82,15 +82,19 @@ NoFade
 ENDA 
 
 ToRockTunnelB1_NE:
+ENUT SkipChTransitionFlag
 ChapterTransition(RockTunnelB1Ch, 40,3)
 
 ToRockTunnelB1_NW:
+ENUT SkipChTransitionFlag
 ChapterTransition(RockTunnelB1Ch, 3,2)
 
 ToRockTunnelB1_Mid:
+ENUT SkipChTransitionFlag
 ChapterTransition(RockTunnelB1Ch, 19,11)
 
 ToRockTunnelB1_SE:
+ENUT SkipChTransitionFlag
 ChapterTransition(RockTunnelB1Ch, 40,23)
 
 

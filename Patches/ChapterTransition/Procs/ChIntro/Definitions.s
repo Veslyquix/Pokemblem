@@ -105,6 +105,9 @@
 .type   CheckFlag, function
 .set    CheckFlag, 0x08083DA9
 
+.global ClearFlag
+.type   ClearFlag, function
+.set    ClearFlag, 0x08083d95 
 
 @ RAM locations
 .global gpDISPCNTbuffer

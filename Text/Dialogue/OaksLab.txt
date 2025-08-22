@@ -4,11 +4,11 @@ Use the randomizer?[N]
 
 ## DebuggerOnText
 Debugger turned on using[N]
-L + Left + Up[A][X]
+[ToggleRed]L[ToggleRed] + [ToggleRed]LEFT[ToggleRed] + [ToggleRed]UP[ToggleRed].[A][X]
 
 ## DebuggerOffText
 Debugger turned off using[N]
-L + Left + Up[A][X]
+[ToggleRed]L[ToggleRed] + [ToggleRed]LEFT[ToggleRed] + [ToggleRed]UP[ToggleRed].[A][X]
 
 
 // missing: S Xₓ

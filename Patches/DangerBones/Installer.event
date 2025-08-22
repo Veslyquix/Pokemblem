@@ -127,6 +127,7 @@ SHORT $46c0
 
 #ifdef OVERWRITE_LIGHTRUNE_PAL
 ORG $59eec0
+gPal_DangerBones:
 BYTE $0d $36 $4d $12 $a9 $11 $12 $11 $ae $21 $56 $4e $54 $2e $b3 $11 $f2 $49 $a5 $14 $28 $21 $0b $49 $ab $49 $14 $21 $32 $0a $52 $4a
 //BYTE $90 $1D $0D $00 $18 $25 $DC $2D $0E $00 $F6 $00 $5F $36 $0C $00 $15 $00 $1C $00 $1F $00 $C7 $01 $5F $01 $50 $00 $1F $46 $08 $00
 ORG $1C068C

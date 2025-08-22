@@ -74,21 +74,27 @@ EscapeTileTerminator ; }
 
 
 ToCeruleanCaveB1_N:
+ENUT SkipChTransitionFlag
 ChapterTransition(CeruleanCaveB1Ch, 10,2)
 
 ToCeruleanCaveB1_NE:
+ENUT SkipChTransitionFlag
 ChapterTransition(CeruleanCaveB1Ch, 34,2)
 
 ToCeruleanCaveB1_NW:
+ENUT SkipChTransitionFlag
 ChapterTransition(CeruleanCaveB1Ch, 2,4)
 
 ToCeruleanCaveB1_SW:
+ENUT SkipChTransitionFlag
 ChapterTransition(CeruleanCaveB1Ch, 5,15)
 
 ToCeruleanCaveB1_M:
+ENUT SkipChTransitionFlag
 ChapterTransition(CeruleanCaveB1Ch, 24,11)
 
 ToCeruleanCaveB1_E:
+ENUT SkipChTransitionFlag
 ChapterTransition(CeruleanCaveB1Ch, 30,10)
 
 

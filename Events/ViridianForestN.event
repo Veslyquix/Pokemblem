@@ -80,9 +80,11 @@ ToRoute2N:
 ChapterTransition(Route2NCh, 6, 13)
 
 ToViridianForestS_A:
+ENUT SkipChTransitionFlag
 ChapterTransition(ViridianForestSCh, 41, 0)
 
 ToViridianForestS_B:
+ENUT SkipChTransitionFlag
 ChapterTransition(ViridianForestSCh, 35, 0)
 
 

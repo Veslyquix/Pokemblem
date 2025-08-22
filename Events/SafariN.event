@@ -86,6 +86,7 @@ ToSafariE:
 ChapterTransition(SafariECh, 1,4)
 
 ToSafariS:
+ENUT SkipChTransitionFlag
 ChapterTransition(SafariSCh, 20,1)
 
 ToSafariW_A:

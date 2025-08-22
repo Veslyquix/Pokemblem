@@ -74,6 +74,7 @@ ForcedChapterTransition(SilphCo4FCh, 23,19)
 
 
 ToSilphCo1F:
+ENUT SkipChTransitionFlag
 ChapterTransition(SilphCo1FCh, 32,2)
 ToSilphCo3F_Stairs:
 ChapterTransition(SilphCo3FCh, 30, 4)

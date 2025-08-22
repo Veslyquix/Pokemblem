@@ -4,6 +4,7 @@
 .thumb
 
 push  {r4-r7,r14}
+mov r4, r0 @ flag 
 mov   r5, r1
 
 
@@ -20,8 +21,8 @@ and   r3, r1
 strb  r3, [r2, #0x1]
 
 @ Check if flag is set
-ldr   r4, =CheckFlag
-bl    GOTO_R4
+ldr   r3, =CheckFlag
+bl    GOTO_R3
 cmp   r0, #0x0
 bne   L1
 
@@ -35,15 +36,21 @@ bne   L1
 
 @ Skip chapter intro
 L1:
+mov r0, r4 @flag 
+ldr r3, =ClearFlag 
+bl GOTO_R3 
+
 mov   r0, r5
 mov   r1, #0x1
-ldr   r4, =Goto6CLabel
-bl    GOTO_R4
+ldr   r3, =Goto6CLabel
+bl    GOTO_R3
 
 Return:
 mov   r0, #0x1
 pop   {r4-r7}
 pop   {r1}
 bx    r1
-GOTO_R4:
-bx    r4
+GOTO_R3:
+bx r3 
+.ltorg 
+

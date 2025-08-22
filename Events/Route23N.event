@@ -238,7 +238,7 @@ TDQ_TableTerminator ;}
 
 
 VeslyUnitGroup: // Self-insert time... 
-UNIT 0xED RedID 0x0 Level(0, Enemy, 1) [11,10]  0b 0x0	0x1 REDA11R10 [SevenRangeWep,0x0,0x0,0x0] TrainerAI  
+UNIT 0xED RedID 0x0 Level(0, Enemy, 1) [11,10]  0b 0x0	0x1 REDA11R10 [SevenRangeWep,0x0,0x0,0x0] TrainerStandAI  
 //UNIT GenericB	SquirtleID 0xE0 Level(0, Enemy, 1)   [9,30] 	0b	0x0 0x01 REDA9R30 [JellyDonut,0x0,0x0,0x0] PursueWithoutHeedAI 
 //UNIT GenericB	OnixID 0xE0 Level(0, Enemy, 1)   [9,30] 	0b	0x0 0x01 REDA9R30 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT // creator 

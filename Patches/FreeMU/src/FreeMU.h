@@ -2,7 +2,7 @@
 #include "gbafe.h"
 
 #define POKEMBLEM_VERSION
-
+#define brk asm("mov r11, r11"); 
 enum State {yield=0, no_yield=1};
 
 typedef struct FMUProc FMUProc;
@@ -10,6 +10,12 @@ typedef bool (*ButtonFunc) (struct FMUProc*);
 typedef int (*UsabilityFunc)(struct FMUProc*);
 
 #define LEDGE_JUMP 0x26 // terrain type 
+
+#define LVFACEDOWN 0 // became 2 in HookUnitLoadForDirection previously
+#define LVFACERIGHT 1
+#define LVFACELEFT 2 // -> became 0 when calling HookUnitLoadForDirection
+#define LVFACEUP 3
+
 
 extern struct Unit* GetUnitStructFromEventParameter(int id); 
 
@@ -43,7 +49,8 @@ struct FMUProc {
 	/* 4a */    u8 updateDangerZone; 
 	/* 4b */    u8 commandID; //scriptedMovement 
 	/* 4c */    u32 startTime; // hardcoded to this proc field in MU6Cfix
-	/* 50 */    u8 command[0x14]; //scriptedMovement 
+	/* 50 */    u8 command[0x13]; //scriptedMovement 
+    /* 63 */    u8 savedClass; 
 };
 
 struct MuCtr { 
@@ -120,6 +127,7 @@ struct FMURam {
 	u8 silent : 1; 
 	u8 use_dir : 1; 
 	u8 pause : 1; 
+    u8 onWater : 1; 
 };
 
 extern struct FMURam* FreeMoveRam; 
@@ -140,7 +148,10 @@ extern void RunLocationEvents(int x, int y);
 
 
 /*------------- External --------------*/
-bool FMU_CanUnitBeOnPos(Unit*, s8, s8);
+int MUToSMSDir(int dir); 
+int SMSToMUDir(int dir); 
+int FMU_GetUnitSMSId(Unit * unit); 
+bool FMU_CanUnitBeOnPos(Unit*, s8, s8, struct FMUProc*);
 void EnableFreeMovementASMC(void);
 void DisableFreeMovementASMC(void);
 u8 GetFreeMovementState(void);

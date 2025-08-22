@@ -116,7 +116,7 @@ EscapeTileTerminator ; }
 #endif 
 
 ToRoute21Water:
-ChapterTransition(Route21Ch, 8, 1)
+ChapterTransition(Route21Ch, 7, 2)
 
 ToRoute21EBush:
 ChapterTransition(Route21Ch, 11, 1)
@@ -151,6 +151,7 @@ ENDA
 ALIGN 32
 LocationBasedEvents:
 House(0,VisitHome,6,7) 
+House(0,VisitLab,16,13) 
 
 House(0,VisitGaryHouse,15,7) //gary's house 
 //House(0,VisitPokecenter,16,13) //oak's lab 
@@ -164,7 +165,132 @@ Seize(10,2)
 */
 END_MAIN
 
+
+PokedexRatingTextEvent: 
+MemSlotToString(s9) 
+TEXTSTART 
+TEXTSHOW (-1)
+TEXTEND 
+MemSlotToString(sA) 
+TEXTCONT 
+TEXTEND 
+TEXTCONT 
+TEXTEND 
+REMA 
+ENDA 
+
+RatePokedexEvent:
+ASMC CountSeenASMC 
+SADD s9 sC s0 
+ASMC CountCaughtASMC
+SADD sA sC s0 
+SVAL s1 150
+BGE 0 sA s1 
+SVAL s1 140 
+BGE 1 sA s1 
+SVAL s1 130 
+BGE 2 sA s1 
+SVAL s1 120 
+BGE 3 sA s1 
+SVAL s1 110 
+BGE 4 sA s1 
+SVAL s1 100 
+BGE 5 sA s1 
+SVAL s1 90 
+BGE 6 sA s1 
+SVAL s1 80 
+BGE 7 sA s1 
+SVAL s1 70 
+BGE 8 sA s1 
+SVAL s1 60 
+BGE 9 sA s1 
+SVAL s1 50 
+BGE 10 sA s1 
+SVAL s1 40 
+BGE 11 sA s1 
+SVAL s1 30 
+BGE 12 sA s1 
+SVAL s1 20 
+BGE 13 sA s1 
+SVAL s1 10 
+BGE 14 sA s1 
+SVAL s2 DexRating_Text_LessThan10
+
+GOTO 20 
+
+LABEL 0 // 150 / Complete dex 
+SVAL s2 DexRating_Text_Complete
+GOTO 20 
+LABEL 1 // 140 
+SVAL s2 DexRating_Text_LessThan150
+GOTO 20 
+LABEL 2 // 130 
+SVAL s2 DexRating_Text_LessThan140
+GOTO 20 
+LABEL 3 // 120 
+SVAL s2 DexRating_Text_LessThan130
+GOTO 20 
+LABEL 4 // 110 
+SVAL s2 DexRating_Text_LessThan120
+GOTO 20 
+LABEL 5 // 100 
+SVAL s2 DexRating_Text_LessThan110
+GOTO 20 
+LABEL 6 // 90 
+SVAL s2 DexRating_Text_LessThan100
+GOTO 20 
+LABEL 7 // 80 
+SVAL s2 DexRating_Text_LessThan90
+GOTO 20 
+LABEL 8 // 70 
+SVAL s2 DexRating_Text_LessThan80
+GOTO 20 
+LABEL 9 // 60 
+SVAL s2 DexRating_Text_LessThan70
+GOTO 20 
+LABEL 10 // 50 
+SVAL s2 DexRating_Text_LessThan60
+GOTO 20 
+LABEL 11 // 40 
+SVAL s2 DexRating_Text_LessThan50
+GOTO 20 
+LABEL 12 // 30 
+SVAL s2 DexRating_Text_LessThan40
+GOTO 20 
+LABEL 13 // 20 
+SVAL s2 DexRating_Text_LessThan30
+GOTO 20 
+LABEL 14 // 10 
+SVAL s2 DexRating_Text_LessThan20
+GOTO 20 
+
+
+
+
+LABEL 20 
+CALL PokedexRatingTextEvent
+GOTO 99 
+
+Text(EnterOaksLabText) // world awaits you 
+// FADI 16 
+// CLEAN 
+// Fade 
+LABEL 99 
+ENDA 
+
+VisitLab:
+// ASMC SeePokedex
+// ASMC FillPokedex
+EVBIT_MODIFY 4 
+SetBG(Pallet_Town_Professor_Oaks_Laboratory_BG)
+CALL RatePokedexEvent 
+// no NoFade so BG will be erased 
+ENDA 
+
+
+
 VisitHome:
+SetBG(Pallet_Ash_house_BG)
 CHECK_EVENTID CinnabarMomCallFlag
 BEQ 0 sC s0 
 CHECK_EVENTID MomGaveItemFlag 
@@ -229,7 +355,7 @@ Traps1:
 
 //BerryTree(10,4,5)
 
-EnterTrap(16,13, EnterOaksLabText) 
+// EnterTrap(16,13, EnterOaksLabText) 
 
 
 

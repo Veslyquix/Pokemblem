@@ -1,12 +1,27 @@
 
 .include "C:/devkitPro/FE-CLib/reference/FE8U-20190316.s"
+
+SET_FUNC SetMuDefaultFacing, 0x80786bd
+SET_FUNC MenuFrozenHelpBox, 0x804F581
+SET_FUNC VisitCommandEffect, 0x80230C1
+SET_FUNC TalkSelection_OnSelect, 0x8023d01
+SET_FUNC RefreshUnitSprites, 0x80271a1
+SET_FUNC GetUnitMu, 0x8079bb9 
+SET_FUNC GetMuAnimForJid, 0x8079589
+SET_FUNC GetMuImgBufById, 0x8079559
+SET_FUNC GetMuImg, 0x8079575 
+SET_FUNC SetMuFacing, 0x8078695
+SET_FUNC SetMuSpecialSprite, 0x8079b19
+SET_FUNC GetUnitSpritePalette, 0x8027169 
+SET_DATA gPal_MapSprite, 0x859ee20 
+@SET_FUNC FMU_GetUnitSMSId, 0x8017905
 SET_DATA gGenericBuffer2, 0x2021188 
 @SET_DATA PCBoxUnitsBuffer, 0x2026E30	// size: 0x2028	- normally used by debug printing
 SET_FUNC RemoveItemFromConvoy 0x80315cd
 SET_FUNC ProcFun_ResetCursorPosition, 0x801def1 
 SET_FUNC GetPlayerStartCursorPosition, 0x801DE31 
 SET_FUNC GetEnemyStartCursorPosition, 0x801de89 
-
+SET_FUNC CheckFlag, 0x8083da9
 SET_FUNC StatScreen_OnClose, 0x80888b5
 SET_DATA gProcScr_SSGlowyBlendCtrl, 0x8a00844
 SET_FUNC PhaseSwitchGfx_BreakIfNoUnits, 0x801F2AD

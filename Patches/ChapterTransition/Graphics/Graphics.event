@@ -10,4 +10,4 @@ VersusBG:
 #incbin "VersusBG/VersusBG.dmp"
 
 // Area BGs
-#include "AreaBG/AreaBG.event"
+// #include "AreaBG/AreaBG.event"

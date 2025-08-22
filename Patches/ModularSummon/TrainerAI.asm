@@ -331,6 +331,7 @@ push {r4-r5, lr}
 
 mov r4, r0 
 mov r5, r1 
+
 ldr r0, [r5] @ char 
 ldrb r0, [r0, #4] @ unit ID 
 ldr r1, =TrainerLowerRange
@@ -349,6 +350,18 @@ lsr r0, #16
 blh CheckEventId
 cmp r0, #1 
 bne Exit 
+
+mov r0, #0x44
+add r0, r5 @ unit AI2 byte 
+ldrb r0, [r0] 
+cmp r0, #0x23 
+bne ContinueStuff
+
+mov r4, #0 
+b Exit 
+ContinueStuff: 
+
+
 add r4, #3 
 lsr r4, #2 
 add r4, #1 @ only move 1/4 range + 1 

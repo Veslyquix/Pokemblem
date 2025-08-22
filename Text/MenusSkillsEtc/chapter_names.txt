@@ -105,7 +105,7 @@ Route 6[X]
 Vermilion City[X]
 
 
- ##VermilionGymChText ^
+ ##VermilionGymChText //^
 Vermilion Gym[X]
 
 
@@ -314,6 +314,24 @@ Victory Road[X]
 
 ## IndigoPlateauChText
 Indigo Plateau[X]
+
+## LoreleiChText
+VS Lorelei[X]
+
+## BrunoChText
+VS Bruno[X]
+
+## AgathaChText
+VS Agatha[X]
+
+## LanceChText
+VS Lance[X]
+
+## RivalChText
+VS Gary[X]
+
+## HallOfFameChText
+Hall of Fame[X]
 
 ## DebugChText
 Debug Room[X]

@@ -301,7 +301,7 @@ ENUT DebugPlaceUnitsFlagMenu
 
 
 ENUF SkipIntroFlag
-ENUT GirlProtagFlag
+// ENUT GirlProtagFlag
 SetTactName(VeslyName)
 ASMC SaveGameSeed
 
@@ -594,8 +594,8 @@ ENUT CannotEvolveFlag
 
 //ASMC FillPokedex // 3e2F4 
 //ASMC SeePokedex
-Write_Byte(5, XCoordNewArea)    // Placeholder chapter does not use this 
-Write_Byte(5, YCoordNewArea)  
+Write_Byte(8, XCoordNewArea)    // Placeholder chapter does not use this 
+Write_Byte(9, YCoordNewArea)  
 
 //Write_Byte(15, XCoordNewArea)    // Placeholder chapter does not use this 
 //Write_Byte(18, YCoordNewArea) 
@@ -612,8 +612,10 @@ Write_Byte(5, YCoordNewArea)
 // ENUT MissingnoFlag
 //MNC2 CinnabarCh 
 //MNC2 VermilionCh
+MNC2 CeruleanGymCh
 // MNC2 HallOfFameCh
-MNC2 PalletCh
+// MNC2 PalletCh
+// MNC2 LoreleiCh
 //SetUnitStatus(1, Exp, 99)
 //MNC2 CeruleanGymCh
 //MNC2 PewterGymCh

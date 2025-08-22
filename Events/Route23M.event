@@ -70,6 +70,7 @@ ToRoute23S:
 ChapterTransition(Route23SCh, 11, 1)
 
 ToRoute23N:
+ENUT SkipChTransitionFlag 
 ChapterTransition(Route23NCh, 5, 58)
 
 

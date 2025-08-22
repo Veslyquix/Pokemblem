@@ -242,8 +242,8 @@ MegaCharizardXID
 MegaBlastoiseID
 HealingTileClassID
 MissingnoID
-Unused71ID
-Unused72ID
+RedSurfID
+GreenSurfID
 Unused73ID
 Unused74ID
 Unused75ID

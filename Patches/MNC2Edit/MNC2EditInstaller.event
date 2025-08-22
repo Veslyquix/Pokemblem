@@ -53,9 +53,9 @@ ORG 0x9DEC
 
 
 
-ORG $17910 
-jumpToHack(PrepScreenShowPokeballSprites)
-
+ORG $17910 // from 8017904 T GetUnitSMSId 
+// jumpToHack(PrepScreenShowPokeballSprites)
+// now in FreeMU_Extra.c 
 
 POP
 

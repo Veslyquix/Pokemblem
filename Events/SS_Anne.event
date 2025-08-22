@@ -79,6 +79,7 @@ EscapeTileTerminator ; }
 #endif 
 
 ToSSAnneDocks:
+ENUT SkipChTransitionFlag
 CHECK_EVENTID PlayableCutsceneFlag 
 BNE 20 rC r0 
 ChapterTransition(SSAnneDocksCh, 21,14)
@@ -260,7 +261,7 @@ SHORT 800 // Gold
 TDQ_TableTerminator ; }
 
 GaryUnitGroup:
-UNIT 0xEF blueID 0x0 Level(LVFACELEFT, Enemy, 1) [27,17]  0b 0x0	0x0 0x0 [SevenRangeWep,0x0,0x0,0x0] TrainerAI
+UNIT 0xEF blueID 0x0 Level(LVFACELEFT, Enemy, 1) [27,17]  0b 0x0	0x0 0x0 [SevenRangeWep,0x0,0x0,0x0] TrainerStandAI
 UNIT 
 
 CaptainUnitGroup:

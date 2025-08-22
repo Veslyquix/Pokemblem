@@ -110,7 +110,7 @@ ENDA
 
 ALIGN 4
 LocationBasedEvents:
-House(0,VisitViridianPokecenter, 23,23)
+House(0,VisitViridianPokecenter, 23,25)
 House(0,ViridianUpperHouseEvent, 21,11)
 House(0x16, OldManHouseEvent, 21,18) 
 House(ViridianGymClosedFlag,EnterGym,30,10) 

@@ -2,182 +2,229 @@
 static bool RunMapDoorEventTemplate(s8, s8);
 static bool RunTalkEventTemplate(u8, s8, s8);
 
-void pFMU_RunMiscBasedEvents(struct FMUProc *proc) {
-  RunMiscBasedEvents(proc->xCur, proc->yCur);
-  return;
+void pFMU_RunMiscBasedEvents(struct FMUProc * proc)
+{
+    RunMiscBasedEvents(proc->xCur, proc->yCur);
+    return;
 }
 // ORG $271F8 SHORT $46C0 // make units not in the unit map still appear
 // maybe hook around here and check for FMU running
-void TryUnhideSteppedOnUnit(struct FMUProc *proc, int x, int y) {
-  struct Unit *unit;
-  for (int i = 1; i < 0xC0; i++) {
-    unit = GetUnit(i);
-    if (!UNIT_IS_VALID(unit)) {
-      continue;
-    }
-    if ((unit->xPos != x) || (unit->yPos != y)) {
-      continue;
-    }
-    if (unit == gActiveUnit) {
-      continue;
-    }
-    if (proc->commandID != 0xFF) {
-      continue;
-    }
-    // asm("mov r11, r11");
-    // gMapUnit[y][x] = unit->index;
+void TryUnhideSteppedOnUnit(struct FMUProc * proc, int x, int y)
+{
+    struct Unit * unit;
+    for (int i = 1; i < 0xC0; i++)
+    {
+        unit = GetUnit(i);
+        if (!UNIT_IS_VALID(unit))
+        {
+            continue;
+        }
+        if ((unit->xPos != x) || (unit->yPos != y))
+        {
+            continue;
+        }
+        if (unit == gActiveUnit)
+        {
+            continue;
+        }
+        if (proc->commandID != 0xFF)
+        {
+            continue;
+        }
+        // asm("mov r11, r11");
+        // gMapUnit[y][x] = unit->index;
 
-    // RefreshUnitsOnBmMap();
-    // SMS_UpdateFromGameData();
-    // unit->state &= ~US_HIDDEN;
-    proc->countdown = 10;
-    proc->yield = true;
+        // RefreshUnitsOnBmMap();
+        // SMS_UpdateFromGameData();
+        // unit->state &= ~US_HIDDEN;
+        proc->countdown = 10;
+        proc->yield = true;
 
-    // proc->commandID = 0;
-    // proc->command[0] = 0xFF;
+        // proc->commandID = 0;
+        // proc->command[0] = 0xFF;
 
-    proc->updateSMS = true;
-  }
+        proc->updateSMS = true;
+    }
 }
 extern void DepleteRepelByStep(void);
 
-int pFMU_RunLocBasedAsmcAuto(struct FMUProc *proc) {
-  int result = no_yield;
-  int x = gActiveUnit->xPos;
-  int y = gActiveUnit->yPos;
-  gActiveUnit->xPos = proc->xTo;
-  gActiveUnit->yPos = proc->yTo;
-  DepleteRepelByStep();
+int pFMU_RunLocBasedAsmcAuto(struct FMUProc * proc)
+{
+    int result = no_yield;
+    int x = gActiveUnit->xPos;
+    int y = gActiveUnit->yPos;
+    gActiveUnit->xPos = proc->xTo;
+    gActiveUnit->yPos = proc->yTo;
+    DepleteRepelByStep();
 
-  if (FMU_RunTrapASMC_Auto(proc)) {
-    result = yield;
-  }
-  // 8083aa4 T EvCheck0B_AREA directly uses
-  // gActiveUnit coordinates
-  else if (RunMiscBasedEvents(proc->xTo, proc->yTo)) {
-    result = yield;
-  }
-  gActiveUnit->xPos = x;
-  gActiveUnit->yPos = y;
-  return result;
+    if (FMU_RunTrapASMC_Auto(proc))
+    {
+        result = yield;
+    }
+    // 8083aa4 T EvCheck0B_AREA directly uses
+    // gActiveUnit coordinates
+    else if (RunMiscBasedEvents(proc->xTo, proc->yTo))
+    {
+        result = yield;
+    }
+    gActiveUnit->xPos = x;
+    gActiveUnit->yPos = y;
+    return result;
 }
 
-int pFMU_RunLocBasedAsmcAutoAndUpdateCoord(struct FMUProc *proc) {
-  proc->xCur = proc->xTo;
-  proc->yCur = proc->yTo;
-  gActiveUnit->xPos = proc->xCur;
-  gActiveUnit->yPos = proc->yCur;
-  return pFMU_RunLocBasedAsmcAuto(proc);
+int pFMU_RunLocBasedAsmcAutoAndUpdateCoord(struct FMUProc * proc)
+{
+    proc->xCur = proc->xTo;
+    proc->yCur = proc->yTo;
+    gActiveUnit->xPos = proc->xCur;
+    gActiveUnit->yPos = proc->yCur;
+    return pFMU_RunLocBasedAsmcAuto(proc);
 }
 
-bool FMUmisc_RunMapEvents(struct FMUProc *proc) {
-  s8 x = gActiveUnit->xPos;
-  s8 y = gActiveUnit->yPos;
-  u8 cLocEventID = GetLocationEventCommandAt(x, y);
-  u8 iMapID = gMapTerrain[y][x];
+bool FMUmisc_RunMapEvents(struct FMUProc * proc)
+{
+    s8 x = gActiveUnit->xPos;
+    s8 y = gActiveUnit->yPos;
+    u8 cLocEventID = GetLocationEventCommandAt(x, y);
+    u8 iMapID = gMapTerrain[y][x];
 
-  if ((x < 0) & (x > gMapSize.x) & (y < 0) & (y > gMapSize.y))
-    return 0;
+    if ((x < 0) & (x > gMapSize.x) & (y < 0) & (y > gMapSize.y))
+        return 0;
 
-  struct LocEventDef *LocEventType = &HookListFMU_LocationBasedEvent[0];
-  while (0 < LocEventType->LocID) {
-    if (LocEventType->LocID == cLocEventID)
-      if ((0 == LocEventType->TrapID) | (LocEventType->TrapID == iMapID)) {
-        RunLocationEvents(x, y);
+    struct LocEventDef * LocEventType = &HookListFMU_LocationBasedEvent[0];
+    while (0 < LocEventType->LocID)
+    {
+        if (LocEventType->LocID == cLocEventID)
+            if ((0 == LocEventType->TrapID) | (LocEventType->TrapID == iMapID))
+            {
+                RunLocationEvents(x, y);
+                return 1;
+            }
+        LocEventType++;
+    }
+
+    if (proc->smsFacing == LVFACELEFT)
+    {
+        x--;
+    }
+    else if (proc->smsFacing == LVFACERIGHT)
+    {
+        x++;
+    }
+    else if (proc->smsFacing == LVFACEDOWN)
+    {
+        y++;
+    }
+    else if (proc->smsFacing == LVFACEUP)
+    {
+        y--;
+    }
+
+    if (RunMapDoorEventTemplate(x, y))
         return 1;
-      }
-    LocEventType++;
-  }
-
-  if (proc->smsFacing == 0)
-    x--;
-  else if (proc->smsFacing == 1)
-    x++;
-  else if (proc->smsFacing == 2)
-    y++;
-  else
-    y--;
-
-  if (RunMapDoorEventTemplate(x, y))
-    return 1;
-  return 0;
-}
-
-static bool RunMapDoorEventTemplate(s8 x, s8 y) {
-  u8 cLocEventID = GetLocationEventCommandAt(x, y);
-  u8 iMapID = gMapTerrain[y][x];
-  if ((x < 0) & (x > gMapSize.x) & (y < 0) & (y > gMapSize.y))
     return 0;
-
-  struct LocEventDef *LocEventType = &HookListFMU_LocationBasedEventDoor[0];
-  while (0 < LocEventType->LocID) {
-    if (LocEventType->LocID == cLocEventID)
-      if ((0 == LocEventType->TrapID) | (LocEventType->TrapID == iMapID)) {
-        RunLocationEvents(x, y);
-        return 1;
-      }
-    LocEventType++;
-  }
-
-  return 0;
 }
 
-bool FMU_RunTrapASMC(FMUProc *proc) {
-  struct FMUTrapDef *trap = &HookListFMU_TrapTable_PressA_Auto[0];
-  int x = gActiveUnit->xPos;
-  int y = gActiveUnit->yPos;
+static bool RunMapDoorEventTemplate(s8 x, s8 y)
+{
+    u8 cLocEventID = GetLocationEventCommandAt(x, y);
+    u8 iMapID = gMapTerrain[y][x];
+    if ((x < 0) & (x > gMapSize.x) & (y < 0) & (y > gMapSize.y))
+        return 0;
 
-  int result = FMU_RunTrap(proc, trap, x, y);
-  if (!result) {
-    if (proc->smsFacing == 0) {
-      x--;
-    } else if (proc->smsFacing == 1) {
-      x++;
-    } else if (proc->smsFacing == 2) {
-      y++;
-    } else {
-      y--;
+    struct LocEventDef * LocEventType = &HookListFMU_LocationBasedEventDoor[0];
+    while (0 < LocEventType->LocID)
+    {
+        if (LocEventType->LocID == cLocEventID)
+            if ((0 == LocEventType->TrapID) | (LocEventType->TrapID == iMapID))
+            {
+                RunLocationEvents(x, y);
+                return 1;
+            }
+        LocEventType++;
     }
-    trap = &HookListFMU_TrapTable_PressA_Adjacent[0];
-    result = FMU_RunTrap(proc, trap, x, y);
-  }
-  return result;
+
+    return 0;
 }
 
-bool FMU_RunTrapASMC_Auto(FMUProc *proc) {
-  struct FMUTrapDef *trapEff = &HookListFMU_TrapTable_Auto_On[0];
-  int x = gActiveUnit->xPos;
-  int y = gActiveUnit->yPos;
+bool FMU_RunTrapASMC(FMUProc * proc)
+{
+    struct FMUTrapDef * trap = &HookListFMU_TrapTable_PressA_Auto[0];
+    int x = gActiveUnit->xPos;
+    int y = gActiveUnit->yPos;
 
-  int result = FMU_RunTrap(proc, trapEff, x, y);
-  if (!result) {
-    if (proc->smsFacing == 0) {
-      x--;
-    } else if (proc->smsFacing == 1) {
-      x++;
-    } else if (proc->smsFacing == 2) {
-      y++;
-    } else {
-      y--;
+    int result = FMU_RunTrap(proc, trap, x, y);
+    if (!result)
+    {
+        if (proc->smsFacing == LVFACELEFT)
+        {
+            x--;
+        }
+        else if (proc->smsFacing == LVFACERIGHT)
+        {
+            x++;
+        }
+        else if (proc->smsFacing == LVFACEDOWN)
+        {
+            y++;
+        }
+        else if (proc->smsFacing == LVFACEUP)
+        {
+            y--;
+        }
+        trap = &HookListFMU_TrapTable_PressA_Adjacent[0];
+        result = FMU_RunTrap(proc, trap, x, y);
     }
-    trapEff = &HookListFMU_TrapTable_Auto_Adjacent[0];
-    result = FMU_RunTrap(proc, trapEff, x, y);
-  }
-  return result;
+    return result;
 }
 
-bool FMU_RunTrap(FMUProc *proc, struct FMUTrapDef *trapEff, int x, int y) {
+bool FMU_RunTrapASMC_Auto(FMUProc * proc)
+{
+    struct FMUTrapDef * trapEff = &HookListFMU_TrapTable_Auto_On[0];
+    int x = gActiveUnit->xPos;
+    int y = gActiveUnit->yPos;
 
-  struct Trap *trap = GetTrapAt(x, y);
-  if (trap) {
-    if (trapEff[trap->type].Usab) {
-      if ((trapEff[trap->type].Usab)(proc) != 3) { // returns 3 if false
-        (trapEff[trap->type].Func)(proc);
-        return true;
-      }
+    int result = FMU_RunTrap(proc, trapEff, x, y);
+    if (!result)
+    {
+        if (proc->smsFacing == LVFACELEFT)
+        {
+            x--;
+        }
+        else if (proc->smsFacing == LVFACERIGHT)
+        {
+            x++;
+        }
+        else if (proc->smsFacing == LVFACEDOWN)
+        {
+            y++;
+        }
+        else if (proc->smsFacing == LVFACEUP)
+        {
+            y--;
+        }
+        trapEff = &HookListFMU_TrapTable_Auto_Adjacent[0];
+        result = FMU_RunTrap(proc, trapEff, x, y);
     }
-  }
-  return false;
+    return result;
+}
+
+bool FMU_RunTrap(FMUProc * proc, struct FMUTrapDef * trapEff, int x, int y)
+{
+
+    struct Trap * trap = GetTrapAt(x, y);
+    if (trap)
+    {
+        if (trapEff[trap->type].Usab)
+        {
+            if ((trapEff[trap->type].Usab)(proc) != 3)
+            { // returns 3 if false
+                (trapEff[trap->type].Func)(proc);
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 /*
@@ -205,77 +252,148 @@ return 0;
 }
 */
 
-bool FMUmisc_RunTalkEvents(struct FMUProc *proc) {
-  u8 x = gActiveUnit->xPos;
-  u8 y = gActiveUnit->yPos;
-  u8 SubjectCharID = proc->FMUnit->pCharacterData->number;
+bool FMUmisc_RunTalkEvents(struct FMUProc * proc)
+{
+    u8 x = gActiveUnit->xPos;
+    u8 y = gActiveUnit->yPos;
+    u8 SubjectCharID = proc->FMUnit->pCharacterData->number;
 
-  if (proc->smsFacing == 0)
-    x--;
-  else if (proc->smsFacing == 1)
-    x++;
-  else if (proc->smsFacing == 2)
-    y++;
-  else
-    y--;
-
-  if (IsPosInvaild(x, y)) {
-    return 0;
-  }
-  u8 targetDeployID = gMapUnit[y][x];
-  if (targetDeployID)
-    gActionData.targetIndex = targetDeployID;
-
-  if (RunTalkEventTemplate(SubjectCharID, x, y))
-    return 1;
-
-  return 0;
-}
-
-void ChangeTargetFacing(struct Unit *UnitTowards) {
-  int activeX = gActiveUnit->xPos;
-  int activeY = gActiveUnit->yPos;
-  int targetX = UnitTowards->xPos;
-  int targetY = UnitTowards->yPos;
-
-  int dirX = activeX - targetX;
-  int dirY = activeY - targetY;
-  if (dirX > 0) { //
-    SetUnitFacingAndUpdateGfx(UnitTowards, MU_FACING_RIGHT);
-  }
-  if (dirX < 0) { //
-    SetUnitFacingAndUpdateGfx(UnitTowards, MU_FACING_LEFT);
-  }
-  if (dirY > 0) { //
-    SetUnitFacingAndUpdateGfx(UnitTowards, MU_FACING_DOWN);
-  }
-  if (dirY < 0) { //
-    SetUnitFacingAndUpdateGfx(UnitTowards, MU_FACING_UP);
-  }
-}
-
-static bool RunTalkEventTemplate(u8 SubjectCharID, s8 x, s8 y) {
-  if ((x < 0) & (x > gMapSize.x) & (y < 0) & (y > gMapSize.y))
-    return 0;
-  if (0 == gMapUnit[y][x])
-    return 0;
-
-  Unit *UnitTowards = GetUnit(gMapUnit[y][x]);
-  u8 TargetCharID = UnitTowards->pCharacterData->number;
-  if (CheckForCharacterEvents(SubjectCharID, TargetCharID)) {
-    ChangeTargetFacing(UnitTowards);
-
-    if (!GetUnitEquippedWeapon(UnitTowards)) {
-      RunCharacterEvents(SubjectCharID, TargetCharID);
-      return 1;
-    } // can't talk to someone with a weapon
-    else {
-      // FMU_EnableDR();
-      struct FMUProc *proc =
-          (struct FMUProc *)ProcFind(FreeMovementControlProc);
-      proc->end_after_movement = true;
-      return 1;
+    if (proc->smsFacing == LVFACELEFT)
+    {
+        x--;
     }
-  }
-  return 0;
+    else if (proc->smsFacing == LVFACERIGHT)
+    {
+        x++;
+    }
+    else if (proc->smsFacing == LVFACEDOWN)
+    {
+        y++;
+    }
+    else if (proc->smsFacing == LVFACEUP)
+    {
+        y--;
+    }
+
+    if (IsPosInvaild(x, y))
+    {
+        return 0;
+    }
+    u8 targetDeployID = gMapUnit[y][x];
+    if (targetDeployID)
+        gActionData.targetIndex = targetDeployID;
+
+    if (RunTalkEventTemplate(SubjectCharID, x, y))
+        return 1;
+
+    return 0;
+}
+
+void ChangeTargetFacing(struct Unit * UnitTowards)
+{
+    int activeX = gActiveUnit->xPos;
+    int activeY = gActiveUnit->yPos;
+    int targetX = UnitTowards->xPos;
+    int targetY = UnitTowards->yPos;
+
+    int dirX = activeX - targetX;
+    int dirY = activeY - targetY;
+    if (dirX > 0)
+    { //
+        SetUnitFacingAndUpdateGfx(UnitTowards, LVFACERIGHT);
+    }
+    if (dirX < 0)
+    { //
+        SetUnitFacingAndUpdateGfx(UnitTowards, LVFACELEFT);
+    }
+    if (dirY > 0)
+    { //
+        SetUnitFacingAndUpdateGfx(UnitTowards, LVFACEDOWN);
+    }
+    if (dirY < 0)
+    { //
+        SetUnitFacingAndUpdateGfx(UnitTowards, LVFACEUP);
+    }
+}
+
+static bool RunTalkEventTemplate(u8 SubjectCharID, s8 x, s8 y)
+{
+    if ((x < 0) & (x > gMapSize.x) & (y < 0) & (y > gMapSize.y))
+        return 0;
+    if (0 == gMapUnit[y][x])
+        return 0;
+
+    Unit * UnitTowards = GetUnit(gMapUnit[y][x]);
+    u8 TargetCharID = UnitTowards->pCharacterData->number;
+    if (CheckForCharacterEvents(SubjectCharID, TargetCharID))
+    {
+        ChangeTargetFacing(UnitTowards);
+
+        if (!GetUnitEquippedWeapon(UnitTowards))
+        {
+            RunCharacterEvents(SubjectCharID, TargetCharID);
+            return 1;
+        } // can't talk to someone with a weapon
+        else
+        {
+            // FMU_EnableDR();
+            struct FMUProc * proc = (struct FMUProc *)ProcFind(FreeMovementControlProc);
+            proc->end_after_movement = true;
+            return 1;
+        }
+    }
+    return 0;
+}
+
+enum
+{
+    // Menu action bits
+
+    MENU_ACT_SKIPCURSOR = (1 << 0),
+    MENU_ACT_END = (1 << 1),
+    MENU_ACT_SND6A = (1 << 2),
+    MENU_ACT_SND6B = (1 << 3),
+    MENU_ACT_CLEAR = (1 << 4),
+    MENU_ACT_ENDFACE = (1 << 5),
+    MENU_ACT_UNUSED6 = (1 << 6),
+    MENU_ACT_DOOM = (1 << 7),
+};
+struct SelectTarget
+{
+    /* 00 */ s8 x, y;
+    /* 02 */ s8 uid;
+    /* 03 */ s8 extra;
+
+    /* 04 */ struct SelectTarget * next;
+    /* 08 */ struct SelectTarget * prev;
+};
+u8 TalkSelection_OnSelect(Proc * proc, struct SelectTarget * target)
+{
+
+    gActionData.unitActionType = UNIT_ACTION_TALK;
+    gActionData.targetIndex = target->uid;
+    struct FMUProc * FMUproc = (FMUProc *)ProcFind(FreeMovementControlProc);
+    if (FMUproc)
+    {
+        FMUmisc_RunTalkEvents(FMUproc);
+    }
+    return MENU_ACT_SKIPCURSOR | MENU_ACT_END | MENU_ACT_SND6A | MENU_ACT_CLEAR;
+}
+
+extern u8 MenuFrozenHelpBox(struct MenuProc * proc, int msgid);
+u8 VisitCommandEffect(struct MenuProc * menu, struct MenuItemProc * menuItem)
+{
+    if (menuItem->availability == 3)
+    {
+        MenuFrozenHelpBox(menu, 0x84C); // TODO: msgid "You can't visit villages or[.][NL]houses while Silenced."
+        return MENU_ACT_SND6B;
+    }
+
+    gActionData.unitActionType = UNIT_ACTION_VISIT;
+    struct FMUProc * FMUproc = (FMUProc *)ProcFind(FreeMovementControlProc);
+    if (FMUproc)
+    {
+        FMUmisc_RunMapEvents(FMUproc);
+    }
+    return MENU_ACT_SKIPCURSOR | MENU_ACT_END | MENU_ACT_SND6A | MENU_ACT_CLEAR;
 }

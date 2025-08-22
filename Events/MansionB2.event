@@ -93,6 +93,7 @@ EscapeTileEntry(35,22)
 EscapeTileTerminator ; } 
 #endif 
 ToB1:
+ENUT SkipChTransitionFlag
 ChapterTransition(MansionB1Ch, 9, 13)
 
 ToB3_N:

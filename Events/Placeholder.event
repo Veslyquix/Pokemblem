@@ -312,7 +312,6 @@ UNIT
 
 BeginningScene:
 
-ENUF SkipIntroFlag
 //ENUT 0xAC // Fast Movement 
 //ENUT 0xAB 
 

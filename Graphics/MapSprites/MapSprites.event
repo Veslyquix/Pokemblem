@@ -43,6 +43,7 @@ FMU_left_gfx_entry(fisherSMS, FMU_left_fisherIdles)
 FMU_left_gfx_entry(gentlemanSMS, FMU_left_gentlemanIdles) 
 FMU_left_gfx_entry(giovanniSMS, FMU_left_giovanniIdles) 
 FMU_left_gfx_entry(GreenSMS, FMU_left_greenIdles) 
+FMU_left_gfx_entry(GreenSurfSMS, FMU_left_surf_greenIdles) 
 FMU_left_gfx_entry(hikerSMS, FMU_left_hikerIdles) 
 FMU_left_gfx_entry(KogaSMS, FMU_left_kogaIdles) 
 FMU_left_gfx_entry(LanceSMS, FMU_left_lanceIdles) 
@@ -59,6 +60,7 @@ FMU_left_gfx_entry(policemanSMS, FMU_left_policemanIdles)
 FMU_left_gfx_entry(prof_oakSMS, FMU_left_prof_oakIdles) 
 FMU_left_gfx_entry(ReceptionistSMS, FMU_left_receptionistIdles) 
 FMU_left_gfx_entry(RedSMS, FMU_left_redIdles) 
+FMU_left_gfx_entry(RedSurfSMS, FMU_left_surf_redIdles) 
 FMU_left_gfx_entry(rockerSMS, FMU_left_rockerIdles) 
 FMU_left_gfx_entry(rocket_fSMS, FMU_left_rocket_fIdles) 
 FMU_left_gfx_entry(rocket_mSMS, FMU_left_rocket_mIdles) 
@@ -94,6 +96,7 @@ FMU_right_gfx_entry(fisherSMS, FMU_right_fisherIdles)
 FMU_right_gfx_entry(gentlemanSMS, FMU_right_gentlemanIdles) 
 FMU_right_gfx_entry(giovanniSMS, FMU_right_giovanniIdles) 
 FMU_right_gfx_entry(GreenSMS, FMU_right_greenIdles) 
+FMU_right_gfx_entry(GreenSurfSMS, FMU_right_surf_greenIdles) 
 FMU_right_gfx_entry(hikerSMS, FMU_right_hikerIdles) 
 FMU_right_gfx_entry(KogaSMS, FMU_right_kogaIdles) 
 FMU_right_gfx_entry(LanceSMS, FMU_right_lanceIdles) 
@@ -110,6 +113,7 @@ FMU_right_gfx_entry(policemanSMS, FMU_right_policemanIdles)
 FMU_right_gfx_entry(prof_oakSMS, FMU_right_prof_oakIdles) 
 FMU_right_gfx_entry(ReceptionistSMS, FMU_right_receptionistIdles) 
 FMU_right_gfx_entry(RedSMS, FMU_right_redIdles) 
+FMU_right_gfx_entry(RedSurfSMS, FMU_right_surf_redIdles) 
 FMU_right_gfx_entry(rockerSMS, FMU_right_rockerIdles) 
 FMU_right_gfx_entry(rocket_fSMS, FMU_right_rocket_fIdles) 
 FMU_right_gfx_entry(rocket_mSMS, FMU_right_rocket_mIdles) 
@@ -145,6 +149,7 @@ FMU_up_gfx_entry(fisherSMS, FMU_up_fisherIdles)
 FMU_up_gfx_entry(gentlemanSMS, FMU_up_gentlemanIdles) 
 FMU_up_gfx_entry(giovanniSMS, FMU_up_giovanniIdles) 
 FMU_up_gfx_entry(GreenSMS, FMU_up_greenIdles) 
+FMU_up_gfx_entry(GreenSurfSMS, FMU_up_surf_greenIdles) 
 FMU_up_gfx_entry(hikerSMS, FMU_up_hikerIdles) 
 FMU_up_gfx_entry(KogaSMS, FMU_up_kogaIdles) 
 FMU_up_gfx_entry(LanceSMS, FMU_up_lanceIdles) 
@@ -161,6 +166,7 @@ FMU_up_gfx_entry(policemanSMS, FMU_up_policemanIdles)
 FMU_up_gfx_entry(prof_oakSMS, FMU_up_prof_oakIdles) 
 FMU_up_gfx_entry(ReceptionistSMS, FMU_up_receptionistIdles) 
 FMU_up_gfx_entry(RedSMS, FMU_up_redIdles) 
+FMU_up_gfx_entry(RedSurfSMS, FMU_up_surf_redIdles) 
 FMU_up_gfx_entry(rockerSMS, FMU_up_rockerIdles) 
 FMU_up_gfx_entry(rocket_fSMS, FMU_up_rocket_fIdles) 
 FMU_up_gfx_entry(rocket_mSMS, FMU_up_rocket_mIdles) 
@@ -222,6 +228,8 @@ ALIGN 4; FMU_left_giovanniIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_giovanni.dmp"
 ALIGN 4; FMU_left_greenIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_green.dmp"
+ALIGN 4; FMU_left_surf_greenIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_left_green_surf.dmp"
 ALIGN 4; FMU_left_hikerIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_hiker.dmp"
 ALIGN 4; FMU_left_kogaIdles:
@@ -254,6 +262,8 @@ ALIGN 4; FMU_left_receptionistIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_receptionist.dmp"
 ALIGN 4; FMU_left_redIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_red_normal.dmp"
+ALIGN 4; FMU_left_surf_redIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_left_red_surf.dmp"
 ALIGN 4; FMU_left_rockerIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_rocker.dmp"
 ALIGN 4; FMU_left_rocket_fIdles:
@@ -324,6 +334,8 @@ ALIGN 4; FMU_right_giovanniIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_giovanni.dmp"
 ALIGN 4; FMU_right_greenIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_green.dmp"
+ALIGN 4; FMU_right_surf_greenIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_right_green_surf.dmp"
 ALIGN 4; FMU_right_hikerIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_hiker.dmp"
 ALIGN 4; FMU_right_kogaIdles:
@@ -356,6 +368,8 @@ ALIGN 4; FMU_right_receptionistIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_receptionist.dmp"
 ALIGN 4; FMU_right_redIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_red_normal.dmp"
+ALIGN 4; FMU_right_surf_redIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_right_red_surf.dmp"
 ALIGN 4; FMU_right_rockerIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_rocker.dmp"
 ALIGN 4; FMU_right_rocket_fIdles:
@@ -426,6 +440,8 @@ ALIGN 4; FMU_up_giovanniIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_giovanni.dmp"
 ALIGN 4; FMU_up_greenIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_green.dmp"
+ALIGN 4; FMU_up_surf_greenIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_up_green_surf.dmp"
 ALIGN 4; FMU_up_hikerIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_hiker.dmp"
 ALIGN 4; FMU_up_kogaIdles:
@@ -458,6 +474,8 @@ ALIGN 4; FMU_up_receptionistIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_receptionist.dmp"
 ALIGN 4; FMU_up_redIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_red_normal.dmp"
+ALIGN 4; FMU_up_surf_redIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_up_red_surf.dmp"
 ALIGN 4; FMU_up_rockerIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_rocker.dmp"
 ALIGN 4; FMU_up_rocket_fIdles:
@@ -557,6 +575,7 @@ SetSMS(PidgeotSMS , 2 ,   m18Standing)
 SetSMS(SuspiciousWaterSMS, 0 ,  SuspiciousWaterStanding) // Treeko ? 
 SetSMS(KabutopsSkeletonSMS, 2 ,  CrobatStanding)
 SetSMS(RedSMS , 1 ,  red_normalStanding)
+SetSMS(RedSurfSMS , 2 ,  red_surf_normalStanding)
 SetSMS(TeleporterSMS , 0 ,  TeleporterStanding)
 SetSMS(RattataSMS , 2 ,    m19Standing) 
 SetSMS(RaticateSMS , 2 ,    m20Standing) 
@@ -651,6 +670,7 @@ SetSMS(RockSmashSMS , 0 ,  RockSmashStanding)
 SetSMS(StrengthBoulderSMS , 0 , StrengthBoulderStanding )
 SetSMS(GorgonEgg2SMS , 2 ,   m1Standing)
 SetSMS(GreenSMS , 1 ,   greenStanding )
+SetSMS(GreenSurfSMS , 2 ,   greenSurfStanding )
 SetSMS(DeathgoyleSMS , 2 ,   m1Standing )
 SetSMS(DracoZombieSMS  , 2 ,   m1Standing)
 SetSMS(DemonKingSMS , 2 ,   m1Standing)
@@ -796,8 +816,6 @@ SetSMS(MegaBlastoiseSMS , 2 ,    MegaBlastoiseStanding)
 SetSMS(MegaCharizardXSMS , 2 ,    MegaCharizardXStanding)
 SetSMS(HealingTileSMS , 0 ,    HealingTileStanding)
 SetSMS(MissingnoSMS , 2 ,    MissingnoStanding)
-SetSMS(Unused71SMS , 0 ,    m1Standing)
-SetSMS(Unused72SMS , 0 ,    m1Standing)
 SetSMS(Unused73SMS , 0 ,    m1Standing)
 SetSMS(Unused74SMS , 0 ,    m1Standing)
 SetSMS(Unused75SMS , 0 ,    m1Standing)
@@ -846,6 +864,7 @@ SetMMS(PidgeotMMS ,    r18Moving,        DemonKingAP)
 SetMMS(SuspiciousWaterMMS,   SuspiciousWaterMoving,        DemonKingAP) 
 SetMMS(CrobatMMS,   CrobatMoving,        DemonKingAP)
 SetMMS(RedMMS ,   red_normalMoving,        DemonKingAP)
+SetMMS(RedSurfMMS ,   red_surf_normalMoving,        DemonKingAP)
 SetMMS(TeleporterMMS ,   TeleporterMoving,        DemonKingAP)
 SetMMS(RattataMMS ,     r19Moving,        DemonKingAP) 
 SetMMS(RaticateMMS ,     r20Moving,        DemonKingAP) 
@@ -924,6 +943,7 @@ SetMMS(RockSmashMMS ,   r1Moving,        DemonKingAP)
 SetMMS(StrengthBoulderMMS ,  r1Moving ,        DemonKingAP)
 SetMMS(GorgonEgg2MMS ,    r1Moving,        DemonKingAP)
 SetMMS(GreenMMS ,    greenMoving ,        DemonKingAP)
+SetMMS(GreenSurfMMS ,    greenSurfMoving ,        DemonKingAP)
 SetMMS(DeathgoyleMMS ,    r1Moving ,        DemonKingAP)
 SetMMS(DracoZombieMMS  ,    r1Moving,        DemonKingAP)
 SetMMS(DemonKingMMS ,    r1Moving,        DemonKingAP)
@@ -1069,8 +1089,6 @@ SetMMS(MegaBlastoiseMMS ,     MegaBlastoiseMoving,        DemonKingAP)
 SetMMS(MegaCharizardXMMS ,     MegaCharizardXMoving,        DemonKingAP)
 SetMMS(HealingTileMMS ,     HealingTileMoving,        DemonKingAP)
 SetMMS(MissingnoMMS ,     MissingnoMoving,        DemonKingAP)
-SetMMS(Unused71MMS ,     r1Moving,        DemonKingAP)
-SetMMS(Unused72MMS ,     r1Moving,        DemonKingAP)
 SetMMS(Unused73MMS ,     r1Moving,        DemonKingAP)
 SetMMS(Unused74MMS ,     r1Moving,        DemonKingAP)
 SetMMS(Unused75MMS ,     r1Moving,        DemonKingAP)
@@ -3038,21 +3056,36 @@ ALIGN 4
 red_normalStanding:
 #incbin "Trainer_SMS/SMS_red_normal.dmp"
 
+ALIGN 4
+red_surf_normalStanding:
+#incbin "Trainer_SMS/SMS_red_surf.dmp"
+
 
 ALIGN 4
 red_normalMoving:
 #incbin "Trainer_MMS/MMS_red_normal.dmp"
+
+ALIGN 4
+red_surf_normalMoving:
+#incbin "Trainer_MMS/MMS_red_surf.dmp"
 
 
 ALIGN 4
 greenStanding:
 #incbin "Trainer_SMS/SMS_green.dmp"
 
+ALIGN 4
+greenSurfStanding:
+#incbin "Trainer_SMS/SMS_green_surf.dmp"
+
 
 ALIGN 4
 greenMoving:
 #incbin "Trainer_MMS/MMS_green.dmp"
 
+ALIGN 4
+greenSurfMoving:
+#incbin "Trainer_MMS/MMS_green_surf.dmp"
 
 
 
