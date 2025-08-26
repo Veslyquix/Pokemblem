@@ -316,10 +316,9 @@ BeginningScene:
 CALL GlobalBeginningScene
 CALL LoadAndPlacePlayers 
 CHECK_EVENTID CascadebadgeObtained
-BEQ 0 rC r0 
+BNE 1 rC r0 
 CHECK_EVENTID SSAnneTicketFlag
-BEQ 0 rC r0 
-GOTO 1 
+BNE 1 rC r0 
 LABEL 0
 LOAD1 0x1 OfficerUnitGroup
 ENUN 

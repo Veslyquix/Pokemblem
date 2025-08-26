@@ -9,6 +9,28 @@ This occurs on turn 2.[A][X]
 You cannot cross deep water[N]
 until defeating Sabrina.[A][X]
 
+## YouNeedSSAnneTicketText
+Would you like to[N]
+buy a ticket?[A][N]
+Spend 10,000[Gold]?[N]
+[Yes][X]
+
+## BoughtSSAnneTicketText
+I'm going to disappear now[N]
+because it's easier to event.[A][N]
+Goodbye.[A][X]
+
+
+
+## CantAffordSSAnneTicketText
+You need a ticket to[N]
+come aboard.[A][N]
+They cost 10,000[Gold], although[N]
+we sometimes send out freebies.[A][N]
+Come back when you can afford[N]
+a ticket.[A][X]
+
+
 ## PowerOutText
 Sorry, the power's out. We're[N]
 closed until it comes back on.[A][X]
@@ -2021,6 +2043,13 @@ Watch closely...[N]
 Ho-haah![A][N]
 ..[N]
 ...[A][X]
+
+## CaptainCantTeachHMText
+You want to see my hidden CUT[N]
+technique?[A][N]
+First, you must obtain the[N]
+Cascadebadge in Cerulean City.[A][N]
+Only then are you worthy.[A][X]
 
 ## LearnedCutText
 You feel you've learned how[N]

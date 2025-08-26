@@ -47,10 +47,19 @@ TrainerPostBattleTalk(0xE4)
 END_MAIN
 
 CaptainHMevent:
+CHECK_EVENTID CascadebadgeObtained 
+BNE 0 sC s0 
+ENUF ObtainedCutFlag
+BottomWallText(CaptainCantTeachHMText) 
+GOTO 99 
+
+LABEL 0 
 BottomWallText(CaptainTeachHMText)
 STAL 15 
 EVBIT_MODIFY 4 
 TutText(LearnedCutText)
+
+LABEL 99 
 NoFade
 ENDA 
 
