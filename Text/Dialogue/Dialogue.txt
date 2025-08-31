@@ -805,6 +805,8 @@ Press [ToggleRed]L[ToggleRed], [ToggleRed]LEFT[ToggleRed], and [ToggleRed]UP[Tog
 in grid mode to access [ToggleRed]Gameshark[ToggleRed].[A][N]
 Then, press [ToggleRed]B[ToggleRed] on anyone to access[N]
 a plethora of cheats and debug tools.[A][N]
+I should warn you, though.[N]
+Retroachievements.org will disqualify you.[A][N]
 It's always available, even on a fresh save[N]
 file, so you can cheat as much as you like.[A][N]
 It's rare to press [ToggleRed]L[ToggleRed], [ToggleRed]LEFT[ToggleRed], and [ToggleRed]UP[ToggleRed],[N]

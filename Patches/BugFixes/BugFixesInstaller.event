@@ -178,7 +178,7 @@ PUSH
 
 // Disable trainee auto promote by Aera 
 ORG $CC750
-SHORT 0x46C0 
+SHORT 0x0 // Retroachievements valid from this update onwards (previously it was SHORT 0x46C0) 
 
 /*
 // These are now in essential fixes 
