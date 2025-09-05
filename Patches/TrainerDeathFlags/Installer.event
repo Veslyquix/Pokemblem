@@ -103,6 +103,7 @@ ENDA
 
 TrainerDefeatedEvent:
 VeslySetDangerRadius
+ASMC CallWaitForMenusASMC
 //ASMC BreakPointASMC
 //BottomWallText(ViridianForestTrainerE4DefeatText)
 EVBIT_MODIFY 4
