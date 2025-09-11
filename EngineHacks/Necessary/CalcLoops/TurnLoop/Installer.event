@@ -100,6 +100,9 @@ FILL(256*8)
 EndOfTurnHealFunctionEntry(HoardersBaneID, HoardersBane_CanUnitHeal, HoardersBane_HealAmount) 
 EndOfTurnHealFunctionEntry(DarkBargainID, DarkBargain_CanUnitHeal, DarkBargain_HealAmount) 
 EndOfTurnHealFunctionEntry(SoulSapID, SoulSap_CanUnitHeal, SoulSap_HealAmount) 
+EndOfTurnHealFunctionEntry(ExplorerID, Explorer_CanUnitHeal, Explorer_HealAmount) 
+EndOfTurnHealFunctionEntry(ShedSkinID, ShedSkinUsability, ShedSkinEffect) 
+EndOfTurnHealFunctionEntry(HydrationID, HydrationUsability, HydrationEffect) 
 
 
 // Executes a function where the unit has already been deemed to be on the field with the relevant skill 

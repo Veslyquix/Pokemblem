@@ -8,9 +8,6 @@ Multiscale[X]
 ## SN_SilphScope
 Silph Scope[X]
 
-## SN_TintedLens
-Tinted Lens[X]
-
 ## SN_Flank
 Flank[X]
 
@@ -162,7 +159,7 @@ Counter[X]
 Countermagic[X]
 
 ## SN_Miracle
-Miracle[X]
+Sturdy[X]
 
 ## SN_Swordfaire
 Swordfaire[X]
@@ -947,9 +944,6 @@ Moonlight[X]
 ## SN_Vengeance
 Vengeance[X]
 
-## SN_Synchronize
-Synchronize[X]
-
 ## SN_Swarp
 Swarp[X]
 
@@ -1098,9 +1092,6 @@ SpectrumInit[X]
 ## SN_EternalVanity
 Eternal Vanity[X]
 
-## SN_Guts
-Guts[X]
-
 ## SN_StrongConstitution
 Strong Constitution[X]
 
@@ -1179,6 +1170,164 @@ Passion's Flow[X]
 ## SN_BidingBlow
 Biding Blow[X]
 
+## SN_Chlorophyll
+Chlorophyll[X]
+
+## SN_SolarPower
+Solar Power[X]
+
+## SN_Explorer
+Explorer[X]
+
+## SN_TintedLens
+Tinted Lens[X]
+
+## SN_ShedSkin
+Shed Skin[X]
+
+## SN_KeenEye
+Keen Eye[X]
+
+## SN_Sniper
+Sniper[X]
+
+## SN_LightningRod
+Lightning Rod[X]
+
+## SN_FieryAura
+Fiery Aura[X]
+
+## SN_DampAura
+Damp Aura[X]
+
+## SN_Unaware
+Unaware[X]
+
+## SN_Competitive
+Competitive[X]
+
+## SN_Defiant
+Defiant[X]
+
+## SN_Rivalry
+Rivalry[X]
+
+## SN_Hustle
+Hustle[X]
+
+## SN_ArenaTrap
+Arena Trap[X]
+
+## SN_MagicGuard
+Magic Guard[X]
+
+## SN_ClearBody
+Clear Body[X]
+
+## SN_Regenerator
+Regenerator[X]
+
+## SN_Analytic
+Analytic[X]
+
+## SN_Hydration
+Hydration[X]
+
+## SN_PoisonTouch
+Poison Touch[X]
+
+## SN_ShellArmor
+Shell Armor[X]
+
+## SN_Grudge
+Grudge[X]
+
+## SN_Aftermath
+Aftermath[X]
+
+## SN_SheerForce
+Sheer Force[X]
+
+## SN_Forewarn
+Forewarn[X]
+
+## SN_HyperCutter
+Hyper Cutter[X]
+
+## SN_Harvest
+Harvest[X]
+
+## SN_Unburden
+Unburden[X]
+
+## SN_RecklessRock
+Reckless Rock[X]
+
+## SN_Scrappy
+Scrappy[X]
+
+## SN_Filter
+Filter[X]
+
+## SN_Technician
+Technician[X]
+
+## SN_DrySkin
+Dry Skin[X]
+
+## SN_MotorDrive
+Motor Drive[X]
+
+## SN_FlashFire
+Flash Fire[X]
+
+## SN_AngerPoint
+Anger Point[X]
+
+## SN_Transform
+Transform[X]
+
+## SN_Adaptability
+Adaptability[X]
+
+## SN_AcidArmor
+Acid Armor[X]
+
+## SN_QuickFeet
+Quick Feet[X]
+
+## SN_Guts
+Guts[X]
+
+## SN_WeakArmor
+Weak Armor[X]
+
+## SN_StrongClaws
+StrongClaws[X]
+
+## SN_Pressure
+Pressure[X]
+
+## SN_Synchronize
+Synchronize[X]
+
+## SN_ChanseySkill
+ChanseySkill[X]
+
+## SN_OddishSkill
+OddishSkill[X]
+
+## SN_ParasSkill
+ParasSkill[X]
+
+## SN_LickitungSkill
+LickitungSkill[X]
+
+## SN_StarmieSkill
+StarmieSkill[X]
+
+## SN_LaprasSkill
+LaprasSkill[X]
 
 
 

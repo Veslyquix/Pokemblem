@@ -11,10 +11,6 @@ damage when at full HP.[X]
 Silph Scope: Super effective[N]
 attacks always critical hit.[X]
 
-## SD_TintedLens
-Tinted Lens: Your ineffective[N]
-attacks will hit neutrally.[X]
-
 ## SD_Flank
 Infiltrator: If an ally is on the[N]
 opposite side of an adjacent[N]
@@ -222,7 +218,7 @@ Countermagic: Reflect magic damage[N]
 when attacked at 1-2 range.[X]
 
 ## SD_Miracle
-Miracle: Survive a lethal[N]
+Sturdy: Survive a lethal[N]
 attack if HP > 50%.[X]
 
 ## SD_Swordfaire
@@ -1726,7 +1722,7 @@ Eternal Vanity: Your temporary[N]
 stat buffs do not deplete.[X]
 
 ## SD_Guts
-Guts: +5 Str while afflicted[N]
+Guts: +25% Str while afflicted[N]
 by any status condition.[X]
 
 ## SD_StrongConstitution 
@@ -1845,6 +1841,211 @@ while attacking.[X]
 ## SD_BidingBlow
 Biding Blow: If the opponent[N]
 cannot counter, this unit doubles.[X]
+
+## SD_Chlorophyll
+Chlorophyll: +50% speed while[N]
+outdoors.[X]
+
+## SD_SolarPower
+Solar Power: +25% str/mag while[N]
+outdoors.[X]
+
+## SD_Explorer
+Explorer: Restore 1/8th[N]
+hp each turn while outdoors.[X]
+
+## SD_TintedLens
+Tinted Lens: Ineffective moves[N]
+deal regular damage.[X]
+
+## SD_ShedSkin
+Shed Skin: at the start of the turn,[N]
+recover from status effects.[X]
+
+## SD_KeenEye
+Keen Eye: Moves are[N]
+50% more accurate.[X]
+
+## SD_Sniper
+Sniper: Critical hit[N]
+rate is doubled.[X]
+
+## SD_LightningRod
+Lightning Rod: [N]
+[X]
+
+## SD_FieryAura
+Fiery Aura: [N]
+[X]
+
+## SD_DampAura
+Damp Aura: [N]
+[X]
+
+## SD_Unaware
+Unaware: Ignores target's[N]
+stat modifiers.[X]
+
+## SD_Competitive
+Competitive: [N]
+[X]
+
+## SD_Defiant
+Defiant: [N]
+[X]
+
+## SD_Rivalry
+Rivalry: Deal 25% more damage[N]
+if the opponent's highest stat is[N]
+greater than yours.[X]
+
+## SD_Hustle
+Hustle: Deal 25% more damage, but[N]
+move accuracy is reduced.[X]
+
+## SD_ArenaTrap
+ArenaTrap: [N]
+[X]
+
+## SD_MagicGuard
+Magic Guard: [N]
+[X]
+
+## SD_ClearBody
+Clear Body: Stats cannot[N]
+be lowered.[X]
+
+## SD_Regenerator
+Regenerator: [N]
+[X]
+
+## SD_Analytic
+Analytic: Deal 30% more[N]
+damage to faster opponents.[X]
+
+## SD_Hydration
+Hydration: At the end of your turn,[N]
+Restore to full HP when in water.[X]
+
+## SD_PoisonTouch
+Poison Touch: Inflict poison[N]
+after battle.[X]
+
+## SD_ShellArmor
+Shell Armor: Grants an immunity[N]
+to critical hits.[X]
+
+## SD_Grudge
+Grudge: After fainting, the opponent's[N]
+def/res are debuffed by 10.[X]
+
+## SD_Aftermath
+Aftermath: After fainting, the opponent[N]
+loses 25% HP.[X]
+
+## SD_SheerForce
+Sheer Force: [N]
+[X]
+
+## SD_Forewarn
+Forewarn: [N]
+[X]
+
+## SD_HyperCutter
+Hyper Cutter: [N]
+[X]
+
+## SD_Harvest
+Harvest: [N]
+[X]
+
+## SD_Unburden
+Unburden: [N]
+[X]
+
+## SD_RecklessRock
+Reckless Rock: [N]
+[X]
+
+## SD_Scrappy
+Scrappy: [N]
+[X]
+
+## SD_Filter
+Filter: [N]
+[X]
+
+## SD_Technician
+Technician: [N]
+[X]
+
+## SD_DrySkin
+DrySkin: [N]
+[X]
+
+## SD_MotorDrive
+Motor Drive: [N]
+[X]
+
+## SD_FlashFire
+Flash Fire: [N]
+[X]
+
+## SD_AngerPoint
+Anger Point: [N]
+[X]
+
+## SD_Transform
+Transform: [N]
+[X]
+
+## SD_Adaptability
+Adaptability: [N]
+[X]
+
+## SD_AcidArmor
+Acid Armor: [N]
+[X]
+
+## SD_QuickFeet
+Quick Feet: [N]
+[X]
+
+## SD_WeakArmor
+Weak Armor: [N]
+[X]
+
+## SD_StrongClaws
+Strong Claws: [N]
+[X]
+
+## SD_Pressure
+Pressure: [N]
+[X]
+
+## SD_ChanseySkill
+ChanseySkill: [N]
+[X]
+
+## SD_OddishSkill
+Oddish Skill: [N]
+[X]
+
+## SD_ParasSkill
+Paras Skill: [N]
+[X]
+
+## SD_LickitungSkill
+Lickitung Skill: [N]
+[X]
+
+## SD_StarmieSkill
+Starmie Skill: [N]
+[X]
+
+## SD_LaprasSkill
+Lapras Skill: [N]
+[X]
 
 
 

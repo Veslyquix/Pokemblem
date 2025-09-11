@@ -700,6 +700,179 @@ GuardBreakerID
 //By Sme
  VengeanceID
 
+
+
+
+//Rounds Data Skills
+
+
+//Dazzle: Opponents cannot counterattack this unit.
+//By circleseverywhere
+ DazzleID
+
+//Desperation: If HP < 50%, double attacks occur immediately.
+//By ??? (Initial Commit)
+ DesperationID
+
+
+
+//Stat Modifier Skills
+
+
+
+
+
+//Life and Death: Grants +5 Atk/Mag/Spd, -5 Def/Res.
+//By Leonarth
+ HeroesLifeAndDeathID
+
+
+
+
+//Unit Menu Skills
+
+
+//Capture: Capture an enemy after defeating it with reduced stats.
+//By Tequila
+ CaptureID
+
+
+
+
+
+
+//Vantage: If HP < 50%, strike first when attacked.
+//Author Unknown (Initial Commit)
+ VantageID
+
+
+
+//Liquid Ooze: Attackers trying to gain HP from attacking this unit lose it instead.
+//By Leonarth
+ LiquidOozeID
+
+
+
+
+//Boon: Cure bad status effects at the beginning of each turn.
+//By Sme
+ BoonID
+
+//Synchronize: Statuses are also applied to the attacker.
+//By Sme
+ SynchronizeID
+
+
+ChlorophyllID
+SolarPowerID
+ExplorerID
+TintedLensID 
+ShedSkinID
+KeenEyeID
+SniperID
+LightningRodID
+FieryAuraID
+DampAuraID
+UnawareID
+CompetitiveID
+DefiantID
+RivalryID 
+HustleID 
+ArenaTrapID 
+MagicGuardID 
+ClearBodyID 
+RegeneratorID 
+AnalyticID
+HydrationID
+PoisonTouchID 
+ShellArmorID 
+GrudgeID 
+AftermathID 
+SheerForceID 
+ForewarnID 
+HyperCutterID 
+HarvestID 
+UnburdenID 
+RecklessRockID 
+ScrappyID 
+FilterID 
+TechnicianID 
+DrySkinID 
+MotorDriveID 
+FlashFireID 
+AngerPointID 
+TransformID 
+AdaptabilityID 
+AcidArmorID 
+QuickFeetID 
+GutsID
+WeakArmorID 
+StrongClawsID 
+PressureID 
+
+ChanseySkillID 
+OddishSkillID 
+ParasSkillID 
+LickitungSkillID 
+StarmieSkillID 
+LaprasSkillID 
+
+
+//Watchful: This unit cannot be captured or stolen from.
+//By Sme
+ WatchfulID
+
+ScaledBackID
+ScaledUpID
+WonderGuardID 
+SturdyID
+PowerfulAuraID // Cannot be attacked 
+
+RecklessFighterID
+SteadyBrawlerID
+ExpShareID 
+Intimidate2ID
+SurfBoardID
+HoverBoardID
+HoardersBaneID
+CleatsID
+MultiscaleID
+SilphScopeID
+FlankID
+SwarmID 
+
+
+
+ 
+
+
+//Down With Arch: If the hit lands, instantly kill the enemy unit. (Only if name starts with "Arch")
+ DownWithArchID 255
+
+//Resolve: When HP < 50%, gain 1.5x Str, Skl, & Spd.
+//By Sme
+ ResolveID
+
+//Fortress Defense: +5 Def, -3 Str/Mag
+//By Leonarth
+ FortressDefenseID 
+
+//Fortress Resistance: 5 Res, -3 Str/Mag
+//By Leonarth
+ FortressResistanceID 
+
+//Armsthrift: Luck % chance to not consume weapon durability.
+//Author Unknown (Initial Commit)
+ ArmsthriftID
+
+//Assassinate: When initiating battle at 1 range: +2 Damage, double attacks occur before counter.
+//By Zeta
+ AssassinateID
+
+//Moonlight: Cannot double but opponent cannot counterattack.
+//By Sme
+ MoonlightID
+
 //Range Skills
 
 //Bow Range +1: Maximum range of equipped bows is increased.
@@ -719,55 +892,6 @@ GuardBreakerID
  TomeRangeUpID
 
 
-//Rounds Data Skills
-
-//Armsthrift: Luck % chance to not consume weapon durability.
-//Author Unknown (Initial Commit)
- ArmsthriftID
-
-//Dazzle: Opponents cannot counterattack this unit.
-//By circleseverywhere
- DazzleID
-
-//Desperation: If HP < 50%, double attacks occur immediately.
-//By ??? (Initial Commit)
- DesperationID
-
-//Assassinate: When initiating battle at 1 range: +2 Damage, double attacks occur before counter.
-//By Zeta
- AssassinateID
-
-//Moonlight: Cannot double but opponent cannot counterattack.
-//By Sme
- MoonlightID
-
-
-
-//Stat Modifier Skills
-
-
-
-//Resolve: When HP < 50%, gain 1.5x Str, Skl, & Spd.
-//By Sme
- ResolveID
-
-//Fortress Defense: +5 Def, -3 Str/Mag
-//By Leonarth
- FortressDefenseID 
-
-//Fortress Resistance: 5 Res, -3 Str/Mag
-//By Leonarth
- FortressResistanceID 
-
-//Life and Death: Grants +5 Atk/Mag/Spd, -5 Def/Res.
-//By Leonarth
- HeroesLifeAndDeathID
-
-
-
-
-//Unit Menu Skills
-
 //Rally Skills: +4 to specified stat to allies within 2 tiles.
 //Author Unknown (Initial Commit)
  RallyStrID
@@ -780,9 +904,26 @@ GuardBreakerID
  RallyMovID
  RallySpectrumID
 
-//Capture: Capture an enemy after defeating it with reduced stats.
-//By Tequila
- CaptureID
+//Bargain: Halves prices in shops.
+//By Sme
+ BargainID
+
+//Poise: +1 Move. Negates enemy hit bonus from weapon triangle advantage.
+//By Zeta
+ PoiseID
+
+//Amische: This unit's religion disallows them from using non-Iron weaponry.
+//By Sme
+ AmischeID
+
+//Triangle Attack: Allows this unit to perform a triangle attack with 2 other units who have this skill.
+ TriangleAttackID
+
+
+//Display-Only Skills
+ CunningID
+ NiceThighsID
+ PersonalityID
 
 //Dance: Refresh an ally unit to let them act again.
 //By Sme
@@ -837,13 +978,6 @@ GuardBreakerID
 
 //Miscellaneous Skills
 
-
-
-
-
-//Vantage: If HP < 50%, strike first when attacked.
-//Author Unknown (Initial Commit)
- VantageID
 
 //Catch 'Em All: Grants the user every skill.
 //By Leonarth
@@ -905,79 +1039,6 @@ GuardBreakerID
 //Inspiring Tune: Refreshing a unit grants them +2 Pow/Def until the next turn.
 //By Leonarth
  VigorDanceID
-
-
-//Liquid Ooze: Attackers trying to gain HP from attacking this unit lose it instead.
-//By Leonarth
- LiquidOozeID
-
-
-
-//Watchful: This unit cannot be captured or stolen from.
-//By Sme
- WatchfulID
-
-//Boon: Cure bad status effects at the beginning of each turn.
-//By Sme
- BoonID
-
-//Synchronize: Statuses are also applied to the attacker.
-//By Sme
- SynchronizeID
-
-//Bargain: Halves prices in shops.
-//By Sme
- BargainID
-
-//Poise: +1 Move. Negates enemy hit bonus from weapon triangle advantage.
-//By Zeta
- PoiseID
-
-//Amische: This unit's religion disallows them from using non-Iron weaponry.
-//By Sme
- AmischeID
-
-//Triangle Attack: Allows this unit to perform a triangle attack with 2 other units who have this skill.
- TriangleAttackID
-
-
-
-
-
-//Display-Only Skills
- CunningID
- NiceThighsID
- PersonalityID
-
-ScaledBackID
-ScaledUpID
-WonderGuardID 
-SturdyID
-PowerfulAuraID // Cannot be attacked 
-
-RecklessFighterID
-SteadyBrawlerID
-ExpShareID 
-Intimidate2ID
-SurfBoardID
-HoverBoardID
-HoardersBaneID
-CleatsID
-MultiscaleID
-SilphScopeID
-TintedLensID
-FlankID
-SwarmID 
-
-//Down With Arch: If the hit lands, instantly kill the enemy unit. (Only if name starts with "Arch")
- DownWithArchID 255
-
-
-
-
-
-
-
 
 
 
@@ -1262,7 +1323,7 @@ CalmInitID
 NimbleInitID 
 SpectrumInitID 
 EternalVanityID 
-GutsID 
+ 
 StrongConstitutionID 
 ShrewdPotentialID
 RallyChaosID 

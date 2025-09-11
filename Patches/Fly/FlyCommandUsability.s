@@ -17,6 +17,35 @@ ldr r2, [r2]
 tst r1, r2 
 .endm
 
+.global AreWeOutdoors
+.type AreWeOutdoors, %function 
+AreWeOutdoors: 
+push {lr} 
+ldr r3, =IndoorMapsList
+ldr r1, =0x0202BCF0 @ gChapterData
+ldrb r1, [r1, #0x0E] @ chapter ID 
+sub r3, #1 
+IndoorMapLoop:
+add r3, #1 
+ldrb r0, [r3] 
+cmp r0, #0 
+beq WeAreOutdoors
+cmp r0, r1 
+beq Indoors 
+b IndoorMapLoop
+
+Indoors: 
+mov r0, #0 
+b OutdoorExit 
+WeAreOutdoors: 
+mov r0, #1 
+
+OutdoorExit: 
+pop {r1} 
+bx r1 
+.ltorg 
+
+
 .global FlyCommandUsability
 .type FlyCommandUsability, function 
 FlyCommandUsability: 
@@ -31,20 +60,9 @@ cmp r0, #1
 bne RetFalse
 
 @ check if indoors 
-ldr r3, =IndoorMapsList
-ldr r1, =0x0202BCF0 @ gChapterData
-ldrb r1, [r1, #0x0E] @ chapter ID 
-sub r3, #1 
-IndoorMapLoop:
-add r3, #1 
-ldrb r0, [r3] 
+bl AreWeOutdoors 
 cmp r0, #0 
-beq WeAreOutdoors
-cmp r0, r1 
-beq RetFalse 
-b IndoorMapLoop
-
-WeAreOutdoors:
+beq RetFalse
 
 b HasFlyingPokemon @ always allow Fly even without a flier 'cause QoL I guess 
 

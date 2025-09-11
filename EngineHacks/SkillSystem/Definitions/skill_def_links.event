@@ -1,0 +1,110 @@
+// ^(.*ID)\s*$
+// \1_Link:\nWORD \1
+
+ALIGN 4 
+ChlorophyllID_Link:
+WORD ChlorophyllID
+SolarPowerID_Link:
+WORD SolarPowerID
+ExplorerID_Link:
+WORD ExplorerID
+TintedLensID_Link:
+WORD TintedLensID
+ShedSkinID_Link:
+WORD ShedSkinID
+KeenEyeID_Link:
+WORD KeenEyeID
+SniperID_Link:
+WORD SniperID
+LightningRodID_Link:
+WORD LightningRodID
+FieryAuraID_Link:
+WORD FieryAuraID
+DampAuraID_Link:
+WORD DampAuraID
+UnawareID_Link:
+WORD UnawareID
+CompetitiveID_Link:
+WORD CompetitiveID
+DefiantID_Link:
+WORD DefiantID
+RivalryID_Link:
+WORD RivalryID
+HustleID_Link:
+WORD HustleID
+ArenaTrapID_Link:
+WORD ArenaTrapID
+MagicGuardID_Link:
+WORD MagicGuardID
+ClearBodyID_Link:
+WORD ClearBodyID
+RegeneratorID_Link:
+WORD RegeneratorID
+AnalyticID_Link:
+WORD AnalyticID
+HydrationID_Link:
+WORD HydrationID
+PoisonTouchID_Link:
+WORD PoisonTouchID
+ShellArmorID_Link:
+WORD ShellArmorID
+GrudgeID_Link:
+WORD GrudgeID
+AftermathID_Link:
+WORD AftermathID
+SheerForceID_Link:
+WORD SheerForceID
+ForewarnID_Link:
+WORD ForewarnID
+HyperCutterID_Link:
+WORD HyperCutterID
+HarvestID_Link:
+WORD HarvestID
+UnburdenID_Link:
+WORD UnburdenID
+RecklessRockID_Link:
+WORD RecklessRockID
+ScrappyID_Link:
+WORD ScrappyID
+FilterID_Link:
+WORD FilterID
+TechnicianID_Link:
+WORD TechnicianID
+DrySkinID_Link:
+WORD DrySkinID
+MotorDriveID_Link:
+WORD MotorDriveID
+FlashFireID_Link:
+WORD FlashFireID
+AngerPointID_Link:
+WORD AngerPointID
+TransformID_Link:
+WORD TransformID
+AdaptabilityID_Link:
+WORD AdaptabilityID
+AcidArmorID_Link:
+WORD AcidArmorID
+QuickFeetID_Link:
+WORD QuickFeetID
+GutsID_Link:
+WORD GutsID
+WeakArmorID_Link:
+WORD WeakArmorID
+StrongClawsID_Link:
+WORD StrongClawsID
+PressureID_Link:
+WORD PressureID
+SynchronizeID_Link:
+WORD SynchronizeID
+ChanseySkillID_Link:
+WORD ChanseySkillID
+OddishSkillID_Link:
+WORD OddishSkillID
+ParasSkillID_Link:
+WORD ParasSkillID
+LickitungSkillID_Link:
+WORD LickitungSkillID
+StarmieSkillID_Link:
+WORD StarmieSkillID
+LaprasSkillID_Link:
+WORD LaprasSkillID

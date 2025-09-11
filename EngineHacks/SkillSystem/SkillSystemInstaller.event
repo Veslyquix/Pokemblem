@@ -1,6 +1,6 @@
 
 #include "Internals/SkillSystem.event"
-
+#include "Definitions/skill_def_links.event" 
 #include "skill_lists.event" //who learns what skills when
 #include "skill_descriptions.event"
 #include "skill_icons.event"

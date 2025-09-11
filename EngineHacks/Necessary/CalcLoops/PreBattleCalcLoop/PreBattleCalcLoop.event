@@ -123,6 +123,7 @@ AuraSkillEntry(BloodTideID)
 AuraSkillEntry(WhitePoolID)
 AuraSkillEntry(NightTideID)
 
+
 // Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
 ALIGN 4 
 DamageModifierCalcLoop:

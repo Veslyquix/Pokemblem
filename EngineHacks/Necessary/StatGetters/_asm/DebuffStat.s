@@ -22,15 +22,34 @@ bx lr
 
 .equ NextRN_N, 0x08000C80
 GetDebuffAmount: 
-push {r4, lr} 
+push {r4-r5, lr} 
 mov r4, r2 @ bit offset 
+ldr r5, [r1, #4] @ class 
+ldrb r5, [r5, #4] @ classID 
 mov r0, r1 @ unit 
 bl GetUnitDebuffEntry 
 mov r1, r4 @ bit offset 
 ldr r2, =DebuffStatNumberOfBits_Link
 ldr r2, [r2] 
 bl UnpackData_Signed 
-pop {r4} 
+cmp r0, #0 
+bge DoneGetDebuffAmount 
+ldr r1, =TentacoolID 
+lsl r1, #24 
+lsr r1, #24 
+cmp r5, r1 
+beq NoDebuffPossible 
+ldr r1, =TentacruelID 
+lsl r1, #24 
+lsr r1, #24 
+cmp r5, r1 
+beq NoDebuffPossible 
+b DoneGetDebuffAmount
+NoDebuffPossible: 
+mov r0, #0 
+DoneGetDebuffAmount: 
+
+pop {r4-r5} 
 pop {r1} 
 bx r1 
 .ltorg 
