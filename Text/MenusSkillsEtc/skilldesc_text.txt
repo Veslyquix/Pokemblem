@@ -1856,7 +1856,7 @@ hp each turn while outdoors.[X]
 
 ## SD_TintedLens
 Tinted Lens: Ineffective moves[N]
-deal regular damage.[X]
+deal super effective damage.[X]
 
 ## SD_ShedSkin
 Shed Skin: at the start of the turn,[N]

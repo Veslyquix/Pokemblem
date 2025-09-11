@@ -79,7 +79,7 @@ b Store
 Ineffective:
 mov r2, #1 
 tst r2, r7 
-bne DoNothing @ attacker has tinted lens 
+bne SuperEffective @ attacker has tinted lens 
 mov r2, #0x5C 
 ldsh r1, [r5, r2] @ def 
 sub r0, r1 
