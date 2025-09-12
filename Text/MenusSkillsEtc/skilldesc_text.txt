@@ -1968,16 +1968,16 @@ Reckless Rock: [N]
 [X]
 
 ## SD_Scrappy
-Scrappy: [N]
-[X]
+Scrappy: Your attacks[N]
+ignore immunities.[X]
 
 ## SD_Filter
-Filter: [N]
-[X]
+Filter: Super Effective moves[N]
+deal 25% less damage.[X]
 
 ## SD_Technician
-Technician: [N]
-[X]
+Technician: Moves with 6 or less[N]
+power have doubled power.[X]
 
 ## SD_DrySkin
 DrySkin: [N]

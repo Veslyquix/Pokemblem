@@ -26,6 +26,8 @@ POIN BC_DefRes BC_Power BC_ASpd BC_Hit BC_Avo BC_Crit CritUpSkill BC_Dodge BC_WR
 POIN InitializePreBattleLoop
 POIN Lull //This is effectively a stat modifier routine, so it has to go first
 POIN Intimidate_Prebattle GuardBreaker_Prebattle Downgrade_Prebattle
+POIN KeenEyeEffect SniperEffect UnawareEffect TechnicianEffect AdaptabilityEffect
+
 // I've decided to comment out stuff that I'm not using for the time being in order to speed up AI - Vesly 
 POIN TransformInit
 
@@ -84,6 +86,34 @@ POIN CriticalCheck
 #endif // CANNOT_CRIT
 POIN 0
 
+
+
+
+// Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
+ALIGN 4 
+DamageModifierCalcLoop:
+POIN RivalryEffect HustleEffect AnalyticEffect RecklessRockEffect
+POIN WeaponsThatAlwaysDouble
+POIN WeakChipDmg ScaledUp
+POIN EnemyWeightBonus
+POIN TransformFunction 
+POIN MinimumDamage // so SE moves will deal at least 2 dmg i guess 
+POIN TypeEffectiveness // also caps moves to deal max 255 
+#ifdef ENABLE_DAMAGE_REDUCTION
+	POIN LevelDamageReduction
+#endif 
+POIN DoublingDamageModifierFunc // this also occurs on weapons that cannot double if you would be able to otherwise 
+POIN ScaledBackFunc FlankEffect SwarmEffect
+POIN TransformFunction 
+POIN MinimumDamage
+POIN MaximumDamage // caps moves to 99 dmg 
+POIN SuperFangEffect 
+POIN FixedDamageWeapons
+POIN ImmuneToDamage
+POIN 0 
+
+
+
 #define AuraSkillEntry(skillID) "PUSH; ORG AuraSkillTable + skillID; BYTE 0x1; POP"
 
 ALIGN 4
@@ -123,29 +153,6 @@ AuraSkillEntry(BloodTideID)
 AuraSkillEntry(WhitePoolID)
 AuraSkillEntry(NightTideID)
 
-
-// Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
-ALIGN 4 
-DamageModifierCalcLoop:
-
-POIN WeaponsThatAlwaysDouble
-POIN WeakChipDmg ScaledUp
-POIN EnemyWeightBonus
-POIN TransformFunction 
-POIN MinimumDamage // so SE moves will deal at least 2 dmg i guess 
-POIN TypeEffectiveness // also caps moves to deal max 255 
-#ifdef ENABLE_DAMAGE_REDUCTION
-	POIN LevelDamageReduction
-#endif 
-POIN DoublingDamageModifierFunc // this also occurs on weapons that cannot double if you would be able to otherwise 
-POIN ScaledBackFunc FlankEffect SwarmEffect
-POIN TransformFunction 
-POIN MinimumDamage
-POIN MaximumDamage // caps moves to 99 dmg 
-POIN SuperFangEffect 
-POIN FixedDamageWeapons
-POIN ImmuneToDamage
-POIN 0 
 
 
 

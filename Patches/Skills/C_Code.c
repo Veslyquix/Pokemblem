@@ -73,6 +73,28 @@ void AdjustDamageByPercent(struct BattleUnit * bunitA, struct BattleUnit * bunit
     // Recalculate battleAttack to ensure damage = adjustedDamage
     bunitA->battleAttack = adjustedDamage + bunitB->battleDefense;
 }
+void AdjustDamageByPercentWithPiercing(struct BattleUnit * bunitA, struct BattleUnit * bunitB, int percent, int pierce)
+{
+    if (percent < 0)
+        percent = 0; // min 0
+
+    if (pierce < 0)
+        pierce = 0;
+    if (pierce > 100)
+        pierce = 100;
+
+    int baseDef = bunitB->battleDefense;
+    baseDef = baseDef * (100 - pierce) / 100;
+    int baseDamage = bunitA->battleAttack - baseDef;
+    if (baseDamage < 0)
+        baseDamage = 0;
+
+    // Apply percent with rounding: (x * percent + 50) / 100
+    int adjustedDamage = (baseDamage * percent + 50) / 100;
+
+    // Recalculate battleAttack to ensure damage = adjustedDamage
+    bunitA->battleAttack = adjustedDamage + baseDef;
+}
 
 // Caterpie / Venonat line
 // Tinted Lens: Ineffective moves deal regular damage
@@ -119,22 +141,6 @@ void SniperEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB) // dou
         }
     }
 }
-
-// Pikachu, Goldeen, Jolteon (volt absorb)
-// Cubone, Rhyhorn
-extern int LightningRodID_Link; // electric aura
-extern int FieryAuraID_Link;
-extern int DampAuraID_Link;
-void LightningRodEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
-{
-}
-// Electric moves within 2 tiles deal 25% more damage. Immune to electric moves.
-// or Electric moves within 2 tiles deal no damage.
-
-// Fiery Aura: Fire moves within 2 tiles deal 25% more damage, while water moves deal 50% less.
-// Vulpix line
-// Poliwag line
-// Damp Aura: Water moves within 2 tiles deal 25% more damage, while fire moves deal 50% less.
 
 // Sandshrew (Geodude?) line - some outdoor thing?
 // or just rough skin / rocky helmet
@@ -336,34 +342,309 @@ void RecklessRockEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 // Chansey
 // or Healer: Allies within 2 tiles recover from status, debuffs, and restore 10% hp each turn.
 
-// Kangaskhan
-void ScrappyEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+// Starmie - analytic? natural cure? shed skin?
+
+// Pikachu, Goldeen, Jolteon (volt absorb)
+// Cubone, Rhyhorn
+extern int LightningRodID_Link; // stormy aura
+extern int FieryAuraID_Link;    // or BlazingAura
+extern int DampAuraID_Link;
+extern int DrySkinID_Link;
+extern int MotorDriveID_Link;
+extern int FlashFireID_Link;
+void LightningRodEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
 }
+// Electric moves within 2 tiles deal 25% more damage. Immune to electric moves.
+// or Electric moves within 2 tiles deal no damage.
 
-// Starmie - analytic? natural cure? shed skin?
+// Fiery Aura: Fire moves within 2 tiles deal 25% more damage, while water moves deal 50% less.
+// Vulpix line
+// Poliwag line
+// Damp Aura: Water moves within 2 tiles deal 25% more damage, while fire moves deal 50% less.
+
+extern const int PikachuID_Link;
+extern const int RaichuID_Link;
+extern const int GoldeenID_Link;
+extern const int SeakingID_Link;
+extern const int CuboneID_Link;
+extern const int MarowakID_Link;
+// Jolteon
+// Rhyhorn
+extern const int VulpixID_Link;
+extern const int NinetalesID_Link;
+extern const int PoliwagID_Link;
+extern const int PoliwhirlID_Link;
+extern const int PoliwrathID_Link;
+
+// These are hard-coded to pkmn to avoid lag
+const int * const LightningRodPkmn[] = {
+    &PikachuID_Link, &RaichuID_Link, &GoldeenID_Link, &SeakingID_Link, &CuboneID_Link, &MarowakID_Link, NULL
+};
+const int * const FieryAuraPkmn[] = { &VulpixID_Link, &NinetalesID_Link, NULL };
+const int * const DampAuraPkmn[] = { &PoliwagID_Link, &PoliwhirlID_Link, &PoliwrathID_Link, NULL };
+
+// RhyhornID_link, RhydonID_Link, NULL };
+typedef int (*AuraPredicate)(int classID);
+
+int DoesClassHaveFieryAura(int classID)
+{
+    const int ** data = FieryAuraPkmn;
+
+    while (*data != NULL)
+    {
+        if (**data == classID)
+            return true;
+        data++;
+    }
+    return false;
+}
+int DoesClassHaveDampAura(int classID)
+{
+    const int ** data = DampAuraPkmn;
+
+    while (*data != NULL)
+    {
+        if (**data == classID)
+            return true;
+        data++;
+    }
+    return false;
+}
+
+int DoesClassHaveLightningRod(int classID)
+{
+    const int ** data = LightningRodPkmn;
+
+    while (*data != NULL)
+    {
+        if (**data == classID)
+            return true;
+        data++;
+    }
+    return false;
+}
+
+int IsEffectivenessAuraNearby(struct BattleUnit * bunit, AuraPredicate predicate)
+{
+    int x = bunit->unit.xPos;
+    int y = bunit->unit.yPos;
+    int sizeX = gBmMapSize.x;
+    int sizeY = gBmMapSize.y;
+
+    for (int dy = -2; dy <= 2; dy++)
+    {
+        for (int dx = -2; dx <= 2; dx++)
+        {
+            int nx = x + dx;
+            int ny = y + dy;
+
+            if (nx < 0 || ny < 0 || nx >= sizeX || ny >= sizeY)
+                continue;
+
+            int id = gBmMapUnit[ny][nx];
+            if (!id)
+                continue;
+
+            struct Unit * unit = GetUnit(id);
+            if (predicate(unit->pClassData->number))
+                return true;
+        }
+    }
+
+    return false;
+}
 
 extern int TintedLensID_Link;
 extern int FilterID_Link;
+extern int ScrappyID_Link;
+// Tinted Lens: Ineffective moves are super effective.
 // Filter: Super Effective moves deal 25% less damage.
-// Mr. Mime & Venomoth
-int CheckTintedLensFilter(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+// Scrappy: Kangaskhan - Your attacks ignore immunities.
+// Mr. Mime, Venomoth, Kangaskhan
+struct EffectivenessExceptions
 {
-    int result = 0;
+    u32 tintedLens : 1;
+    u32 filter : 1;
+    u32 scrappy : 1;
+    u32 drySkin : 1;
+    u32 flashFire : 1;
+    u32 motorDrive : 1;
+    u32 lightningRod : 1;
+    u32 dampAura : 1;
+    u32 fieryAura : 1;
+};
+struct EffectivenessExceptions CheckTintedLensFilter(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    struct EffectivenessExceptions result = { 0 };
     if (!(gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE)))
     {
-        return 0;
+        return result;
     }
 
     if (SkillTester(&bunitA->unit, TintedLensID_Link))
     {
-        result = 1;
+        result.tintedLens = true;
     }
     if (SkillTester(&bunitB->unit, FilterID_Link))
     {
-        result |= 2;
+        result.filter = true;
     }
+    if (SkillTester(&bunitA->unit, ScrappyID_Link))
+    {
+        result.scrappy = true;
+    }
+    if (SkillTester(&bunitB->unit, DrySkinID_Link))
+    {
+        result.drySkin = true;
+    }
+    if (SkillTester(&bunitB->unit, FlashFireID_Link))
+    {
+        result.flashFire = true;
+    }
+    if (SkillTester(&bunitB->unit, MotorDriveID_Link))
+    {
+        result.motorDrive = true;
+    }
+    if (IsEffectivenessAuraNearby(bunitB, DoesClassHaveLightningRod))
+    {
+        result.lightningRod = true;
+    }
+    if (IsEffectivenessAuraNearby(bunitB, DoesClassHaveDampAura))
+    {
+        result.dampAura = true;
+    }
+    if (IsEffectivenessAuraNearby(bunitB, DoesClassHaveFieryAura))
+    {
+        result.fieryAura = true;
+    }
+
     return result;
+}
+
+#define Immune 1
+#define SuperEffective 4
+#define DoubleEffective 5 // Dry skin only currently
+#define Ineffective 7
+
+extern int NormalTypeWep_Link;
+extern int ElectricTypeWep_Link;
+extern int WaterTypeWep_Link;
+extern int FireTypeWep_Link;
+extern int GrassTypeWep_Link;
+extern int GroundTypeWep_Link;
+extern int PsychicTypeWep_Link;
+extern int FightingTypeWep_Link;
+extern int IceTypeWep_Link;
+extern int PoisonTypeWep_Link;
+extern int FlyingTypeWep_Link;
+extern int RockTypeWep_Link;
+extern int GhostTypeWep_Link;
+extern int DragonTypeWep_Link;
+extern int BugTypeWep_Link;
+extern int SteelTypeWep_Link;
+
+void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+
+    int canCounter = bunitB->canCounter;
+    if (bunitB->unit.index >= 0)
+    {
+        canCounter = true; // players always get bonus def from using super effective moves
+    }
+
+    int effectiveness = IsItemEffectiveAgainst(bunitA->weaponBefore, &bunitB->unit);
+    if (!effectiveness)
+    {
+        return;
+    }
+    // EffectivenessToTypeBitfield
+    struct EffectivenessExceptions exceptions = CheckTintedLensFilter(bunitA, bunitB);
+    if (exceptions.tintedLens && (effectiveness == Ineffective))
+    {
+        effectiveness = SuperEffective;
+    }
+    int wepType = bunitA->weaponType;
+    if (wepType == FireTypeWep_Link && exceptions.flashFire)
+    {
+        effectiveness = Immune;
+    }
+    if (wepType == FireTypeWep_Link && exceptions.drySkin)
+    {
+        effectiveness = DoubleEffective;
+    }
+    if (wepType == WaterTypeWep_Link && exceptions.drySkin)
+    {
+        effectiveness = Immune;
+    }
+    if (wepType == ElectricTypeWep_Link && exceptions.drySkin)
+    {
+        effectiveness = DoubleEffective;
+    }
+    if (wepType == FireTypeWep_Link && exceptions.fieryAura)
+    {
+        AdjustDamageByPercent(bunitA, bunitB, 125);
+    }
+    if (wepType == FireTypeWep_Link && exceptions.dampAura)
+    {
+        AdjustDamageByPercent(bunitA, bunitB, 75);
+    }
+    if (wepType == WaterTypeWep_Link && exceptions.dampAura)
+    {
+        AdjustDamageByPercent(bunitA, bunitB, 125);
+    }
+    if (wepType == WaterTypeWep_Link && exceptions.fieryAura)
+    {
+        AdjustDamageByPercent(bunitA, bunitB, 75);
+    }
+    if (wepType == ElectricTypeWep_Link && exceptions.lightningRod &&
+        !DoesClassHaveLightningRod(bunitA->unit.pClassData->number))
+    {
+        effectiveness = Immune;
+    }
+
+    switch (effectiveness)
+    {
+        case Immune:
+        {
+            if (exceptions.scrappy)
+            {
+                return;
+            }
+            AdjustDamageByPercent(bunitA, bunitB, 0);
+            break;
+        }
+        case DoubleEffective:
+        {
+            AdjustDamageByPercentWithPiercing(bunitA, bunitB, 200, 25);
+            if (canCounter)
+            {
+                AdjustDamageByPercent(bunitB, bunitA, 75);
+            }
+            break;
+        }
+        case SuperEffective:
+        {
+            int percent = 150;
+            if (exceptions.filter)
+            {
+                percent = 125;
+            }
+            AdjustDamageByPercentWithPiercing(bunitA, bunitB, percent, percent - 100);
+            if (canCounter)
+            {
+                AdjustDamageByPercent(bunitB, bunitA, 75);
+            }
+            break;
+        }
+        case Ineffective:
+        {
+            AdjustDamageByPercent(bunitA, bunitB, 50);
+            break;
+        }
+
+        default:
+    }
 }
 
 // Scyther (Meowth / Persian already have a skill)

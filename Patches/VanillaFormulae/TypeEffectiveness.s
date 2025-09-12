@@ -67,6 +67,9 @@ beq Immune
 b SuperEffective
 
 Immune:
+mov r2, #4 @ scrappy 
+tst r2, r7 
+bne DoNothing 
 mov r2, #0x5C 
 ldsh r1, [r5, r2] @ def 
 sub r0, r1 

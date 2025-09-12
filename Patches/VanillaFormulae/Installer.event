@@ -68,7 +68,7 @@ jumpToHack_r3(DamageModifierCalcLoopHook)
 POP
 
 #include "MinimumDamage.lyn.event"
-#include "TypeEffectiveness.lyn.event"
+// #include "TypeEffectiveness.lyn.event"
 
 #include "DisplayDurabilitySupply.lyn.event"
 

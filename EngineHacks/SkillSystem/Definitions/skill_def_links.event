@@ -2,6 +2,41 @@
 // \1_Link:\nWORD \1
 
 ALIGN 4 
+NormalTypeWep_Link:
+WORD NormalTypeWep
+ElectricTypeWep_Link:
+WORD ElectricTypeWep
+WaterTypeWep_Link:
+WORD WaterTypeWep
+FireTypeWep_Link:
+WORD FireTypeWep
+GrassTypeWep_Link:
+WORD GrassTypeWep
+GroundTypeWep_Link:
+WORD GroundTypeWep
+PsychicTypeWep_Link:
+WORD PsychicTypeWep
+FightingTypeWep_Link:
+WORD FightingTypeWep
+IceTypeWep_Link:
+WORD IceTypeWep
+PoisonTypeWep_Link:
+WORD PoisonTypeWep
+FlyingTypeWep_Link:
+WORD FlyingTypeWep
+RockTypeWep_Link:
+WORD RockTypeWep
+GhostTypeWep_Link:
+WORD GhostTypeWep
+DragonTypeWep_Link:
+WORD DragonTypeWep
+BugTypeWep_Link:
+WORD BugTypeWep
+SteelTypeWep_Link:
+WORD SteelTypeWep
+
+
+ALIGN 4 
 ChlorophyllID_Link:
 WORD ChlorophyllID
 SolarPowerID_Link:
@@ -108,3 +143,512 @@ StarmieSkillID_Link:
 WORD StarmieSkillID
 LaprasSkillID_Link:
 WORD LaprasSkillID
+
+
+
+
+BulbasaurID_Link:
+WORD BulbasaurID
+IvysaurID_Link:
+WORD IvysaurID
+VenusaurID_Link:
+WORD VenusaurID
+CharmanderID_Link:
+WORD CharmanderID
+CharmeleonID_Link:
+WORD CharmeleonID
+CharizardID_Link:
+WORD CharizardID
+SquirtleID_Link:
+WORD SquirtleID
+WartortleID_Link:
+WORD WartortleID
+BlastoiseID_Link:
+WORD BlastoiseID
+CaterpieID_Link:
+WORD CaterpieID
+MetapodID_Link:
+WORD MetapodID
+ButterfreeID_Link:
+WORD ButterfreeID
+WeedleID_Link:
+WORD WeedleID
+KakunaID_Link:
+WORD KakunaID
+BeedrillID_Link:
+WORD BeedrillID
+PidgeyID_Link:
+WORD PidgeyID
+PidgeottoID_Link:
+WORD PidgeottoID
+PidgeotID_Link:
+WORD PidgeotID
+SuspiciousWaterID_Link:
+WORD SuspiciousWaterID
+CrobatID_Link:
+WORD CrobatID
+RedID_Link:
+WORD RedID
+TeleporterID_Link:
+WORD TeleporterID
+RattataID_Link:
+WORD RattataID
+RaticateID_Link:
+WORD RaticateID
+SpearowID_Link:
+WORD SpearowID
+FearowID_Link:
+WORD FearowID
+EkansID_Link:
+WORD EkansID
+ArbokID_Link:
+WORD ArbokID
+PikachuID_Link:
+WORD PikachuID
+RaichuID_Link:
+WORD RaichuID
+SandshrewID_Link:
+WORD SandshrewID
+SandslashID_Link:
+WORD SandslashID
+NidoranFID_Link:
+WORD NidoranFID
+NidorinaID_Link:
+WORD NidorinaID
+NidoqueenID_Link:
+WORD NidoqueenID
+NidoranMID_Link:
+WORD NidoranMID
+NidorinoID_Link:
+WORD NidorinoID
+NidokingID_Link:
+WORD NidokingID
+ClefairyID_Link:
+WORD ClefairyID
+ClefableID_Link:
+WORD ClefableID
+VulpixID_Link:
+WORD VulpixID
+NinetalesID_Link:
+WORD NinetalesID
+JigglypuffID_Link:
+WORD JigglypuffID
+WigglytuffID_Link:
+WORD WigglytuffID
+ZubatID_Link:
+WORD ZubatID
+GolbatID_Link:
+WORD GolbatID
+OddishID_Link:
+WORD OddishID
+GloomID_Link:
+WORD GloomID
+VileplumeID_Link:
+WORD VileplumeID
+ParasID_Link:
+WORD ParasID
+ParasectID_Link:
+WORD ParasectID
+GorgonEggID_Link:
+WORD GorgonEggID
+VenonatID_Link:
+WORD VenonatID
+VenomothID_Link:
+WORD VenomothID
+DiglettID_Link:
+WORD DiglettID
+DugtrioID_Link:
+WORD DugtrioID
+MeowthID_Link:
+WORD MeowthID
+PersianID_Link:
+WORD PersianID
+PsyduckID_Link:
+WORD PsyduckID
+GolduckID_Link:
+WORD GolduckID
+MankeyID_Link:
+WORD MankeyID
+PrimeapeID_Link:
+WORD PrimeapeID
+GrowlitheID_Link:
+WORD GrowlitheID
+ArcanineID_Link:
+WORD ArcanineID
+PoliwagID_Link:
+WORD PoliwagID
+PoliwhirlID_Link:
+WORD PoliwhirlID
+PoliwrathID_Link:
+WORD PoliwrathID
+AbraID_Link:
+WORD AbraID
+KadabraID_Link:
+WORD KadabraID
+AlakazamID_Link:
+WORD AlakazamID
+MachopID_Link:
+WORD MachopID
+MachokeID_Link:
+WORD MachokeID
+MachampID_Link:
+WORD MachampID
+BellsproutID_Link:
+WORD BellsproutID
+WeepinbellID_Link:
+WORD WeepinbellID
+VictreebelID_Link:
+WORD VictreebelID
+TentacoolID_Link:
+WORD TentacoolID
+TentacruelID_Link:
+WORD TentacruelID
+GeodudeID_Link:
+WORD GeodudeID
+GravellerID_Link:
+WORD GravellerID
+PhantomID_Link:
+WORD PhantomID
+GolemID_Link:
+WORD GolemID
+PonytaID_Link:
+WORD PonytaID
+RapidashID_Link:
+WORD RapidashID
+SlowpokeID_Link:
+WORD SlowpokeID
+SlowbroID_Link:
+WORD SlowbroID
+MagnemiteID_Link:
+WORD MagnemiteID
+MagnetonID_Link:
+WORD MagnetonID
+FarfetchdID_Link:
+WORD FarfetchdID
+DoduoID_Link:
+WORD DoduoID
+DodrioID_Link:
+WORD DodrioID
+SeelID_Link:
+WORD SeelID
+DewgongID_Link:
+WORD DewgongID
+GrimerID_Link:
+WORD GrimerID
+CutBushID_Link:
+WORD CutBushID
+RockSmashID_Link:
+WORD RockSmashID
+StrengthBoulderID_Link:
+WORD StrengthBoulderID
+GorgonEgg2ID_Link:
+WORD GorgonEgg2ID
+GreenID_Link:
+WORD GreenID
+DeathgoyleID_Link:
+WORD DeathgoyleID
+DracoZombieID_Link:
+WORD DracoZombieID
+DemonKingID_Link:
+WORD DemonKingID
+lassID_Link:
+WORD lassID
+picnickerID_Link:
+WORD picnickerID
+policemanID_Link:
+WORD policemanID
+prof_oakID_Link:
+WORD prof_oakID
+rockerID_Link:
+WORD rockerID
+rocket_fID_Link:
+WORD rocket_fID
+rocket_mID_Link:
+WORD rocket_mID
+sailorID_Link:
+WORD sailorID
+scientistID_Link:
+WORD scientistID
+super_nerdID_Link:
+WORD super_nerdID
+BurrowID_Link:
+WORD BurrowID
+FlowerID_Link:
+WORD FlowerID
+BerryTreeID_Link:
+WORD BerryTreeID
+sfxID_Link:
+WORD sfxID
+OpenBallID_Link:
+WORD OpenBallID
+RedPokeballID_Link:
+WORD RedPokeballID
+GoldPokeballID_Link:
+WORD GoldPokeballID
+GaryID_Link:
+WORD GaryID
+PlatformID_Link:
+WORD PlatformID
+BlankID_Link:
+WORD BlankID
+SavePointID_Link:
+WORD SavePointID
+BushID_Link:
+WORD BushID
+SignID_Link:
+WORD SignID
+Sign2ID_Link:
+WORD Sign2ID
+CoinsID_Link:
+WORD CoinsID
+MukID_Link:
+WORD MukID
+ShellderID_Link:
+WORD ShellderID
+CloysterID_Link:
+WORD CloysterID
+GastlyID_Link:
+WORD GastlyID
+HaunterID_Link:
+WORD HaunterID
+GengarID_Link:
+WORD GengarID
+OnixID_Link:
+WORD OnixID
+DrowzeeID_Link:
+WORD DrowzeeID
+HypnoID_Link:
+WORD HypnoID
+KrabbyID_Link:
+WORD KrabbyID
+KinglerID_Link:
+WORD KinglerID
+VoltorbID_Link:
+WORD VoltorbID
+ElectrodeID_Link:
+WORD ElectrodeID
+ExeggcuteID_Link:
+WORD ExeggcuteID
+ExeggutorID_Link:
+WORD ExeggutorID
+CuboneID_Link:
+WORD CuboneID
+MarowakID_Link:
+WORD MarowakID
+HitmonleeID_Link:
+WORD HitmonleeID
+HitmonchanID_Link:
+WORD HitmonchanID
+LickitungID_Link:
+WORD LickitungID
+KoffingID_Link:
+WORD KoffingID
+WeezingID_Link:
+WORD WeezingID
+RhyhornID_Link:
+WORD RhyhornID
+RhydonID_Link:
+WORD RhydonID
+ChanseyID_Link:
+WORD ChanseyID
+TangelaID_Link:
+WORD TangelaID
+KangaskhanID_Link:
+WORD KangaskhanID
+HorseaID_Link:
+WORD HorseaID
+SeadraID_Link:
+WORD SeadraID
+GoldeenID_Link:
+WORD GoldeenID
+SeakingID_Link:
+WORD SeakingID
+StaryuID_Link:
+WORD StaryuID
+StarmieID_Link:
+WORD StarmieID
+MrMimeID_Link:
+WORD MrMimeID
+ScytherID_Link:
+WORD ScytherID
+JynxID_Link:
+WORD JynxID
+ElectabuzzID_Link:
+WORD ElectabuzzID
+MagmarID_Link:
+WORD MagmarID
+PinsirID_Link:
+WORD PinsirID
+TaurosID_Link:
+WORD TaurosID
+MagikarpID_Link:
+WORD MagikarpID
+GyaradosID_Link:
+WORD GyaradosID
+LaprasID_Link:
+WORD LaprasID
+DittoID_Link:
+WORD DittoID
+EeveeID_Link:
+WORD EeveeID
+VaporeonID_Link:
+WORD VaporeonID
+JolteonID_Link:
+WORD JolteonID
+FlareonID_Link:
+WORD FlareonID
+PorygonID_Link:
+WORD PorygonID
+OmanyteID_Link:
+WORD OmanyteID
+OmastarID_Link:
+WORD OmastarID
+KabutoID_Link:
+WORD KabutoID
+KabutopsID_Link:
+WORD KabutopsID
+AerodactylID_Link:
+WORD AerodactylID
+SnorlaxID_Link:
+WORD SnorlaxID
+ArticunoID_Link:
+WORD ArticunoID
+ZapdosID_Link:
+WORD ZapdosID
+MoltresID_Link:
+WORD MoltresID
+DratiniID_Link:
+WORD DratiniID
+DragonairID_Link:
+WORD DragonairID
+DragoniteID_Link:
+WORD DragoniteID
+MewtwoID_Link:
+WORD MewtwoID
+MewID_Link:
+WORD MewID
+balding_manID_Link:
+WORD balding_manID
+battle_girlID_Link:
+WORD battle_girlID
+beautyID_Link:
+WORD beautyID
+billID_Link:
+WORD billID
+blackbeltID_Link:
+WORD blackbeltID
+blueID_Link:
+WORD blueID
+boyID_Link:
+WORD boyID
+bug_catcherID_Link:
+WORD bug_catcherID
+camperID_Link:
+WORD camperID
+captainID_Link:
+WORD captainID
+channelerID_Link:
+WORD channelerID
+chefID_Link:
+WORD chefID
+cooltrainer_fID_Link:
+WORD cooltrainer_fID
+fat_manID_Link:
+WORD fat_manID
+fisherID_Link:
+WORD fisherID
+gentlemanID_Link:
+WORD gentlemanID
+hikerID_Link:
+WORD hikerID
+mrfujiID_Link:
+WORD mrfujiID
+bikerID_Link:
+WORD bikerID
+giovanniID_Link:
+WORD giovanniID
+swimmer_f_landID_Link:
+WORD swimmer_f_landID
+swimmer_f_waterID_Link:
+WORD swimmer_f_waterID
+swimmer_m_landID_Link:
+WORD swimmer_m_landID
+swimmer_m_waterID_Link:
+WORD swimmer_m_waterID
+tuber_m_waterID_Link:
+WORD tuber_m_waterID
+rockID_Link:
+WORD rockID
+Unused2ID_Link:
+WORD Unused2ID
+puddleID_Link:
+WORD puddleID
+LoreleiID_Link:
+WORD LoreleiID
+BrunoID_Link:
+WORD BrunoID
+AgathaID_Link:
+WORD AgathaID
+LanceID_Link:
+WORD LanceID
+BrockID_Link:
+WORD BrockID
+MistyID_Link:
+WORD MistyID
+LtSurgeID_Link:
+WORD LtSurgeID
+KogaID_Link:
+WORD KogaID
+ErikaID_Link:
+WORD ErikaID
+SabrinaID_Link:
+WORD SabrinaID
+BlaineID_Link:
+WORD BlaineID
+BrendanID_Link:
+WORD BrendanID
+MayID_Link:
+WORD MayID
+MomID_Link:
+WORD MomID
+NurseID_Link:
+WORD NurseID
+ReceptionistID_Link:
+WORD ReceptionistID
+ClerkID_Link:
+WORD ClerkID
+ShedinjaID_Link:
+WORD ShedinjaID
+SableyeID_Link:
+WORD SableyeID
+MegaAlakazamID_Link:
+WORD MegaAlakazamID
+MegaPidgeotID_Link:
+WORD MegaPidgeotID
+MegaVenusaurID_Link:
+WORD MegaVenusaurID
+MegaCharizardXID_Link:
+WORD MegaCharizardXID
+MegaBlastoiseID_Link:
+WORD MegaBlastoiseID
+HealingTileClassID_Link:
+WORD HealingTileClassID
+MissingnoID_Link:
+WORD MissingnoID
+RedSurfID_Link:
+WORD RedSurfID
+GreenSurfID_Link:
+WORD GreenSurfID
+
+
+
+
+
+
+
+
+
+
+
+
+

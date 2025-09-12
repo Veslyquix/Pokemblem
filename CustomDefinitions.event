@@ -11,6 +11,10 @@
 #define FreeSpace_Low 0xb2a610
 #define POKEMBLEM
 
+// regex for GrepWin 
+// ^(?!.*[\\/](Language|Maps|Music|Text|Tools|wip Maps)[\\/]).*[\\/](EventAssembler)([\\/]|$)
+
+
 #define ProtagMug 179 
 //#define SkillSys_HookAiTryDoOffensiveAction
 // Shade+ (in AiSkills), Steal+, and Barricade hook this function so I've disabled them 
