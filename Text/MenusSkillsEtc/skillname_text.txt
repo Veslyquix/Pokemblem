@@ -333,7 +333,7 @@ Bond[X]
 Anathema[X]
 
 ## SN_LilysPoise
-Lily's Poise[X]
+Forewarn[X]
 
 ## SN_Expertise
 Expertise[X]
@@ -603,7 +603,7 @@ Devil's Whim[X]
 Poison Strike[X]
 
 ## SN_Grisly_Wound
-Grisly Wound[X]
+Aftermath[X]
 
 ## SN_Hex
 Hex[X]
@@ -810,7 +810,7 @@ Deadeye[X]
 Dragon Fang[X]
 
 ## SN_Fortune
-Fortune[X]
+Battle Armor[X]
 
 ## SN_Assassinate
 Assassinate[X]
@@ -1320,11 +1320,11 @@ OddishSkill[X]
 ## SN_SporeTouch
 Spore Touch[X]
 
-## SN_LickitungSkill
-LickitungSkill[X]
+## SN_Simple
+Simple[X]
 
-## SN_StarmieSkill
-StarmieSkill[X]
+## SN_NaturalCure
+Natural Cure[X]
 
 ## SN_LaprasSkill
 LaprasSkill[X]
@@ -1332,6 +1332,8 @@ LaprasSkill[X]
 ## SN_Levitate
 Levitate[X]
 
+## SN_SwiftSwim
+Swift Swim[X]
 
 
 

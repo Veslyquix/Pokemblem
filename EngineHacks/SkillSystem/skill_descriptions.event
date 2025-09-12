@@ -453,10 +453,11 @@ SkillDescription(SynchronizeID,SD_Synchronize)
 SkillDescription(ChanseySkillID,SD_ChanseySkill)
 SkillDescription(OddishSkillID,SD_OddishSkill)
 SkillDescription(SporeTouchID,SD_SporeTouch)
-SkillDescription(LickitungSkillID,SD_LickitungSkill)
-SkillDescription(StarmieSkillID,SD_StarmieSkill)
+SkillDescription(SimpleID,SD_Simple)
+SkillDescription(NaturalCureID,SD_NaturalCure)
 SkillDescription(LaprasSkillID,SD_LaprasSkill)
 SkillDescription(LevitateID,SD_Levitate)
+SkillDescription(SwiftSwimID,SD_SwiftSwim)
 
 
 
@@ -901,10 +902,11 @@ SkillName(SynchronizeID,SN_Synchronize)
 SkillName(ChanseySkillID,SN_ChanseySkill)
 SkillName(OddishSkillID,SN_OddishSkill)
 SkillName(SporeTouchID,SN_SporeTouch)
-SkillName(LickitungSkillID,SN_LickitungSkill)
-SkillName(StarmieSkillID,SN_StarmieSkill)
+SkillName(SimpleID,SN_Simple)
+SkillName(NaturalCureID,SN_NaturalCure)
 SkillName(LaprasSkillID,SN_LaprasSkill)
 SkillName(LevitateID,SN_Levitate)
+SkillName(SwiftSwimID,SN_SwiftSwim)
 
 
 

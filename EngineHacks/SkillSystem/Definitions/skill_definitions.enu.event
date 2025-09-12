@@ -223,11 +223,11 @@
 #define WeakArmorID 0xD9
 #define StrongClawsID 0xDA
 #define PressureID 0xDB
-#define ChanseySkillID 0xDC
-#define OddishSkillID 0xDD
-#define SporeTouchID 0xDF
-#define LickitungSkillID 0xE0
-#define StarmieSkillID 0xE1
+#define SporeTouchID 0xDC
+#define SimpleID 0xDD
+#define NaturalCureID 0xDF
+#define ChanseySkillID 0xE0
+#define OddishSkillID 0xE1
 #define LaprasSkillID 0xE4
 #define WatchfulID 0xE5
 #define ScaledBackID 0xE6
@@ -249,6 +249,8 @@
 #define SwarmID 0xF8
 #define LevitateID 0xF9
 #define PridefulWarriorID 0xFA
+#define SwiftSwimID 0xFB
+#define LilysPoiseID 0xFC
 #define DownWithArchID 0xFF
 #define ResolveID 0xFF
 #define FortressDefenseID 0xFF
@@ -308,7 +310,6 @@
 #define InfiltratorID 0xFF
 #define InspirationID 0xFF
 #define IntimidateID 0xFF
-#define LilysPoiseID 0xFF
 #define MaleficAuraID 0xFF
 #define SolidarityID 0xFF
 #define SpurStrID 0xFF

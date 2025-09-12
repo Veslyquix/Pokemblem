@@ -137,14 +137,16 @@ OddishSkillID_Link:
 WORD OddishSkillID
 SporeTouchID_Link:
 WORD SporeTouchID
-LickitungSkillID_Link:
-WORD LickitungSkillID
-StarmieSkillID_Link:
-WORD StarmieSkillID
+SimpleID_Link:
+WORD SimpleID
+NaturalCureID_Link:
+WORD NaturalCureID
 LaprasSkillID_Link:
 WORD LaprasSkillID
 LevitateID_Link:
 WORD LevitateID 
+SwiftSwimID_Link:
+WORD SwiftSwimID 
 
 
 

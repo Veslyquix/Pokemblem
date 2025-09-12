@@ -49,6 +49,7 @@ POIN Wrath //SpurStr SpurMag SpurSpd SpurDef SpurRes
 //POIN MaleficAura Intimidate 
 POIN Tantivy Focus Anathema Loyalty FieryBlood LifeAndDeath WindDisciple Perfectionist Puissance Hawkeye LightWeight Trample Opportunist 
 POIN BattleVeteran SilentPride Thunderstorm Outrider HeavyStrikes Charge Vanity KnightAspirant AssassinateDamageBonus ArcaneBlade
+POIN LilysPoise 
 //Inspiration DivinelyInspiring Charm Solidarity VoiceOfPeace  LilysPoise Charisma Hex  Infiltrator
 //POIN ElbowRoom NaturalCover Gamble 
 POIN NightTide Insight Prescience Vigilance DefiantAvo DefiantCrit TowerShield ShortShield
@@ -93,7 +94,7 @@ POIN 0
 // Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
 ALIGN 4 
 DamageModifierCalcLoop:
-POIN RivalryEffect HustleEffect AnalyticEffect RecklessRockEffect ArenaTrapEffect SporeTouchEffect 
+POIN RivalryEffect HustleEffect AnalyticEffect RecklessRockEffect 
 POIN WeaponsThatAlwaysDouble
 POIN WeakChipDmg ScaledUp
 POIN EnemyWeightBonus

@@ -34,6 +34,17 @@ ldr r2, [r2]
 bl UnpackData_Signed 
 cmp r0, #0 
 bge DoneGetDebuffAmount 
+ldr r1, =KrabbyID 
+lsl r1, #24 
+lsr r1, #24 
+cmp r5, r1 
+beq NoDebuffPossible 
+ldr r1, =KinglerID 
+lsl r1, #24 
+lsr r1, #24 
+cmp r5, r1 
+beq NoDebuffPossible 
+
 ldr r1, =TentacoolID 
 lsl r1, #24 
 lsr r1, #24 
@@ -63,6 +74,8 @@ mov r4, r1 @unit
 ldr r2, =DebuffStatBitOffset_Mag
 ldr r2, [r2] 
 bl GetDebuffAmount 
+mov r1, r4 
+bl AdjustForSimple 
 add r0, r5 
 mov r1, r4
 pop {r4-r5}
@@ -80,6 +93,8 @@ mov r4, r1 @unit
 ldr r2, =DebuffStatBitOffset_Str
 ldr r2, [r2] 
 bl GetDebuffAmount 
+mov r1, r4 
+bl AdjustForSimple 
 add r0, r5 
 mov r1, r4
 pop {r4-r5}
@@ -96,6 +111,8 @@ mov r4, r1 @unit
 ldr r2, =DebuffStatBitOffset_Skl
 ldr r2, [r2] 
 bl GetDebuffAmount 
+mov r1, r4 
+bl AdjustForSimple 
 add r0, r5 
 mov r1, r4
 pop {r4-r5}
@@ -113,6 +130,8 @@ mov r4, r1 @unit
 ldr r2, =DebuffStatBitOffset_Spd
 ldr r2, [r2] 
 bl GetDebuffAmount 
+mov r1, r4 
+bl AdjustForSimple 
 add r0, r5 
 mov r1, r4
 pop {r4-r5}
@@ -129,6 +148,8 @@ mov r4, r1 @unit
 ldr r2, =DebuffStatBitOffset_Def
 ldr r2, [r2] 
 bl GetDebuffAmount 
+mov r1, r4 
+bl AdjustForSimple 
 add r0, r5 
 mov r1, r4
 pop {r4-r5}
@@ -145,6 +166,8 @@ mov r4, r1 @unit
 ldr r2, =DebuffStatBitOffset_Res
 ldr r2, [r2] 
 bl GetDebuffAmount 
+mov r1, r4 
+bl AdjustForSimple 
 add r0, r5 
 mov r1, r4
 pop {r4-r5}
@@ -161,6 +184,8 @@ mov r4, r1 @unit
 ldr r2, =DebuffStatBitOffset_Luk
 ldr r2, [r2] 
 bl GetDebuffAmount 
+mov r1, r4 
+bl AdjustForSimple 
 add r0, r5 
 mov r1, r4
 pop {r4-r5}

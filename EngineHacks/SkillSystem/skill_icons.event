@@ -107,13 +107,15 @@ ORG SkillIcon(OddishSkillID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(SporeTouchID)
 #incbin "SkillIcons/PowerfulAura.dmp"
-ORG SkillIcon(LickitungSkillID)
+ORG SkillIcon(SimpleID)
 #incbin "SkillIcons/PowerfulAura.dmp"
-ORG SkillIcon(StarmieSkillID)
+ORG SkillIcon(NaturalCureID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(LaprasSkillID) 
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(LevitateID)
+#incbin "SkillIcons/PowerfulAura.dmp"
+ORG SkillIcon(SwiftSwimID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 
 ORG SkillIcon(PowerfulAuraID)

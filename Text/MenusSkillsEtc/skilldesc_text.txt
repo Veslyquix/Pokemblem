@@ -457,8 +457,8 @@ Anathema: -10 Avoid/Dodge to all[N]
 enemies within 3 tiles.[X]
 
 ## SD_LilysPoise
-Lily's Poise: Adjacent allies gain[N]
-+1/-3 damage dealt/received.[X]
+Forewarn: Adjacent allies take[N]
+10 less damage received.[X]
 
 ## SD_Expertise
 Expertise: Reduce bonus damage[N]
@@ -833,7 +833,7 @@ Poison Strike: Deals damage equal to[N]
 battle this unit initiates.[X]
 
 ## SD_Grisly_Wound
-Grisly Wound: Deals damage equal[N]
+Aftermath: Deals damage equal[N]
 to 25% of the enemy's current[N]
 HP after every battle.[X]
 
@@ -1108,7 +1108,7 @@ Dragon Fang: 1.5x damage.[N]
 (Skill% activation)[X]
 
 ## SD_Fortune
-Fortune: This unit[N]
+Battle Armor: This unit[N]
 cannot be crit.[X]
 
 ## SD_Assassinate
@@ -1867,8 +1867,8 @@ Keen Eye: Moves are[N]
 50% more accurate.[X]
 
 ## SD_Sniper
-Sniper: Critical hit[N]
-rate is doubled.[X]
+Sniper: +30 Critical hit[N]
+rate.[X]
 
 ## SD_LightningRod
 Lightning Rod: [N]
@@ -1937,7 +1937,7 @@ to critical hits.[X]
 
 ## SD_Grudge
 Grudge: After fainting, the opponent's[N]
-def/res are debuffed by 10.[X]
+def/res are debuffed by 30.[X]
 
 ## SD_Aftermath
 Aftermath: After fainting, the opponent[N]
@@ -1952,16 +1952,15 @@ Forewarn: [N]
 [X]
 
 ## SD_HyperCutter
-Hyper Cutter: [N]
-[X]
+Hyper Cutter: Immune to debuffs.[X]
 
 ## SD_Harvest
-Harvest: [N]
-[X]
+Harvest: Restore 50% HP each[N]
+turn while outdoors.[X]
 
 ## SD_Unburden
-Unburden: [N]
-[X]
+Unburden: Speed is doubled[N]
+without a held item.[X]
 
 ## SD_RecklessRock
 Reckless Rock: [N]
@@ -2035,13 +2034,13 @@ Oddish Skill: [N]
 Spore Touch: Put the enemy to[N]
 sleep after attacking.[X]
 
-## SD_LickitungSkill
-Lickitung Skill: [N]
-[X]
+## SD_Simple
+Simple: Buffs and debuffs[N]
+doubled.[X]
 
-## SD_StarmieSkill
-Starmie Skill: [N]
-[X]
+## SD_NaturalCure
+Natural Cure: Recover from status[N]
+at the start of your turn.[X]
 
 ## SD_LaprasSkill
 Lapras Skill: [N]
@@ -2050,5 +2049,10 @@ Lapras Skill: [N]
 ## SD_Levitate
 Levitate: Immune to[N]
 ground moves.[X]
+
+
+## SD_SwiftSwim
+Swift Swim: Speed is doubled[N]
+in water.[X]
 
 

@@ -38,7 +38,7 @@ int SolarPowerEffect(int stat, struct Unit * unit) // 25% more str/mag when outs
 }
 
 // Squirtle line
-int Explorer_CanUnitHeal(struct Unit * unit) // restore 1/8th hp at the end of your turn while outdoors
+int ExplorerUsability(struct Unit * unit) // restore 1/8th hp at the end of your turn while outdoors
 {
     if (AreWeOutdoors())
     {
@@ -50,9 +50,32 @@ int Explorer_CanUnitHeal(struct Unit * unit) // restore 1/8th hp at the end of y
     return false;
 }
 
-void Explorer_HealAmount(struct Unit * unit) // restore 1/8th hp at the end of your turn while outdoors
+void ExplorerEffect(struct Unit * unit) // restore 1/8th hp at the end of your turn while outdoors
 {
     unit->curHP += (unit->maxHP + 3) >> 3;
+    if (unit->curHP > unit->maxHP)
+    {
+        unit->curHP = unit->maxHP;
+    }
+}
+
+// Harvest: While outdoors, restore 1/8th hp each turn.
+// Exeggcute
+int HarvestUsability(struct Unit * unit) // restore 1/2th hp at the end of your turn while outdoors
+{
+    if (AreWeOutdoors())
+    {
+        // if (SkillTester(unit, ExplorerID_Link))
+        // {
+        return true;
+        // }
+    }
+    return false;
+}
+
+void HarvestEffect(struct Unit * unit) // restore 1/2th hp at the end of your turn while outdoors
+{
+    unit->curHP += (unit->maxHP) >> 1;
     if (unit->curHP > unit->maxHP)
     {
         unit->curHP = unit->maxHP;
@@ -113,6 +136,18 @@ void ShedSkinEffect(struct Unit * unit) // Shed Skin: at the start of the turn, 
         unit->statusDuration = 1;
     }
 }
+int NaturalCureUsability(struct Unit * unit)
+{
+    return true;
+}
+
+void NaturalCureEffect(struct Unit * unit) // NaturalCure: at the start of the turn, cure status
+{
+    if (unit->statusDuration)
+    {
+        unit->statusDuration = 1;
+    }
+}
 
 extern int KeenEyeID_Link;
 // Pidgey line, maybe Farfetch'd
@@ -140,7 +175,8 @@ void SniperEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB) // dou
     // {
     if (SkillTester(&bunitA->unit, SniperID_Link))
     {
-        bunitA->battleCritRate += bunitA->battleCritRate;
+        // bunitA->battleCritRate += bunitA->battleCritRate;
+        bunitA->battleCritRate += 30;
     }
     // }
 }
@@ -214,37 +250,12 @@ void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     // }
 }
 
+// Onix, Lickitung, Staryu, Oddish, Abra, Psyduck
+
 // Flank (Zubat line) - done
 
 // Oddish line - ?? some weather effect maybe
 // Chlorophyll, Flower Gift (Aura +mag), Harvest, Leaf Guard (Tangela)
-
-// Paras line
-extern int SporeTouchID_Link;
-void SporeTouchEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
-{
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
-    {
-        if (SkillTester(&bunitA->unit, SporeTouchID_Link))
-        {
-            bunitB->statusOut = UNIT_STATUS_SLEEP;
-        }
-    }
-}
-
-extern int ArenaTrapID_Link;
-// Diglett
-// Inflicts Bind status after combat against grounded foes
-void ArenaTrapEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
-{
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
-    {
-        if (SkillTester(&bunitA->unit, ArenaTrapID_Link))
-        {
-            bunitB->statusOut = UNIT_STATUS_ATTACK;
-        }
-    }
-}
 
 // Meowth line has pay day already
 
@@ -289,6 +300,103 @@ void RegeneratorEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
 }
 
+// Paras line
+extern int SporeTouchID_Link;
+void SporeTouchEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
+    {
+        return;
+    }
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        if (SkillTester(&bunitA->unit, SporeTouchID_Link))
+        {
+            bunitB->statusOut = UNIT_STATUS_SLEEP;
+        }
+    }
+}
+
+extern int ArenaTrapID_Link;
+// Diglett
+// Inflicts Bind status after combat against grounded foes
+void ArenaTrapEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
+    {
+        return;
+    }
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        if (SkillTester(&bunitA->unit, ArenaTrapID_Link))
+        {
+            bunitB->statusOut = UNIT_STATUS_ATTACK;
+        }
+    }
+}
+
+// Poison touch: Inflict poison after combat.
+// Grimer line
+extern int PoisonTouchID_Link;
+void PoisonTouchEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
+    {
+        return;
+    }
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        if (SkillTester(&bunitA->unit, PoisonTouchID_Link))
+        {
+            bunitB->statusOut = UNIT_STATUS_POISON;
+        }
+    }
+}
+
+// grisly wound for now
+// Aftermath: enemy loses 50% hp after the user faints
+// Voltorb line
+// extern int AftermathID_Link;
+// void AftermathEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+// {
+// if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
+// {
+// return;
+// }
+// if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+// {
+// if (SkillTester(&bunitA->unit, AftermathID_Link))
+// {
+// bunitB->statusOut = UNIT_STATUS_POISON;
+// }
+// }
+// }
+
+extern int ScreechDebuffID_Link;
+extern u32 * GetUnitDebuffEntry(struct Unit * unit);
+extern void ProcessCombatDebuffs(int id, struct BattleUnit * actor, u32 * buffSelfRam, u32 * buffEnemyRam);
+extern int GrudgeID_Link;
+void GrudgeEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
+    {
+        return;
+    }
+    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // {
+    if (SkillTester(&bunitA->unit, GrudgeID_Link))
+    {
+        ProcessCombatDebuffs(
+            ScreechDebuffID_Link, bunitA, GetUnitDebuffEntry(&bunitA->unit), GetUnitDebuffEntry(&bunitB->unit));
+    }
+    // }
+}
+
+// Grudge / Hex / Black Magic / Cursed Body: Opponent's def/res is debuffed by 10 after the user faints.
+// Gastly line
+// Aftermath: Opponent loses 25% hp after the user faints.
+// Voltorb line
+
 // Analytic: deal 30% more damage when counter attacking.
 // or.. deal 30% more damage against faster foes
 // Magnemite, (Staryu), (Porygon)
@@ -329,16 +437,8 @@ void HydrationEffect(struct Unit * unit)
 
 // Doduo has canto+
 
-// Poison touch: Inflict poison after combat.
-// Grimer line
-
 // Shell Armor: Opponent's moves cannot critical hit.
 // Shellder, (Krabby), (Lapras), (Omanyte),
-
-// Grudge / Hex / Black Magic / Cursed Body: Opponent's def/res is debuffed by 10 after the user faints.
-// Gastly line
-// Aftermath: Opponent loses 25% hp after the user faints.
-// Voltorb line
 
 // Sheer Force: secondary effects cannot happen, but deal 30% more damage?
 
@@ -348,11 +448,6 @@ void HydrationEffect(struct Unit * unit)
 // Hyper Cutter: Str cannot be debuffed.
 // Krabby line
 
-// Harvest: While outdoors, restore 1/8th hp each turn.
-// Exeggcute
-
-// Unburden: Speed is doubled without a held item.
-// Hitmonlee
 // Steady Brawler: Machop / Hitmonchan line
 
 // Lickitung ??
@@ -926,6 +1021,38 @@ int WeakArmorSpdEffect(int stat, struct Unit * unit)
     return stat;
 }
 
+// Unburden: Speed is doubled without a held item.
+// Hitmonlee
+extern int EquippedAccessoryGetter(struct Unit * unit);
+extern int UnburdenID_Link;
+int UnburdenEffect(int stat, struct Unit * unit)
+{
+
+    if (SkillTester(unit, UnburdenID_Link))
+    {
+        int heldItem = EquippedAccessoryGetter(unit);
+
+        if (!heldItem)
+        {
+            stat += stat;
+        }
+    }
+    return stat;
+}
+
+extern int SwiftSwimID_Link;
+int SwiftSwimEffect(int stat, struct Unit * unit)
+{
+    if (IsCoordWater(unit->xPos, unit->yPos))
+    {
+        if (SkillTester(unit, SwiftSwimID_Link))
+        {
+            stat += stat;
+        }
+    }
+    return stat;
+}
+
 // Strong Claws: Boosts str by 12.5%.
 extern int StrongClawsID_Link;
 // Aerodactyl
@@ -976,6 +1103,17 @@ void PressureEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 
 // Contrary: Debuffs instead buff the user.
 // Simple, Moody
+extern int LickitungID_Link;
+// double debuff or buff
+int AdjustForSimple(int debuffVal, struct Unit * unit)
+{
+    if (unit->pClassData->number != LickitungID_Link)
+    {
+        return debuffVal;
+    }
+    debuffVal *= 2;
+    return debuffVal;
+}
 
 inline const s8 * VanillaGetUnitMovementCost(struct Unit * unit)
 {
