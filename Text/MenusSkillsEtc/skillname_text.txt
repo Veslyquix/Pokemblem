@@ -1150,7 +1150,7 @@ Keen Fighter[X]
 Last Word[X]
 
 ## SN_PridefulWarrior
-Prideful Warrior[X]
+Proud Bird[X]
 
 ## SN_BoldFighter
 Bold Fighter[X]
@@ -1317,8 +1317,8 @@ ChanseySkill[X]
 ## SN_OddishSkill
 OddishSkill[X]
 
-## SN_ParasSkill
-ParasSkill[X]
+## SN_SporeTouch
+Spore Touch[X]
 
 ## SN_LickitungSkill
 LickitungSkill[X]
@@ -1329,6 +1329,8 @@ StarmieSkill[X]
 ## SN_LaprasSkill
 LaprasSkill[X]
 
+## SN_Levitate
+Levitate[X]
 
 
 

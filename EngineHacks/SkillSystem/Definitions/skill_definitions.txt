@@ -812,7 +812,7 @@ PressureID
 
 ChanseySkillID 
 OddishSkillID 
-ParasSkillID 
+SporeTouchID 
 LickitungSkillID 
 StarmieSkillID 
 LaprasSkillID 
@@ -840,8 +840,8 @@ MultiscaleID
 SilphScopeID
 FlankID
 SwarmID 
-
-
+LevitateID
+PridefulWarriorID
 
  
 
@@ -1342,7 +1342,6 @@ ChaosStyleID
 DragonSkinID 
 StunningSmileID
 KeenFighterID
-PridefulWarriorID
 LastWordID
 BoldFighterID
 VengefulFighterID

@@ -1805,7 +1805,7 @@ Keen Fighter: This unit takes 25%[N]
 less damage if the opponent doubles.[X]
 
 ## SD_PridefulWarrior 
-Prideful Warrior: This unit always[N]
+Proud Bird: This unit always[N]
 attacks after the enemy, but[N]
 always doubles.[X]
 
@@ -1916,8 +1916,8 @@ Clear Body: Stats cannot[N]
 be lowered.[X]
 
 ## SD_Regenerator
-Regenerator: [N]
-[X]
+Regenerator: Restore 30% HP[N]
+after selecting "wait".[X]
 
 ## SD_Analytic
 Analytic: Deal 30% more[N]
@@ -1980,16 +1980,16 @@ Technician: Moves with 6 or less[N]
 power have doubled power.[X]
 
 ## SD_DrySkin
-DrySkin: [N]
-[X]
+DrySkin: Fully heal when hit[N]
+by water. Weak to fire.[X]
 
 ## SD_MotorDrive
-Motor Drive: [N]
-[X]
+Motor Drive: Raise spd by +10[N]
+when hit by an electric move.[X]
 
 ## SD_FlashFire
-Flash Fire: [N]
-[X]
+Flash Fire: Raise mag by +10[N]
+when hit by a fire move.[X]
 
 ## SD_AngerPoint
 Anger Point: [N]
@@ -2020,8 +2020,8 @@ Strong Claws: [N]
 [X]
 
 ## SD_Pressure
-Pressure: [N]
-[X]
+Pressure: Opponents counter[N]
+with a random move.[X]
 
 ## SD_ChanseySkill
 ChanseySkill: [N]
@@ -2031,9 +2031,9 @@ ChanseySkill: [N]
 Oddish Skill: [N]
 [X]
 
-## SD_ParasSkill
-Paras Skill: [N]
-[X]
+## SD_SporeTouch
+Spore Touch: Put the enemy to[N]
+sleep after attacking.[X]
 
 ## SD_LickitungSkill
 Lickitung Skill: [N]
@@ -2047,5 +2047,8 @@ Starmie Skill: [N]
 Lapras Skill: [N]
 [X]
 
+## SD_Levitate
+Levitate: Immune to[N]
+ground moves.[X]
 
 

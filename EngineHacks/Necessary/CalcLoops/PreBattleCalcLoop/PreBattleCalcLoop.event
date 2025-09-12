@@ -22,7 +22,8 @@ POIN BtlLoopList
 ALIGN 4
 BtlLoopList:
 //POIN BC_DefRes BC_Power BC_ASpd BC_Hit BC_Avo BC_Crit CritUpSkill BC_Dodge BC_Support BC_WRank BC_Status //these are the existing battle calculation routines
-POIN BC_DefRes BC_Power BC_ASpd BC_Hit BC_Avo BC_Crit CritUpSkill BC_Dodge BC_WRank BC_Status // maybe I don't need BC_Support ? 
+POIN BC_DefRes BC_Dodge BC_Crit BC_Avo BC_Power BC_Hit BC_ASpd CritUpSkill //BC_Status //BC_WRank  // I don't need BC_Support 
+// the order of these matters 
 POIN InitializePreBattleLoop
 POIN Lull //This is effectively a stat modifier routine, so it has to go first
 POIN Intimidate_Prebattle GuardBreaker_Prebattle Downgrade_Prebattle
@@ -92,7 +93,7 @@ POIN 0
 // Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
 ALIGN 4 
 DamageModifierCalcLoop:
-POIN RivalryEffect HustleEffect AnalyticEffect RecklessRockEffect
+POIN RivalryEffect HustleEffect AnalyticEffect RecklessRockEffect ArenaTrapEffect SporeTouchEffect 
 POIN WeaponsThatAlwaysDouble
 POIN WeakChipDmg ScaledUp
 POIN EnemyWeightBonus

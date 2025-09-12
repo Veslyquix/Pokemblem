@@ -8,7 +8,7 @@ pSpeedModifiers: // Speed
 	POIN TrappedStatus QuickFeetEffect
 	POIN ParalyzeStatus
     POIN ChlorophyllEffect 
-    POIN prAddEquipSpeed
+    POIN prAddEquipSpeed WeakArmorSpdEffect
 	POIN prDebuffSpd 
     POIN prItemPassiveSpeed prRallySpd prLifeAndDeathBonus prSkillFury prResolve prDefiantSpd prPushSpd
 	#ifdef ACCESSORIES_AND_FORGING

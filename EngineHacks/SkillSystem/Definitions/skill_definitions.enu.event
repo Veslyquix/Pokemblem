@@ -225,7 +225,7 @@
 #define PressureID 0xDB
 #define ChanseySkillID 0xDC
 #define OddishSkillID 0xDD
-#define ParasSkillID 0xDF
+#define SporeTouchID 0xDF
 #define LickitungSkillID 0xE0
 #define StarmieSkillID 0xE1
 #define LaprasSkillID 0xE4
@@ -247,6 +247,8 @@
 #define SilphScopeID 0xF6
 #define FlankID 0xF7
 #define SwarmID 0xF8
+#define LevitateID 0xF9
+#define PridefulWarriorID 0xFA
 #define DownWithArchID 0xFF
 #define ResolveID 0xFF
 #define FortressDefenseID 0xFF
@@ -439,7 +441,6 @@
 #define DragonSkinID 0xFF
 #define StunningSmileID 0xFF
 #define KeenFighterID 0xFF
-#define PridefulWarriorID 0xFF
 #define LastWordID 0xFF
 #define BoldFighterID 0xFF
 #define VengefulFighterID 0xFF

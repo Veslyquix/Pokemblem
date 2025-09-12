@@ -1,4 +1,5 @@
 #include "gbafe.h" // headers
+#define brk asm("mov r11, r11");
 extern int SkillTester(struct Unit * unit, int SkillID);
 extern int SwarmID_Link;
 extern int FlankID_Link;
@@ -117,14 +118,16 @@ extern int KeenEyeID_Link;
 // Pidgey line, maybe Farfetch'd
 void KeenEyeEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB) // 50% more accuracy from moves
 {
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // Uncomment these lines for prebattle skills that should only show up when targetting / fighting an enemy
+    // eg. Flank depends on the position of the enemy, so it should not display the conditional bonus in stat screen
+    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // {
+    if (SkillTester(&bunitA->unit, KeenEyeID_Link))
     {
-        if (SkillTester(&bunitA->unit, KeenEyeID_Link))
-        {
-            int hit = GetItemHit(bunitA->weaponBefore);
-            bunitA->battleHitRate += (hit >> 1);
-        }
+        int hit = GetItemHit(bunitA->weaponBefore);
+        bunitA->battleHitRate += (hit >> 1);
     }
+    // }
 }
 
 // Rattata has canto
@@ -133,13 +136,13 @@ extern int SniperID_Link;
 // Spearow, Horsea lines
 void SniperEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB) // doubled crit rate
 {
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // {
+    if (SkillTester(&bunitA->unit, SniperID_Link))
     {
-        if (SkillTester(&bunitA->unit, SniperID_Link))
-        {
-            bunitA->battleCritRate += bunitA->battleCritRate;
-        }
+        bunitA->battleCritRate += bunitA->battleCritRate;
     }
+    // }
 }
 
 // Sandshrew (Geodude?) line - some outdoor thing?
@@ -171,6 +174,8 @@ void UnawareEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 // Jigglypuff line
 // Defiant: When debuffed, raise Str by +15.
 // Farfetch'd
+// or Proud / Brave bird
+// (Prideful Warrior) - always double, but attack after the enemy
 
 extern int RivalryID_Link;
 int GetUnitsHighestStat(struct Unit * unit);
@@ -198,15 +203,15 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 extern int HustleID_Link;
 void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // {
+    if (SkillTester(&bunitB->unit, HustleID_Link))
     {
-        if (SkillTester(&bunitB->unit, HustleID_Link))
-        {
-            AdjustDamageByPercent(bunitB, bunitA, 120);
-            int hit = GetItemHit(bunitB->weaponBefore);
-            bunitB->battleHitRate -= (hit >> 1);
-        }
+        AdjustDamageByPercent(bunitB, bunitA, 120);
+        int hit = GetItemHit(bunitB->weaponBefore);
+        bunitB->battleHitRate -= (hit >> 1);
     }
+    // }
 }
 
 // Flank (Zubat line) - done
@@ -214,10 +219,32 @@ void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 // Oddish line - ?? some weather effect maybe
 // Chlorophyll, Flower Gift (Aura +mag), Harvest, Leaf Guard (Tangela)
 
-// Paras line - ??
+// Paras line
+extern int SporeTouchID_Link;
+void SporeTouchEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        if (SkillTester(&bunitA->unit, SporeTouchID_Link))
+        {
+            bunitB->statusOut = UNIT_STATUS_SLEEP;
+        }
+    }
+}
 
-// Arena Trap - Diglett
+extern int ArenaTrapID_Link;
+// Diglett
 // Inflicts Bind status after combat against grounded foes
+void ArenaTrapEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        if (SkillTester(&bunitA->unit, ArenaTrapID_Link))
+        {
+            bunitB->statusOut = UNIT_STATUS_ATTACK;
+        }
+    }
+}
 
 // Meowth line has pay day already
 
@@ -247,6 +274,20 @@ void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 // Maybe replace with
 // Regenerator: Restore 1/3rd of max hp when "wait" is selected.
 // (also Tangela)
+extern int RegeneratorID_Link;
+void RegeneratorEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gActionData.unitActionType == UNIT_ACTION_WAIT)
+    {
+        // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        // {
+        if (SkillTester(&bunitB->unit, RegeneratorID_Link))
+        {
+            bunitA->unit.curHP = 99;
+        }
+        // }
+    }
+}
 
 // Analytic: deal 30% more damage when counter attacking.
 // or.. deal 30% more damage against faster foes
@@ -325,17 +366,17 @@ extern int RecklessRockID_Link;
 
 void RecklessRockEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // {
+    if (SkillTester(&bunitB->unit, RecklessRockID_Link))
     {
-        if (SkillTester(&bunitB->unit, RecklessRockID_Link))
-        {
-            if (gBattleTarget.battleDefense)
-            { // if def isn't calculated yet, do nothing
-                AdjustDamageByPercent(bunitB, bunitA, 120);
-                AdjustDamageByPercent(bunitA, bunitB, 120);
-            }
+        if (gBattleTarget.battleDefense)
+        { // if def isn't calculated yet, do nothing
+            AdjustDamageByPercent(bunitB, bunitA, 120);
+            AdjustDamageByPercent(bunitA, bunitB, 120);
         }
     }
+    // }
 }
 
 // Annoying (renamed Amaterasu): Allies within 2 tiles recover 20% HP each turn.
@@ -389,7 +430,7 @@ typedef int (*AuraPredicate)(int classID);
 
 int DoesClassHaveFieryAura(int classID)
 {
-    const int ** data = FieryAuraPkmn;
+    const int * const * data = FieryAuraPkmn;
 
     while (*data != NULL)
     {
@@ -401,7 +442,7 @@ int DoesClassHaveFieryAura(int classID)
 }
 int DoesClassHaveDampAura(int classID)
 {
-    const int ** data = DampAuraPkmn;
+    const int * const * data = DampAuraPkmn;
 
     while (*data != NULL)
     {
@@ -414,7 +455,7 @@ int DoesClassHaveDampAura(int classID)
 
 int DoesClassHaveLightningRod(int classID)
 {
-    const int ** data = LightningRodPkmn;
+    const int * const * data = LightningRodPkmn;
 
     while (*data != NULL)
     {
@@ -474,7 +515,7 @@ struct EffectivenessExceptions
     u32 dampAura : 1;
     u32 fieryAura : 1;
 };
-struct EffectivenessExceptions CheckTintedLensFilter(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
     struct EffectivenessExceptions result = { 0 };
     if (!(gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE)))
@@ -523,8 +564,10 @@ struct EffectivenessExceptions CheckTintedLensFilter(struct BattleUnit * bunitA,
 }
 
 #define Immune 1
+#define TintedLensCase 3
 #define SuperEffective 4
 #define DoubleEffective 5 // Dry skin only currently
+#define Absorbtion 6
 #define Ineffective 7
 
 extern int NormalTypeWep_Link;
@@ -543,10 +586,99 @@ extern int GhostTypeWep_Link;
 extern int DragonTypeWep_Link;
 extern int BugTypeWep_Link;
 extern int SteelTypeWep_Link;
+// Dry Skin: Absorb water moves, but fire moves deal 2x damage.
+// Jynx
+
+// Motor Drive: Boost speed by +15 when hit by an electric move.
+// Electabuzz
+
+// Flash Fire / Flame Body: Boost mag by +15 when hit by a fire move.
+// Magmar?
+extern int ShouldWeaponHaveStabBonus(int, int);
+void AdjustHitrateForEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB);
+void PressureEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB);
+void ComputeBattleUnitAttack(struct BattleUnit * attacker, struct BattleUnit * defender)
+{
+    short attack;
+    PressureEffect(attacker, defender);
+
+    attacker->battleAttack = GetItemMight(attacker->weaponBefore);
+    if (ShouldWeaponHaveStabBonus(attacker->weaponBefore, attacker->unit.pClassData->number))
+    { // stab bonus hook
+        attacker->battleAttack += attacker->battleAttack;
+    }
+    attack = attacker->battleAttack;
+
+    attacker->battleAttack = attack;
+    AdjustHitrateForEffectiveness(attacker, defender);
+    // used to have a hook here for effectiveness that modified hitrate
+
+    int isMag = attacker->weaponAttributes & IA_MAGICDAMAGE;
+    if (!isMag) // strmag hook
+    {
+        attacker->battleAttack += attacker->unit.pow;
+    }
+    else
+    {
+        attacker->battleAttack += attacker->unit._u3A;
+    }
+}
+
+void AdjustHitrateForEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (!(gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE)))
+    {
+        return;
+    }
+    int effectiveness = IsItemEffectiveAgainst(bunitA->weaponBefore, &bunitB->unit);
+    if (!effectiveness)
+    {
+        return;
+    }
+    struct EffectivenessExceptions exceptions = CheckEffectivenessExceptions(bunitA, bunitB);
+
+    switch (effectiveness)
+    {
+        case Immune:
+        {
+            if (exceptions.scrappy)
+            {
+                return;
+            }
+            bunitA->wTriangleHitBonus = (-40);
+            break;
+        }
+        case SuperEffective:
+        {
+            bunitA->wTriangleHitBonus = 40;
+            bunitA->battleAvoidRate += 40;
+            if (UNIT_FACTION(&bunitA->unit) == FACTION_BLUE)
+            {
+                bunitA->battleCritRate += 10 + (bunitA->unit.skl >> 1);
+            }
+            bunitA->battleDodgeRate += 10 + (bunitA->unit.lck >> 1);
+            break;
+        }
+        case Ineffective:
+        {
+            if (exceptions.tintedLens)
+            {
+                return;
+            }
+            bunitA->wTriangleHitBonus = (-40);
+            break;
+        }
+
+        default:
+    }
+}
 
 void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
-
+    if (!(gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE)))
+    {
+        return;
+    }
     int canCounter = bunitB->canCounter;
     if (bunitB->unit.index >= 0)
     {
@@ -554,20 +686,25 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
 
     int effectiveness = IsItemEffectiveAgainst(bunitA->weaponBefore, &bunitB->unit);
+    // 2AAEC used to adjust hitrate in Add_weapon_might.s
     if (!effectiveness)
     {
         return;
     }
     // EffectivenessToTypeBitfield
-    struct EffectivenessExceptions exceptions = CheckTintedLensFilter(bunitA, bunitB);
+    struct EffectivenessExceptions exceptions = CheckEffectivenessExceptions(bunitA, bunitB);
     if (exceptions.tintedLens && (effectiveness == Ineffective))
     {
-        effectiveness = SuperEffective;
+        effectiveness = TintedLensCase;
     }
     int wepType = bunitA->weaponType;
     if (wepType == FireTypeWep_Link && exceptions.flashFire)
     {
-        effectiveness = Immune;
+        effectiveness = Absorbtion;
+    }
+    if (wepType == ElectricTypeWep_Link && exceptions.motorDrive)
+    {
+        effectiveness = Absorbtion;
     }
     if (wepType == FireTypeWep_Link && exceptions.drySkin)
     {
@@ -575,9 +712,9 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
     if (wepType == WaterTypeWep_Link && exceptions.drySkin)
     {
-        effectiveness = Immune;
+        effectiveness = Absorbtion;
     }
-    if (wepType == ElectricTypeWep_Link && exceptions.drySkin)
+    if (wepType == FireTypeWep_Link && exceptions.drySkin)
     {
         effectiveness = DoubleEffective;
     }
@@ -623,6 +760,16 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
             }
             break;
         }
+        case TintedLensCase: // no damage reduction from opponent
+        {
+            int percent = 150;
+            if (exceptions.filter)
+            {
+                percent = 125;
+            }
+            AdjustDamageByPercentWithPiercing(bunitA, bunitB, percent, percent - 100);
+            break;
+        }
         case SuperEffective:
         {
             int percent = 150;
@@ -635,6 +782,14 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
             {
                 AdjustDamageByPercent(bunitB, bunitA, 75);
             }
+            // @ 2x crit avoid + 10 while SE
+            break;
+        }
+        case Absorbtion:
+        {
+            AdjustDamageByPercent(bunitA, bunitB, 0);
+            bunitB->unit.curHP = bunitB->unit.maxHP;
+            // hpInitial
             break;
         }
         case Ineffective:
@@ -651,27 +806,18 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 extern int TechnicianID_Link;
 void TechnicianEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // {
+    if (SkillTester(&bunitA->unit, TechnicianID_Link))
     {
-        if (SkillTester(&bunitA->unit, TechnicianID_Link))
+        int mt = GetItemMight(bunitA->weaponBefore);
+        if (mt <= 6)
         {
-            int mt = GetItemMight(bunitA->weaponBefore);
-            if (mt <= 6)
-            {
-                bunitA->battleAttack += mt;
-            }
+            bunitA->battleAttack += mt;
         }
     }
+    // }
 }
-
-// Dry Skin: Absorb water moves, but fire moves deal 2x damage.
-// Jynx
-
-// Motor Drive: Boost speed by +15 when hit by an electric move.
-// Electabuzz
-
-// Flash Fire / Flame Body: Boost mag by +15 when hit by a fire move.
-// Magmar?
 
 // Pinsir has guard breaker already
 
@@ -690,17 +836,17 @@ extern int AdaptabilityID_Link;
 extern int ShouldWeaponHaveStabBonus(int, int);
 void AdaptabilityEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // {
+    if (ShouldWeaponHaveStabBonus(bunitA->weaponBefore, bunitA->unit.pClassData->number))
     {
-        if (ShouldWeaponHaveStabBonus(bunitA->weaponBefore, bunitA->unit.pClassData->number))
+        if (SkillTester(&bunitA->unit, AdaptabilityID_Link))
         {
-            if (SkillTester(&bunitA->unit, AdaptabilityID_Link))
-            {
-                int mt = GetItemMight(bunitA->weaponBefore);
-                bunitA->battleAttack += mt;
-            }
+            int mt = GetItemMight(bunitA->weaponBefore);
+            bunitA->battleAttack += mt;
         }
     }
+    // }
 }
 
 // Acid Armor / Marvel Scale: Boost Def/Res by 25% when inflicted by status.
@@ -752,14 +898,78 @@ int GutsEffect(int stat, struct Unit * unit)
 
 // Weak Armor: -5 def and +10 spd while damaged.
 // Omanyte / Kabuto
+extern int WeakArmorID_Link;
+int WeakArmorDefEffect(int stat, struct Unit * unit)
+{
+    if (unit->curHP < unit->maxHP)
+    {
+        if (SkillTester(unit, WeakArmorID_Link))
+        {
+            stat -= 5;
+            if (stat < 0)
+            {
+                stat = 0;
+            }
+        }
+    }
+    return stat;
+}
+int WeakArmorSpdEffect(int stat, struct Unit * unit)
+{
+    if (unit->curHP < unit->maxHP)
+    {
+        if (SkillTester(unit, WeakArmorID_Link))
+        {
+            stat += 10;
+        }
+    }
+    return stat;
+}
 
 // Strong Claws: Boosts str by 12.5%.
+extern int StrongClawsID_Link;
 // Aerodactyl
+int StrongClawsEffect(int stat, struct Unit * unit)
+{
+    if (SkillTester(unit, StrongClawsID_Link))
+    {
+        stat += (stat + 3) >> 3;
+    }
+    return stat;
+}
 
 // Snorlax has gluttony
 
 // Pressure: Opponents counter with a random move.
 // Birds / Mewtwo
+extern int PressureID_Link;
+void PressureEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (!(gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE)))
+    // if (!(gBattleStats.config & (BATTLE_CONFIG_REAL)))
+    {
+        return;
+    }
+    if (SkillTester(&bunitA->unit, PressureID_Link))
+    {
+        int count = 0;
+        u32 attr;
+        u8 validSlots[5] = { 0 };
+        for (int i = 0; i < 5; ++i)
+        {
+            attr = GetItemAttributes(bunitB->unit.ranks[i]);
+            if (attr & IA_WEAPON)
+            {
+                validSlots[count] = i;
+                count++;
+            }
+        }
+        int rand = NextRN_N(count);
+        bunitB->weaponBefore = bunitB->unit.ranks[validSlots[rand]];
+        bunitB->weapon = bunitB->unit.ranks[validSlots[rand]];
+    }
+    return;
+}
 
 // Synchronize: The attacker will receive the same status condition if it inflicts one to this Pokémon.
 // Mew

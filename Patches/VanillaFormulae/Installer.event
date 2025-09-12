@@ -51,7 +51,7 @@ jumpToHack_r0(NegateDefHack)
 //jumpToHack_r3(AddUnitToTargetListHack)
 
 ORG $2AAD0 
-callHack_r3(StabBonusFunc)
+// callHack_r3(StabBonusFunc)
 
 ORG $9B788 
 jumpToHack_r6(DisplayDurabilitySupply|1) 

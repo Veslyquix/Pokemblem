@@ -135,15 +135,16 @@ ChanseySkillID_Link:
 WORD ChanseySkillID
 OddishSkillID_Link:
 WORD OddishSkillID
-ParasSkillID_Link:
-WORD ParasSkillID
+SporeTouchID_Link:
+WORD SporeTouchID
 LickitungSkillID_Link:
 WORD LickitungSkillID
 StarmieSkillID_Link:
 WORD StarmieSkillID
 LaprasSkillID_Link:
 WORD LaprasSkillID
-
+LevitateID_Link:
+WORD LevitateID 
 
 
 
