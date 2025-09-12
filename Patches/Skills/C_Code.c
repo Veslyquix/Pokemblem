@@ -50,18 +50,15 @@ int ExplorerUsability(struct Unit * unit) // restore 1/8th hp at the end of your
     return false;
 }
 
-void ExplorerEffect(struct Unit * unit) // restore 1/8th hp at the end of your turn while outdoors
+int ExplorerEffect(struct Unit * unit) // restore 1/4th hp at the end of your turn while outdoors
 {
-    unit->curHP += (unit->maxHP + 3) >> 3;
-    if (unit->curHP > unit->maxHP)
-    {
-        unit->curHP = unit->maxHP;
-    }
+    int result = (unit->maxHP + 2) >> 2;
+    return result;
 }
 
-// Harvest: While outdoors, restore 1/8th hp each turn.
+// Harvest: While outdoors, restore 1/2 hp each turn.
 // Exeggcute
-int HarvestUsability(struct Unit * unit) // restore 1/2th hp at the end of your turn while outdoors
+int HarvestUsability(struct Unit * unit) // restore 1/2 hp at the end of your turn while outdoors
 {
     if (AreWeOutdoors())
     {
@@ -73,13 +70,10 @@ int HarvestUsability(struct Unit * unit) // restore 1/2th hp at the end of your 
     return false;
 }
 
-void HarvestEffect(struct Unit * unit) // restore 1/2th hp at the end of your turn while outdoors
+int HarvestEffect(struct Unit * unit) // restore 1/2th hp at the end of your turn while outdoors
 {
-    unit->curHP += (unit->maxHP) >> 1;
-    if (unit->curHP > unit->maxHP)
-    {
-        unit->curHP = unit->maxHP;
-    }
+    int result = (unit->maxHP) >> 1;
+    return result;
 }
 
 void AdjustDamageByPercent(struct BattleUnit * bunitA, struct BattleUnit * bunitB, int percent)
@@ -129,24 +123,26 @@ int ShedSkinUsability(struct Unit * unit)
     return true;
 }
 
-void ShedSkinEffect(struct Unit * unit) // Shed Skin: at the start of the turn, cure status
+int ShedSkinEffect(struct Unit * unit) // Shed Skin: at the start of the turn, cure status
 {
     if (unit->statusDuration)
     {
         unit->statusDuration = 1;
     }
+    return 0;
 }
 int NaturalCureUsability(struct Unit * unit)
 {
     return true;
 }
 
-void NaturalCureEffect(struct Unit * unit) // NaturalCure: at the start of the turn, cure status
+int NaturalCureEffect(struct Unit * unit) // NaturalCure: at the start of the turn, cure status
 {
     if (unit->statusDuration)
     {
         unit->statusDuration = 1;
     }
+    return 0;
 }
 
 extern int KeenEyeID_Link;
@@ -187,6 +183,7 @@ void SniperEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB) // dou
 extern int UnawareID_Link;
 // Unaware: Ignores the target's buffs/debuffs.
 // Clefairy
+// currently doesn't seem to work
 void UnawareEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
     if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
@@ -228,7 +225,7 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
             int highestA = GetUnitsHighestStat(GetUnit(bunitB->unit.index));
             if (highestB > highestA)
             {
-                AdjustDamageByPercent(bunitB, bunitA, 120);
+                AdjustDamageByPercent(bunitB, bunitA, 125);
             }
         }
     }
@@ -237,15 +234,31 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 // Hustle: Deal 25% more damage, but moves are 25% less accurate.
 // Nidoking line
 extern int HustleID_Link;
+
+void HustleHitrateEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    // {
+    if (SkillTester(&bunitB->unit, HustleID_Link))
+    {
+        int hit = GetItemHit(bunitB->weaponBefore);
+        hit = bunitB->battleHitRate - (hit >> 2);
+        if (hit < 10)
+        {
+            hit = 10;
+        }
+        bunitB->battleHitRate = hit;
+    }
+    // }
+}
+
 void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
     // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
     // {
     if (SkillTester(&bunitB->unit, HustleID_Link))
     {
-        AdjustDamageByPercent(bunitB, bunitA, 120);
-        int hit = GetItemHit(bunitB->weaponBefore);
-        bunitB->battleHitRate -= (hit >> 1);
+        AdjustDamageByPercent(bunitB, bunitA, 125);
     }
     // }
 }
@@ -488,9 +501,7 @@ extern int DampAuraID_Link;
 extern int DrySkinID_Link;
 extern int MotorDriveID_Link;
 extern int FlashFireID_Link;
-void LightningRodEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
-{
-}
+
 // Electric moves within 2 tiles deal 25% more damage. Immune to electric moves.
 // or Electric moves within 2 tiles deal no damage.
 
@@ -730,6 +741,11 @@ void AdjustHitrateForEffectiveness(struct BattleUnit * bunitA, struct BattleUnit
     {
         return;
     }
+    int canCounter = bunitB->canCounter;
+    if (bunitB->unit.index >= 0)
+    {
+        canCounter = true; // players always get bonus def from using super effective moves
+    }
     struct EffectivenessExceptions exceptions = CheckEffectivenessExceptions(bunitA, bunitB);
 
     switch (effectiveness)
@@ -745,13 +761,16 @@ void AdjustHitrateForEffectiveness(struct BattleUnit * bunitA, struct BattleUnit
         }
         case SuperEffective:
         {
-            bunitA->wTriangleHitBonus = 40;
-            bunitA->battleAvoidRate += 40;
-            if (UNIT_FACTION(&bunitA->unit) == FACTION_BLUE)
+            if (canCounter)
             {
-                bunitA->battleCritRate += 10 + (bunitA->unit.skl >> 1);
+                bunitA->wTriangleHitBonus = 40;
+                bunitA->battleAvoidRate += 40;
+                if (UNIT_FACTION(&bunitA->unit) == FACTION_BLUE)
+                {
+                    bunitA->battleCritRate += 10 + (bunitA->unit.skl >> 1);
+                }
+                bunitA->battleDodgeRate += 10 + (bunitA->unit.lck >> 1);
             }
-            bunitA->battleDodgeRate += 10 + (bunitA->unit.lck >> 1);
             break;
         }
         case Ineffective:
@@ -782,10 +801,7 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 
     int effectiveness = IsItemEffectiveAgainst(bunitA->weaponBefore, &bunitB->unit);
     // 2AAEC used to adjust hitrate in Add_weapon_might.s
-    if (!effectiveness)
-    {
-        return;
-    }
+
     // EffectivenessToTypeBitfield
     struct EffectivenessExceptions exceptions = CheckEffectivenessExceptions(bunitA, bunitB);
     if (exceptions.tintedLens && (effectiveness == Ineffective))
@@ -815,7 +831,7 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
     if (wepType == FireTypeWep_Link && exceptions.fieryAura)
     {
-        AdjustDamageByPercent(bunitA, bunitB, 125);
+        AdjustDamageByPercent(bunitA, bunitB, 150);
     }
     if (wepType == FireTypeWep_Link && exceptions.dampAura)
     {
@@ -823,7 +839,7 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
     if (wepType == WaterTypeWep_Link && exceptions.dampAura)
     {
-        AdjustDamageByPercent(bunitA, bunitB, 125);
+        AdjustDamageByPercent(bunitA, bunitB, 150);
     }
     if (wepType == WaterTypeWep_Link && exceptions.fieryAura)
     {
@@ -833,6 +849,10 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
         !DoesClassHaveLightningRod(bunitA->unit.pClassData->number))
     {
         effectiveness = Immune;
+    }
+    if (!effectiveness)
+    {
+        return;
     }
 
     switch (effectiveness)
@@ -1111,6 +1131,7 @@ int AdjustForSimple(int debuffVal, struct Unit * unit)
     {
         return debuffVal;
     }
+
     debuffVal *= 2;
     return debuffVal;
 }

@@ -117,6 +117,8 @@ ORG SkillIcon(LevitateID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(SwiftSwimID)
 #incbin "SkillIcons/PowerfulAura.dmp"
+ORG SkillIcon(RockyHelmetSkillID)
+#incbin "SkillIcons/PowerfulAura.dmp"
 
 ORG SkillIcon(PowerfulAuraID)
 #incbin "SkillIcons/PowerfulAura.dmp" 

@@ -458,6 +458,7 @@ SkillDescription(NaturalCureID,SD_NaturalCure)
 SkillDescription(LaprasSkillID,SD_LaprasSkill)
 SkillDescription(LevitateID,SD_Levitate)
 SkillDescription(SwiftSwimID,SD_SwiftSwim)
+SkillDescription(RockyHelmetSkillID,SD_RockyHelmet)
 
 
 
@@ -907,6 +908,7 @@ SkillName(NaturalCureID,SN_NaturalCure)
 SkillName(LaprasSkillID,SN_LaprasSkill)
 SkillName(LevitateID,SN_Levitate)
 SkillName(SwiftSwimID,SN_SwiftSwim)
+SkillName(RockyHelmetSkillID,SN_RockyHelmet)
 
 
 

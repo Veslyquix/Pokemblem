@@ -1335,6 +1335,9 @@ Levitate[X]
 ## SN_SwiftSwim
 Swift Swim[X]
 
+## SN_RockyHelmet
+Rough Skin[X]
+
 
 
 

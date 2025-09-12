@@ -22,9 +22,9 @@ POIN BtlLoopList
 ALIGN 4
 BtlLoopList:
 //POIN BC_DefRes BC_Power BC_ASpd BC_Hit BC_Avo BC_Crit CritUpSkill BC_Dodge BC_Support BC_WRank BC_Status //these are the existing battle calculation routines
-POIN BC_DefRes BC_Dodge BC_Crit BC_Avo BC_Power BC_Hit BC_ASpd CritUpSkill //BC_Status //BC_WRank  // I don't need BC_Support 
+POIN InitializePreBattleLoop BC_DefRes BC_Dodge BC_Crit BC_Avo BC_Power BC_Hit BC_ASpd CritUpSkill //BC_Status //BC_WRank  // I don't need BC_Support 
 // the order of these matters 
-POIN InitializePreBattleLoop
+POIN HustleHitrateEffect
 POIN Lull //This is effectively a stat modifier routine, so it has to go first
 POIN Intimidate_Prebattle GuardBreaker_Prebattle Downgrade_Prebattle
 POIN KeenEyeEffect SniperEffect UnawareEffect TechnicianEffect AdaptabilityEffect

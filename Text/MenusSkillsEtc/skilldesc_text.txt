@@ -1851,8 +1851,8 @@ Solar Power: +25% str/mag while[N]
 outdoors.[X]
 
 ## SD_Explorer
-Explorer: Restore 1/8th[N]
-hp each turn while outdoors.[X]
+Explorer: Restore 1/4th[N]
+HP each turn while outdoors.[X]
 
 ## SD_TintedLens
 Tinted Lens: Ineffective moves[N]
@@ -1871,16 +1871,18 @@ Sniper: +30 Critical hit[N]
 rate.[X]
 
 ## SD_LightningRod
-Lightning Rod: [N]
-[X]
+Lightning Rod: Nearby Electric[N]
+moves deal no damage.[X]
 
 ## SD_FieryAura
-Fiery Aura: [N]
-[X]
+Fiery Aura: Nearby Fire moves[N]
+deal 50% more damage, while[N]
+Water moves deal 25% less.[X]
 
 ## SD_DampAura
-Damp Aura: [N]
-[X]
+Damp Aura: Nearby Water moves[N]
+deal 50% more damage, while[N]
+Fire moves deal 25% less.[X]
 
 ## SD_Unaware
 Unaware: Ignores target's[N]
@@ -1901,7 +1903,7 @@ greater than yours.[X]
 
 ## SD_Hustle
 Hustle: Deal 25% more damage, but[N]
-move accuracy is reduced.[X]
+moves are 25% less accurate.[X]
 
 ## SD_ArenaTrap
 ArenaTrap: [N]
@@ -2054,5 +2056,9 @@ ground moves.[X]
 ## SD_SwiftSwim
 Swift Swim: Speed is doubled[N]
 in water.[X]
+
+## SD_RockyHelmet
+Rough Skin: Opponent takes[N]
+25% of current HP after attacking.[X]
 
 
