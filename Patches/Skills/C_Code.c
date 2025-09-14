@@ -183,7 +183,6 @@ void SniperEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB) // dou
 extern int UnawareID_Link;
 // Unaware: Ignores the target's buffs/debuffs.
 // Clefairy
-// currently doesn't seem to work
 void UnawareEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
     if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
@@ -259,6 +258,10 @@ void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     if (SkillTester(&bunitB->unit, HustleID_Link))
     {
         AdjustDamageByPercent(bunitB, bunitA, 125);
+        if (bunitB->battleEffectiveHitRate > 80)
+        {
+            bunitB->battleEffectiveHitRate = 80;
+        }
     }
     // }
 }
