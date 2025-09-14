@@ -1843,16 +1843,17 @@ Biding Blow: If the opponent[N]
 cannot counter, this unit doubles.[X]
 
 ## SD_Chlorophyll
-Chlorophyll: +50% speed while[N]
-outdoors.[X]
+Chlorophyll: Doubled speed while[N]
+outdoors or in Fiery Aura's range.[X]
 
 ## SD_SolarPower
 Solar Power: +25% str/mag while[N]
-outdoors.[X]
+outdoors or in Fiery Aura's range.[X]
 
 ## SD_Explorer
 Explorer: Restore 1/4th[N]
-HP each turn while outdoors.[X]
+HP each turn while outdoors[N]
+or in Damp Aura's range.[X]
 
 ## SD_TintedLens
 Tinted Lens: Ineffective moves[N]
@@ -1903,11 +1904,19 @@ greater than yours.[X]
 
 ## SD_Hustle
 Hustle: Deal 25% more damage, but[N]
-moves are 25% less accurate.[X]
+moves are 20% less accurate.[X]
 
 ## SD_ArenaTrap
-ArenaTrap: [N]
-[X]
+ArenaTrap: Bind the enemy[N]
+after battle at 1 range.[X]
+
+## SD_SporeTouch
+Spore Touch: Put the enemy to[N]
+sleep after battle at 1 range.[X]
+
+## SD_PoisonTouch
+Poison Touch: Inflict poison[N]
+after battle at 1 range.[X]
 
 ## SD_MagicGuard
 Magic Guard: [N]
@@ -1926,12 +1935,9 @@ Analytic: Deal 30% more[N]
 damage to faster opponents.[X]
 
 ## SD_Hydration
-Hydration: At the end of your turn,[N]
-Restore to full HP when in water.[X]
-
-## SD_PoisonTouch
-Poison Touch: Inflict poison[N]
-after battle.[X]
+Hydration: At the end of the phase,[N]
+restore to full HP when in water[N]
+or in range of Damp Aura.[X]
 
 ## SD_ShellArmor
 Shell Armor: Grants an immunity[N]
@@ -1958,7 +1964,8 @@ Hyper Cutter: Immune to debuffs.[X]
 
 ## SD_Harvest
 Harvest: Restore 50% HP each[N]
-turn while outdoors.[X]
+turn while outdoors or in[N]
+Fiery Aura's range.[X]
 
 ## SD_Unburden
 Unburden: Speed is doubled[N]
@@ -2032,10 +2039,6 @@ ChanseySkill: [N]
 Oddish Skill: [N]
 [X]
 
-## SD_SporeTouch
-Spore Touch: Put the enemy to[N]
-sleep after attacking.[X]
-
 ## SD_Simple
 Simple: Buffs and debuffs[N]
 doubled.[X]
@@ -2055,7 +2058,7 @@ ground moves.[X]
 
 ## SD_SwiftSwim
 Swift Swim: Speed is doubled[N]
-in water.[X]
+in water or in Damp Aura's range.[X]
 
 ## SD_RockyHelmet
 Rough Skin: Opponent takes[N]

@@ -9,15 +9,19 @@ extern int FlankRequiresSkill_Link;
 extern int MultiscaleID_Link;
 extern int AreWeOutdoors();
 
+int AreWeOutdoorsOrFieryAura(struct Unit * unit);
+int AreWeOutdoorsOrDampAura(struct Unit * unit);
+
 extern int ChlorophyllID_Link;
 // Bulbasaur line
 int ChlorophyllEffect(int stat, struct Unit * unit) // 50% more speed when outside
 {
-    if (AreWeOutdoors())
+    if (SkillTester(unit, ChlorophyllID_Link))
     {
-        if (SkillTester(unit, ChlorophyllID_Link))
+        if (AreWeOutdoorsOrFieryAura(unit))
         {
-            stat += ((stat + 1) >> 1);
+
+            stat += stat;
         }
     }
     return stat;
@@ -27,9 +31,9 @@ extern int SolarPowerID_Link;
 // Charmander line
 int SolarPowerEffect(int stat, struct Unit * unit) // 25% more str/mag when outside
 {
-    if (AreWeOutdoors())
+    if (SkillTester(unit, SolarPowerID_Link))
     {
-        if (SkillTester(unit, SolarPowerID_Link))
+        if (AreWeOutdoorsOrFieryAura(unit))
         {
             stat += ((stat + 2) >> 2);
         }
@@ -40,7 +44,7 @@ int SolarPowerEffect(int stat, struct Unit * unit) // 25% more str/mag when outs
 // Squirtle line
 int ExplorerUsability(struct Unit * unit) // restore 1/8th hp at the end of your turn while outdoors
 {
-    if (AreWeOutdoors())
+    if (AreWeOutdoorsOrDampAura(unit))
     {
         // if (SkillTester(unit, ExplorerID_Link))
         // {
@@ -60,7 +64,7 @@ int ExplorerEffect(struct Unit * unit) // restore 1/4th hp at the end of your tu
 // Exeggcute
 int HarvestUsability(struct Unit * unit) // restore 1/2 hp at the end of your turn while outdoors
 {
-    if (AreWeOutdoors())
+    if (AreWeOutdoorsOrFieryAura(unit))
     {
         // if (SkillTester(unit, ExplorerID_Link))
         // {
@@ -297,38 +301,47 @@ void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 
 // Ponyta line has Canto+ already
 
-// Slowpoke has oblivious / cannot be doubled
+// Slowpoke had oblivious / cannot be doubled
 // Maybe replace with
 // Regenerator: Restore 1/3rd of max hp when "wait" is selected.
 // (also Tangela)
 extern int RegeneratorID_Link;
-void RegeneratorEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+void RegeneratorEffect(struct Unit * unitA, struct Unit * unitB)
 {
     if (gActionData.unitActionType == UNIT_ACTION_WAIT)
     {
         // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
         // {
-        if (SkillTester(&bunitB->unit, RegeneratorID_Link))
+        if (SkillTester(unitA, RegeneratorID_Link))
         {
-            bunitA->unit.curHP = 99;
+            unitA->curHP += unitA->maxHP / 3;
         }
         // }
     }
 }
 
+// Patches/StatusEffects
+extern int IsTargetTypeImmune(int statusIndex, struct Unit * unitA, struct Unit * unitB);
+// this really uses battle units, but it doesn't matter
+
 // Paras line
 extern int SporeTouchID_Link;
-void SporeTouchEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+void SporeTouchEffect(struct Unit * unitA, struct Unit * unitB)
 {
-    if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
+    if (gActionData.unitActionType != UNIT_ACTION_COMBAT || !unitB)
     {
         return;
     }
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    if (IsTargetTypeImmune(UNIT_STATUS_SLEEP, unitA, unitB))
     {
-        if (SkillTester(&bunitA->unit, SporeTouchID_Link))
+        return;
+    }
+    if (gBattleStats.config & BATTLE_CONFIG_REAL && gBattleStats.range == 1)
+    {
+        if (SkillTester(unitA, SporeTouchID_Link))
         {
-            bunitB->statusOut = UNIT_STATUS_SLEEP;
+            unitB->statusDuration = 2;
+            unitB->statusIndex = UNIT_STATUS_SLEEP;
         }
     }
 }
@@ -336,35 +349,49 @@ void SporeTouchEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 extern int ArenaTrapID_Link;
 // Diglett
 // Inflicts Bind status after combat against grounded foes
-void ArenaTrapEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+void ArenaTrapEffect(struct Unit * unitA, struct Unit * unitB)
 {
-    if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
+    if (gActionData.unitActionType != UNIT_ACTION_COMBAT || !unitB)
     {
         return;
     }
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+
+    if (IsTargetTypeImmune(8, unitA, unitB))
     {
-        if (SkillTester(&bunitA->unit, ArenaTrapID_Link))
+        return;
+    }
+    // flying types (but not levitate I guess) immune to trapped status
+
+    if (gBattleStats.config & BATTLE_CONFIG_REAL && gBattleStats.range == 1)
+    {
+        if (SkillTester(unitA, ArenaTrapID_Link))
         {
-            bunitB->statusOut = UNIT_STATUS_ATTACK;
+            unitB->statusDuration = 2;
+            unitB->statusIndex = 8; // Entangle
         }
     }
-}
+} // UNIT_STATUS_ATTACK = BURN
 
 // Poison touch: Inflict poison after combat.
 // Grimer line
 extern int PoisonTouchID_Link;
-void PoisonTouchEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+void PoisonTouchEffect(struct Unit * unitA, struct Unit * unitB)
 {
-    if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
+    if (gActionData.unitActionType != UNIT_ACTION_COMBAT || !unitB)
     {
         return;
     }
-    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    if (IsTargetTypeImmune(UNIT_STATUS_POISON, unitA, unitB))
     {
-        if (SkillTester(&bunitA->unit, PoisonTouchID_Link))
+        return;
+    }
+    if (gBattleStats.config & BATTLE_CONFIG_REAL && gBattleStats.range == 1)
+    {
+        if (SkillTester(unitA, PoisonTouchID_Link))
         {
-            bunitB->statusOut = UNIT_STATUS_POISON;
+
+            unitB->statusDuration = 2;
+            unitB->statusIndex = UNIT_STATUS_POISON;
         }
     }
 }
@@ -388,11 +415,11 @@ void PoisonTouchEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 // }
 // }
 
-extern int ScreechDebuffID_Link;
+extern int GrudgeDebuffID_Link;
 extern u32 * GetUnitDebuffEntry(struct Unit * unit);
 extern void ProcessCombatDebuffs(int id, struct BattleUnit * actor, u32 * buffSelfRam, u32 * buffEnemyRam);
 extern int GrudgeID_Link;
-void GrudgeEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+void GrudgeEffect(struct Unit * unitA, struct Unit * unitB)
 {
     if (gActionData.unitActionType != UNIT_ACTION_COMBAT)
     {
@@ -400,11 +427,30 @@ void GrudgeEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
     // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
     // {
-    if (SkillTester(&bunitA->unit, GrudgeID_Link))
+    struct BattleUnit * actor = NULL;
+    struct BattleUnit * target = NULL;
+
+    if (unitA->curHP <= 0)
     {
-        ProcessCombatDebuffs(
-            ScreechDebuffID_Link, bunitA, GetUnitDebuffEntry(&bunitA->unit), GetUnitDebuffEntry(&bunitB->unit));
+        actor = &gBattleActor;
+        target = &gBattleTarget;
+        if (actor && SkillTester(&actor->unit, GrudgeID_Link))
+        {
+
+            ProcessCombatDebuffs(GrudgeDebuffID_Link, actor, GetUnitDebuffEntry(unitA), GetUnitDebuffEntry(unitB));
+        }
     }
+    else if (unitB->curHP <= 0)
+    {
+        actor = &gBattleTarget;
+        target = &gBattleActor;
+        if (actor && SkillTester(&actor->unit, GrudgeID_Link))
+        {
+
+            ProcessCombatDebuffs(GrudgeDebuffID_Link, target, GetUnitDebuffEntry(unitB), GetUnitDebuffEntry(unitA));
+        }
+    }
+
     // }
 }
 
@@ -431,24 +477,6 @@ void AnalyticEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
             }
         }
     }
-}
-
-// Hydration: Fully restore each turn when on water.
-// Seel, (Lapras), (Vaporeon)
-extern int IsCoordWater(s8 x, s8 y);
-int HydrationUsability(struct Unit * unit)
-{
-    return IsCoordWater(unit->xPos, unit->yPos);
-}
-
-void HydrationEffect(struct Unit * unit)
-{
-    if (unit->statusDuration)
-    {
-        unit->statusDuration = 0;
-        unit->statusIndex = 0;
-    }
-    unit->curHP = unit->maxHP;
 }
 
 // Doduo has canto+
@@ -575,10 +603,10 @@ int DoesClassHaveLightningRod(int classID)
     return false;
 }
 
-int IsEffectivenessAuraNearby(struct BattleUnit * bunit, AuraPredicate predicate)
+int IsEffectivenessAuraNearby(struct Unit * unit, AuraPredicate predicate)
 {
-    int x = bunit->unit.xPos;
-    int y = bunit->unit.yPos;
+    int x = unit->xPos;
+    int y = unit->yPos;
     int sizeX = gBmMapSize.x;
     int sizeY = gBmMapSize.y;
 
@@ -596,8 +624,8 @@ int IsEffectivenessAuraNearby(struct BattleUnit * bunit, AuraPredicate predicate
             if (!id)
                 continue;
 
-            struct Unit * unit = GetUnit(id);
-            if (predicate(unit->pClassData->number))
+            struct Unit * unit2 = GetUnit(id);
+            if (predicate(unit2->pClassData->number))
                 return true;
         }
     }
@@ -656,15 +684,15 @@ struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * 
     {
         result.motorDrive = true;
     }
-    if (IsEffectivenessAuraNearby(bunitB, DoesClassHaveLightningRod))
+    if (IsEffectivenessAuraNearby(&bunitB->unit, DoesClassHaveLightningRod))
     {
         result.lightningRod = true;
     }
-    if (IsEffectivenessAuraNearby(bunitB, DoesClassHaveDampAura))
+    if (IsEffectivenessAuraNearby(&bunitB->unit, DoesClassHaveDampAura))
     {
         result.dampAura = true;
     }
-    if (IsEffectivenessAuraNearby(bunitB, DoesClassHaveFieryAura))
+    if (IsEffectivenessAuraNearby(&bunitB->unit, DoesClassHaveFieryAura))
     {
         result.fieryAura = true;
     }
@@ -1063,17 +1091,61 @@ int UnburdenEffect(int stat, struct Unit * unit)
     return stat;
 }
 
+extern int IsCoordWater(s8 x, s8 y);
 extern int SwiftSwimID_Link;
 int SwiftSwimEffect(int stat, struct Unit * unit)
 {
-    if (IsCoordWater(unit->xPos, unit->yPos))
+    if (SkillTester(unit, SwiftSwimID_Link))
     {
-        if (SkillTester(unit, SwiftSwimID_Link))
+        if (IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, DoesClassHaveDampAura))
         {
             stat += stat;
         }
     }
     return stat;
+}
+// Hydration: Fully restore each turn when on water.
+// Seel, (Lapras), (Vaporeon)
+
+int HydrationUsability(struct Unit * unit)
+{
+    return IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, DoesClassHaveDampAura);
+}
+
+int HydrationEffect(struct Unit * unit)
+{
+    if (unit->statusDuration)
+    {
+        unit->statusDuration = 0;
+        unit->statusIndex = 0;
+    }
+    return unit->maxHP - unit->curHP;
+}
+
+int AreWeOutdoorsOrFieryAura(struct Unit * unit)
+{
+    if (AreWeOutdoors())
+    {
+        return true;
+    }
+    if (IsEffectivenessAuraNearby(unit, DoesClassHaveFieryAura))
+    {
+        return true;
+    }
+    return false;
+}
+
+int AreWeOutdoorsOrDampAura(struct Unit * unit)
+{
+    if (AreWeOutdoors())
+    {
+        return true;
+    }
+    if (IsEffectivenessAuraNearby(unit, DoesClassHaveDampAura))
+    {
+        return true;
+    }
+    return false;
 }
 
 // Strong Claws: Boosts str by 12.5%.
