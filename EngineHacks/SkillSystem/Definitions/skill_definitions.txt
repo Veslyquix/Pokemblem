@@ -763,56 +763,60 @@ GuardBreakerID
  SynchronizeID
 
 
-ChlorophyllID
+ChlorophyllID // icon needed
 SolarPowerID
-ExplorerID
-TintedLensID 
+ExplorerID // 
+TintedLensID //
 ShedSkinID
-KeenEyeID
-SniperID
-LightningRodID
+KeenEyeID // 
+SniperID //
+LightningRodID //
 FieryAuraID
 DampAuraID
 UnawareID
-CompetitiveID
+CompetitiveID //
 DefiantID
-RivalryID 
-HustleID 
+RivalryID //
+HustleID // 
 ArenaTrapID 
-MagicGuardID 
-ClearBodyID 
-RegeneratorID 
-AnalyticID
-HydrationID
-PoisonTouchID 
-ShellArmorID 
-GrudgeID 
-AftermathID 
-SheerForceID 
-ForewarnID 
-HyperCutterID 
-HarvestID 
-UnburdenID 
-RecklessRockID 
-ScrappyID 
-FilterID 
-TechnicianID 
-DrySkinID 
-MotorDriveID 
-FlashFireID 
+MagicGuardID // 
+ClearBodyID // 
+RegeneratorID // 
+AnalyticID // 
+HydrationID // 
+PoisonTouchID // 
+ShellArmorID // 
+GrudgeID // 
+AftermathID // 
+SheerForceID //
+ForewarnID // 
+HyperCutterID // unused now 
+HarvestID // 
+UnburdenID // 
+RecklessRockID //  
+ScrappyID // 
+FilterID  // 
+TechnicianID // 
+DrySkinID // 
+MotorDriveID // 
+FlashFireID // 
 AngerPointID 
 TransformID 
-AdaptabilityID 
+AdaptabilityID // 
 AcidArmorID 
 QuickFeetID 
-GutsID
-WeakArmorID 
-StrongClawsID 
-PressureID 
-SporeTouchID 
-SimpleID 
-NaturalCureID 
-
+GutsID // 
+WeakArmorID // 
+StrongClawsID // 
+PressureID // 
+SporeTouchID // 
+SimpleID // 
+NaturalCureID //  
+//FlankID
+//SwarmID 
+//LevitateID
+//ProudBirdID 
+//SwiftSwimID 
 
 ChanseySkillID 
 OddishSkillID 
