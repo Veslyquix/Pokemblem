@@ -1,6 +1,7 @@
 
 #include "EAstdlib.event" 
 #include "C_Code.lyn.event" 
+#include "Asm.lyn.event"
 
 ALIGN 4 
 HeldButtonSpeed: 

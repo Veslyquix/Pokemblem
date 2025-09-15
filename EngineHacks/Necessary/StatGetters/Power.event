@@ -4,9 +4,12 @@
 #include "_Common.event"
 
 pPowerModifiers: // Power
-	POIN prAddUnitPower prHalveIfCapturing //HalfStrFunc
-	POIN prDebuffStr Guts
-	POIN prAddEquipPower prItemPassivePow prRallyStr prLifeAndDeathBonus prSkillFury prFortressDefensePow VigorDanceCheck prFortressResistancePow prResolve prDefiantStr prPushStr
+	POIN prAddUnitPower 
+    POIN prHalveIfCapturing //HalfStrFunc
+    POIN SolarPowerEffect GutsEffect StrongClawsEffect 
+    POIN prAddEquipPower
+	POIN prDebuffStr 
+	POIN prItemPassivePow prRallyStr prLifeAndDeathBonus prSkillFury prFortressDefensePow VigorDanceCheck prFortressResistancePow prResolve prDefiantStr prPushStr
 	//POIN prStrBuff
 	#ifdef ACCESSORIES_AND_FORGING
 		POIN prAddAccessoryPower

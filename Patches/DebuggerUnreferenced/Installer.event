@@ -34,6 +34,9 @@ DebuggerFlagEvent:
 CHECK_EVENTID DebuggerFlag 
 BNE 0 sC s0 
 TutText(DebuggerOnText)
+LABEL 23 
+LABEL 24 
+SetSaveSlotFlag(1) // No more retroachievements :-( 
 GOTO 99 
 LABEL 0 // Off 
 TutText(DebuggerOffText) 

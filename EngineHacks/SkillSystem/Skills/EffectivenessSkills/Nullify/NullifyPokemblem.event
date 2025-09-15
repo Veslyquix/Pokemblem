@@ -51,8 +51,8 @@
 	
 	//Modify the part that multiplies weapon might for effective weapons and slayer
 	ORG $2AAEC
-	callHack_r3(Add_Weapon_Might) //0xC bytes
-	SHORT 0xE027
+	// callHack_r3(Add_Weapon_Might) //0xC bytes
+	// SHORT 0xE027
 
 	//slayer redux
 	ORG $16C88

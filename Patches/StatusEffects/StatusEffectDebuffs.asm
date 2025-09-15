@@ -39,6 +39,22 @@ ldr r1, [r1]
 cmp r6, r1 
 beq TestTypeNow
 
+ldr r0, =FlyingType
+lsl r0, #8 
+lsr r0, #8 
+ldr r1, =TrappedStatusID_Link 
+ldr r1, [r1] 
+cmp r6, r1 
+beq TestTypeNow
+
+ldr r0, =GrassType
+lsl r0, #8 
+lsr r0, #8 
+ldr r1, =SleepStatusID_Link 
+ldr r1, [r1] 
+cmp r6, r1 
+beq TestTypeNow
+
 ldr r0, =ElectricType
 ldr r3, =GroundType
 orr r0, r3 @ Electric and ground types as immune to freeze. 

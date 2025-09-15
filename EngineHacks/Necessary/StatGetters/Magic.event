@@ -4,7 +4,9 @@
 #include "_Common.event"
 
 pMagicModifiers: // Magic
-	POIN prAddUnitMagic prAddEquipMagic 
+	POIN prAddUnitMagic 
+    POIN SolarPowerEffect 
+    POIN prAddEquipMagic 
 	POIN prDebuffMag 
 	POIN prRallyMag prSkillFury prFortressDefensePow prFortressResistancePow prItemPassiveMag VigorDanceCheck prLifeAndDeathBonus prDefiantMag prPushMag
 	//POIN prMagBuff

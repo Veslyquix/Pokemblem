@@ -22,10 +22,13 @@ POIN BtlLoopList
 ALIGN 4
 BtlLoopList:
 //POIN BC_DefRes BC_Power BC_ASpd BC_Hit BC_Avo BC_Crit CritUpSkill BC_Dodge BC_Support BC_WRank BC_Status //these are the existing battle calculation routines
-POIN BC_DefRes BC_Power BC_ASpd BC_Hit BC_Avo BC_Crit CritUpSkill BC_Dodge BC_WRank BC_Status // maybe I don't need BC_Support ? 
-POIN InitializePreBattleLoop
+POIN InitializePreBattleLoop UnawareEffect BC_ASpd BC_DefRes BC_Dodge BC_Crit BC_Avo BC_Power BC_Hit  CritUpSkill //BC_Status //BC_WRank  // I don't need BC_Support 
+// the order of these matters 
+POIN HustleHitrateEffect
 POIN Lull //This is effectively a stat modifier routine, so it has to go first
 POIN Intimidate_Prebattle GuardBreaker_Prebattle Downgrade_Prebattle
+POIN KeenEyeEffect SniperEffect TechnicianEffect AdaptabilityEffect
+
 // I've decided to comment out stuff that I'm not using for the time being in order to speed up AI - Vesly 
 POIN TransformInit
 
@@ -46,6 +49,7 @@ POIN Wrath //SpurStr SpurMag SpurSpd SpurDef SpurRes
 //POIN MaleficAura Intimidate 
 POIN Tantivy Focus Anathema Loyalty FieryBlood LifeAndDeath WindDisciple Perfectionist Puissance Hawkeye LightWeight Trample Opportunist 
 POIN BattleVeteran SilentPride Thunderstorm Outrider HeavyStrikes Charge Vanity KnightAspirant AssassinateDamageBonus ArcaneBlade
+POIN LilysPoise 
 //Inspiration DivinelyInspiring Charm Solidarity VoiceOfPeace  LilysPoise Charisma Hex  Infiltrator
 //POIN ElbowRoom NaturalCover Gamble 
 POIN NightTide Insight Prescience Vigilance DefiantAvo DefiantCrit TowerShield ShortShield
@@ -83,6 +87,34 @@ POIN CriticalCheck
 	POIN NegateCritWeapons //This goes last, so that crit will always be set to 0 if set and never modified from there
 #endif // CANNOT_CRIT
 POIN 0
+
+
+
+
+// Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
+ALIGN 4 
+DamageModifierCalcLoop:
+POIN RivalryEffect AnalyticEffect RecklessRockEffect SheerForceEffect 
+POIN WeaponsThatAlwaysDouble
+POIN WeakChipDmg ScaledUp
+POIN EnemyWeightBonus
+POIN TransformFunction 
+POIN MinimumDamage // so SE moves will deal at least 2 dmg i guess 
+POIN TypeEffectiveness // also caps moves to deal max 255 
+#ifdef ENABLE_DAMAGE_REDUCTION
+	POIN LevelDamageReduction
+#endif 
+POIN DoublingDamageModifierFunc // this also occurs on weapons that cannot double if you would be able to otherwise 
+POIN ScaledBackFunc FlankEffect SwarmEffect HustleEffect
+POIN TransformFunction 
+POIN MinimumDamage
+POIN MaximumDamage // caps moves to 99 dmg 
+POIN SuperFangEffect 
+POIN FixedDamageWeapons
+POIN ImmuneToDamage
+POIN 0 
+
+
 
 #define AuraSkillEntry(skillID) "PUSH; ORG AuraSkillTable + skillID; BYTE 0x1; POP"
 
@@ -123,28 +155,6 @@ AuraSkillEntry(BloodTideID)
 AuraSkillEntry(WhitePoolID)
 AuraSkillEntry(NightTideID)
 
-// Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
-ALIGN 4 
-DamageModifierCalcLoop:
-
-POIN WeaponsThatAlwaysDouble
-POIN WeakChipDmg ScaledUp
-POIN EnemyWeightBonus
-POIN TransformFunction 
-POIN MinimumDamage // so SE moves will deal at least 2 dmg i guess 
-POIN TypeEffectiveness // also caps moves to deal max 255 
-#ifdef ENABLE_DAMAGE_REDUCTION
-	POIN LevelDamageReduction
-#endif 
-POIN DoublingDamageModifierFunc // this also occurs on weapons that cannot double if you would be able to otherwise 
-POIN ScaledBackFunc FlankEffect SwarmEffect
-POIN TransformFunction 
-POIN MinimumDamage
-POIN MaximumDamage // caps moves to 99 dmg 
-POIN SuperFangEffect 
-POIN FixedDamageWeapons
-POIN ImmuneToDamage
-POIN 0 
 
 
 

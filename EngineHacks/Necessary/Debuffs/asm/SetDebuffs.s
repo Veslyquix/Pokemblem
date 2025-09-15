@@ -123,7 +123,8 @@ bx r0
 .ltorg 
 
 @ ApplyWeaponDebuffs
-
+.global ProcessCombatDebuffs 
+.type ProcessCombatDebuffs, %function 
 ProcessCombatDebuffs: 
 push {r4-r7, lr} 
 mov r4, #0x1f 
@@ -134,7 +135,7 @@ push {r5}
 
 
 
-mov r5, r1 @ unit 
+mov r5, r1 @ bunit 
 mov r6, r2 @ unitA debuff ram 
 mov r7, r3 @ unitB debuff ram 
 

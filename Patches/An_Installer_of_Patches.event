@@ -1,7 +1,7 @@
 
 #include "Credits/Installer.event" 
 // #include "GenderedText/Installer.event" // Unused 
-#include "../../ASM/Debugger/Installer.event" 
+
 #include "../../ASM/ProcMonitor/Installer.event" 
 #include "DangerBones/Installer.event" 
 #include "PortraitGetter/Installer.event" 
@@ -31,6 +31,9 @@
 //#include "AutosaveKiller.event"
 
 #include "NewGameFlag/Installer.event"
+
+#include "../../ASM/Debugger/Installer.event" 
+
 #include "TrapSMS_Size/Installer.event" 
 #include "PostBattle/Installer.event" 
 #include "ProcSkills/Installer.event" 
@@ -162,7 +165,6 @@
 #include "MNC2Edit/MNC2EditInstaller.event"
 
 #include "ChapterTransition/ChapterTransitionInstaller.event"
-
 
 
 

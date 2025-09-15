@@ -23,7 +23,7 @@ mov r0, r4
 add     r0,#0x5A    @Move to the attacker's dmg.
 ldrh    r3,[r0]     @Load the attacker's dmg into r3.
 add     r3,#1    @add 1 to the attacker's dmg.
-strh    r3,[r0]     @Store.
+@strh    r3,[r0]     @Store.
 
 @ mov r0, r5
 @ add     r0,#0x5A    @Move to the defender's dmg.
@@ -35,7 +35,7 @@ strh    r3,[r0]     @Store.
 mov r0, r4
 add r0, #0x5c @attacker defense
 ldrh r3, [r0]
-add r3, #3
+add r3, #10
 strh r3, [r0]
 
 Done:

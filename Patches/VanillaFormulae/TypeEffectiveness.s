@@ -18,6 +18,9 @@ push {r4-r7, lr}
 mov r4, r0 @ Atkr 
 mov r5, r1 @ dfdr 
 
+
+mov r7, #0 @ tinted lens / filter bitfield 
+
 @ if non-player defender and cannot counter, then do not reduce incoming damage even if you have a normally supereffective move 
 ldr r3, =0x203A56C @ defender 
 cmp r3, r4 
@@ -47,6 +50,14 @@ blt DoNothing @ if negative for some reason, do nothing
 
 cmp r6, #9
 beq DoNothing
+
+push {r0} 
+mov r0, r4 
+mov r1, r5 
+bl CheckTintedLensFilter
+mov r7, r0 
+pop {r0} 
+
 cmp r6, #7
 beq Ineffective
 cmp r6, #2
@@ -56,6 +67,9 @@ beq Immune
 b SuperEffective
 
 Immune:
+mov r2, #4 @ scrappy 
+tst r2, r7 
+bne DoNothing 
 mov r2, #0x5C 
 ldsh r1, [r5, r2] @ def 
 sub r0, r1 
@@ -66,6 +80,9 @@ mov r0, #0
 b Store
 
 Ineffective:
+mov r2, #1 
+tst r2, r7 
+bne SuperEffective @ attacker has tinted lens 
 mov r2, #0x5C 
 ldsh r1, [r5, r2] @ def 
 sub r0, r1 
@@ -113,6 +130,16 @@ NoCapEnemyDef:
 mov r1, r0 @ 
 lsr r1, #1 @ 1/2 att 
 lsl r0, #1 @ 2x att 
+
+mov r2, #2 
+tst r2, r7 
+beq NormalSupEff 
+sub r0, r1 @ -1/2 att 
+lsr r1, #1 @ 1/4 att 
+@ after next sub, it'll be at approx. 1.25x dmg instead of 1.5x damage 
+
+NormalSupEff: 
+
 sub r0, r1 @ (att*1.5) 
 
 mov r3, #0x5A @ att 

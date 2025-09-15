@@ -5,10 +5,12 @@
 
 pSpeedModifiers: // Speed
 	POIN prAddUnitSpeed prHalveIfRescuing prHalveIfCapturing 
-	POIN TrappedStatus
+	POIN TrappedStatus QuickFeetEffect SwiftSwimEffect
 	POIN ParalyzeStatus
+    POIN ChlorophyllEffect UnburdenEffect
+    POIN prAddEquipSpeed WeakArmorSpdEffect 
 	POIN prDebuffSpd 
-	POIN prAddEquipSpeed prItemPassiveSpeed prRallySpd prLifeAndDeathBonus prSkillFury prResolve prDefiantSpd prPushSpd
+    POIN prItemPassiveSpeed prRallySpd prLifeAndDeathBonus prSkillFury prResolve prDefiantSpd prPushSpd
 	#ifdef ACCESSORIES_AND_FORGING
 		POIN prAddAccessorySpeed
 	#endif 

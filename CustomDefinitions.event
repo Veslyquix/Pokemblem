@@ -11,6 +11,10 @@
 #define FreeSpace_Low 0xb2a610
 #define POKEMBLEM
 
+// regex for GrepWin 
+// ^(?!.*[\\/](Language|Maps|Music|Text|Tools|wip Maps)[\\/]).*[\\/](EventAssembler)([\\/]|$)
+
+
 #define ProtagMug 179 
 //#define SkillSys_HookAiTryDoOffensiveAction
 // Shade+ (in AiSkills), Steal+, and Barricade hook this function so I've disabled them 
@@ -46,7 +50,7 @@
 //#define USE_PMD_SPRITES
 
 PUSH; ORG $D74D0	//{U}
-String("V1.16.01           August 2025") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+String("V1.17.01           August 2025") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 //String("V1.14.07 DEBUG BUILD  Mar 2024") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 
 #define ProtagID 0x45 

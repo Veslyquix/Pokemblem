@@ -5,10 +5,11 @@
 
 pDefenseModifiers: // Defense
 	POIN prAddUnitDefense prHalveIfCapturing 
-	POIN PoisonStatus
-	POIN SleepStatus FreezeStatus
-	POIN prDebuffDef StrongCon 
-	POIN prAddEquipDefense prItemPassiveDefense prRallyDef prLifeAndDeathMinus VigorDanceCheck prSkillFury prFortressDefenseDef prDefiantDef prPushDef
+	POIN PoisonStatus AcidArmorEffect
+	POIN SleepStatus FreezeStatus WeakArmorDefEffect
+    POIN prAddEquipDefense
+	POIN prDebuffDef  
+	POIN prItemPassiveDefense prRallyDef prLifeAndDeathMinus VigorDanceCheck prSkillFury prFortressDefenseDef prDefiantDef prPushDef
 	//POIN prDefBuff
 	#ifdef ACCESSORIES_AND_FORGING
 		POIN prAddAccessoryDefense

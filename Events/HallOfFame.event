@@ -119,6 +119,13 @@ ASMC StartCreditsProc_ASMC
 //MOVE (-1) 0x101 [6,8]
 CALL HandleProtag 
 SCOORD sB [6,7]
+SVAL rC 0x10000 
+SMOD r2 rB rC  
+Write_Byte(XCoordTeleport)
+SVAL rC 0x10000
+SDIV r2 rB rC 
+Write_Byte(YCoordTeleport) 
+SCOORD sB [6,7]
 CALL ConvertFromMemSlotBCoord
 SVAL s2 PalletCh 
 Write_Byte(CurrentChapter)
