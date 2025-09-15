@@ -60,7 +60,9 @@ WORD PsychicType
 
 ALIGN 4 
 gTravelMenuItems: 
+#ifdef INCLUDE_FLYING
 MenuCommand(UM_Fly, UM_FlyDesc, NormalText, FlyCommandUsability, CallSoarEffect|1)
+#endif 
 MenuCommand(UM_Fly2, UM_FlyDesc2, NormalText, FlyMenuCommandUsability, FlyCommandEffect)
 MenuCommand(CM_Dig, CM_DigDesc, NormalText, DigFieldMoveUsability, DigFieldMoveEffect)
 MenuCommand(CM_EscapeRope, CM_EscapeRopeDesc, NormalText, EscapeRopeUsability, EscapeRopeMenuEffect)

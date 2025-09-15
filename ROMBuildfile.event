@@ -41,6 +41,8 @@ ORG FreeSpace
 		#include "Patches/An_Installer_of_Patches.event"
 	#endif 
 	#include "Maps/Master Map Installer.event"
+    
+#ifdef INCLUDE_FLYING
   	//Soaring outside bl range includes
     ALIGN 4
     #include "EngineHacks/Soaring/src/hostable.lyn.event"
@@ -52,6 +54,7 @@ ORG FreeSpace
     #incbin "EngineHacks/Soaring/src/pleftmatrix.dmp"
     ALIGN 4
     #include "EngineHacks/Soaring/Graphics/Master Graphics Installer.event"
+#endif 
     ALIGN 4
     MESSAGE Used hax space ends at currentOffset
 	EndOfFreeSpace: 
