@@ -43,6 +43,14 @@ mov r2, r5 @ Dfdr
 bl IsTargetTypeImmune
 cmp r0,#0x1
 beq GoBack @if type immunity, do nothing 
+mov r0, r4 
+bl DoesUnitHaveSheerForce
+cmp r0, #0 
+beq NoSheerForce 
+ldrb r1, [r7, #1] @ chance to inflict 
+cmp r1, #100 
+blt GoBack @ don't apply if unit has sheer force and the status is not guaranteed from the attack 
+NoSheerForce: 
 ldrb r0, [r7] @ Status type 
 
 

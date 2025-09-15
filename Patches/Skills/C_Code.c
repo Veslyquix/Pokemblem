@@ -234,40 +234,71 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
 }
 
+// Sheer Force: secondary effects cannot happen, but deal 20-30% more damage?
+extern int SheerForceID_Link;
+int DoesUnitHaveSheerForce(struct Unit * unit)
+{
+    return SkillTester(unit, SheerForceID_Link);
+}
+
+struct StatusEffectTableStruct
+{
+    u8 statusID;
+    u8 percent;
+};
+
+extern struct StatusEffectTableStruct StatusEffectTable[];
+// Krabby line, maybe Nido?
+void SheerForceEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        int item = bunitA->weaponBefore & 0xFF;
+        int percent = StatusEffectTable[item].percent;
+        // if (percent && percent < 100)
+        if (percent)
+        {
+            if (DoesUnitHaveSheerForce(&bunitA->unit))
+            {
+                AdjustDamageByPercent(bunitB, bunitA, 130);
+            }
+        }
+    }
+}
+
 // Hustle: Deal 25% more damage, but moves are 25% less accurate.
 // Nidoking line
 extern int HustleID_Link;
-
 void HustleHitrateEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
     // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
     // {
-    if (SkillTester(&bunitB->unit, HustleID_Link))
+    if (SkillTester(&bunitA->unit, HustleID_Link))
     {
-        int hit = GetItemHit(bunitB->weaponBefore);
-        hit = bunitB->battleHitRate - (hit >> 2);
+        int hit = GetItemHit(bunitA->weaponBefore);
+        hit = bunitA->battleHitRate - (hit >> 2);
         if (hit < 10)
         {
             hit = 10;
         }
-        bunitB->battleHitRate = hit;
+        bunitA->battleHitRate = hit;
     }
     // }
 }
 
 void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
-    // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
-    // {
-    if (SkillTester(&bunitB->unit, HustleID_Link))
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
     {
-        AdjustDamageByPercent(bunitB, bunitA, 125);
-        if (bunitB->battleEffectiveHitRate > 80)
+        if (SkillTester(&bunitA->unit, HustleID_Link))
         {
-            bunitB->battleEffectiveHitRate = 80;
+            AdjustDamageByPercent(bunitA, bunitB, 125);
+            if (bunitA->battleEffectiveHitRate > 80)
+            {
+                bunitA->battleEffectiveHitRate = 80;
+            }
         }
     }
-    // }
 }
 
 // Onix, Lickitung, Staryu, Oddish, Abra, Psyduck
@@ -483,8 +514,6 @@ void AnalyticEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 
 // Shell Armor: Opponent's moves cannot critical hit.
 // Shellder, (Krabby), (Lapras), (Omanyte),
-
-// Sheer Force: secondary effects cannot happen, but deal 30% more damage?
 
 // Forewarn: Adjacent units take 20% less damage.
 // Drowzee, (Jynx)

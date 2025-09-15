@@ -34,17 +34,6 @@ ldr r2, [r2]
 bl UnpackData_Signed 
 cmp r0, #0 
 bge DoneGetDebuffAmount 
-ldr r1, =KrabbyID 
-lsl r1, #24 
-lsr r1, #24 
-cmp r5, r1 
-beq NoDebuffPossible 
-ldr r1, =KinglerID 
-lsl r1, #24 
-lsr r1, #24 
-cmp r5, r1 
-beq NoDebuffPossible 
-
 ldr r1, =TentacoolID 
 lsl r1, #24 
 lsr r1, #24 
