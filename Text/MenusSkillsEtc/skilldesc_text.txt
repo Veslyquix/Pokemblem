@@ -457,8 +457,8 @@ Anathema: -10 Avoid/Dodge to all[N]
 enemies within 3 tiles.[X]
 
 ## SD_LilysPoise
-Forewarn: Adjacent allies take[N]
-10 less damage received.[X]
+Forewarn: Adjacent allies[N]
+take 10 less damage.[X]
 
 ## SD_Expertise
 Expertise: Reduce bonus damage[N]
@@ -1956,8 +1956,8 @@ Sheer Force: Moves with secondary effects[N]
 instead deal 30% more damage.[X]
 
 ## SD_Forewarn
-Forewarn: [N]
-[X]
+Forewarn: Adjacent units take[N]
+10 less damage.[X]
 
 ## SD_HyperCutter
 Hyper Cutter: Immune to debuffs.[X]
@@ -1972,8 +1972,8 @@ Unburden: Speed is doubled[N]
 without a held item.[X]
 
 ## SD_RecklessRock
-Reckless Rock: [N]
-[X]
+Reckless Rock: Deal and take[N]
+20% more damage.[X]
 
 ## SD_Scrappy
 Scrappy: Your attacks[N]
