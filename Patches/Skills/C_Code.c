@@ -905,10 +905,14 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     {
         AdjustDamageByPercent(bunitA, bunitB, 75);
     }
-    if (wepType == ElectricTypeWep_Link && exceptions.lightningRod &&
-        !DoesClassHaveLightningRod(bunitA->unit.pClassData->number))
+    if (wepType == ElectricTypeWep_Link && exceptions.lightningRod)
     {
-        effectiveness = Immune;
+        // if the target has lightning rod or the actor does not have lightning rod, then the target is immune
+        if (DoesClassHaveLightningRod(bunitB->unit.pClassData->number) ||
+            !DoesClassHaveLightningRod(bunitA->unit.pClassData->number))
+        {
+            effectiveness = Immune;
+        }
     }
     if (!effectiveness)
     {
