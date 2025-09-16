@@ -1722,8 +1722,8 @@ Eternal Vanity: Your temporary[N]
 stat buffs do not deplete.[X]
 
 ## SD_Guts
-Guts: +25% Str while afflicted[N]
-by any status condition.[X]
+Guts: Boost str by 25%[N]
+while inflicted by status.[X]
 
 ## SD_StrongConstitution 
 Strong Constitution: +5[N]
@@ -1872,8 +1872,9 @@ Sniper: +30 Critical hit[N]
 rate.[X]
 
 ## SD_LightningRod
-Lightning Rod: Nearby Electric[N]
-moves deal no damage.[X]
+Lightning Rod: Absorb nearby[N]
+Electric moves. Boost Str/Mag[N]
+by 15 after drawing away lightning.[X]
 
 ## SD_FieryAura
 Fiery Aura: Nearby Fire moves[N]
@@ -2004,28 +2005,28 @@ Anger Point: [N]
 [X]
 
 ## SD_Transform
-Transform: [N]
-[X]
+Transform: Copy moves and stats[N]
+of the opponent in battle.[X]
 
 ## SD_Adaptability
-Adaptability: [N]
-[X]
+Adaptability: Same type[N]
+attack bonus is doubled.[X]
 
 ## SD_AcidArmor
-Acid Armor: [N]
-[X]
+Acid Armor: Boost Def/Res by 25%[N]
+while inflicted by status.[X]
 
 ## SD_QuickFeet
-Quick Feet: [N]
-[X]
+Quick Feet: Boost speed by 25%[N]
+while inflicted by status.[X]
 
 ## SD_WeakArmor
-Weak Armor: [N]
-[X]
+Weak Armor: -5 def, +10 spd[N]
+while damaged.[X]
 
 ## SD_StrongClaws
-Strong Claws: [N]
-[X]
+Strong Claws: Boosts str[N]
+by 1/8th[X]
 
 ## SD_Pressure
 Pressure: Opponents counter[N]

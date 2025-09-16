@@ -64,7 +64,7 @@ ORG SkillIcon(ForewarnID)
 ORG SkillIcon(HyperCutterID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(HarvestID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Harvest.dmp"
 ORG SkillIcon(UnburdenID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(RecklessRockID)
@@ -84,7 +84,7 @@ ORG SkillIcon(FlashFireID)
 ORG SkillIcon(AngerPointID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(TransformID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Transform.dmp"
 ORG SkillIcon(AdaptabilityID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(AcidArmorID)

@@ -123,13 +123,23 @@ bx r0
 .ltorg 
 
 @ ApplyWeaponDebuffs
+
+.global ApplyDebuffUnit 
+.type ApplyDebuffUnit, %function 
+ApplyDebuffUnit: 
+push {r4-r7, lr} 
+mov r5, r8 
+push {r5} 
+mov r4, r0 @ debuff ID 
+mov r6, r1 @ unitA debuff ram 
+mov r7, r2 @ unitB debuff ram 
+b AlwaysDebuff 
+
 .global ProcessCombatDebuffs 
 .type ProcessCombatDebuffs, %function 
 ProcessCombatDebuffs: 
 push {r4-r7, lr} 
-mov r4, #0x1f 
-and r4, r0 @ wep debuff entry 
-
+mov r4, r0 
 mov r5, r8 
 push {r5} 
 
