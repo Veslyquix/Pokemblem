@@ -48,6 +48,7 @@ ORG FreeSpaceBLRange //defined in custom definitions
 	#include "ExternalHacks/StrMagSplit/BLRange.event"
   #endif // USE_STRMAG_SPLIT
 	
+#ifdef INCLUDE_FLYING
   //Soaring stuff
   #define RefreshWMSprite 0x80bf555
   #define RefreshWMProc 0x80b9155
@@ -65,6 +66,15 @@ ORG FreeSpaceBLRange //defined in custom definitions
   ALIGN 4
   Render_arm_ofs:
   #include "Soaring/arm/soar_wram_hand.arm.lyn.event"
+#else 
+ALIGN 4 
+PUSH; 
+ORG CURRENTOFFSET + 1 
+StartSoaring: 
+POP
+SHORT $4770 
+#endif 
+  
 #undef inBLRange
 POP
 

@@ -12,6 +12,51 @@
 ORG FreeSpace_Low
     //CSV tables
 	//#include "Text/Text Definitions.event" 
+    
+// This all needs to be in the 0xB00000 - 0xC00000 area for FEBuilder to recognize your skill data! 
+// ORG 0xBFFED4 // hopefully nobody uses 0x12C bytes here 
+// https://github.com/FEBuilderGBA/FEBuilderGBA/blob/594248a580b935a8146f68192be2abf465d255f2/FEBuilderGBA/SkillConfigSkillSystemForm.cs#L203
+// FEBuilder magic identifier 
+ALIGN 4 
+BYTE $38 $00 $00 $F0 $FB $F9 $80 $22 $0E $49 $16 $48 $16 $4B $00 $F0 $F5 $F9 $2B $34 $29 $00 $38 $00 $14 $4B $00 $F0 $EF $F9 $26 $70 $F8 $BC $01 $BC $00 $47 $01 $33 $CD $E7 $C0 $46
+POIN SkillIcons // ICON 4 
+WORD 0 0 
+POIN SkillDescTable 
+
+
+ALIGN 4 
+BYTE $29 $1C $FF $F7 $FA $FF $01 $1C $08 $78 $00 $28 $EF $D0 $01 $31 $FA $E7 $00 $00
+WORD 0 0 0 0
+POIN PersonalSkillTable // ASSIGN 2 
+POIN ClassSkillTable
+// POIN GetInitialSkillList|1 // idk if needed 
+
+ALIGN 4 
+BYTE $07 $49 $40 $00 $40 $18 $00 $88 $00 $28 $00 $D1 $06 $48 $21 $1C
+// 07 49 40 00 40 18 00 88 00 28 00 D1 06 48 21 1C
+WORD 0 0 0 0
+POIN SkillDescTable // TEXT 1 
+
+ALIGN 4 
+BYTE $F0 $E7 $02 $2B $12 $D0 $03 $2B $06 $D1 $0D $48 $42 $21 $41 $5C $20 $22 $11 $42 $0A $D1 $E5 $E7 $04 $2B $06 $D1 $08 $48 $14 $21 $41 $5C $40 $22 $11 $42 $01 $D1 $DC $E7 $DB $E7 $63 $78 $33 $70 $01 $36 $D7 $E7 $00 $20 $30 $70 $06 $BC $F1 $BC $70 $47 $00 $00 $F0 $BC $02 $02
+POIN ClassLevelUpSkillTable
+POIN CharLevelUpSkillTable // LEVELUP 5 
+
+
+
+// anime (can't find full match for whatever reason) 
+// the $FF $FF $FF $FF is a bl bxr3 
+// BYTE $00 $D1 $33 $1C $01 $33 $38 $1C $00 $FF $FF $FF $FF $BC $11 $48 $00 $47 $F0 $BC $10 $48 $00 $47 $F0 $BC $10 $48 $00 $47 $18 $47 $6D $A1 $05 $08 $35 $8A $05 $08 $00 $08 $00 $00 $00 $04 $00 $00 $10 $E3 $06 $08 $8C $E5 $06 $08 $C4 $AE $02 $08 $55 $A1 $05 $08
+
+ALIGN 4 
+BYTE $00 $D1 $33 $1C $01 $33 $38 $1C 
+// BYTE $F0 $09 $F8 $F0 // bl bxr3 
+BYTE $FF $FF $FF $FF 
+BYTE $F0 $BC $11 $48 $00 $47 $F0 $BC $10 $48 $00 $47 $F0 $BC $10 $48 $00 $47 $18 $47 $6D $A1 $05 $08 $35 $8A $05 $08 $00 $08 $00 $00 $00 $04 $00 $00 $10 $E3 $06 $08 $8C $E5 $06 $08 $C4 $AE $02 $08 $55 $A1 $05 $08
+WORD 0 0 0 0 // anime3 
+POIN SkillAnimationTable 
+
+
 	#include "repointedTextTable.event"
 	#include "Music/Text/ExtraText.event" 
 
@@ -41,6 +86,8 @@ ORG FreeSpace
 		#include "Patches/An_Installer_of_Patches.event"
 	#endif 
 	#include "Maps/Master Map Installer.event"
+    
+#ifdef INCLUDE_FLYING
   	//Soaring outside bl range includes
     ALIGN 4
     #include "EngineHacks/Soaring/src/hostable.lyn.event"
@@ -52,6 +99,7 @@ ORG FreeSpace
     #incbin "EngineHacks/Soaring/src/pleftmatrix.dmp"
     ALIGN 4
     #include "EngineHacks/Soaring/Graphics/Master Graphics Installer.event"
+#endif 
     ALIGN 4
     MESSAGE Used hax space ends at currentOffset
 	EndOfFreeSpace: 

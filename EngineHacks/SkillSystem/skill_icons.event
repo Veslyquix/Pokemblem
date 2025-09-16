@@ -8,45 +8,45 @@ SkillIcons:
 
 
 ORG SkillIcon(ChlorophyllID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Chlorophyll.dmp"
 ORG SkillIcon(SolarPowerID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/SolarPower.dmp"
 ORG SkillIcon(ExplorerID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Explorer.dmp"
 ORG SkillIcon(TintedLensID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/TintedLens.dmp"
 ORG SkillIcon(ShedSkinID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/ShedSkin.dmp"
 ORG SkillIcon(KeenEyeID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(SniperID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/SniperV2.dmp"
 ORG SkillIcon(LightningRodID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/LightningRod.dmp"
 ORG SkillIcon(FieryAuraID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/FieryAura.dmp"
 ORG SkillIcon(DampAuraID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/DampAura.dmp"
 ORG SkillIcon(UnawareID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Unaware.dmp"
 ORG SkillIcon(CompetitiveID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(DefiantID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(RivalryID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Rivalry.dmp"
 ORG SkillIcon(HustleID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Hustle.dmp"
 ORG SkillIcon(ArenaTrapID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/ArenaTrap.dmp"
 ORG SkillIcon(MagicGuardID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(ClearBodyID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/ClearBody.dmp"
 ORG SkillIcon(RegeneratorID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Regenerator.dmp"
 ORG SkillIcon(AnalyticID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Analytic.dmp"
 ORG SkillIcon(HydrationID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(PoisonTouchID)
@@ -64,7 +64,7 @@ ORG SkillIcon(ForewarnID)
 ORG SkillIcon(HyperCutterID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(HarvestID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Harvest.dmp"
 ORG SkillIcon(UnburdenID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(RecklessRockID)
@@ -84,7 +84,7 @@ ORG SkillIcon(FlashFireID)
 ORG SkillIcon(AngerPointID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(TransformID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Transform.dmp"
 ORG SkillIcon(AdaptabilityID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(AcidArmorID)
@@ -106,7 +106,7 @@ ORG SkillIcon(ChanseySkillID)
 ORG SkillIcon(OddishSkillID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(SporeTouchID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/SporeTouch.dmp"
 ORG SkillIcon(SimpleID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(NaturalCureID)
@@ -118,7 +118,7 @@ ORG SkillIcon(LevitateID)
 ORG SkillIcon(SwiftSwimID)
 #incbin "SkillIcons/PowerfulAura.dmp"
 ORG SkillIcon(RockyHelmetSkillID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/RoughSkin.dmp"
 
 ORG SkillIcon(PowerfulAuraID)
 #incbin "SkillIcons/PowerfulAura.dmp" 
@@ -146,11 +146,11 @@ ORG SkillIcon(MultiscaleID)
 ORG SkillIcon(SilphScopeID)
 #incbin "SkillIcons/PowerfulAura.dmp" 
 ORG SkillIcon(TintedLensID)
-#incbin "SkillIcons/Boon.dmp" 
+#incbin "SkillIcons/TintedLens.dmp" 
 ORG SkillIcon(FlankID)
-#incbin "SkillIcons/ArcaneBlade.dmp" 
+#incbin "SkillIcons/Flank.dmp" 
 ORG SkillIcon(SwarmID)
-#incbin "SkillIcons/LuckyInit.dmp" 
+#incbin "SkillIcons/Swarm.dmp" 
 
 ORG SkillIcon(WeakChipDmgID)
 #incbin "SkillIcons/Acrobat.dmp"
@@ -168,7 +168,7 @@ ORG SkillIcon(CantoPlusID)
 #incbin "SkillIcons/CantoPlus.dmp"
 
 ORG SkillIcon(WaryFighterID)
-#incbin "SkillIcons/WaryFighter.dmp"
+#incbin "SkillIcons/Oblivious.dmp"
 
 ORG SkillIcon(SureShotID)
 #incbin "SkillIcons/SureShot.dmp"
@@ -561,7 +561,7 @@ ORG SkillIcon(SlowBurnID)
 #incbin "SkillIcons/SlowBurn.dmp"
 
 ORG SkillIcon(DespoilID)
-#incbin "SkillIcons/Despoil.dmp"
+#incbin "SkillIcons/PayDay.dmp"
 
 ORG SkillIcon(PivotID)
 #incbin "SkillIcons/Pivot.dmp"
