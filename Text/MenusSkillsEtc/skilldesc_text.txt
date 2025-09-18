@@ -1888,7 +1888,7 @@ Fire moves deal 25% less.[X]
 
 ## SD_Unaware
 Unaware: Ignores target's[N]
-stat modifiers.[X]
+stat buffs.[X]
 
 ## SD_Competitive
 Competitive: [N]
@@ -2026,7 +2026,7 @@ while damaged.[X]
 
 ## SD_StrongClaws
 Strong Claws: Boosts str[N]
-by 1/8th[X]
+by 1/8th.[X]
 
 ## SD_Pressure
 Pressure: Opponents counter[N]

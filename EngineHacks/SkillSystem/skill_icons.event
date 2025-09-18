@@ -18,7 +18,7 @@ ORG SkillIcon(TintedLensID)
 ORG SkillIcon(ShedSkinID)
 #incbin "SkillIcons/ShedSkin.dmp"
 ORG SkillIcon(KeenEyeID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/KeenEye.dmp"
 ORG SkillIcon(SniperID)
 #incbin "SkillIcons/SniperV2.dmp"
 ORG SkillIcon(LightningRodID)
@@ -30,9 +30,9 @@ ORG SkillIcon(DampAuraID)
 ORG SkillIcon(UnawareID)
 #incbin "SkillIcons/Unaware.dmp"
 ORG SkillIcon(CompetitiveID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/PowerfulAura.dmp" // 
 ORG SkillIcon(DefiantID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/PowerfulAura.dmp" // 
 ORG SkillIcon(RivalryID)
 #incbin "SkillIcons/Rivalry.dmp"
 ORG SkillIcon(HustleID)
@@ -40,7 +40,7 @@ ORG SkillIcon(HustleID)
 ORG SkillIcon(ArenaTrapID)
 #incbin "SkillIcons/ArenaTrap.dmp"
 ORG SkillIcon(MagicGuardID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/PowerfulAura.dmp" //
 ORG SkillIcon(ClearBodyID)
 #incbin "SkillIcons/ClearBody.dmp"
 ORG SkillIcon(RegeneratorID)
@@ -48,75 +48,75 @@ ORG SkillIcon(RegeneratorID)
 ORG SkillIcon(AnalyticID)
 #incbin "SkillIcons/Analytic.dmp"
 ORG SkillIcon(HydrationID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Hydration.dmp"
 ORG SkillIcon(PoisonTouchID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/PoisonTouch.dmp"
 ORG SkillIcon(ShellArmorID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/BattleArmor.dmp"
 ORG SkillIcon(GrudgeID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Grudge.dmp"
 ORG SkillIcon(AftermathID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Aftermath.dmp"
 ORG SkillIcon(SheerForceID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/SheerForce.dmp"
 ORG SkillIcon(ForewarnID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Forewarn.dmp"
 ORG SkillIcon(HyperCutterID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/PowerfulAura.dmp" // 
 ORG SkillIcon(HarvestID)
 #incbin "SkillIcons/Harvest.dmp"
 ORG SkillIcon(UnburdenID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Unburden.dmp"
 ORG SkillIcon(RecklessRockID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/RecklessRock.dmp"
 ORG SkillIcon(ScrappyID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Scrappy.dmp"
 ORG SkillIcon(FilterID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Filter.dmp"
 ORG SkillIcon(TechnicianID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Technician.dmp"
 ORG SkillIcon(DrySkinID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/DrySkin.dmp"
 ORG SkillIcon(MotorDriveID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/MotorDrive.dmp"
 ORG SkillIcon(FlashFireID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/FlashFire.dmp"
 ORG SkillIcon(AngerPointID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/FlashFire.dmp"
 ORG SkillIcon(TransformID)
 #incbin "SkillIcons/Transform.dmp"
 ORG SkillIcon(AdaptabilityID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Adaptability.dmp"
 ORG SkillIcon(AcidArmorID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/AcidArmor.dmp"
 ORG SkillIcon(QuickFeetID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/QuickFeet.dmp"
 ORG SkillIcon(GutsID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Guts.dmp"
 ORG SkillIcon(WeakArmorID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/PowerfulAura.dmp" // 
 ORG SkillIcon(StrongClawsID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/StrongClaws.dmp"
 ORG SkillIcon(PressureID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Pressure.dmp"
 ORG SkillIcon(SynchronizeID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Synchronize.dmp"
 ORG SkillIcon(ChanseySkillID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Chansey.dmp"
 ORG SkillIcon(OddishSkillID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/PowerfulAura.dmp" // 
 ORG SkillIcon(SporeTouchID)
 #incbin "SkillIcons/SporeTouch.dmp"
 ORG SkillIcon(SimpleID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Simple.dmp"
 ORG SkillIcon(NaturalCureID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/NaturalCure.dmp"
 ORG SkillIcon(LaprasSkillID) 
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/PowerfulAura.dmp" // 
 ORG SkillIcon(LevitateID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/Levitate.dmp"
 ORG SkillIcon(SwiftSwimID)
-#incbin "SkillIcons/PowerfulAura.dmp"
+#incbin "SkillIcons/SwiftSwim.dmp"
 ORG SkillIcon(RockyHelmetSkillID)
 #incbin "SkillIcons/RoughSkin.dmp"
 
@@ -129,22 +129,22 @@ ORG SkillIcon(SturdyID)
 ORG SkillIcon(ScaledUpID)
 #incbin "SkillIcons/ScaledUp.dmp"
 ORG SkillIcon(SurfBoardID)
-#incbin "SkillIcons/ScaledUp.dmp"
+#incbin "SkillIcons/ScaledUp.dmp" //
 ORG SkillIcon(HoverBoardID)
-#incbin "SkillIcons/ScaledUp.dmp"
+#incbin "SkillIcons/ScaledUp.dmp" //
 
 ORG SkillIcon(ExpShareID)
 #incbin "SkillIcons/ExpShare.dmp"
 ORG SkillIcon(Intimidate2ID)
 #incbin "SkillIcons/Intimidate.dmp"
 ORG SkillIcon(DowngradeID)
-#incbin "SkillIcons/SealSpd.dmp"
+#incbin "SkillIcons/Downgrade.dmp"
 ORG SkillIcon(GuardBreakerID)
-#incbin "SkillIcons/SealDef.dmp"
+#incbin "SkillIcons/GuardBreaker.dmp"
 ORG SkillIcon(MultiscaleID)
-#incbin "SkillIcons/PowerfulAura.dmp" 
+#incbin "SkillIcons/Multiscale.dmp" 
 ORG SkillIcon(SilphScopeID)
-#incbin "SkillIcons/PowerfulAura.dmp" 
+#incbin "SkillIcons/PowerfulAura.dmp" //
 ORG SkillIcon(TintedLensID)
 #incbin "SkillIcons/TintedLens.dmp" 
 ORG SkillIcon(FlankID)

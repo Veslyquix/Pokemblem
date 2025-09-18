@@ -195,13 +195,38 @@ void UnawareEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
         {
             struct Unit * unit = GetUnit(bunitA->unit.index);
             bunitA->unit.maxHP = unit->maxHP;
-            bunitA->unit.pow = unit->pow;
-            bunitA->unit.skl = unit->skl;
-            bunitA->unit.spd = unit->spd;
-            bunitA->unit.def = unit->def;
-            bunitA->unit.lck = unit->lck;
-            bunitA->unit.res = unit->res;
-            bunitA->unit._u3A = unit->_u3A;
+            if (bunitA->unit.pow > unit->pow)
+            {
+                bunitA->unit.pow = unit->pow;
+            }
+            if (bunitA->unit.skl > unit->skl)
+            {
+                bunitA->unit.skl = unit->skl;
+            }
+
+            if (bunitA->unit.spd > unit->spd)
+            {
+                bunitA->unit.spd = unit->spd;
+            }
+
+            if (bunitA->unit.def > unit->def)
+            {
+                bunitA->unit.def = unit->def;
+            }
+
+            if (bunitA->unit.lck > unit->lck)
+            {
+                bunitA->unit.lck = unit->lck;
+            }
+            if (bunitA->unit.res > unit->res)
+            {
+                bunitA->unit.res = unit->res;
+            }
+
+            if (bunitA->unit._u3A > unit->_u3A)
+            {
+                bunitA->unit._u3A = unit->_u3A;
+            }
         }
     }
 }
@@ -460,20 +485,22 @@ void GrudgeEffect(struct Unit * unitA, struct Unit * unitB)
     // if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
     // {
 
-    if (unitA->curHP <= 0)
+    if (gBattleActor.unit.curHP <= 0)
     {
-        if (SkillTester(unitA, GrudgeID_Link))
+        if (SkillTester(&gBattleActor.unit, GrudgeID_Link))
         {
 
-            ApplyDebuffUnit(GrudgeDebuffID_Link, GetUnitDebuffEntry(unitA), GetUnitDebuffEntry(unitB));
+            ApplyDebuffUnit(
+                GrudgeDebuffID_Link, GetUnitDebuffEntry(&gBattleActor.unit), GetUnitDebuffEntry(&gBattleTarget.unit));
         }
     }
-    else if (unitB->curHP <= 0)
+    else if (gBattleTarget.unit.curHP <= 0)
     {
-        if (SkillTester(unitB, GrudgeID_Link))
+        if (SkillTester(&gBattleTarget.unit, GrudgeID_Link))
         {
 
-            ApplyDebuffUnit(GrudgeDebuffID_Link, GetUnitDebuffEntry(unitB), GetUnitDebuffEntry(unitA));
+            ApplyDebuffUnit(
+                GrudgeDebuffID_Link, GetUnitDebuffEntry(&gBattleTarget.unit), GetUnitDebuffEntry(&gBattleActor.unit));
         }
     }
 
@@ -893,7 +920,7 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
         return;
     }
     int canCounter = bunitB->canCounter;
-    if (bunitB->unit.index >= 0)
+    if ((bunitB->unit.index & 0x80) == 0)
     {
         canCounter = true; // players always get bonus def from using super effective moves
     }
