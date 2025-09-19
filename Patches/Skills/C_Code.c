@@ -616,9 +616,9 @@ const int * const FieryAuraPkmn[] = { &VulpixID_Link, &NinetalesID_Link, NULL };
 const int * const DampAuraPkmn[] = { &PoliwagID_Link, &PoliwhirlID_Link, &PoliwrathID_Link, NULL };
 
 // RhyhornID_link, RhydonID_Link, NULL };
-typedef int (*AuraPredicate)(struct Unit * unit);
+typedef int (*AuraPredicate)(struct Unit * unit, struct Unit * unitException);
 
-int DoesUnitHaveFieryAura(struct Unit * unit)
+int DoesUnitHaveFieryAura(struct Unit * unit, struct Unit * unitException)
 {
     int classID = unit->pClassData->number;
     const int * const * data = FieryAuraPkmn;
@@ -631,7 +631,7 @@ int DoesUnitHaveFieryAura(struct Unit * unit)
     }
     return false;
 }
-int DoesUnitHaveDampAura(struct Unit * unit)
+int DoesUnitHaveDampAura(struct Unit * unit, struct Unit * unitException)
 {
     int classID = unit->pClassData->number;
     const int * const * data = DampAuraPkmn;
@@ -644,7 +644,7 @@ int DoesUnitHaveDampAura(struct Unit * unit)
     }
     return false;
 }
-int DoesUnitHaveStormyAura(struct Unit * unit)
+int DoesUnitHaveStormyAura(struct Unit * unit, struct Unit * unitException)
 {
     int classID = unit->pClassData->number;
     const int * const * data = StormyAuraPkmn;
@@ -659,7 +659,7 @@ int DoesUnitHaveStormyAura(struct Unit * unit)
 }
 
 extern int LightningrodBuffID_Link;
-int DoesUnitHaveLightningRod(struct Unit * unit)
+int DoesUnitHaveLightningRod(struct Unit * unit, struct Unit * unitException)
 {
     int classID = unit->pClassData->number;
     const int * const * data = LightningRodPkmn;
@@ -668,9 +668,12 @@ int DoesUnitHaveLightningRod(struct Unit * unit)
     {
         if (**data == classID)
         {
-            if (gBattleStats.config & BATTLE_CONFIG_REAL)
+            if (unit != unitException)
             {
-                ApplyDebuffUnit(LightningrodBuffID_Link, GetUnitDebuffEntry(unit), GetUnitDebuffEntry(unit));
+                if (gBattleStats.config & BATTLE_CONFIG_REAL)
+                {
+                    ApplyDebuffUnit(LightningrodBuffID_Link, GetUnitDebuffEntry(unit), GetUnitDebuffEntry(unit));
+                }
             }
             return true;
         }
@@ -679,7 +682,7 @@ int DoesUnitHaveLightningRod(struct Unit * unit)
     return false;
 }
 
-int IsEffectivenessAuraNearby(struct Unit * unit, AuraPredicate predicate)
+int IsEffectivenessAuraNearby(struct Unit * unitException, struct Unit * unit, AuraPredicate predicate)
 {
     int x = unit->xPos;
     int y = unit->yPos;
@@ -704,7 +707,7 @@ int IsEffectivenessAuraNearby(struct Unit * unit, AuraPredicate predicate)
                 continue;
 
             struct Unit * unit2 = GetUnit(id);
-            if (predicate(unit2))
+            if (predicate(unit2, unitException))
                 return true;
         }
     }
@@ -770,19 +773,19 @@ struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * 
     {
         result.levitate = true;
     }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, DoesUnitHaveLightningRod))
+    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveLightningRod))
     {
         result.lightningRod = true;
     }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, DoesUnitHaveDampAura))
+    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveDampAura))
     {
         result.dampAura = true;
     }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, DoesUnitHaveFieryAura))
+    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveFieryAura))
     {
         result.fieryAura = true;
     }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, DoesUnitHaveStormyAura))
+    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveStormyAura))
     {
         result.stormyAura = true;
     }
@@ -982,7 +985,8 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     if (wepType == ElectricTypeWep_Link && exceptions.lightningRod)
     {
         // if the target has lightning rod or the actor does not have lightning rod, then the target is immune
-        if (DoesUnitHaveLightningRod(&bunitB->unit) || !DoesUnitHaveLightningRod(&bunitA->unit))
+        if (DoesUnitHaveLightningRod(&bunitB->unit, &bunitA->unit) ||
+            !DoesUnitHaveLightningRod(&bunitA->unit, &bunitB->unit))
         {
             effectiveness = Immune;
         }
@@ -1203,7 +1207,7 @@ int SwiftSwimEffect(int stat, struct Unit * unit)
 {
     if (SkillTester(unit, SwiftSwimID_Link))
     {
-        if (IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, DoesUnitHaveDampAura))
+        if (IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, unit, DoesUnitHaveDampAura))
         {
             stat += stat;
         }
@@ -1215,7 +1219,7 @@ int SwiftSwimEffect(int stat, struct Unit * unit)
 
 int HydrationUsability(struct Unit * unit)
 {
-    return IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, DoesUnitHaveDampAura);
+    return IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, unit, DoesUnitHaveDampAura);
 }
 
 int HydrationEffect(struct Unit * unit)
@@ -1234,7 +1238,7 @@ int AreWeOutdoorsOrFieryAura(struct Unit * unit)
     {
         return true;
     }
-    if (IsEffectivenessAuraNearby(unit, DoesUnitHaveFieryAura))
+    if (IsEffectivenessAuraNearby(unit, unit, DoesUnitHaveFieryAura))
     {
         return true;
     }
@@ -1247,7 +1251,7 @@ int AreWeOutdoorsOrDampAura(struct Unit * unit)
     {
         return true;
     }
-    if (IsEffectivenessAuraNearby(unit, DoesUnitHaveDampAura))
+    if (IsEffectivenessAuraNearby(unit, unit, DoesUnitHaveDampAura))
     {
         return true;
     }
