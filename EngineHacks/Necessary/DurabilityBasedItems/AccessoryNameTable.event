@@ -185,9 +185,6 @@ SkillAccessory_DescEntry(WaryFighterID, ObliviousRingDescText)
 SkillAccessory_NameEntry(PerfectionistID, PerfectionistAccNameText)
 SkillAccessory_DescEntry(PerfectionistID, PerfectionistAccDescText)
 
-SkillAccessory_NameEntry(DazzleID, DazzleAccNameText)
-SkillAccessory_DescEntry(DazzleID, DazzleAccDescText)
-
 
 
 SkillAccessory_NameEntry(SealStrID, SealStrAccNameText)
@@ -228,23 +225,9 @@ SkillAccessory_DescEntry(FortuneID, SD_Fortune)
 SkillAccessory_NameEntry(BreathOfLifeID, ShellBellName) 
 SkillAccessory_DescEntry(BreathOfLifeID, ShellBellDesc) 
 
-SkillAccessory_NameEntry(CounterID, SN_Counter)
-SkillAccessory_DescEntry(CounterID, SD_Counter)
+SkillAccessory_NameEntry(AmaterasuID, LeftoversName)
+SkillAccessory_DescEntry(AmaterasuID, LeftoversDesc)
 
-SkillAccessory_NameEntry(CounterMagicID, SN_CounterMagic)
-SkillAccessory_DescEntry(CounterMagicID, SD_CounterMagic)
-
-SkillAccessory_NameEntry(MiracleID, SN_Miracle)
-SkillAccessory_DescEntry(MiracleID, SD_Miracle)
-
-SkillAccessory_NameEntry(AmaterasuID, SN_Amaterasu)
-SkillAccessory_DescEntry(AmaterasuID, SD_Amaterasu)
-
-SkillAccessory_NameEntry(FortuneID, SN_Fortune)
-SkillAccessory_DescEntry(FortuneID, SD_Fortune)
-
-SkillAccessory_NameEntry(SavageBlowID, SN_SavageBlow)
-SkillAccessory_DescEntry(SavageBlowID, SD_SavageBlow)
 
 SkillAccessory_NameEntry(GaleforceID, SN_Galeforce)
 SkillAccessory_DescEntry(GaleforceID, SD_Galeforce)
@@ -252,54 +235,54 @@ SkillAccessory_DescEntry(GaleforceID, SD_Galeforce)
 SkillAccessory_NameEntry(VoiceOfPeaceID, SN_VoiceOfPeace)
 SkillAccessory_DescEntry(VoiceOfPeaceID, SD_VoiceOfPeace)
 
-SkillAccessory_NameEntry(BlossomID, SN_Blossom)
-SkillAccessory_DescEntry(BlossomID, SD_Blossom)
+SkillAccessory_NameEntry(BlossomID, LuckyEggName)
+SkillAccessory_DescEntry(BlossomID, LuckyEggDesc)
 //Fury: +2 Atk/Spd/Def/Res. Unit takes 6 damage after combat.
 //By circleseverywhere
 SkillAccessory_NameEntry(FuryID, BerserkGeneName)
 SkillAccessory_DescEntry(FuryID, BerserkGeneDesc)
 //Lifetaker: Restore up to 25% HP after attacking and defeating an enemy.
 //Author Unknown (Initial Commit)
-SkillAccessory_NameEntry(LifetakerID, SN_Lifetaker)
-SkillAccessory_DescEntry(LifetakerID, SD_Lifetaker)
+// SkillAccessory_NameEntry(LifetakerID, SN_Lifetaker)
+// SkillAccessory_DescEntry(LifetakerID, SD_Lifetaker)
  //Blow Skills: Apply a stat bonus when initiating battle.
 //By Rossendale
-SkillAccessory_NameEntry(DuelistsBlowID, SN_DuelistsBlow)
-SkillAccessory_DescEntry(DuelistsBlowID, SD_DuelistsBlow)
-SkillAccessory_NameEntry(DeathBlowID, SN_DeathBlow)
-SkillAccessory_DescEntry(DeathBlowID, SD_DeathBlow)
-SkillAccessory_NameEntry(DartingBlowID, SN_DartingBlow)
-SkillAccessory_DescEntry(DartingBlowID, SD_DartingBlow)
-SkillAccessory_NameEntry(WardingBlowID, SN_WardingBlow)
-SkillAccessory_DescEntry(WardingBlowID, SD_WardingBlow)
-SkillAccessory_NameEntry(CertainBlowID, SN_CertainBlow)
-SkillAccessory_DescEntry(CertainBlowID, SD_CertainBlow)
-SkillAccessory_NameEntry(ArmoredBlowID, SN_ArmoredBlow)
-SkillAccessory_DescEntry(ArmoredBlowID, SD_ArmoredBlow)
+// SkillAccessory_NameEntry(DuelistsBlowID, SN_DuelistsBlow)
+// SkillAccessory_DescEntry(DuelistsBlowID, SD_DuelistsBlow)
+// SkillAccessory_NameEntry(DeathBlowID, SN_DeathBlow)
+// SkillAccessory_DescEntry(DeathBlowID, SD_DeathBlow)
+// SkillAccessory_NameEntry(DartingBlowID, SN_DartingBlow)
+// SkillAccessory_DescEntry(DartingBlowID, SD_DartingBlow)
+// SkillAccessory_NameEntry(WardingBlowID, SN_WardingBlow)
+// SkillAccessory_DescEntry(WardingBlowID, SD_WardingBlow)
+SkillAccessory_NameEntry(CertainBlowID, ZoomLensName)
+SkillAccessory_DescEntry(CertainBlowID, ZoomLensDesc)
+// SkillAccessory_NameEntry(ArmoredBlowID, SN_ArmoredBlow)
+// SkillAccessory_DescEntry(ArmoredBlowID, SD_ArmoredBlow)
  //Stance Skills: Bonus to stats when defending.
 //By Snakey1
-SkillAccessory_NameEntry(BracingStanceID, SN_Bracing_Stance)
-SkillAccessory_DescEntry(BracingStanceID, SD_Bracing_Stance)
-SkillAccessory_NameEntry(DartingStanceID, SN_Darting_Stance)
-SkillAccessory_DescEntry(DartingStanceID, SD_Darting_Stance)
-SkillAccessory_NameEntry(FierceStanceID, SN_Fierce_Stance)
-SkillAccessory_DescEntry(FierceStanceID, SD_Fierce_Stance)
-SkillAccessory_NameEntry(KestrelStanceID, SN_Kestrel_Stance)
-SkillAccessory_DescEntry(KestrelStanceID, SD_Kestrel_Stance)
-SkillAccessory_NameEntry(MirrorStanceID, SN_Mirror_Stance)
-SkillAccessory_DescEntry(MirrorStanceID, SD_Mirror_Stance)
-SkillAccessory_NameEntry(ReadyStanceID, SN_Ready_Stance)
-SkillAccessory_DescEntry(ReadyStanceID, SD_Ready_Stance)
+// SkillAccessory_NameEntry(BracingStanceID, SN_Bracing_Stance)
+// SkillAccessory_DescEntry(BracingStanceID, SD_Bracing_Stance)
+// SkillAccessory_NameEntry(DartingStanceID, SN_Darting_Stance)
+// SkillAccessory_DescEntry(DartingStanceID, SD_Darting_Stance)
+// SkillAccessory_NameEntry(FierceStanceID, SN_Fierce_Stance)
+// SkillAccessory_DescEntry(FierceStanceID, SD_Fierce_Stance)
+// SkillAccessory_NameEntry(KestrelStanceID, SN_Kestrel_Stance)
+// SkillAccessory_DescEntry(KestrelStanceID, SD_Kestrel_Stance)
+// SkillAccessory_NameEntry(MirrorStanceID, SN_Mirror_Stance)
+// SkillAccessory_DescEntry(MirrorStanceID, SD_Mirror_Stance)
+// SkillAccessory_NameEntry(ReadyStanceID, SN_Ready_Stance)
+// SkillAccessory_DescEntry(ReadyStanceID, SD_Ready_Stance)
 SkillAccessory_NameEntry(SteadyStanceID, HeavyShieldName)
 SkillAccessory_DescEntry(SteadyStanceID, HeavyShieldDesc)
-SkillAccessory_NameEntry(SturdyStanceID, SN_Sturdy_Stance)
-SkillAccessory_DescEntry(SturdyStanceID, SD_Sturdy_Stance)
-SkillAccessory_NameEntry(SwiftStanceID, SN_Swift_Stance)
-SkillAccessory_DescEntry(SwiftStanceID, SD_Swift_Stance)
+// SkillAccessory_NameEntry(SturdyStanceID, SN_Sturdy_Stance)
+// SkillAccessory_DescEntry(SturdyStanceID, SD_Sturdy_Stance)
+// SkillAccessory_NameEntry(SwiftStanceID, SN_Swift_Stance)
+// SkillAccessory_DescEntry(SwiftStanceID, SD_Swift_Stance)
 SkillAccessory_NameEntry(WardingStanceID, HeavyWardName)
 SkillAccessory_DescEntry(WardingStanceID, HeavyWardDesc)
-SkillAccessory_NameEntry(SpectrumStanceID, SN_Spectrum_Stance)
-SkillAccessory_DescEntry(SpectrumStanceID, SD_Spectrum_Stance)
+// SkillAccessory_NameEntry(SpectrumStanceID, SN_Spectrum_Stance)
+// SkillAccessory_DescEntry(SpectrumStanceID, SD_Spectrum_Stance)
 //By Sme
 SkillAccessory_NameEntry(AlertStanceID, SN_AlertStance)
 SkillAccessory_DescEntry(AlertStanceID, SD_AlertStance)
@@ -309,62 +292,44 @@ SkillAccessory_DescEntry(AlertStanceID, SD_AlertStance)
  
 //Counter: Reflect physical damage when attacked at 1-2 range.
 //Author Unknown (Initial Commit)
-SkillAccessory_NameEntry(CounterID, SN_Counter)
-SkillAccessory_DescEntry(CounterID, SD_Counter)
+SkillAccessory_NameEntry(CounterID, AssaultHelmetName)
+SkillAccessory_DescEntry(CounterID, AssaultHelmetDesc)
 
 //Countermagic: Reflect magic damage when attacked at 1-2 range.
 //Author Unknown (Initial Commit)
-SkillAccessory_NameEntry(CounterMagicID, SN_CounterMagic)
-SkillAccessory_DescEntry(CounterMagicID, SD_CounterMagic)
+SkillAccessory_NameEntry(CounterMagicID, MirrorShieldName)
+SkillAccessory_DescEntry(CounterMagicID, MirrorShieldDesc)
 
 //Miracle: Survive a lethal attack if HP > 50%.
 //Author Unknown (Initial Commit)
-SkillAccessory_NameEntry(MiracleID, SN_Miracle)
-SkillAccessory_DescEntry(MiracleID, SD_Miracle)
+SkillAccessory_NameEntry(MiracleID, FocusBandName)
+SkillAccessory_DescEntry(MiracleID, FocusBandDesc)
 
 //Dazzle: Opponents cannot counterattack this unit.
 //By circleseverywhere
-SkillAccessory_NameEntry(DazzleID, SN_Dazzle)
-SkillAccessory_DescEntry(DazzleID, SD_Dazzle)
+SkillAccessory_NameEntry(DazzleID, DazzleAccNameText)
+SkillAccessory_DescEntry(DazzleID, DazzleAccDescText)
 
 //Venom Ring 
 //Poison Strike: Deals damage equal to 20% of the enemy's max HP after battle this unit initiates.
 //By Snakey1
-SkillAccessory_NameEntry(PoisonStrikeID, SN_Poison_Strike)
-SkillAccessory_DescEntry(PoisonStrikeID, SD_Poison_Strike)
+SkillAccessory_NameEntry(PoisonStrikeID, MetronomeItemName)
+SkillAccessory_DescEntry(PoisonStrikeID, MetronomeItemDesc)
 
 // Toxic Ring
 //Savage Blow: After attacking, enemies within 2 tiles take 20% damage.
 //By circleseverywhere
-SkillAccessory_NameEntry(SavageBlowID, SN_SavageBlow)
-SkillAccessory_DescEntry(SavageBlowID, SD_SavageBlow)
+SkillAccessory_NameEntry(SavageBlowID, SavageClubName)
+SkillAccessory_DescEntry(SavageBlowID, SavageClubDesc)
 //Grisly Wound: Deals damage equal to 20% of the enemy's max HP after every battle.
 //By Snakey1
-SkillAccessory_NameEntry(GrislyWoundID, SN_Grisly_Wound)
-SkillAccessory_DescEntry(GrislyWoundID, SD_Grisly_Wound)
+SkillAccessory_NameEntry(GrislyWoundID, DetonatorName)
+SkillAccessory_DescEntry(GrislyWoundID, DetonatorDesc)
 
 
-// Blossom Ring  - Present from Erika 
-//Blossom: 2x growth rates, but 1/2 exp gain.
-//By Sme
-SkillAccessory_NameEntry(BlossomID, SN_Blossom)
-SkillAccessory_DescEntry(BlossomID, SD_Blossom)
-//Voice of Peace: Enemies within 2 tiles deal -2 damage.
-//Author Unknown (Initial Commit)
-SkillAccessory_NameEntry(VoiceOfPeaceID, SN_VoiceOfPeace)
-SkillAccessory_DescEntry(VoiceOfPeaceID, SD_VoiceOfPeace)
-//Amaterasu: Allies within 2 tiles recover 20% HP each turn.
-//Author Unknown (Initial Commit)
-SkillAccessory_NameEntry(AmaterasuID, SN_Amaterasu)
-SkillAccessory_DescEntry(AmaterasuID, SD_Amaterasu)
 
 //Sabrina 
 //Psychic Ring / Hoplon Guard 
-//Fortune: This unit cannot be crit.
-//By Sme
-SkillAccessory_NameEntry(FortuneID, SN_Fortune)
-SkillAccessory_DescEntry(FortuneID, SD_Fortune)
-
 
 //Blaine 
 
@@ -374,20 +339,17 @@ SkillAccessory_DescEntry(FortuneID, SD_Fortune)
 SkillAccessory_NameEntry(HawkeyeID, SN_Hawkeye) // silph scope? 
 SkillAccessory_DescEntry(HawkeyeID, SD_Hawkeye)
 
-SkillAccessory_NameEntry(GaleforceID, SN_Galeforce)
-SkillAccessory_DescEntry(GaleforceID, SD_Galeforce)
-
 SkillAccessory_NameEntry(ExpShareID, SN_ExpShare)
 SkillAccessory_DescEntry(ExpShareID, SD_ExpShare)
 
-SkillAccessory_NameEntry(DowngradeID, SN_Downgrade)
-SkillAccessory_DescEntry(DowngradeID, SD_Downgrade)
+SkillAccessory_NameEntry(DowngradeID, DowngraderName)
+SkillAccessory_DescEntry(DowngradeID, DowngraderDesc)
 
-SkillAccessory_NameEntry(Intimidate2ID, SN_Intimidate2)
-SkillAccessory_DescEntry(Intimidate2ID, SD_Intimidate2)
+SkillAccessory_NameEntry(Intimidate2ID, SkullMaskName)
+SkillAccessory_DescEntry(Intimidate2ID, SkullMaskDesc)
 
-SkillAccessory_NameEntry(GuardBreakerID, SN_GuardBreaker)
-SkillAccessory_DescEntry(GuardBreakerID, SD_GuardBreaker)
+SkillAccessory_NameEntry(GuardBreakerID, GuardBreakerName)
+SkillAccessory_DescEntry(GuardBreakerID, GuardBreakerDesc)
 
 SkillAccessory_NameEntry(CantoPlusID, SaddleName)
 SkillAccessory_DescEntry(CantoPlusID, SaddleDesc)

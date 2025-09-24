@@ -26,9 +26,10 @@ ldrb r0, [r5,#0x12] @max hp
 ldrb r1, [r5,#0x13] @current hp
 cmp r1, #1 @1hp left?
 ble End
-lsr r0, #2 @max/4
-add r0, r0 
-add r0, r0 @ 3/4 max hp 
+
+lsr r2, r0, #2 @max/4
+lsr r0, #1 @ max / 2 
+add r0, r2 @ 3/4 max hp 
 cmp r1, r0
 ble End
 

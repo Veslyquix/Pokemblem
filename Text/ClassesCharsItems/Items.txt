@@ -364,6 +364,67 @@ Thick Club[X]
 Grants Cubone/Marowak an[N]
 additional 50% str.[X]
 
+## AssaultHelmetName ^
+Assault Helmet[X]
+
+## AssaultHelmetDesc
+Recoil physical damage[N]
+when attacked at 1-2 range.[X]
+
+
+## MirrorShieldName
+Mirror Shield[X]
+## MirrorShieldDesc
+Recoil magic damage[N]
+when attacked at 1-2 range.[X]
+
+## FocusBandName
+Focus Band[X]
+## FocusBandDesc
+Survive a lethal[N]
+attack if HP > 75%.[X]
+
+## LeftoversName
+Leftovers[X]
+## LeftoversDesc
+Allies within 2 tiles[N]
+recover 20% HP each turn.[X]
+
+## SavageClubName
+Savage Club[X]
+## SavageClubDesc
+After attacking, enemies[N]
+within 2 tiles lose[N]
+25% of their current HP.[X]
+
+## MetronomeItemName 
+Metronome[X]
+
+## MetronomeItemDesc
+Deals damage equal to 25% of[N]
+the enemy's current HP after[N]
+battle this unit initiates.[X]
+
+## DetonatorName
+Detonator[X]
+
+## DetonatorDesc
+Deals damage equal to 25% of[N]
+the enemy's current HP[N]
+after every battle.[X]
+
+## LuckyEggName
+Lucky Egg[X]
+
+## LuckyEggDesc
+2x growth rates[N]
+and 2x exp gain.[X]
+
+## ZoomLensName
+Zoom Lens[X]
+## ZoomLensDesc
++40 Hit when[N]
+initiating battle.[X]
 
 ## BerserkGeneName ^
 Berserk Gene[X]
@@ -371,6 +432,24 @@ Berserk Gene[X]
 ## BerserkGeneDesc
 +20% Str/Mag/Spd/Def/Res.[N]
 Unit loses 10% HP after combat.[X]
+
+## SkullMaskName
+Skull Mask[X]
+## SkullMaskDesc
+Battle debuffs enemy[N]
+Str/Mag by 25%.[X]
+
+## DowngraderName
+Downgrader[X]
+## DowngraderDesc
+Battle debuffs enemy[N]
+Spd by 25%.[X]
+
+## GuardBreakerName ^ 
+Guard Breaker[X]
+## GuardBreakerDesc
+Battle debuffs enemy[N]
+Def/Res by 25%.[X]
 
 
 ## RockyHelmetNameText ^

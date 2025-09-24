@@ -219,7 +219,7 @@ when attacked at 1-2 range.[X]
 
 ## SD_Miracle
 Sturdy: Survive a lethal[N]
-attack if HP > 50%.[X]
+attack if HP > 75%.[X]
 
 ## SD_Swordfaire
 Swordfaire: +4 damage[N]
