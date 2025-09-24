@@ -152,7 +152,6 @@ int LastWord(struct BattleUnit *bunitA, struct BattleUnit *bunitB) {
 extern int AccessorySkillGetter(struct Unit *unit);
 int PridefulWarrior(struct BattleUnit *bunitA, struct BattleUnit *bunitB) {
   if (SkillTester(&bunitA->unit, PridefulWarriorID_Link)) {
-    asm("mov r11, r11");
     if (AccessorySkillGetter(&bunitA->unit) == PridefulWarriorID_Link) {
       return ForceDouble;
     }

@@ -290,8 +290,41 @@ struct StatusEffectTableStruct
     u8 statusID;
     u8 percent;
 };
+struct DebuffEffectTableStruct
+{
+    u8 debuffID;
+    u8 percent;
+};
 
 extern struct StatusEffectTableStruct StatusEffectTable[];
+extern struct DebuffEffectTableStruct DebuffEffectTable[];
+extern u32 * GetUnitDebuffEntry(struct Unit * unit);
+extern void ProcessCombatDebuffs(int id, struct BattleUnit * actor, u32 * buffSelfRam, u32 * buffEnemyRam);
+extern void ApplyDebuffUnit(int debuffID, u32 * buffSelfRam, u32 * buffEnemyRam);
+
+struct ItemDataSS
+{
+    u8 pad[0x21];
+    u8 debuff;
+    u8 ier;
+    u8 skill;
+};
+
+void Proc_DebuffWeapons(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    int wepID = bunitA->weaponBefore & 0xFF;
+    if (DebuffEffectTable[wepID].percent > NextRN_100())
+    {
+        if (DoesUnitHaveSheerForce(&bunitA->unit))
+        {
+            return;
+        }
+
+        ApplyDebuffUnit(
+            DebuffEffectTable[wepID].debuffID, GetUnitDebuffEntry(&bunitA->unit), GetUnitDebuffEntry(&bunitB->unit));
+    }
+}
+
 // Krabby line, maybe Nido?
 void SheerForceEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
@@ -299,12 +332,15 @@ void SheerForceEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     {
         int item = bunitA->weaponBefore & 0xFF;
         int percent = StatusEffectTable[item].percent;
+        percent |= DebuffEffectTable[item].percent;
+        struct ItemDataSS * data = (void *)GetItemData(item);
+        percent |= data->debuff; // item applies a debuff always
         // if (percent && percent < 100)
         if (percent)
         {
             if (DoesUnitHaveSheerForce(&bunitA->unit))
             {
-                AdjustDamageByPercent(bunitB, bunitA, 130);
+                AdjustDamageByPercent(bunitA, bunitB, 130);
             }
         }
     }
@@ -491,9 +527,6 @@ void PoisonTouchEffect(struct Unit * unitA, struct Unit * unitB)
 // }
 
 extern int GrudgeDebuffID_Link;
-extern u32 * GetUnitDebuffEntry(struct Unit * unit);
-extern void ProcessCombatDebuffs(int id, struct BattleUnit * actor, u32 * buffSelfRam, u32 * buffEnemyRam);
-extern void ApplyDebuffUnit(int debuffID, u32 * buffSelfRam, u32 * buffEnemyRam);
 extern int GrudgeID_Link;
 void GrudgeEffect(struct Unit * unitA, struct Unit * unitB)
 {

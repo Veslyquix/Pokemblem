@@ -441,7 +441,7 @@ ORG SkillIcon(AnathemaID)
 #incbin "SkillIcons/Anathema.dmp"
 
 ORG SkillIcon(LilysPoiseID)
-#incbin "SkillIcons/LilysPoise.dmp"
+#incbin "SkillIcons/Forewarn.dmp"
 
 ORG SkillIcon(ExpertiseID)
 #incbin "SkillIcons/Expertise.dmp"

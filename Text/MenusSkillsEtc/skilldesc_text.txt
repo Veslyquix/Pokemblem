@@ -1953,8 +1953,9 @@ Aftermath: After fainting, the opponent[N]
 loses 25% HP.[X]
 
 ## SD_SheerForce
-Sheer Force: Moves with secondary effects[N]
-instead deal 30% more damage.[X]
+Sheer Force: Moves with secondary[N]
+effects instead deal[N]
+30% more damage.[X]
 
 ## SD_Forewarn
 Forewarn: Adjacent units take[N]
