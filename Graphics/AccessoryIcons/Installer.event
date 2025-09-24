@@ -117,9 +117,30 @@ SkillAccessoryIcons(FuryID)
 SkillAccessoryIcons(PoisonStrikeID)
 #incbin "dmp/Metronome.dmp"
 
+SkillAccessoryIcons(Intimidate2ID)
+#incbin "dmp/SkullMask.dmp"
+SkillAccessoryIcons(GuardBreakerID)
+#incbin "dmp/RazorClaw.dmp" // 
+SkillAccessoryIcons(DowngradeID)
+#incbin "dmp/ChoiceScarf.dmp"
 
+SkillAccessoryIcons(GaleforceID)
+#incbin "dmp/ScopePlaceholder.dmp" 
+SkillAccessoryIcons(CertainBlowID)
+#incbin "dmp/ScopeLens.dmp" 
+
+
+
+
+
+SkillAccessoryIcons(SavageBlowID)
+#incbin "dmp/SavageClub.dmp"
+SkillAccessoryIcons(GrislyWoundID)
+#incbin "dmp/Detonator.dmp"
+SkillAccessoryIcons(CounterID)
+#incbin "dmp/AssaultHelmet.dmp"
 SkillAccessoryIcons(CounterMagicID)
-#incbin "dmp/BrightPowder.dmp"
+#incbin "dmp/MirrorShield.dmp"
 SkillAccessoryIcons(AmaterasuID)
 #incbin "dmp/Leftovers.dmp"
 SkillAccessoryIcons(BlossomID)
@@ -128,12 +149,14 @@ SkillAccessoryIcons(VoiceOfPeaceID)
 #incbin "dmp/SootheBell.dmp"
 
 SkillAccessoryIcons(SurfBoardID)
-#incbin "dmp/SplashPlate.dmp"
+#incbin "dmp/Surfboard.dmp"
 SkillAccessoryIcons(HoverBoardID)
 #incbin "dmp/AirBalloon.dmp"
 
-
-
+SkillAccessoryIcons(PridefulWarriorID)
+#incbin "dmp/Leek.dmp" 
+SkillAccessoryIcons(ThickClubSkillID)
+#incbin "dmp/ThickClub.dmp" 
 SkillAccessoryIcons(VantagePlusID)
 #incbin "dmp/QuickClaw.dmp"
 
@@ -170,6 +193,7 @@ SkillAccessoryIcons(SealSpdID)
 #incbin "dmp/SealSpd.dmp"
 SkillAccessoryIcons(SealDefID)
 #incbin "dmp/SealDef.dmp"
+// #incbin "dmp/GripClaw.dmp"
 SkillAccessoryIcons(SealResID)
 #incbin "dmp/SealRes.dmp"
 SkillAccessoryIcons(SealLukID)
@@ -177,12 +201,7 @@ SkillAccessoryIcons(SealLukID)
 SkillAccessoryIcons(SealMagID)
 #incbin "dmp/SealMag.dmp"
 
-SkillAccessoryIcons(Intimidate2ID)
-#incbin "dmp/YellowScarf.dmp"
-SkillAccessoryIcons(GuardBreakerID)
-#incbin "dmp/YellowScarf.dmp"
-SkillAccessoryIcons(DowngradeID)
-#incbin "dmp/YellowScarf.dmp"
+
 
 SkillAccessoryIcons(SteadyStanceID)
 #incbin "dmp/BronzeShield.dmp"

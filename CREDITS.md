@@ -38,7 +38,7 @@ Pokemart Clerk, Beta Trainer Sprites, Choice Band, Muscle Band - Zaim
 
 Tileset water animations, Evolution stones, Jelly Donut, Drying Pan - N426
 
-Potions, Stat boosters, & various skill icons - Jester
+Potions, Stat boosters, & many skill icons - Jester
 
 PMD Minimugs - Akim2007 
 
@@ -49,6 +49,8 @@ Stat Screens by Lukirioh, SD9K and Aqua
 Level Up screen by Lukirioh 
 
 ChilanBerry, Rurouni, ScubaLuigi - help with items & learnsets
+
+Additional icons - Matuzu  
 
 Physical / special icons, wise glasses - Epicer
 

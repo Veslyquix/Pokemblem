@@ -21,23 +21,23 @@ Route24: SuperPotion, WingAttack, ThunderWave, WaryFighterAccessory, Calcium
 Route25: ChivalrySS, OldWardAccessory, 
 CeruleanGym: Bubblebeam, RenewalRingAccessory
 Route5: PerfectionistSS
-Route6: CertainBlowAccessory, SealSpdAccessory 
+Route6: CertainBlowAccessory, Downgrader 
 VermilionCity: Saddle
 store: PatienceSS, MagicalLeaf, WaterGun, Scorch, Dig, Headbutt, SignalBeam, Magnitude, Confusion
 Diglett'sCave: , Carbos  
-Route11: Scorch, SealResAccessory, Iron 
+Route11: Scorch, GuardBreaker, Iron 
 SSAnne: PoisonStrikeID, BodySlam
 VermilionGym: Thunderbolt, Surge'sSigilAccessory
-Route9W: InsightSS, SealStrAccessory
+Route9W: Leek, Skull Mask
 Route9E: PaddedShieldAccessory, HealPulse, 1000g, HelixFossil
 Route10: PragmaticSS, ThunderStone 
-RockTunnelB1: SealSklAccessory, RockSlide, MoonStone, EscapeRope 
-RockTunnelB2: VigilanceSS, IronShield, 1500g, DomeFossil  
+RockTunnelB1: MoonStone, EscapeRope, RockSlide 
+RockTunnelB2: ThickClub, IronShield, 1500g, DomeFossil  
 LavenderTown: DazzleAccessory, SuperPotion 
 PokeTowerF2: AnathemaSS, WiseGlassesT2
 PokeTowerF3: ExoticCandy, ShadowPunch 
-PokeTowerF4: SealMagAccessory, OpportunistSS  
-Route12N: SealDefAccessory, BreathOfLifeAcc, Protein 
+PokeTowerF4: OpportunistSS  
+Route12N: BreathOfLifeAcc, Protein 
 Route12S: Surf Board, Clamp, FierceStanceSS, WaterStone 
 Route13: CounterAcc, MuscleBandT2, FullHeal, HPUp
 Route14: LeafBlade, LeafStone 

@@ -29,16 +29,16 @@ Powerful Aura: Temporarily[N]
 immune to attacks![X]
 
 ## SD_Intimidate2
-Intimidate: Enemy Str/Mag is[N]
-reduced by 25% when attacking.[X]
+Intimidate: Battle debuffs[N]
+enemy Str/Mag by 25%.[X]
 
 ## SD_GuardBreaker
-Guard Breaker: Enemy Def/Res[N]
-is reduced by 25% when attacking.[X]
+Guard Breaker: Battle debuffs[N]
+enemy Def/Res by 25%.[X]
 
 ## SD_Downgrade
-Downgrade: Enemy Spd is[N]
-reduced by 25% when attacking.[X]
+Downgrade: Battle debuffs[N]
+enemy Spd by 25%.[X]
 
 // used these for skill names 
 //([:][^\n]*[\[X\]])
@@ -219,7 +219,7 @@ when attacked at 1-2 range.[X]
 
 ## SD_Miracle
 Sturdy: Survive a lethal[N]
-attack if HP > 50%.[X]
+attack if HP > 75%.[X]
 
 ## SD_Swordfaire
 Swordfaire: +4 damage[N]
@@ -302,7 +302,7 @@ Voice of Peace: Enemies within[N]
 2 tiles deal -2 damage.[X]
 
 ## SD_Amaterasu
-Amaterasu: Allies within 2 tiles[N]
+Healer: Allies within 2 tiles[N]
 recover 20% HP each turn.[X]
 
 ## SD_SpurStr
@@ -1805,9 +1805,9 @@ Keen Fighter: This unit takes 25%[N]
 less damage if the opponent doubles.[X]
 
 ## SD_PridefulWarrior 
-Proud Bird: This unit always[N]
-attacks after the enemy, but[N]
-always doubles.[X]
+Proud Bird: This unit always attacks[N]
+after the enemy. If holding a leek,[N]
+it will attack twice.[X]
 
 ## SD_LastWord
 Last Word: When doubled, this unit[N]
@@ -1888,7 +1888,7 @@ Fire moves deal 25% less.[X]
 
 ## SD_Unaware
 Unaware: Ignores target's[N]
-stat modifiers.[X]
+stat buffs.[X]
 
 ## SD_Competitive
 Competitive: [N]
@@ -1929,7 +1929,7 @@ be lowered.[X]
 
 ## SD_Regenerator
 Regenerator: Restore 30% HP[N]
-after selecting "wait".[X]
+after selecting “wait”.[X]
 
 ## SD_Analytic
 Analytic: Deal 30% more[N]
@@ -1953,8 +1953,9 @@ Aftermath: After fainting, the opponent[N]
 loses 25% HP.[X]
 
 ## SD_SheerForce
-Sheer Force: Moves with secondary effects[N]
-instead deal 30% more damage.[X]
+Sheer Force: Moves with secondary[N]
+effects instead deal[N]
+30% more damage.[X]
 
 ## SD_Forewarn
 Forewarn: Adjacent units take[N]
@@ -1989,15 +1990,15 @@ Technician: Moves with 6 or less[N]
 power have doubled power.[X]
 
 ## SD_DrySkin
-DrySkin: Fully heal when hit[N]
+Dry Skin: Fully heal when hit[N]
 by water. Weak to fire.[X]
 
 ## SD_MotorDrive
-Motor Drive: Raise spd by +10[N]
+Motor Drive: Raise Spd by +10[N]
 when hit by an electric move.[X]
 
 ## SD_FlashFire
-Flash Fire: Raise mag by +10[N]
+Flash Fire: Raise Mag by +10[N]
 when hit by a fire move.[X]
 
 ## SD_AngerPoint
@@ -2026,7 +2027,7 @@ while damaged.[X]
 
 ## SD_StrongClaws
 Strong Claws: Boosts str[N]
-by 1/8th[X]
+by 1/8th.[X]
 
 ## SD_Pressure
 Pressure: Opponents counter[N]
@@ -2042,7 +2043,7 @@ Oddish Skill: [N]
 
 ## SD_Simple
 Simple: Buffs and debuffs[N]
-doubled.[X]
+are doubled.[X]
 
 ## SD_NaturalCure
 Natural Cure: Recover from status[N]

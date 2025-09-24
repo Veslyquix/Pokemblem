@@ -350,6 +350,81 @@ Lucky Bracer[X]
 ## LuckyBracerT3DescText
 Luk+10.[X]
 
+## ProudBirdAccNameText
+Leek[X]
+
+## ProudBirdAccDescText
+Grants Farfetch'd the ability[N]
+to double attack enemies.[X]
+
+## ThickClubSkillAccNameText
+Thick Club[X]
+
+## ThickClubSkillAccDescText
+Grants Cubone/Marowak an[N]
+additional 50% str.[X]
+
+## AssaultHelmetName ^
+Assault Helmet[X]
+
+## AssaultHelmetDesc
+Recoil physical damage[N]
+when attacked at 1-2 range.[X]
+
+
+## MirrorShieldName
+Mirror Shield[X]
+## MirrorShieldDesc
+Recoil magic damage[N]
+when attacked at 1-2 range.[X]
+
+## FocusBandName
+Focus Band[X]
+## FocusBandDesc
+Survive a lethal[N]
+attack if HP > 75%.[X]
+
+## LeftoversName
+Leftovers[X]
+## LeftoversDesc
+Allies within 2 tiles[N]
+recover 20% HP each turn.[X]
+
+## SavageClubName
+Savage Club[X]
+## SavageClubDesc
+After attacking, enemies[N]
+within 2 tiles lose[N]
+25% of their current HP.[X]
+
+## MetronomeItemName 
+Metronome[X]
+
+## MetronomeItemDesc
+Deals damage equal to 25% of[N]
+the enemy's current HP after[N]
+battle this unit initiates.[X]
+
+## DetonatorName
+Detonator[X]
+
+## DetonatorDesc
+Deals damage equal to 25% of[N]
+the enemy's current HP[N]
+after every battle.[X]
+
+## LuckyEggName
+Lucky Egg[X]
+
+## LuckyEggDesc
+2x growth rates[N]
+and 2x exp gain.[X]
+
+## ZoomLensName
+Zoom Lens[X]
+## ZoomLensDesc
++40 Hit when[N]
+initiating battle.[X]
 
 ## BerserkGeneName ^
 Berserk Gene[X]
@@ -357,6 +432,24 @@ Berserk Gene[X]
 ## BerserkGeneDesc
 +20% Str/Mag/Spd/Def/Res.[N]
 Unit loses 10% HP after combat.[X]
+
+## SkullMaskName
+Skull Mask[X]
+## SkullMaskDesc
+Battle debuffs enemy[N]
+Str/Mag by 25%.[X]
+
+## DowngraderName
+Downgrader[X]
+## DowngraderDesc
+Battle debuffs enemy[N]
+Spd by 25%.[X]
+
+## GuardBreakerName ^ 
+Guard Breaker[X]
+## GuardBreakerDesc
+Battle debuffs enemy[N]
+Def/Res by 25%.[X]
 
 
 ## RockyHelmetNameText ^
@@ -848,7 +941,8 @@ AoE: Debuffs Str/Mag by 5.[X]
 
 ## HeadbuttDesc
 [PI] The user butts with its head.[N]
-Knocks the target back.[X]
+Knocks the target back.[N]
+30% chance to debuff Str/Mag by 8.[X]
 
 
 
@@ -946,7 +1040,8 @@ Hits with 50% Atk 2-5 times.[X]
 ## BubbleName ^
 Bubble[X]
 ## BubbleDesc
-[SI] A weak froth of bubbles.[X]
+[SI] A weak froth of bubbles.[N]
+10% chance to debuff Spd by 8.[X]
 
 
 ## BonemerangName ^
@@ -1004,7 +1099,8 @@ Barrier[X]
 ## ConfusionName ^
 Confusion[X]
 ## ConfusionDesc
-[SI] A weak psychic pulse.[X]
+[SI] A weak psychic pulse.[N]
+20% chance to debuff Str/Mag by 8.[X]
 ## DreamEaterName ^
 Dream Eater[X]
 ## DreamEaterDesc
@@ -1045,7 +1141,8 @@ Does nothing currently.[X]
 ## RockSlideName ^
 Rock Slide[X]
 ## RockSlideDesc
-[PI] A barrage of rocks.[X]
+[PI] A barrage of rocks.[N]
+30% chance to debuff Str/Mag by 8.[X]
 ## RockThrowName ^
 Rock Throw[X]
 ## RockThrowDesc
@@ -1053,7 +1150,8 @@ Rock Throw[X]
 ## AncientpowerName ^
 Ancientpower[X]
 ## AncientpowerDesc
-[SI] A prehistoric attack.[X]
+[SI] A prehistoric attack.[N]
+10% chance to boost stats by 8.[X]
 ## RockTombName ^
 Rock Tomb[X]
 ## RockTombDesc
@@ -1109,7 +1207,8 @@ Dragon Rage[X]
 ## DragonbreathName ^
 Dragonbreath[X]
 ## DragonbreathDesc
-[SI] A strong breath attack.[X]
+[SI] A strong breath attack.[N]
+Chance to paralyze.[X]
 ## OutrageName ^
 Outrage[X]
 ## OutrageDesc
@@ -1117,7 +1216,8 @@ Outrage[X]
 ## TwisterName ^
 Twister[X]
 ## TwisterDesc
-[SI] A draconic storm.[X]
+[SI] A draconic storm.[N]
+30% chance to debuff Str/Mag by 8.[X]
 ## BugBiteName ^
 Bug Bite[X]
 ## BugBiteDesc
@@ -1125,7 +1225,8 @@ Bug Bite[X]
 ## BugBuzzName ^
 Bug Buzz[X]
 ## BugBuzzDesc
-[SI] A swarming buzz.[X]
+[SI] A swarming buzz.[N]
+10% chance to debuff Res by 8.[X]
 ## FuryCutterName ^
 Fury Cutter[X]
 ## FuryCutterDesc
@@ -1276,32 +1377,37 @@ If below full HP, +4 damage.[X]
 Metal Claw[X]
 
 ## MetalClawDesc
-[PI] A slash with metalic claws.[X]
+[PI] A slash with metalic claws.[N]
+10% chance to boost Str by 8.[X]
 
 ## IronTailName ^
 Iron Tail[X]
 
 ## IronTailDesc
-[PI] A steel strike with the tail.[X]
+[PI] A steel strike with the tail.[N]
+30% chance to debuff Def/Res by 8.[X]
 
 
 ## MeteorMashName ^
 Meteor Mash[X]
 
 ## MeteorMashDesc
-[PI] A powerful metallic strike.[X]
+[PI] A powerful metallic strike.[N]
+20% chance to boost Str by 8.[X]
 
 ## MirrorShotName ^
 Mirror Shot[X]
 
 ## MirrorShotDesc
-[SI] Uses technology to strike.[X]
+[SI] Uses technology to strike.[N]
+30% chance to debuff Skill by 15.[X]
 
 ## FlashCannonName ^
 Flash Cannon[X]
 
 ## FlashCannonDesc
-[SI] Emits a technological flash.[X]
+[SI] Emits a technological flash.[N]
+10% chance to debuff Res by 8.[X]
 
 ## MetalSoundName ^
 Metal Sound[X]
@@ -1379,10 +1485,12 @@ Pulls the target and binds them.[X]
 [SI] Torrents of water hit the foe.[X]
 
 ## WaterfallDesc
-[PI] Crashes like a waterfall.[X]
+[PI] Crashes like a waterfall.[N]
+20% chance to debuff Str/Mag by 8.[X]
 
 ## WaterPulseDesc
-[SI] Pulses water at the foe.[X]
+[SI] Pulses water at the foe.[N]
+20% chance to debuff Str/Mag by 8.[X]
 
 ## HydroPumpName ^
 Hydro Pump[X]
@@ -1437,7 +1545,8 @@ Takes 7 damage recoil.[X]
 [SI] Unleashes a harsh storm.[X]
 
 ## AuroraBeamDesc
-[SI] Creates a chilly beam of frost.[X]
+[SI] Creates a chilly beam of frost.[N]
+10% chance to debuff Str by 8.[X]
 
 ## IceBeamDesc
 [SI] Blasts a harsh frosty beam.[X]
@@ -1446,7 +1555,8 @@ Takes 7 damage recoil.[X]
 [PI] Strikes with an icy fist.[X]
 
 ## AvalancheDesc
-[PI] Calls forth a blanket of snow.[X]
+[PI] Calls forth a blanket of snow.[N]
+50% chance to debuff Def by 8.[X]
 
 ## DoubleKickDesc
 [PI] Hits twice. Inflicts[N]
@@ -1514,19 +1624,22 @@ AoE: Poisons for 2 turns.[X]
 [PI] Creates an earthen rift.[X]
 
 ## EarthPowerDesc
-[SI] Strikes by shaking the ground.[X]
+[SI] Strikes by shaking the ground.[N]
+10% chance to debuff Res by 8.[X]
 
 ## MudBombName ^
 Mud Bomb[X]
 
 ## MudBombDesc
-[SI] Shoots a massive wad of mud.[X]
+[SI] Shoots a massive wad of mud.[N]
+30% chance to debuff Skl by 15.[X]
 
 ## MudShotName ^
 Mud Shot[X]
 
 ## MudShotDesc
-[SI] Shoots a wad of mud.[X]
+[SI] Shoots a wad of mud.[N]
+Debuffs Speed by 8.[X]
 
 ## DrillPeckDesc
 [PI] A drilling peck from the sky.[X]
@@ -1538,7 +1651,8 @@ Mud Shot[X]
 Air Slash[X]
 
 ## AirSlashDesc
-[SI] A diving slash of wind.[X]
+[SI] A diving slash of wind.[N]
+30% chance to debuff Str/Mag by 8.[X]
 
 ## HexName ^
 Hex[X]
@@ -1557,7 +1671,8 @@ Night Slash[X]
 Dark Pulse[X]
 
 ## DarkPulseDesc
-[SI] A painful wave of darkness.[X]
+[SI] A painful wave of darkness.[N]
+20% chance to debuff Str/Mag by 8.[X]
 
 ## NightDazeName ^
 Night Daze[X]

@@ -110,13 +110,13 @@ CutBush(12,10)
 
 
 //GoldPokeballTrap(14,13, (ChapterID*2)+1, Gust) 
-//SkillAccessoryTrap(17,20, (ChapterID*2)+1, VantagePlusID) 
+SkillAccessoryTrap(27,9, (ChapterID*2)+1, PridefulWarriorID) // Leek for farfetch'd 
 
 //StatAccessoryTrap(14,2, (ChapterID*2)+1, OldWard_BoostIndex)
-SkillAccessoryTrap(27,9, ChapterID*2, Intimidate2ID) 
+SkillAccessoryTrap(35,19, ChapterID*2, Intimidate2ID) 
 //SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
 
-SkillScrollTrap(35,19, (ChapterID*2)+1, InsightID) 
+// SkillScrollTrap(35,19, (ChapterID*2)+1, InsightID) 
 
 SignBTrap(39,9, ChapterID, 0x0) //no extra text 
 SignATrap(2,4, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 

@@ -50,16 +50,21 @@ WepDebuffEntry(8,8,0,0,0,0,0,0) //0x18: Growl / Snarl debuff
 WepDebuffEntry(4,4,4,4,4,4,4,0) // 0x19: Sand attack / pound 
 WepDebuffEntry(4,4,4,4,4,4,4,0) // 0x1A: Flash 
 WepDebuffEntry(0,0,0,0,30,30,0,0) // 0x1B: Grudge 
-WepBuffEntry(15, 15, 0,0,0,0,0,0) // 0x1C: Lightning rod 
+WepBuffEntry(8, 8, 0,0,0,0,0,0) // 0x1C: Weak StrMag buff 
+WepBuffEntry(15, 15, 0,0,0,0,0,0) // 0x1D: Lightning rod 
+WepBuffEntry(8, 8, 8,8,8,8,8,0) // 0x1E: Ancientpower
 
 BYTE 31 31|DebuffSelf 23|DebuffEnemy 24|BuffEnemy 25 26 27 28 // +31 Mag, -31 Str, -23 Skl for enemy, +24 Spd for enemy, +25/+26/+27/+28 Def/Res/Luk/Mov for user 
 WORD 0xFFFFFFFF 0xFFFFFFFF // For FEBuilder to show no further data with 
 
-GrudgeDebuffID_Link:
-WORD 0x1B 
 
-LightningrodBuffID_Link:
-WORD 0x1C
+// weapons that have a chance to debuff 
+#define DebuffChanceEnt(item, debuffID, percent) "PUSH; ORG DebuffEffectTable + (2*item); BYTE debuffID percent; POP" 
+
+DebuffEffectTable:
+FILL 512 
+
+
 
 //WeaponDebuffTable: // This is the old weapon debuff table 
 //// Pow, Skl, Spd, Luk, Def, Res, Mag 
@@ -100,7 +105,46 @@ WORD 0x1C
 #define WeakAllStatsDebuff 0x19 
 #define MedAllStatsDebuff 0x1A 
 
+#define GrudgeDebuff 0x1B 
+#define WeakStrMagBuff 0x1C 
+#define LightningrodBuff 0x1D 
+#define AllStatsBuff 0x1E 
+
 #define CannotDouble 0xC
+
+GrudgeDebuffID_Link:
+WORD GrudgeDebuff 
+
+LightningrodBuffID_Link:
+WORD LightningrodBuff
+
+
+// DebuffChanceEnt(Constrict, WeakSpeedDebuff, 10)
+DebuffChanceEnt(Headbutt, WeakStrMagDebuff, 30)
+DebuffChanceEnt(MetalClaw, WeakStrMagBuff, 10)
+DebuffChanceEnt(IronTail, WeakDefDebuff, 30)
+DebuffChanceEnt(MeteorMash, WeakStrMagBuff, 20) // self buff 
+DebuffChanceEnt(MirrorShot, MedSkillDebuff, 30) 
+DebuffChanceEnt(FlashCannon, WeakResDebuff, 10)
+DebuffChanceEnt(Bubble, WeakSpeedDebuff, 10)
+// DebuffChanceEnt(Clamp, 10)
+DebuffChanceEnt(Waterfall, WeakStrMagDebuff, 20) // Normally flinch 
+DebuffChanceEnt(WaterPulse, WeakStrMagDebuff, 20) // Normally confusion 
+DebuffChanceEnt(AuroraBeam, WeakStrDebuff, 10) 
+DebuffChanceEnt(Avalanche, WeakDefDebuff, 50) // ? 
+// DebuffChanceEnt(KarateChop, 10) // crit 
+// DebuffChanceEnt(RollingKick, WeakStrMagDebuff, 30) // flinch 
+DebuffChanceEnt(EarthPower, WeakResDebuff, 10) 
+DebuffChanceEnt(MudShot, WeakSpeedDebuff, 100) 
+DebuffChanceEnt(MudBomb, MedSkillDebuff, 30) 
+DebuffChanceEnt(AirSlash, WeakStrMagDebuff, 30) 
+DebuffChanceEnt(Confusion, WeakStrMagDebuff, 20) 
+// DebuffChanceEnt(IcyWind, WeakSpeedDebuff, 30) 
+DebuffChanceEnt(RockSlide, WeakStrMagDebuff, 30) 
+DebuffChanceEnt(Ancientpower, AllStatsBuff, 10) 
+DebuffChanceEnt(Twister, WeakStrMagDebuff, 30) 
+DebuffChanceEnt(BugBuzz, WeakResDebuff, 10) 
+DebuffChanceEnt(DarkPulse, WeakStrMagDebuff, 20) 
 
 
 

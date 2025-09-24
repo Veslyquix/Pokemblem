@@ -251,6 +251,7 @@
 #define PridefulWarriorID 0xFA
 #define SwiftSwimID 0xFB
 #define LilysPoiseID 0xFC
+#define ThickClubSkillID 0xFD
 #define DownWithArchID 0xFF
 #define ResolveID 0xFF
 #define FortressDefenseID 0xFF

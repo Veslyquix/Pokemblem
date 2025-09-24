@@ -32,8 +32,12 @@
 GetItemNameString: @hook at 174F8
 
 push {r4-r7, lr}
-mov r4,r0
+mov r4,r0 
+bl GetSpellScrollName
+cmp r0, #0 
+bne GetStringNow
 
+mov r0, r4 
 @get ID from item table
 mov r1,#0xFF
 and r0,r1
@@ -43,8 +47,6 @@ lsl r1,r1,#2
 ldr r0,=ItemTable
 add r1,r0
 ldrh r0,[r1] 
-
-@r0 = name ID string
 
 ldr r5,=DurabilityBasedItemNameList
 
@@ -70,7 +72,7 @@ add r0,r1
 ldrh r0,[r0] @r0 = text ID for skill desc text for current item
 
 
-
+GetStringNow: 
 blh String_GetFromIndex
 
 ldrh r1,[r5,#2] @boolean
@@ -121,8 +123,12 @@ push {lr}
 lsl r1,r1,#2
 ldr r0,=ItemTable
 add r6,r1,r0
-ldrh r0,[r6]
+mov r0, r9 
+bl GetSpellScrollName
+cmp r0, #0 
+bne GetStringNow1
 
+ldrh r0,[r6]
 @r0 = name ID string
 
 ldr r3,=DurabilityBasedItemNameList
@@ -147,7 +153,7 @@ lsl r0,r0,#1 @*2
 
 add r0,r1
 ldrh r0,[r0] @r0 = text ID for skill desc text for current item
-
+GetStringNow1: 
 blh String_GetFromIndex
 
 ldrh r0,[r3,#2]
@@ -196,8 +202,12 @@ push {lr}
 lsl r1,r1,#2
 ldr r0,=ItemTable
 add r4,r1,r0
-ldrh r0,[r4]
 
+mov r0, r6 
+bl GetSpellScrollName
+cmp r0, #0 
+bne GetStringNow2
+ldrh r0,[r4]
 @r0 = name ID string
 
 ldr r3,=DurabilityBasedItemNameList
@@ -221,7 +231,7 @@ lsl r0,r0,#1 @*2
 
 add r0,r1
 ldrh r0,[r0] @r0 = text ID for skill desc text for current item
-
+GetStringNow2:
 blh String_GetFromIndex
 
 ldrh r1,[r3,#2]
@@ -288,9 +298,13 @@ bx r3
 
 
 GetItemDescStringIndex: @hook at 17518
-push {r4}
+push {r4, lr}
 mov r4,r0
 
+bl GetSpellScrollDesc
+cmp r0, #0 
+bne GoBack
+mov r0, r4 
 mov r1,#0xFF
 and r0,r1
 lsl r1,r0,#3
@@ -299,6 +313,8 @@ lsl r1,r1,#2
 ldr r0,=ItemTable
 add r1,r0
 ldrh r0,[r1,#2] @r0 = desc ID
+
+
 
 ldr r2,=DurabilityBasedItemDescList
 DescLoopStart:
@@ -321,7 +337,8 @@ ldrh r0,[r0]
 
 GoBack:
 pop {r4}
-bx r14
+pop {r3}
+bx r3
 
 .ltorg
 .align
@@ -333,6 +350,14 @@ bx r14
 .equ ReturnPointBravo,0x80169CF
 
 NewItemNameGetter3: @r6 = item halfword
+push {lr} 
+
+mov r0, r6 
+bl GetSpellScrollDesc
+cmp r0, #0 
+bne GetStringNow3
+
+
 mov r0,#0xFF
 and r0,r6
 mov r1,#36
@@ -363,6 +388,7 @@ lsl r0,r0,#1 @*2
 add r0,r1
 ldrh r0,[r0] @r0 = text ID for skill desc text for current item
 
+GetStringNow3: 
 blh String_GetFromIndex
 
 ldrh r1,[r3,#2] @boolean
@@ -388,11 +414,13 @@ mov r1,#0
 strb r1,[r0]
 
 SkipDoingColonTerminatonDelta:
+pop {r3} 
 ldr r0,=gCurrentTextString
 ldr r3,=ReturnPointBravo
 bx r3
 
 LoopDeltaUseID:
+pop {r3} 
 ldr r3,=ReturnPointDelta
 bx r3
 

@@ -219,7 +219,7 @@ Charm[X]
 Voice of Peace[X]
 
 ## SN_Amaterasu
-Amaterasu[X]
+Healer[X]
 
 ## SN_SpurStr
 Spur Strength[X]
@@ -515,10 +515,10 @@ Solidarity[X]
 ## SN_Bracing_Stance
 Bracing Stance[X]
 
-## SN_Darting_Stance
+## SN_Darting_Stance ^
 Darting Stance[X]
 
-## SN_Fierce_Stance
+## SN_Fierce_Stance ^
 Fierce Stance[X]
 
 ## SN_Kestrel_Stance

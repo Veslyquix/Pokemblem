@@ -51,7 +51,7 @@ POIN Proc_Start	//start
 #ifdef STATUS_WEAPONS
 	POIN Proc_StatusWeapons 
 #endif // STATUS_WEAPONS
-
+POIN Proc_DebuffWeapons
 //POIN Proc_Bane DownWithArch Proc_Lethality	//skills that set damage to max
 #ifdef ReplaceMissWithHalfDamage
 POIN NeverMiss
