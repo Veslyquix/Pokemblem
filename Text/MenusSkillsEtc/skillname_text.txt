@@ -219,7 +219,7 @@ Charm[X]
 Voice of Peace[X]
 
 ## SN_Amaterasu
-Amaterasu[X]
+Healer[X]
 
 ## SN_SpurStr
 Spur Strength[X]

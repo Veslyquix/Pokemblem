@@ -1344,23 +1344,28 @@ void PressureEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     {
         return;
     }
-    if (SkillTester(&bunitA->unit, PressureID_Link))
+
+    if (SkillTester(&gBattleActor.unit, PressureID_Link))
     {
         int count = 0;
         u32 attr;
         u8 validSlots[5] = { 0 };
+        struct BattleUnit * bunit = &gBattleTarget;
         for (int i = 0; i < 5; ++i)
         {
-            attr = GetItemAttributes(bunitB->unit.ranks[i]);
+            attr = GetItemAttributes(bunit->unit.ranks[i]);
             if (attr & IA_WEAPON)
             {
                 validSlots[count] = i;
                 count++;
             }
         }
-        int rand = NextRN_N(count);
-        bunitB->weaponBefore = bunitB->unit.ranks[validSlots[rand]];
-        bunitB->weapon = bunitB->unit.ranks[validSlots[rand]];
+        if (count)
+        {
+            int rand = NextRN_N(count);
+            bunit->weaponBefore = bunit->unit.ranks[validSlots[rand]];
+            bunit->weapon = bunit->unit.ranks[validSlots[rand]];
+        }
     }
     return;
 }

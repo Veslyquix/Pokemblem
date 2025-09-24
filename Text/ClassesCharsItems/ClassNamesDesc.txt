@@ -451,7 +451,7 @@ Tangela[X]
 Typing: [Grass] [NL]
 Weak to: [Bug] [Fire] [Flying] [Ice] [Poison]  [NL]
 Resists: [Electric] [Grass] [Ground] [Water] [X]
-# 0x10E4
+# 0x10E4 ^
 Kangaskhan[X]
 
 # 0x10E6

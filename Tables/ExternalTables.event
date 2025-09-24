@@ -121,7 +121,7 @@ WORD LightningrodBuff
 
 // DebuffChanceEnt(Constrict, WeakSpeedDebuff, 10)
 DebuffChanceEnt(Headbutt, WeakStrMagDebuff, 30)
-DebuffChanceEnt(MetalClaw, WeakStrMagBuff, 100)
+DebuffChanceEnt(MetalClaw, WeakStrMagBuff, 10)
 DebuffChanceEnt(IronTail, WeakDefDebuff, 30)
 DebuffChanceEnt(MeteorMash, WeakStrMagBuff, 20) // self buff 
 DebuffChanceEnt(MirrorShot, MedSkillDebuff, 30) 
