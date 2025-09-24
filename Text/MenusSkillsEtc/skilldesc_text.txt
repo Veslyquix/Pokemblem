@@ -1805,9 +1805,9 @@ Keen Fighter: This unit takes 25%[N]
 less damage if the opponent doubles.[X]
 
 ## SD_PridefulWarrior 
-Proud Bird: This unit always[N]
-attacks after the enemy, but[N]
-always doubles.[X]
+Proud Bird: This unit always attacks[N]
+after the enemy. If holding a leek,[N]
+it will attack twice.[X]
 
 ## SD_LastWord
 Last Word: When doubled, this unit[N]

@@ -6,7 +6,7 @@
 pPowerModifiers: // Power
 	POIN prAddUnitPower 
     POIN prHalveIfCapturing //HalfStrFunc
-    POIN SolarPowerEffect GutsEffect StrongClawsEffect 
+    POIN SolarPowerEffect GutsEffect StrongClawsEffect ThickClubSkillEffect
     POIN prAddEquipPower
 	POIN prDebuffStr 
 	POIN prItemPassivePow prRallyStr prLifeAndDeathBonus prSkillFury prFortressDefensePow VigorDanceCheck prFortressResistancePow prResolve prDefiantStr prPushStr

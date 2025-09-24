@@ -12,6 +12,25 @@ extern int AreWeOutdoors();
 int AreWeOutdoorsOrFieryAura(struct Unit * unit);
 int AreWeOutdoorsOrDampAura(struct Unit * unit);
 
+int GetSpellScrollName(int itemID)
+{
+    if (GetItemData(itemID & 0xFF)->nameTextId != 0xFFFE)
+    {
+        return 0;
+    }
+    int uses = ITEM_USES(itemID);
+    return GetItemData(uses)->nameTextId;
+}
+int GetSpellScrollDesc(int itemID)
+{
+    if (GetItemData(itemID & 0xFF)->descTextId != 0xFFFE)
+    {
+        return 0;
+    }
+    int uses = ITEM_USES(itemID);
+    return GetItemData(uses)->descTextId;
+}
+
 extern int ChlorophyllID_Link;
 // Bulbasaur line
 int ChlorophyllEffect(int stat, struct Unit * unit) // 50% more speed when outside
@@ -1146,6 +1165,16 @@ int GutsEffect(int stat, struct Unit * unit)
         {
             stat += ((stat + 2) >> 2);
         }
+    }
+    return stat;
+}
+
+extern int ThickClubSkillID_Link;
+int ThickClubSkillEffect(int stat, struct Unit * unit)
+{
+    if (SkillTester(unit, ThickClubSkillID_Link))
+    {
+        stat += ((stat + 1) >> 1);
     }
     return stat;
 }

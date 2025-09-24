@@ -350,6 +350,20 @@ Lucky Bracer[X]
 ## LuckyBracerT3DescText
 Luk+10.[X]
 
+## ProudBirdAccNameText
+Leek[X]
+
+## ProudBirdAccDescText
+Grants Farfetch'd the ability[N]
+to double attack enemies.[X]
+
+## ThickClubSkillAccNameText
+Thick Club[X]
+
+## ThickClubSkillAccDescText
+Grants Cubone/Marowak an[N]
+additional 50% str.[X]
+
 
 ## BerserkGeneName ^
 Berserk Gene[X]

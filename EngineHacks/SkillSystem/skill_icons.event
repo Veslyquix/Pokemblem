@@ -94,7 +94,7 @@ ORG SkillIcon(QuickFeetID)
 ORG SkillIcon(GutsID)
 #incbin "SkillIcons/Guts.dmp"
 ORG SkillIcon(WeakArmorID)
-#incbin "SkillIcons/PowerfulAura.dmp" // 
+#incbin "SkillIcons/WeakArmor.dmp" // 
 ORG SkillIcon(StrongClawsID)
 #incbin "SkillIcons/StrongClaws.dmp"
 ORG SkillIcon(PressureID)
@@ -1215,7 +1215,8 @@ ORG SkillIcon(RecklessFighterID)
 ORG SkillIcon(KeenFighterID)
 #incbin "SkillIcons/KeenFighter.dmp"
 ORG SkillIcon(PridefulWarriorID)
-#incbin "SkillIcons/PridefulWarrior.dmp"
+// #incbin "SkillIcons/PridefulWarrior.dmp"
+#incbin "SkillIcons/ProudBird.dmp"
 
 ORG SkillIcon(LastWordID)
 #incbin "SkillIcons/LastWord.dmp"

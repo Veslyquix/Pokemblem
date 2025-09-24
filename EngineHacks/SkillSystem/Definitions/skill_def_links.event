@@ -147,7 +147,42 @@ LevitateID_Link:
 WORD LevitateID 
 SwiftSwimID_Link:
 WORD SwiftSwimID 
-
+ThickClubSkillID_Link:
+WORD ThickClubSkillID 
+AssassinateID_Link:
+WORD AssassinateID 
+DesperationID_Link: 
+WORD DesperationID 
+RecklessFighterID_Link:
+WORD RecklessFighterID 
+PridefulWarriorID_Link: 
+WORD PridefulWarriorID 
+LastWordID_Link:
+WORD LastWordID 
+BoldFighterID_Link:
+WORD BoldFighterID 
+VengefulFighterID_Link: 
+WORD VengefulFighterID 
+QuickLearnerID_Link:
+WORD QuickLearnerID 
+PassionsFlowID_Link:
+WORD PassionsFlowID 
+QuickRiposteID_Link:
+WORD QuickRiposteID 
+BidingBlowID_Link:
+WORD BidingBlowID 
+AdvantageChaserID_Link:
+WORD AdvantageChaserID 
+ScaledUpID_Link:
+WORD ScaledUpID 
+Intimidate2ID_Link:
+WORD Intimidate2ID 
+GuardBreakerID_Link:
+WORD GuardBreakerID
+DowngradeID_Link:
+WORD DowngradeID 
+SuperFangID_Link:
+WORD SuperFang 
 
 
 BulbasaurID_Link:

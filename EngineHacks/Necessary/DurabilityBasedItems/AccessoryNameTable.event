@@ -395,3 +395,9 @@ SkillAccessory_DescEntry(CantoPlusID, SaddleDesc)
 SkillAccessory_NameEntry(SilphScopeID, SilphScopeNameText)
 SkillAccessory_DescEntry(SilphScopeID, SilphScopeDescText)
 
+SkillAccessory_NameEntry(PridefulWarriorID, ProudBirdAccNameText)
+SkillAccessory_DescEntry(PridefulWarriorID, ProudBirdAccDescText)
+
+SkillAccessory_NameEntry(ThickClubSkillID, ThickClubSkillAccNameText)
+SkillAccessory_DescEntry(ThickClubSkillID, ThickClubSkillAccDescText)
+

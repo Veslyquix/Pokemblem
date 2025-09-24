@@ -28,11 +28,11 @@ Diglett'sCave: , Carbos
 Route11: Scorch, SealResAccessory, Iron 
 SSAnne: PoisonStrikeID, BodySlam
 VermilionGym: Thunderbolt, Surge'sSigilAccessory
-Route9W: InsightSS, SealStrAccessory
+Route9W: Leek, SealStrAccessory
 Route9E: PaddedShieldAccessory, HealPulse, 1000g, HelixFossil
 Route10: PragmaticSS, ThunderStone 
-RockTunnelB1: SealSklAccessory, RockSlide, MoonStone, EscapeRope 
-RockTunnelB2: VigilanceSS, IronShield, 1500g, DomeFossil  
+RockTunnelB1: MoonStone, EscapeRope, RockSlide 
+RockTunnelB2: ThickClub, IronShield, 1500g, DomeFossil  
 LavenderTown: DazzleAccessory, SuperPotion 
 PokeTowerF2: AnathemaSS, WiseGlassesT2
 PokeTowerF3: ExoticCandy, ShadowPunch 

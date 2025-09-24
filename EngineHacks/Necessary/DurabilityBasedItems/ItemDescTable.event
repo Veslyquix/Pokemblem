@@ -6,6 +6,8 @@
 
 
 ItemNameTable:
+
+/*
 DefaultTextEntries256
 ORG ItemNameTable 
 
@@ -266,7 +268,7 @@ SHORT 0xFFFC
 SHORT 0xFFFB
 SHORT 0xFFFA
 SHORT 0xFFF9
-
+*/
 
 
 
@@ -276,6 +278,7 @@ WORD 0
 
 ALIGN 4 
 ItemDescTable: 
+/*
 DefaultTextEntries256
 ORG ItemDescTable 
 SHORT 0x00
@@ -535,7 +538,7 @@ SHORT 0xFFFB
 SHORT 0xFFFA
 SHORT 0xFFF9
 
-
+*/
 
 
 

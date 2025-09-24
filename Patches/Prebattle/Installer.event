@@ -1,19 +1,6 @@
 #include "Prebattle.lyn.event" 
 
 ALIGN 4 
-ScaledUpID_Link:
-WORD ScaledUpID 
-Intimidate2ID_Link:
-WORD Intimidate2ID 
-GuardBreakerID_Link:
-WORD GuardBreakerID
-DowngradeID_Link:
-WORD DowngradeID 
-SuperFangID_Link:
-WORD SuperFang 
-
-
-ALIGN 4 
 IntimidateDebuffs:
 //WepBuffEntry(mag, str, skl, spd, def, res, luk, mov)
 WepDebuffEntry(  0,    25,   0,    0,   0,   0,   0,   0)
@@ -35,8 +22,6 @@ Submission_Link:
 WORD Submission
 GrassKnot_Link:
 WORD GrassKnot
-DittoID_Link:
-WORD DittoID
 Transform_Link:
 WORD Transform
 
