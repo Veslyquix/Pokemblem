@@ -789,6 +789,22 @@ struct EffectivenessExceptions
     u32 stormyAura : 1;
     u32 levitate : 1;
 };
+extern int NormalTypeWep_Link;
+extern int ElectricTypeWep_Link;
+extern int WaterTypeWep_Link;
+extern int FireTypeWep_Link;
+extern int GrassTypeWep_Link;
+extern int GroundTypeWep_Link;
+extern int PsychicTypeWep_Link;
+extern int FightingTypeWep_Link;
+extern int IceTypeWep_Link;
+extern int PoisonTypeWep_Link;
+extern int FlyingTypeWep_Link;
+extern int RockTypeWep_Link;
+extern int GhostTypeWep_Link;
+extern int DragonTypeWep_Link;
+extern int BugTypeWep_Link;
+extern int SteelTypeWep_Link;
 struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
     struct EffectivenessExceptions result = { 0 };
@@ -796,6 +812,7 @@ struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * 
     {
         return result;
     }
+    int wepType = bunitA->weaponType;
 
     if (SkillTester(&bunitA->unit, TintedLensID_Link))
     {
@@ -809,15 +826,15 @@ struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * 
     {
         result.scrappy = true;
     }
-    if (SkillTester(&bunitB->unit, DrySkinID_Link))
+    if ((wepType == FireTypeWep_Link || wepType == WaterTypeWep_Link) && SkillTester(&bunitB->unit, DrySkinID_Link))
     {
         result.drySkin = true;
     }
-    if (SkillTester(&bunitB->unit, FlashFireID_Link))
+    if (wepType == FireTypeWep_Link && SkillTester(&bunitB->unit, FlashFireID_Link))
     {
         result.flashFire = true;
     }
-    if (SkillTester(&bunitB->unit, MotorDriveID_Link))
+    if (wepType == ElectricTypeWep_Link && SkillTester(&bunitB->unit, MotorDriveID_Link))
     {
         result.motorDrive = true;
     }
@@ -825,7 +842,9 @@ struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * 
     {
         result.levitate = true;
     }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveLightningRod))
+    if (wepType == ElectricTypeWep_Link &&
+        IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveLightningRod))
+    // if lightningrod is only found from exception (bunitB), then ?
     {
         result.lightningRod = true;
     }
@@ -852,22 +871,6 @@ struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * 
 #define Absorbtion 6
 #define Ineffective 7
 
-extern int NormalTypeWep_Link;
-extern int ElectricTypeWep_Link;
-extern int WaterTypeWep_Link;
-extern int FireTypeWep_Link;
-extern int GrassTypeWep_Link;
-extern int GroundTypeWep_Link;
-extern int PsychicTypeWep_Link;
-extern int FightingTypeWep_Link;
-extern int IceTypeWep_Link;
-extern int PoisonTypeWep_Link;
-extern int FlyingTypeWep_Link;
-extern int RockTypeWep_Link;
-extern int GhostTypeWep_Link;
-extern int DragonTypeWep_Link;
-extern int BugTypeWep_Link;
-extern int SteelTypeWep_Link;
 // Dry Skin: Absorb water moves, but fire moves deal 2x damage.
 // Jynx
 

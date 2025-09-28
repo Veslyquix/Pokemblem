@@ -1,4 +1,4 @@
-
+#include "GoldenSunTalkBeeps/Installer.event" 
 #include "Credits/Installer.event" 
 // #include "GenderedText/Installer.event" // Unused 
 
