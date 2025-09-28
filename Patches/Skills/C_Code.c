@@ -1296,6 +1296,21 @@ int HydrationEffect(struct Unit * unit)
     }
     return unit->maxHP - unit->curHP;
 }
+extern int SynchronizeID_Link;
+void SynchronizeEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (SkillTester(&bunitB->unit, SynchronizeID_Link))
+    {
+        if (bunitB->unit.statusDuration)
+        {
+            bunitA->unit.statusDuration = bunitB->unit.statusDuration;
+            bunitA->unit.statusIndex = bunitB->unit.statusIndex;
+            struct Unit * unit = GetUnit(bunitA->unit.index);
+            unit->statusDuration = bunitB->unit.statusDuration;
+            unit->statusIndex = bunitB->unit.statusIndex;
+        }
+    }
+}
 
 int AreWeOutdoorsOrFieryAura(struct Unit * unit)
 {

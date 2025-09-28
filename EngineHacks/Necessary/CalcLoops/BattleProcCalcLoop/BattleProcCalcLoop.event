@@ -56,6 +56,7 @@ POIN Proc_DebuffWeapons
 #ifdef ReplaceMissWithHalfDamage
 POIN NeverMiss
 #endif 
+POIN SynchronizeEffect
 
 POIN Proc_CapDamage	//check that damage is not over cap
 
