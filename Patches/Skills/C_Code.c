@@ -418,6 +418,18 @@ void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
 }
 
+int DoesUnitHaveHustle(struct BattleUnit * bunit)
+{
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        if (SkillTester(&bunit->unit, HustleID_Link))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 // Onix, Lickitung, Staryu, Oddish, Abra, Psyduck
 
 // Flank (Zubat line) - done

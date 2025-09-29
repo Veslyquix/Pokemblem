@@ -23,11 +23,25 @@ tst r0, r1
 bne EndLadder
 @if we missed, don't bother doing anything
 @removed sure shot check, just unset the miss flag if needed.
+
+mov r0, r4 @ atkr 
+bl DoesUnitHaveHustle
+cmp r0, #0 
+beq TwoRN
+ldrh r0, [r7, #0xA] 
+mov r1, r4
+blh d100Result
+cmp r0, #0 
+bne SuccessfulHit 
+b SetMissFlag 
+
+TwoRN: 
 ldrh    r0,[r7,#0xA]      @final hit rate                @ 0802B41A 8960     
 mov     r1,#0x1           @Default depending on where battle is called, leave it alone             @ 0802B41C 2101     
 blh     proc_truehit        @Proc hit rate                @ 0802B41E F7FFF89B     
 cmp     r0,#0x0                @ 0802B424 2800     
-bne     SuccessfulHit        @If we hit, branch                @ 0802B426 D111   
+bne     SuccessfulHit        @If we hit, branch                @ 0802B426 D111  
+SetMissFlag:  
 @if we missed, set the miss flag  
 ldr     r2,[r6]    
 lsl     r1,r2,#0xD                @ 0802B42C 0351     
