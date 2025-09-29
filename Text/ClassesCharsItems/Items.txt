@@ -437,7 +437,7 @@ Unit loses 10% HP after combat.[X]
 Skull Mask[X]
 ## SkullMaskDesc
 Battle debuffs enemy[N]
-Str/Mag by 25%.[X]
+Str/Mag by 20%.[X]
 
 ## DowngraderName
 Downgrader[X]

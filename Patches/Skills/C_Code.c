@@ -11,20 +11,23 @@ extern int AreWeOutdoors();
 
 void ComputeBattleUnitHitRate(struct BattleUnit * bu)
 {
-    int hit = bu->unit.skl + GetItemHit(bu->weapon) + (bu->unit.lck / 2) + bu->wTriangleHitBonus;
-    if (UNIT_FACTION(&bu->unit) == FACTION_BLUE)
-    {
-        hit += bu->unit.skl;
-    }
+    int itemHit = GetItemHit(bu->weapon);
+    int skl = bu->unit.skl;
+    int hit = (skl * 1) + itemHit + bu->wTriangleHitBonus;
+    hit += (itemHit * (skl / 2)) / 100;
+    // if (UNIT_FACTION(&bu->unit) == FACTION_BLUE)
+    // {
+    // hit += bu->unit.skl / 4;
+    // }
     bu->battleHitRate = hit;
 }
 
 void ComputeBattleUnitAvoidRate(struct BattleUnit * bu)
 {
-    bu->battleAvoidRate = (bu->battleSpeed) + bu->terrainAvoid + (bu->unit.lck / 2);
+    bu->battleAvoidRate = (bu->battleSpeed) + bu->terrainAvoid + (bu->battleSpeed / 4);
     if (UNIT_FACTION(&bu->unit) == FACTION_BLUE)
     {
-        bu->battleAvoidRate += (bu->battleSpeed / 2);
+        bu->battleAvoidRate += (bu->unit.lck / 2);
     }
     if (bu->battleAvoidRate < 0)
         bu->battleAvoidRate = 0;
@@ -1004,8 +1007,8 @@ void AdjustHitrateForEffectiveness(struct BattleUnit * bunitA, struct BattleUnit
         {
             if (canCounter)
             {
-                bunitA->wTriangleHitBonus = 40;
-                bunitA->battleAvoidRate += 40;
+                bunitA->wTriangleHitBonus = 30;
+                bunitA->battleAvoidRate += 30;
                 if (UNIT_FACTION(&bunitA->unit) == FACTION_BLUE)
                 {
                     bunitA->battleCritRate += 10 + (bunitA->unit.skl >> 1);
@@ -1020,7 +1023,7 @@ void AdjustHitrateForEffectiveness(struct BattleUnit * bunitA, struct BattleUnit
             {
                 return;
             }
-            bunitA->wTriangleHitBonus = (-40);
+            bunitA->wTriangleHitBonus = (-30);
             break;
         }
 
@@ -1366,6 +1369,37 @@ void SynchronizeEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
             unit->statusDuration = bunitB->unit.statusDuration;
             unit->statusIndex = bunitB->unit.statusIndex;
         }
+    }
+}
+extern u8 DebuffStatNumberOfBits_Link;
+extern u32 * GetUnitDebuffEntry(struct Unit *);
+extern int DebuffStatBitOffset_Str;
+extern int DebuffStatBitOffset_Mag;
+extern int DebuffStatBitOffset_Def;
+extern int DebuffStatBitOffset_Res;
+extern int DebuffStatBitOffset_Spd;
+extern int UnpackData_Signed(u32 * debuffEntryRam, u8 bitOffset, u8 bitCount);
+void CritsIgnoreDebuffsEffect(
+    struct BattleUnit * bunitA, struct BattleUnit * bunitB, struct BattleHit * bhit, struct BattleStats * bstats)
+{
+
+    if (bhit->attributes & BATTLE_HIT_ATTR_CRIT)
+    {
+        void * debuffRam = GetUnitDebuffEntry(&bunitA->unit);
+        int reducedStat = 0;
+        if (!(bunitA->weaponAttributes & IA_MAGIC))
+        { // melee
+            reducedStat = UnpackData_Signed(debuffRam, DebuffStatBitOffset_Str, DebuffStatNumberOfBits_Link);
+        }
+        else
+        { // magic
+            reducedStat = UnpackData_Signed(debuffRam, DebuffStatBitOffset_Mag, DebuffStatNumberOfBits_Link);
+        }
+        if (reducedStat >= 0)
+        {
+            return;
+        }
+        bstats->damage += abs(reducedStat);
     }
 }
 
