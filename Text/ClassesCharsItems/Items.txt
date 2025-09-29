@@ -1615,7 +1615,8 @@ AoE: Poisons for 2 turns.[X]
 [PI] An earthy strike from below.[X]
 
 ## BonemerangDesc
-[PI] Whips a bone boomerang.[X]
+[PI] Whips a bone boomerang.[N]
+Hits twice.[X]
 
 ## EarthquakeDesc
 [PI] Creates a powerful quake.[X]

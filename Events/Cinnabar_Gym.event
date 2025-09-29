@@ -434,17 +434,17 @@ UNIT
 
 
 EnemyTrainersA:
-UNIT 0xD0 ArcanineID 0x0 Level(0, Enemy, 1) 	[5,5]  0b 0x0	0 0	[TakeDown,FireBlast,0x0,0x0] 		ZoningHeal50GroupOneAI
+UNIT 0xD0 ArcanineID 0x0 Level(0, Enemy, 1) 	[2,4]  0b 0x0	0 0	[TakeDown,FireBlast,0x0,0x0] 		ZoningHeal50GroupOneAI
 UNIT 0xA2 MagmarID 0xD0 Level(0, Enemy, 1) 	[3,6]  0b 0x0 	0 0	[Flamethrower, BodySlam,0x0,0x0] 	ZoningHeal50GroupOneAI
 UNIT 0xA4 VenusaurID 0xD0 Level(0, Enemy, 1) 	[5,7]  0b 0x0	0 0	[PetalDance, BodySlam,0x0,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA0 NinetalesID 0xD0 Level(0, Enemy, 1) [2,4]  0b 0x0	0 0 [TailWhip, Flamethrower,0x0,0x0] 	[0,0,8,1]
+UNIT 0xA0 NinetalesID 0xD0 Level(0, Enemy, 1) [5,5]  0b 0x0	0 0 [TailWhip, Flamethrower,0x0,0x0] 	[0,0,8,1]
 UNIT 0xA1 RapidashID 0xD0 Level(0, Enemy, 1) 	[8,4]  0b 0x0	0 0	[BodySlam, FlameWheel,0x0,0x0] 		[0,0,8,1]
 UNIT 0xA3 FlareonID 0xD0 Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[FlameWheel, DoubleEdge, 0x0 ,0x0] 		[0,0,8,1] // pursue 
 UNIT
 
 EnemyTrainersB: // rematch 
-UNIT 0xD0 ArcanineID 0x0 Level(0, Enemy, 1) 	[5,5]  0b 0x0	0 0	[SacredFire,FireBlast,Outrage,0x0] 		PursueWithoutHeedAI
-UNIT 0xA0 NinetalesID 0xD0 Level(0, Enemy, 1) [2,4]  0b 0x0	0 0 [Psychic, Flamethrower,SolarBeam,0x0] 	PursueWithoutHeedAI
+UNIT 0xD0 ArcanineID 0x0 Level(0, Enemy, 1) 	[2,4]  0b 0x0	0 0	[SacredFire,FireBlast,Outrage,0x0] 		PursueWithoutHeedAI
+UNIT 0xA0 NinetalesID 0xD0 Level(0, Enemy, 1) [5,5]  0b 0x0	0 0 [Psychic, Flamethrower,SolarBeam,0x0] 	PursueWithoutHeedAI
 UNIT 0xA1 RapidashID 0xD0 Level(0, Enemy, 1) 	[8,4]  0b 0x0	0 0	[TakeDown, SacredFire,SolarBeam,0x0] 		PursueWithoutHeedAI
 UNIT 0xA2 MagmarID 0xD0 Level(0, Enemy, 1) 	[3,6]  0b 0x0 	0 0	[Flamethrower, Psychic, ThunderPunch,0x0] 	PursueWithoutHeedAI
 UNIT 0xA3 FlareonID 0xD0 Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[SacredFire, DoubleEdge, DoubleKick ,0x0] 		PursueWithoutHeedAI
