@@ -9,7 +9,7 @@ pDefenseModifiers: // Defense
 	POIN SleepStatus FreezeStatus WeakArmorDefEffect
     POIN prAddEquipDefense
 	POIN prDebuffDef  
-	POIN prItemPassiveDefense prRallyDef prLifeAndDeathMinus VigorDanceCheck prSkillFury prFortressDefenseDef prDefiantDef prPushDef
+	POIN prItemPassiveDefense prRallyDef prLifeAndDeathMinus VigorDanceCheck prSkillFuryDefRes prFortressDefenseDef prDefiantDef prPushDef
 	//POIN prDefBuff
 	#ifdef ACCESSORIES_AND_FORGING
 		POIN prAddAccessoryDefense

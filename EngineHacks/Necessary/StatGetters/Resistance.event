@@ -8,7 +8,7 @@ pResistanceModifiers: // Resistance
 	POIN PoisonStatus FreezeStatus AcidArmorEffect
 	POIN prAddEquipResistance
     POIN prDebuffRes  
-	POIN prItemPassiveResistance prRallyRes prAddPureWaterBarrierMod prLifeAndDeathMinus prSkillFury prFortressResistanceRes prDefiantRes prPushRes
+	POIN prItemPassiveResistance prRallyRes prAddPureWaterBarrierMod prLifeAndDeathMinus prSkillFuryDefRes prFortressResistanceRes prDefiantRes prPushRes
 	//POIN prResBuff
 	#ifdef ACCESSORIES_AND_FORGING
 		POIN prAddAccessoryResistance
