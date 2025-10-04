@@ -349,16 +349,20 @@ struct ItemDataSS
 
 void Proc_DebuffWeapons(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
-    int wepID = bunitA->weaponBefore & 0xFF;
-    if (DebuffEffectTable[wepID].percent > NextRN_100())
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL))
     {
-        if (DoesUnitHaveSheerForce(&bunitA->unit))
+        int wepID = bunitA->weaponBefore & 0xFF;
+        if (DebuffEffectTable[wepID].percent > NextRN_100())
         {
-            return;
-        }
+            if (DoesUnitHaveSheerForce(&bunitA->unit))
+            {
+                return;
+            }
 
-        ApplyDebuffUnit(
-            DebuffEffectTable[wepID].debuffID, GetUnitDebuffEntry(&bunitA->unit), GetUnitDebuffEntry(&bunitB->unit));
+            ApplyDebuffUnit(
+                DebuffEffectTable[wepID].debuffID, GetUnitDebuffEntry(&bunitA->unit),
+                GetUnitDebuffEntry(&bunitB->unit));
+        }
     }
 }
 
