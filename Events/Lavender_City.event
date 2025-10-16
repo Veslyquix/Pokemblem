@@ -239,7 +239,7 @@ BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick
 BYTE SpellScroll BubbleBeam SpellScroll MudBomb // 20
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI SuperPotion
-BYTE $00; ALIGN 4
+BYTE $0 0; ALIGN 4
 
 
 
