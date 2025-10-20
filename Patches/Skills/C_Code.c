@@ -1053,8 +1053,8 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     {
         return;
     }
-    int canCounter = bunitB->canCounter;
-    if ((bunitB->unit.index & 0x80) == 0)
+    int canCounter = bunitA->canCounter;
+    if ((bunitA->unit.index & 0x80) == 0)
     {
         canCounter = true; // players always get bonus def from using super effective moves
     }
