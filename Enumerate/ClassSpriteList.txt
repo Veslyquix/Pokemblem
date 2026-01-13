@@ -245,7 +245,7 @@ HealingTileSMS
 MissingnoSMS
 RedSurfSMS
 GreenSurfSMS
-Unused73SMS
+PoisonGasSMS
 Unused74SMS
 Unused75SMS
 Unused76SMS

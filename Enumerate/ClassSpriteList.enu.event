@@ -244,7 +244,7 @@
 #define MissingnoSMS 0xF3
 #define RedSurfSMS 0xF4
 #define GreenSurfSMS 0xF5
-#define Unused73SMS 0xF6
+#define PoisonGasSMS 0xF6
 #define Unused74SMS 0xF7
 #define Unused75SMS 0xF8
 #define Unused76SMS 0xF9

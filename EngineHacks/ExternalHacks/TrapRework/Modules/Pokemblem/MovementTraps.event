@@ -44,6 +44,12 @@ SetTrapMapSprite(PuddleID,puddleSMS)
 SetTrapMapSpritePalette(PuddleID,NPCTrapPaletteWord)
 #define PuddleTrap(XX,YY) "BYTE PuddleID XX YY 0; SHORT 0x0"
 
+#define GasID 119 
+SetTrapEventInit(GasID,MovementArrowInitialization)
+SetTrapMapSprite(GasID,PoisonGasSMS)
+SetTrapMapSpritePalette(GasID,NPCTrapPaletteWord)
+#define GasTrap(XX,YY) "BYTE GasID XX YY 0; SHORT 0x0"
+
 #include "asm/MovementTrap.lyn.event" // Initialize trap & hook gTrapHidden updater 
 
 PUSH 

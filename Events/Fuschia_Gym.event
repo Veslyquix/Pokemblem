@@ -37,13 +37,27 @@ LocationBasedEvents:
 House(0,ToFuschia, 8,21)
 END_MAIN
 
+
+PoisonEvent:
+PlayerInRange
+SetUnitStatus(0x7fff, BadStatus, 0x51)
+NoFade 
+ENDA 
+
 MiscBasedEvents:
 CauseGameOverIfLordDies
 //AFEV 0 GlobalAfev 0
 DefeatAll(EndingScene) 
-//AFEV flagID eventOffset activationFlag
-//AREA flagID eventOffset [corner1x, corner1y] [corner2x, corner2y]
-//AFEV 0 RefreshIfNotInDanger 0 
+AREA 0 PoisonEvent [13,16][13,16]
+AREA 0 PoisonEvent [3,20][3,20]
+AREA 0 PoisonEvent [4,18][4,18]
+AREA 0 PoisonEvent [2,15][2,15]
+AREA 0 PoisonEvent [6,14][6,14]
+AREA 0 PoisonEvent [10,15][10,15]
+AREA 0 PoisonEvent [13,11][13,11]
+AREA 0 PoisonEvent [10,7][10,7]
+AREA 0 PoisonEvent [4,6][4,6]
+AREA 0 PoisonEvent [3,9][3,9]
 END_MAIN
 #ifdef MultiTileMarker_Installer
 { ; MultiTileEntry(ChapterID) 
@@ -51,14 +65,52 @@ EscapeTileEntry(8,21)
 EscapeTileTerminator ; } 
 #endif 
 
+
+
 ToFuschia:
 ChapterTransition(FuschiaCh, 8, 30)
 
 Traps1:
 GenericCompletion(8,9,KogaSMS, DebugText) // requires flag 6 to be on (defeated all enemies). Displays SMS ID and uses "Talk" option to then display text 
+// GasTrap(0, 0) 
+GasTrap(13, 16) 
+PoisonTrap(13,14,2,1,1)
+
+GasTrap(3, 20) 
+PoisonTrap(3,18,2,1,1)
+
+GasTrap(4, 18) 
+PoisonTrap(4,16,2,1,1)
+
+GasTrap(2, 15) 
+PoisonTrap(2,13,2,1,1)
+
+GasTrap(6, 14) 
+PoisonTrap(6,12,2,1,1)
+
+GasTrap(10, 15) 
+PoisonTrap(10,13,2,1,1)
+
+GasTrap(13, 11) 
+PoisonTrap(13,9,2,1,1)
+
+GasTrap(10, 7) 
+PoisonTrap(10,5,2,1,1)
+
+GasTrap(4, 6) 
+PoisonTrap(4,4,2,1,1)
+
+GasTrap(3, 9) 
+PoisonTrap(3,7,2,1,1)
+// PoisonTrap(XX,YY,direction,startTurn,repeatTimer)
 
 ENDTRAP
 ALIGN 4
+
+PUSH 
+ORG $2e79a 
+SHORT $2601 // make poison gas traps affect 2 squares instead of 3 
+POP 
 
 
 BeginningScene:

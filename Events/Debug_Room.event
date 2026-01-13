@@ -74,6 +74,7 @@ LocationBasedEvents:
 Seize(0, EndingScene, 3,3)
 END_MAIN
 
+
 MiscBasedEvents:
 CauseGameOverIfLordDies
 AFEV 0 TalkEvent 0
@@ -90,6 +91,9 @@ END_MAIN
 
 Tutorial:
 END_MAIN
+
+
+
 
 Units1:
 UNIT Eirika  AerodactylID 0x1 Level(0,Ally,True)   [5,5] 0b 0x0 0x0 0x0 [0,0,0,0] [0x0,0x0,0x0,0x0]
@@ -596,7 +600,7 @@ ENUT CannotEvolveFlag
 //ASMC FillPokedex // 3e2F4 
 //ASMC SeePokedex
 Write_Byte(8, XCoordNewArea)    // Placeholder chapter does not use this 
-Write_Byte(15, YCoordNewArea)  
+Write_Byte(19, YCoordNewArea)  
 
 //Write_Byte(15, XCoordNewArea)    // Placeholder chapter does not use this 
 //Write_Byte(18, YCoordNewArea) 
@@ -604,7 +608,7 @@ Write_Byte(15, YCoordNewArea)
 //MNC2 Route10Ch
 //MNC2 ViridianCh 
 //MNC2 ChampionCh
-MNC2 CinnabarGymCh
+MNC2 FuschiaGymCh 
 //MNC2 CeruleanCaveB3Ch
 //MNC2 SilphCo2FCh 
 //MNC2 Route5Ch

@@ -185,8 +185,15 @@ SelectCharacter(Seth, Amelia, Ross, Colm, Neimi, 3000, 500, 1500, 1000, 0)
 NoFade 
 ENDA 
 
+
+SomeTalkEventHere:
+TutText(DebugText) 
+NoFade 
+ENDA 
+
 MiscBasedEvents:
 CauseGameOverIfLordDies
+AREA 0 SomeTalkEventHere [13,12][19,13] 
 AFEV 0 GlobalAfev 0
 AFEV 0 RefreshStuff 0 
 //AFEV 0 CallTextEv 0 

@@ -1,8 +1,10 @@
 #include "GoldenSunTalkBeeps/Installer.event" 
+#include "PoisonGasTrap/Installer.event" 
 #include "Credits/Installer.event" 
 // #include "GenderedText/Installer.event" // Unused 
 
 #include "../../ASM/ProcMonitor/Installer.event" 
+#include "../../ASM/WalkCalcLoop/Installer.event" 
 #include "DangerBones/Installer.event" 
 #include "PortraitGetter/Installer.event" 
 #include "MirrorMapSprites/Installer.event" 
