@@ -40,6 +40,10 @@ END_MAIN
 
 PoisonEvent:
 PlayerInRange
+STARTFADE 
+FADECOLORS 0x1006 7 135 110 110 // non-sprites? 
+FADECOLORS 0x1006 5 255 255 255 // non-sprites? 
+ENDFADE 
 SetUnitStatus(0x7fff, BadStatus, 0x51)
 NoFade 
 ENDA 
@@ -106,11 +110,6 @@ PoisonTrap(3,7,2,1,1)
 
 ENDTRAP
 ALIGN 4
-
-PUSH 
-ORG $2e79a 
-SHORT $2601 // make poison gas traps affect 2 squares instead of 3 
-POP 
 
 
 BeginningScene:
