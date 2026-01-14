@@ -65,10 +65,13 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
         {
             break;
         }
+        it++;
+        if (gBmMapUnit[iy][ix] != 0 && gBmMapUnit[iy][ix] != gActiveUnitId)
+        {
+            continue;
+        }
         xOut = ix;
         yOut = iy;
-
-        it++;
     }
 
     /*
