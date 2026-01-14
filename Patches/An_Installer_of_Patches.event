@@ -1,4 +1,5 @@
 #include "GoldenSunTalkBeeps/Installer.event" 
+#include "AiTryMoveTowards/Installer.event" 
 #include "PoisonGasTrap/Installer.event" 
 #include "Credits/Installer.event" 
 // #include "GenderedText/Installer.event" // Unused 
