@@ -3,8 +3,6 @@
 extern int prMovGetter(struct Unit * unit);
 void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 unk)
 {
-    s16 ix;
-    s16 iy;
 
     u8 bestRange;
 
@@ -19,20 +17,76 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 unk)
 
     if (unk)
     {
-        GenerateExtendedMovementMapOnRange(x, y, GetUnitMovementCost(gActiveUnit));
+        // GenerateExtendedMovementMapOnRange(x, y, GetUnitMovementCost(gActiveUnit));
+        // GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
+
+        SetWorkingBmMap(gBmMapMovement);
+        GenerateMovementMapOnWorkingMap(
+            gActiveUnit, gActiveUnit->xPos, gActiveUnit->yPos, 0); // to call SetWorkingMoveCosts
+        // SetWorkingMoveCosts(GetUnitMovementCost(gActiveUnit));
+
+        GenerateMovementMap(x, y, MAP_MOVEMENT_EXTENDED, gActiveUnit->index);
     }
     else
     {
         sub_80410C4(x, y, gActiveUnit);
     }
 
-    GenerateUnitMovementMap(gActiveUnit);
+    // GenerateUnitMovementMap(gActiveUnit);
+    int ix = gActiveUnit->xPos;
+    int iy = gActiveUnit->yPos;
 
-    bestRange = gBmMapRange[gActiveUnit->yPos][gActiveUnit->xPos];
     int mov = prMovGetter(gActiveUnit);
     xOut = -1;
-    if (NextRN_N(2)) // half the time we search by x axis first, the other half of the time we search by y axis first
+
+    // I believe GenerateUnitExtendedMovementMap and GenerateExtendedMovementMapOnRange are broken
+    // due to acrobat's taking over of SetWorkingBmMap, so we're using GenerateUnitMovementMapExt
+    // GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
+    GenerateBestMovementScript(x, y, gWorkingMovementScript);
+    u8 * it = gWorkingMovementScript;
+
+    for (;;)
     {
+        // if (mov < gAiState.bestBlueMov && gBmMapOther[iy][ix] != 0)
+        // {
+        // continue;
+        // }
+        // brk;
+        switch (*it)
+        {
+
+            case MOVE_CMD_MOVE_UP: // up
+                iy--;
+                break;
+
+            case MOVE_CMD_MOVE_DOWN: // down
+                iy++;
+                break;
+
+            case MOVE_CMD_MOVE_LEFT: // left
+                ix--;
+                break;
+
+            case MOVE_CMD_MOVE_RIGHT: // right
+                ix++;
+                break;
+
+        } // switch (*it)
+        if (*it == MOVE_CMD_HALT)
+        {
+            break;
+        }
+        if (gBmMapMovement[iy][ix] > mov)
+        {
+            break;
+        }
+        xOut = ix;
+        yOut = iy;
+
+        it++;
+    }
+
+    /*
         for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
         {
             for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
@@ -71,46 +125,7 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 unk)
             }
         }
     }
-    else
-    {
-        for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
-        {
-            for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
-            {
-                if (gBmMapMovement[iy][ix] > MAP_MOVEMENT_MAX)
-                {
-                    continue;
-                }
-
-                if (gBmMapUnit[iy][ix] != 0 && gBmMapUnit[iy][ix] != gActiveUnitId)
-                {
-                    continue;
-                }
-
-                if (maxDanger == 0)
-                {
-                    if (mov < gAiState.bestBlueMov && gBmMapOther[iy][ix] != 0)
-                    {
-                        continue;
-                    }
-                }
-
-                if (!AiCheckDangerAt(ix, iy, maxDanger))
-                {
-                    continue;
-                }
-
-                if (gBmMapRange[iy][ix] > bestRange)
-                {
-                    continue;
-                }
-
-                bestRange = gBmMapRange[iy][ix];
-                xOut = ix;
-                yOut = iy;
-            }
-        }
-    }
+    */
 
     if (xOut >= 0)
     {
@@ -122,6 +137,7 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 unk)
 
 extern int ProtagID_Link;
 //! FE8U = 0x0803A924
+
 /*
 s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
 {
@@ -137,14 +153,10 @@ s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
 
     xOut = -1;
 
-    for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
+    for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
     {
-        for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
+        for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
         {
-            // for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
-            // {
-            // for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
-            // {
             if (gBmMapRange[iy][ix] > MAP_MOVEMENT_MAX)
             {
                 continue;
@@ -162,7 +174,6 @@ s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
 
             if (GetUnit(gBmMapUnit[iy][ix])->pCharacterData->number == ProtagID_Link)
             {
-                // brk;
                 continue;
             }
 
@@ -187,165 +198,6 @@ s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
         out->x = xOut;
         out->y = yOut;
 
-        return 1;
-    }
-
-    return 0;
-}
-*/
-
-s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
-{
-    s16 ix;
-    s16 iy;
-
-    u8 bestDistance = 0xff;
-
-    s16 xOut = 0;
-    s16 yOut = 0;
-
-    GenerateExtendedMovementMapOnRange(gActiveUnit->xPos, gActiveUnit->yPos, GetUnitMovementCost(gActiveUnit));
-
-    xOut = -1;
-    int unitID;
-    struct Unit * target;
-    int range;
-
-    for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
-    {
-        for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
-        {
-            unitID = gBmMapUnit[iy][ix];
-            if (!unitID)
-            {
-                continue;
-            }
-
-            if (unitID == gActiveUnitId)
-            {
-                continue;
-            }
-            target = GetUnit(unitID);
-
-            if (target->pCharacterData->number == ProtagID_Link)
-            {
-                continue;
-            }
-            if (!func(target))
-            {
-                continue;
-            }
-
-            for (s16 ty = 0; ty < gBmMapSize.y; ty++)
-            {
-                for (s16 tx = 0; tx < gBmMapSize.x; tx++)
-                {
-                    range = gBmMapRange[ty][tx];
-
-                    if (range > MAP_MOVEMENT_MAX)
-                    {
-                        continue;
-                    }
-
-                    if (range > bestDistance)
-                    {
-                        continue;
-                    }
-
-                    bestDistance = range;
-                    xOut = ix;
-                    yOut = iy;
-                }
-            }
-        }
-    }
-
-    if (xOut >= 0)
-    {
-        out->x = xOut;
-        out->y = yOut;
-
-        return 1;
-    }
-
-    return 0;
-}
-
-/*
-// s8 AiFindTargetInReachByFunc_PathAware(s8 (*func)(struct Unit * unit), struct Vec2 * out)
-s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
-{
-    s16 ix;
-    s16 iy;
-
-    u8 bestDistance = 0xFF;
-    s16 xOut = 0;
-    s16 yOut = 0;
-
-    struct Unit * target;
-
-    // 1. Generate movement map from active unit (where we can go this turn)
-    const s8 * mct = GetUnitMovementCost(gActiveUnit);
-    GenerateExtendedMovementMapOnRange(gActiveUnit->xPos, gActiveUnit->yPos, mct);
-
-    xOut = -1;
-
-    // Copy movement map
-    // for (iy = 0; iy < gBmMapSize.y; iy++)
-    // for (ix = 0; ix < gBmMapSize.x; ix++)
-    // gBmMapOther[iy][ix] = gBmMapRange[iy][ix];
-
-    // 2. Loop over all possible targets
-    for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
-    {
-        for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
-        {
-            u8 unitId = gBmMapUnit[iy][ix];
-
-            if (unitId == 0)
-                continue;
-
-            // if (unitId == gActiveUnitId)
-            // continue;
-
-            target = GetUnit(unitId);
-
-            if (target->pCharacterData->number == ProtagID_Link)
-                continue;
-
-            if (!func(target))
-                continue;
-
-            // 3. Generate distance map from this target
-            // GenerateExtendedMovementMapOnRange(target->xPos, target->yPos, mct);
-
-            // 4. Evaluate reachable tiles
-            for (s16 ty = 0; ty < gBmMapSize.y; ty++)
-            {
-                for (s16 tx = 0; tx < gBmMapSize.x; tx++)
-                {
-                    // if (gBmMapOther[ty][tx] > MAP_MOVEMENT_MAX)
-                    // continue; // can't reach this turn
-
-                    if (gBmMapRange[ty][tx] > MAP_MOVEMENT_MAX)
-                        continue; // no path to target
-
-                    if (gBmMapRange[ty][tx] > bestDistance)
-                        continue;
-
-                    bestDistance = gBmMapRange[ty][tx];
-
-                    xOut = tx;
-                    yOut = ty;
-                }
-            }
-        }
-    }
-
-    if (xOut >= 0)
-    {
-        out->x = xOut;
-        out->y = yOut;
         return 1;
     }
 
