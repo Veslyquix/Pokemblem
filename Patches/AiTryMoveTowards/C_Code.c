@@ -1,7 +1,7 @@
 #include "C_Code.h"
 //! FE8U = 0x0803BA08
 extern int prMovGetter(struct Unit * unit);
-void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 unk)
+void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap)
 {
 
     u8 bestRange;
@@ -15,24 +15,8 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 unk)
         return;
     }
 
-    if (unk)
-    {
-        // GenerateExtendedMovementMapOnRange(x, y, GetUnitMovementCost(gActiveUnit));
-        // GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
+    GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
 
-        SetWorkingBmMap(gBmMapMovement);
-        GenerateMovementMapOnWorkingMap(
-            gActiveUnit, gActiveUnit->xPos, gActiveUnit->yPos, 0); // to call SetWorkingMoveCosts
-        // SetWorkingMoveCosts(GetUnitMovementCost(gActiveUnit));
-
-        GenerateMovementMap(x, y, MAP_MOVEMENT_EXTENDED, gActiveUnit->index);
-    }
-    else
-    {
-        sub_80410C4(x, y, gActiveUnit);
-    }
-
-    // GenerateUnitMovementMap(gActiveUnit);
     int ix = gActiveUnit->xPos;
     int iy = gActiveUnit->yPos;
 
@@ -42,6 +26,7 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 unk)
     // I believe GenerateUnitExtendedMovementMap and GenerateExtendedMovementMapOnRange are broken
     // due to acrobat's taking over of SetWorkingBmMap, so we're using GenerateUnitMovementMapExt
     // GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
+    // it could also be because some of them put 0 as the unit for GenerateMovementMap
     GenerateBestMovementScript(x, y, gWorkingMovementScript);
     u8 * it = gWorkingMovementScript;
 
