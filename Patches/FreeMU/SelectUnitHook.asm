@@ -176,7 +176,7 @@ ldr r1, [r0]
 cmp r1, #0 
 beq NoProtag 
 ldr r1, [r0, #0x0C] 
-ldr r2, =0x1000D 
+ldr r2, =0x1004F 
 tst r1, r2 
 bne NoProtag 
 sub r5, #1 
