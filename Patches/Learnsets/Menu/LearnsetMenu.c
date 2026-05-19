@@ -84,7 +84,7 @@ struct ViewLearnsetProc
     /* 00 */ PROC_HEADER; // this ends at +29
     /* 2C */ struct Unit * unit;
     /* 30 */ u8 movesUpdated;
-    u8 ListSize;
+    s8 ListSize;
     u8 hover_move_Updated;
     s8 move_hovering; //
     s8 offset;        // 0x34
@@ -414,11 +414,18 @@ void UpdateItemInfo_Learnset(struct MenuProc * menu, struct MenuCommandProc * co
     // update tileNext to be whatever we offset it to
     // in this case it's 0, but it would be important if it wasn't
     // menu starts at tileNext as 0 (and draws spaces as needed)
-    for (u8 c = 0; c < menu->commandCount; c++)
+    for (u8 c = 1; c <= menu->commandCount; c++) // unsure if this change was helpful
     {
-        gpCurrentFont->tileNext = menu->pCommandProc[c]->text.tileIndexOffset + menu->pCommandProc[c]->text.tileWidth;
-        menu->pCommandProc[c]->text.tileIndexOffset = gpCurrentFont->tileNext;
+        gpCurrentFont->tileNext =
+            menu->pCommandProc[c - 1]->text.tileIndexOffset + menu->pCommandProc[c - 1]->text.tileWidth;
+        if (c < menu->commandCount)
+        {
+            menu->pCommandProc[c]->text.tileIndexOffset = gpCurrentFont->tileNext;
+        }
     }
+
+    // here
+
     // menu->pCommandProc[1]->text.currentBufferId = 0; //handles[i].currentBufferId;
 
     // proc->tileNext = gpCurrentFont->tileNext;
@@ -491,57 +498,60 @@ void UpdateItemInfo_Learnset(struct MenuProc * menu, struct MenuCommandProc * co
     Text_Display(&handles[i], &gBG0MapBuffer[17][14 + x]);
     i++;
 
-    char * string = GetStringFromIndex(GetItemDescId(item));
-    int lines = GetNumLines(string);
-    DrawMultiline(&handles[i], string, lines);
-
-    /*
-            PrepareText(&handles[i], );
-            Text_Display(&handles[i], &gBG0MapBuffer[2][12]); i++;
-            char* strcpy(char* dest, const char* src);
-            unsigned strlen(const char* cstr);
-            PrepareText(&handles[i], Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item))));
-            Text_Display(&handles[i], &gBG0MapBuffer[4][12]); i++;
-            PrepareText(&handles[i],
-       Text_GetStringNextLine(Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item)))));
-            Text_Display(&handles[i], &gBG0MapBuffer[6][12]); i++;
-    */
-
-    for (int c = 0; c < lines; c++)
+    if (item)
     {
-        Text_Display(&handles[c + i], &gBG0MapBuffer[2 + c * 2][11]);
+        char * string = GetStringFromIndex(GetItemDescId(item));
+        int lines = GetNumLines(string);
+        DrawMultiline(&handles[i], string, lines);
+
+        /*
+                PrepareText(&handles[i], );
+                Text_Display(&handles[i], &gBG0MapBuffer[2][12]); i++;
+                char* strcpy(char* dest, const char* src);
+                unsigned strlen(const char* cstr);
+                PrepareText(&handles[i], Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item))));
+                Text_Display(&handles[i], &gBG0MapBuffer[4][12]); i++;
+                PrepareText(&handles[i],
+           Text_GetStringNextLine(Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item)))));
+                Text_Display(&handles[i], &gBG0MapBuffer[6][12]); i++;
+        */
+
+        for (int c = 0; c < lines; c++)
+        {
+            Text_Display(&handles[c + i], &gBG0MapBuffer[2 + c * 2][11]);
+        }
+        i++;
+        i++;
+        i++;
+
+        PrepareText(&proc->handle[0], GetItemDisplayRankString(item));
+        Text_Display(&proc->handle[0], &gBG0MapBuffer[15][5 + x]);
+        i++;
+        // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
+        //  0x8004AE8 = POIN gSpecialUiCharAllocationTable
+        gStatScreen.unit = proc->unit;
+        PrepareText(&proc->handle[1], GetItemDisplayRangeString(item));
+        Text_Display(&proc->handle[1], &gBG0MapBuffer[15][10 + x]);
+        i++;
+        // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
+
+        PrepareText(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
+        Text_Display(&proc->handle[2], &gBG0MapBuffer[15][0 + x]);
+        i++;
+
+        gSpecialUiCharAllocationTable[0] = 0xFF; // no clue but it made DrawUiNumber work properly
+
+        DrawUiNumber(&gBG0MapBuffer[15][18 + x], TEXT_COLOR_GOLD, GetItemWeight(item));
+        DrawUiNumber(&gBG0MapBuffer[17][5 + x], TEXT_COLOR_GOLD, GetItemMight(item));
+        DrawUiNumber(&gBG0MapBuffer[17][12 + x], TEXT_COLOR_GOLD, GetItemHit(item));
+        DrawUiNumberOrDoubleDashes(&gBG0MapBuffer[17][18 + x], TEXT_COLOR_GOLD, GetItemCrit(item));
+
+        DrawUiNumber(&gBG0MapBuffer[11][15], TEXT_COLOR_GOLD, (proc->unit->pow));
+        DrawUiNumber(&gBG0MapBuffer[11][22], TEXT_COLOR_GOLD, (proc->unit->unk3A)); // Magic.
+        DrawUiNumber(
+            &gBG0MapBuffer[9][22], TEXT_COLOR_GOLD,
+            (UnitGetMoveList(proc->unit, proc->offset)[(hover * 2)])); // level it's learned at
     }
-    i++;
-    i++;
-    i++;
-
-    PrepareText(&proc->handle[0], GetItemDisplayRankString(item));
-    Text_Display(&proc->handle[0], &gBG0MapBuffer[15][5 + x]);
-    i++;
-    // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
-    //  0x8004AE8 = POIN gSpecialUiCharAllocationTable
-    gStatScreen.unit = proc->unit;
-    PrepareText(&proc->handle[1], GetItemDisplayRangeString(item));
-    Text_Display(&proc->handle[1], &gBG0MapBuffer[15][10 + x]);
-    i++;
-    // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
-
-    PrepareText(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
-    Text_Display(&proc->handle[2], &gBG0MapBuffer[15][0 + x]);
-    i++;
-
-    gSpecialUiCharAllocationTable[0] = 0xFF; // no clue but it made DrawUiNumber work properly
-
-    DrawUiNumber(&gBG0MapBuffer[15][18 + x], TEXT_COLOR_GOLD, GetItemWeight(item));
-    DrawUiNumber(&gBG0MapBuffer[17][5 + x], TEXT_COLOR_GOLD, GetItemMight(item));
-    DrawUiNumber(&gBG0MapBuffer[17][12 + x], TEXT_COLOR_GOLD, GetItemHit(item));
-    DrawUiNumberOrDoubleDashes(&gBG0MapBuffer[17][18 + x], TEXT_COLOR_GOLD, GetItemCrit(item));
-
-    DrawUiNumber(&gBG0MapBuffer[11][15], TEXT_COLOR_GOLD, (proc->unit->pow));
-    DrawUiNumber(&gBG0MapBuffer[11][22], TEXT_COLOR_GOLD, (proc->unit->unk3A)); // Magic.
-    DrawUiNumber(
-        &gBG0MapBuffer[9][22], TEXT_COLOR_GOLD,
-        (UnitGetMoveList(proc->unit, proc->offset)[(hover * 2)])); // level it's learned at
 
     EnableBgSyncByMask(BG0_SYNC_BIT);
 }
