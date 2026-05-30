@@ -816,7 +816,7 @@ SetSMS(MegaBlastoiseSMS , 2 ,    MegaBlastoiseStanding)
 SetSMS(MegaCharizardXSMS , 2 ,    MegaCharizardXStanding)
 SetSMS(HealingTileSMS , 0 ,    HealingTileStanding)
 SetSMS(MissingnoSMS , 2 ,    MissingnoStanding)
-SetSMS(Unused73SMS , 0 ,    m1Standing)
+SetSMS(PoisonGasSMS , 2 ,    PoisonGasStanding)
 SetSMS(Unused74SMS , 0 ,    m1Standing)
 SetSMS(Unused75SMS , 0 ,    m1Standing)
 SetSMS(Unused76SMS , 0 ,    m1Standing)
@@ -5368,6 +5368,11 @@ AerodactylSkeletonStanding:
 ALIGN 4 
 KabutopsSkeletonStanding:
 #incbin "More SMS/KabutopsSkeleton.dmp" 
+ALIGN 4 
+PoisonGasStanding:
+#incbin "More SMS/PoisonGas.dmp" 
+
+
 
 //SYSTEM PALETTES 
 

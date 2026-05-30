@@ -48,7 +48,7 @@ callHack_r0(ParagonMisc)
 
 //Synchronize
 ORG $2C214
-jumpToHack(Synchronize)
+// jumpToHack(Synchronize)
 
 ORG $2F840 
 jumpToHack(ShrewdPotential) 

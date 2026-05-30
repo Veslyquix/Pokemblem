@@ -9,6 +9,43 @@ extern int FlankRequiresSkill_Link;
 extern int MultiscaleID_Link;
 extern int AreWeOutdoors();
 
+void ComputeBattleUnitHitRate(struct BattleUnit * bu)
+{
+    int itemHit = GetItemHit(bu->weapon);
+    int skl = bu->unit.skl;
+    int hit = (skl * 1) + itemHit + bu->wTriangleHitBonus;
+    hit += (itemHit * (skl / 2)) / 100;
+    // if (UNIT_FACTION(&bu->unit) == FACTION_BLUE)
+    // {
+    // hit += bu->unit.skl / 4;
+    // }
+    bu->battleHitRate = hit;
+}
+
+void ComputeBattleUnitAvoidRate(struct BattleUnit * bu)
+{
+    bu->battleAvoidRate = (bu->battleSpeed) + bu->terrainAvoid + (bu->battleSpeed / 4);
+    if (UNIT_FACTION(&bu->unit) == FACTION_BLUE)
+    {
+        bu->battleAvoidRate += (bu->unit.lck / 2);
+    }
+    if (bu->battleAvoidRate < 0)
+        bu->battleAvoidRate = 0;
+}
+
+void ComputeBattleUnitCritRate(struct BattleUnit * bu)
+{
+    bu->battleCritRate = GetItemCrit(bu->weapon) + (bu->unit.skl / 2);
+    if (UNIT_FACTION(&bu->unit) == FACTION_BLUE)
+    {
+        bu->battleCritRate += (bu->unit.skl / 2);
+        bu->battleCritRate += (bu->unit.lck / 4);
+    }
+
+    if (UNIT_CATTRIBUTES(&bu->unit) & CA_CRITBONUS)
+        bu->battleCritRate += 15;
+}
+
 int AreWeOutdoorsOrFieryAura(struct Unit * unit);
 int AreWeOutdoorsOrDampAura(struct Unit * unit);
 
@@ -312,16 +349,20 @@ struct ItemDataSS
 
 void Proc_DebuffWeapons(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
-    int wepID = bunitA->weaponBefore & 0xFF;
-    if (DebuffEffectTable[wepID].percent > NextRN_100())
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL))
     {
-        if (DoesUnitHaveSheerForce(&bunitA->unit))
+        int wepID = bunitA->weaponBefore & 0xFF;
+        if (DebuffEffectTable[wepID].percent > NextRN_100())
         {
-            return;
-        }
+            if (DoesUnitHaveSheerForce(&bunitA->unit))
+            {
+                return;
+            }
 
-        ApplyDebuffUnit(
-            DebuffEffectTable[wepID].debuffID, GetUnitDebuffEntry(&bunitA->unit), GetUnitDebuffEntry(&bunitB->unit));
+            ApplyDebuffUnit(
+                DebuffEffectTable[wepID].debuffID, GetUnitDebuffEntry(&bunitA->unit),
+                GetUnitDebuffEntry(&bunitB->unit));
+        }
     }
 }
 
@@ -379,6 +420,18 @@ void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
             }
         }
     }
+}
+
+int DoesUnitHaveHustle(struct BattleUnit * bunit)
+{
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        if (SkillTester(&bunit->unit, HustleID_Link))
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 // Onix, Lickitung, Staryu, Oddish, Abra, Psyduck
@@ -711,11 +764,16 @@ int DoesUnitHaveStormyAura(struct Unit * unit, struct Unit * unitException)
 }
 
 extern int LightningrodBuffID_Link;
+
+// bunitA has lightning wep
+// now check around bunitB for lightningrod pkmn within 2 tiles
+// if bunitA is the lightning move pkmn, don't apply the boost, as it should only trigger
+// lightningrod from enemies / other battles
+
 int DoesUnitHaveLightningRod(struct Unit * unit, struct Unit * unitException)
 {
     int classID = unit->pClassData->number;
     const int * const * data = LightningRodPkmn;
-
     while (*data != NULL)
     {
         if (**data == classID)
@@ -734,10 +792,27 @@ int DoesUnitHaveLightningRod(struct Unit * unit, struct Unit * unitException)
     return false;
 }
 
-int IsEffectivenessAuraNearby(struct Unit * unitException, struct Unit * unit, AuraPredicate predicate)
+int DoesUnitNotHaveLightningRod(struct Unit * unit)
 {
+    int classID = unit->pClassData->number;
+    const int * const * data = LightningRodPkmn;
+    while (*data != NULL)
+    {
+        if (**data == classID)
+        {
+            return false;
+        }
+        data++;
+    }
+    return true;
+}
+
+int IsEffectivenessAuraNearby(struct Unit * unit, int unitExceptionDeployId, AuraPredicate predicate)
+{
+    int result = false;
     int x = unit->xPos;
     int y = unit->yPos;
+    struct Unit * unitException = GetUnit(unitExceptionDeployId);
     int sizeX = gBmMapSize.x;
     int sizeY = gBmMapSize.y;
 
@@ -760,11 +835,13 @@ int IsEffectivenessAuraNearby(struct Unit * unitException, struct Unit * unit, A
 
             struct Unit * unit2 = GetUnit(id);
             if (predicate(unit2, unitException))
-                return true;
+                result = true;
         }
     }
+    if (predicate(GetUnit(unit->index), unitException))
+        result = true;
 
-    return false;
+    return result;
 }
 
 extern int TintedLensID_Link;
@@ -789,69 +866,6 @@ struct EffectivenessExceptions
     u32 stormyAura : 1;
     u32 levitate : 1;
 };
-struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
-{
-    struct EffectivenessExceptions result = { 0 };
-    if (!(gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE)))
-    {
-        return result;
-    }
-
-    if (SkillTester(&bunitA->unit, TintedLensID_Link))
-    {
-        result.tintedLens = true;
-    }
-    if (SkillTester(&bunitB->unit, FilterID_Link))
-    {
-        result.filter = true;
-    }
-    if (SkillTester(&bunitA->unit, ScrappyID_Link))
-    {
-        result.scrappy = true;
-    }
-    if (SkillTester(&bunitB->unit, DrySkinID_Link))
-    {
-        result.drySkin = true;
-    }
-    if (SkillTester(&bunitB->unit, FlashFireID_Link))
-    {
-        result.flashFire = true;
-    }
-    if (SkillTester(&bunitB->unit, MotorDriveID_Link))
-    {
-        result.motorDrive = true;
-    }
-    if (SkillTester(&bunitB->unit, LevitateID_Link))
-    {
-        result.levitate = true;
-    }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveLightningRod))
-    {
-        result.lightningRod = true;
-    }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveDampAura))
-    {
-        result.dampAura = true;
-    }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveFieryAura))
-    {
-        result.fieryAura = true;
-    }
-    if (IsEffectivenessAuraNearby(&bunitB->unit, &bunitA->unit, DoesUnitHaveStormyAura))
-    {
-        result.stormyAura = true;
-    }
-
-    return result;
-}
-
-#define Immune 1
-#define TintedLensCase 3
-#define SuperEffective 4
-#define DoubleEffective 5 // Dry skin only currently
-#define Absorbtion 6
-#define Ineffective 7
-
 extern int NormalTypeWep_Link;
 extern int ElectricTypeWep_Link;
 extern int WaterTypeWep_Link;
@@ -868,6 +882,71 @@ extern int GhostTypeWep_Link;
 extern int DragonTypeWep_Link;
 extern int BugTypeWep_Link;
 extern int SteelTypeWep_Link;
+struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    struct EffectivenessExceptions result = { 0 };
+    if (!(gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE)))
+    {
+        return result;
+    }
+    int wepType = bunitA->weaponType;
+
+    if (SkillTester(&bunitA->unit, TintedLensID_Link))
+    {
+        result.tintedLens = true;
+    }
+    if (SkillTester(&bunitB->unit, FilterID_Link))
+    {
+        result.filter = true;
+    }
+    if (SkillTester(&bunitA->unit, ScrappyID_Link))
+    {
+        result.scrappy = true;
+    }
+    if ((wepType == FireTypeWep_Link || wepType == WaterTypeWep_Link) && SkillTester(&bunitB->unit, DrySkinID_Link))
+    {
+        result.drySkin = true;
+    }
+    if (wepType == FireTypeWep_Link && SkillTester(&bunitB->unit, FlashFireID_Link))
+    {
+        result.flashFire = true;
+    }
+    if (wepType == ElectricTypeWep_Link && SkillTester(&bunitB->unit, MotorDriveID_Link))
+    {
+        result.motorDrive = true;
+    }
+    if (SkillTester(&bunitB->unit, LevitateID_Link))
+    {
+        result.levitate = true;
+    }
+    if (wepType == ElectricTypeWep_Link &&
+        IsEffectivenessAuraNearby(&bunitB->unit, bunitA->unit.index, DoesUnitHaveLightningRod))
+    {
+        result.lightningRod = true;
+    }
+    if (IsEffectivenessAuraNearby(&bunitB->unit, bunitA->unit.index, DoesUnitHaveDampAura))
+    {
+        result.dampAura = true;
+    }
+    if (IsEffectivenessAuraNearby(&bunitB->unit, bunitA->unit.index, DoesUnitHaveFieryAura))
+    {
+        result.fieryAura = true;
+    }
+    if (IsEffectivenessAuraNearby(&bunitB->unit, bunitA->unit.index, DoesUnitHaveStormyAura))
+    {
+        result.stormyAura = true;
+    }
+
+    return result;
+}
+
+#define Immune 1
+#define TintedLensCase 3
+#define SuperEffective 4
+#define DoubleEffective 5 // Dry skin only currently
+#define Absorbtion 6
+#define Ineffective 7
+
 // Dry Skin: Absorb water moves, but fire moves deal 2x damage.
 // Jynx
 
@@ -944,8 +1023,8 @@ void AdjustHitrateForEffectiveness(struct BattleUnit * bunitA, struct BattleUnit
         {
             if (canCounter)
             {
-                bunitA->wTriangleHitBonus = 40;
-                bunitA->battleAvoidRate += 40;
+                bunitA->wTriangleHitBonus = 30;
+                bunitA->battleAvoidRate += 30;
                 if (UNIT_FACTION(&bunitA->unit) == FACTION_BLUE)
                 {
                     bunitA->battleCritRate += 10 + (bunitA->unit.skl >> 1);
@@ -960,7 +1039,7 @@ void AdjustHitrateForEffectiveness(struct BattleUnit * bunitA, struct BattleUnit
             {
                 return;
             }
-            bunitA->wTriangleHitBonus = (-40);
+            bunitA->wTriangleHitBonus = (-30);
             break;
         }
 
@@ -974,8 +1053,8 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     {
         return;
     }
-    int canCounter = bunitB->canCounter;
-    if ((bunitB->unit.index & 0x80) == 0)
+    int canCounter = bunitA->canCounter;
+    if ((bunitA->unit.index & 0x80) == 0)
     {
         canCounter = true; // players always get bonus def from using super effective moves
     }
@@ -1037,8 +1116,8 @@ void TypeEffectiveness(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     if (wepType == ElectricTypeWep_Link && exceptions.lightningRod)
     {
         // if the target has lightning rod or the actor does not have lightning rod, then the target is immune
-        if (DoesUnitHaveLightningRod(&bunitB->unit, &bunitA->unit) ||
-            !DoesUnitHaveLightningRod(&bunitA->unit, &bunitB->unit))
+        if (DoesUnitHaveLightningRod(GetUnit(bunitB->unit.index), GetUnit(bunitA->unit.index)) ||
+            DoesUnitNotHaveLightningRod(GetUnit(bunitA->unit.index)))
         {
             effectiveness = Immune;
         }
@@ -1269,7 +1348,7 @@ int SwiftSwimEffect(int stat, struct Unit * unit)
 {
     if (SkillTester(unit, SwiftSwimID_Link))
     {
-        if (IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, unit, DoesUnitHaveDampAura))
+        if (IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, unit->index, DoesUnitHaveDampAura))
         {
             stat += stat;
         }
@@ -1281,7 +1360,7 @@ int SwiftSwimEffect(int stat, struct Unit * unit)
 
 int HydrationUsability(struct Unit * unit)
 {
-    return IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, unit, DoesUnitHaveDampAura);
+    return IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, unit->index, DoesUnitHaveDampAura);
 }
 
 int HydrationEffect(struct Unit * unit)
@@ -1293,6 +1372,52 @@ int HydrationEffect(struct Unit * unit)
     }
     return unit->maxHP - unit->curHP;
 }
+extern int SynchronizeID_Link;
+void SynchronizeEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (SkillTester(&bunitB->unit, SynchronizeID_Link))
+    {
+        if (bunitB->unit.statusDuration)
+        {
+            bunitA->unit.statusDuration = bunitB->unit.statusDuration;
+            bunitA->unit.statusIndex = bunitB->unit.statusIndex;
+            struct Unit * unit = GetUnit(bunitA->unit.index);
+            unit->statusDuration = bunitB->unit.statusDuration;
+            unit->statusIndex = bunitB->unit.statusIndex;
+        }
+    }
+}
+extern u8 DebuffStatNumberOfBits_Link;
+extern u32 * GetUnitDebuffEntry(struct Unit *);
+extern int DebuffStatBitOffset_Str;
+extern int DebuffStatBitOffset_Mag;
+extern int DebuffStatBitOffset_Def;
+extern int DebuffStatBitOffset_Res;
+extern int DebuffStatBitOffset_Spd;
+extern int UnpackData_Signed(u32 * debuffEntryRam, u8 bitOffset, u8 bitCount);
+void CritsIgnoreDebuffsEffect(
+    struct BattleUnit * bunitA, struct BattleUnit * bunitB, struct BattleHit * bhit, struct BattleStats * bstats)
+{
+
+    if (bhit->attributes & BATTLE_HIT_ATTR_CRIT)
+    {
+        void * debuffRam = GetUnitDebuffEntry(&bunitA->unit);
+        int reducedStat = 0;
+        if (!(bunitA->weaponAttributes & IA_MAGIC))
+        { // melee
+            reducedStat = UnpackData_Signed(debuffRam, DebuffStatBitOffset_Str, DebuffStatNumberOfBits_Link);
+        }
+        else
+        { // magic
+            reducedStat = UnpackData_Signed(debuffRam, DebuffStatBitOffset_Mag, DebuffStatNumberOfBits_Link);
+        }
+        if (reducedStat >= 0)
+        {
+            return;
+        }
+        bstats->damage += abs(reducedStat);
+    }
+}
 
 int AreWeOutdoorsOrFieryAura(struct Unit * unit)
 {
@@ -1300,7 +1425,7 @@ int AreWeOutdoorsOrFieryAura(struct Unit * unit)
     {
         return true;
     }
-    if (IsEffectivenessAuraNearby(unit, unit, DoesUnitHaveFieryAura))
+    if (IsEffectivenessAuraNearby(unit, unit->index, DoesUnitHaveFieryAura))
     {
         return true;
     }
@@ -1313,7 +1438,7 @@ int AreWeOutdoorsOrDampAura(struct Unit * unit)
     {
         return true;
     }
-    if (IsEffectivenessAuraNearby(unit, unit, DoesUnitHaveDampAura))
+    if (IsEffectivenessAuraNearby(unit, unit->index, DoesUnitHaveDampAura))
     {
         return true;
     }

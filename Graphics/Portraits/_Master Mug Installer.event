@@ -11,7 +11,8 @@ FILL(0x1C*0x100) 0
 // custom defs 
 // #undef PortraitTable 
 // #define PortraitTable NewPortraitTable 
-#define setMugEntryExtend(mugEntry, mugLocation, mouthX, mouthY, eyeX, eyeY, extend1X, extend1Y, extend2X, extend2Y)"PUSH; ORG NewPortraitTable+mugEntry*0x1C; POIN mugLocation; POIN mugLocation+0x1624; POIN mugLocation+0x1604; POIN mugLocation+0x1004; BYTE extend1X extend1Y extend2X extend2Y; BYTE mouthX mouthY eyeX eyeY; BYTE 1 0 1 0; POP"
+#define setMugEntryExtend(mugEntry, mugLocation, mouthX, mouthY, eyeX, eyeY, extend1X, extend1Y, extend2X, extend2Y)"PUSH; ORG NewPortraitTable+(mugEntry*0x1C); POIN mugLocation; POIN mugLocation+0x1624; POIN mugLocation+0x1604; POIN mugLocation+0x1004; BYTE extend1X extend1Y extend2X extend2Y; BYTE mouthX mouthY eyeX eyeY; BYTE 1 0 1 0; POP"
+#define setMugEntry(mugEntry, mugLocation, mouthX, mouthY, eyeX, eyeY, voice)"PUSH; ORG NewPortraitTable+(mugEntry*0x1C); POIN mugLocation; POIN mugLocation+0x1624; POIN mugLocation+0x1604; POIN mugLocation+0x1004; BYTE 0 0 0 0; BYTE mouthX mouthY eyeX eyeY; BYTE 1 voice 1 0; POP"
 
 // ALIGN 16 %[name|stripspecial]%Data: // %[national_dex|zeropad]%#incbin "Dmp/%[national_dex]%_mug.dmp" #incbin "Dmp/%[national_dex]%_frames.dmp" #incbin "Dmp/%[national_dex]%_palette.dmp" #incbin "Dmp/%[national_dex]%_minimug.dmp" setMugEntry(%[national_dex]%, %[name|stripspecial]%Data, 9, 9, 9, 9)
 // https://www.dragonflycave.com/resources/pokemon-list-generator?format=ALIGN+16+%3Cbr%3E%25%5Bname%7Cstripspecial%5D%25Data%3A+%2F%2F+%25%5Bnational_dex%7Czeropad%5D%25%3Cbr%3E%23incbin+%22Dmp%2F%25%5Bnational_dex%5D%25_mug.dmp%22+%3Cbr%3E%23incbin+%22Dmp%2F%25%5Bnational_dex%5D%25_frames.dmp%22+%3Cbr%3E%23incbin+%22Dmp%2F%25%5Bnational_dex%5D%25_palette.dmp%22+%3Cbr%3E%23incbin+%22Dmp%2F%25%5Bnational_dex%5D%25_minimug.dmp%22+%3Cbr%3EsetMugEntry%28%23%25%5Bnational_dex%5D%25%2C+%25%5Bname%7Cstripspecial%5D%25Data%2C+9%2C+9%2C+9%2C+9%29%3Cbr%3E&linebreaks=1&gens=1&order=national
@@ -28,7 +29,8 @@ OakData: // 001
 #incbin "Dmp/Oak_Eden_frames.dmp" 
 #incbin "Dmp/Oak_Eden_palette.dmp" 
 #incbin "Dmp/Oak_Eden_minimug.dmp" 
-setMugEntry(153, OakData, 3, 6, 3, 4)
+// setMugEntry(153, OakData, 3, 6, 3, 4)
+setMugEntry(153, OakData, 3, 6, 3, 4, 7)
 
 ALIGN 16 
 GaryPointData: // 001
@@ -37,7 +39,8 @@ GaryPointData: // 001
 GaryPointData_Pal:
 #incbin "Dmp/Blue_Eden_palette.dmp" 
 #incbin "Dmp/Blue_Eden_minimug.dmp" 
-setMugEntry(154, GaryPointData, 3, 5, 3, 3)
+// setMugEntry(154, GaryPointData, 3, 5, 3, 3)
+setMugEntry(154, GaryPointData, 3, 5, 3, 3, 5)
 
 ALIGN 16 
 GaryShrugData: // 001
@@ -45,7 +48,8 @@ GaryShrugData: // 001
 #incbin "Dmp/Blue_Eden_EyesClosed_frames.dmp" 
 #incbin "Dmp/Blue_Eden_EyesClosed_palette.dmp" 
 #incbin "Dmp/Blue_Eden_EyesClosed_minimug.dmp" 
-setMugEntry(155, GaryShrugData, 3, 5, 3, 3)
+// setMugEntry(155, GaryShrugData, 3, 5, 3, 3)
+setMugEntry(155, GaryShrugData, 3, 5, 3, 3, 6)
 
 
 ALIGN 16 
@@ -54,7 +58,8 @@ GaryBattleData: // 001
 #incbin "Dmp/Blue_Eden_Stare_frames.dmp" 
 #incbin "Dmp/Blue_Eden_Stare_palette.dmp" 
 #incbin "Dmp/Blue_Eden_Stare_minimug.dmp" 
-setMugEntry(156, GaryBattleData, 3, 5, 3, 3)
+// setMugEntry(156, GaryBattleData, 3, 5, 3, 3)
+setMugEntry(156, GaryBattleData, 3, 5, 3, 3, 7)
 
 
 ALIGN 16 
@@ -72,7 +77,7 @@ BrockData: // 001
 #incbin "Dmp/Brock_Eden_frames.dmp" 
 #incbin "Dmp/Brock_Eden_palette.dmp" 
 #incbin "Dmp/Brock_Eden_minimug.dmp" 
-setMugEntry(158, BrockData, 3, 6, 3, 4)
+setMugEntry(158, BrockData, 3, 6, 3, 4, 8)
 
 
 ALIGN 16 
@@ -89,7 +94,7 @@ LtSurgeData:
 #incbin "Dmp/Surge_Eden_frames.dmp" 
 #incbin "Dmp/Surge_Eden_palette.dmp" 
 #incbin "Dmp/Surge_Eden_minimug.dmp" 
-setMugEntry(165, LtSurgeData, 2, 5, 2, 3)
+setMugEntry(165, LtSurgeData, 2, 5, 2, 3, 6)
 
 ALIGN 16 
 KogaData: 
@@ -97,7 +102,7 @@ KogaData:
 #incbin "Dmp/Koga_Eden_frames.dmp" 
 #incbin "Dmp/Koga_Eden_palette.dmp" 
 #incbin "Dmp/Koga_Eden_minimug.dmp" 
-setMugEntry(166, KogaData, 2, 5, 2, 3)
+setMugEntry(166, KogaData, 2, 5, 2, 3, 6)
 
 ALIGN 16 
 ErikaData: 
@@ -105,7 +110,7 @@ ErikaData:
 #incbin "Dmp/Erika_Eden_frames.dmp" 
 #incbin "Dmp/Erika_Eden_palette.dmp" 
 #incbin "Dmp/Erika_Eden_minimug.dmp" 
-setMugEntry(167, ErikaData, 3, 6, 3, 4)
+setMugEntry(167, ErikaData, 3, 6, 3, 4, 3)
 
 ALIGN 16 
 SabrinaData: 
@@ -113,7 +118,7 @@ SabrinaData:
 #incbin "Dmp/Sabrina_Eden_frames.dmp" 
 #incbin "Dmp/Sabrina_Eden_palette.dmp" 
 #incbin "Dmp/Sabrina_Eden_minimug.dmp" 
-setMugEntry(168, SabrinaData, 3, 5, 3, 3)
+setMugEntry(168, SabrinaData, 3, 5, 3, 3, 4)
 
 ALIGN 16 
 BlaineData: 
@@ -121,7 +126,7 @@ BlaineData:
 #incbin "Dmp/Blaine_Eden_frames.dmp" 
 #incbin "Dmp/Blaine_Eden_palette.dmp" 
 #incbin "Dmp/Blaine_Eden_minimug.dmp" 
-setMugEntry(169, BlaineData, 2, 5, 2, 3)
+setMugEntry(169, BlaineData, 2, 5, 2, 3, 7)
 
 ALIGN 16 
 GiovanniData: 
@@ -129,7 +134,7 @@ GiovanniData:
 #incbin "Dmp/Giovanni_Eden_frames.dmp" 
 #incbin "Dmp/Giovanni_Eden_palette.dmp" 
 #incbin "Dmp/Giovanni_Eden_minimug.dmp" 
-setMugEntry(170, GiovanniData, 3, 4, 3, 2)
+setMugEntry(170, GiovanniData, 3, 4, 3, 2, 8)
 
 //MugEntry(JanineMug, JanineMugData, JanineMinimugData, JanineFramesData, JaninePaletteData,  1, 6, 1, 4) 
 
@@ -148,7 +153,7 @@ BrunoData:
 #incbin "Dmp/Bruno_Eden_frames.dmp" 
 #incbin "Dmp/Bruno_Eden_palette.dmp" 
 #incbin "Dmp/Bruno_Eden_minimug.dmp" 
-setMugEntry(172, BrunoData, 2, 5, 2, 3)
+setMugEntry(172, BrunoData, 2, 5, 2, 3, 8)
 
 ALIGN 16 
 AgathaData: 
@@ -156,7 +161,7 @@ AgathaData:
 #incbin "Dmp/Agatha_Eden_frames.dmp" 
 #incbin "Dmp/Agatha_Eden_palette.dmp" 
 #incbin "Dmp/Agatha_Eden_minimug.dmp" 
-setMugEntry(173, AgathaData, 3, 6, 3, 4)
+setMugEntry(173, AgathaData, 3, 6, 3, 4, 5)
 
 ALIGN 16 
 LanceData: 
@@ -164,7 +169,7 @@ LanceData:
 #incbin "Dmp/Lance_Eden_frames.dmp" 
 #incbin "Dmp/Lance_Eden_palette.dmp" 
 #incbin "Dmp/Lance_Eden_minimug.dmp" 
-setMugEntry(174, LanceData, 3, 5, 3, 3)
+setMugEntry(174, LanceData, 3, 5, 3, 3, 6)
 
 
 ALIGN 16 
@@ -173,7 +178,7 @@ LoreleiData:
 #incbin "Dmp/Lorelei_Eden_frames.dmp" 
 #incbin "Dmp/Lorelei_Eden_palette.dmp" 
 #incbin "Dmp/Lorelei_Eden_minimug.dmp" 
-setMugEntry(175, LoreleiData, 3, 5, 3, 3)
+setMugEntry(175, LoreleiData, 3, 5, 3, 3, 3)
 
 ALIGN 16 
 ShedinjaData: 
@@ -240,7 +245,7 @@ MomData:
 #incbin "Dmp/Delia_Eden_frames.dmp" 
 #incbin "Dmp/Delia_Eden_palette.dmp" 
 #incbin "Dmp/Delia_Eden_minimug.dmp" 
-setMugEntry(184, MomData, 3, 6, 3, 4)
+setMugEntry(184, MomData, 3, 6, 3, 4, 3)
 
 ALIGN 16 
 JennyData: 
@@ -248,7 +253,7 @@ JennyData:
 #incbin "Dmp/Jenny_Eden_frames.dmp" 
 #incbin "Dmp/Jenny_Eden_palette.dmp" 
 #incbin "Dmp/Jenny_Eden_minimug.dmp" 
-setMugEntry(185, JennyData, 3, 5, 3, 3)
+setMugEntry(185, JennyData, 3, 5, 3, 3, 4)
 
 ALIGN 16 
 JoyData: 
@@ -256,7 +261,7 @@ JoyData:
 #incbin "Dmp/Joy_Eden_frames.dmp" 
 #incbin "Dmp/Joy_Eden_palette.dmp" 
 #incbin "Dmp/Joy_Eden_minimug.dmp" 
-setMugEntry(186, JoyData, 3, 6, 3, 4)
+setMugEntry(186, JoyData, 3, 6, 3, 4, 2)
 
 ALIGN 16 
 DaisyData: 
@@ -264,7 +269,7 @@ DaisyData:
 #incbin "Dmp/Daisy_Eden_frames.dmp" 
 #incbin "Dmp/Daisy_Eden_palette.dmp" 
 #incbin "Dmp/Daisy_Eden_minimug.dmp" 
-setMugEntry(187, DaisyData, 3, 6, 3, 4)
+setMugEntry(187, DaisyData, 3, 6, 3, 4, 4)
 
 ALIGN 16 
 WardenData: 
@@ -272,7 +277,7 @@ WardenData:
 #incbin "Dmp/Kaiser_Eden_frames.dmp" 
 #incbin "Dmp/Kaiser_Eden_palette.dmp" 
 #incbin "Dmp/Kaiser_Eden_minimug.dmp" 
-setMugEntry(188, WardenData, 3, 6, 3, 4)
+setMugEntry(188, WardenData, 3, 6, 3, 4, 7)
 
 ALIGN 16 
 GunData: 
@@ -289,7 +294,7 @@ JamesData:
 #incbin "Dmp/James_Eden_frames.dmp" 
 #incbin "Dmp/James_Eden_palette.dmp" 
 #incbin "Dmp/James_Eden_minimug.dmp" 
-setMugEntry(190, JamesData, 3, 5, 3, 3)
+setMugEntry(190, JamesData, 3, 5, 3, 3, 6)
 
 ALIGN 16 
 JessieData: 
@@ -297,7 +302,7 @@ JessieData:
 #incbin "Dmp/Jessie_Eden_frames.dmp" 
 #incbin "Dmp/Jessie_Eden_palette.dmp" 
 #incbin "Dmp/Jessie_Eden_minimug.dmp" 
-setMugEntry(191, JessieData, 3, 5, 3, 3)
+setMugEntry(191, JessieData, 3, 5, 3, 3, 4)
 
 
 

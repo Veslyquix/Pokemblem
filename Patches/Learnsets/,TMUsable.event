@@ -918,22 +918,31 @@ BYTE 0
 ALIGN 4
 VaporeonTMs:
 BYTE BodySlam DoubleEdge Growl Headbutt HyperBeam QuickAttack Rage SandAttack IronTail Swift Tackle TailWhip Leer TakeDown Blizzard AuroraBeam IceBeam Dig Rest ShadowBall SignalBeam Bite Roar Haze DoubleHit
-BYTE HexAtt IcyWind MudShot MudBomb
-BYTE RecoverMove Amnesia TriAttack 
+BYTE HexAtt IcyWind MudShot MudBomb 
+BYTE CalmMind BodySlam BulkUp Bind Amnesia RecoverMove Screech Agility Doubleslap DoubleHit DoubleEdge Harden Explosion Flash 
+BYTE Glare Growl Growth Guillotine Headbutt HornAttack HornDrill HyperBeam HyperFang Leer MegaKick MegaPunch PayDay Pound 
+BYTE QuickAttack Rage SandAttack Scratch Slam Slash AttackPulse Splash SuperFang Swift SwordsDance Tackle TailWhip TakeDown   
+BYTE TriAttack Thrash
 BYTE 0
 
 ALIGN 4
 JolteonTMs:
 BYTE BodySlam Agility DoubleEdge Flash Growl Headbutt HyperBeam QuickAttack Rage SandAttack IronTail Swift Tackle TailWhip Leer TakeDown DoubleKick Dig Rest ShadowBall SignalBeam Bite Roar LightScreen PinMissile AttackPulse
 BYTE HexAtt WaterPulse
-BYTE RecoverMove TriAttack 
+BYTE CalmMind BodySlam BulkUp Bind Amnesia RecoverMove Screech Agility Doubleslap DoubleHit DoubleEdge Harden Explosion Flash 
+BYTE Glare Growl Growth Guillotine Headbutt HornAttack HornDrill HyperBeam HyperFang Leer MegaKick MegaPunch PayDay Pound 
+BYTE QuickAttack Rage SandAttack Scratch Slam Slash AttackPulse Splash SuperFang Swift SwordsDance Tackle TailWhip TakeDown   
+BYTE TriAttack Thrash
 BYTE 0
 
 ALIGN 4
 FlareonTMs:
 BYTE BodySlam DoubleEdge Growl Headbutt HyperBeam Leer QuickAttack Rage SandAttack IronTail Swift Tackle TailWhip Leer TakeDown Smog Dig Rest ShadowBall Bite Roar
-BYTE HexAtt PoisonJab
-BYTE RecoverMove Glare SwordsDance TriAttack SolarBeam 
+BYTE HexAtt PoisonJab SolarBeam 
+BYTE CalmMind BodySlam BulkUp Bind Amnesia RecoverMove Screech Agility Doubleslap DoubleHit DoubleEdge Harden Explosion Flash 
+BYTE Glare Growl Growth Guillotine Headbutt HornAttack HornDrill HyperBeam HyperFang Leer MegaKick MegaPunch PayDay Pound 
+BYTE QuickAttack Rage SandAttack Scratch Slam Slash AttackPulse Splash SuperFang Swift SwordsDance Tackle TailWhip TakeDown   
+BYTE TriAttack Thrash
 BYTE 0
 
 ALIGN 4

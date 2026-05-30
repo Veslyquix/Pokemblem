@@ -2,7 +2,7 @@
 //#define SongTable(index,SongPointer,Group) "PUSH; ORG SongTableOffset+(8*index); POIN SongPointer; SHORT Group Group; POP"
 SongTable(0x315,ring,7)
 
-    #include "MPlayDef.event"
+    // #include "MPlayDef.event"
 
     #define    loop_sfx_grp_ring  ring_map
     #define    loop_sfx_pri_ring  0

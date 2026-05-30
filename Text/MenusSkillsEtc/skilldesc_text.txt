@@ -30,7 +30,7 @@ immune to attacks![X]
 
 ## SD_Intimidate2
 Intimidate: Battle debuffs[N]
-enemy Str/Mag by 25%.[X]
+enemy Str/Mag by 20%.[X]
 
 ## SD_GuardBreaker
 Guard Breaker: Battle debuffs[N]
@@ -640,7 +640,8 @@ Breath of Life: After attacking,[N]
 allies in 2 tiles heal 20% of max HP.[X]
 
 ## SD_Fury
-Enhanced DNA: +20% Str/Mag/Spd/Def/Res.[N]
+Enhanced DNA: +20% Str/Mag/Spd.[N]
+-20% Def/Res.[N]
 Unit loses 10% HP after combat.[X]
 
 ## SD_Dazzle
@@ -1908,7 +1909,7 @@ Hustle: Deal 25% more damage, but[N]
 moves are 20% less accurate.[X]
 
 ## SD_ArenaTrap
-ArenaTrap: Bind the enemy[N]
+Arena Trap: Bind the enemy[N]
 after battle at 1 range.[X]
 
 ## SD_SporeTouch

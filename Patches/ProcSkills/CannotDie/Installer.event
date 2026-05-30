@@ -12,10 +12,13 @@ ALIGN 4
 CannotDieList: 
 // unitID, classID, flag 
 // if the flag is ON, then they are no longer immune to death 
-BYTE 0 MoltresID; SHORT MoltresFledFlag 
-BYTE 0 ArticunoID; SHORT ArticunoFledFlag 
-BYTE 0 ZapdosID; SHORT ZapdosFledFlag 
-BYTE 0 MewID; SHORT MewFledFlag 
+BYTE 0xEE MoltresID; SHORT MoltresFledFlag 
+BYTE 0xDE MoltresID; SHORT MoltresFledFlag // they're 2 unit IDs iirc 2026 
+BYTE 0xEE ArticunoID; SHORT ArticunoFledFlag 
+BYTE 0xDE ArticunoID; SHORT ArticunoFledFlag 
+BYTE 0xEE ZapdosID; SHORT ZapdosFledFlag 
+BYTE 0xDE ZapdosID; SHORT ZapdosFledFlag 
+BYTE 0xD0 MewID; SHORT MewFledFlag 
 WORD 0xFFFFFFFF  // Terminator 
 
 

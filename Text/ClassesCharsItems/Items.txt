@@ -430,14 +430,15 @@ initiating battle.[X]
 Berserk Gene[X]
 
 ## BerserkGeneDesc
-+20% Str/Mag/Spd/Def/Res.[N]
++20% Str/Mag/Spd[N]
+-20% Def/Res.[N]
 Unit loses 10% HP after combat.[X]
 
 ## SkullMaskName
 Skull Mask[X]
 ## SkullMaskDesc
 Battle debuffs enemy[N]
-Str/Mag by 25%.[X]
+Str/Mag by 20%.[X]
 
 ## DowngraderName
 Downgrader[X]
@@ -1615,7 +1616,8 @@ AoE: Poisons for 2 turns.[X]
 [PI] An earthy strike from below.[X]
 
 ## BonemerangDesc
-[PI] Whips a bone boomerang.[X]
+[PI] Whips a bone boomerang.[N]
+Hits twice.[X]
 
 ## EarthquakeDesc
 [PI] Creates a powerful quake.[X]

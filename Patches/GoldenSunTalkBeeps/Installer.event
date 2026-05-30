@@ -1,0 +1,195 @@
+
+
+#define REPLACE_SLOW_NORMAL_TEXT_SPEED // make slow 4 frame delay (instead of 8) and normal 2 frame delay instead of 4 
+// #define SongTableOffset  0x224470 // vanilla address - change if you repointed the song table 
+#define BeepVolume 100 // max volume is 127 
+ALIGN 4 
+EnableVanillaBeepsFlag:
+WORD 0 // set a flag here if you want to be able to toggle back to vanilla beeps ingame 
+ReplaceSlowTextSpeed:
+#ifdef REPLACE_SLOW_NORMAL_TEXT_SPEED 
+WORD 1 
+#else 
+WORD 0 
+#endif 
+
+// fe8 srr test to give specific tones to Eirika's portrait and Seth's portrait when they speak in convos 
+/*
+#define SongTableOffset  0x1C34504 // fe8srr current address 
+PUSH 
+ORG $1030051
+BYTE 2 
+
+ORG $1030089 
+BYTE 7
+POP 
+*/
+
+
+
+PUSH 
+ORG $6D10 
+callHackNew(HandleBoops) 
+SHORT $e02f // b 0x8006D7E 
+POP 
+
+#include "C_Code.lyn.event" 
+
+#include "sfx_defs.event" 
+#define VoiceDirect(Type,BaseNote,Pan,Address,EnvAtk,EnvDec,EnvSus,EnvRel) "BYTE Type BaseNote $00 Pan; WORD Address; BYTE EnvAtk EnvDec EnvSus EnvRel"
+
+// Processing the .wav files 
+// import each sfx as a track in febuilder using 13379 hz 
+// export as .s 
+// also export as instrument to get the .dmp file 
+// rename .s and .dmp to sfx256.s / sfx256.dmp 
+// in .s file, replace song01 with sfx256 or whatever 
+// replace voicegroup000 with GoldenSunVoices
+// replace VOICE 0 with whichever voice you want to use 
+// drag .s file onto s2ea.exe 
+
+
+
+
+// #define SongTable(index,SongPointer,Group) "PUSH; ORG SongTableOffset+(8*(index)); POIN SongPointer; SHORT Group Group; POP"
+
+#define SongTableStartID 0x385 // or around 0x26D 
+SongTable((SongTableStartID+00), sfx256, 0)
+SongTable((SongTableStartID+01), sfx257, 0)
+SongTable((SongTableStartID+02), sfx258, 0)
+SongTable((SongTableStartID+03), sfx259, 0)
+SongTable((SongTableStartID+04), sfx260, 0)
+SongTable((SongTableStartID+05), sfx261, 0)
+SongTable((SongTableStartID+06), sfx262, 0)
+SongTable((SongTableStartID+07), sfx263, 0)
+SongTable((SongTableStartID+08), sfx264, 0)
+SongTable((SongTableStartID+09), sfx265, 0)
+SongTable((SongTableStartID+10), sfx266, 0)
+SongTable((SongTableStartID+11), sfx267, 0)
+SongTable((SongTableStartID+12), sfx268, 0)
+SongTable((SongTableStartID+13), sfx269, 0)
+SongTable((SongTableStartID+14), sfx270, 0)
+SongTable((SongTableStartID+15), sfx271, 0)
+SongTable((SongTableStartID+16), sfx272, 0)
+SongTable((SongTableStartID+17), sfx273, 0)
+SongTable((SongTableStartID+18), sfx274, 0)
+SongTable((SongTableStartID+19), sfx275, 0)
+SongTable((SongTableStartID+20), sfx276, 0)
+SongTable((SongTableStartID+21), sfx277, 0)
+SongTable((SongTableStartID+22), sfx278, 0)
+SongTable((SongTableStartID+23), sfx279, 0)
+SongTable((SongTableStartID+24), sfx280, 0)
+SongTable((SongTableStartID+25), sfx281, 0)
+SongTable((SongTableStartID+26), sfx282, 0)
+SongTable((SongTableStartID+27), sfx283, 0)
+SongTable((SongTableStartID+28), sfx284, 0)
+SongTable((SongTableStartID+29), sfx285, 0)
+SongTable((SongTableStartID+30), sfx286, 0)
+SongTable((SongTableStartID+31), sfx287, 0)
+
+
+ALIGN 4 
+SongTableStartID_Link:
+WORD SongTableStartID
+ALIGN 4 
+SongTableNumberOfBoops:
+WORD 32 
+
+
+// based on the output of s2ea 
+#define SfxSongDataEntry(labelName, voice, pitch) "ALIGN 4; labelName: ;{;\
+BYTE	1;\
+BYTE	0;\
+BYTE	0;\
+BYTE	0;\
+POIN2	GoldenSunVoices;\
+POIN2	someLabel;\
+someLabel: ;\
+ BYTE   VOL   BeepVolume*127/mxv;\
+ BYTE   KEYSH   0+0;\
+ BYTE   VOICE   voice;\
+ BYTE   TIE  pitch  v127;\
+ BYTE   W96;\
+ BYTE   EOT;\
+ BYTE   FINE;\
+}"
+
+SfxSongDataEntry(sfx256, 0, Cn3)
+SfxSongDataEntry(sfx257, 0, Bn2)
+SfxSongDataEntry(sfx258, 0, An2)
+SfxSongDataEntry(sfx259, 0, Gn2)
+SfxSongDataEntry(sfx260, 1, Cn3)
+SfxSongDataEntry(sfx261, 1, Bn2)
+SfxSongDataEntry(sfx262, 1, An2)
+SfxSongDataEntry(sfx263, 1, Gn2)
+SfxSongDataEntry(sfx264, 2, Cn3)
+SfxSongDataEntry(sfx265, 2, Bn2)
+SfxSongDataEntry(sfx266, 2, An2)
+SfxSongDataEntry(sfx267, 2, Gn2)
+SfxSongDataEntry(sfx268, 3, Cn3)
+SfxSongDataEntry(sfx269, 3, Bn2)
+SfxSongDataEntry(sfx270, 3, An2)
+SfxSongDataEntry(sfx271, 3, Gn2)
+SfxSongDataEntry(sfx272, 4, Cn3) // this one was out of order for some reason - 273 sounds higher 
+SfxSongDataEntry(sfx273, 4, Bn2)
+SfxSongDataEntry(sfx274, 4, An2)
+SfxSongDataEntry(sfx275, 4, Gn2)
+SfxSongDataEntry(sfx276, 5, Cn3) 
+SfxSongDataEntry(sfx277, 5, Bn2)
+SfxSongDataEntry(sfx278, 5, An2)
+SfxSongDataEntry(sfx279, 5, Gn2)
+SfxSongDataEntry(sfx280, 6, Cn3) 
+SfxSongDataEntry(sfx281, 6, Bn2)
+SfxSongDataEntry(sfx282, 6, An2)
+SfxSongDataEntry(sfx283, 6, Gn2)
+SfxSongDataEntry(sfx284, 7, Cn3) 
+SfxSongDataEntry(sfx285, 7, Bn2)
+SfxSongDataEntry(sfx286, 7, An2)
+SfxSongDataEntry(sfx287, 7, Gn2)
+
+
+
+
+
+
+
+ALIGN 4 
+GoldenSunVoices:
+VoiceDirect($00, $3C, $00, sfx260voice, $FF, $00, $FF, $A5)	// highest 
+VoiceDirect($00, $3C, $00, sfx256voice, $FF, $00, $FF, $A5)	
+VoiceDirect($00, $3C, $00, sfx268voice, $FF, $00, $FF, $A5)	
+VoiceDirect($00, $3C, $00, sfx264voice, $FF, $00, $FF, $A5)	
+VoiceDirect($00, $3C, $00, sfx276voice, $FF, $00, $FF, $A5)	// default if nothing entered 
+VoiceDirect($00, $3C, $00, sfx284voice, $FF, $00, $FF, $A5)	
+VoiceDirect($00, $3C, $00, sfx272voice, $FF, $00, $FF, $A5)	
+VoiceDirect($00, $3C, $00, sfx280voice, $FF, $00, $FF, $A5)	// lowest 
+
+
+
+
+ALIGN 4 
+sfx256voice:
+#incbin "data/sfx2560x00.DirectSound.bin" 
+ALIGN 4 
+sfx260voice:
+#incbin "data/sfx2600x00.DirectSound.bin" 
+ALIGN 4 
+sfx264voice:
+#incbin "data/sfx2640x00.DirectSound.bin" 
+ALIGN 4 
+sfx268voice:
+#incbin "data/sfx2680x00.DirectSound.bin" 
+ALIGN 4 
+sfx272voice:
+#incbin "data/sfx2720x00.DirectSound.bin" 
+ALIGN 4 
+sfx276voice:
+#incbin "data/sfx2760x00.DirectSound.bin" 
+ALIGN 4 
+sfx280voice:
+#incbin "data/sfx2800x00.DirectSound.bin" 
+ALIGN 4 
+sfx284voice:
+#incbin "data/sfx2840x00.DirectSound.bin" 
+
+

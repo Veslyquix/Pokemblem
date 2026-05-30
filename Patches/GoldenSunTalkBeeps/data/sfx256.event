@@ -1,0 +1,44 @@
+//Event file generated from Sappy .s format.
+	#include "MPlayDef.event"
+
+	#define	sfx256_grp  GoldenSunVoices
+	#define	sfx256_pri  0
+	#define	sfx256_rev  0
+	#define	sfx256_mvl  127
+	#define	sfx256_key  0
+	#define	sfx256_tbs  1
+	#define	sfx256_exg  0
+	#define	sfx256_cmp  1
+
+	// .rodata
+	//	sfx256
+	ALIGN 4
+
+
+//**************** Track 1 (Midi-Chn.0) ****************//
+
+sfx256_001:
+//  #01 //000   ----------------------------------------
+ BYTE   VOL   127*sfx256_mvl/mxv
+ BYTE   KEYSH   sfx256_key+0
+ BYTE   VOICE   0
+ BYTE   TIE  Cn3  v127
+ BYTE   W96
+//  #01 //001   ----------------------------------------
+ BYTE   EOT
+ BYTE   FINE
+
+//******************************************************//
+	ALIGN 4
+
+sfx256:
+	BYTE	1	// NumTrks
+	BYTE	0	// NumBlks
+	BYTE	sfx256_pri	// Priority
+	BYTE	sfx256_rev	// Reverb.
+    
+	POIN2	sfx256_grp
+    
+	POIN2	sfx256_001
+
+	
