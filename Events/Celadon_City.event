@@ -445,6 +445,7 @@ BYTE $00; ALIGN 4
 ALIGN 4 
 ShopItems_Slots:
 BYTE SpellScroll Flamethrower SpellScroll Thunderbolt SpellScroll IceBeam
+BYTE SpellScroll Clamp SpellScroll ThunderWave SpellScroll PoisonPowder  
 BYTE SpellScroll IronTail SpellScroll ShadowBall 
 BYTE $00; ALIGN 4
 // iron tail, shadow ball 
