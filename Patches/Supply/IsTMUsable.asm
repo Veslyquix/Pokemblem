@@ -18,8 +18,20 @@ lsr r1, #24
 mov r0, #0xFF 
 and r0, r4 
 cmp r0, r1 
-bne VanillaBehaviour 
+beq YesSpellScroll
+ldr r1, =SkillScrollID 
+lsl r1, #24 
+lsr r1, #24 
+cmp r0, r1 
+bne VanillaBehaviour
+mov r0, r6 @ unit 
+lsr r1, r4, #8 @ skill scroll ID 
+bl CanUnitLearnSkill 
+cmp r0, #0 
+beq ReturnFalse 
+b ReturnTrue 
 
+YesSpellScroll:
 mov r0, r6 @ unit 
 lsr r1, r4, #8 @ tm durability  
 

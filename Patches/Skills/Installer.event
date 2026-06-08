@@ -15,6 +15,80 @@ WORD MultiscaleID
 SilphScopeID_Link:
 WORD SilphScopeID 
 
+
+ALIGN 4 
+SkillUsabilityTable:
+FILL(256*4) 
+
+// stat types: 
+/* 
+    u16 hp  : 1; // 0x01
+    u16 str : 1; // 0x02 
+    u16 skl : 1; // 0x04
+    u16 spd : 1; // 0x08 
+    u16 def : 1; // 0x10 
+    u16 res : 1; // 0x20 
+    u16 mag : 1; // 0x40 
+*/
+#define hpReq 0x01 
+#define strReq 0x02 
+#define sklReq 0x04 
+#define spdReq 0x08 
+#define defReq 0x10 
+#define resReq 0x20 
+#define magReq 0x40 
+#define lckReq 0x80 
+
+#define SkillReq(id, typing, statReq, statType) "PUSH; ORG SkillUsabilityTable + (4 * id); SHORT typing; BYTE statReq statType; POP" 
+
+
+SkillReq(MiracleID, GroundType|RockType, 55, defReq|resReq) 
+SkillReq(SavageBlowID, 0, 55, strReq|magReq) 
+SkillReq(GrislyWoundID, 0, 50, strReq|magReq) 
+SkillReq(PoisonStrikeID, 0, 45, strReq|magReq) 
+SkillReq(RenewalID, PsychicType, 50, resReq) 
+SkillReq(GaleforceID, FlyingType, 60, spdReq) 
+SkillReq(LifetakerID, GhostType, 0, 0) 
+SkillReq(DazzleID, GhostType, 0, 0) 
+SkillReq(FuryID, 0, 60, strReq|magReq|spdReq) 
+SkillReq(DowngradeID, SteelType|ElectricType, 0, 0) 
+SkillReq(GuardBreakerID, PoisonType|IceType, 0, 0) 
+SkillReq(Intimidate2ID, FightingType|GhostType, 0, 0) 
+SkillReq(SwarmID, BugType, 55, spdReq) 
+SkillReq(MultiscaleID, DragonType|WaterType, 55, defReq|resReq) 
+SkillReq(VantagePlusID, 0, 50, spdReq) 
+SkillReq(SturdyID, RockType|GroundType, 55, defReq) 
+SkillReq(CounterMagicID, PsychicType, 50, magReq) 
+SkillReq(CounterID, FightingType, 50, strReq) 
+SkillReq(RockyHelmetSkillID, RockType|GroundType, 45, defReq) 
+SkillReq(AdaptabilityID, NormalType|WaterType|FireType|GrassType|ElectricType, 0, 0) 
+SkillReq(DrySkinID, BugType, 0, 0) 
+SkillReq(ScrappyID, NormalType|FightingType, 0, 0) 
+SkillReq(ScrappyID, BugType, 0, 0) 
+SkillReq(RecklessRockID, RockType, 0, 0) 
+SkillReq(HarvestID, GrassType|BugType, 0, 0) 
+SkillReq(ForewarnID, PsychicType, 0, 0) 
+SkillReq(ShellArmorID, WaterType, 50, defReq) 
+SkillReq(PoisonTouchID, PoisonType, 0, 0) 
+SkillReq(ShedSkinID, BugType, 0, 0) 
+SkillReq(TintedLensID, BugType, 0, 0) 
+SkillReq(SolarPowerID, FireType, 0, 0) 
+SkillReq(ChlorophyllID, GrassType, 0, 0) 
+SkillReq(SteadyBrawlerID, FightingType, 0, 0) 
+SkillReq(RecklessFighterID, FightingType, 0, 0) 
+SkillReq(SniperID, ElectricType, 0, 0) 
+// SkillReq(CantoPlus, FightingType, 0, 0) 
+// SkillReq(Regenerator , FightingType, 0, 0) 
+// SkillReq(AcidArmor , FightingType, 0, 0) 
+// SkillReq(QuickFeet , FightingType, 0, 0) 
+// SkillReq(Guts , FightingType, 0, 0) 
+
+
+
+
+
+
+
 #include "C_Code.lyn.event" 
 
 
