@@ -262,7 +262,7 @@ BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
 BYTE SkillScroll PrescienceID 
-BYTE SpellScroll SignalBeam SpellScroll Magnitude
+BYTE SpellScroll SignalBeam SpellScroll RockSlide
 BYTE SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
 BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick
 BYTE SpellScroll BubbleBeam SpellScroll MudBomb // 19 
