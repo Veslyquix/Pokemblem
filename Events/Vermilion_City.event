@@ -359,7 +359,7 @@ BYTE WarpCrystal 1
 BYTE SkillScroll PatienceID 
 BYTE SpellScroll MagicalLeaf SpellScroll WaterGun SpellScroll Scorch SpellScroll Dig 
 BYTE SpellScroll Headbutt 
-BYTE SpellScroll SignalBeam SpellScroll Magnitude SpellScroll Confusion // 18 
+BYTE SpellScroll SignalBeam SpellScroll Magnitude SpellScroll PinMissile // 18 
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI SuperPotion
 BYTE $00; ALIGN 4
