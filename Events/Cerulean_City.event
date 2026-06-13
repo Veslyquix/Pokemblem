@@ -368,7 +368,7 @@ BYTE WarpCrystal 1
 BYTE SpellScroll Leer SpellScroll Bite SpellScroll MudShot SpellScroll IcyWind
 BYTE SpellScroll AttackPulse
 BYTE SpellScroll DoubleHit SpellScroll SignalBeam SpellScroll MagicalLeaf 
-BYTE SpellScroll Gust SpellScroll Magnitude SpellScroll Confusion // 19
+BYTE SpellScroll LeechLife SpellScroll Magnitude SpellScroll KarateChop // 19
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI SuperPotion
 BYTE $00; ALIGN 4

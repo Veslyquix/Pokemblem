@@ -49,6 +49,14 @@ MultiScrollUsability:
 lsr r1, r5, #0x08 @ get the durability of the item
 
 mov r0,r4
+bl CanUnitLearnSkill
+cmp r0, #0 
+beq ReturnFalse 
+
+
+lsr r1, r5, #0x08 @ get the durability of the item
+
+mov r0,r4
 
 ldr 	r3, =SkillTester @r0 = char ID, r1 = skill ID; returns true/false in r0
 mov 	lr, r3

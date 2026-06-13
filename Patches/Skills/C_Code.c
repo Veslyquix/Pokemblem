@@ -9,6 +9,109 @@ extern int FlankRequiresSkill_Link;
 extern int MultiscaleID_Link;
 extern int AreWeOutdoors();
 
+struct SkillUsabilityReq
+{
+    u16 type;
+    u16 statReq : 8;
+    // u16 curStatNotCap : 1; // uses current stat instead of stat cap
+    // u16 allStats : 1;      // all stats in the bitfield are required to be at the specified level
+    u16 hp : 1;
+    u16 str : 1;
+    u16 skl : 1;
+    u16 spd : 1;
+    u16 def : 1;
+    u16 res : 1;
+    u16 mag : 1;
+    //     u16 lck : 1; // lck is not class based
+};
+
+struct magClassTable
+{
+    u8 base;
+    u8 growth;
+    u8 cap;
+    u8 promo;
+};
+struct magCharTable
+{
+    u8 base;
+    u8 growth;
+};
+extern struct magClassTable MagClassTable[];
+extern struct magClassTable ClassLuckTable[];
+extern struct magCharTable MagCharTable[];
+extern const struct SkillUsabilityReq SkillUsabilityTable[];
+int CanUnitLearnSkill(struct Unit * unit, int skillID)
+{
+    int result = false;
+    const struct SkillUsabilityReq data = SkillUsabilityTable[skillID];
+    int amt = data.statReq;
+    if (!data.type && !amt)
+    {
+        return true;
+    }
+    if (data.type & (int)unit->pClassData->_pU50)
+    {
+        return true;
+    }
+    if (!amt)
+    {
+        return false;
+    }
+
+    if (data.hp)
+    {
+        if (unit->pClassData->maxHP >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.str)
+    {
+        if (unit->pClassData->maxPow >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.skl)
+    {
+        if (unit->pClassData->maxSkl >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.spd)
+    {
+        if (unit->pClassData->maxSpd >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.def)
+    {
+        if (unit->pClassData->maxDef >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.res)
+    {
+        if (unit->pClassData->maxRes >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.mag)
+    {
+        if (MagClassTable[unit->pClassData->number].cap >= amt)
+        {
+            result = true;
+        }
+    }
+
+    return result;
+}
+
 void ComputeBattleUnitHitRate(struct BattleUnit * bu)
 {
     int itemHit = GetItemHit(bu->weapon);
