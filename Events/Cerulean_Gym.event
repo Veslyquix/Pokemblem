@@ -86,8 +86,8 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
 
-SilentGiveSkillAccessory(0xD0, RenewalID)
-SilentGiveItemWithDurability(0xD0, JellyDonut,0x1)
+SilentGiveSkillAccessory(ForewarnUnitID, RenewalID)
+SilentGiveItemWithDurability(ForewarnUnitID, JellyDonut,0x1)
 SilentGiveItemWithDurability(0xA0, Berry,0x81)
 SilentGiveItemWithDurability(0xA1, Berry,0x81)
 SilentGiveItemWithDurability(0xA2, Berry,0x81)
@@ -124,7 +124,7 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 SilentGiveSkillAccessory(RenewalUnitID, CounterMagicID) // Starmie 
 SilentGiveSkillAccessory(0xA1, DazzleID) // Golduck 
 SilentGiveSkillAccessory(0xA0, WaryFighterID) // Dewgong 
-//SilentGiveItemWithDurability(0xD0, SteelShield_BoostIndex|0x80)
+//SilentGiveItemWithDurability(RenewalUnitID, SteelShield_BoostIndex|0x80)
 SilentGiveItemWithDurability(0xA3, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Seaking 
 SilentGiveItemWithDurability(0xA2, StatAccessory, StuddedShield_BoostIndex|0x80) // Seadra  
 SilentGiveItemWithDurability(0xA4, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Dragonair 

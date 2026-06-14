@@ -136,8 +136,8 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveSkillAccessory(0xD0, GrislyWoundID)
-SilentGiveItemWithDurability(0xD0, SuperPotion,0x1)
+SilentGiveSkillAccessory(GuardBreakerUnitID, GrislyWoundID)
+SilentGiveItemWithDurability(GuardBreakerUnitID, SuperPotion,0x1)
 SilentGiveItemWithDurability(0xA0, Berry,0x82)
 SilentGiveItemWithDurability(0xA1, Berry,0x82)
 SilentGiveItemWithDurability(0xA2, Berry,0x82)
@@ -171,7 +171,7 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveSkillAccessory(0xD0, SavageBlowID) // Venomoth 
+SilentGiveSkillAccessory(GuardBreakerUnitID, SavageBlowID) // Venomoth 
 SilentGiveSkillAccessory(0xA0, GrislyWoundID) // Tentacruel  
 SilentGiveSkillAccessory(0xA1, PoisonStrikeID) // Muk 
 SilentGiveItemWithDurability(0xA2, StatAccessory, StuddedShield_BoostIndex|0x80) // Hypno   

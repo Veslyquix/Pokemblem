@@ -125,8 +125,8 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveSkillAccessory(0xD0, AmaterasuID)
-SilentGiveItemWithDurability(0xD0, MaxPotion,0x1)
+SilentGiveSkillAccessory(TintedLensUnitID, AmaterasuID)
+SilentGiveItemWithDurability(TintedLensUnitID, MaxPotion,0x1)
 SilentGiveItemWithDurability(0xA0, Berry,0x8A)
 SilentGiveItemWithDurability(0xA0, SuperPotion,0x2)
 SilentGiveItemWithDurability(0xA1, Berry,0x8A)
@@ -166,11 +166,11 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveSkillAccessory(0xD0, MiracleID) // Vileplume  
+SilentGiveSkillAccessory(0xA3, MiracleID) // Vileplume  
 SilentGiveSkillAccessory(0xA0, AmaterasuID) // Tangela 
 SilentGiveSkillAccessory(0xA1, BreathOfLifeID) // Victreebel  
 SilentGiveItemWithDurability(0xA2, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Exeggutor  
-SilentGiveItemWithDurability(0xA3, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Parasect 
+SilentGiveItemWithDurability(TintedLensUnitID, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Parasect 
 SilentGiveItemWithDurability(0xA4, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Omastar 
 
 

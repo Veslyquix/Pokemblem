@@ -157,9 +157,9 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
-SilentGiveItemWithDurability(0xD0, HoplonGuard2, 1)
-//SilentGiveSkillAccessory(0xD0, AmaterasuID)
-SilentGiveItemWithDurability(0xD0, MaxPotion,0x1)
+SilentGiveItemWithDurability(ForewarnUnitID, HoplonGuard2, 1)
+//SilentGiveSkillAccessory(ForewarnUnitID, AmaterasuID)
+SilentGiveItemWithDurability(ForewarnUnitID, MaxPotion,0x1)
 SilentGiveItemWithDurability(0xA0, Berry,0x82)
 SilentGiveItemWithDurability(0xA1, Berry,0x82)
 SilentGiveItemWithDurability(0xA2, Berry,0x82)
@@ -197,7 +197,7 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveSkillAccessory(0xD0, MiracleID) // Alakazam 
+SilentGiveSkillAccessory(ForewarnUnitID, MiracleID) // Alakazam 
 SilentGiveItemWithDurability(0xA0, StatAccessory, SteelShield_BoostIndex|0x80) // Mr Mime 
 SilentGiveSkillAccessory(0xA1, RenewalID) // Hypno 
 SilentGiveItemWithDurability(0xA2, StatAccessory, StuddedShield_BoostIndex|0x80) // Jynx      

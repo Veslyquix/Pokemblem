@@ -130,8 +130,8 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 
 
 
-SilentGiveItemWithDurability(0xD0, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Machoke 
-SilentGiveItemWithDurability(0xD0, MaxPotion,0x1)
+SilentGiveItemWithDurability(ScrappyUnitID, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Machoke 
+SilentGiveItemWithDurability(ScrappyUnitID, MaxPotion,0x1)
 SilentGiveItemWithDurability(0xA0, StatAccessory, MuscleBandT2_BoostIndex|0x80)
 SilentGiveItemWithDurability(0xA0, SuperPotion,0x2)
 SilentGiveItemWithDurability(0xA1, StatAccessory, MuscleBandT2_BoostIndex|0x80)

@@ -115,14 +115,14 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveItemWithDurability(0xD0, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Machoke 
+SilentGiveItemWithDurability(SavageBlowUnitID, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Machoke 
 SilentGiveItemWithDurability(0xA0, StatAccessory, EnergyBandT2_BoostIndex|0x80)
 SilentGiveItemWithDurability(0xA1, StatAccessory, EnergyBandT2_BoostIndex|0x80)
 SilentGiveItemWithDurability(0xA2, StatAccessory, EnergyBandT2_BoostIndex|0x80)
 SilentGiveItemWithDurability(0xA3, StatAccessory, EnergyBandT2_BoostIndex|0x80)
 SilentGiveItemWithDurability(0xA4, StatAccessory, EnergyBandT2_BoostIndex|0x80)
 
-SilentGiveItemWithDurability(0xD0, MaxPotion,0x1)
+SilentGiveItemWithDurability(SavageBlowUnitID, MaxPotion,0x1)
 SilentGiveItemWithDurability(0xA0, MaxPotion,0x1)
 SilentGiveItemWithDurability(0xA1, MaxPotion,0x1)
 SilentGiveItemWithDurability(0xA2, MaxPotion,0x1)

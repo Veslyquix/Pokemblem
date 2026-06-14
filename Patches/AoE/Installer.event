@@ -1327,7 +1327,7 @@ BYTE 0 // Config2
 // Entry 
 BYTE 0 0 0 0
 BYTE 0 0 0 HyperBeam // Always usable by anyone 
-BYTE 0 FriendlyFireBool
+BYTE 0 FriendlyFireBool|MagBasedBool|HitResBool 
 BYTE T1AoE_Mt T1AoE_Var // variance range of 0 - 2 
 BYTE SpeMin 2 // Attack range
 BYTE SmallestLine normalAnimationID // Index of RangeMask, AnimationALL,
