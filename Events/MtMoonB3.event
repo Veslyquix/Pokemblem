@@ -134,7 +134,7 @@ SignTrap(7,34, TrainerTip_MoveMapFaster)
 StatAccessoryTrap(27,4, (ChapterID*2)+1, BronzeShield_BoostIndex)
 SkillAccessoryTrap(17,15, ChapterID*2, RockyHelmetSkillID) 
 
-SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
+SkillScrollTrap(18,28, ChapterID*2, ShellArmorID)
 
 SpellScrollTrap(32,24, (ChapterID*2)+1, KarateChop)
 

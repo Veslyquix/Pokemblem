@@ -117,7 +117,7 @@ HealTile(43,25)
 
 //CoinsTrap(42,13,(ChapterID*2)+1,400)
 SpellScrollTrap(42,13, (ChapterID*2)+1, AttackPulse)
-
+SkillScrollTrap(11,12, ChapterID*2, SwarmID)
 SkillScrollTrap(18,0, (ChapterID*2)+2, TantivyID) // Found in next ch, so +2
 //CutBush(4,2)
 //RockSmash(3,2)

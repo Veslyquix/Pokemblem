@@ -160,7 +160,7 @@ RedPokeballTrap(36,25, (ChapterID*2)+1, Revive, 3)
 SignBTrap(6,10, ChapterID, 0x0) //no extra text 
 SignATrap(44,28, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
 
-SkillScrollTrap(20,30, ChapterID*2, TantivyID)
+SkillScrollTrap(20,30, ChapterID*2, ShedSkinID)
 SpellScrollTrap(44, 14, (ChapterID*2)+1, LeechLife)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)

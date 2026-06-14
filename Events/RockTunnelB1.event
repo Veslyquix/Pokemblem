@@ -130,7 +130,7 @@ RedPokeballTrap(21, 5, (ChapterID*2)+1, EscapeRope, 5)
 //SkillAccessoryTrap(17,15, ChapterID*2, RockyHelmetSkillID) 
 //SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
 
-//SkillScrollTrap(27,2, (ChapterID*2)+1, ChivalryID) 
+SkillScrollTrap(27,2, (ChapterID*2), ScrappyID) 
 
 SignBTrap(16,22, ChapterID, 0x0) //no extra text 
 SignATrap(28,2, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 

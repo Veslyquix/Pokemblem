@@ -253,6 +253,9 @@ ALIGN 4
 ShopItems:
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI 0
+BYTE SkillScroll ChlorophyllID
+BYTE SkillScroll HarvestID
+BYTE SkillScroll SolarPowerID
 BYTE SkillAccShop(DazzleID)
 BYTE SkillAccShop(VantagePlusID)
 BYTE SkillAccShop(ExpShareID)

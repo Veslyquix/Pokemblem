@@ -350,6 +350,9 @@ ShopItems:
 BYTE SkillAccShop(RockyHelmetSkillID)
 BYTE StatAccessory EnergyBand_BoostIndex 
 BYTE SkillAccShop(WaryFighterID)
+BYTE SkillScroll SniperID 
+BYTE SkillScroll RockyHelmetSkillID 
+BYTE SkillScroll VantagePlusID 
 BYTE Revive 1 
 BYTE SuperPotion 5 
 BYTE JellyDonut 5

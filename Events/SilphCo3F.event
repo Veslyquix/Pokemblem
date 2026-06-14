@@ -180,7 +180,7 @@ RedPokeballTrap(33,14, (ChapterID*2), Calcium)
 StatAccessoryTrap(4,21, (ChapterID*2)+1, SteelShield_BoostIndex)
 //SkillAccessoryTrap(37,14, ChapterID*2, DeathBlowID)
  
-SkillScrollTrap(3,8, ChapterID*2, SilentPrideID)
+SkillScrollTrap(3,8, ChapterID*2, DowngradeID)
 
 SpellScrollTrap(30,19, (ChapterID*2)+1, SwordsDance) 
 

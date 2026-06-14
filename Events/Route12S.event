@@ -169,7 +169,7 @@ RedPokeballTrap(19,20, (ChapterID*2)+1, WaterStone)
 //SkillAccessoryTrap(37,14, ChapterID*2, DeathBlowID) 
 
 SpellScrollTrap(11,37, (ChapterID*2)+1, Clamp)
-SkillScrollTrap(9,45, ChapterID*2, FierceStanceID)
+SkillScrollTrap(9,45, ChapterID*2, ChlorophyllID)
 
 //SkillScrollTrap(27,2, (ChapterID*2)+1, ChivalryID) 
 

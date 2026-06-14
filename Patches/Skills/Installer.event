@@ -42,52 +42,69 @@ FILL(256*4)
 #define SkillReq(id, typing, statReq, statType) "PUSH; ORG SkillUsabilityTable + (4 * id); SHORT typing; BYTE statReq statType; POP" 
 
 
-SkillReq(MiracleID, GroundType|RockType, 55, defReq|resReq) 
-SkillReq(SavageBlowID, 0, 55, strReq|magReq) 
-SkillReq(GrislyWoundID, 0, 50, strReq|magReq) 
-SkillReq(PoisonStrikeID, 0, 45, strReq|magReq) 
-SkillReq(RenewalID, PsychicType, 50, resReq) 
-SkillReq(GaleforceID, FlyingType, 60, spdReq) 
+// Viridian Mart 
+SkillReq(PoisonStrikeID, PoisonType, 50, defReq|resReq) 
+
+// Pewter Mart 
+SkillReq(SwarmID, BugType, 55, spdReq) // Viridian ForestS
+SkillReq(ShedSkinID, BugType, 0, 0) // Viridian Forest 
+
+// Cerulean Mart 
+SkillReq(RecklessRockID, RockType, 0, 0) // Pewter Gym
+SkillReq(DrySkinID, BugType|RockType, 0, 0) // MtMoon
+SkillReq(ShellArmorID, WaterType, 50, defReq) // MtMoon
+
+// Vermilion Mart 
+SkillReq(SniperID, ElectricType, 0, 0) // route 4e 
+SkillReq(RockyHelmetSkillID, RockType|GroundType, 45, defReq) // Route25, Vermilion mart
+SkillReq(VantagePlusID, NormalType|FlyingType, 50, spdReq) // route 5 
+
+
+// Lavender mart 
+SkillReq(ForewarnID, PsychicType, 0, 0) // Route 11 (east of Vermilion) 
+SkillReq(PoisonTouchID, PoisonType, 0, 0) // Route 10 
+SkillReq(ScrappyID, NormalType|FightingType, 0, 0) // Rock Tunnel 
+
+
+// Fuschia Mart 
+SkillReq(ChlorophyllID, GrassType, 0, 0) // 13 
+SkillReq(HarvestID, GrassType|BugType, 0, 0) // 14 
+SkillReq(SolarPowerID, FireType, 0, 0) // 15 
+    
+
+// Celadon Mart  // NOT FOUND ANYWHERE IF INDENTED 
 SkillReq(LifetakerID, GhostType, 0, 0) 
-SkillReq(DazzleID, GhostType, 0, 0) 
-SkillReq(FuryID, 0, 60, strReq|magReq|spdReq) 
-SkillReq(DowngradeID, SteelType|ElectricType, 0, 0) 
-SkillReq(GuardBreakerID, PoisonType|IceType, 0, 0) 
-SkillReq(Intimidate2ID, FightingType|GhostType, 0, 0) 
-SkillReq(SwarmID, BugType, 55, spdReq) 
-SkillReq(MultiscaleID, DragonType|WaterType, 55, defReq|resReq) 
-SkillReq(VantagePlusID, 0, 50, spdReq) 
-SkillReq(SturdyID, RockType|GroundType, 55, defReq) 
-SkillReq(CounterMagicID, PsychicType, 50, magReq) 
-SkillReq(CounterID, FightingType, 50, strReq) 
-SkillReq(RockyHelmetSkillID, RockType|GroundType, 45, defReq) 
+    SkillReq(DazzleID, GhostType, 0, 0) 
+    SkillReq(RenewalID, PsychicType, 50, resReq) // Lavender 
+    SkillReq(MultiscaleID, DragonType|WaterType, 55, defReq|resReq) // Safari Zone 
 SkillReq(AdaptabilityID, NormalType|WaterType|FireType|GrassType|ElectricType, 0, 0) 
-SkillReq(DrySkinID, BugType, 0, 0) 
-SkillReq(ScrappyID, NormalType|FightingType, 0, 0) 
-SkillReq(ScrappyID, BugType, 0, 0) 
-SkillReq(RecklessRockID, RockType, 0, 0) 
-SkillReq(HarvestID, GrassType|BugType, 0, 0) 
-SkillReq(ForewarnID, PsychicType, 0, 0) 
-SkillReq(ShellArmorID, WaterType, 50, defReq) 
-SkillReq(PoisonTouchID, PoisonType, 0, 0) 
-SkillReq(ShedSkinID, BugType, 0, 0) 
-SkillReq(TintedLensID, BugType, 0, 0) 
-SkillReq(SolarPowerID, FireType, 0, 0) 
-SkillReq(ChlorophyllID, GrassType, 0, 0) 
-SkillReq(SteadyBrawlerID, FightingType, 0, 0) 
-SkillReq(RecklessFighterID, FightingType, 0, 0) 
-SkillReq(SniperID, ElectricType, 0, 0) 
+    SkillReq(TintedLensID, BugType, 0, 0) // Safari Zone, Celadon Mart 
+
+// Saffron mart 
+SkillReq(DowngradeID, SteelType|ElectricType, 0, 0) // silph co 
+    SkillReq(GuardBreakerID, PoisonType|IceType, 0, 0) 
+    SkillReq(Intimidate2ID, FightingType|GhostType, 0, 0) 
+SkillReq(SteadyBrawlerID, FightingType, 0, 0) // route 8 
+SkillReq(RecklessFighterID, FightingType, 0, 0) // route 7 
+
+// cinnabar mart  
+    SkillReq(MiracleID, GroundType|RockType|SteelType, 55, defReq|resReq) 
+    SkillReq(CounterMagicID, PsychicType, 50, magReq) 
+    SkillReq(CounterID, FightingType, 50, strReq) 
+    SkillReq(GaleforceID, FlyingType, 60, spdReq) 
+
+// league mart 
+    SkillReq(FuryID, 0, 60, strReq|magReq|spdReq) 
+    SkillReq(SavageBlowID, 0, 55, strReq|magReq) 
+    SkillReq(GrislyWoundID, 0, 55, spdReq) 
+    
+
+
 // SkillReq(CantoPlus, FightingType, 0, 0) 
 // SkillReq(Regenerator , FightingType, 0, 0) 
 // SkillReq(AcidArmor , FightingType, 0, 0) 
 // SkillReq(QuickFeet , FightingType, 0, 0) 
 // SkillReq(Guts , FightingType, 0, 0) 
-
-
-
-
-
-
 
 #include "C_Code.lyn.event" 
 

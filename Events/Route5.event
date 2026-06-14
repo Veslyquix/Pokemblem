@@ -129,7 +129,7 @@ RockSmash(15,3)
 //SkillAccessoryTrap(17,15, ChapterID*2, RockyHelmetSkillID) 
 //SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
 
-SkillScrollTrap(16,24, (ChapterID*2)+1, PerfectionistID) 
+SkillScrollTrap(16,24, (ChapterID*2)+1, VantagePlusID) 
 
 SignBTrap(20,32, ChapterID, 0x0) //no extra text 
 SignATrap(22,0, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 

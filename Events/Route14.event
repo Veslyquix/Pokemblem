@@ -147,6 +147,7 @@ BerryTree(7,42,5)
 
 //SkillScrollTrap(42,16, ChapterID*2, PatienceID)
 SpellScrollTrap(19,8, (ChapterID*2)+1, LeafBlade)
+SkillScrollTrap(10,19, (ChapterID*2), HarvestID)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)
 

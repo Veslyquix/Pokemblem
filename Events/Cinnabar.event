@@ -396,6 +396,10 @@ ShopItems:
 //SHLI 0
 BYTE SkillAccShop(BreathOfLifeID)
 BYTE SkillAccShop(AmaterasuID)
+BYTE SkillScroll MiracleID
+BYTE SkillScroll CounterMagicID
+BYTE SkillScroll CounterID
+BYTE SkillScroll GaleforceID
 BYTE Revive 1 
 BYTE HyperPotion 5 
 BYTE SuperPotion 5 

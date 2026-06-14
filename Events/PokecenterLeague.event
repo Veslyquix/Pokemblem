@@ -46,7 +46,6 @@ ALIGN 4
 ShopItems_A:  // Supplies + StatBoosters 
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI 0
-BYTE SpellScroll Sludge SpellScroll ShadowBall SpellScroll Waterfall
 BYTE Revive 1 
 BYTE SuperRepel 5
 BYTE EscapeRope 5
@@ -62,6 +61,7 @@ ShopItems_B: // TMs CDs
 //BYTE SpellScroll Psychic SpellScroll PetalDance
 //BYTE SpellScroll Screech SpellScroll SwordsDance
 //BYTE SpellScroll BugBuzz SpellScroll CalmMind
+BYTE SpellScroll Sludge SpellScroll ShadowBall SpellScroll Waterfall
 BYTE SpellScroll SolarBeam  SpellScroll SkyAttack
 BYTE SpellScroll HiJumpKick SpellScroll BulkUp
 BYTE SpellScroll ThunderMove SpellScroll HoneClaws
@@ -78,9 +78,20 @@ BYTE $0 0; ALIGN 4
 ALIGN 4
 ShopItems_C: // Skill Scrolls 
 // 2nd store in Viridian? Or at league? 
-BYTE SkillScroll DartingStanceID SkillScroll ChargeID SkillScroll PursuitID
-BYTE SkillScroll WrathID SkillScroll SilentPrideID SkillScroll QuickDrawID 
-BYTE SkillScroll FieryBloodID SkillScroll RenewalID 
+BYTE SkillScroll FuryID
+BYTE SkillScroll SavageBlowID
+BYTE SkillScroll GrislyWoundID
+BYTE SkillScroll PoisonStrikeID
+BYTE SkillScroll MiracleID
+BYTE SkillScroll CounterMagicID
+BYTE SkillScroll CounterID
+BYTE SkillScroll GaleforceID
+BYTE SkillScroll DowngradeID
+BYTE SkillScroll GuardBreakerID
+BYTE SkillScroll Intimidate2ID
+BYTE SkillScroll SteadyBrawlerID
+BYTE SkillScroll RecklessFighterID
+BYTE SkillScroll RenewalID 
 BYTE $0 0; ALIGN 4
 
 

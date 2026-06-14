@@ -1953,7 +1953,7 @@ power have doubled power.[X]
 ## SD_DrySkin
 Dry Skin: Fully heal when hit[N]
 by water. Weak to fire.[N]
-[lock][Bug][X]
+[lock][Bug], [Rock][X]
 
 ## SD_MotorDrive
 Motor Drive: Raise Spd by +10[N]
@@ -2047,12 +2047,12 @@ when attacked at 1-2 range.[N]
 ## SD_Miracle
 Sturdy: Survive a lethal[N]
 attack if HP > 75%.[N]
-[lock][Rock], [Ground], or 55+ Def cap.[X]
+[lock][Rock], [Ground], [Steel], or 55+ Def cap.[X]
 
 ## SD_Vantage_Plus
 Vantage: User always attacks first,[N]
 even if attacked.[N]
-[lock] 50+ Spd cap.[X]
+[lock][Normal], [Flying], or 50+ Spd cap.[X]
 
 
 ## SD_Multiscale
@@ -2113,13 +2113,13 @@ at the start of each turn.[N]
 Poison Strike: Deals damage equal to[N]
 25% of the enemy's current HP after[N]
 battle this unit initiates.[N]
-[lock][Poison], or 45+ Str or Mag cap.[X]
+[lock][Poison], or 50+ Def or Res cap.[X]
 
 ## SD_Grisly_Wound
 Aftermath: Deals damage equal[N]
 to 25% of the enemy's current[N]
 HP after every battle.[N]
-[lock] 50+ Str or Mag cap.[X]
+[lock] 55+ Spd cap.[X]
 
 ## SD_SavageBlow
 Savage Blow: After attacking,[N]

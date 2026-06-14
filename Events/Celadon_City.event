@@ -459,12 +459,19 @@ BYTE $00; ALIGN 4
 
 ALIGN 4
 ShopItems_C: // Skill Scrolls 
-BYTE SkillScroll ReliefID SkillScroll FocusID SkillScroll TantivyID
-BYTE SkillScroll PatienceID SkillScroll ParagonID SkillScroll PrescienceID
-BYTE SkillScroll StrongRiposteID SkillScroll WindDiscipleID SkillScroll ChivalryID
-BYTE SkillScroll PerfectionistID SkillScroll InsightID SkillScroll PragmaticID
-BYTE SkillScroll VigilanceID SkillScroll AnathemaID SkillScroll OpportunistID
-BYTE SkillScroll FierceStanceID
+BYTE SkillScroll ParagonID SkillScroll OpportunistID
+BYTE SkillScroll FierceStanceID SkillScroll ChargeID 
+BYTE SkillScroll LifetakerID SkillScroll DazzleID 
+BYTE SkillScroll RenewalID SkillScroll MultiscaleID 
+BYTE SkillScroll AdaptabilityID SkillScroll TintedLensID 
+BYTE SkillScroll SolarPowerID SkillScroll HarvestID 
+BYTE SkillScroll ChlorophyllID SkillScroll ScrappyID 
+BYTE SkillScroll PoisonTouchID SkillScroll ForewarnID 
+BYTE SkillScroll VantagePlusID SkillScroll RockyHelmetSkillID 
+BYTE SkillScroll RecklessRockID SkillScroll SniperID 
+BYTE SkillScroll ShellArmorID SkillScroll DrySkinID 
+BYTE SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll PoisonStrikeID 
+
 // 16 items 
 BYTE $00; ALIGN 4
 

@@ -317,7 +317,7 @@ CoinsTrap(26,14,(ChapterID*2)+1,600)
 
 RockSmash(9,22)
 RockSmash(10,23)
-SkillScrollTrap(12,5, (ChapterID*2)+1, ReliefID)
+SkillScrollTrap(12,5, (ChapterID*2)+1, PoisonStrikeID)
 SpellScrollTrap(9,29, (ChapterID*2), IcyWind)
 
 StrengthBoulder(5,16)
@@ -501,7 +501,7 @@ ShopItems:
 //BYTE SuperPotion 12
 BYTE JellyDonut 3
 //BYTE $00; ALIGN 4
-BYTE SkillScroll FocusID 
+BYTE SkillScroll PoisonStrikeID 
 BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1

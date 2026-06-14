@@ -380,22 +380,34 @@ TDQ_TableTerminator
 
 ALIGN 4
 ShopItems:
-//SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
-//SHLI 0
 BYTE SkillAccShop(MiracleID)
 BYTE SkillAccShop(CounterMagicID)
 BYTE SkillAccShop(CounterID)
+BYTE SkillScroll DowngradeID
+BYTE SkillScroll GuardBreakerID
+BYTE SkillScroll Intimidate2ID
+BYTE SkillScroll SteadyBrawlerID
+BYTE SkillScroll RecklessFighterID
 BYTE Revive 1 
 BYTE SuperPotion 5 
 BYTE SuperRepel 10
-BYTE SpellScroll Screech SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
+BYTE SpellScroll Screech //SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
 BYTE SpellScroll JumpKick
 BYTE SpellScroll BubbleBeam SpellScroll DrillPeck
 BYTE SpellScroll RockSlide SpellScroll Dragonbreath
-//BYTE SpellScroll HealPulse SpellScroll RockSlide SpellScroll Dragonbreath
 BYTE SpellScroll Psybeam SpellScroll BugBite SpellScroll PoisonJab 
 BYTE SpellScroll LeafBlade // 19 
-//SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
+// BYTE SpellScroll HealPulse SpellScroll RockSlide SpellScroll Dragonbreath
+// BYTE SkillAccShop(DazzleID)
+// BYTE SkillAccShop(RenewalID)
+// BYTE SkillAccShop(DowngradeID)
+// BYTE SkillAccShop(GuardBreakerID)
+// BYTE SkillAccShop(Intimidate2ID)
+// BYTE SkillAccShop(GaleforceID)
+// BYTE SkillAccShop(FuryID)
+// BYTE SkillAccShop(SavageBlowID)
+// BYTE SkillAccShop(GrislyWoundID)
+// BYTE SkillAccShop(PoisonStrikeID)
 //SHLI SuperPotion
 BYTE $00; ALIGN 4
 

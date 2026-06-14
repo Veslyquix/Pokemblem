@@ -108,7 +108,7 @@ SkillAccessoryTrap(15,23, (ChapterID*2)+1, CounterMagicID)
 //SkillAccessoryTrap(37,14, ChapterID*2, DeathBlowID) 
 //SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
 
-SkillScrollTrap(11,41, (ChapterID*2)+1, PursuitID) 
+SkillScrollTrap(11,41, (ChapterID*2)+1, AdaptabilityID) 
 
 SignBTrap(9,3, ChapterID, 0x0) //no extra text 
 SignATrap(12,56, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 

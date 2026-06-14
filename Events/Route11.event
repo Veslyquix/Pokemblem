@@ -118,6 +118,7 @@ RedPokeballTrap(51,2, ChapterID*2, Iron)
 //SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
 
 SpellScrollTrap(39,14, (ChapterID*2), Scorch)
+SkillScrollTrap(19,2, (ChapterID*2)+1, ForewarnID)
 
 
 SkillAccessoryTrap(9,8, (ChapterID*2)+1, GuardBreakerID)

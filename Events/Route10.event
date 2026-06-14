@@ -122,7 +122,7 @@ RedPokeballTrap(17,7, (ChapterID*2)+1, ThunderStone)
 
 //StatAccessoryTrap(14,2, (ChapterID*2)+1, OldWard_BoostIndex)
 //SkillAccessoryTrap(17,15, ChapterID*2, RockyHelmetSkillID) 
-SkillScrollTrap(3,41, ChapterID*2, PragmaticID)
+SkillScrollTrap(3,41, ChapterID*2, PoisonTouchID)
 
 //SkillScrollTrap(27,2, (ChapterID*2)+1, ChivalryID) 
 

@@ -187,7 +187,7 @@ CutBush(9,6)
 //SkillAccessoryTrap(17,20, (ChapterID*2)+1, VantagePlusID) 
 
 //StatAccessoryTrap(14,2, (ChapterID*2)+1, OldWard_BoostIndex)
-SkillScrollTrap(14,2, (ChapterID*2)+1, WindDiscipleID) 
+SkillScrollTrap(14,2, (ChapterID*2)+1, SniperID) 
 TutSign(32,7, ChapterID*2,TrainerTip_MaxPokemon)
 
 

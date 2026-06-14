@@ -127,7 +127,7 @@ CutBush(34,7)
 StatAccessoryTrap(55,8, (ChapterID*2)+1, OldWard_BoostIndex)
 //SkillAccessoryTrap(17,15, ChapterID*2, RockyHelmetSkillID) 
 
-SkillScrollTrap(27,2, (ChapterID*2)+1, ChivalryID) 
+SkillScrollTrap(27,2, (ChapterID*2)+1, RockyHelmetSkillID) 
 
 SignBTrap(41,4, ChapterID, 0x0) //no extra text 
 SignATrap(10,7, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
