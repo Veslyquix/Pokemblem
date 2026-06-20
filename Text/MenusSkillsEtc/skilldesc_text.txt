@@ -2104,6 +2104,11 @@ after defeating an enemy on your phase[N]
 if this was equipped start of turn.[N]
 [lock][Flying], or 60+ Spd cap.[X]
 
+## Acc_Galeforce
+Galeforce: Move again with half power[N]
+after defeating an enemy on your phase[N]
+if this was equipped start of turn.[X]
+
 ## SD_Renewal
 Renewal: Restore 30% of max HP[N]
 at the start of each turn.[N]
