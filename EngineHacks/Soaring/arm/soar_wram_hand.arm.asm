@@ -8,7 +8,7 @@
 	.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
 @ GNU C17 (devkitARM release 56) version 11.1.0 (arm-none-eabi)
 @	compiled by GNU C version 10.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.18-GMP
-
+ 
 @ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 @ options passed: -mcpu=arm7tdmi -marm -mthumb-interwork -mtune=arm7tdmi -mlong-calls -march=armv4t -O2 -fomit-frame-pointer -ffast-math -fno-jump-tables -fno-toplevel-reorder
 	.text
