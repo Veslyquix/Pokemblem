@@ -1,15 +1,15 @@
 src/soar_voxel.o src/soar_voxel.asm: src/soar_voxel.c src/cHacks.h \
  src/libgbafe/gbafe.h src/libgbafe/gba/gba.h src/libgbafe/gba/types.h \
- c:\devkitpro\devkitarm\lib\gcc\arm-none-eabi\11.1.0\include\stdint.h \
- c:\devkitpro\devkitarm\arm-none-eabi\include\stdint.h \
- c:\devkitpro\devkitarm\arm-none-eabi\include\machine\_default_types.h \
- c:\devkitpro\devkitarm\arm-none-eabi\include\sys\features.h \
- c:\devkitpro\devkitarm\arm-none-eabi\include\_newlib_version.h \
- c:\devkitpro\devkitarm\arm-none-eabi\include\sys\_intsup.h \
- c:\devkitpro\devkitarm\arm-none-eabi\include\sys\_stdint.h \
- c:\devkitpro\devkitarm\lib\gcc\arm-none-eabi\11.1.0\include\stddef.h \
- c:\devkitpro\devkitarm\lib\gcc\arm-none-eabi\11.1.0\include\stdbool.h \
- c:\devkitpro\devkitarm\lib\gcc\arm-none-eabi\11.1.0\include\stdnoreturn.h \
+ C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/15.1.0/include/stdint.h \
+ C:/devkitPro/devkitARM/arm-none-eabi/include/stdint.h \
+ C:/devkitPro/devkitARM/arm-none-eabi/include/machine/_default_types.h \
+ C:/devkitPro/devkitARM/arm-none-eabi/include/sys/features.h \
+ C:/devkitPro/devkitARM/arm-none-eabi/include/_newlib_version.h \
+ C:/devkitPro/devkitARM/arm-none-eabi/include/sys/_intsup.h \
+ C:/devkitPro/devkitARM/arm-none-eabi/include/sys/_stdint.h \
+ C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/15.1.0/include/stddef.h \
+ C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/15.1.0/include/stdbool.h \
+ C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/15.1.0/include/stdnoreturn.h \
  src/libgbafe/gba/defines.h src/libgbafe/gba/ioreg.h \
  src/libgbafe/gba/syscall.h src/libgbafe/gba/macro.h \
  src/libgbafe/gbafe/armfunc.h src/libgbafe/gbafe/common.h \
@@ -34,22 +34,22 @@ src/soar_voxel.o src/soar_voxel.asm: src/soar_voxel.c src/cHacks.h \
  src/libgbafe/gbafe/sram.h src/libgbafe/gbafe/save.h \
  src/libgbafe/gbafe/event.h src/libgbafe/gbafe/battle.h \
  src/libgbafe/gbafe/support.h src/libgbafe/gbafe/wm.h \
- src/libgbafe/gbafe/dialogue.h src/libgbafe/gbafe/drawutils.h src/soar.h \
- src/params.h src/hostable.h src/wm_nodes.h
+ src/libgbafe/gbafe/dialogue.h src/libgbafe/gbafe/drawutils.h \
+ src/hostable.h src/soar.h src/params.h src/wm_nodes.h
 src/cHacks.h:
 src/libgbafe/gbafe.h:
 src/libgbafe/gba/gba.h:
 src/libgbafe/gba/types.h:
-c:\devkitpro\devkitarm\lib\gcc\arm-none-eabi\11.1.0\include\stdint.h:
-c:\devkitpro\devkitarm\arm-none-eabi\include\stdint.h:
-c:\devkitpro\devkitarm\arm-none-eabi\include\machine\_default_types.h:
-c:\devkitpro\devkitarm\arm-none-eabi\include\sys\features.h:
-c:\devkitpro\devkitarm\arm-none-eabi\include\_newlib_version.h:
-c:\devkitpro\devkitarm\arm-none-eabi\include\sys\_intsup.h:
-c:\devkitpro\devkitarm\arm-none-eabi\include\sys\_stdint.h:
-c:\devkitpro\devkitarm\lib\gcc\arm-none-eabi\11.1.0\include\stddef.h:
-c:\devkitpro\devkitarm\lib\gcc\arm-none-eabi\11.1.0\include\stdbool.h:
-c:\devkitpro\devkitarm\lib\gcc\arm-none-eabi\11.1.0\include\stdnoreturn.h:
+C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/15.1.0/include/stdint.h:
+C:/devkitPro/devkitARM/arm-none-eabi/include/stdint.h:
+C:/devkitPro/devkitARM/arm-none-eabi/include/machine/_default_types.h:
+C:/devkitPro/devkitARM/arm-none-eabi/include/sys/features.h:
+C:/devkitPro/devkitARM/arm-none-eabi/include/_newlib_version.h:
+C:/devkitPro/devkitARM/arm-none-eabi/include/sys/_intsup.h:
+C:/devkitPro/devkitARM/arm-none-eabi/include/sys/_stdint.h:
+C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/15.1.0/include/stddef.h:
+C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/15.1.0/include/stdbool.h:
+C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/15.1.0/include/stdnoreturn.h:
 src/libgbafe/gba/defines.h:
 src/libgbafe/gba/ioreg.h:
 src/libgbafe/gba/syscall.h:
@@ -100,7 +100,7 @@ src/libgbafe/gbafe/support.h:
 src/libgbafe/gbafe/wm.h:
 src/libgbafe/gbafe/dialogue.h:
 src/libgbafe/gbafe/drawutils.h:
+src/hostable.h:
 src/soar.h:
 src/params.h:
-src/hostable.h:
 src/wm_nodes.h:
