@@ -60,9 +60,9 @@
 #define PowerstaffID 0x2B
 #define ReMoveID 0x2C
 #define SavageBlowID 0x2D
-#define CulturedID 0x2E
-#define GridmasterID 0x2F
-#define AxeFaithID 0x30
+#define AssaultVestID 0x2E
+#define TacticalVestID 0x2F
+#define EvioliteID 0x30
 #define BattleVeteranID 0x32
 #define DuelistsBlowID 0x33
 #define DeathBlowID 0x34
@@ -253,6 +253,9 @@
 #define LilysPoiseID 0xFC
 #define ThickClubSkillID 0xFD
 #define DownWithArchID 0xFF
+#define CulturedID 0xFF
+#define GridmasterID 0xFF
+#define AxeFaithID 0xFF
 #define ResolveID 0xFF
 #define FortressDefenseID 0xFF
 #define FortressResistanceID 0xFF

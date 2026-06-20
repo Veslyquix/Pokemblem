@@ -4,7 +4,7 @@
 #include "_Common.event"
 
 pResistanceModifiers: // Resistance
-	POIN prAddUnitResistance prHalveIfCapturing 
+	POIN prAddUnitResistance AssaultVestEffect EvioliteEffect prHalveIfCapturing 
 	POIN PoisonStatus FreezeStatus AcidArmorEffect
 	POIN prAddEquipResistance
     POIN prDebuffRes  

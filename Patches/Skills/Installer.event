@@ -14,6 +14,15 @@ MultiscaleID_Link:
 WORD MultiscaleID 
 SilphScopeID_Link:
 WORD SilphScopeID 
+AssaultVestID_Link:
+WORD AssaultVestID 
+TacticalVestID_Link:
+WORD TacticalVestID 
+EvioliteID_Link:
+WORD EvioliteID 
+
+EasyModeDmgReductionAmount:
+WORD 50 // 100 - 50 
 
 
 ALIGN 4 

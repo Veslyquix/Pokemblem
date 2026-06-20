@@ -6,6 +6,12 @@ deep waters.[X]
 
 
 
+## SD_AssaultVest
+Assault Vest: +50% Res.[X]
+## SD_TacticalVest
+Tactical Vest: +50% Def.[X]
+## SD_Eviolite
+Eviolite Vest: +50% Def/Res.[X]
 
 
 

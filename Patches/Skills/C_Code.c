@@ -171,6 +171,51 @@ int GetSpellScrollDesc(int itemID)
     return GetItemData(uses)->descTextId;
 }
 
+extern int AssaultVestID_Link;
+int AssaultVestEffect(int stat, struct Unit * unit) // 50% more res
+{
+    if (SkillTester(unit, AssaultVestID_Link))
+    {
+        stat += ((stat + 1) >> 1);
+    }
+    return stat;
+}
+extern int TacticalVestID_Link;
+int TacticalVestEffect(int stat, struct Unit * unit) // 50% more def
+{
+    if (SkillTester(unit, TacticalVestID_Link))
+    {
+        stat += ((stat + 1) >> 1);
+    }
+    return stat;
+}
+extern int EvioliteID_Link;
+
+extern u8 * pPromoJidLut;
+u8 CanUnitPromote(struct Unit * unit)
+{
+    u8 * promoTable = pPromoJidLut;
+    int classNumber = unit->pClassData->number;
+    if ((!promoTable[classNumber * 2]) && (!promoTable[(classNumber * 2) + 1]))
+    {
+        return false;
+    }
+
+    return true;
+}
+
+int EvioliteEffect(int stat, struct Unit * unit) // 50% more def/res if unevolved
+{
+    if (SkillTester(unit, EvioliteID_Link))
+    {
+        if (CanUnitPromote(unit))
+        {
+            stat += ((stat + 1) >> 1);
+        }
+    }
+    return stat;
+}
+
 extern int ChlorophyllID_Link;
 // Bulbasaur line
 int ChlorophyllEffect(int stat, struct Unit * unit) // 50% more speed when outside
@@ -414,6 +459,38 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
             {
                 AdjustDamageByPercent(bunitB, bunitA, 125);
             }
+        }
+    }
+}
+
+// Def/Res Damage Reduction
+void DefResDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        int battleDef = bunitA->battleDefense;
+        if (battleDef > 50)
+        {
+            battleDef = 50;
+        }
+        AdjustDamageByPercent(bunitB, bunitA, 100 - battleDef);
+    }
+}
+
+extern int GetDifficulty(void);
+extern int EasyModeDmgReductionAmount;
+// Def/Res Damage Reduction
+void EasyModeDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (GetDifficulty() == 0)
+    {
+        if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        {
+            if (UNIT_FACTION(&bunitB->unit) == 0)
+            {
+                return;
+            }
+            AdjustDamageByPercent(bunitB, bunitA, 100 - EasyModeDmgReductionAmount);
         }
     }
 }
@@ -1621,6 +1698,13 @@ extern int LickitungID_Link;
 // double debuff or buff
 int AdjustForSimple(int debuffVal, struct Unit * unit)
 {
+    if (debuffVal > 0)
+    {
+        if (SkillTester(unit, TacticalVestID_Link) || SkillTester(unit, AssaultVestID_Link))
+        {
+            return 0;
+        }
+    }
     if (unit->pClassData->number != LickitungID_Link)
     {
         return debuffVal;

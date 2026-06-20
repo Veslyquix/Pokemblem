@@ -24,6 +24,23 @@ Saddle[X]
 Unleash your inner horse.[N]
 Grants Canto+.[X]
 
+
+## AssaultVestName ^
+Assault Vest[X]
+## AssaultVestDesc
++50% Res. Disables boosting moves.[X]
+## TacticalVestName ^
+Tactical Vest[X]
+## TacticalVestDesc
++50% Def. Disables boosting moves.[X]
+## EvioliteName
+Eviolite[X]
+## EvioliteDesc
++50% Def/Res to Pokémon[N]
+that aren't fully evolved.[X]
+
+
+
 ## EscapeRopeName
 Escape Rope[X]
 ## EscapeRopeDesc

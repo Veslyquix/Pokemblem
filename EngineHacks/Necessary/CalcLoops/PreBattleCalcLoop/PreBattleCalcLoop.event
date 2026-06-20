@@ -104,6 +104,8 @@ POIN TypeEffectiveness // also caps moves to deal max 255
 #ifdef ENABLE_DAMAGE_REDUCTION
 	POIN LevelDamageReduction
 #endif 
+POIN DefResDmgReduction 
+POIN EasyModeDmgReduction 
 POIN DoublingDamageModifierFunc // this also occurs on weapons that cannot double if you would be able to otherwise 
 POIN ScaledBackFunc FlankEffect SwarmEffect HustleEffect
 POIN TransformFunction 

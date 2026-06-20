@@ -1338,7 +1338,14 @@ Swift Swim[X]
 ## SN_RockyHelmet
 Rough Skin[X]
 
+## SN_AssaultVest
+Assault Vest[X]
 
+## SN_TacticalVest
+Tactical Vest[X]
+
+## SN_Eviolite
+Eviolite[X]
 
 
 
