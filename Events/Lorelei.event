@@ -1,7 +1,7 @@
 #define ChapterID LoreleiCh
 
 #define WildLvl 5 
-#define TrainerL 55
+#define TrainerL 53
 
 
 
@@ -163,18 +163,18 @@ AutoLevelUnits(TrainerL, True, 0x90EF)
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(LoreleiBonus, False, 0x90EF) // 9 hidden levels regardless of difficulty 
 //AutoLevelUnits(3, False, 0x90EF) 
-CALL GenericAutolevelEvent_Earlygame // Trainers given invisible levels based on difficulty 
+CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
 
-SilentGiveItemWithDurability(RenewalUnitID, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Machoke 
-SilentGiveItemWithDurability(0xA0, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA1, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA2, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA3, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA4, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
+SilentGiveItemWithDurability(RenewalUnitID, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Lapras 
+SilentGiveItemWithDurability(0xA0, StatAccessory, SteelShield_BoostIndex|0x80) // Dewgong 
+SilentGiveSkillAccessory(0xA1, MiracleID) // Jynx 
+// SilentGiveItemWithDurability(0xA2, StatAccessory, WiseGlassesT2_BoostIndex|0x80) 
+SilentGiveSkillAccessory(0xA3, AssaultVestID) // Slowbro 
+SilentGiveSkillAccessory(0xA4, CounterMagicID) // Cloister 
 
 SilentGiveItemWithDurability(RenewalUnitID, MaxPotion,0x1)
 SilentGiveItemWithDurability(0xA0, MaxPotion,0x1)

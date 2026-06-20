@@ -1935,7 +1935,7 @@ Fiery Aura's range.[N]
 [lock][Grass], [Bug][X]
 
 ## SD_Unburden
-Unburden: Speed is doubled[N]
+Unburden: +50% Speed[N]
 without a held item.[X]
 
 ## SD_RecklessRock
@@ -1996,8 +1996,8 @@ Weak Armor: -5 def, +10 spd[N]
 while damaged.[X]
 
 ## SD_StrongClaws
-Strong Claws: Boosts str[N]
-by 1/8th.[X]
+Strong Claws: Boosts Str[N]
+by 20%.[X]
 
 ## SD_Pressure
 Pressure: Opponents counter[N]

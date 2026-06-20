@@ -1,7 +1,7 @@
 #define ChapterID BrunoCh
 
 #define WildLvl 5 
-#define TrainerL 55
+#define TrainerL 53
 
 
 
@@ -138,11 +138,11 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 
 
 SilentGiveItemWithDurability(ScrappyUnitID, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Machoke 
-SilentGiveItemWithDurability(0xA0, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA1, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA2, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA3, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA4, StatAccessory, MuscleBandT2_BoostIndex|0x80)
+// SilentGiveItemWithDurability(0xA0, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // HitmonleeID has unburden, so no item 
+SilentGiveSkillAccessory(0xA1, AssaultVestID) // HitmonchanID 
+SilentGiveSkillAccessory(0xA2, RockyHelmetSkillID) // OnixID 
+SilentGiveSkillAccessory(0xA3, TacticalVestID) // GolemID 
+SilentGiveSkillAccessory(0xA4, CounterID) // KangaskhanID 
 
 SilentGiveItemWithDurability(ScrappyUnitID, MaxPotion,0x1)
 SilentGiveItemWithDurability(0xA0, MaxPotion,0x1)

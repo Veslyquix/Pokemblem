@@ -462,10 +462,28 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
         }
     }
 }
+extern int GetDifficulty(void);
+extern int EasyModeDmgReductionAmount;
+
+int AoeDamageReduction(int dmg, struct Unit * target, int defOrRes)
+{
+
+    if (defOrRes > 50)
+    {
+        defOrRes = 50;
+    }
+
+    // Apply percent with rounding: (x * percent + 50) / 100
+    int adjustedDamage = (dmg * (100 - defOrRes) + 50) / 100;
+    defOrRes >>= 1;
+    adjustedDamage = (adjustedDamage * (100 - defOrRes) + 50) / 100;
+    return adjustedDamage;
+}
 
 // Def/Res Damage Reduction
 void DefResDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
+
     if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
     {
         int battleDef = bunitA->battleDefense;
@@ -473,12 +491,14 @@ void DefResDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
         {
             battleDef = 50;
         }
-        AdjustDamageByPercent(bunitB, bunitA, 100 - battleDef);
+        if (UNIT_FACTION(&bunitB->unit) == 0)
+        {
+            AdjustDamageByPercent(bunitB, bunitA, 100 - battleDef);
+        }
+        AdjustDamageByPercent(bunitB, bunitA, 100 - (battleDef >> 1));
     }
 }
 
-extern int GetDifficulty(void);
-extern int EasyModeDmgReductionAmount;
 // Def/Res Damage Reduction
 void EasyModeDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
@@ -1517,7 +1537,7 @@ int WeakArmorSpdEffect(int stat, struct Unit * unit)
     return stat;
 }
 
-// Unburden: Speed is doubled without a held item.
+// Unburden: +50% Speed without a held item.
 // Hitmonlee
 extern int EquippedAccessoryGetter(struct Unit * unit);
 extern int UnburdenID_Link;
@@ -1530,7 +1550,7 @@ int UnburdenEffect(int stat, struct Unit * unit)
 
         if (!heldItem)
         {
-            stat += stat;
+            stat += stat >> 1;
         }
     }
     return stat;
@@ -1639,14 +1659,14 @@ int AreWeOutdoorsOrDampAura(struct Unit * unit)
     return false;
 }
 
-// Strong Claws: Boosts str by 12.5%.
+// Strong Claws: Boosts str by 20%.
 extern int StrongClawsID_Link;
 // Aerodactyl
 int StrongClawsEffect(int stat, struct Unit * unit)
 {
     if (SkillTester(unit, StrongClawsID_Link))
     {
-        stat += (stat + 3) >> 3;
+        stat = (stat * 5) >> 2;
     }
     return stat;
 }

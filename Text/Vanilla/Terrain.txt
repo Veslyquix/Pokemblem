@@ -34,11 +34,11 @@ are tougher than[N]
 usual.[X]
 
 #0x14B
-For masters of[N]
+For veterans of[N]
 Pokémon and[N]
-Fire Emblem. A tough[N]
-experience even for[N]
-seasoned veterans.[X]
+Fire Emblem. The[N]
+intended gameplay[N]
+experience.[X]
 
 # 0x682
  Enter[X]
