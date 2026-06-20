@@ -94,7 +94,7 @@ POIN 0
 // Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
 ALIGN 4 
 DamageModifierCalcLoop:
-POIN RivalryEffect AnalyticEffect RecklessRockEffect SheerForceEffect 
+POIN GaleforceEffect RivalryEffect AnalyticEffect RecklessRockEffect SheerForceEffect 
 POIN WeaponsThatAlwaysDouble
 POIN WeakChipDmg ScaledUp
 POIN EnemyWeightBonus

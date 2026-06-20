@@ -2099,8 +2099,8 @@ attacking and defeating an enemy.[N]
 [lock][Ghost][X]
 
 ## SD_Galeforce
-Galeforce: Move again after[N]
-attacking and defeating an enemy[N]
+Galeforce: Move again with half power[N]
+after defeating an enemy on your phase[N]
 if this was equipped start of turn.[N]
 [lock][Flying], or 60+ Spd cap.[X]
 

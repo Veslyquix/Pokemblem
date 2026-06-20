@@ -418,6 +418,21 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     }
 }
 
+void GaleforceEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        brk;
+        if (UNIT_FACTION(&bunitB->unit) == GetCurrentPhase())
+        { // player phase galeforce ?
+            if (bunitB->unit.state & US_HAS_MOVED_AI)
+            {
+                AdjustDamageByPercent(bunitB, bunitA, 50);
+            }
+        }
+    }
+}
+
 // Sheer Force: secondary effects cannot happen, but deal 20-30% more damage?
 extern int SheerForceID_Link;
 int DoesUnitHaveSheerForce(struct Unit * unit)
