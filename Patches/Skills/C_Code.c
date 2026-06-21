@@ -514,6 +514,19 @@ void EasyModeDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB
         }
     }
 }
+void GaleforceBitReset(void)
+{
+    struct Unit * unit;
+    for (int i = 0; i < 0xC0; ++i)
+    {
+        unit = GetUnit(i);
+        if (!UNIT_IS_VALID(unit))
+        {
+            continue;
+        }
+        unit->state &= ~(1 << 31);
+    }
+}
 
 void GaleforceEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
