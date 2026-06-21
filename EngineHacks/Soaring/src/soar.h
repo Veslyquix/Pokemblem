@@ -160,7 +160,7 @@ struct SoarProc { //so we can store this info locally.
 	int sPlayerPosX;
 	int sPlayerPosY;
 	int sPlayerPosZ;
-  int sPlayerStepZ;
+    int sPlayerStepZ;
 	int sPlayerYaw;
 	u16* vid_page;
   s8 sunTransition;
@@ -177,6 +177,9 @@ struct SoarProc { //so we can store this info locally.
   int sFocusPtY;
   int location;
   int sunsetVal;
+  s16 coinX;
+  s16 coinY; 
+  s16 coinZ; 
 };
 
 typedef struct Point Point;

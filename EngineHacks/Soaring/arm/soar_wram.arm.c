@@ -79,25 +79,55 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
     ObjInsertSafe(8, 0, 0, (void *)&gObj_8x8,
                   (OAM_ATTR2(FPSBaseTID + FPS_CURRENT, 2, 0xC))); // fps counter
 
-  if (CurrentProc->disableFlare == 0) {
-    // draw lens flare test
-    int flarex = 64;
-    int flarey =
-        80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
-    switch (CurrentProc->sPlayerYaw) {
-    default:
-      break;
-    case a_W:
-      flarex += 32;
-    case a_WSW:
-      flarex += 32;
-    case a_SW:
-      flarex += 32;
-    case a_SSW:
-      ObjInsertSafe(9, flarex, flarey, (void *)&gObj_aff32x32,
-                    OAM_ATTR2(LensFlareBaseTID - 1, 2, 0x3));
+  int coinTest = false;
+  if (!coinTest) {
+    if (CurrentProc->disableFlare == 0) { // draw lens flare test
+
+      int flarex = 64;
+      int flarey =
+          80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+      switch (CurrentProc->sPlayerYaw) {
+      default:
+        break;
+      case a_W:
+        flarex += 32;
+      case a_WSW:
+        flarex += 32;
+      case a_SW:
+        flarex += 32;
+      case a_SSW:
+        ObjInsertSafe(9, flarex, flarey, (void *)&gObj_aff32x32,
+                      OAM_ATTR2(LensFlareBaseTID - 1, 2, 0x3));
+      };
     };
-  };
+  }
+
+  else {
+
+    ObjInsertSafe(8, 176 + (CurrentProc->coinX >> 4),
+                  (CurrentProc->coinY - MAP_YOFS) >> 4, (void *)&gObj_8x8,
+                  OAM_ATTR2(CursorBaseTID, 2, 0xE)); // minimap
+    // apparently we need to use pleftmatrix.dmp to calculate the 16 directions
+    // and whether a coin would be visible or not
+    CurrentProc->coinX = 8 << 4;
+    CurrentProc->coinY = 1;
+    if (CurrentProc->coinX > 260) {
+      CurrentProc->coinX = 0;
+    }
+    if (CurrentProc->coinY > 160) {
+      CurrentProc->coinY = 0;
+    }
+    int dx = CurrentProc->coinX - CurrentProc->sPlayerPosX;
+    int dy = CurrentProc->coinY - CurrentProc->sPlayerPosY;
+
+    if ((dx * dx + dy * dy) < (4 * 64) * (4 * 64)) {
+      int screenX = 120 + (dx >> 6);
+      int screenY = 80 + (dy >> 6);
+
+      ObjInsertSafe(9, screenX, screenY, (void *)&gObj_aff32x32,
+                    OAM_ATTR2(LensFlareBaseTID - 1, 2, 0x3));
+    }
+  }
 
   // check if player is in a zone
   int posX = CurrentProc->sFocusPtX;
@@ -154,8 +184,8 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
 // 	sky = skies[(sunsetVal)>>1]; //multiple skyboxes to transition to sunset
 
 // 	CpuFastCopy((int*)(sky) + (((angle<<5) + (angle<<7)<<4) + (altitude<<1)
-// - 100), CurrentProc->vid_page, (MODE5_WIDTH*MODE5_HEIGHT<<1)); //sky depends
-// on angle and altitude
+// - 100), CurrentProc->vid_page, (MODE5_WIDTH*MODE5_HEIGHT<<1)); //sky
+// depends on angle and altitude
 
 // 	CpuFastFill16(0, yBuffer, (MODE5_HEIGHT)); //clear ybuffer
 
@@ -167,17 +197,19 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
 // 		zdist+=INC_ZSTEP){
 
 // 		Point pleft = getPLeft(posX, posY, angle, zdist); //90deg FOV,
-// left point 		Point pright = getPLeft(posX, posY, tangent, zdist);
+// left point 		Point pright = getPLeft(posX, posY, tangent,
+// zdist);
 // //do the same but with 90 deg clockwise rotation to get right point
 // int dx = (pright.x - pleft.x); //make it fixed point (division by
-// MODE5_HEIGHT is the same as rsh 7) 		int dy = (pright.y - pleft.y);
+// MODE5_HEIGHT is the same as rsh 7) 		int dy = (pright.y -
+// pleft.y);
 // //was 8 and 7 but??? TODO optimise out the division.
 
 // 		for (int i=0; i<(MODE5_HEIGHT); i++)
 // 		{
 // 			Point offsetPoint = {pleft.x+((i*dx)>>7),
-// pleft.y+((i*dy)>>7)}; //TODO: remove the mul and add dx/dy each loop without
-// rounding errors
+// pleft.y+((i*dy)>>7)}; //TODO: remove the mul and add dx/dy each loop
+// without rounding errors
 
 // 			if (yBuffer[i]<MODE5_WIDTH) //don't bother drawing if
 // the screen is filled - tiny speedup?
@@ -187,12 +219,12 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
 // if (height_on_screen == 0) i += 4; //skip ahead a few columns if 0 height
 // because it's probably off the bottom of the screen?
 // else { 					int ylen = height_on_screen -
-// yBuffer[i]; 					if (ylen>0){ //only draw if that
-// line has been higher this screen
+// yBuffer[i]; 					if (ylen>0){ //only draw
+// if that line has been higher this screen
 // 						//only fetch the colour if we're
 // actually drawing! 						u16 clr = 0;
-// //default to shadow 						if (!((zdist ==
-// (SHADOW_DISTANCE)) && ((i < (MODE5_HEIGHT/2)+4) && (i >
+// //default to shadow 						if
+// (!((zdist == (SHADOW_DISTANCE)) && ((i < (MODE5_HEIGHT/2)+4) && (i >
 // (MODE5_HEIGHT/2)-4)))) //conditions for being in shadow
 // 						{
 // 							clr =
@@ -210,8 +242,8 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
 // 							    }
 // 							    else fogclr =
 // fogClrs[sunsetVal>>1];
-// clr = iwram_clr_blend_asm(clr, fogclr, (zdist - (FOG_DISTANCE))>>5); //if in
-// fog
+// clr = iwram_clr_blend_asm(clr, fogclr, (zdist - (FOG_DISTANCE))>>5); //if
+// in fog
 // 							}
 // 						}
 // 					    DrawVerticalLine(i, yBuffer[i],

@@ -89,7 +89,7 @@ void SoarVBlankInterrupt() {
   SyncLoOAM();
   if (gGameState.boolMainLoopEnded) {
     gGameState.boolMainLoopEnded = 0;
-    ExecProc((Proc *)*(int *)(0x2026A70)); // CAREFUL here
+    ExecProc((Proc *)*(int *)(0x2026A70));
     SyncLCDControl();
     SyncBgAndPals();
     SyncRegisteredTiles();
