@@ -1,0 +1,8 @@
+// To uninstall TextChNames hack via febuilder in fe8u, insert ea this file. 
+PUSH 
+ORG $8E7F4
+BYTE $01 $1C $20 $1C $FA $F7 $14 $FF $10 $BC $01 $BC $00 $47
+
+ORG $89624
+BYTE $10 $B5 $04 $1C $0B $1C $84 $20 $40 $00 $83 $42 $00 $D9
+POP 

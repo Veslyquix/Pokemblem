@@ -521,7 +521,7 @@ void GaleforceEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     {
         if (UNIT_FACTION(&bunitB->unit) == GetCurrentPhase())
         { // player phase galeforce ?
-            if (bunitB->unit.state & US_HAS_MOVED_AI)
+            if (bunitB->unit.state & (1 << 31))
             {
                 AdjustDamageByPercent(bunitB, bunitA, 50);
             }
