@@ -490,6 +490,146 @@ void PrepUnit_DrawLeftUnitName(struct Unit * unit)
     DrawDecNumber(TILEMAP_LOCATED(gBG0TilemapBuffer, 11, 3), 2, unit->exp);
     BG_EnableSyncByMask(BG0_SYNC_BIT);
 }
+
+static bool IsUnitInPCBoxBuffer(struct Unit * unit)
+{
+    return ((u32)unit >= (u32)&PCBoxUnitsBuffer[0]) && ((u32)unit < (u32)&PCBoxUnitsBuffer[BoxBufferCapacity]);
+}
+
+// extern struct ProcCmd const ProcScr_PrepUnitScreen[];
+struct Unit * FindNextUnit(struct Unit * u, int direction)
+{
+    int unit_count = PrepGetUnitAmount();
+    int i;
+    int attempts;
+    struct ProcPrepUnit * proc = Proc_Find(ProcScr_PrepUnitScreen);
+    struct Unit * unit;
+
+    if (unit_count <= 1)
+        return u;
+
+    i = proc ? proc->list_num_cur : 0;
+
+    for (attempts = 0; attempts < unit_count; attempts++)
+    {
+        unit = GetUnitFromPrepList(attempts);
+        if (unit == u)
+        {
+            i = attempts;
+            break;
+        }
+    }
+
+    for (attempts = 0; attempts < unit_count; attempts++)
+    {
+        i += direction;
+        if (i < 0)
+            i = unit_count - 1;
+        else if (i >= unit_count)
+            i = 0;
+
+        unit = GetUnitFromPrepList(i);
+
+        if (!UNIT_IS_VALID(unit))
+            continue;
+
+        if (!CanShowUnitStatScreen(unit))
+            continue;
+
+        if (proc)
+            proc->list_num_cur = i;
+
+        return unit;
+    }
+
+    return u;
+}
+
+extern void StartPageSlide(int direction, int page, struct Proc * proc);
+extern void StartUnitSlide(struct Unit * unit, int direction, struct Proc * proc);
+extern void StatScreen_InitDisplay(void);
+extern void StatScreen_Display(void);
+extern void StartStatScreenHelp(int page, struct Proc * proc);
+extern struct StatScreenSt gStatScreen;
+
+static void ChangeStatScreenUnit(struct Unit * unit, int direction, struct Proc * proc)
+{
+    if (IsUnitInPCBoxBuffer(gStatScreen.unit) || IsUnitInPCBoxBuffer(unit))
+    {
+        gStatScreen.unit = unit;
+        StatScreen_InitDisplay();
+        StatScreen_Display();
+        PlaySoundEffect(0x65);
+        return;
+    }
+
+    StartUnitSlide(unit, direction, proc);
+}
+
+void StatScreen_OnIdle(struct Proc* proc)
+{
+    struct Unit* unit;
+
+    if (gKeyStatusPtr->newKeys & B_BUTTON)
+    {
+        gLCDControlBuffer.dispcnt.bg0_on = TRUE;
+        gLCDControlBuffer.dispcnt.bg1_on = FALSE;
+        gLCDControlBuffer.dispcnt.bg2_on = TRUE;
+        gLCDControlBuffer.dispcnt.bg3_on = TRUE;
+        gLCDControlBuffer.dispcnt.obj_on = TRUE;
+
+        SetSpecialColorEffectsParameters(3, 0, 0, 0x10);
+
+        SetBlendTargetA(0, 0, 0, 0, 0);
+        SetBlendBackdropA(1);
+
+        // TODO: ResetBackdropColor macro?
+        gPaletteBuffer[0] = 0;
+        EnablePaletteSync();
+
+        Proc_Break(proc);
+
+        PlaySoundEffect(0x6B);
+    }
+
+    else if (gKeyStatusPtr->repeatedKeys & DPAD_LEFT)
+    {
+        gStatScreen.page = (gStatScreen.page + gStatScreen.pageAmt - 1) % gStatScreen.pageAmt;
+        StartPageSlide(DPAD_LEFT, gStatScreen.page, proc);
+        return;
+    }
+
+    else if (gKeyStatusPtr->repeatedKeys & DPAD_RIGHT)
+    {
+        gStatScreen.page = (gStatScreen.page + gStatScreen.pageAmt + 1) % gStatScreen.pageAmt;
+        StartPageSlide(DPAD_RIGHT, gStatScreen.page, proc);
+    }
+
+    else if (gKeyStatusPtr->repeatedKeys & DPAD_UP)
+    {
+        unit = FindNextUnit(gStatScreen.unit, -1);
+        ChangeStatScreenUnit(unit, -1, proc);
+    }
+
+    else if (gKeyStatusPtr->repeatedKeys & DPAD_DOWN)
+    {
+        unit = FindNextUnit(gStatScreen.unit, +1);
+        ChangeStatScreenUnit(unit, +1, proc);
+    }
+
+    else if ((gKeyStatusPtr->repeatedKeys & A_BUTTON) && (gStatScreen.unit->rescue))
+    {
+        unit = GetUnit(gStatScreen.unit->rescue);
+        ChangeStatScreenUnit(unit, (gStatScreen.unit->state & US_RESCUING) ? +1 : -1, proc);
+    }
+
+    else if (gKeyStatusPtr->newKeys & R_BUTTON)
+    {
+        Proc_Goto(proc, 0); // TODO: label name
+        StartStatScreenHelp(gStatScreen.page, proc);
+    }
+}
+
 /*
 void NewProcPrepUnit_OnGameStart(struct ProcPrepUnit *proc)
 {

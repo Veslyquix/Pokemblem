@@ -1,6 +1,6 @@
 .include "fe8.s" 
 .include "C:/devkitPro/FE-CLib/reference/FE8U-20190316.s"
-
+SET_FUNC SetBlendBackdropA, 0x8001f49 
 SET_DATA classTablePoin, 0x8017AB8 
 SET_DATA unit, 0x2021188
 SET_DATA bunit, 0x2021188
