@@ -185,9 +185,15 @@ void CallDeploySelectedUnits(void)
 {
     DeploySelectedUnits();
 #ifdef POKEMBLEM_VERSION
-    SavePCBox(gPlaySt.gameSaveSlot); // so box units don't need to exist on suspend
-    // ClearPCBoxUnitsBuffer();
-    MS_SaveGame(gPlaySt.gameSaveSlot);
+    /*
+    // 2026 - fixing DeploySelectedUnits to be 62 units in ram to sort instead of PartySizeThreshold fixed stuff I guess
+    // so I don't need we need to forcibly save anymore when leaving prep
+        SavePCBox(gPlaySt.gameSaveSlot); // so box units don't need to exist on suspend
+        // ClearPCBoxUnitsBuffer();
+        MS_SaveGame(gPlaySt.gameSaveSlot);
+        */
+    // Can duplicate a pkmn you're catching by capturing one, then going to a pc center,
+    // not saving but entering prep, then restarting the ch
 #endif
 }
 
@@ -466,6 +472,24 @@ void sub_809B520(struct ProcPrepUnit * proc)
     proc->list_num_cur = list_num;
 }
 
+extern struct TextHandle gPrepUnitTexts[];
+void PrepUnit_DrawLeftUnitName(struct Unit * unit)
+{
+    TileMap_FillRect(TILEMAP_LOCATED(gBG0TilemapBuffer, 5, 3), 6, 1, 0);
+    PutFaceChibi(GetUnitPortraitId(unit), TILEMAP_LOCATED(gBG0TilemapBuffer, 1, 1), 0x270, 2, 0);
+    Text_Clear(&gPrepUnitTexts[0x13]);
+    DrawTextInline(
+        &gPrepUnitTexts[0x13], TILEMAP_LOCATED(gBG0TilemapBuffer, 5, 1), TEXT_COLOR_NORMAL,
+        GetStringTextCenteredPos(0x38, GetStringFromIndex(unit->pClassData->nameTextId)), 0,
+        GetStringFromIndex(unit->pClassData->nameTextId));
+
+    DrawSpecialUiStr(TILEMAP_LOCATED(gBG0TilemapBuffer, 5, 3), 3, 0x24, 0x25);
+    DrawSpecialUiChar(TILEMAP_LOCATED(gBG0TilemapBuffer, 9, 3), 3, 0x1D);
+
+    DrawDecNumber(TILEMAP_LOCATED(gBG0TilemapBuffer, 8, 3), 2, unit->level);
+    DrawDecNumber(TILEMAP_LOCATED(gBG0TilemapBuffer, 11, 3), 2, unit->exp);
+    BG_EnableSyncByMask(BG0_SYNC_BIT);
+}
 /*
 void NewProcPrepUnit_OnGameStart(struct ProcPrepUnit *proc)
 {
@@ -539,23 +563,22 @@ s8 PrepUnit_HandlePressA(struct ProcPrepUnit *proc)
     }
 }
 */
-
-extern struct TextHandle gPrepUnitTexts[];
 /*
 // this uses two text handles for all 14 or whatever
-void PrepUnit_DrawUnitListNames(struct ProcPrepUnit *proc, int line)
+void PrepUnit_DrawUnitListNames(struct ProcPrepUnit * proc, int line)
 {
     int i, color, itext, ilist, _line;
     u32 val;
     struct Unit * unit;
 
-    //It use 14 TextHandles to store 6 line of 12 Units;
+    // It use 14 TextHandles to store 6 line of 12 Units;
 
     i = 0;
     val = line * 2;
     _line = line % 7;
 
-    for (; i < 2; i++) {
+    for (; i < 2; i++)
+    {
         itext = val + i;
 
         if (itext >= PrepGetUnitAmount())
@@ -574,17 +597,13 @@ void PrepUnit_DrawUnitListNames(struct ProcPrepUnit *proc, int line)
         Text_Clear(&gPrepUnitTexts[ilist]);
 
         DrawTextInline(
-            &gPrepUnitTexts[ilist],
-            TILEMAP_LOCATED( gBG2TilemapBuffer, 0x10 + i * 7, val % 0x20),
-            color,
-            0, 0,
-            GetStringFromIndex(unit->pClassData->nameTextId) );
+            &gPrepUnitTexts[ilist], TILEMAP_LOCATED(gBG2TilemapBuffer, 0x10 + i * 7, val % 0x20), color, 0, 0,
+            GetStringFromIndex(unit->pClassData->nameTextId));
     }
 
     BG_EnableSyncByMask(BG2_SYNC_BIT);
 }
 */
-
 /*
 void PrepUpdateMenuTsaScroll(int val)
 {
@@ -674,27 +693,7 @@ void PrepUnit_InitGfx()
 }
 
 
-void PrepUnit_DrawLeftUnitName(struct Unit *unit)
-{
-    TileMap_FillRect(TILEMAP_LOCATED(gBG0TilemapBuffer, 5, 3), 6, 1, 0);
-    PutFaceChibi(GetUnitPortraitId(unit), TILEMAP_LOCATED(gBG0TilemapBuffer, 1, 1), 0x270, 2, 0);
-    Text_Clear(&gPrepUnitTexts[0x13]);
-    DrawTextInline(
-        &gPrepUnitTexts[0x13],
-        TILEMAP_LOCATED(gBG0TilemapBuffer, 5, 1),
-        TEXT_COLOR_NORMAL,
-        GetStringTextCenteredPos(0x38, GetStringFromIndex(unit->pClassData->nameTextId)),
-        0,
-        GetStringFromIndex(unit->pClassData->nameTextId)
-    );
 
-    DrawSpecialUiStr(TILEMAP_LOCATED(gBG0TilemapBuffer, 5, 3), 3, 0x24, 0x25);
-    DrawSpecialUiChar(TILEMAP_LOCATED(gBG0TilemapBuffer, 9, 3), 3, 0x1D);
-
-    DrawDecNumber(TILEMAP_LOCATED(gBG0TilemapBuffer, 8, 3), 2, unit->level);
-    DrawDecNumber(TILEMAP_LOCATED(gBG0TilemapBuffer, 11, 3), 2, unit->exp);
-    BG_EnableSyncByMask(BG0_SYNC_BIT);
-}
 
 
 void PrepUnit_DrawUnitItems(struct Unit *unit)
