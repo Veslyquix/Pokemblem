@@ -282,11 +282,11 @@ void DeploySelectedUnits()
 
     int c = CountTotalUnitsInUnitStructRam();
 
-    for (int i = 0; i < PartySizeThreshold + 1; i++)
+    for (int i = 0; i < 62; i++)
     { // move units that were undeployed back into unit struct ram until it's full. Then into PC box
         if ((unit[i].pCharacterData))
         {
-            if (c < PartySizeThreshold + 1)
+            if (c < PartySizeThreshold)
             {
                 deploymentID = GetFreeDeploymentID();
                 newUnit = &gUnitArrayBlue[deploymentID];
