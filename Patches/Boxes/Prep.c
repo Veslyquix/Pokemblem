@@ -181,6 +181,9 @@ void SavePCBox(int targetSlot)
 }
 
 extern void MS_SaveGame(unsigned slot);
+extern struct StatScreenSt gStatScreen;
+static int GetPrepListIndexByUnit(struct Unit * unit);
+
 void CallDeploySelectedUnits(void)
 {
     DeploySelectedUnits();
@@ -467,7 +470,11 @@ void sub_809B520(struct ProcPrepUnit * proc)
     int list_num;
     MakePrepUnitList();
 
-    list_num = GetLatestUnitIndexInPrepListByUId();
+    list_num = GetPrepListIndexByUnit(gStatScreen.unit);
+
+    if (list_num < 0)
+        list_num = GetLatestUnitIndexInPrepListByUId();
+
     proc->list_num_pre = list_num;
     proc->list_num_cur = list_num;
 }
@@ -496,6 +503,20 @@ static bool IsUnitInPCBoxBuffer(struct Unit * unit)
     return ((u32)unit >= (u32)&PCBoxUnitsBuffer[0]) && ((u32)unit < (u32)&PCBoxUnitsBuffer[BoxBufferCapacity]);
 }
 
+static int GetPrepListIndexByUnit(struct Unit * unit)
+{
+    int i;
+    int count = PrepGetUnitAmount();
+
+    for (i = 0; i < count; i++)
+    {
+        if (GetUnitFromPrepList(i) == unit)
+            return i;
+    }
+
+    return -1;
+}
+
 // extern struct ProcCmd const ProcScr_PrepUnitScreen[];
 struct Unit * FindNextUnit(struct Unit * u, int direction)
 {
@@ -510,15 +531,9 @@ struct Unit * FindNextUnit(struct Unit * u, int direction)
 
     i = proc ? proc->list_num_cur : 0;
 
-    for (attempts = 0; attempts < unit_count; attempts++)
-    {
-        unit = GetUnitFromPrepList(attempts);
-        if (unit == u)
-        {
-            i = attempts;
-            break;
-        }
-    }
+    attempts = GetPrepListIndexByUnit(u);
+    if (attempts >= 0)
+        i = attempts;
 
     for (attempts = 0; attempts < unit_count; attempts++)
     {
@@ -547,28 +562,87 @@ struct Unit * FindNextUnit(struct Unit * u, int direction)
 
 extern void StartPageSlide(int direction, int page, struct Proc * proc);
 extern void StartUnitSlide(struct Unit * unit, int direction, struct Proc * proc);
+extern void UnitSlide_InitFadeOut(struct Proc * proc);
+extern void UnitSlide_FadeOutLoop(struct Proc * proc);
+extern void UnitSlide_InitFadeIn(struct Proc * proc);
+extern void UnitSlide_FadeInLoop(struct Proc * proc);
+extern void ClearSlide(struct Proc * proc);
 extern void StatScreen_InitDisplay(void);
 extern void StatScreen_Display(void);
 extern void StartStatScreenHelp(int page, struct Proc * proc);
 extern struct StatScreenSt gStatScreen;
 
+extern struct ProcCmd gProcScr_SSUnitSlide[];
+
+struct StatScreenEffectProc
+{
+    PROC_HEADER;
+
+    /* 2C */ int timer;
+    /* 30 */ int timerMax;
+    /* 34 */ int newItem;
+    /* 38 */ int key;
+};
+
+void UnitSlide_SetNewPrepUnit(struct StatScreenEffectProc * proc)
+{
+    gStatScreen.unit = (struct Unit *)proc->newItem;
+    StatScreen_Display();
+}
+extern void StartGlowBlendCtrl(void);
+extern void EndGlowBlendCtrl(struct StatScreenEffectProc * proc);
+static const struct ProcCmd ProcScr_PrepUnitSlide[] = {
+    PROC_CALL(EndGlowBlendCtrl),
+    PROC_SLEEP(0),
+    PROC_CALL(UnitSlide_InitFadeOut),
+    PROC_REPEAT(UnitSlide_FadeOutLoop),
+
+    PROC_CALL(UnitSlide_SetNewPrepUnit),
+    PROC_CALL(UnitSlide_InitFadeIn),
+    PROC_REPEAT(UnitSlide_FadeInLoop),
+    PROC_SLEEP(0),
+    PROC_CALL(StartGlowBlendCtrl),
+    PROC_CALL(ClearSlide),
+
+    PROC_END,
+};
+
+void StartPrepUnitSlide(struct Unit * unit, int direction, struct Proc * parent)
+{
+    struct StatScreenEffectProc * proc;
+
+    if (Proc_Find(gProcScr_SSUnitSlide) || Proc_Find(ProcScr_PrepUnitSlide))
+        return;
+
+    PlaySoundEffect(0x65);
+
+    proc = (void *)Proc_StartBlocking(ProcScr_PrepUnitSlide, parent);
+
+    proc->timer = 0;
+    proc->timerMax = 12;
+    proc->newItem = (int)unit;
+    proc->key = direction;
+
+    gStatScreen.help = NULL;
+    gStatScreen.inTransition = TRUE;
+
+    // EndGlowBlendCtrl((void *)parent);
+}
+
 static void ChangeStatScreenUnit(struct Unit * unit, int direction, struct Proc * proc)
 {
     if (IsUnitInPCBoxBuffer(gStatScreen.unit) || IsUnitInPCBoxBuffer(unit))
     {
-        gStatScreen.unit = unit;
-        StatScreen_InitDisplay();
-        StatScreen_Display();
-        PlaySoundEffect(0x65);
+        StartPrepUnitSlide(unit, direction, proc);
         return;
     }
 
     StartUnitSlide(unit, direction, proc);
 }
 
-void StatScreen_OnIdle(struct Proc* proc)
+void StatScreen_OnIdle(struct Proc * proc)
 {
-    struct Unit* unit;
+    struct Unit * unit;
 
     if (gKeyStatusPtr->newKeys & B_BUTTON)
     {
