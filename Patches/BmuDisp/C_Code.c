@@ -65,7 +65,7 @@ static u8 * GetSMSGfxBuffer(int frame)
     }
 }
 
-static int GetSMSObjChr(int chr)
+int GetSMSObjChr(int chr)
 {
     if (chr >= SMS_OBJ_CHR_REMAP_THRESHOLD)
         return chr + SMS_OBJ_CHR_REMAP_OFFSET;
@@ -557,6 +557,50 @@ int UseUnitSprite2(u32 id)
 }
 // commented here
 */
+/*
+static void EnsureSMS32xGfxCounterHasRoom(int slotCount)
+{
+    if (gSMS32xGfxIndexCounter > SMS_16X16_GFX_SLOT_COUNT - slotCount)
+        gSMS32xGfxIndexCounter = 0;
+}
+
+int UseUnitSprite(u32 id)
+{
+    if (sUnitSpriteSlots[id] == 0xFF)
+    {
+        Decompress(GetInfo(id).sheet, UnitSpriteUnpackBuf2);
+        // brk;
+
+        switch (GetInfo(id).size)
+        {
+            case UNIT_ICON_SIZE_16x16:
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
+                gSMS16xGfxIndexCounter -= 1;
+                break;
+
+            case UNIT_ICON_SIZE_16x32:
+
+                EnsureSMS32xGfxCounterHasRoom(SMS_16X32_GFX_SLOT_STRIDE);
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
+                gSMS32xGfxIndexCounter += SMS_16X32_GFX_SLOT_STRIDE;
+                break;
+
+            case UNIT_ICON_SIZE_32x32:
+                if ((gSMS32xGfxIndexCounter & 0x1E) == 0x1E)
+                    gSMS32xGfxIndexCounter += SMS_16X32_GFX_SLOT_STRIDE;
+
+                EnsureSMS32xGfxCounterHasRoom(SMS_32X32_GFX_SLOT_STRIDE);
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
+                gSMS32xGfxIndexCounter += SMS_32X32_GFX_SLOT_STRIDE;
+                break;
+        }
+
+        gSMSSyncFlag++;
+    }
+
+    return GetSMSObjChr(sUnitSpriteSlots[id] << 1);
+}
+*/
 int ApplyUnitSpriteImage16x16(int slot, u32 id)
 {
     int i;
@@ -574,7 +618,7 @@ int ApplyUnitSpriteImage16x16(int slot, u32 id)
             UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return GetSMSObjChr(sSlotToChrLut2[slot]);
+    return sSlotToChrLut2[slot];
 }
 
 int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
@@ -597,7 +641,7 @@ int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
             UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return GetSMSObjChr(sSlotToChrLut2[slot]);
+    return sSlotToChrLut2[slot];
 }
 
 int ApplyUnitSpriteImage16x32(int slot, u32 id)
@@ -624,7 +668,7 @@ int ApplyUnitSpriteImage16x32(int slot, u32 id)
             UnitSpriteUnpackBuf2 + 6 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return GetSMSObjChr(sSlotToChrLut2[slot]);
+    return sSlotToChrLut2[slot];
 }
 
 int ApplyUnitSpriteImage32x32(int slot, u32 id)
@@ -651,7 +695,7 @@ int ApplyUnitSpriteImage32x32(int slot, u32 id)
             UnitSpriteUnpackBuf2 + 12 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
     }
-    return GetSMSObjChr(sSlotToChrLut2[slot]);
+    return sSlotToChrLut2[slot];
 }
 
 void TornOutUnitSprite(struct Unit * unit, int timer)

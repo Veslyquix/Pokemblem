@@ -21,4 +21,4 @@ SET_FUNC Mod, __modsi3
 SET_DATA classTablePoin, 0x8017AB8 
 SET_DATA gUnitSpriteSlots, 0x201F148
 @SET_DATA gUnitSpriteSlots, 0x2033f40 @ normally this 
-
+SET_DATA sUnitSpriteSlots, 0x80266B8

@@ -139,7 +139,13 @@ extern UnitIconWait unit_icon_wait_table[];
 #define LVFACELEFT 2 // -> became 0 when calling HookUnitLoadForDirection
 #define LVFACEUP 3
 
-//
+#define SMS_VRAM_TILE_ROWS 16
+#define SMS_GFX_BUFFER_SIZE (SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE)
+#define SMS_GFX_BUFFER_SPLIT_SIZE (SMS_GFX_BUFFER_SIZE / 2)
+#define SMS_OBJ_VRAM_LOWER ((u8 *)0x06011000)
+#define SMS_OBJ_VRAM_UPPER ((u8 *)0x06015000)
+#define SMS_OBJ_CHR_REMAP_THRESHOLD (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
+#define SMS_OBJ_CHR_REMAP_OFFSET (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
 
 // first turn / after resume on first turn, all sprites face down fsr
 // up works
@@ -154,10 +160,17 @@ int GetUnitSMSAndDir(struct Unit * unit)
 
     return FMU_GetUnitSMSId(unit) | (dir << 8);
 };
-
+extern u8 * const sUnitSpriteSlots;
 extern u8 gUnitSpriteSlots[0xFF];
 extern int gSMS16xGfxIndexCounter;
 extern int gSMS32xGfxIndexCounter;
+int GetSMSObjChr(int chr)
+{
+    if (chr >= SMS_OBJ_CHR_REMAP_THRESHOLD)
+        return chr + SMS_OBJ_CHR_REMAP_OFFSET;
+
+    return chr;
+}
 int UseUnitSprite(u32 id)
 {
     int dir = (id & 0xFF00) >> 8;
@@ -231,7 +244,8 @@ int UseUnitSprite(u32 id)
     }
     // asm("mov r11, r11");
     __asm__("mov r2, %[val]\n" : : [val] "r"(id) : "r2");
-    return gUnitSpriteSlots[id] << 1;
+    return GetSMSObjChr(sUnitSpriteSlots[id] << 1);
+    // return gUnitSpriteSlots[id] << 1;
 }
 
 /*
