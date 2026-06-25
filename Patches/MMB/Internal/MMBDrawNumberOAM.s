@@ -25,7 +25,7 @@ MMBDrawNumberOAM:
 	@ 0-9 in r2 is the number
 	@ 0x0A in r2 is a dash
 
-	ldr		r3, =0x82E0 @ Number base tile
+	ldr		r3, =MMBNumberOAMBaseTile @ Number base tile
 
 	add		r3, r2, r3
 

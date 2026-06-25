@@ -25,6 +25,11 @@
 	.set ItemIconPalette,		0x085996F4
 	.set AffinityWRankPalette,	0x08599714
 
+@ OBJ tile allocation
+
+	.set MMBNumberBaseTile,		0x180 @ also change in MMBCore.event 
+	.set MMBNumberOAMBaseTile,	0x8000 + MMBNumberBaseTile
+
 @ Proc State
 
 	.set NameTextStructStart,	0x2C + 0x00
