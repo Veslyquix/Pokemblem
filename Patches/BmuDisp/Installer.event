@@ -7,6 +7,9 @@ ORG FreeSpace
 
 
 #include "C_Code.lyn.event" 
+#include "../QoL_Testing.event" 
+#include "../../../ASM/Debugger/Installer.event" 
+
 
 PUSH 
 // ORG $1390A38
