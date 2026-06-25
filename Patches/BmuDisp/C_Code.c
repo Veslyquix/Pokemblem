@@ -470,6 +470,7 @@ void ResetUnitSpritesB(void)
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 /*
+// commented here
 int StartUiSMS(int smsId, int frameId)
 {
     int slot = NewgSomeSMSLookupTable_859B66C[frameId];
@@ -521,7 +522,7 @@ static void EnsureSMS32xGfxCounterHasRoom(int slotCount)
         gSMS32xGfxIndexCounter = 0;
 }
 
-int UseUnitSprite(u32 id)
+int UseUnitSprite2(u32 id)
 {
     if (sUnitSpriteSlots[id] == 0xFF)
     {
@@ -554,6 +555,7 @@ int UseUnitSprite(u32 id)
     }
     return sUnitSpriteSlots[id] << 1;
 }
+// commented here
 */
 int ApplyUnitSpriteImage16x16(int slot, u32 id)
 {
@@ -789,16 +791,16 @@ void SyncUnitSpriteSheet(void)
 {
     int frame = GetGameClock() % 72;
 
-    if (frame < 31)
+    if (frame == 0)
         CopySMSGfxBufferToObjVram(0);
 
-    if (frame < 35)
+    if (frame == 32)
         CopySMSGfxBufferToObjVram(1);
 
-    if (frame < 67)
+    if (frame == 36)
         CopySMSGfxBufferToObjVram(2);
 
-    if (frame >= 67)
+    if (frame == 68)
         CopySMSGfxBufferToObjVram(1);
 }
 
