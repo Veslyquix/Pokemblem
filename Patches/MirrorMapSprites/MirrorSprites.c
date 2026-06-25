@@ -243,8 +243,10 @@ int UseUnitSprite(u32 id)
         gSMSSyncFlag++;
     }
     // asm("mov r11, r11");
+
+    int result = GetSMSObjChr(sUnitSpriteSlots[id] << 1);
     __asm__("mov r2, %[val]\n" : : [val] "r"(id) : "r2");
-    return GetSMSObjChr(sUnitSpriteSlots[id] << 1);
+    return result;
     // return gUnitSpriteSlots[id] << 1;
 }
 
