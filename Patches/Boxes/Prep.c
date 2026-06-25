@@ -516,48 +516,97 @@ static int GetPrepListIndexByUnit(struct Unit * unit)
 
     return -1;
 }
+struct StatScreenInfo
+{
+    /* 00 */ u8 unk00;
+    /* 01 */ u8 unitId;
+    /* 02 */ u16 config;
+};
 
+// extern int IsUnitStatusScreenForbidden(struct Unit * unit);
+extern struct StatScreenInfo sStatScreenInfo;
+int IsStatusScreenDisabled(struct Unit * unit)
+{
+    if (!UNIT_IS_VALID(unit))
+        return true;
+
+    if ((sStatScreenInfo.config & STATSCREEN_CONFIG_NONDEAD) && (unit->state & US_DEAD))
+        return true;
+
+    if ((sStatScreenInfo.config & STATSCREEN_CONFIG_NONBENCHED) && (unit->state & US_NOT_DEPLOYED))
+        return true;
+
+    if ((sStatScreenInfo.config & STATSCREEN_CONFIG_NONUNK9) && (unit->state & US_BIT9))
+        return true;
+
+    if ((sStatScreenInfo.config & STATSCREEN_CONFIG_NONROOFED) && (unit->state & US_UNDER_A_ROOF))
+        return true;
+
+    if ((sStatScreenInfo.config & STATSCREEN_CONFIG_NONUNK16) && (unit->state & US_BIT16))
+        return true;
+
+    if ((sStatScreenInfo.config & STATSCREEN_CONFIG_NONSUPPLY) && (UNIT_CATTRIBUTES(unit) & CA_SUPPLY))
+        return true;
+
+    if (!CanShowUnitStatScreen(unit))
+        return true;
+
+    return false;
+}
 // extern struct ProcCmd const ProcScr_PrepUnitScreen[];
 struct Unit * FindNextUnit(struct Unit * u, int direction)
 {
-    int unit_count = PrepGetUnitAmount();
-    int i;
-    int attempts;
-    struct ProcPrepUnit * proc = Proc_Find(ProcScr_PrepUnitScreen);
+    struct ProcAtMenu * proc = Proc_Find(ProcScr_AtMenu);
     struct Unit * unit;
 
-    if (unit_count <= 1)
-        return u;
-
-    i = proc ? proc->list_num_cur : 0;
-
-    attempts = GetPrepListIndexByUnit(u);
-    if (attempts >= 0)
-        i = attempts;
-
-    for (attempts = 0; attempts < unit_count; attempts++)
+    if (!proc)
     {
-        i += direction;
-        if (i < 0)
-            i = unit_count - 1;
-        else if (i >= unit_count)
-            i = 0;
+        int i = u->index;
 
-        unit = GetUnitFromPrepList(i);
+        while (TRUE)
+        {
+            i = (i + direction) & 0x3F;
+            unit = GetUnit(i);
+            if (IsStatusScreenDisabled(unit))
+                continue;
 
-        if (!UNIT_IS_VALID(unit))
-            continue;
-
-        if (!CanShowUnitStatScreen(unit))
-            continue;
-
-        if (proc)
-            proc->list_num_cur = i;
-
-        return unit;
+            return unit;
+        }
     }
 
-    return u;
+    {
+        int unit_count = PrepGetUnitAmount();
+        int i;
+        int attempts;
+
+        if (unit_count <= 1)
+            return u;
+
+        i = proc->hand_pos;
+
+        attempts = GetPrepListIndexByUnit(u);
+        if (attempts >= 0)
+            i = attempts;
+
+        for (attempts = 0; attempts < unit_count; attempts++)
+        {
+            i += direction;
+            if (i < 0)
+                i = unit_count - 1;
+            else if (i >= unit_count)
+                i = 0;
+
+            unit = GetUnitFromPrepList(i);
+
+            if (IsStatusScreenDisabled(unit))
+                continue;
+
+            proc->hand_pos = i;
+            return unit;
+        }
+
+        return u;
+    }
 }
 
 extern void StartPageSlide(int direction, int page, struct Proc * proc);
