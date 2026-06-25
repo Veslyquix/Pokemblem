@@ -1448,7 +1448,26 @@ int SMSToMUDir(int dir)
     }
     return MU_FACING_DOWN;
 }
+extern u8 * const gSMSGfxBuffer1;
+extern u8 * const gSMSGfxBuffer2;
+extern u8 * const gSMSGfxBuffer3;
+#define SMS_VRAM_TILE_ROWS 16
+#define SMS_GFX_BUFFER_SIZE (SMS_VRAM_TILE_ROWS * 0x20 * 0x20)
 
+static u8 * GetSMSGfxBuffer(int frame)
+{
+    switch (frame)
+    {
+        case 0:
+            return gSMSGfxBuffer1;
+
+        case 1:
+            return gSMSGfxBuffer2;
+
+        default:
+            return gSMSGfxBuffer3;
+    }
+}
 // u8 EWRAM_DATA gSMSGfxBuffer[3][8*0x20*0x20] = {};
 void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 {
@@ -1522,22 +1541,22 @@ void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 
     // src, dst, width, height
     CopyTileGfxForObj(
-        (void *)gGenericBuffer2 + srcOffs[0], (void *)gSMSGfxBuffer_Frame1 + (tileIndex << 5), width >> 3, height >> 3);
+        (void *)gGenericBuffer2 + srcOffs[0], (void *)GetSMSGfxBuffer(0) + (tileIndex << 5), width >> 3, height >> 3);
     CopyTileGfxForObj(
-        (void *)gGenericBuffer2 + srcOffs[1], (void *)gSMSGfxBuffer_Frame2 + (tileIndex << 5), width >> 3, height >> 3);
+        (void *)gGenericBuffer2 + srcOffs[1], (void *)GetSMSGfxBuffer(1) + (tileIndex << 5), width >> 3, height >> 3);
     CopyTileGfxForObj(
-        (void *)gGenericBuffer2 + srcOffs[2], (void *)gSMSGfxBuffer_Frame3 + (tileIndex << 5), width >> 3, height >> 3);
+        (void *)gGenericBuffer2 + srcOffs[2], (void *)GetSMSGfxBuffer(2) + (tileIndex << 5), width >> 3, height >> 3);
 
     // Overwrite VRAM with new SMS next frame. Timings taken from 0x8026F2C,
     // SyncUnitSpriteSheet.
     if (frame < 31)
-        RegisterTileGraphics(gSMSGfxBuffer_Frame1, (void *)0x06011000, sizeof(gSMSGfxBuffer_Frame1));
+        RegisterTileGraphics(GetSMSGfxBuffer(0), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
     else if (frame < 35)
-        RegisterTileGraphics(gSMSGfxBuffer_Frame2, (void *)0x06011000, sizeof(gSMSGfxBuffer_Frame2));
+        RegisterTileGraphics(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
     else if (frame < 67)
-        RegisterTileGraphics(gSMSGfxBuffer_Frame3, (void *)0x06011000, sizeof(gSMSGfxBuffer_Frame3));
+        RegisterTileGraphics(GetSMSGfxBuffer(2), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
     else
-        RegisterTileGraphics(gSMSGfxBuffer_Frame2, (void *)0x06011000, sizeof(gSMSGfxBuffer_Frame2));
+        RegisterTileGraphics(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
     return;
 }
 

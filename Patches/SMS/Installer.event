@@ -4,14 +4,10 @@
 //02036010 gSMSGfxBuffer_Frame2
 //02038010 gSMSGfxBuffer_Frame3
 
-#define SMS_Buffer_Size 0x2000 
 
-//#define SMS_Frame1_Buffer 0x2020188 // battle anim buffer 
-//#define SMS_Frame1_Buffer 0x203EFB8
-#define SMS_Frame1_Buffer 0x203AAA4 // link arena 
-//#define SMS_Frame1_Buffer 0x2034010
-#define SMS_Frame2_Buffer SMS_Frame1_Buffer+SMS_Buffer_Size
-#define SMS_Frame3_Buffer SMS_Frame2_Buffer+SMS_Buffer_Size 
+#define SMS_Frame1_Buffer 0x2008000 
+#define SMS_Frame2_Buffer 0x20165c8
+#define SMS_Frame3_Buffer 0x2034010
 
 
 PUSH 

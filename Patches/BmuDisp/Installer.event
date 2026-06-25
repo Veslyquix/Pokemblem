@@ -11,9 +11,3 @@ ORG FreeSpace
 #include "../../../ASM/Debugger/Installer.event" 
 
 
-PUSH 
-// ORG $1390A38
-ORG $8af880
-NewStandingMapSpriteTable:
-POP 
-

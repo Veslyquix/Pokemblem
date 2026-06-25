@@ -1,6 +1,8 @@
 
 .include "C:/devkitPro/FE-CLib/reference/FE8U-20190316.s"
-
+SET_DATA gSMSGfxBuffer1, 0x8026958
+SET_DATA gSMSGfxBuffer2, 0x8026F8C
+SET_DATA gSMSGfxBuffer3, 0x8026F90
 SET_FUNC SetMuDefaultFacing, 0x80786bd
 SET_FUNC MenuFrozenHelpBox, 0x804F581
 SET_FUNC VisitCommandEffect, 0x80230C1

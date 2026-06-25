@@ -26,16 +26,14 @@ SET_FUNC Div, __aeabi_uidivmod
 
 // #define UNITSPRITE_MAX_NEW 0xFF
 #define UNITSPRITE_MAX_NEW 0xD0
-extern UnitIconWait NewStandingMapSpriteTable[];
+extern UnitIconWait * const sStandingMapSpriteTable;
 int __umodsi3(int a, int b);
 extern u8 EWRAM_DATA NewgSMSGfxIndexLookup[0xFF];
 /**
  * Display standing map sprites and various tile/unit markers
  */
 
-extern UnitIconWait unit_icon_wait_table[];
-
-extern u8 EWRAM_DATA gUnitSpriteSlots[0xD0];
+extern u8 * const sUnitSpriteSlots;
 
 #define SMS_VRAM_TILE_ROWS 16
 #define SMS_GFX_BUFFER_SIZE (SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE)
@@ -43,18 +41,24 @@ extern u8 EWRAM_DATA gUnitSpriteSlots[0xD0];
 #define SMS_16X32_GFX_SLOT_STRIDE 2
 #define SMS_32X32_GFX_SLOT_STRIDE 4
 
-// 0x4000 bytes each
-extern u8 gSMSGfxBuffer1[SMS_GFX_BUFFER_SIZE];
-extern u8 gSMSGfxBuffer2[SMS_GFX_BUFFER_SIZE];
-extern u8 gSMSGfxBuffer3[SMS_GFX_BUFFER_SIZE];
+extern u8 * const gSMSGfxBuffer1;
+extern u8 * const gSMSGfxBuffer2;
+extern u8 * const gSMSGfxBuffer3;
 
-static u8 * const sSMSGfxBuffer[3] = {
-    gSMSGfxBuffer1,
-    gSMSGfxBuffer2,
-    gSMSGfxBuffer3,
-};
+static u8 * GetSMSGfxBuffer(int frame)
+{
+    switch (frame)
+    {
+        case 0:
+            return gSMSGfxBuffer1;
 
-#define gSMSGfxBuffer sSMSGfxBuffer
+        case 1:
+            return gSMSGfxBuffer2;
+
+        default:
+            return gSMSGfxBuffer3;
+    }
+}
 
 extern int EWRAM_DATA gSMS16xGfxIndexCounter;
 extern int EWRAM_DATA gSMS32xGfxIndexCounter;
@@ -361,7 +365,7 @@ u16 const sSprite_32x32_Window2[] = {
     0x0000,
 };
 
-#define GetInfo(id) (unit_icon_wait_table[(id)])
+#define GetInfo(id) (sStandingMapSpriteTable[(id)])
 // #define GetInfo(id) (unit_icon_wait_table[(id) & ((1 << 7) - 1)])
 
 /*
@@ -404,7 +408,7 @@ void ResetUnitSprites(void)
 {
     int i;
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
-        gUnitSpriteSlots[i] |= 0xFF;
+        sUnitSpriteSlots[i] |= 0xFF;
 
     gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
@@ -415,7 +419,7 @@ void ResetUnitSpritesB(void)
     int i;
 
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
-        gUnitSpriteSlots[i] |= 0xFF;
+        sUnitSpriteSlots[i] |= 0xFF;
 
     gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
@@ -429,19 +433,19 @@ int StartUiSMS(int smsId, int frameId)
     switch (GetInfo(smsId).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
+            sUnitSpriteSlots[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_16x32:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
+            sUnitSpriteSlots[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
+            sUnitSpriteSlots[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
             break;
     }
 
-    return gUnitSpriteSlots[frameId] << 1;
+    return sUnitSpriteSlots[frameId] << 1;
 }
 
 int StartWorldMapSMS(int smsId, int frameId, int slot)
@@ -451,19 +455,19 @@ int StartWorldMapSMS(int smsId, int frameId, int slot)
     switch (GetInfo(smsId).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
+            sUnitSpriteSlots[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_16x32:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
+            sUnitSpriteSlots[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
+            sUnitSpriteSlots[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
             break;
     }
 
-    return gUnitSpriteSlots[frameId] << 1;
+    return sUnitSpriteSlots[frameId] << 1;
 }
 
 static void EnsureSMS32xGfxCounterHasRoom(int slotCount)
@@ -474,20 +478,20 @@ static void EnsureSMS32xGfxCounterHasRoom(int slotCount)
 
 int UseUnitSprite(u32 id)
 {
-    if (gUnitSpriteSlots[id] == 0xFF)
+    if (sUnitSpriteSlots[id] == 0xFF)
     {
         Decompress(GetInfo(id).sheet, UnitSpriteUnpackBuf2);
 
         switch (GetInfo(id).size)
         {
             case UNIT_ICON_SIZE_16x16:
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
                 gSMS16xGfxIndexCounter -= 1;
                 break;
 
             case UNIT_ICON_SIZE_16x32:
                 EnsureSMS32xGfxCounterHasRoom(SMS_16X32_GFX_SLOT_STRIDE);
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += SMS_16X32_GFX_SLOT_STRIDE;
                 break;
 
@@ -496,14 +500,14 @@ int UseUnitSprite(u32 id)
                     gSMS32xGfxIndexCounter += SMS_16X32_GFX_SLOT_STRIDE;
 
                 EnsureSMS32xGfxCounterHasRoom(SMS_32X32_GFX_SLOT_STRIDE);
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += SMS_32X32_GFX_SLOT_STRIDE;
                 break;
         }
 
         gSMSSyncFlag++;
     }
-    return gUnitSpriteSlots[id] << 1;
+    return sUnitSpriteSlots[id] << 1;
 }
 */
 int ApplyUnitSpriteImage16x16(int slot, u32 id)
@@ -517,10 +521,10 @@ int ApplyUnitSpriteImage16x16(int slot, u32 id)
         int imgOff = (i * id) * 4 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
     return sSlotToChrLut2[slot];
@@ -536,14 +540,14 @@ int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
     {
         int imgOff = (i * id) * 4 * CHR_SIZE;
 
-        CpuFastFill(0, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
-        CpuFastFill(0, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
+        CpuFastFill(0, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
+        CpuFastFill(0, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
     return sSlotToChrLut2[slot];
@@ -561,16 +565,16 @@ int ApplyUnitSpriteImage16x32(int slot, u32 id)
         int imgOff = (i * id) * 8 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 4 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 4 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 6 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 6 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
     return sSlotToChrLut2[slot];
@@ -588,16 +592,16 @@ int ApplyUnitSpriteImage32x32(int slot, u32 id)
         int imgOff = (i * id) * 16 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 4 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 4 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 8 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 8 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 12 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 12 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
     }
     return sSlotToChrLut2[slot];
@@ -636,17 +640,17 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
                 {
                     {
                         int offset = 0 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
                     }
                     {
                         int offset = 1 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
                     }
                 }
             }
 
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 2 * CHR_SIZE);
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 2 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 2 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 2 * CHR_SIZE);
             break;
 
         case 1:
@@ -657,27 +661,27 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
                 {
                     {
                         int offset = 0 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << var);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << var);
                     }
                     {
                         int offset = 1 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
                     }
                     {
                         int offset = 2 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
                     }
                     {
                         int offset = 3 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
                     }
                 }
             }
 
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 2 * CHR_SIZE);
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 2 * CHR_SIZE);
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 2 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011800), 2 * CHR_SIZE);
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 3 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011C00), 2 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 2 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 2 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 2 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011800), 2 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 3 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011C00), 2 * CHR_SIZE);
             break;
 
         case 2:
@@ -688,32 +692,32 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
                 {
                     {
                         int offset = 0 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << var);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << var);
                     }
                     {
                         int offset = 1 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
                     }
                     {
                         int offset = 2 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
                     }
                     {
                         int offset = 3 * CHR_SIZE * CHR_LINE + j * CHR_SIZE;
-                        gSMSGfxBuffer[i][r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
+                        GetSMSGfxBuffer(i)[r7 + offset + (r6 >> 1)] &= 0xf << (!(r6 & 1) << 2);
                     }
                 }
             }
 
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 4 * CHR_SIZE);
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 4 * CHR_SIZE);
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 2 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011800), 4 * CHR_SIZE);
-            CpuFastCopy(&gSMSGfxBuffer[r4][r7 + 3 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011C00), 4 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 4 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 4 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 2 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011800), 4 * CHR_SIZE);
+            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 3 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011C00), 4 * CHR_SIZE);
             break;
     }
 
     if (timer == 0x3f)
-        gUnitSpriteSlots[slot] |= 0xff;
+        sUnitSpriteSlots[slot] |= 0xff;
 }
 
 void SyncUnitSpriteSheet(void)
@@ -721,16 +725,16 @@ void SyncUnitSpriteSheet(void)
     int frame = GetGameClock() % 72;
 
     if (frame == 0)
-        CpuFastCopy(gSMSGfxBuffer[0], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        CpuFastCopy(GetSMSGfxBuffer(0), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
 
     if (frame == 32)
-        CpuFastCopy(gSMSGfxBuffer[1], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        CpuFastCopy(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
 
     if (frame == 36)
-        CpuFastCopy(gSMSGfxBuffer[2], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        CpuFastCopy(GetSMSGfxBuffer(2), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
 
     if (frame == 68)
-        CpuFastCopy(gSMSGfxBuffer[1], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        CpuFastCopy(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
 }
 
 void ForceSyncUnitSpriteSheet(void)
@@ -742,25 +746,25 @@ void ForceSyncUnitSpriteSheet(void)
 
     if (frame >= 68)
     {
-        RegisterDataMove(gSMSGfxBuffer[1], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        RegisterDataMove(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
         return;
     }
 
     if (frame >= 36)
     {
-        RegisterDataMove(gSMSGfxBuffer[2], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        RegisterDataMove(GetSMSGfxBuffer(2), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
         return;
     }
 
     if (frame >= 32)
     {
-        RegisterDataMove(gSMSGfxBuffer[1], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        RegisterDataMove(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
         return;
     }
 
     if (frame >= 0)
     {
-        RegisterDataMove(gSMSGfxBuffer[0], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        RegisterDataMove(GetSMSGfxBuffer(0), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
         return;
     }
 }
@@ -776,16 +780,16 @@ void sub_8026FF4(int frameId, u8 * dst)
     u8 * src = NULL;
 
     if (frame == 0)
-        src = gSMSGfxBuffer[0];
+        src = GetSMSGfxBuffer(0);
 
     if (frame == 32)
-        src = gSMSGfxBuffer[1];
+        src = GetSMSGfxBuffer(1);
 
     if (frame == 36)
-        src = gSMSGfxBuffer[2];
+        src = GetSMSGfxBuffer(2);
 
     if (frame == 68)
-        src = gSMSGfxBuffer[1];
+        src = GetSMSGfxBuffer(1);
 
     if (src == NULL)
         return;
@@ -810,13 +814,13 @@ void SetStandingMuFacing(int frameId, u8 * dst)
     u8 * src = NULL;
 
     if (frame >= 68)
-        src = gSMSGfxBuffer[1];
+        src = GetSMSGfxBuffer(1);
     else if (frame >= 36)
-        src = gSMSGfxBuffer[2];
+        src = GetSMSGfxBuffer(2);
     else if (frame >= 32)
-        src = gSMSGfxBuffer[1];
+        src = GetSMSGfxBuffer(1);
     else if (frame >= 0)
-        src = gSMSGfxBuffer[0];
+        src = GetSMSGfxBuffer(0);
 
     if (src == NULL)
         return;
@@ -842,13 +846,13 @@ void SetStandingMuFacingWM(int frameId, u8 * dst)
     do
     {
         if (frame >= 68)
-            src = gSMSGfxBuffer[1];
+            src = GetSMSGfxBuffer(1);
         else if (frame >= 36)
-            src = gSMSGfxBuffer[2];
+            src = GetSMSGfxBuffer(2);
         else if (frame >= 32)
-            src = gSMSGfxBuffer[1];
+            src = GetSMSGfxBuffer(1);
         else if (frame >= 0)
-            src = gSMSGfxBuffer[0];
+            src = GetSMSGfxBuffer(0);
     } while (0);
 
     if (src == NULL)
