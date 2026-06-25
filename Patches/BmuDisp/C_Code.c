@@ -37,6 +37,11 @@ extern u8 * const sUnitSpriteSlots;
 
 #define SMS_VRAM_TILE_ROWS 16
 #define SMS_GFX_BUFFER_SIZE (SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE)
+#define SMS_GFX_BUFFER_SPLIT_SIZE (SMS_GFX_BUFFER_SIZE / 2)
+#define SMS_OBJ_VRAM_LOWER ((u8 *)0x06011000)
+#define SMS_OBJ_VRAM_UPPER ((u8 *)0x06015000)
+#define SMS_OBJ_CHR_REMAP_THRESHOLD (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
+#define SMS_OBJ_CHR_REMAP_OFFSET (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
 #define SMS_16X16_GFX_SLOT_COUNT 0x80
 #define SMS_16X32_GFX_SLOT_STRIDE 2
 #define SMS_32X32_GFX_SLOT_STRIDE 4
@@ -58,6 +63,46 @@ static u8 * GetSMSGfxBuffer(int frame)
         default:
             return gSMSGfxBuffer3;
     }
+}
+
+static int GetSMSObjChr(int chr)
+{
+    if (chr >= SMS_OBJ_CHR_REMAP_THRESHOLD)
+        return chr + SMS_OBJ_CHR_REMAP_OFFSET;
+
+    return chr;
+}
+
+static int GetSMSBufferChr(int chr)
+{
+    if (chr >= SMS_OBJ_CHR_REMAP_THRESHOLD + SMS_OBJ_CHR_REMAP_OFFSET)
+        return chr - SMS_OBJ_CHR_REMAP_OFFSET;
+
+    return chr;
+}
+
+static u8 * GetSMSObjVramOffset(int offset)
+{
+    if (offset >= SMS_GFX_BUFFER_SPLIT_SIZE)
+        return SMS_OBJ_VRAM_UPPER + offset - SMS_GFX_BUFFER_SPLIT_SIZE;
+
+    return SMS_OBJ_VRAM_LOWER + offset;
+}
+
+static void CopySMSGfxBufferToObjVram(int frame)
+{
+    u8 * src = GetSMSGfxBuffer(frame);
+
+    CpuFastCopy(src, SMS_OBJ_VRAM_LOWER, SMS_GFX_BUFFER_SPLIT_SIZE);
+    CpuFastCopy(src + SMS_GFX_BUFFER_SPLIT_SIZE, SMS_OBJ_VRAM_UPPER, SMS_GFX_BUFFER_SPLIT_SIZE);
+}
+
+static void RegisterSMSGfxBufferMoveToObjVram(int frame)
+{
+    u8 * src = GetSMSGfxBuffer(frame);
+
+    RegisterDataMove(src, SMS_OBJ_VRAM_LOWER, SMS_GFX_BUFFER_SPLIT_SIZE);
+    RegisterDataMove(src + SMS_GFX_BUFFER_SPLIT_SIZE, SMS_OBJ_VRAM_UPPER, SMS_GFX_BUFFER_SPLIT_SIZE);
 }
 
 extern int EWRAM_DATA gSMS16xGfxIndexCounter;
@@ -527,7 +572,7 @@ int ApplyUnitSpriteImage16x16(int slot, u32 id)
             UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return sSlotToChrLut2[slot];
+    return GetSMSObjChr(sSlotToChrLut2[slot]);
 }
 
 int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
@@ -550,7 +595,7 @@ int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
             UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return sSlotToChrLut2[slot];
+    return GetSMSObjChr(sSlotToChrLut2[slot]);
 }
 
 int ApplyUnitSpriteImage16x32(int slot, u32 id)
@@ -577,7 +622,7 @@ int ApplyUnitSpriteImage16x32(int slot, u32 id)
             UnitSpriteUnpackBuf2 + 6 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return sSlotToChrLut2[slot];
+    return GetSMSObjChr(sSlotToChrLut2[slot]);
 }
 
 int ApplyUnitSpriteImage32x32(int slot, u32 id)
@@ -604,7 +649,7 @@ int ApplyUnitSpriteImage32x32(int slot, u32 id)
             UnitSpriteUnpackBuf2 + 12 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
     }
-    return sSlotToChrLut2[slot];
+    return GetSMSObjChr(sSlotToChrLut2[slot]);
 }
 
 void TornOutUnitSprite(struct Unit * unit, int timer)
@@ -616,7 +661,7 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
     int slot;
 
     slot = GetUnitSMSId(unit);
-    r7 = UseUnitSprite(slot) * 0x20;
+    r7 = GetSMSBufferChr(UseUnitSprite(slot)) * CHR_SIZE;
     r6 = gUnknown_0859B73C_2[timer];
 
     r4 = 0;
@@ -649,8 +694,12 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
                 }
             }
 
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 2 * CHR_SIZE);
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 2 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 0 * CHR_SIZE * CHR_LINE),
+                2 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 1 * CHR_SIZE * CHR_LINE),
+                2 * CHR_SIZE);
             break;
 
         case 1:
@@ -678,10 +727,18 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
                 }
             }
 
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 2 * CHR_SIZE);
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 2 * CHR_SIZE);
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 2 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011800), 2 * CHR_SIZE);
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 3 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011C00), 2 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 0 * CHR_SIZE * CHR_LINE),
+                2 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 1 * CHR_SIZE * CHR_LINE),
+                2 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 2 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 2 * CHR_SIZE * CHR_LINE),
+                2 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 3 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 3 * CHR_SIZE * CHR_LINE),
+                2 * CHR_SIZE);
             break;
 
         case 2:
@@ -709,10 +766,18 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
                 }
             }
 
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011000), 4 * CHR_SIZE);
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011400), 4 * CHR_SIZE);
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 2 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011800), 4 * CHR_SIZE);
-            CpuFastCopy(&GetSMSGfxBuffer(r4)[r7 + 3 * CHR_SIZE * CHR_LINE], (u8 *)(r7 + 0x06011C00), 4 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 0 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 0 * CHR_SIZE * CHR_LINE),
+                4 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 1 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 1 * CHR_SIZE * CHR_LINE),
+                4 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 2 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 2 * CHR_SIZE * CHR_LINE),
+                4 * CHR_SIZE);
+            CpuFastCopy(
+                &GetSMSGfxBuffer(r4)[r7 + 3 * CHR_SIZE * CHR_LINE], GetSMSObjVramOffset(r7 + 3 * CHR_SIZE * CHR_LINE),
+                4 * CHR_SIZE);
             break;
     }
 
@@ -724,17 +789,17 @@ void SyncUnitSpriteSheet(void)
 {
     int frame = GetGameClock() % 72;
 
-    if (frame == 0)
-        CpuFastCopy(GetSMSGfxBuffer(0), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+    if (frame < 31)
+        CopySMSGfxBufferToObjVram(0);
 
-    if (frame == 32)
-        CpuFastCopy(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+    if (frame < 35)
+        CopySMSGfxBufferToObjVram(1);
 
-    if (frame == 36)
-        CpuFastCopy(GetSMSGfxBuffer(2), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+    if (frame < 67)
+        CopySMSGfxBufferToObjVram(2);
 
-    if (frame == 68)
-        CpuFastCopy(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+    if (frame >= 67)
+        CopySMSGfxBufferToObjVram(1);
 }
 
 void ForceSyncUnitSpriteSheet(void)
@@ -746,25 +811,25 @@ void ForceSyncUnitSpriteSheet(void)
 
     if (frame >= 68)
     {
-        RegisterDataMove(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        RegisterSMSGfxBufferMoveToObjVram(1);
         return;
     }
 
     if (frame >= 36)
     {
-        RegisterDataMove(GetSMSGfxBuffer(2), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        RegisterSMSGfxBufferMoveToObjVram(2);
         return;
     }
 
     if (frame >= 32)
     {
-        RegisterDataMove(GetSMSGfxBuffer(1), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        RegisterSMSGfxBufferMoveToObjVram(1);
         return;
     }
 
     if (frame >= 0)
     {
-        RegisterDataMove(GetSMSGfxBuffer(0), (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
+        RegisterSMSGfxBufferMoveToObjVram(0);
         return;
     }
 }
