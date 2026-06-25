@@ -14,36 +14,6 @@
 .equ gChapterData, 0x202BCF0 
 .equ ReadLastGameSaveId, 0x80a4da0
 
-.global IsUnitStatusScreenForbidden
-.type IsUnitStatusScreenForbidden, %function 
-IsUnitStatusScreenForbidden: 
-push {lr} 
-mov r3, r0 @ unit 
-ldr r2, [r3, #4] @ class data 
-ldr r1, =0x80879C5 
-bx r1 
-.ltorg 
-
-
-.global UnitStatusScreenIsForbidden @ 0x8087930  
-.type UnitStatusScreenIsForbidden, %function 
-UnitStatusScreenIsForbidden: 
-mov r0, #1 
-pop {r3} 
-bx r3 
-.ltorg 
-
-.global UnitStatusScreenIsAllowed @ 0x80879CE  
-.type UnitStatusScreenIsAllowed, %function 
-UnitStatusScreenIsAllowed: 
-mov r0, #0 
-pop {r3} 
-bx r3 
-.ltorg 
-
-
-
-
 .global CheckSRAMWorking 
 .type CheckSRAMWorking, %function 
 CheckSRAMWorking: @ 0x80D184C 

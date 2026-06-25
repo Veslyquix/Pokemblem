@@ -35,14 +35,6 @@ WORD False
 
 PUSH
 
-// ORG 0x87930 
-// jumpToHack(UnitStatusScreenIsForbidden)
-// ORG 0x879CE 
-// SHORT $46c0 // nop  
-// jumpToHack(UnitStatusScreenIsAllowed)
-
-
-
 // 
 ORG $A9458 // in ExecSaveMenuMiscOption 
 // "Cancel" button also allows you to not save (it doesn't go back to allow changing which slot you wish to save to) 
