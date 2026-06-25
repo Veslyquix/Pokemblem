@@ -242,7 +242,7 @@ void DeploySelectedUnits()
     InitUnitDeploymentIDs();
     // InitUnits(); // do not write 0 to their deployment ID!
 
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 62; i++)
     { // move units that were deployed back into unit struct ram
         if ((unit[i].pCharacterData) && (!(unit[i].state & US_NOT_DEPLOYED)))
         {
