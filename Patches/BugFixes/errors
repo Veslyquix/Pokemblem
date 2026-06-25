@@ -1,0 +1,116 @@
+error: Graphics/MapSprites/MapSprites.event:514:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:516:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:518:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:520:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:522:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:524:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:526:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:528:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:530:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:532:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:534:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Graphics/MapSprites/MapSprites.event:536:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: EngineHacks/QualityOfLife/HpBars/HpBars.event:15:7: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:29: From inside of macro `jumpToHack`.
+error: EngineHacks/QualityOfLife/HpBars/HpBars.event:15:7: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:55: From inside of macro `jumpToHack`.
+error: EngineHacks/ExternalHacks/TrapRework/TrapRework_Internal.event:8:3: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:29: From inside of macro `jumpToHack`.
+error: EngineHacks/ExternalHacks/TrapRework/TrapRework_Internal.event:8:3: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:55: From inside of macro `jumpToHack`.
+error: EngineHacks/ExternalHacks/TrapRework/TrapRework_Internal.event:10:3: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: EngineHacks/ExternalHacks/TrapRework/TrapRework_Internal.event:12:3: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: EngineHacks/ExternalHacks/Freeze/Freeze.event:15:7: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+warning: Patches/../../ASM/WalkCalcLoop/Installer.event:5:9: Redefining jumpToHack_r1(...) with 1 parameters.
+error: Patches/DangerBones/Installer.event:109:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:29: From inside of macro `jumpToHack`.
+error: Patches/DangerBones/Installer.event:109:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:55: From inside of macro `jumpToHack`.
+error: Patches/DangerBones/Installer.event:125:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:66:34: From inside of macro `callHackNew`.
+error: Patches/DangerBones/Installer.event:125:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:66:72: From inside of macro `callHackNew`.
+error: Patches/DangerBones/Installer.event:126:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/MirrorMapSprites/MirrorSprites.lyn.event:4:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/MirrorMapSprites/MirrorSprites.lyn.event:5:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/MirrorMapSprites/MirrorSprites.lyn.event:10:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/MirrorMapSprites/MirrorSprites.lyn.event:11:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/MirrorMapSprites/Installer.event:21:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:66:34: From inside of macro `callHackNew`.
+error: Patches/MirrorMapSprites/Installer.event:21:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:66:72: From inside of macro `callHackNew`.
+error: Patches/MirrorMapSprites/Installer.event:23:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:67:34: From inside of macro `callHackNew_r4`.
+error: Patches/MirrorMapSprites/Installer.event:23:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:67:72: From inside of macro `callHackNew_r4`.
+error: Patches/MirrorMapSprites/Installer.event:26:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:66:34: From inside of macro `callHackNew`.
+error: Patches/MirrorMapSprites/Installer.event:26:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:66:72: From inside of macro `callHackNew`.
+error: Patches/FreeMU/FreeMovementInternal.event:46:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:66:34: From inside of macro `callHackNew`.
+error: Patches/FreeMU/FreeMovementInternal.event:46:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Added_Macros_by_Vesly.event:66:72: From inside of macro `callHackNew`.
+error: Patches/DangerRadius/ASM/ASM.event:36:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/DangerRadius/ASM/ASM.event:37:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:18:31: From inside of macro `callHack_r1`.
+error: Patches/DangerRadius/ASM/ASM.event:37:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:18:45: From inside of macro `callHack_r1`.
+note: Extensions/Hack Installation.txt:6:22: From inside of macro `BL`.
+error: Patches/DangerRadius/ASM/ASM.event:37:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:18:58: From inside of macro `callHack_r1`.
+error: Patches/DangerRadius/ASM/ASM.event:37:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:18:72: From inside of macro `callHack_r1`.
+error: Patches/DangerRadius/ASM/ASM.event:38:3: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/DangerRadius/ASM/ASM.event:83:3: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/DangerRadius/ASM/ASM.event:84:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:17:31: From inside of macro `callHack_r0`.
+error: Patches/DangerRadius/ASM/ASM.event:84:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:17:45: From inside of macro `callHack_r0`.
+note: Extensions/Hack Installation.txt:6:22: From inside of macro `BL`.
+error: Patches/DangerRadius/ASM/ASM.event:84:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:17:58: From inside of macro `callHack_r0`.
+error: Patches/DangerRadius/ASM/ASM.event:84:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:17:72: From inside of macro `callHack_r0`.
+error: Patches/DangerRadius/ASM/ASM.event:85:2: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/TrapSMS_Size/Installer.event:8:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/IconDisplay/Installer.event:6:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:29: From inside of macro `jumpToHack`.
+error: Patches/IconDisplay/Installer.event:6:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:55: From inside of macro `jumpToHack`.
+error: Patches/IconDisplay/Installer.event:11:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/IconDisplay/Installer.event:12:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:29: From inside of macro `jumpToHack`.
+error: Patches/IconDisplay/Installer.event:12:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:55: From inside of macro `jumpToHack`.
+error: Patches/StatusEffects/Installer.event:93:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/StatusEffects/Installer.event:99:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/StatusEffects/Installer.event:101:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/MultiTileMarker/MultiTileMarker_Install.event:10:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:29: From inside of macro `jumpToHack`.
+error: Patches/MultiTileMarker/MultiTileMarker_Install.event:10:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+note: Extensions/Hack Installation.txt:30:55: From inside of macro `jumpToHack`.
+error: Patches/BugFixes/BugFixesInstaller.event:85:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:88:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:91:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:94:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:98:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:101:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:104:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:107:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:110:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:241:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:244:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:247:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:250:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:253:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:256:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:259:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:262:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:265:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:268:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:271:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:274:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:277:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:280:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:283:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1

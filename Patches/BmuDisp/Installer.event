@@ -9,7 +9,8 @@ ORG FreeSpace
 #include "C_Code.lyn.event" 
 
 PUSH 
-ORG $1390A38
+// ORG $1390A38
+ORG $8af880
 NewStandingMapSpriteTable:
 POP 
 

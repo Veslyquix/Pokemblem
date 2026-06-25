@@ -1,7 +1,7 @@
 @echo off
 
 
-set "source_rom=%~dp0FE8Hack.gba"
+set "source_rom=%~dp0FE8_clean.gba"
 set "source_sym=%~dp0FE8_clean.sym
 set "vanilla_rom=%~dp0FE8_clean.gba"
 

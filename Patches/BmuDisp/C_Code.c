@@ -17,7 +17,15 @@
 #include "constants/event-flags.h"
 #include "constants/video-global.h"
 
-#define UNITSPRITE_MAX_NEW 0xFF
+/* fix div mod
+SET_FUNC Div, __aeabi_idiv
+SET_FUNC Div, __aeabi_idivmod
+SET_FUNC Div, __aeabi_uidiv
+SET_FUNC Div, __aeabi_uidivmod
+*/
+
+// #define UNITSPRITE_MAX_NEW 0xFF
+#define UNITSPRITE_MAX_NEW 0xD0
 extern UnitIconWait NewStandingMapSpriteTable[];
 int __umodsi3(int a, int b);
 extern u8 EWRAM_DATA NewgSMSGfxIndexLookup[0xFF];
@@ -330,13 +338,27 @@ u16 const sSprite_32x32_Window2[] = {
     0x0000,
 };
 
-#define GetInfo(id) (NewStandingMapSpriteTable[(id)])
-// #define GetInfo(id) (NewStandingMapSpriteTable[(id) & ((1 << 7) - 1)])
+#define GetInfo(id) (unit_icon_wait_table[(id)])
+// #define GetInfo(id) (unit_icon_wait_table[(id) & ((1 << 7) - 1)])
 
+/*
+// These functions are too small to be repointed automatically by lyn and should not be adjusted here
 void sub_8026618(void)
 {
     gSMSSyncFlag++;
 }
+void sub_8027A30(void)
+{
+    gBmSt.cursorPrevious.x = -1;
+    return;
+}
+
+void ResetUnitSpriteHover(void)
+{
+    gMapSpriteSwitchHoverTimer = 0;
+    return;
+}
+*/
 
 void ApplyUnitSpritePalettes(void)
 {
@@ -357,7 +379,7 @@ void ResetUnitSprites(void)
 {
     int i;
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
-        NewgSMSGfxIndexLookup[i] |= 0xFF;
+        gUnitSpriteSlots[i] |= 0xFF;
 
     gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = 0x40 - 1;
@@ -368,7 +390,7 @@ void ResetUnitSpritesB(void)
     int i;
 
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
-        NewgSMSGfxIndexLookup[i] |= 0xFF;
+        gUnitSpriteSlots[i] |= 0xFF;
 
     gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = 0x60 - 1;
@@ -382,19 +404,19 @@ int StartUiSMS(int smsId, int frameId)
     switch (GetInfo(smsId).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
+            gUnitSpriteSlots[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_16x32:
-            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
+            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
+            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
             break;
     }
 
-    return NewgSMSGfxIndexLookup[frameId] << 1;
+    return gUnitSpriteSlots[frameId] << 1;
 }
 
 int StartWorldMapSMS(int smsId, int frameId, int slot)
@@ -404,36 +426,36 @@ int StartWorldMapSMS(int smsId, int frameId, int slot)
     switch (GetInfo(smsId).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
+            gUnitSpriteSlots[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_16x32:
-            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
+            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
+            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
             break;
     }
 
-    return NewgSMSGfxIndexLookup[frameId] << 1;
+    return gUnitSpriteSlots[frameId] << 1;
 }
 
 int UseUnitSprite(u32 id)
 {
-    if (NewgSMSGfxIndexLookup[id] == 0xFF)
+    if (gUnitSpriteSlots[id] == 0xFF)
     {
         Decompress(GetInfo(id).sheet, UnitSpriteUnpackBuf2);
 
         switch (GetInfo(id).size)
         {
             case UNIT_ICON_SIZE_16x16:
-                NewgSMSGfxIndexLookup[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
+                gUnitSpriteSlots[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
                 gSMS16xGfxIndexCounter -= 1;
                 break;
 
             case UNIT_ICON_SIZE_16x32:
-                NewgSMSGfxIndexLookup[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
+                gUnitSpriteSlots[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += 2;
                 break;
 
@@ -441,14 +463,14 @@ int UseUnitSprite(u32 id)
                 if ((gSMS32xGfxIndexCounter & 0x1E) == 0x1E)
                     gSMS32xGfxIndexCounter += 2;
 
-                NewgSMSGfxIndexLookup[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
+                gUnitSpriteSlots[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += 4;
                 break;
         }
 
         gSMSSyncFlag++;
     }
-    return NewgSMSGfxIndexLookup[id] << 1;
+    return gUnitSpriteSlots[id] << 1;
 }
 
 int ApplyUnitSpriteImage16x16(int slot, u32 id)
@@ -658,7 +680,7 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
     }
 
     if (timer == 0x3f)
-        NewgSMSGfxIndexLookup[slot] |= 0xff;
+        gUnitSpriteSlots[slot] |= 0xff;
 }
 
 void SyncUnitSpriteSheet(void)
@@ -709,7 +731,7 @@ void ForceSyncUnitSpriteSheet(void)
         return;
     }
 }
-/*
+
 //! FE8U = 0x08026FF4
 void sub_8026FF4(int frameId, u8 * dst)
 {
@@ -1055,7 +1077,6 @@ void PutChapterMarkedTileIconOam(void)
 
     CallARM_PushToSecondaryOAM(OAM1_X(0x200 + x + 4), OAM0_Y(0x100 + y + 7), gObject_8x8, 0xC51);
 }
-
 void PutUnitSpriteIconsOam(void)
 {
     u8 protectCharacterId;
@@ -1236,18 +1257,6 @@ void PutUnitSpriteIconsOam(void)
             CallARM_PushToSecondaryOAM(OAM1_X(0x200 + x + 9), OAM0_Y(0x100 + y + 7), gObject_8x8, 0x811);
         }
     }
-}
-
-void sub_8027A30(void)
-{
-    gBmSt.cursorPrevious.x = -1;
-    return;
-}
-
-void ResetUnitSpriteHover(void)
-{
-    gMapSpriteSwitchHoverTimer = 0;
-    return;
 }
 
 void UnitSpriteHoverUpdate(void)
@@ -1547,4 +1556,3 @@ void sub_8028160(u32 (*r8)[1][1], int r5, int r9, int d)
 
     return;
 }
-*/

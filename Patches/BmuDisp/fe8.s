@@ -37169,10 +37169,10 @@ dat 0x40000000, ANFMT_PTRINS_FUNC
 dat 0x50000000, ANFMT_PTRINS_FRAME
 dat 0x68736D53, ID_NUMBER
 dat 0x80000000, ANFMT_NOT_FORCESPRITE
-fun __divsi3, __aeabi_idiv
-fun __modsi3, __aeabi_idivmod
-fun __udivsi3, __aeabi_uidiv
-fun __umodsi3, __aeabi_uidivmod
+fun Div, __aeabi_idiv
+fun Div, __aeabi_idivmod
+fun Div, __aeabi_uidiv
+fun Div, __aeabi_uidivmod
 
 dat 0x02000000, gAnims
 dat 0x03000000, gRNSeeds
