@@ -383,6 +383,7 @@ void ResetUnitSpriteHover(void)
 }
 */
 
+/*
 void ApplyUnitSpritePalettes(void)
 {
     ApplyPalettes(gPal_MapSprite, 0x1C, 4);
@@ -397,6 +398,7 @@ void sub_8026670(void)
 {
     ApplyPalette(gPal_MapSpriteSepia, 0x1E);
 }
+*/
 
 void ResetUnitSprites(void)
 {
@@ -418,7 +420,7 @@ void ResetUnitSpritesB(void)
     gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
-
+/*
 int StartUiSMS(int smsId, int frameId)
 {
     int slot = NewgSomeSMSLookupTable_859B66C[frameId];
@@ -503,7 +505,7 @@ int UseUnitSprite(u32 id)
     }
     return gUnitSpriteSlots[id] << 1;
 }
-
+*/
 int ApplyUnitSpriteImage16x16(int slot, u32 id)
 {
     int i;
@@ -858,6 +860,7 @@ void SetStandingMuFacingWM(int frameId, u8 * dst)
     }
 }
 
+/*
 int GetUnitDisplayedSpritePalette(const struct Unit * unit)
 {
     if (unit->state & US_BIT27)
@@ -1587,3 +1590,4 @@ void sub_8028160(u32 (*r8)[1][1], int r5, int r9, int d)
 
     return;
 }
+*/
