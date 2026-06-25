@@ -17,36 +17,40 @@
 #include "constants/event-flags.h"
 #include "constants/video-global.h"
 
+#define UNITSPRITE_MAX_NEW 0xFF
+extern UnitIconWait NewStandingMapSpriteTable[];
+int __umodsi3(int a, int b);
+extern u8 EWRAM_DATA NewgSMSGfxIndexLookup[0xFF];
 /**
  * Display standing map sprites and various tile/unit markers
  */
 
 extern UnitIconWait unit_icon_wait_table[];
 
-u8 EWRAM_DATA gUnitSpriteSlots[0xD0] = {};
+extern u8 EWRAM_DATA gUnitSpriteSlots[0xD0];
 
-u8 EWRAM_DATA gSMSGfxBuffer[3][8 * 0x20 * 0x20] = {};
+extern u8 EWRAM_DATA gSMSGfxBuffer[3][8 * 0x20 * 0x20];
 
-int EWRAM_DATA gSMS16xGfxIndexCounter = 0;
-int EWRAM_DATA gSMS32xGfxIndexCounter = 0;
+extern int EWRAM_DATA gSMS16xGfxIndexCounter;
+extern int EWRAM_DATA gSMS32xGfxIndexCounter;
 
-struct SMSHandle EWRAM_DATA gSMSHandleArray[100] = {};
-struct SMSHandle * EWRAM_DATA gSMSHandleIt = NULL;
+extern struct SMSHandle EWRAM_DATA gSMSHandleArray[100];
+extern struct SMSHandle * EWRAM_DATA gSMSHandleIt;
 
-int EWRAM_DATA gSMSSyncFlag = 0;
+extern int EWRAM_DATA gSMSSyncFlag;
 
-int EWRAM_DATA gMapSpriteSwitchHoverTimer = 0;
+extern int EWRAM_DATA gMapSpriteSwitchHoverTimer;
 
-u8 * CONST_DATA UnitSpriteUnpackBuf = gGenericBuffer;
+u8 * const UnitSpriteUnpackBuf2 = gGenericBuffer;
 
-int CONST_DATA gSomeSMSLookupTable_859B66C[] = {
+int const NewgSomeSMSLookupTable_859B66C[] = {
     0,
     8,
     4,
     16,
 };
 
-u16 CONST_DATA sSlotToChrLut[] = {
+u16 const sSlotToChrLut2[] = {
     0 * CHR_LINE + 0x00,  2 * CHR_LINE + 0x00,  0 * CHR_LINE + 0x02,  2 * CHR_LINE + 0x02,  0 * CHR_LINE + 0x04,
     2 * CHR_LINE + 0x04,  0 * CHR_LINE + 0x06,  2 * CHR_LINE + 0x06,  0 * CHR_LINE + 0x08,  2 * CHR_LINE + 0x08,
     0 * CHR_LINE + 0x0A,  2 * CHR_LINE + 0x0A,  0 * CHR_LINE + 0x0C,  2 * CHR_LINE + 0x0C,  0 * CHR_LINE + 0x0E,
@@ -69,264 +73,265 @@ u16 CONST_DATA sSlotToChrLut[] = {
     10 * CHR_LINE + 0x1E,
 };
 
-u16 CONST_DATA gUnknown_0859B73C[] = {
+u16 const gUnknown_0859B73C_2[] = {
     0x15, 0x29, 0x39, 0x2C, 0x19, 0x1D, 0x00, 0x07, 0x08, 0x09, 0x17, 0x1A, 0x31, 0x0C, 0x21, 0x1C,
     0x18, 0x2B, 0x1B, 0x13, 0x04, 0x0B, 0x35, 0x2A, 0x26, 0x36, 0x2D, 0x2F, 0x06, 0x02, 0x11, 0x30,
     0x1F, 0x3D, 0x25, 0x33, 0x0D, 0x10, 0x3A, 0x27, 0x03, 0x32, 0x23, 0x28, 0x3F, 0x37, 0x0A, 0x14,
     0x01, 0x12, 0x3E, 0x2E, 0x1E, 0x20, 0x05, 0x22, 0x34, 0x38, 0x3B, 0x0E, 0x24, 0x0F, 0x16, 0x3C,
 };
 
-u16 CONST_DATA sSprite_SleepIconA[] = {
+u16 const sSprite_SleepIconA2[] = {
     1,
     0x0000,
     0x0000,
     0x1864,
 };
 
-u16 CONST_DATA sSprite_SleepIconB[] = {
+u16 const sSprite_SleepIconB2[] = {
     1,
     0x00FF,
     0x0000,
     0x1864,
 };
 
-u16 CONST_DATA sSprite_SleepIconC[] = {
+u16 const sSprite_SleepIconC2[] = {
     1,
     0x00FE,
     0x01FF,
     0x1864,
 };
 
-u16 CONST_DATA sSprite_SleepIconD[] = {
+u16 const sSprite_SleepIconD2[] = {
     1,
     0x00FD,
     0x41FF,
     0x184A,
 };
 
-u16 CONST_DATA sSprite_SleepIconE[] = {
+u16 const sSprite_SleepIconE2[] = {
     1,
     0x00FC,
     0x41FE,
     0x184A,
 };
 
-u16 CONST_DATA sSprite_SleepIconF[] = {
+u16 const sSprite_SleepIconF2[] = {
     1,
     0x00FB,
     0x41FE,
     0x184A,
 };
 
-u16 CONST_DATA sSprite_SleepIconG[] = {
+u16 const sSprite_SleepIconG2[] = {
     1,
     0x00FA,
     0x41FD,
     0x184A,
 };
 
-u16 * CONST_DATA sSleepIconSprites[] = {
-    sSprite_SleepIconA, sSprite_SleepIconB, sSprite_SleepIconC, sSprite_SleepIconD,
-    sSprite_SleepIconE, sSprite_SleepIconF, sSprite_SleepIconG,
+const u16 * const sSleepIconSprites2[] = {
+    sSprite_SleepIconA2, sSprite_SleepIconB2, sSprite_SleepIconC2, sSprite_SleepIconD2,
+    sSprite_SleepIconE2, sSprite_SleepIconF2, sSprite_SleepIconG2,
 };
 
-u16 CONST_DATA sSprite_BerserkIconA[] = {
+u16 const sSprite_BerserkIconA2[] = {
     1,
     0x4000,
     0x0000,
     0x1842,
 };
 
-u16 CONST_DATA sSprite_BerserkIconB[] = {
+u16 const sSprite_BerserkIconB2[] = {
     1,
     0x4001,
     0x0001,
     0x1862,
 };
 
-u16 CONST_DATA sSprite_BerserkIconC[] = {
+u16 const sSprite_BerserkIconC2[] = {
     1,
     0x4001,
     0x0000,
     0x1844,
 };
 
-u16 CONST_DATA sSprite_BerserkIconD[] = {
+u16 const sSprite_BerserkIconD2[] = {
     1,
     0x4000,
     0x0001,
     0x1842,
 };
 
-u16 CONST_DATA sSprite_BerserkIconE[] = {
+u16 const sSprite_BerserkIconE2[] = {
     1,
     0x4000,
     0x0002,
     0x1862,
 };
 
-u16 CONST_DATA sSprite_BerserkIconF[] = {
+u16 const sSprite_BerserkIconF2[] = {
     1,
     0x4001,
     0x0000,
     0x1844,
 };
 
-u16 CONST_DATA sSprite_BerserkIconG[] = {
+u16 const sSprite_BerserkIconG2[] = {
     1,
     0x4000,
     0x01FF,
     0x1842,
 };
 
-u16 CONST_DATA sSprite_BerserkIconH[] = {
+u16 const sSprite_BerserkIconH2[] = {
     1,
     0x4001,
     0x0001,
     0x1862,
 };
 
-u16 CONST_DATA sSprite_BerserkIconI[] = {
+u16 const sSprite_BerserkIconI2[] = {
     1,
     0x4001,
     0x0002,
     0x1844,
 };
 
-u16 * CONST_DATA sBerserkIconSprites[] = {
-    sSprite_BerserkIconA, sSprite_BerserkIconB, sSprite_BerserkIconC, sSprite_BerserkIconD, sSprite_BerserkIconE,
-    sSprite_BerserkIconF, sSprite_BerserkIconG, sSprite_BerserkIconH, sSprite_BerserkIconI,
+const u16 * const sBerserkIconSprites2[] = {
+    sSprite_BerserkIconA2, sSprite_BerserkIconB2, sSprite_BerserkIconC2, sSprite_BerserkIconD2, sSprite_BerserkIconE2,
+    sSprite_BerserkIconF2, sSprite_BerserkIconG2, sSprite_BerserkIconH2, sSprite_BerserkIconI2,
 };
 
-u16 CONST_DATA sSprite_None[] = {
+u16 const sSprite_None2[] = {
     0,
 };
 
-u16 CONST_DATA sSprite_SilenceIconA[] = {
+u16 const sSprite_SilenceIconA2[] = {
     1,
     0x4000,
     0x0000,
     0x1866,
 };
 
-u16 CONST_DATA sSprite_SilenceIconB[] = {
+u16 const sSprite_SilenceIconB2[] = {
     1,
     0x40FF,
     0x0000,
     0x1846,
 };
 
-u16 CONST_DATA sSprite_SilenceIconC[] = {
+u16 const sSprite_SilenceIconC2[] = {
     1,
     0x00FE,
     0x4000,
     0x1848,
 };
 
-u16 * CONST_DATA sSilenceIconSprites[] = {
-    sSprite_SilenceIconA, sSprite_SilenceIconB, sSprite_SilenceIconC, sSprite_SilenceIconC, sSprite_SilenceIconC,
-    sSprite_SilenceIconC, sSprite_SilenceIconC, sSprite_SilenceIconC, sSprite_SilenceIconC, sSprite_SilenceIconC,
-    sSprite_SilenceIconC, sSprite_SilenceIconB, sSprite_SilenceIconA, sSprite_None,         sSprite_None,
-    sSprite_None,         sSprite_None,         sSprite_None,
+const u16 * const sSilenceIconSprites2[] = {
+    sSprite_SilenceIconA2, sSprite_SilenceIconB2, sSprite_SilenceIconC2, sSprite_SilenceIconC2, sSprite_SilenceIconC2,
+    sSprite_SilenceIconC2, sSprite_SilenceIconC2, sSprite_SilenceIconC2, sSprite_SilenceIconC2, sSprite_SilenceIconC2,
+    sSprite_SilenceIconC2, sSprite_SilenceIconB2, sSprite_SilenceIconA2, sSprite_None2,         sSprite_None2,
+    sSprite_None2,         sSprite_None2,         sSprite_None2,
 };
 
-u16 CONST_DATA sSprite_PoisonIconA[] = {
+u16 const sSprite_PoisonIconA2[] = {
     2, 0x8000, 0x0002, 0x1840, 0x8003, 0x000A, 0x1841,
 };
 
-u16 CONST_DATA sSprite_PoisonIconB[] = {
+u16 const sSprite_PoisonIconB2[] = {
     2, 0x80FF, 0x1002, 0x1840, 0x8002, 0x1008, 0x1841,
 };
 
-u16 CONST_DATA sSprite_PoisonIconC[] = {
+u16 const sSprite_PoisonIconC2[] = {
     2, 0x80FE, 0x0002, 0x1840, 0x8001, 0x000A, 0x1841,
 };
 
-u16 CONST_DATA sSprite_PoisonIconD[] = {
+u16 const sSprite_PoisonIconD2[] = {
     2, 0x80FD, 0x1002, 0x1840, 0x8000, 0x1008, 0x1841,
 };
 
-u16 CONST_DATA sSprite_PoisonIconE[] = {
+u16 const sSprite_PoisonIconE2[] = {
     1,
     0x80FC,
     0x0004,
     0x1840,
 };
 
-u16 CONST_DATA sSprite_PoisonIconF[] = {
+u16 const sSprite_PoisonIconF2[] = {
     1,
     0x80FB,
     0x0004,
     0x1841,
 };
 
-u16 CONST_DATA sSprite_PoisonIconG[] = {
+u16 const sSprite_PoisonIconG2[] = {
     1,
     0x80FA,
     0x0004,
     0x1840,
 };
 
-u16 CONST_DATA sSprite_PoisonIconH[] = {
+u16 const sSprite_PoisonIconH2[] = {
     1,
     0x80F9,
     0x1004,
     0x1841,
 };
 
-u16 * CONST_DATA sPoisonIconSprites[] = {
-    sSprite_PoisonIconA, sSprite_PoisonIconB, sSprite_PoisonIconC, sSprite_PoisonIconD,
-    sSprite_PoisonIconE, sSprite_PoisonIconF, sSprite_PoisonIconG, sSprite_PoisonIconH,
-    sSprite_PoisonIconH, sSprite_None,        sSprite_None,        sSprite_None,
+const u16 * const sPoisonIconSprites2[] = {
+    sSprite_PoisonIconA2, sSprite_PoisonIconB2, sSprite_PoisonIconC2, sSprite_PoisonIconD2,
+    sSprite_PoisonIconE2, sSprite_PoisonIconF2, sSprite_PoisonIconG2, sSprite_PoisonIconH2,
+    sSprite_PoisonIconH2, sSprite_None2,        sSprite_None2,        sSprite_None2,
 };
 
-u16 CONST_DATA sSprite_0859B968[] = {
+u16 const sSprite_0859B968_2[] = {
     2, 0x4000, 0x0000, 0x1830, 0x0008, 0x0000, 0x1850,
 };
 
-u16 CONST_DATA sSprite_16x16_Blend[] = {
+u16 const sSprite_16x16_Blend2[] = {
     1,
     0x0400,
     0x4000,
     0x0000,
 };
 
-u16 CONST_DATA sSprite_16x32_Blend[] = {
+u16 const sSprite_16x32_Blend2[] = {
     1,
     0x8400,
     0x8000,
     0x0000,
 };
 
-u16 CONST_DATA sSprite_32x32_Blend[] = {
+u16 const sSprite_32x32_Blend2[] = {
     1,
     0x0400,
     0x8000,
     0x0000,
 };
 
-u16 CONST_DATA sSprite_16x16_Window[] = {
+u16 const sSprite_16x16_Window2[] = {
     1,
     0x0800,
     0x4000,
     0x0000,
 };
 
-u16 CONST_DATA sSprite_16x32_Window[] = {
+u16 const sSprite_16x32_Window2[] = {
     1,
     0x8800,
     0x8000,
     0x0000,
 };
 
-u16 CONST_DATA sSprite_32x32_Window[] = {
+u16 const sSprite_32x32_Window2[] = {
     1,
     0x0800,
     0x8000,
     0x0000,
 };
 
-#define GetInfo(id) (unit_icon_wait_table[(id) & ((1 << 7) - 1)])
+#define GetInfo(id) (NewStandingMapSpriteTable[(id)])
+// #define GetInfo(id) (NewStandingMapSpriteTable[(id) & ((1 << 7) - 1)])
 
 void sub_8026618(void)
 {
@@ -351,8 +356,8 @@ void sub_8026670(void)
 void ResetUnitSprites(void)
 {
     int i;
-    for (i = UNITSPRITE_MAX - 1; i >= 0; i--)
-        gUnitSpriteSlots[i] |= 0xFF;
+    for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
+        NewgSMSGfxIndexLookup[i] |= 0xFF;
 
     gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = 0x40 - 1;
@@ -362,8 +367,8 @@ void ResetUnitSpritesB(void)
 {
     int i;
 
-    for (i = UNITSPRITE_MAX - 1; i >= 0; i--)
-        gUnitSpriteSlots[i] |= 0xFF;
+    for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
+        NewgSMSGfxIndexLookup[i] |= 0xFF;
 
     gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = 0x60 - 1;
@@ -371,64 +376,64 @@ void ResetUnitSpritesB(void)
 
 int StartUiSMS(int smsId, int frameId)
 {
-    int slot = gSomeSMSLookupTable_859B66C[frameId];
-    Decompress(GetInfo(smsId).sheet, UnitSpriteUnpackBuf);
+    int slot = NewgSomeSMSLookupTable_859B66C[frameId];
+    Decompress(GetInfo(smsId).sheet, UnitSpriteUnpackBuf2);
 
     switch (GetInfo(smsId).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
+            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_16x32:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
+            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
+            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
             break;
     }
 
-    return gUnitSpriteSlots[frameId] << 1;
+    return NewgSMSGfxIndexLookup[frameId] << 1;
 }
 
 int StartWorldMapSMS(int smsId, int frameId, int slot)
 {
-    Decompress(GetInfo(smsId).sheet, UnitSpriteUnpackBuf);
+    Decompress(GetInfo(smsId).sheet, UnitSpriteUnpackBuf2);
 
     switch (GetInfo(smsId).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
+            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteUiImage16x16(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_16x32:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
+            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteImage16x32(slot, smsId) / 2;
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            gUnitSpriteSlots[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
+            NewgSMSGfxIndexLookup[frameId] = ApplyUnitSpriteImage32x32(slot, smsId) / 2;
             break;
     }
 
-    return gUnitSpriteSlots[frameId] << 1;
+    return NewgSMSGfxIndexLookup[frameId] << 1;
 }
 
 int UseUnitSprite(u32 id)
 {
-    if (gUnitSpriteSlots[id] == 0xFF)
+    if (NewgSMSGfxIndexLookup[id] == 0xFF)
     {
-        Decompress(GetInfo(id).sheet, UnitSpriteUnpackBuf);
+        Decompress(GetInfo(id).sheet, UnitSpriteUnpackBuf2);
 
         switch (GetInfo(id).size)
         {
             case UNIT_ICON_SIZE_16x16:
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
+                NewgSMSGfxIndexLookup[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
                 gSMS16xGfxIndexCounter -= 1;
                 break;
 
             case UNIT_ICON_SIZE_16x32:
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
+                NewgSMSGfxIndexLookup[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += 2;
                 break;
 
@@ -436,20 +441,20 @@ int UseUnitSprite(u32 id)
                 if ((gSMS32xGfxIndexCounter & 0x1E) == 0x1E)
                     gSMS32xGfxIndexCounter += 2;
 
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
+                NewgSMSGfxIndexLookup[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += 4;
                 break;
         }
 
         gSMSSyncFlag++;
     }
-    return gUnitSpriteSlots[id] << 1;
+    return NewgSMSGfxIndexLookup[id] << 1;
 }
 
 int ApplyUnitSpriteImage16x16(int slot, u32 id)
 {
     int i;
-    int outOff = sSlotToChrLut[slot] * CHR_SIZE;
+    int outOff = sSlotToChrLut2[slot] * CHR_SIZE;
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
 
     for (i = 0; i < 3; i++)
@@ -457,19 +462,19 @@ int ApplyUnitSpriteImage16x16(int slot, u32 id)
         int imgOff = (i * id) * 4 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return sSlotToChrLut[slot];
+    return sSlotToChrLut2[slot];
 }
 
 int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
 {
     int i;
-    int outOff = sSlotToChrLut[slot] * CHR_SIZE;
+    int outOff = sSlotToChrLut2[slot] * CHR_SIZE;
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
 
     for (i = 0; i < 3; i++)
@@ -480,20 +485,20 @@ int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
         CpuFastFill(0, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return sSlotToChrLut[slot];
+    return sSlotToChrLut2[slot];
 }
 
 int ApplyUnitSpriteImage16x32(int slot, u32 id)
 {
     int i;
 
-    int outOff = sSlotToChrLut[slot] * CHR_SIZE;
+    int outOff = sSlotToChrLut2[slot] * CHR_SIZE;
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
 
     for (i = 0; i < 3; i++)
@@ -501,25 +506,25 @@ int ApplyUnitSpriteImage16x32(int slot, u32 id)
         int imgOff = (i * id) * 8 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 4 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 4 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 6 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 6 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
             2 * CHR_SIZE);
     }
-    return sSlotToChrLut[slot];
+    return sSlotToChrLut2[slot];
 }
 
 int ApplyUnitSpriteImage32x32(int slot, u32 id)
 {
     int i;
-    int outOff = sSlotToChrLut[slot] * CHR_SIZE;
+    int outOff = sSlotToChrLut2[slot] * CHR_SIZE;
 
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
 
@@ -528,19 +533,19 @@ int ApplyUnitSpriteImage32x32(int slot, u32 id)
         int imgOff = (i * id) * 16 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 0 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 4 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 4 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 1 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 8 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 8 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 2 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf + 12 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
+            UnitSpriteUnpackBuf2 + 12 * CHR_SIZE + imgOff, gSMSGfxBuffer[i] + 3 * CHR_SIZE * CHR_LINE + outOff,
             4 * CHR_SIZE);
     }
-    return sSlotToChrLut[slot];
+    return sSlotToChrLut2[slot];
 }
 
 void TornOutUnitSprite(struct Unit * unit, int timer)
@@ -553,7 +558,7 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
 
     slot = GetUnitSMSId(unit);
     r7 = UseUnitSprite(slot) * 0x20;
-    r6 = gUnknown_0859B73C[timer];
+    r6 = gUnknown_0859B73C_2[timer];
 
     r4 = 0;
     i = GetGameClock() % 0x48;
@@ -653,7 +658,7 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
     }
 
     if (timer == 0x3f)
-        gUnitSpriteSlots[slot] |= 0xff;
+        NewgSMSGfxIndexLookup[slot] |= 0xff;
 }
 
 void SyncUnitSpriteSheet(void)
@@ -704,7 +709,7 @@ void ForceSyncUnitSpriteSheet(void)
         return;
     }
 }
-
+/*
 //! FE8U = 0x08026FF4
 void sub_8026FF4(int frameId, u8 * dst)
 {
@@ -730,7 +735,7 @@ void sub_8026FF4(int frameId, u8 * dst)
     if (src == NULL)
         return;
 
-    off = gSomeSMSLookupTable_859B66C[frameId] * CHR_SIZE;
+    off = NewgSomeSMSLookupTable_859B66C[frameId] * CHR_SIZE;
 
     for (i = 0; i <= 3; i++)
     {
@@ -761,7 +766,7 @@ void SetStandingMuFacing(int frameId, u8 * dst)
     if (src == NULL)
         return;
 
-    off = gSomeSMSLookupTable_859B66C[frameId] * 0x20;
+    off = NewgSomeSMSLookupTable_859B66C[frameId] * 0x20;
 
     for (i = 0; i <= 3; i++)
     {
@@ -827,6 +832,7 @@ int GetUnitSpritePalette(const struct Unit * unit)
         case FACTION_PURPLE:
             return 0xB;
     }
+    return 0xC;
 }
 
 void RefreshUnitSprites(void)
@@ -1080,10 +1086,10 @@ void PutUnitSpriteIconsOam(void)
 
     displayRescueIcon = (GetGameClock() % 32) < 20 ? 1 : 0;
 
-    poisonIconFrame = GetGameClock() / 8 % ARRAY_COUNT(sPoisonIconSprites);
-    sleepIconFrame = GetGameClock() / 16 % ARRAY_COUNT(sSleepIconSprites);
-    berserkIconFrame = GetGameClock() / 8 % ARRAY_COUNT(sBerserkIconSprites);
-    silenceIconFrame = GetGameClock() / 4 % ARRAY_COUNT(sSilenceIconSprites);
+    poisonIconFrame = GetGameClock() / 8 % ARRAY_COUNT(sPoisonIconSprites2);
+    sleepIconFrame = GetGameClock() / 16 % ARRAY_COUNT(sSleepIconSprites2);
+    berserkIconFrame = GetGameClock() / 8 % ARRAY_COUNT(sBerserkIconSprites2);
+    silenceIconFrame = GetGameClock() / 4 % ARRAY_COUNT(sSilenceIconSprites2);
 
     if (CheckFlag(EVFLAG_HIDE_BLINKING_ICON) != 0)
         return;
@@ -1116,7 +1122,7 @@ void PutUnitSpriteIconsOam(void)
                     break;
 
                 CallARM_PushToSecondaryOAM(
-                    OAM1_X(0x200 + x - 2), OAM0_Y(0x100 + y - 4), sPoisonIconSprites[poisonIconFrame], 0);
+                    OAM1_X(0x200 + x - 2), OAM0_Y(0x100 + y - 4), sPoisonIconSprites2[poisonIconFrame], 0);
                 break;
 
             case UNIT_STATUS_SILENCED:
@@ -1130,7 +1136,7 @@ void PutUnitSpriteIconsOam(void)
                     break;
 
                 CallARM_PushToSecondaryOAM(
-                    OAM1_X(0x200 + x - 2), OAM0_Y(0x100 + y - 4), sSilenceIconSprites[silenceIconFrame], 0);
+                    OAM1_X(0x200 + x - 2), OAM0_Y(0x100 + y - 4), sSilenceIconSprites2[silenceIconFrame], 0);
                 break;
 
             case UNIT_STATUS_SLEEP:
@@ -1144,7 +1150,7 @@ void PutUnitSpriteIconsOam(void)
                     break;
 
                 CallARM_PushToSecondaryOAM(
-                    OAM1_X(0x200 + x + 2), OAM0_Y(0x100 + y), sSleepIconSprites[sleepIconFrame], 0);
+                    OAM1_X(0x200 + x + 2), OAM0_Y(0x100 + y), sSleepIconSprites2[sleepIconFrame], 0);
                 break;
 
             case UNIT_STATUS_BERSERK:
@@ -1158,7 +1164,7 @@ void PutUnitSpriteIconsOam(void)
                     break;
 
                 CallARM_PushToSecondaryOAM(
-                    OAM1_X(0x200 + x + 1), OAM0_Y(0x100 + y - 5), sBerserkIconSprites[berserkIconFrame], 0);
+                    OAM1_X(0x200 + x + 1), OAM0_Y(0x100 + y - 5), sBerserkIconSprites2[berserkIconFrame], 0);
                 break;
 
             case UNIT_STATUS_ATTACK:
@@ -1177,7 +1183,7 @@ void PutUnitSpriteIconsOam(void)
                 if (y < -16 || y > DISPLAY_HEIGHT)
                     break;
 
-                CallARM_PushToSecondaryOAM(OAM1_X(0x200 + x - 1), OAM0_Y(0x100 + y - 5), sSprite_0859B968, 0);
+                CallARM_PushToSecondaryOAM(OAM1_X(0x200 + x - 1), OAM0_Y(0x100 + y - 5), sSprite_0859B968_2, 0);
                 break;
 
             case UNIT_STATUS_SICK:
@@ -1383,7 +1389,7 @@ void sub_8027CFC(int layer, int x, int y, int class)
 void sub_8027DB4(int layer, int x, int y, u16 oam2, int class, int idx)
 {
     u32 id = GetClassSMSId(class);
-    int chr = gSomeSMSLookupTable_859B66C[idx] + 1;
+    int chr = NewgSomeSMSLookupTable_859B66C[idx] + 1;
 
     if (x < -16 || x > DISPLAY_WIDTH)
         return;
@@ -1473,18 +1479,18 @@ void PutBlendWindowUnitSprite(int layer, int x, int y, int oam2, struct Unit * u
     switch (GetInfo(id).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            PutSprite(layer, x, y, sSprite_16x16_Blend, oam2 + chr);
-            PutSprite(layer, x, y, sSprite_16x16_Window, oam2 + chr);
+            PutSprite(layer, x, y, sSprite_16x16_Blend2, oam2 + chr);
+            PutSprite(layer, x, y, sSprite_16x16_Window2, oam2 + chr);
             break;
 
         case UNIT_ICON_SIZE_16x32:
-            PutSprite(layer, x, y - 16, sSprite_16x32_Blend, oam2 + chr);
-            PutSprite(layer, x, y - 16, sSprite_16x32_Window, oam2 + chr);
+            PutSprite(layer, x, y - 16, sSprite_16x32_Blend2, oam2 + chr);
+            PutSprite(layer, x, y - 16, sSprite_16x32_Window2, oam2 + chr);
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            PutSprite(layer, x - 8, y - 16, sSprite_32x32_Blend, oam2 + chr);
-            PutSprite(layer, x - 8, y - 16, sSprite_32x32_Window, oam2 + chr);
+            PutSprite(layer, x - 8, y - 16, sSprite_32x32_Blend2, oam2 + chr);
+            PutSprite(layer, x - 8, y - 16, sSprite_32x32_Window2, oam2 + chr);
             break;
     }
 }
@@ -1528,7 +1534,7 @@ u8 GetUnitSpriteHideFlag(struct Unit * unit)
 void sub_8028160(u32 (*r8)[1][1], int r5, int r9, int d)
 {
     int i, j;
-    int r6 = gUnknown_0859B73C[d];
+    int r6 = gUnknown_0859B73C_2[d];
 
     for (i = 0; i < r9; i++)
     {
@@ -1541,3 +1547,4 @@ void sub_8028160(u32 (*r8)[1][1], int r5, int r9, int d)
 
     return;
 }
+*/
