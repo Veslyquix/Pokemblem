@@ -38,15 +38,23 @@ extern UnitIconWait unit_icon_wait_table[];
 extern u8 EWRAM_DATA gUnitSpriteSlots[0xD0];
 
 #define SMS_VRAM_TILE_ROWS 16
+#define SMS_GFX_BUFFER_SIZE (SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE)
 #define SMS_16X16_GFX_SLOT_COUNT 0x80
 #define SMS_16X32_GFX_SLOT_STRIDE 2
 #define SMS_32X32_GFX_SLOT_STRIDE 4
 
 // 0x4000 bytes each
-extern u8 gSMSGfxBuffer1[SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE];
-extern u8 gSMSGfxBuffer2[SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE];
-extern u8 gSMSGfxBuffer3[SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE];
-extern u8 EWRAM_DATA gSMSGfxBuffer[3][SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE];
+extern u8 gSMSGfxBuffer1[SMS_GFX_BUFFER_SIZE];
+extern u8 gSMSGfxBuffer2[SMS_GFX_BUFFER_SIZE];
+extern u8 gSMSGfxBuffer3[SMS_GFX_BUFFER_SIZE];
+
+static u8 * const sSMSGfxBuffer[3] = {
+    gSMSGfxBuffer1,
+    gSMSGfxBuffer2,
+    gSMSGfxBuffer3,
+};
+
+#define gSMSGfxBuffer sSMSGfxBuffer
 
 extern int EWRAM_DATA gSMS16xGfxIndexCounter;
 extern int EWRAM_DATA gSMS32xGfxIndexCounter;
@@ -711,16 +719,16 @@ void SyncUnitSpriteSheet(void)
     int frame = GetGameClock() % 72;
 
     if (frame == 0)
-        CpuFastCopy(gSMSGfxBuffer[0], (void *)0x06011000, sizeof(gSMSGfxBuffer[0]));
+        CpuFastCopy(gSMSGfxBuffer[0], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
 
     if (frame == 32)
-        CpuFastCopy(gSMSGfxBuffer[1], (void *)0x06011000, sizeof(gSMSGfxBuffer[1]));
+        CpuFastCopy(gSMSGfxBuffer[1], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
 
     if (frame == 36)
-        CpuFastCopy(gSMSGfxBuffer[2], (void *)0x06011000, sizeof(gSMSGfxBuffer[2]));
+        CpuFastCopy(gSMSGfxBuffer[2], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
 
     if (frame == 68)
-        CpuFastCopy(gSMSGfxBuffer[1], (void *)0x06011000, sizeof(gSMSGfxBuffer[1]));
+        CpuFastCopy(gSMSGfxBuffer[1], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
 }
 
 void ForceSyncUnitSpriteSheet(void)
@@ -732,25 +740,25 @@ void ForceSyncUnitSpriteSheet(void)
 
     if (frame >= 68)
     {
-        RegisterDataMove(gSMSGfxBuffer[1], (void *)0x06011000, sizeof(gSMSGfxBuffer[1]));
+        RegisterDataMove(gSMSGfxBuffer[1], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
         return;
     }
 
     if (frame >= 36)
     {
-        RegisterDataMove(gSMSGfxBuffer[2], (void *)0x06011000, sizeof(gSMSGfxBuffer[2]));
+        RegisterDataMove(gSMSGfxBuffer[2], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
         return;
     }
 
     if (frame >= 32)
     {
-        RegisterDataMove(gSMSGfxBuffer[1], (void *)0x06011000, sizeof(gSMSGfxBuffer[1]));
+        RegisterDataMove(gSMSGfxBuffer[1], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
         return;
     }
 
     if (frame >= 0)
     {
-        RegisterDataMove(gSMSGfxBuffer[0], (void *)0x06011000, sizeof(gSMSGfxBuffer[0]));
+        RegisterDataMove(gSMSGfxBuffer[0], (void *)0x06011000, SMS_GFX_BUFFER_SIZE);
         return;
     }
 }
