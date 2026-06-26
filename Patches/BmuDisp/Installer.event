@@ -10,6 +10,8 @@ ORG FreeSpace
 // notes: MirrorSprites, FMU, TrapRework, TrapSMSSize 
 // uggh 
 
+// UseUnitSprite needs to be uncommented for vanilla build 
+
 
 #include "C_Code.lyn.event" 
 #include "../QoL_Testing.event" 

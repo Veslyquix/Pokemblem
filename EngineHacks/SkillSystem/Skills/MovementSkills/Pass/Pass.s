@@ -67,7 +67,6 @@ cmp r0, #1
 b GoBack 
 
 ReturnTrue: 
-mov r11, r11
 mov r0, #1 
 cmp r0, #1 
 b GoBack 
