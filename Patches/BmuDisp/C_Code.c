@@ -35,11 +35,12 @@ extern u8 EWRAM_DATA NewgSMSGfxIndexLookup[0xFF];
 
 extern u8 * const sUnitSpriteSlots;
 
+extern u16 SmsObjVramUpperChr;
+
 #define SMS_VRAM_TILE_ROWS 16
 #define SMS_GFX_BUFFER_SIZE (SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE)
 #define SMS_GFX_BUFFER_SPLIT_SIZE (SMS_GFX_BUFFER_SIZE / 2)
 #define SMS_OBJ_VRAM_LOWER ((u8 *)0x06011000)
-#define SMS_OBJ_VRAM_UPPER ((u8 *)0x06015000)
 #define SMS_OBJ_CHR_REMAP_THRESHOLD (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
 #define SMS_OBJ_CHR_REMAP_OFFSET (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
 #define SMS_16X16_GFX_SLOT_COUNT 0x80
@@ -112,7 +113,7 @@ static int GetSMSBufferChr(int chr)
 static u8 * GetSMSObjVramOffset(int offset)
 {
     if (offset >= SMS_GFX_BUFFER_SPLIT_SIZE)
-        return SMS_OBJ_VRAM_UPPER + offset - SMS_GFX_BUFFER_SPLIT_SIZE;
+        return (void *)(OBJ_VRAM0 + (SmsObjVramUpperChr << 5)) + offset - SMS_GFX_BUFFER_SPLIT_SIZE;
 
     return SMS_OBJ_VRAM_LOWER + offset;
 }
@@ -122,7 +123,8 @@ static void CopySMSGfxBufferToObjVram(int frame)
     u8 * src = GetSMSGfxBuffer(frame);
 
     CpuFastCopy(src, SMS_OBJ_VRAM_LOWER, SMS_GFX_BUFFER_SPLIT_SIZE);
-    CpuFastCopy(src + SMS_GFX_BUFFER_SPLIT_SIZE, SMS_OBJ_VRAM_UPPER, SMS_GFX_BUFFER_SPLIT_SIZE);
+    CpuFastCopy(
+        src + SMS_GFX_BUFFER_SPLIT_SIZE, (void *)(OBJ_VRAM0 + (SmsObjVramUpperChr << 5)), SMS_GFX_BUFFER_SPLIT_SIZE);
 }
 
 static void RegisterSMSGfxBufferMoveToObjVram(int frame)
@@ -130,7 +132,8 @@ static void RegisterSMSGfxBufferMoveToObjVram(int frame)
     u8 * src = GetSMSGfxBuffer(frame);
 
     RegisterDataMove(src, SMS_OBJ_VRAM_LOWER, SMS_GFX_BUFFER_SPLIT_SIZE);
-    RegisterDataMove(src + SMS_GFX_BUFFER_SPLIT_SIZE, SMS_OBJ_VRAM_UPPER, SMS_GFX_BUFFER_SPLIT_SIZE);
+    RegisterDataMove(
+        src + SMS_GFX_BUFFER_SPLIT_SIZE, (void *)(OBJ_VRAM0 + (SmsObjVramUpperChr << 5)), SMS_GFX_BUFFER_SPLIT_SIZE);
 }
 
 extern int EWRAM_DATA gSMS16xGfxIndexCounter;
@@ -152,34 +155,7 @@ int const NewgSomeSMSLookupTable_859B66C[] = {
     16,
 };
 
-u16 const sSlotToChrLut2[] = {
-    0 * CHR_LINE + 0x00,  2 * CHR_LINE + 0x00,  0 * CHR_LINE + 0x02,  2 * CHR_LINE + 0x02,  0 * CHR_LINE + 0x04,
-    2 * CHR_LINE + 0x04,  0 * CHR_LINE + 0x06,  2 * CHR_LINE + 0x06,  0 * CHR_LINE + 0x08,  2 * CHR_LINE + 0x08,
-    0 * CHR_LINE + 0x0A,  2 * CHR_LINE + 0x0A,  0 * CHR_LINE + 0x0C,  2 * CHR_LINE + 0x0C,  0 * CHR_LINE + 0x0E,
-    2 * CHR_LINE + 0x0E,  0 * CHR_LINE + 0x10,  2 * CHR_LINE + 0x10,  0 * CHR_LINE + 0x12,  2 * CHR_LINE + 0x12,
-    0 * CHR_LINE + 0x14,  2 * CHR_LINE + 0x14,  0 * CHR_LINE + 0x16,  2 * CHR_LINE + 0x16,  0 * CHR_LINE + 0x18,
-    2 * CHR_LINE + 0x18,  0 * CHR_LINE + 0x1A,  2 * CHR_LINE + 0x1A,  0 * CHR_LINE + 0x1C,  2 * CHR_LINE + 0x1C,
-    0 * CHR_LINE + 0x1E,  2 * CHR_LINE + 0x1E,  4 * CHR_LINE + 0x00,  6 * CHR_LINE + 0x00,  4 * CHR_LINE + 0x02,
-    6 * CHR_LINE + 0x02,  4 * CHR_LINE + 0x04,  6 * CHR_LINE + 0x04,  4 * CHR_LINE + 0x06,  6 * CHR_LINE + 0x06,
-    4 * CHR_LINE + 0x08,  6 * CHR_LINE + 0x08,  4 * CHR_LINE + 0x0A,  6 * CHR_LINE + 0x0A,  4 * CHR_LINE + 0x0C,
-    6 * CHR_LINE + 0x0C,  4 * CHR_LINE + 0x0E,  6 * CHR_LINE + 0x0E,  4 * CHR_LINE + 0x10,  6 * CHR_LINE + 0x10,
-    4 * CHR_LINE + 0x12,  6 * CHR_LINE + 0x12,  4 * CHR_LINE + 0x14,  6 * CHR_LINE + 0x14,  4 * CHR_LINE + 0x16,
-    6 * CHR_LINE + 0x16,  4 * CHR_LINE + 0x18,  6 * CHR_LINE + 0x18,  4 * CHR_LINE + 0x1A,  6 * CHR_LINE + 0x1A,
-    4 * CHR_LINE + 0x1C,  6 * CHR_LINE + 0x1C,  4 * CHR_LINE + 0x1E,  6 * CHR_LINE + 0x1E,  8 * CHR_LINE + 0x00,
-    10 * CHR_LINE + 0x00, 8 * CHR_LINE + 0x02,  10 * CHR_LINE + 0x02, 8 * CHR_LINE + 0x04,  10 * CHR_LINE + 0x04,
-    8 * CHR_LINE + 0x06,  10 * CHR_LINE + 0x06, 8 * CHR_LINE + 0x08,  10 * CHR_LINE + 0x08, 8 * CHR_LINE + 0x0A,
-    10 * CHR_LINE + 0x0A, 8 * CHR_LINE + 0x0C,  10 * CHR_LINE + 0x0C, 8 * CHR_LINE + 0x0E,  10 * CHR_LINE + 0x0E,
-    8 * CHR_LINE + 0x10,  10 * CHR_LINE + 0x10, 8 * CHR_LINE + 0x12,  10 * CHR_LINE + 0x12, 8 * CHR_LINE + 0x14,
-    10 * CHR_LINE + 0x14, 8 * CHR_LINE + 0x16,  10 * CHR_LINE + 0x16, 8 * CHR_LINE + 0x18,  10 * CHR_LINE + 0x18,
-    8 * CHR_LINE + 0x1A,  10 * CHR_LINE + 0x1A, 8 * CHR_LINE + 0x1C,  10 * CHR_LINE + 0x1C, 8 * CHR_LINE + 0x1E,
-    10 * CHR_LINE + 0x1E, 12 * CHR_LINE + 0x00, 14 * CHR_LINE + 0x00, 12 * CHR_LINE + 0x02, 14 * CHR_LINE + 0x02,
-    12 * CHR_LINE + 0x04, 14 * CHR_LINE + 0x04, 12 * CHR_LINE + 0x06, 14 * CHR_LINE + 0x06, 12 * CHR_LINE + 0x08,
-    14 * CHR_LINE + 0x08, 12 * CHR_LINE + 0x0A, 14 * CHR_LINE + 0x0A, 12 * CHR_LINE + 0x0C, 14 * CHR_LINE + 0x0C,
-    12 * CHR_LINE + 0x0E, 14 * CHR_LINE + 0x0E, 12 * CHR_LINE + 0x10, 14 * CHR_LINE + 0x10, 12 * CHR_LINE + 0x12,
-    14 * CHR_LINE + 0x12, 12 * CHR_LINE + 0x14, 14 * CHR_LINE + 0x14, 12 * CHR_LINE + 0x16, 14 * CHR_LINE + 0x16,
-    12 * CHR_LINE + 0x18, 14 * CHR_LINE + 0x18, 12 * CHR_LINE + 0x1A, 14 * CHR_LINE + 0x1A, 12 * CHR_LINE + 0x1C,
-    14 * CHR_LINE + 0x1C, 12 * CHR_LINE + 0x1E, 14 * CHR_LINE + 0x1E,
-};
+extern u16 const sSlotToChrLut2[];
 
 u16 const gUnknown_0859B73C_2[] = {
     0x15, 0x29, 0x39, 0x2C, 0x19, 0x1D, 0x00, 0x07, 0x08, 0x09, 0x17, 0x1A, 0x31, 0x0C, 0x21, 0x1C,
