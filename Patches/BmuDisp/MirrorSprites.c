@@ -2,6 +2,7 @@
 //! This file uses decomp-based headers
 // https://github.com/MokhaLeee/FE-CLib-Mokha
 #define brk asm("mov r11, r11");
+#define CHR_LINE 0x20
 extern int gSMSSyncFlag;
 extern UnitIconWait unit_icon_wait_table[];
 extern struct SMSHandle gSMSHandleArray[100];
@@ -154,55 +155,51 @@ int GetUnitSMSAndDir(struct Unit * unit)
 };
 extern u8 * const sUnitSpriteSlots;
 extern u8 gUnitSpriteSlots[0xFF];
+extern u8 NewgSMSGfxIndexLookup[0xFF];
 extern int gSMS16xGfxIndexCounter;
 extern int gSMS32xGfxIndexCounter;
 extern int GetSMSObjChr(int chr);
+extern int GetSMSBufferChr(int chr);
+extern void SMSCopySheetToBuffers(void * data, int dstChr, u16 size, u32 id);
+
 int UseUnitSprite(u32 id)
 {
     int dir = (id & 0xFF00) >> 8;
     id &= 0xFF;
     u16 size = NewStandingMapSpriteTable[id].size;
-    u8 width = size < 2 ? 16 : 32;
-    u8 height = size > 0 ? 32 : 16;
-    u32 srcOffs[3] = { 0, 0, 0 };
-    int frame = GetGameClock() % 72;
-    // return;
-    srcOffs[0] = (srcOffs[0] << (7 + size)) * 3;
-    srcOffs[1] = (srcOffs[0] << ((7 + size)) * 3 * 2);
-    srcOffs[2] = (srcOffs[0] << ((7 + size)) * 3 * 4);
     void * data = NewStandingMapSpriteTable[id].sheet;
+
+    switch (dir)
+    {
+        case LVFACELEFT: //
+        {
+            data = FMU_idleSMSGfxTable_left[id];
+            break;
+        } // down
+        case LVFACERIGHT:
+        {
+            data = FMU_idleSMSGfxTable_right[id];
+            break;
+        }
+        case LVFACEDOWN:
+        {
+            data = NewStandingMapSpriteTable[id].sheet;
+            break;
+        }
+        case LVFACEUP:
+        {
+            data = FMU_idleSMSGfxTable_up[id];
+            break;
+        }
+        default:
+    }
+    if (!data)
+    {
+        data = NewStandingMapSpriteTable[id].sheet;
+    }
 
     if (gUnitSpriteSlots[id] == 0xFF)
     {
-        switch (dir)
-        {
-            case LVFACELEFT: //
-            {
-                data = FMU_idleSMSGfxTable_left[id];
-                break;
-            } // down
-            case LVFACERIGHT:
-            {
-                data = FMU_idleSMSGfxTable_right[id];
-                break;
-            }
-            case LVFACEDOWN:
-            {
-                data = NewStandingMapSpriteTable[id].sheet;
-                break;
-            }
-            case LVFACEUP:
-            {
-                data = FMU_idleSMSGfxTable_up[id];
-                break;
-            }
-            default:
-        }
-        if (!data)
-        {
-            data = NewStandingMapSpriteTable[id].sheet;
-        }
-
         Decompress(data, gGenericBuffer);
 
         switch (size)
@@ -226,11 +223,18 @@ int UseUnitSprite(u32 id)
                 break;
         }
 
+        NewgSMSGfxIndexLookup[id] = dir;
+        gSMSSyncFlag++;
+    }
+    else if (NewgSMSGfxIndexLookup[id] != dir)
+    {
+        SMSCopySheetToBuffers(data, GetSMSBufferChr(GetSMSObjChr(gUnitSpriteSlots[id] << 1)), size, id);
+        NewgSMSGfxIndexLookup[id] = dir;
         gSMSSyncFlag++;
     }
     // asm("mov r11, r11");
 
-    int result = GetSMSObjChr(sUnitSpriteSlots[id] << 1);
+    int result = GetSMSObjChr(gUnitSpriteSlots[id] << 1);
     __asm__("mov r2, %[val]\n" : : [val] "r"(id) : "r2");
     return result;
     // return gUnitSpriteSlots[id] << 1;

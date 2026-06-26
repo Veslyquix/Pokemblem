@@ -121,6 +121,39 @@ static int GetSMSBufferChrFromObjChr(int chr)
     return chr - SmsObjVramLowerChr;
 }
 
+void CopyUnitSpriteFrameToSmsBuffer(int frame, void * src, int dstChr, int widthTiles, int heightTiles)
+{
+    int i;
+
+    for (i = 0; i < heightTiles; i++)
+    {
+        CpuFastCopy(
+            src + i * widthTiles * CHR_SIZE,
+            GetSMSGfxBuffer(frame) + dstChr * CHR_SIZE + i * CHR_LINE * CHR_SIZE,
+            widthTiles * CHR_SIZE);
+    }
+}
+
+void CopyUnitSpriteSheetToSmsBuffers(void * data, int dstChr, u16 size, u32 id)
+{
+    int i;
+    int widthTiles = size < UNIT_ICON_SIZE_32x32 ? 2 : 4;
+    int heightTiles = size > UNIT_ICON_SIZE_16x16 ? 4 : 2;
+    int frameSize = widthTiles * heightTiles * CHR_SIZE;
+
+    Decompress(data, gGenericBuffer);
+
+    id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
+
+    for (i = 0; i < 3; i++)
+        CopyUnitSpriteFrameToSmsBuffer(i, gGenericBuffer + i * id * frameSize, dstChr, widthTiles, heightTiles);
+}
+
+void SMSCopySheetToBuffers(void * data, int dstChr, u16 size, u32 id)
+{
+    CopyUnitSpriteSheetToSmsBuffers(data, dstChr, size, id);
+}
+
 static u8 * GetSMSObjVramOffset(int offset)
 {
     if (offset >= SMS_GFX_BUFFER_SPLIT_SIZE)

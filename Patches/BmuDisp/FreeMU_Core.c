@@ -1450,84 +1450,46 @@ int SMSToMUDir(int dir)
 }
 extern u8 * GetSMSGfxBuffer(int frame);
 extern void CopySMSGfxBufferToObjVram(int frame);
+extern int GetSMSBufferChr(int chr);
+extern void SMSCopySheetToBuffers(void * data, int dstChr, u16 size, u32 id);
 // u8 EWRAM_DATA gSMSGfxBuffer[3][8*0x20*0x20] = {};
 void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 {
+    void * data;
+    int dstChr;
+
     if (!unit->pMapSpriteHandle)
     {
         return;
     }
     facing &= 3;
-    u32 tileIndex = (unit->pMapSpriteHandle->oam2Base & 0x3FF) - 0x80;
 
     u16 size = NewStandingMapSpriteTable[smsID].size;
-    u8 width = size < 2 ? 16 : 32;
-    u8 height = size > 0 ? 32 : 16;
-    u32 srcOffs[3] = { 0, 0, 0 };
     int frame = GetGameClock() % 72;
-    // return;
-    srcOffs[0] = (srcOffs[0] << (7 + size)) * 3;
-    srcOffs[1] = (srcOffs[0] << ((7 + size)) * 3 * 2);
-    srcOffs[2] = (srcOffs[0] << ((7 + size)) * 3 * 4);
 
     int hasFacing = FMU_idleSMSGfxTable_left[smsID] != NULL;
+    data = NewStandingMapSpriteTable[smsID].pGraphics;
     // Do nothing if no different-direction facing idle sprites exist.
 
-    // I've had issue with using this at the same time as the map is being
-    // updated, which also uses gGenericBuffer, so I moved it 0x1500 in.
     if (facing == LVFACELEFT && hasFacing)
     {
-        Decompress(FMU_idleSMSGfxTable_left[smsID] + srcOffs[0], gGenericBuffer2);
-        // Decompress(FMU_idleSMSGfxTable_left[smsID]+srcOffs[0], gGenericBuffer);
-        // Decompress(FMU_idleSMSGfxTable_left[smsID]+srcOffs[0], gGenericBuffer);
+        data = FMU_idleSMSGfxTable_left[smsID];
     }
 
     if (facing == LVFACERIGHT && hasFacing)
     {
-        Decompress(FMU_idleSMSGfxTable_right[smsID] + srcOffs[0], gGenericBuffer2);
-        // Decompress(FMU_idleSMSGfxTable_right[smsID]+srcOffs[0], gGenericBuffer);
-        // Decompress(FMU_idleSMSGfxTable_right[smsID]+srcOffs[0], gGenericBuffer);
+        data = FMU_idleSMSGfxTable_right[smsID];
     }
     if (facing == LVFACEUP && hasFacing)
     {
-
-        Decompress(FMU_idleSMSGfxTable_up[smsID] + srcOffs[0], gGenericBuffer2);
-        // Decompress(FMU_idleSMSGfxTable_up[smsID]+srcOffs[0], gGenericBuffer);
-        // Decompress(FMU_idleSMSGfxTable_up[smsID]+srcOffs[0], gGenericBuffer);
-    }
-    if (facing == LVFACEDOWN || !hasFacing)
-    {
-
-        Decompress(NewStandingMapSpriteTable[smsID].pGraphics + srcOffs[0], gGenericBuffer2);
-        // Decompress(NewStandingMapSpriteTable[smsID].pGraphics+srcOffs[0],
-        // gGenericBuffer);
-        // Decompress(NewStandingMapSpriteTable[smsID].pGraphics+srcOffs[0],
-        // gGenericBuffer);
+        data = FMU_idleSMSGfxTable_up[smsID];
     }
 
-    /*
-    // Decompress sms gfx.
-    if (facing==2)
-      Decompress(NewStandingMapSpriteTable[smsID].pGraphics, gGenericBuffer); //
-    Downward facing sms. else { Decompress(FMU_idleSMSGfxTable[smsID],
-    gGenericBuffer);                 // Other direction-facing sms. srcOffs[0] =
-    facing==3 ? facing-1 : facing;  // Up-facing sprite comes immediately after
-    right.
-    }
+    if (!data)
+        data = NewStandingMapSpriteTable[smsID].pGraphics;
 
-    // Move sms gfx into smsbuffer.
-    srcOffs[0] = (srcOffs[0] << (7 + size)) * 3;
-    srcOffs[1] = srcOffs[0] + (0x80 << (size << 2));
-    srcOffs[2] = srcOffs[1] + (0x80 << (size << 2));
-    */
-
-    // src, dst, width, height
-    CopyTileGfxForObj(
-        (void *)gGenericBuffer2 + srcOffs[0], (void *)GetSMSGfxBuffer(0) + (tileIndex << 5), width >> 3, height >> 3);
-    CopyTileGfxForObj(
-        (void *)gGenericBuffer2 + srcOffs[1], (void *)GetSMSGfxBuffer(1) + (tileIndex << 5), width >> 3, height >> 3);
-    CopyTileGfxForObj(
-        (void *)gGenericBuffer2 + srcOffs[2], (void *)GetSMSGfxBuffer(2) + (tileIndex << 5), width >> 3, height >> 3);
+    dstChr = GetSMSBufferChr((unit->pMapSpriteHandle->oam2Base & 0x3FF) - 0x80);
+    SMSCopySheetToBuffers(data, dstChr, size, smsID);
 
     // Overwrite VRAM with new SMS next frame. Timings taken from 0x8026F2C,
     // SyncUnitSpriteSheet.
