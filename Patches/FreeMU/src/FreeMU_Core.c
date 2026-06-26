@@ -1448,41 +1448,8 @@ int SMSToMUDir(int dir)
     }
     return MU_FACING_DOWN;
 }
-extern u8 * const gSMSGfxBuffer1;
-extern u8 * const gSMSGfxBuffer2;
-extern u8 * const gSMSGfxBuffer3;
-#define SMS_VRAM_TILE_ROWS 16
-#define SMS_GFX_BUFFER_SIZE (SMS_VRAM_TILE_ROWS * 0x20 * 0x20)
-#define SMS_GFX_BUFFER_SPLIT_SIZE (SMS_GFX_BUFFER_SIZE / 2)
-#define SMS_OBJ_VRAM_LOWER ((u8 *)0x06011000)
-#define SMS_OBJ_VRAM_UPPER ((u8 *)0x06015000)
-#define SMS_OBJ_CHR_REMAP_THRESHOLD (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
-#define SMS_OBJ_CHR_REMAP_OFFSET (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
-#define SMS_16X16_GFX_SLOT_COUNT 0x80
-#define SMS_16X32_GFX_SLOT_STRIDE 2
-#define SMS_32X32_GFX_SLOT_STRIDE 4
-static u8 * GetSMSGfxBuffer(int frame)
-{
-    switch (frame)
-    {
-        case 0:
-            return gSMSGfxBuffer1;
-
-        case 1:
-            return gSMSGfxBuffer2;
-
-        default:
-            return gSMSGfxBuffer3;
-    }
-}
-static void CopySMSGfxBufferToObjVram(int frame)
-{
-    u8 * src = GetSMSGfxBuffer(frame);
-
-    CpuFastCopy(src, SMS_OBJ_VRAM_LOWER, SMS_GFX_BUFFER_SPLIT_SIZE);
-    CpuFastCopy(src + SMS_GFX_BUFFER_SPLIT_SIZE, SMS_OBJ_VRAM_UPPER, SMS_GFX_BUFFER_SPLIT_SIZE);
-}
-
+extern u8 * GetSMSGfxBuffer(int frame);
+extern void CopySMSGfxBufferToObjVram(int frame);
 // u8 EWRAM_DATA gSMSGfxBuffer[3][8*0x20*0x20] = {};
 void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 {

@@ -1,5 +1,18 @@
 
 .include "C:/devkitPro/FE-CLib/reference/FE8U-20190316.s"
+
+SET_FUNC __aeabi_idiv, __divsi3
+SET_FUNC __aeabi_idivmod, __modsi3
+SET_FUNC __aeabi_uidiv, __udivsi3
+SET_FUNC __aeabi_uidivmod, __umodsi3
+
+@ division & other libgcc functions
+SET_FUNC Div, __aeabi_idiv
+SET_FUNC Div, __aeabi_idivmod
+SET_FUNC Div, __aeabi_uidiv
+SET_FUNC Div, __aeabi_uidivmod
+
+
 SET_DATA gSMSGfxBuffer1, 0x8026958
 SET_DATA gSMSGfxBuffer2, 0x8026F8C
 SET_DATA gSMSGfxBuffer3, 0x8026F90
