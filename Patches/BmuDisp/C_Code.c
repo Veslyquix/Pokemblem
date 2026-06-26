@@ -470,7 +470,7 @@ void ResetUnitSprites(void)
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
         sUnitSpriteSlots[i] |= 0xFF;
 
-    gSMS32xGfxIndexCounter = 0;
+    gSMS32xGfxIndexCounter = 4;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 
@@ -481,7 +481,7 @@ void ResetUnitSpritesB(void)
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
         sUnitSpriteSlots[i] |= 0xFF;
 
-    gSMS32xGfxIndexCounter = 0;
+    gSMS32xGfxIndexCounter = 4;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 /*
