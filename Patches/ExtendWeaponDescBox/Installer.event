@@ -25,7 +25,7 @@ ProcExceptionsList:
 POIN gProc_SaveMenu gProc_SaveMenu2 gProc_ChapterMenuUnit gProc_ChapterMenuStatus
 POIN gProc_PrepSomethingUnknown 
 POIN gProc_PrepSomethingUnknown2 
-POIN gProcScr_TargetSelection sProc_Menu
+// POIN gProcScr_TargetSelection sProc_Menu
 WORD 0 // Terminator 
 
 ALIGN 4

@@ -16,8 +16,11 @@
 
 #define BlueArrowChr 0x240 
 #define ArrChr "0x3800|BlueArrowChr"
-#define BottomHelpChr 0x384 
-#define MMSChr 0x0C // 0x380 default 
+#define BottomHelpChr 0x240 
+#define MMSChr 0x29C // gets >>2 
+#define BrownBoxChr 0x2C0 // gets >> 2
+#define PrepMenuStartButtonChr 0x200
+#define PrepChInfoButtonChr 0x180 // gets >>2 then <<7
 
 ALIGN 4 
 TradeLeftFaceChr:
@@ -27,13 +30,75 @@ WORD 0x58
 
 PUSH 
 
+
+
+// ORG $9697c 
+// SHORT $e034 // b 0x80969e8 
+// (skip PutPrepChapterSprite) 
+ORG $969A6 // prep menu buttons 
+BYTE ((PrepChInfoButtonChr>>7)|0xC0)
+ORG $969BA
+BYTE ((PrepChInfoButtonChr>>7)|0xC0)
+ORG $969CE
+BYTE ((PrepChInfoButtonChr>>7)|0xC0)
+ORG $969DC
+BYTE ((PrepChInfoButtonChr>>7)|0xC0)
+
+ORG $96A7C
+WORD 0x9000|PrepChInfoButtonChr
+ORG $96AB8
+WORD 0x9000|PrepChInfoButtonChr
+
+ORG $96A28 
+BYTE (PrepMenuStartButtonChr>>2)
+ORG $96A4E 
+BYTE (PrepMenuStartButtonChr>>2)
+ORG $96A8A
+BYTE (PrepMenuStartButtonChr>>2)
+
+
+ORG $95D40 // decompress the graphics 
+SHORT $2000|(PrepChInfoButtonChr>>2)
+ORG $95E2C
+WORD (0x6010000 + (PrepMenuStartButtonChr << 5))
+
+ORG $9a888 // after pressing "Pick Units" 
+BYTE 0x200>>2
+ORG $9a77e 
+BYTE 0x80|(0x200>>8)
+
+#define PrepBMenuBExitChr 0x280 
+// when viewing the map via prep 
+ORG $33570 
+WORD 0x6010000|(PrepBMenuBExitChr<<5)
+ORG $335e8
+WORD 0x2000|(PrepBMenuBExitChr)+0xB
+ORG $335eC
+WORD 0x2000|(PrepBMenuBExitChr)+0xF
+ORG $335f4
+WORD 0x2000|(PrepBMenuBExitChr)+0x13
+ORG $335f8
+WORD 0x2000|(PrepBMenuBExitChr)+0x15
+ORG $335fc
+WORD 0x2000|(PrepBMenuBExitChr)+0x19
+ORG $33604
+WORD 0x2000|(PrepBMenuBExitChr)+0x1D
+
+
+
+ORG 0x02D2EA // in TradeMenu_InitUnitNameDisplay
+BYTE (BrownBoxChr>>2) // 4800 (vanilla) -> 7080 (vesly) -> 5800 (nat)
+
+
 // can't use MMSChr definition because the value is obtained via mov + lsl 
 ORG $78572 
-SHORT $250C // Default MMS as tile 0xC instead of 0x380 
-SHORT $46c0 
+SHORT $2500|(MMSChr>>2) // Default MMS as tile 0xC instead of 0x380 
+SHORT $00ad // lsl 2 
 ORG $79754 
-SHORT $220C // Default MMS as tile 0xC instead of 0x380  
-SHORT $46c0 
+SHORT $2200|(MMSChr>>2) // Default MMS as tile 0xC instead of 0x380  
+SHORT $0092 // lsl 2
+
+// 12 52 92 D2 
 
 
 ORG $32E9C // Blue Arrow from PathArrowDisp_Init

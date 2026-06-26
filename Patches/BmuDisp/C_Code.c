@@ -98,15 +98,17 @@ u8 * GetSMSGfxBuffer(int frame)
 int GetSMSObjChr(int chr)
 {
     if (chr >= SMS_OBJ_CHR_REMAP_THRESHOLD)
-        return chr + SMS_OBJ_CHR_REMAP_OFFSET;
+        return chr - SMS_OBJ_CHR_REMAP_THRESHOLD + SmsObjVramUpperChr - SmsObjVramLowerChr;
 
     return chr;
 }
 
 int GetSMSBufferChr(int chr)
 {
-    if (chr >= SMS_OBJ_CHR_REMAP_THRESHOLD + SMS_OBJ_CHR_REMAP_OFFSET)
-        return chr - SMS_OBJ_CHR_REMAP_OFFSET;
+    int upperChr = SmsObjVramUpperChr - SmsObjVramLowerChr;
+
+    if (chr >= upperChr)
+        return chr - upperChr + SMS_OBJ_CHR_REMAP_THRESHOLD;
 
     return chr;
 }
@@ -504,7 +506,7 @@ int StartUiSMS(int smsId, int frameId)
             break;
     }
 
-    return sUnitSpriteSlots[frameId] << 1;
+    return GetSMSObjChr(sUnitSpriteSlots[frameId] << 1);
 }
 
 int StartWorldMapSMS(int smsId, int frameId, int slot)
@@ -526,7 +528,7 @@ int StartWorldMapSMS(int smsId, int frameId, int slot)
             break;
     }
 
-    return sUnitSpriteSlots[frameId] << 1;
+    return GetSMSObjChr(sUnitSpriteSlots[frameId] << 1);
 }
 
 static void EnsureSMS32xGfxCounterHasRoom(int slotCount)
@@ -566,7 +568,7 @@ int UseUnitSprite2(u32 id)
 
         gSMSSyncFlag++;
     }
-    return sUnitSpriteSlots[id] << 1;
+    return GetSMSObjChr(sUnitSpriteSlots[id] << 1);
 }
 // commented here
 */
