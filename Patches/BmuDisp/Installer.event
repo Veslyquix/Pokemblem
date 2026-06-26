@@ -12,6 +12,7 @@
 
 
 #include "C_Code.lyn.event" 
+#include "Asm.lyn.event" 
 
 
 #define BlueArrowChr 0x240 
@@ -34,6 +35,9 @@ PUSH
 ORG $205c14 
 WORD 0x4000 6
 WORD 0x5000 7 
+
+ORG $99714 // when pressing R, end face while in prep Items section 
+callHackNew(Hook_sub_80996E8) 
 
 
 // ORG $9697c 

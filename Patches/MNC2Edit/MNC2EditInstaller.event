@@ -60,7 +60,7 @@ ORG $17910 // from 8017904 T GetUnitSMSId
 POP
 
 
-#include "PrepScreenShowPokeballSprites.lyn.event"
+// #include "PrepScreenShowPokeballSprites.lyn.event"
 
 
 

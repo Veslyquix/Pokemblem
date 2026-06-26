@@ -174,7 +174,7 @@ int GetUnitSMSId(const struct Unit * unit)
 {
     if (gChapterData.chapterIndex == PokecenterChLabel)
     {
-        return RedPokeballSMS_Link;
+        // return RedPokeballSMS_Link;
     }
     // if (IsUnitProtag(unit))
     // {

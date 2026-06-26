@@ -167,9 +167,9 @@ SHORT 0x46C0 //Remove loop branch so code only runs once
 
 POP 
 
-ALIGN 4 
-SomeNewOAMTable: 
-SHORT 0   4   8    $C  $10 $14 $18 $1C // Use the full row of VRAM 
-SHORT $40 $44 $48 $4C $50 $54 $58 $5C 
+// ALIGN 4 
+// SomeNewOAMTable: 
+// SHORT 0   4   8    $C  $10 $14 $18 $1C // Use the full row of VRAM 
+// SHORT $40 $44 $48 $4C $50 $54 $58 $5C 
 
 // #include "vesly-ExtendWeaponDescBox-tradefix/tradefix.event"
