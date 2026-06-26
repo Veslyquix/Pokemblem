@@ -45,6 +45,34 @@ extern u8 * const sUnitSpriteSlots;
 #define SMS_16X16_GFX_SLOT_COUNT 0x80
 #define SMS_16X32_GFX_SLOT_STRIDE 2
 #define SMS_32X32_GFX_SLOT_STRIDE 4
+extern int TradeLeftFaceChr;
+extern int TradeRightFaceChr;
+// Capture hack hooks this for enemies to use portrait fid 1
+void TradeMenu_InitItemDisplay(struct TradeMenuProc * proc)
+{
+    DrawUiFrame2(1, 8, 14, 12, 0);
+    DrawUiFrame2(15, 8, 14, 12, 0);
+
+    ResetTextFont();
+
+    ResetIconGraphics();
+    LoadIconPalettes(4); // TODO: palette id constant
+
+    TradeMenu_InitItemText(proc);
+    TradeMenu_RefreshItemText(proc);
+
+    // TODO: face display type (arg 5) constants
+    // StartFaceChibiSpr(int x, int y, int fid, int chr, int pal, s8 isFlipped, ProcPtr parent)
+    StartFaceChibiSpr(56, -4, GetUnitPortraitId(proc->units[0]), TradeLeftFaceChr, 3, 0, (void *)proc);
+    StartFaceChibiSpr(152, -4, GetUnitPortraitId(proc->units[1]), TradeRightFaceChr, 2, 1, (void *)proc);
+    // StartFace(0, GetUnitPortraitId(proc->units[0]), 64,  -4, 3);
+    // StartFace(1, GetUnitPortraitId(proc->units[1]), 176, -4, 2);
+
+    SetFaceBlinkControlById(0, 5);
+    SetFaceBlinkControlById(1, 5);
+
+    BG_EnableSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
+}
 
 extern u8 * const gSMSGfxBuffer1;
 extern u8 * const gSMSGfxBuffer2;
@@ -65,7 +93,7 @@ static u8 * GetSMSGfxBuffer(int frame)
     }
 }
 
-int GetSMSObjChr(int chr)
+static int GetSMSObjChr(int chr)
 {
     if (chr >= SMS_OBJ_CHR_REMAP_THRESHOLD)
         return chr + SMS_OBJ_CHR_REMAP_OFFSET;

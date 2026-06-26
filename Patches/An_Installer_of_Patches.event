@@ -43,7 +43,7 @@
 #include "ProcSkills/Installer.event" 
 #include "Supply/Installer.event" 
 #include "ExtendWeaponDescBox/Installer.event" 
-
+#include "BmuDisp/Installer.event" 
 //#include "AllegiancePalette/Installer.event"
 #include "ReplaceMoves/Installer.event"
 #include "ReorderMoves/Installer.event" 

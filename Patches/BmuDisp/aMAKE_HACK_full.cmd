@@ -5,7 +5,7 @@ set "source_rom=%~dp0FE8Hack.gba"
 set "source_sym=%~dp0FE8_clean.sym
 set "vanilla_rom=%~dp0FE8_clean.gba"
 
-set "main_event=%~dp0Installer.event"
+set "main_event=%~dp0Buildfile.event"
 
 set "target_rom=%~dp0aHack.gba"
 set "target_ups=%~dp0aHack.ups"
