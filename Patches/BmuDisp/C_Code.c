@@ -76,6 +76,58 @@ void TradeMenu_InitItemDisplay(struct TradeMenuProc * proc)
     BG_EnableSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
 }
 
+void UpdatePrepItemScreenFace(int slot, struct Unit * unit, u16 x, u16 y, u16 disp)
+{
+    struct PrepItemScreenProc * proc = Proc_Find(ProcScr_PrepItemScreen);
+
+    if (proc->pUnits[slot] != unit)
+    {
+        if (proc->pUnits[slot] != NULL)
+        {
+            EndFaceById(slot);
+        }
+
+        if (unit != NULL)
+        {
+            // StartFaceChibiSpr(x, y - 9, GetUnitPortraitId(unit), 0x240 + (8 * slot), 6 + slot, slot, (void *)proc);
+            StartFace2(slot, GetUnitPortraitId(unit), (s16)x, (s16)y, disp);
+        }
+    }
+    else
+    {
+        if (unit != NULL)
+        {
+            SetFacePosition(slot, (s16)x, (s16)y);
+            SetFaceDisplayBitsById(slot, disp);
+        }
+    }
+    // struct FaceProc* chibiProc = Proc_Find(gProcScr_FaceChibiSpr);
+    // chibiProc->oam2 = chibiProc->oam2 |
+    proc->pUnits[slot] = unit;
+
+    proc->xFacePosBySlot[slot] = x;
+    proc->yFacePosBySlot[slot] = y;
+    proc->faceDispBySlot[slot] = disp;
+
+    return;
+}
+
+// void PutSprite(int layer, int x, int y, const u16 * object, int oam2);
+// void PutSpriteExt(int layer, int xOam1, int yOam0, const u16 * object, int oam2);
+
+//! FE8U = 0x08005AD4
+void FaceChibiSpr_OnIdle(struct FaceProc * proc)
+{
+    PutSpriteExt(
+        1, proc->xPos - gLCDControlBuffer.bgoffset[0].x, (proc->yPos - gLCDControlBuffer.bgoffset[0].y) | OAM0_BLEND,
+        proc->sprite, proc->oam2);
+    // PutSprite(
+    // 5, proc->xPos - gLCDControlBuffer.bgoffset[0].x, proc->yPos - gLCDControlBuffer.bgoffset[0].y,
+    // proc->sprite, proc->oam2);
+
+    return;
+}
+
 extern u8 * const gSMSGfxBuffer1;
 extern u8 * const gSMSGfxBuffer2;
 extern u8 * const gSMSGfxBuffer3;
