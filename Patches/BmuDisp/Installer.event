@@ -50,6 +50,11 @@ PlaytimeGfx:
 
 PUSH 
 
+ORG $8E15C 
+SHORT $46c0 $46c0 // Kill 80894e0 StartHelpPromptSprite from being called in ChapterStatus_Init
+
+ORG $8DCAC 
+SHORT $4770 // kill StartChapterStatusHelpBox 
 // not going to bother working with 808E19C DrawChapterStatusTextForUnit
 
 ORG $8E078 

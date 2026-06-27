@@ -140,27 +140,37 @@ u16 const NewSprite_ChapterStatus_PlaytimeBanner[] = {
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(32),
     OAM2_CHR(0xC4),
-    OAM0_SHAPE_32x16,
-    OAM1_SIZE_32x16 + OAM1_X(32),
+    OAM0_SHAPE_16x16,
+    OAM1_SIZE_16x16 + OAM1_X(64),
     OAM2_CHR(0xC8),
 };
 u16 const NewSprite_ChapterStatus_PlaytimeBanner2[] = {
     3,
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16,
-    OAM2_CHR(0xCC),
+    OAM2_CHR(0xCA),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(32),
-    OAM2_CHR(0xD0),
-    OAM0_SHAPE_32x16,
-    OAM1_SIZE_32x16 + OAM1_X(32),
-    OAM2_CHR(0xD4),
-    // OAM0_SHAPE_16x32,
-    // OAM1_SIZE_16x32 + OAM1_X(64),
-    // OAM2_CHR(0x98),
+    OAM2_CHR(0xCE),
+    OAM0_SHAPE_16x16,
+    OAM1_SIZE_16x16 + OAM1_X(64),
+    OAM2_CHR(0xD2),
 };
 extern const u16 Sprite_ChapterStatus_ChapterName[];
 extern const u16 PlaytimeGfx[];
+
+void DecompressObjRows(const void * src, int dstChr, int widthTiles, int heightTiles)
+{
+    int i;
+
+    Decompress(src, gGenericBuffer);
+
+    for (i = 0; i < heightTiles; i++)
+    {
+        CpuFastCopy(gGenericBuffer + i * widthTiles * CHR_SIZE, OBJ_CHR_ADDR(dstChr + i * 0x20), widthTiles * CHR_SIZE);
+    }
+}
+
 //! FE8U = 0x0808E7B4
 void StatusScreenSpriteDraw_Init(struct ChapterStatusProc * proc)
 {
@@ -170,7 +180,7 @@ void StatusScreenSpriteDraw_Init(struct ChapterStatusProc * proc)
     ApplyPalette(Pal_08A2E8F0, 0x17);
 
     Decompress(Img_StatusScreenLabelSprites, OBJ_CHR_ADDR(StatusScreenChrLink));
-    Decompress(PlaytimeGfx, OBJ_CHR_ADDR(0x240));
+    DecompressObjRows(PlaytimeGfx, 0x240, 20, 2);
 
     proc->unk_64 = 0;
 
