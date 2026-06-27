@@ -1,12 +1,19 @@
 
 
-// issues during: unit list menu, chapter status screen, prep menu 
+// 8a177a0 T ProcScr_UnitListScreen_Field
+// 8a178c0 T ProcScr_UnitListScreen_PrepMenu
+// 8A01B54 gProcScr_ChapterStatusScreen 
+// 8a01c04 T ProcScr_ChapterStatusScreen_FromPrep
+// ChapterStatus_Init 808DF24 Decompress(Img_08A2E5EC, BG_CHR_ADDR(0x2C0)); 
+// 0x0808E7B4 StatusScreenSpriteDraw_Init Decompress(Img_StatusScreenLabelSprites, OBJ_CHR_ADDR(0x340));
+
+// prep menu - working 
 // fixed mmb and blue arrow and made traps / 16x16 sprites appear 
 // notes: MirrorSprites, FMU, TrapRework, TrapSMSSize 
 // uggh 
 
-// todo: edit ExtendWepDescBox to only clear as many obj vram lines as it needs 
-// then, move faces during conversations to 0x6013000 from 0x6015000
+// todo: edit ExtendWepDescBox to only clear as many obj vram lines as it needs - working now 
+// then, move faces during conversations to 0x6013000 from 0x6015000 - working 
 
 // UseUnitSprite needs to be uncommented for vanilla build 
 
@@ -24,14 +31,32 @@
 #define BrownBoxChr 0x2C0 // gets >> 2
 #define PrepMenuStartButtonChr 0x200
 #define PrepChInfoButtonChr 0x180 // gets >>2 then <<7
+#define StatusScreenChr 0x280
+#define StatusScreenTextChr 0x200
 
 ALIGN 4 
 TradeLeftFaceChr:
 WORD 0x18 
 TradeRightFaceChr: 
 WORD 0x58 
+StatusScreenChrLink:
+WORD StatusScreenChr
+StatusScreenTextChrLink:
+WORD StatusScreenTextChr
+
+ALIGN 4 
+PlaytimeGfx:
+#incbin "PlaytimeGfx.dmp" 
 
 PUSH 
+
+// not going to bother working with 808E19C DrawChapterStatusTextForUnit
+
+ORG $8E078 
+// WORD 0x6010000|((0x2C0)<<5) // dunno what this is for tbh 
+
+ORG $8E438 
+WORD 0x6010000|((StatusScreenTextChr)<<5) // sprite text obj vram for status screen 
 
 // edit gDefaultFaceConfig / faceConfig in PrepItemScreen_SetupGfx for obj vram placement of faces 
 ORG $590fec

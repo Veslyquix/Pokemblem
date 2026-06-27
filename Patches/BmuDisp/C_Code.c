@@ -43,9 +43,12 @@ extern u16 SmsObjVramUpperChr;
 #define SMS_OBJ_VRAM_LOWER ((u8 *)0x06011000)
 #define SMS_OBJ_CHR_REMAP_THRESHOLD (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
 #define SMS_OBJ_CHR_REMAP_OFFSET (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
-#define SMS_16X16_GFX_SLOT_COUNT 0x80
+
 #define SMS_16X32_GFX_SLOT_STRIDE 2
 #define SMS_32X32_GFX_SLOT_STRIDE 4
+#define SMS_16X16_GFX_SLOT_COUNT (0x80 - SMS_32X32_GFX_SLOT_STRIDE)
+#define MMS_RESERVED_OBJ_CHR 0x39C
+#define MMS_RESERVED_GFX_SLOT_START (SMS_16X16_GFX_SLOT_COUNT - SMS_32X32_GFX_SLOT_STRIDE)
 extern int TradeLeftFaceChr;
 extern int TradeRightFaceChr;
 // Capture hack hooks this for enemies to use portrait fid 1
@@ -73,6 +76,174 @@ void TradeMenu_InitItemDisplay(struct TradeMenuProc * proc)
     SetFaceBlinkControlById(1, 5);
 
     BG_EnableSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
+}
+
+extern int StatusScreenChrLink;
+extern int StatusScreenTextChrLink;
+#define StatusScreenChr 0x280
+u16 const NewSprite_ChapterStatus_PlayCountLabel[] = {
+    1,
+    OAM0_SHAPE_16x16,
+    OAM1_SIZE_16x16,
+    OAM2_CHR(StatusScreenChr) + OAM2_LAYER(1) + OAM2_PAL(4),
+};
+u16 const NewSprite_ChapterStatus_PlayerLabel[] = {
+    2,
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8,
+    OAM2_CHR(StatusScreenChr + 0x14) + OAM2_LAYER(1) + OAM2_PAL(4),
+    OAM0_SHAPE_16x8,
+    OAM1_SIZE_16x8 + OAM1_X(32),
+    OAM2_CHR(StatusScreenChr + 0x18) + OAM2_LAYER(1) + OAM2_PAL(4),
+};
+u16 const NewSprite_ChapterStatus_EnemyLabel[] = {
+    2,
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8,
+    OAM2_CHR(StatusScreenChr + 0x1A) + OAM2_LAYER(1) + OAM2_PAL(4),
+    OAM0_SHAPE_16x8,
+    OAM1_SIZE_16x8 + OAM1_X(32),
+    OAM2_CHR(StatusScreenChr + 0x1E) + OAM2_LAYER(1) + OAM2_PAL(4),
+};
+
+u16 const NewSprite_ChapterStatus_ObjectiveLabel[] = {
+    2,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16,
+    OAM2_CHR(StatusScreenChr + 0x3) + OAM2_LAYER(1) + OAM2_PAL(4),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(32),
+    OAM2_CHR(StatusScreenChr + 0x7) + OAM2_LAYER(1) + OAM2_PAL(4),
+};
+
+u16 const NewSprite_ChapterStatus_TurnLabel[] = {
+    1,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16,
+    OAM2_CHR(StatusScreenChr + 0xB) + OAM2_LAYER(1) + OAM2_PAL(4),
+};
+
+u16 const NewSprite_ChapterStatus_FundsLabel[] = {
+    1,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16,
+    OAM2_CHR(StatusScreenChr + 0xF) + OAM2_LAYER(1) + OAM2_PAL(4),
+};
+
+extern const u16 Sprite_ChapterStatus_FactionSelector[];
+extern const u16 Sprite_ChapterStatus_ChapterBanner[];
+u16 const NewSprite_ChapterStatus_PlaytimeBanner[] = {
+    3,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16,
+    OAM2_CHR(0xC0),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(32),
+    OAM2_CHR(0xC4),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(32),
+    OAM2_CHR(0xC8),
+};
+u16 const NewSprite_ChapterStatus_PlaytimeBanner2[] = {
+    3,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16,
+    OAM2_CHR(0xCC),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(32),
+    OAM2_CHR(0xD0),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(32),
+    OAM2_CHR(0xD4),
+    // OAM0_SHAPE_16x32,
+    // OAM1_SIZE_16x32 + OAM1_X(64),
+    // OAM2_CHR(0x98),
+};
+extern const u16 Sprite_ChapterStatus_ChapterName[];
+extern const u16 PlaytimeGfx[];
+//! FE8U = 0x0808E7B4
+void StatusScreenSpriteDraw_Init(struct ChapterStatusProc * proc)
+{
+    LoadObjUIGfx();
+
+    ApplyPalette(Pal_StatusScreenLabelSprites, 0x14);
+    ApplyPalette(Pal_08A2E8F0, 0x17);
+
+    Decompress(Img_StatusScreenLabelSprites, OBJ_CHR_ADDR(StatusScreenChrLink));
+    Decompress(PlaytimeGfx, OBJ_CHR_ADDR(0x240));
+
+    proc->unk_64 = 0;
+
+    sub_80895B4(0x80, 0x13);
+    PutChapterTitleGfx(0x800 | (StatusScreenChrLink + 0x40), GetChapterTitleWM(&gPlaySt));
+
+    return;
+}
+
+//! FE8U = 0x0808E818
+void StatusScreenSpriteDraw_Loop(struct ChapterStatusProc * proc)
+{
+    int i;
+
+    struct ChapterStatusProc * parent = proc->proc_parent;
+
+    PutSprite(4, 4, 3, Sprite_ChapterStatus_ChapterBanner, OAM2_CHR(0x180) + OAM2_LAYER(1) + OAM2_PAL(8));
+    PutSprite(4, 150, 124, NewSprite_ChapterStatus_PlaytimeBanner, OAM2_CHR(0x180) + OAM2_LAYER(1) + OAM2_PAL(9));
+    PutSprite(4, 150, 140, NewSprite_ChapterStatus_PlaytimeBanner2, OAM2_CHR(0x180) + OAM2_LAYER(1) + OAM2_PAL(9));
+
+    if (parent->unk_3f == 0)
+    {
+        PutSprite(
+            4, 4, 11, Sprite_ChapterStatus_ChapterName,
+            OAM2_CHR(StatusScreenChrLink + 0x40) + OAM2_LAYER(1) + OAM2_PAL(3));
+    }
+
+    // Draw rectangle around current selected faction
+    PutSprite(
+        4, parent->unitIndex * 56, 44, Sprite_ChapterStatus_FactionSelector,
+        OAM2_CHR(0x180) + OAM2_LAYER(1) + OAM2_PAL(7));
+
+    PutSprite(4, 8, 37, NewSprite_ChapterStatus_PlayerLabel, 0);
+    PutSprite(4, 64, 37, NewSprite_ChapterStatus_EnemyLabel, 0);
+    PutSprite(4, 18, 115, NewSprite_ChapterStatus_TurnLabel, 0);
+    PutSprite(4, 18, 131, NewSprite_ChapterStatus_FundsLabel, 0);
+    PutSprite(4, 28, 67, NewSprite_ChapterStatus_ObjectiveLabel, 0);
+
+    for (i = 0; i < 2; i++) // Draw unit name
+    {
+        PutSprite(4, 160 + (i * 32), 60, gObject_32x16, OAM2_CHR(StatusScreenTextChrLink) + OAM2_PAL(10) + (i * 4));
+    }
+
+    PutSprite(4, 180, 75, gObject_32x16, OAM2_CHR(StatusScreenTextChrLink + 0x10) + OAM2_PAL(10)); // Draw unit level
+
+    for (i = 0; i < 2; i++) // Draw unit HP
+    {
+        PutSprite(
+            4, 156 + (i * 32), 91, gObject_32x16, OAM2_CHR(StatusScreenTextChrLink + 0x14) + OAM2_PAL(10) + (i * 4));
+    }
+
+    PutTime(TILEMAP_LOCATED(gBG0TilemapBuffer, 19, 16), TEXT_COLOR_SYSTEM_BLUE, GetGameClock(), 0);
+
+    BG_EnableSyncByMask(BG0_SYNC_BIT);
+
+    if (parent->units[parent->unitIndex] != NULL)
+    {
+        PutUnitSprite(4, 136, 61, parent->units[parent->unitIndex]);
+    }
+
+    SyncUnitSpriteSheet();
+
+    if (parent->timesCompleted != 0)
+    {
+        if (!(gPlaySt.chapterStateBits & PLAY_FLAG_POSTGAME))
+        {
+            PutSprite(4, 219, 3, NewSprite_ChapterStatus_PlayCountLabel, 0);
+        }
+    }
+
+    UpdateStatusFactionSelectorGlow(parent);
+
+    return;
 }
 
 extern u8 * const gSMSGfxBuffer1;
@@ -161,13 +332,78 @@ static u8 * GetSMSObjVramOffset(int offset)
     return SMS_OBJ_VRAM_LOWER + offset;
 }
 
+static int GetMMSReservedUpperOffset(void)
+{
+    int chr = MMS_RESERVED_OBJ_CHR - SmsObjVramUpperChr;
+
+    if (chr < 0 || chr + 3 * CHR_LINE + SMS_32X32_GFX_SLOT_STRIDE > SMS_OBJ_CHR_REMAP_THRESHOLD)
+        return -1;
+
+    return chr * CHR_SIZE;
+}
+
+static void CopyUpperSMSGfxBufferToObjVram(u8 * src)
+{
+    int i;
+    int copyStart = 0;
+    int mmsOffset = GetMMSReservedUpperOffset();
+    u8 * dst = (void *)(OBJ_VRAM0 + (SmsObjVramUpperChr << 5));
+
+    if (mmsOffset < 0)
+    {
+        CpuFastCopy(src, dst, SMS_GFX_BUFFER_SPLIT_SIZE);
+        return;
+    }
+
+    for (i = 0; i < 4; i++)
+    {
+        int skipStart = mmsOffset + i * CHR_LINE * CHR_SIZE;
+        int skipEnd = skipStart + SMS_32X32_GFX_SLOT_STRIDE * CHR_SIZE;
+
+        if (skipStart > copyStart)
+            CpuFastCopy(src + copyStart, dst + copyStart, skipStart - copyStart);
+
+        copyStart = skipEnd;
+    }
+
+    if (copyStart < SMS_GFX_BUFFER_SPLIT_SIZE)
+        CpuFastCopy(src + copyStart, dst + copyStart, SMS_GFX_BUFFER_SPLIT_SIZE - copyStart);
+}
+
+static void RegisterUpperSMSGfxBufferMoveToObjVram(u8 * src)
+{
+    int i;
+    int copyStart = 0;
+    int mmsOffset = GetMMSReservedUpperOffset();
+    u8 * dst = (void *)(OBJ_VRAM0 + (SmsObjVramUpperChr << 5));
+
+    if (mmsOffset < 0)
+    {
+        RegisterDataMove(src, dst, SMS_GFX_BUFFER_SPLIT_SIZE);
+        return;
+    }
+
+    for (i = 0; i < 4; i++)
+    {
+        int skipStart = mmsOffset + i * CHR_LINE * CHR_SIZE;
+        int skipEnd = skipStart + SMS_32X32_GFX_SLOT_STRIDE * CHR_SIZE;
+
+        if (skipStart > copyStart)
+            RegisterDataMove(src + copyStart, dst + copyStart, skipStart - copyStart);
+
+        copyStart = skipEnd;
+    }
+
+    if (copyStart < SMS_GFX_BUFFER_SPLIT_SIZE)
+        RegisterDataMove(src + copyStart, dst + copyStart, SMS_GFX_BUFFER_SPLIT_SIZE - copyStart);
+}
+
 void CopySMSGfxBufferToObjVram(int frame)
 {
     u8 * src = GetSMSGfxBuffer(frame);
 
     CpuFastCopy(src, SMS_OBJ_VRAM_LOWER, SMS_GFX_BUFFER_SPLIT_SIZE);
-    CpuFastCopy(
-        src + SMS_GFX_BUFFER_SPLIT_SIZE, (void *)(OBJ_VRAM0 + (SmsObjVramUpperChr << 5)), SMS_GFX_BUFFER_SPLIT_SIZE);
+    CopyUpperSMSGfxBufferToObjVram(src + SMS_GFX_BUFFER_SPLIT_SIZE);
 }
 
 static void RegisterSMSGfxBufferMoveToObjVram(int frame)
@@ -175,8 +411,7 @@ static void RegisterSMSGfxBufferMoveToObjVram(int frame)
     u8 * src = GetSMSGfxBuffer(frame);
 
     RegisterDataMove(src, SMS_OBJ_VRAM_LOWER, SMS_GFX_BUFFER_SPLIT_SIZE);
-    RegisterDataMove(
-        src + SMS_GFX_BUFFER_SPLIT_SIZE, (void *)(OBJ_VRAM0 + (SmsObjVramUpperChr << 5)), SMS_GFX_BUFFER_SPLIT_SIZE);
+    RegisterUpperSMSGfxBufferMoveToObjVram(src + SMS_GFX_BUFFER_SPLIT_SIZE);
 }
 
 extern int EWRAM_DATA gSMS16xGfxIndexCounter;
@@ -502,7 +737,7 @@ void ResetUnitSprites(void)
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
         sUnitSpriteSlots[i] |= 0xFF;
 
-    gSMS32xGfxIndexCounter = 4;
+    gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 
@@ -513,7 +748,7 @@ void ResetUnitSpritesB(void)
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
         sUnitSpriteSlots[i] |= 0xFF;
 
-    gSMS32xGfxIndexCounter = 4;
+    gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 /*
@@ -565,11 +800,17 @@ int StartWorldMapSMS(int smsId, int frameId, int slot)
 
 static void EnsureSMS32xGfxCounterHasRoom(int slotCount)
 {
-    if (gSMS32xGfxIndexCounter > SMS_16X16_GFX_SLOT_COUNT - slotCount)
+    int limit = SMS_16X16_GFX_SLOT_COUNT - slotCount;
+
+    if
+(limit > MMS_RESERVED_GFX_SLOT_START)
+        limit = MMS_RESERVED_GFX_SLOT_START;
+
+    if (gSMS32xGfxIndexCounter >=
+limit)
         gSMS32xGfxIndexCounter = 0;
 }
-
-int UseUnitSprite2(u32 id)
+ int UseUnitSprite2(u32 id)
 {
     if (sUnitSpriteSlots[id] == 0xFF)
     {
