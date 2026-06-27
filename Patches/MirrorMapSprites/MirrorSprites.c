@@ -206,7 +206,7 @@ int UseUnitSprite(u32 id)
 
     if (sUnitSpriteSlots[id] == 0xFF)
     {
-        // Decompress(data, gGenericBuffer);
+        Decompress(data, gGenericBuffer);
 
         switch (size)
         {
@@ -228,11 +228,10 @@ int UseUnitSprite(u32 id)
                 gSMS32xGfxIndexCounter += 4;
                 break;
         }
-
-        SMSCopySheetToBuffers(data, GetSMSBufferChr(GetSMSObjChr(sUnitSpriteSlots[id] << 1)), size, id);
+        int val = GetSMSBufferChr(GetSMSObjChr(sUnitSpriteSlots[id] << 1));
+        SMSCopySheetToBuffers(data, val, size, id);
         gSMSSyncFlag++;
     }
-    // asm("mov r11, r11");
 
     int result = GetSMSObjChr(sUnitSpriteSlots[id] << 1);
     __asm__("mov r2, %[val]\n" : : [val] "r"(id) : "r2");

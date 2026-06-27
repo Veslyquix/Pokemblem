@@ -19,7 +19,8 @@
 #define BlueArrowChr 0x240 
 #define ArrChr "0x3800|BlueArrowChr"
 #define BottomHelpChr 0x240 
-#define MMSChr 0x29C // gets >>2 
+// #define MMSChr 0x29C // gets >>2 
+#define MMSChr 0x80 // gets >>2 
 #define BrownBoxChr 0x2C0 // gets >> 2
 #define PrepMenuStartButtonChr 0x200
 #define PrepChInfoButtonChr 0x180 // gets >>2 then <<7
@@ -32,10 +33,17 @@ WORD 0x58
 
 PUSH 
 
-// another option: edit gDefaultFaceConfig / faceConfig in PrepItemScreen_SetupGfx for obj vram placement of faces 
+// edit gDefaultFaceConfig / faceConfig in PrepItemScreen_SetupGfx for obj vram placement of faces 
+ORG $590fec
+// normally 0x300, 0x280, 0x200, 0x380 
+WORD 0x180<<5 6
+WORD 0x200<<5 7 
+WORD 0x280<<5 8 // overlaps with MMS 
+WORD 0x380 9 // overlaps with SMS 
+
 ORG $205c14 
-WORD 0x4000 6
-WORD 0x5000 7 
+WORD 0x200<<5 6
+WORD 0x280<<5 7 
 
 ORG $99714 // when pressing R, end face while in prep Items section 
 callHackNew(Hook_sub_80996E8) 

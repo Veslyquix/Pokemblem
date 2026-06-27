@@ -24,8 +24,7 @@ SET_FUNC Div, __aeabi_uidiv
 SET_FUNC Div, __aeabi_uidivmod
 */
 
-// #define UNITSPRITE_MAX_NEW 0xFF
-#define UNITSPRITE_MAX_NEW 0xD0
+#define UNITSPRITE_MAX_NEW 0xFF
 extern UnitIconWait * const sStandingMapSpriteTable;
 int __umodsi3(int a, int b);
 extern u8 EWRAM_DATA NewgSMSGfxIndexLookup[0xFF];
@@ -503,7 +502,7 @@ void ResetUnitSprites(void)
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
         sUnitSpriteSlots[i] |= 0xFF;
 
-    gSMS32xGfxIndexCounter = 0;
+    gSMS32xGfxIndexCounter = 4;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 
@@ -514,7 +513,7 @@ void ResetUnitSpritesB(void)
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
         sUnitSpriteSlots[i] |= 0xFF;
 
-    gSMS32xGfxIndexCounter = 0;
+    gSMS32xGfxIndexCounter = 4;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 /*
