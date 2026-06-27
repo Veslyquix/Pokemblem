@@ -128,8 +128,7 @@ void CopyUnitSpriteFrameToSmsBuffer(int frame, void * src, int dstChr, int width
     for (i = 0; i < heightTiles; i++)
     {
         CpuFastCopy(
-            src + i * widthTiles * CHR_SIZE,
-            GetSMSGfxBuffer(frame) + dstChr * CHR_SIZE + i * CHR_LINE * CHR_SIZE,
+            src + i * widthTiles * CHR_SIZE, GetSMSGfxBuffer(frame) + dstChr * CHR_SIZE + i * CHR_LINE * CHR_SIZE,
             widthTiles * CHR_SIZE);
     }
 }
@@ -144,9 +143,10 @@ void CopyUnitSpriteSheetToSmsBuffers(void * data, int dstChr, u16 size, u32 id)
     Decompress(data, gGenericBuffer);
 
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
+    int frameStep = id ? id : 1;
 
     for (i = 0; i < 3; i++)
-        CopyUnitSpriteFrameToSmsBuffer(i, gGenericBuffer + i * id * frameSize, dstChr, widthTiles, heightTiles);
+        CopyUnitSpriteFrameToSmsBuffer(i, gGenericBuffer + i * frameStep * frameSize, dstChr, widthTiles, heightTiles);
 }
 
 void SMSCopySheetToBuffers(void * data, int dstChr, u16 size, u32 id)
@@ -503,7 +503,7 @@ void ResetUnitSprites(void)
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
         sUnitSpriteSlots[i] |= 0xFF;
 
-    gSMS32xGfxIndexCounter = 4;
+    gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 
@@ -514,7 +514,7 @@ void ResetUnitSpritesB(void)
     for (i = UNITSPRITE_MAX_NEW - 1; i >= 0; i--)
         sUnitSpriteSlots[i] |= 0xFF;
 
-    gSMS32xGfxIndexCounter = 4;
+    gSMS32xGfxIndexCounter = 0;
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 /*
@@ -655,10 +655,11 @@ int ApplyUnitSpriteImage16x16(int slot, u32 id)
     int bufferChr = GetSMSBufferChrFromObjChr(sSlotToChrLut2[slot]);
     int outOff = bufferChr * CHR_SIZE;
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
+    int frameStep = id ? id : 1;
 
     for (i = 0; i < 3; i++)
     {
-        int imgOff = (i * id) * 4 * CHR_SIZE;
+        int imgOff = (i * frameStep) * 4 * CHR_SIZE;
 
         CpuFastCopy(
             UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,
@@ -676,10 +677,11 @@ int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
     int bufferChr = GetSMSBufferChrFromObjChr(sSlotToChrLut2[slot]);
     int outOff = bufferChr * CHR_SIZE;
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
+    int frameStep = id ? id : 1;
 
     for (i = 0; i < 3; i++)
     {
-        int imgOff = (i * id) * 4 * CHR_SIZE;
+        int imgOff = (i * frameStep) * 4 * CHR_SIZE;
 
         CpuFastFill(0, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
         CpuFastFill(0, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
@@ -701,10 +703,11 @@ int ApplyUnitSpriteImage16x32(int slot, u32 id)
     int bufferChr = GetSMSBufferChrFromObjChr(sSlotToChrLut2[slot]);
     int outOff = bufferChr * CHR_SIZE;
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
+    int frameStep = id ? id : 1;
 
     for (i = 0; i < 3; i++)
     {
-        int imgOff = (i * id) * 8 * CHR_SIZE;
+        int imgOff = (i * frameStep) * 8 * CHR_SIZE;
 
         CpuFastCopy(
             UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,
@@ -729,10 +732,10 @@ int ApplyUnitSpriteImage32x32(int slot, u32 id)
     int outOff = bufferChr * CHR_SIZE;
 
     id = ((id >> UNITSPRITE_ID_BITS) ^ 1) & 1;
-
+    int frameStep = id ? id : 1;
     for (i = 0; i < 3; i++)
     {
-        int imgOff = (i * id) * 16 * CHR_SIZE;
+        int imgOff = (i * frameStep) * 16 * CHR_SIZE;
 
         CpuFastCopy(
             UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,

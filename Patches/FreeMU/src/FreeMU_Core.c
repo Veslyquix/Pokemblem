@@ -1449,6 +1449,7 @@ int SMSToMUDir(int dir)
     return MU_FACING_DOWN;
 }
 extern u8 * GetSMSGfxBuffer(int frame);
+extern u16 SmsObjVramLowerChr;
 extern void CopySMSGfxBufferToObjVram(int frame);
 extern int GetSMSBufferChr(int chr);
 extern void SMSCopySheetToBuffers(void * data, int dstChr, u16 size, u32 id);
@@ -1487,8 +1488,16 @@ void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 
     if (!data)
         data = NewStandingMapSpriteTable[smsID].pGraphics;
+    volatile int debugOam2Base;
+    volatile int debugOamChr;
+    volatile int debugDstChr;
+    asm("mov r11, r11");
+    debugOam2Base = unit->pMapSpriteHandle->oam2Base;
+    debugOamChr = unit->pMapSpriteHandle->oam2Base & 0x3FF;
+    debugDstChr = GetSMSBufferChr(debugOamChr - SmsObjVramLowerChr);
 
-    dstChr = GetSMSBufferChr((unit->pMapSpriteHandle->oam2Base & 0x3FF) - 0x80);
+    asm("mov r11, r11");
+    dstChr = GetSMSBufferChr((unit->pMapSpriteHandle->oam2Base & 0x3FF) - SmsObjVramLowerChr);
     SMSCopySheetToBuffers(data, dstChr, size, smsID);
 
     // Overwrite VRAM with new SMS next frame. Timings taken from 0x8026F2C,
