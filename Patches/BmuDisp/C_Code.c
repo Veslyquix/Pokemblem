@@ -77,6 +77,148 @@ void TradeMenu_InitItemDisplay(struct TradeMenuProc * proc)
 
     BG_EnableSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
 }
+#define UnitListChrA 0x240
+#define UnitListChrB 0x2C0
+u16 const NewSprite_08A17B40[] = {
+    1,
+    OAM0_SHAPE_8x16,
+    OAM1_SIZE_8x16,
+    OAM2_CHR(UnitListChrA + 0x1C),
+};
+
+u16 const NewSprite_08A17B48[] = {
+    1,
+    OAM0_SHAPE_16x16,
+    OAM1_SIZE_16x16,
+    OAM2_CHR(0x25D),
+};
+
+u16 const NewSprite_08A17B50[] = {
+    1,
+    OAM0_SHAPE_8x16,
+    OAM1_SIZE_8x16,
+    OAM2_CHR(0x25F),
+};
+
+u16 const NewSprite_08A17B64[] = {
+    1,
+    OAM0_SHAPE_8x16,
+    OAM1_SIZE_8x16,
+    OAM2_CHR(0x2DF),
+};
+
+u16 const NewSprite_08A17B6C[] = {
+    7,
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8,
+    OAM2_CHR(0x24B) + OAM2_LAYER(2),
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8 + OAM1_X(32),
+    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8 + OAM1_X(64),
+    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8 + OAM1_X(96),
+    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8 + OAM1_X(128),
+    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8 + OAM1_X(160),
+    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM0_SHAPE_32x8,
+    OAM1_SIZE_32x8 + OAM1_X(192) + OAM1_HFLIP,
+    OAM2_CHR(0x24B) + OAM2_LAYER(2),
+};
+
+u16 const NewSprite_08A17B98[] = {
+    2,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(16),
+    OAM2_CHR(0x2C0),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(48),
+    OAM2_CHR(UnitListChrB + 0x4),
+};
+
+u16 const NewSprite_08A17BA6[] = {
+    3,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(8),
+    OAM2_CHR(0x2CA),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(40),
+    OAM2_CHR(0x2CE),
+    OAM0_SHAPE_16x16,
+    OAM1_SIZE_16x16 + OAM1_X(72),
+    OAM2_CHR(0x2D2),
+};
+
+u16 const NewSprite_08A17BBA[] = {
+    3,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(12),
+    OAM2_CHR(0x2D4),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(44),
+    OAM2_CHR(0x2D8),
+    OAM0_SHAPE_16x16,
+    OAM1_SIZE_16x16 + OAM1_X(76),
+    OAM2_CHR(0x2DC),
+};
+
+u16 const NewSprite_08A17BCE[] = {
+    3,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(8),
+    OAM2_CHR(0x300),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(40),
+    OAM2_CHR(0x304),
+    OAM0_SHAPE_16x16,
+    OAM1_SIZE_16x16 + OAM1_X(72),
+    OAM2_CHR(0x308),
+};
+
+u16 const NewSprite_08A17BE2[] = {
+    3,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(8),
+    OAM2_CHR(0x30A),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(40),
+    OAM2_CHR(0x30E),
+    OAM0_SHAPE_16x16,
+    OAM1_SIZE_16x16 + OAM1_X(72),
+    OAM2_CHR(0x312),
+};
+
+u16 const NewSprite_08A17BF6[] = {
+    3,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16,
+    OAM2_CHR(0x314),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(32),
+    OAM2_CHR(0x318),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(64),
+    OAM2_CHR(0x31C),
+};
+
+u16 const NewSprite_08A17C0A[] = {
+    3,
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(12),
+    OAM2_CHR(0x2C0),
+    OAM0_SHAPE_32x16,
+    OAM1_SIZE_32x16 + OAM1_X(44),
+    OAM2_CHR(0x2C4),
+    OAM0_SHAPE_8x16,
+    OAM1_SIZE_8x16 + OAM1_X(76),
+    OAM2_CHR(0x2C8),
+};
 
 extern int StatusScreenChrLink;
 extern int StatusScreenTextChrLink;
