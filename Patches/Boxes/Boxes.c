@@ -219,6 +219,47 @@ void ClearPCBoxUnitsBuffer(void)
     memset((void *)&PCBoxUnitsBuffer[0], 0, BoxBufferCapacity * 0x48);
 }
 
+int AreSameBoxStoredUnit(struct Unit * a, struct Unit * b)
+{
+    if (!a->pCharacterData || !b->pCharacterData)
+        return false;
+
+#ifndef POKEMBLEM_VERSION
+    return a->pCharacterData->number == b->pCharacterData->number;
+#else
+    if (a->pClassData != b->pClassData)
+        return false;
+
+    if ((a->maxHP != b->maxHP) || (a->unk3A != b->unk3A) || (a->pow != b->pow) || (a->skl != b->skl) ||
+        (a->spd != b->spd) || (a->def != b->def) || (a->res != b->res) || (a->lck != b->lck) ||
+        (a->level != b->level) || (a->exp != b->exp))
+        return false;
+
+    for (int i = 0; i < 5; i++)
+    {
+        if (a->ranks[i] != b->ranks[i])
+            return false;
+    }
+
+    return true;
+#endif
+}
+
+int IsUnitInTempBox(struct Unit * unit)
+{
+    for (int i = 0; i < BoxBufferCapacity; i++)
+    {
+        struct Unit * unitTemp = GetTempUnit(i);
+
+        if (AreSameBoxStoredUnit(unitTemp, unit))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 // save an ID for each pokemon
 // if ID exists, erase it from SRAM
 
@@ -303,7 +344,17 @@ void DeploySelectedUnits()
             }
             else
             {
-                memcpy(GetFreeTempUnitAddr(), (void *)&unit[i], 0x48); // copy unit into a free slot in pc
+                if ((i >= PartySizeThreshold) && IsUnitInTempBox(&unit[i]))
+                {
+                    ClearUnit(&unit[i]);
+                    continue;
+                }
+
+                unitTemp = GetFreeTempUnitAddr();
+                if (!unitTemp)
+                    break;
+
+                memcpy(unitTemp, (void *)&unit[i], 0x48); // copy unit into a free slot in pc
                 ClearUnit(&unit[i]);
             }
         }
