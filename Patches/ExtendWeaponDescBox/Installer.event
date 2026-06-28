@@ -19,12 +19,14 @@
 
 #define gProcScr_TargetSelection 0x85B655C 
 #define sProc_Menu 0x85B64D0 
+#define gProcScr_PrepHelpPrompt 0x859dba4 
 
 ALIGN 4 
 ProcExceptionsList:
 POIN gProc_SaveMenu gProc_SaveMenu2 gProc_ChapterMenuUnit gProc_ChapterMenuStatus
 POIN gProc_PrepSomethingUnknown 
 POIN gProc_PrepSomethingUnknown2 
+POIN gProcScr_PrepHelpPrompt
 // POIN gProcScr_TargetSelection sProc_Menu
 WORD 0 // Terminator 
 

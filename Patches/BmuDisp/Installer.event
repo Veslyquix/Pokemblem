@@ -22,8 +22,8 @@
 #define BlueArrowChr 0x240 
 #define ArrChr "0x3800|BlueArrowChr"
 #define BottomHelpChr 0x240 
-// #define MMSChr 0x29C // gets >>2 
-#define MMSChr 0x80 // gets >>2 
+#define MMSChr 0x39C // gets >>2 
+// #define MMSChr 0x80 // gets >>2 
 #define BrownBoxChr 0x2C0 // gets >> 2
 #define PrepMenuStartButtonChr 0x200
 #define PrepChInfoButtonChr 0x180 // gets >>2 then <<7
@@ -47,7 +47,7 @@ PlaytimeGfx:
 PUSH 
 
 // issue: prep view map press R button 
-
+// added gProcScr_PrepHelpPrompt to ProcExceptionsList in ExtendWepDescBox 
 
 // Unit list stuff 
 ORG $A17B58 
@@ -64,18 +64,25 @@ POIN NewSprite_08A17BF6
 POIN NewSprite_08A17BF6
 POIN NewSprite_08A17BF6
 POIN NewSprite_08A17BF6
+ORG $908B4 
+POIN NewSprite_08A17B6C
+ORG $9083C 
+POIN NewSprite_08A17B64
+
+ORG $9073A 
+BYTE $240>>2 // InitMenuScrollBarImg(0x7200, 1); UnitListScreenSprites_Init
 
 ORG $90F80 
-WORD 0x6010000|(0x180<<5) // 0x240 
+WORD 0x6010000|(0x220<<5) // 0x240 
 ORG $90F8C 
-WORD 0x6010000|(0x1C0<<5) // 0x2C0 
+WORD 0x6010000|(0x260<<5) // 0x2C0 Character Fighting Skill Personal data etc. 
 
 
+// Chapter Status stuff 
 // 8A01B54 gProcScr_ChapterStatusScreen 
 // 8a01c04 T ProcScr_ChapterStatusScreen_FromPrep
 // ChapterStatus_Init 808DF24 Decompress(Img_08A2E5EC, BG_CHR_ADDR(0x2C0)); 
 // 0x0808E7B4 StatusScreenSpriteDraw_Init Decompress(Img_StatusScreenLabelSprites, OBJ_CHR_ADDR(0x340));
-
 ORG $8E15C 
 SHORT $46c0 $46c0 // Kill 80894e0 StartHelpPromptSprite from being called in ChapterStatus_Init
 
@@ -163,12 +170,12 @@ ORG 0x02D2EA // in TradeMenu_InitUnitNameDisplay
 BYTE (BrownBoxChr>>2) // 4800 (vanilla) -> 7080 (vesly) -> 5800 (nat)
 
 
-// can't use MMSChr definition because the value is obtained via mov + lsl 
+// the value is obtained via mov + lsl 
 ORG $78572 
-SHORT $2500|(MMSChr>>2) // Default MMS as tile 0xC instead of 0x380 
+SHORT $2500|(MMSChr>>2) // Default MMS as tile 0x39C instead of 0x380 
 SHORT $00ad // lsl 2 
 ORG $79754 
-SHORT $2200|(MMSChr>>2) // Default MMS as tile 0xC instead of 0x380  
+SHORT $2200|(MMSChr>>2) // Default MMS as tile 0x39C instead of 0x380  
 SHORT $0092 // lsl 2
 
 // 12 52 92 D2 

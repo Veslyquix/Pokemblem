@@ -77,8 +77,8 @@ void TradeMenu_InitItemDisplay(struct TradeMenuProc * proc)
 
     BG_EnableSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
 }
-#define UnitListChrA 0x240
-#define UnitListChrB 0x2C0
+#define UnitListChrA 0x220 // 0x240
+#define UnitListChrB 0x260 // 0x2C0
 u16 const NewSprite_08A17B40[] = {
     1,
     OAM0_SHAPE_8x16,
@@ -90,53 +90,53 @@ u16 const NewSprite_08A17B48[] = {
     1,
     OAM0_SHAPE_16x16,
     OAM1_SIZE_16x16,
-    OAM2_CHR(0x25D),
+    OAM2_CHR(UnitListChrA + 0x1D),
 };
 
 u16 const NewSprite_08A17B50[] = {
     1,
     OAM0_SHAPE_8x16,
     OAM1_SIZE_8x16,
-    OAM2_CHR(0x25F),
+    OAM2_CHR(UnitListChrA + 0x1F),
 };
 
 u16 const NewSprite_08A17B64[] = {
     1,
     OAM0_SHAPE_8x16,
     OAM1_SIZE_8x16,
-    OAM2_CHR(0x2DF),
+    OAM2_CHR(UnitListChrB + 0x1F),
 };
 
 u16 const NewSprite_08A17B6C[] = {
     7,
     OAM0_SHAPE_32x8,
     OAM1_SIZE_32x8,
-    OAM2_CHR(0x24B) + OAM2_LAYER(2),
+    OAM2_CHR(UnitListChrA + 0xB) + OAM2_LAYER(2),
     OAM0_SHAPE_32x8,
     OAM1_SIZE_32x8 + OAM1_X(32),
-    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM2_CHR(UnitListChrA + 0xC) + OAM2_LAYER(2),
     OAM0_SHAPE_32x8,
     OAM1_SIZE_32x8 + OAM1_X(64),
-    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM2_CHR(UnitListChrA + 0xC) + OAM2_LAYER(2),
     OAM0_SHAPE_32x8,
     OAM1_SIZE_32x8 + OAM1_X(96),
-    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM2_CHR(UnitListChrA + 0xC) + OAM2_LAYER(2),
     OAM0_SHAPE_32x8,
     OAM1_SIZE_32x8 + OAM1_X(128),
-    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM2_CHR(UnitListChrA + 0xC) + OAM2_LAYER(2),
     OAM0_SHAPE_32x8,
     OAM1_SIZE_32x8 + OAM1_X(160),
-    OAM2_CHR(0x24C) + OAM2_LAYER(2),
+    OAM2_CHR(UnitListChrA + 0xC) + OAM2_LAYER(2),
     OAM0_SHAPE_32x8,
     OAM1_SIZE_32x8 + OAM1_X(192) + OAM1_HFLIP,
-    OAM2_CHR(0x24B) + OAM2_LAYER(2),
+    OAM2_CHR(UnitListChrA + 0xB) + OAM2_LAYER(2),
 };
 
 u16 const NewSprite_08A17B98[] = {
     2,
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(16),
-    OAM2_CHR(0x2C0),
+    OAM2_CHR(UnitListChrB),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(48),
     OAM2_CHR(UnitListChrB + 0x4),
@@ -146,78 +146,78 @@ u16 const NewSprite_08A17BA6[] = {
     3,
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(8),
-    OAM2_CHR(0x2CA),
+    OAM2_CHR(UnitListChrB + 0xA),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(40),
-    OAM2_CHR(0x2CE),
+    OAM2_CHR(UnitListChrB + 0xE),
     OAM0_SHAPE_16x16,
     OAM1_SIZE_16x16 + OAM1_X(72),
-    OAM2_CHR(0x2D2),
+    OAM2_CHR(UnitListChrB + 0x12),
 };
 
 u16 const NewSprite_08A17BBA[] = {
     3,
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(12),
-    OAM2_CHR(0x2D4),
+    OAM2_CHR(UnitListChrB + 0x14),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(44),
-    OAM2_CHR(0x2D8),
+    OAM2_CHR(UnitListChrB + 0x18),
     OAM0_SHAPE_16x16,
     OAM1_SIZE_16x16 + OAM1_X(76),
-    OAM2_CHR(0x2DC),
+    OAM2_CHR(UnitListChrB + 0x1C),
 };
 
 u16 const NewSprite_08A17BCE[] = {
     3,
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(8),
-    OAM2_CHR(0x300),
+    OAM2_CHR(UnitListChrB + 0x40),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(40),
-    OAM2_CHR(0x304),
+    OAM2_CHR(UnitListChrB + 0x44),
     OAM0_SHAPE_16x16,
     OAM1_SIZE_16x16 + OAM1_X(72),
-    OAM2_CHR(0x308),
+    OAM2_CHR(UnitListChrB + 0x48),
 };
 
 u16 const NewSprite_08A17BE2[] = {
     3,
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(8),
-    OAM2_CHR(0x30A),
+    OAM2_CHR(UnitListChrB + 0x4A),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(40),
-    OAM2_CHR(0x30E),
+    OAM2_CHR(UnitListChrB + 0x4E),
     OAM0_SHAPE_16x16,
     OAM1_SIZE_16x16 + OAM1_X(72),
-    OAM2_CHR(0x312),
+    OAM2_CHR(UnitListChrB + 0x52),
 };
 
 u16 const NewSprite_08A17BF6[] = {
     3,
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16,
-    OAM2_CHR(0x314),
+    OAM2_CHR(UnitListChrB + 0x54),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(32),
-    OAM2_CHR(0x318),
+    OAM2_CHR(UnitListChrB + 0x58),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(64),
-    OAM2_CHR(0x31C),
+    OAM2_CHR(UnitListChrB + 0x5C),
 };
 
 u16 const NewSprite_08A17C0A[] = {
     3,
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(12),
-    OAM2_CHR(0x2C0),
+    OAM2_CHR(UnitListChrB),
     OAM0_SHAPE_32x16,
     OAM1_SIZE_32x16 + OAM1_X(44),
-    OAM2_CHR(0x2C4),
+    OAM2_CHR(UnitListChrB + 0x4),
     OAM0_SHAPE_8x16,
     OAM1_SIZE_8x16 + OAM1_X(76),
-    OAM2_CHR(0x2C8),
+    OAM2_CHR(UnitListChrB + 0x8),
 };
 
 extern int StatusScreenChrLink;
