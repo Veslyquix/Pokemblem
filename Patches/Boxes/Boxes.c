@@ -196,10 +196,11 @@ void RelocateUnitsPastThreshold(int startingOffset)
     }
 #endif
 
+    int firstStoredUnit = PartySizeThreshold + 1;
     memcpy(
-        (void *)&PCBoxUnitsBuffer[startingOffset], (void *)&gUnitArrayBlue[PartySizeThreshold],
-        0x48 * (62 - PartySizeThreshold));
-    memset(&gUnitArrayBlue[PartySizeThreshold], 0, 0x48 * (62 - PartySizeThreshold)); // This broke things
+        (void *)&PCBoxUnitsBuffer[startingOffset], (void *)&gUnitArrayBlue[firstStoredUnit],
+        0x48 * (62 - firstStoredUnit));
+    memset(&gUnitArrayBlue[firstStoredUnit], 0, 0x48 * (62 - firstStoredUnit)); // This broke things
     // InitUnits(); // do not write 0 to their deployment ID!
     InitUnitDeploymentIDs();
 
@@ -244,7 +245,6 @@ int AreSameBoxStoredUnit(struct Unit * a, struct Unit * b)
     return true;
 #endif
 }
-
 int IsUnitInTempBox(struct Unit * unit)
 {
     for (int i = 0; i < BoxBufferCapacity; i++)
@@ -259,7 +259,6 @@ int IsUnitInTempBox(struct Unit * unit)
 
     return false;
 }
-
 // save an ID for each pokemon
 // if ID exists, erase it from SRAM
 
@@ -344,11 +343,12 @@ void DeploySelectedUnits()
             }
             else
             {
-                if ((i >= PartySizeThreshold) && IsUnitInTempBox(&unit[i]))
-                {
-                    ClearUnit(&unit[i]);
-                    continue;
-                }
+                // extra sanity check for clearing units?
+                // if ((i >= PartySizeThreshold) && IsUnitInTempBox(&unit[i]))
+                // {
+                // ClearUnit(&unit[i]);
+                // continue;
+                // }
 
                 unitTemp = GetFreeTempUnitAddr();
                 if (!unitTemp)
