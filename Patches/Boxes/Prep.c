@@ -455,33 +455,64 @@ void NewRegisterPrepUnitList(int index, struct Unit * unit)
     gPrepUnitList.units[index] = unit;
 }
 extern u8 ** gBmMapUnit;
+extern int gSMS16xGfxIndexCounter;
+extern int gSMS32xGfxIndexCounter;
+
+static int ClampPrepUnitIndex(int index)
+{
+    int count = PrepGetUnitAmount();
+
+    if (index < 0)
+        return 0;
+
+    if (index >= count)
+        return count - 1;
+
+    return index;
+}
+
 void UpdateShownUnitsInPrep(struct ProcPrepUnit * proc)
 {
     struct Unit * unit;
-    //
-    int id = proc->list_num_cur;
-    for (int i = 0; i < 13; ++i)
-    {
-        unit = GetUnitFromPrepList(i + id);
-        if (!UNIT_IS_VALID(unit))
-        {
-            continue;
-        }
-        // gBmMapUnit[unit->yPos][unit->xPos] = 0;
-        // gBmMapUnit[unit->yPos][unit->xPos] = 0;
-        // unit->state |= US_BIT9 | US_HIDDEN | 0x1000000;
-        unit->state &= ~US_HIDDEN;
-        // unit->pMapSpriteHandle = NULL;
-    }
-    for (int i = id; i >= 0; --i)
-    {
-        unit = GetUnitFromPrepList(i + id);
-        if (!UNIT_IS_VALID(unit))
-        {
-            continue;
-        }
+    int count = PrepGetUnitAmount();
+    int firstVisible = (proc->yDiff_cur / 16) * 2;
+    int bufferStart;
+    int bufferEnd;
 
-        unit->state |= US_HIDDEN;
+    if (count <= 0)
+        return;
+
+    firstVisible = ClampPrepUnitIndex(firstVisible);
+    bufferStart = firstVisible - 4;
+    bufferEnd = firstVisible + 15;
+
+    if (bufferStart < 0)
+        bufferStart = 0;
+
+    if (bufferEnd >= count)
+        bufferEnd = count - 1;
+
+    // if ((firstVisible / 2) & 1)
+    // {
+    // gSMS16xGfxIndexCounter = 0x40 - 0x0D;
+    // gSMS32xGfxIndexCounter = 0x40 - 0x0B;
+    // }
+    // else
+    // {
+    // gSMS16xGfxIndexCounter = 12 * 14;
+    // gSMS32xGfxIndexCounter = 12 * 4;
+    // }
+
+    for (int i = 0; i < count; ++i)
+    {
+        unit = GetUnitFromPrepList(i);
+        if (!UNIT_IS_VALID(unit))
+            continue;
+
+        if ((i >= bufferStart) && (i <= bufferEnd))
+            unit->state &= ~US_HIDDEN;
+        else
+            unit->state |= US_HIDDEN;
     }
 
     ResetUnitSprites();
@@ -1380,6 +1411,7 @@ void ProcPrepUnit_Idle(struct ProcPrepUnit * proc)
 
     if (0 == proc->yDiff_cur % 0x10)
     {
+        UpdateShownUnitsInPrep(proc);
         PrepUpdateMenuTsaScroll(proc->yDiff_cur / 16 - 1);
         PrepUpdateMenuTsaScroll(proc->yDiff_cur / 16 + 6);
         sub_809AE10(proc);
