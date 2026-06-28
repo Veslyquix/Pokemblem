@@ -454,6 +454,14 @@ void NewRegisterPrepUnitList(int index, struct Unit * unit)
 {
     gPrepUnitList.units[index] = unit;
 }
+extern u8 ** gBmMapUnit;
+void UpdateShownUnitsInPrep(struct ProcPrepUnit * proc)
+{
+
+    ResetUnitSprites();
+    // ResetUnitSpriteHover();
+    ForceSyncUnitSpriteSheet();
+}
 
 void ProcPrepUnit_OnInit(struct ProcPrepUnit * proc)
 {
@@ -465,6 +473,24 @@ void ProcPrepUnit_OnInit(struct ProcPrepUnit * proc)
     proc->yDiff_cur = ((struct ProcAtMenu *)(proc->proc_parent))->yDiff;
     proc->list_num_pre = proc->list_num_cur;
     proc->button_blank = 0;
+
+    struct Unit * unit;
+    // proc->list_num_cur
+    for (int i = 0; i < 0x40; ++i)
+    {
+        unit = GetUnit(i);
+        if (!UNIT_IS_VALID(unit))
+        {
+            continue;
+        }
+        // gBmMapUnit[unit->yPos][unit->xPos] = 0;
+        // gBmMapUnit[unit->yPos][unit->xPos] = 0;
+        // unit->state |= US_BIT9 | US_HIDDEN | 0x1000000;
+        unit->state |= US_HIDDEN;
+        // unit->pMapSpriteHandle = NULL;
+    }
+
+    UpdateShownUnitsInPrep(proc);
 }
 
 void sub_809B520(struct ProcPrepUnit * proc)
@@ -1302,6 +1328,7 @@ void ProcPrepUnit_Idle(struct ProcPrepUnit * proc)
 
         if (ShouldPrepUnitMenuScroll(proc))
         {
+            UpdateShownUnitsInPrep(proc);
             if (proc->list_num_cur < proc->list_num_pre)
                 PrepUnit_DrawUnitListNames(proc, proc->yDiff_cur / 16 - 1);
             if (proc->list_num_cur > proc->list_num_pre)
