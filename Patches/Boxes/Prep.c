@@ -226,7 +226,6 @@ void PrepAutoCapDeployUnits(struct ProcAtMenu * proc)
     proc->cur_counter = 0;
     proc->unit_count = 0;
 
-    // for (i = 0; i < PrepGetUnitAmount(); proc->unit_count++, i++) {
     for (i = 0; i < 150; i++)
     {
         unit = GetUnitFromPrepList(i);
@@ -377,6 +376,7 @@ int CountUnitsInUnitStructRam(void) {
         return cur;
 }
 */
+#define ALIVE_UNIT(unit) "(UNIT_IS_VALID(unit) && !(unit->state & US_DEAD))"
 
 int CountTotalUnitsInUnitStructRam(void)
 {
@@ -394,6 +394,7 @@ int CountTotalUnitsInUnitStructRam(void)
     return cur;
 }
 
+int IsStatusScreenDisabled(struct Unit * unit);
 int CountUnusableUnitsUpToIndex(int index)
 {
     int cur = 0;
@@ -402,7 +403,7 @@ int CountUnusableUnitsUpToIndex(int index)
     {
         unit = &gUnitArrayBlue[i];
 
-        if (UNIT_IS_VALID(unit))
+        if (ALIVE_UNIT(unit))
         {
             if (!IsUnitInCurrentRoster(unit))
             {
@@ -446,6 +447,7 @@ struct Unit * GetUnitFromPrepList(int index) // called in 6 other functions
         }
     }
     return unit;
+    // return gPrepUnitList.units[index];
 }
 
 void NewRegisterPrepUnitList(int index, struct Unit * unit)

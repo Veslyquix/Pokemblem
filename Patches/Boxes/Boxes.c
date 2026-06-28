@@ -191,26 +191,26 @@ void RelocateUnitsPastThreshold(int startingOffset)
     struct Unit * protag = GetUnitStructFromEventParameter(ProtagID_Link);
     if (protag && protag->pCharacterData)
     {
-        memcpy((void *)&someUnit, (void *)protag, 0x48);
+        // memcpy((void *)&someUnit, (void *)protag, 0x48);
         ClearUnit(protag);
     }
 #endif
 
     memcpy(
         (void *)&PCBoxUnitsBuffer[startingOffset], (void *)&gUnitArrayBlue[PartySizeThreshold],
-        0x48 * (62 - PartySizeThreshold));
-    memset(&gUnitArrayBlue[PartySizeThreshold], 0, 0x48 * (62 - PartySizeThreshold)); // This broke things
+        0x48 * (PartySizeThreshold));
+    memset(&gUnitArrayBlue[PartySizeThreshold], 0, 0x48 * (PartySizeThreshold));
     // InitUnits(); // do not write 0 to their deployment ID!
     InitUnitDeploymentIDs();
 
 #ifdef POKEMBLEM_VERSION
-    if (someUnit.pCharacterData)
-    {
-        int deploymentID = GetFreeDeploymentID();
-        struct Unit * newUnit = &gUnitArrayBlue[deploymentID];
-        memcpy((void *)newUnit, (void *)&someUnit, 0x48);
-        newUnit->index = deploymentID; // copy unit into a free slot in unit struct ram
-    }
+    // if (someUnit.pCharacterData)
+    // {
+    // int deploymentID = GetFreeDeploymentID();
+    // struct Unit * newUnit = &gUnitArrayBlue[deploymentID];
+    // memcpy((void *)newUnit, (void *)&someUnit, 0x48);
+    // newUnit->index = deploymentID; // copy unit into a free slot in unit struct ram
+    // }
 #endif
 }
 
@@ -315,6 +315,7 @@ void DeploySelectedUnits()
                 newUnit->pCharacterData = &gCharacterData[GetFreeUnitID(&unit[0])];
             }
 #endif
+
             ClearUnit(unitTemp);
         }
     }
@@ -325,14 +326,14 @@ void DeploySelectedUnits()
     { // move units that were undeployed back into unit struct ram until it's full. Then into PC box
         if ((unit[i].pCharacterData))
         {
-            if (c < PartySizeThreshold)
+            if (c < PartySizeThreshold) // maybe change this to <=
             {
-                deploymentID = GetFreeDeploymentID();
-                newUnit = &gUnitArrayBlue[deploymentID];
+                // deploymentID = GetFreeDeploymentID();
+                newUnit = &gUnitArrayBlue[c];
                 memcpy((void *)newUnit, (void *)&unit[i], 0x48);
-                newUnit->index = deploymentID; // copy unit into a free slot in unit struct ram
+                newUnit->index = c; // copy unit into a free slot in unit struct ram
 #ifdef POKEMBLEM_VERSION
-                if (newUnit->pCharacterData->number == 0xFF)
+                if (newUnit->pCharacterData->number == 0xFF) //????
                 {
                     newUnit->pCharacterData = &gCharacterData[GetFreeUnitID(&unit[0])];
                 }
@@ -354,6 +355,7 @@ void DeploySelectedUnits()
                     break;
 
                 memcpy(unitTemp, (void *)&unit[i], 0x48); // copy unit into a free slot in pc
+
                 ClearUnit(&unit[i]);
             }
         }
@@ -610,7 +612,7 @@ int CountAndUndeployTempUnits(void)
     }
     return cur;
 }
-
+#define ALIVE_UNIT(unit) "(UNIT_IS_VALID(unit) && !(unit->state & US_DEAD))"
 int CountUnusableStoredUnitsUpToIndex(int index)
 {
     int cur = 0;
@@ -619,6 +621,7 @@ int CountUnusableStoredUnitsUpToIndex(int index)
     {
         struct Unit * unit = GetTempUnit(i);
         if (unit->pCharacterData)
+        // if (ALIVE_UNIT(unit))
         {
             if (!IsUnitInCurrentRoster(unit))
             {
