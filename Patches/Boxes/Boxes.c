@@ -196,11 +196,10 @@ void RelocateUnitsPastThreshold(int startingOffset)
     }
 #endif
 
-    int firstStoredUnit = PartySizeThreshold + 1;
     memcpy(
-        (void *)&PCBoxUnitsBuffer[startingOffset], (void *)&gUnitArrayBlue[firstStoredUnit],
-        0x48 * (62 - firstStoredUnit));
-    memset(&gUnitArrayBlue[firstStoredUnit], 0, 0x48 * (62 - firstStoredUnit)); // This broke things
+        (void *)&PCBoxUnitsBuffer[startingOffset], (void *)&gUnitArrayBlue[PartySizeThreshold],
+        0x48 * (62 - PartySizeThreshold));
+    memset(&gUnitArrayBlue[PartySizeThreshold], 0, 0x48 * (62 - PartySizeThreshold)); // This broke things
     // InitUnits(); // do not write 0 to their deployment ID!
     InitUnitDeploymentIDs();
 
@@ -392,7 +391,7 @@ int UnpackUnitsFromBox(int slot)
         }
         cur++;
 
-        UnpackUnitFromBox((struct BoxUnit *)&bunit[i], unit2);
+        UnpackUnitFromBox(bunit2, unit2); // maybe instead of bunit[i]?
     }
     return cur;
 }

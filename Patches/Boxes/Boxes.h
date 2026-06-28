@@ -13,6 +13,7 @@ void* MS_GetSaveAddressBySlot(unsigned slot);
 struct __attribute__((packed)) BoxUnit { 
 	u8 classID : 8; 
 	u8 moves[5];
+    u8 pad[2];
 	u32 hp : 7; 
 	u32 lvl : 7; 
 	u32 exp : 7; 
