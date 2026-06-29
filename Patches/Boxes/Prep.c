@@ -458,10 +458,8 @@ extern u8 ** gBmMapUnit;
 extern int gSMS16xGfxIndexCounter;
 extern int gSMS32xGfxIndexCounter;
 
-static int ClampPrepUnitIndex(int index)
+static int ClampPrepUnitIndex(int index, int count)
 {
-    int count = PrepGetUnitAmount();
-
     if (index < 0)
         return 0;
 
@@ -482,7 +480,8 @@ void UpdateShownUnitsInPrep(struct ProcPrepUnit * proc)
     if (count <= 0)
         return;
 
-    firstVisible = ClampPrepUnitIndex(firstVisible);
+    firstVisible = ClampPrepUnitIndex(firstVisible, count);
+    // 12 units are visible at a time in prep, so we want space for that + 2 above/below, I guess
     bufferStart = firstVisible - 4;
     bufferEnd = firstVisible + 15;
 
@@ -491,17 +490,6 @@ void UpdateShownUnitsInPrep(struct ProcPrepUnit * proc)
 
     if (bufferEnd >= count)
         bufferEnd = count - 1;
-
-    // if ((firstVisible / 2) & 1)
-    // {
-    // gSMS16xGfxIndexCounter = 0x40 - 0x0D;
-    // gSMS32xGfxIndexCounter = 0x40 - 0x0B;
-    // }
-    // else
-    // {
-    // gSMS16xGfxIndexCounter = 12 * 14;
-    // gSMS32xGfxIndexCounter = 12 * 4;
-    // }
 
     for (int i = 0; i < count; ++i)
     {
@@ -516,7 +504,6 @@ void UpdateShownUnitsInPrep(struct ProcPrepUnit * proc)
     }
 
     ResetUnitSprites();
-    // not // ResetUnitSpriteHover();
     ForceSyncUnitSpriteSheet();
 }
 
@@ -530,22 +517,9 @@ void ProcPrepUnit_OnInit(struct ProcPrepUnit * proc)
     proc->yDiff_cur = ((struct ProcAtMenu *)(proc->proc_parent))->yDiff;
     proc->list_num_pre = proc->list_num_cur;
     proc->button_blank = 0;
-    struct Unit * unit;
-    for (int i = 0; i < 0x40; ++i)
-    {
-        unit = GetUnit(i);
-        if (!UNIT_IS_VALID(unit))
-        {
-            continue;
-        }
-        // gBmMapUnit[unit->yPos][unit->xPos] = 0;
-        // gBmMapUnit[unit->yPos][unit->xPos] = 0;
-        // unit->state |= US_BIT9 | US_HIDDEN | 0x1000000;
-        unit->state |= US_HIDDEN;
-        // unit->pMapSpriteHandle = NULL;
-    }
 
     UpdateShownUnitsInPrep(proc);
+    RefreshUnitSprites();
 }
 
 void sub_809B520(struct ProcPrepUnit * proc)
@@ -1383,7 +1357,7 @@ void ProcPrepUnit_Idle(struct ProcPrepUnit * proc)
 
         if (ShouldPrepUnitMenuScroll(proc))
         {
-            UpdateShownUnitsInPrep(proc);
+            // UpdateShownUnitsInPrep(proc);
             if (proc->list_num_cur < proc->list_num_pre)
                 PrepUnit_DrawUnitListNames(proc, proc->yDiff_cur / 16 - 1);
             if (proc->list_num_cur > proc->list_num_pre)
