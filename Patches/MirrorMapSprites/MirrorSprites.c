@@ -207,7 +207,7 @@ int UseUnitSprite(u32 id)
 
     if (sUnitSpriteSlots[id] == 0xFF)
     {
-        Decompress(data, gGenericBuffer);
+        // Decompress(data, gGenericBuffer); SMSCopySheetToBuffers now decompresses it
 
         switch (size)
         {
