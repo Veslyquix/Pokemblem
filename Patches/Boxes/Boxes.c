@@ -230,25 +230,53 @@ int AreSameBoxStoredUnit(struct Unit * a, struct Unit * b)
     if (a->pClassData != b->pClassData)
         return false;
 
-    if ((a->maxHP != b->maxHP) || (a->unk3A != b->unk3A) || (a->pow != b->pow) || (a->skl != b->skl) ||
-        (a->spd != b->spd) || (a->def != b->def) || (a->res != b->res) || (a->lck != b->lck) ||
-        (a->level != b->level) || (a->exp != b->exp))
-        return false;
+    // if ((a->maxHP != b->maxHP) || (a->unk3A != b->unk3A) || (a->pow != b->pow) || (a->skl != b->skl) ||
+    // (a->spd != b->spd) || (a->def != b->def) || (a->res != b->res) || (a->lck != b->lck) ||
+    // (a->level != b->level) || (a->exp != b->exp))
+    // return false;
 
-    for (int i = 0; i < 5; i++)
-    {
-        if (a->ranks[i] != b->ranks[i])
-            return false;
-    }
+    // for (int i = 0; i < 5; i++)
+    // {
+    // if (a->ranks[i] != b->ranks[i])
+    // return false;
+    // }
 
     return true;
 #endif
 }
+
+#ifdef POKEMBLEM_VERSION
+struct BoxUnit * GetCharIDFromBox(int slot, int index)
+{
+    struct BoxUnit * boxUnitSaved = (void *)&bunit[0];
+    for (int i = 0; i < BoxCapacity; i++)
+    {
+        // if (boxUnitSaved[i].classID && boxUnitSaved[i].classID != 0xFF)
+        // {
+        if (boxUnitSaved[i].classID == index)
+        {
+            return &boxUnitSaved[i];
+        }
+        // }
+    }
+    return NULL;
+}
+#endif
+
 int IsUnitInTempBox(struct Unit * unit)
 {
-    for (int i = 0; i < BoxBufferCapacity; i++)
+    // for (int i = 0; i < BoxBufferCapacity; i++)
+    // {
+    // struct Unit * unitTemp = GetTempUnit(i);
+
+    // if (AreSameBoxStoredUnit(unitTemp, unit))
+    // {
+    // return true;
+    // }
+    // }
+    for (int i = 0; i < 62; ++i)
     {
-        struct Unit * unitTemp = GetTempUnit(i);
+        struct Unit * unitTemp = GetUnit(i);
 
         if (AreSameBoxStoredUnit(unitTemp, unit))
         {
@@ -343,9 +371,11 @@ void DeploySelectedUnits()
             }
             else
             {
+                // asm("mov r11, r11");
                 // extra sanity check for clearing units?
-                // if ((i >= PartySizeThreshold) && IsUnitInTempBox(&unit[i]))
+                // if (IsUnitInTempBox(&unit[i]))
                 // {
+                // asm("mov r11, r11");
                 // ClearUnit(&unit[i]);
                 // continue;
                 // }
@@ -403,9 +433,7 @@ void PackUnitsIntoBox(int slot)
     ClearAllBoxUnits(slot);
     int i;
     struct Unit * unit2;
-#ifndef POKEMBLEM_VERSION
     struct BoxUnit * bunit2;
-#endif
     // struct BoxUnit* bunitStart = GetFreeBoxSlot(slot);
 
     for (i = 0; i < BoxCapacity; i++)
@@ -429,6 +457,18 @@ void PackUnitsIntoBox(int slot)
             ClearUnit(unit2);
             return;
         }
+#else
+        // bunit2 = GetCharIDFromBox(
+        // slot, unit2->pClassData->number); // avoid duplicate char IDs in case EnsureUnitInParty has been used.
+        // asm("mov r11, r11");
+        // if (bunit2)
+        // {
+
+        // PackUnitIntoBox((void *)bunit2, unit2);
+        // ClearUnit(unit2);
+        // return;
+        // }
+
 #endif
 
         PackUnitIntoBox((void *)&bunit[i], unit2);
@@ -624,7 +664,7 @@ int CountAndUndeployTempUnits(void)
     }
     return cur;
 }
-#define ALIVE_UNIT(unit) "(UNIT_IS_VALID(unit) && !(unit->state & US_DEAD))"
+#define ALIVE_UNIT(unit) (UNIT_IS_VALID(unit) && ((unit)->state & US_DEAD) == 0)
 int CountUnusableStoredUnitsUpToIndex(int index)
 {
     int cur = 0;

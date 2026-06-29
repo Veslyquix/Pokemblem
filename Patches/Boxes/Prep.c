@@ -395,7 +395,7 @@ int CountUnitsInUnitStructRam(void) {
         return cur;
 }
 */
-#define ALIVE_UNIT(unit) "(UNIT_IS_VALID(unit) && !(unit->state & US_DEAD))"
+#define ALIVE_UNIT(unit) (UNIT_IS_VALID(unit) && ((unit)->state & US_DEAD) == 0)
 
 int CountTotalUnitsInUnitStructRam(void)
 {
@@ -406,7 +406,8 @@ int CountTotalUnitsInUnitStructRam(void)
         unit = &gUnitArrayBlue[i];
 
         // if (UNIT_IS_VALID(unit))
-        if (UNIT_IS_VALID(unit) && (unit->state & US_DEAD) == 0)
+        // if (ALIVE_UNIT(unit))
+        if (UNIT_IS_VALID(unit) && InlineIsUnitInCurrentRoster(unit))
         {
             cur++;
         }
@@ -423,8 +424,8 @@ int CountUnusableUnitsUpToIndex(int index)
     {
         unit = &gUnitArrayBlue[i];
 
-        if (ALIVE_UNIT(unit))
-        // if (UNIT_IS_VALID(unit))
+        // if (ALIVE_UNIT(unit))
+        if (UNIT_IS_VALID(unit))
         {
             if (!InlineIsUnitInCurrentRoster(unit)) // checks for dead
             {
