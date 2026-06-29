@@ -458,51 +458,8 @@ extern u8 ** gBmMapUnit;
 extern int gSMS16xGfxIndexCounter;
 extern int gSMS32xGfxIndexCounter;
 
-static int ClampPrepUnitIndex(int index, int count)
+void UpdateShownUnitsInPrep()
 {
-    if (index < 0)
-        return 0;
-
-    if (index >= count)
-        return count - 1;
-
-    return index;
-}
-
-void UpdateShownUnitsInPrep(struct ProcPrepUnit * proc)
-{
-    struct Unit * unit;
-    int count = PrepGetUnitAmount();
-    int firstVisible = (proc->yDiff_cur / 16) * 2;
-    int bufferStart;
-    int bufferEnd;
-
-    if (count <= 0)
-        return;
-
-    firstVisible = ClampPrepUnitIndex(firstVisible, count);
-    // 12 units are visible at a time in prep, so we want space for that + 2 above/below, I guess
-    bufferStart = firstVisible - 4;
-    bufferEnd = firstVisible + 15;
-
-    if (bufferStart < 0)
-        bufferStart = 0;
-
-    if (bufferEnd >= count)
-        bufferEnd = count - 1;
-
-    for (int i = 0; i < count; ++i)
-    {
-        unit = GetUnitFromPrepList(i);
-        if (!UNIT_IS_VALID(unit))
-            continue;
-
-        if ((i >= bufferStart) && (i <= bufferEnd))
-            unit->state &= ~US_HIDDEN;
-        else
-            unit->state |= US_HIDDEN;
-    }
-
     ResetUnitSprites();
     ForceSyncUnitSpriteSheet();
 }
@@ -517,9 +474,6 @@ void ProcPrepUnit_OnInit(struct ProcPrepUnit * proc)
     proc->yDiff_cur = ((struct ProcAtMenu *)(proc->proc_parent))->yDiff;
     proc->list_num_pre = proc->list_num_cur;
     proc->button_blank = 0;
-
-    UpdateShownUnitsInPrep(proc);
-    RefreshUnitSprites();
 }
 
 void sub_809B520(struct ProcPrepUnit * proc)
@@ -1357,7 +1311,6 @@ void ProcPrepUnit_Idle(struct ProcPrepUnit * proc)
 
         if (ShouldPrepUnitMenuScroll(proc))
         {
-            // UpdateShownUnitsInPrep(proc);
             if (proc->list_num_cur < proc->list_num_pre)
                 PrepUnit_DrawUnitListNames(proc, proc->yDiff_cur / 16 - 1);
             if (proc->list_num_cur > proc->list_num_pre)
@@ -1385,7 +1338,7 @@ void ProcPrepUnit_Idle(struct ProcPrepUnit * proc)
 
     if (0 == proc->yDiff_cur % 0x10)
     {
-        UpdateShownUnitsInPrep(proc);
+        UpdateShownUnitsInPrep();
         PrepUpdateMenuTsaScroll(proc->yDiff_cur / 16 - 1);
         PrepUpdateMenuTsaScroll(proc->yDiff_cur / 16 + 6);
         sub_809AE10(proc);

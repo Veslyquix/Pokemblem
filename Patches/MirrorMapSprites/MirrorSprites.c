@@ -160,14 +160,15 @@ extern int gSMS32xGfxIndexCounter;
 extern int GetSMSObjChr(int chr);
 extern int GetSMSBufferChr(int chr);
 extern u8 * GetSMSGfxBuffer(int frame);
-
+#define SMS_16X32_GFX_SLOT_STRIDE 2
+#define SMS_32X32_GFX_SLOT_STRIDE 4
 extern u8 NewgSMSGfxIndexLookup[0xFF];
 extern int gSMS16xGfxIndexCounter;
 extern int gSMS32xGfxIndexCounter;
 extern int GetSMSObjChr(int chr);
 extern int GetSMSBufferChr(int chr);
 extern void SMSCopySheetToBuffers(void * data, int dstChr, u16 size, u32 id);
-
+extern void EnsureSMS32xGfxCounterHasRoom(int slotCount);
 int UseUnitSprite(u32 id)
 {
     int dir = (id & 0xFF00) >> 8;
@@ -216,6 +217,7 @@ int UseUnitSprite(u32 id)
                 break;
 
             case UNIT_ICON_SIZE_16x32:
+                EnsureSMS32xGfxCounterHasRoom(SMS_16X32_GFX_SLOT_STRIDE);
                 sUnitSpriteSlots[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += 2;
                 break;
@@ -224,6 +226,7 @@ int UseUnitSprite(u32 id)
                 if ((gSMS32xGfxIndexCounter & 0x1E) == 0x1E)
                     gSMS32xGfxIndexCounter += 2;
 
+                EnsureSMS32xGfxCounterHasRoom(SMS_32X32_GFX_SLOT_STRIDE);
                 sUnitSpriteSlots[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += 4;
                 break;

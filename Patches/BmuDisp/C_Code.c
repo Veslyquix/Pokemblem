@@ -950,18 +950,7 @@ int StartWorldMapSMS(int smsId, int frameId, int slot)
     return GetSMSObjChr(sUnitSpriteSlots[frameId] << 1);
 }
 
-static void EnsureSMS32xGfxCounterHasRoom(int slotCount)
-{
-    int limit = SMS_16X16_GFX_SLOT_COUNT - slotCount;
 
-    if
-(limit > MMS_RESERVED_GFX_SLOT_START)
-        limit = MMS_RESERVED_GFX_SLOT_START;
-
-    if (gSMS32xGfxIndexCounter >=
-limit)
-        gSMS32xGfxIndexCounter = 0;
-}
  int UseUnitSprite2(u32 id)
 {
     if (sUnitSpriteSlots[id] == 0xFF)
@@ -997,6 +986,18 @@ limit)
 }
 // commented here
 */
+
+void EnsureSMS32xGfxCounterHasRoom(int slotCount)
+{
+    int limit = SMS_16X16_GFX_SLOT_COUNT - slotCount;
+
+    if (limit > MMS_RESERVED_GFX_SLOT_START)
+        limit = MMS_RESERVED_GFX_SLOT_START;
+
+    if (gSMS32xGfxIndexCounter > limit)
+        gSMS32xGfxIndexCounter = 0x40;
+}
+
 /*
 static void EnsureSMS32xGfxCounterHasRoom(int slotCount)
 {
