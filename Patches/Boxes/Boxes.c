@@ -186,8 +186,8 @@ void RelocateUnitsPastThreshold(int startingOffset)
 
 #ifdef POKEMBLEM_VERSION
     // if protag is not in the first 50 units, don't let it go in box
-    struct Unit someUnit;
-    someUnit.pCharacterData = 0;
+    // struct Unit someUnit;
+    // someUnit.pCharacterData = 0;
     struct Unit * protag = GetUnitStructFromEventParameter(ProtagID_Link);
     if (protag && protag->pCharacterData)
     {

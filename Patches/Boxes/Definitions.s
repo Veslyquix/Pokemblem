@@ -1,5 +1,9 @@
 .include "fe8.s" 
 .include "C:/devkitPro/FE-CLib/reference/FE8U-20190316.s"
+
+SET_FUNC PrepItemScreen_SetupGfx, 0x8098621 
+SET_FUNC sub_809A08C, 0x809A08D 
+SET_FUNC PrepItemScreen_ResumeFromStatScreen, 0x8099101
 SET_FUNC SetBlendBackdropA, 0x8001f49 
 SET_DATA classTablePoin, 0x8017AB8 
 SET_DATA unit, 0x2021188

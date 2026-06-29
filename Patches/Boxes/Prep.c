@@ -486,7 +486,7 @@ void UpdateShownUnitsInPrep()
 
 void ProcPrepUnit_OnInit(struct ProcPrepUnit * proc)
 {
-    struct ProcAtMenu * parent;
+    // struct ProcAtMenu * parent;
     MakePrepUnitList();
     proc->list_num_cur = UnitGetIndexInPrepList(PrepGetLatestCharId());
     proc->max_counter = ((struct ProcAtMenu *)(proc->proc_parent))->max_counter;
@@ -496,6 +496,7 @@ void ProcPrepUnit_OnInit(struct ProcPrepUnit * proc)
     proc->button_blank = 0;
 }
 
+// when pressing B in stat screen in prep, return to that unit
 void sub_809B520(struct ProcPrepUnit * proc)
 {
     int list_num;
@@ -508,6 +509,23 @@ void sub_809B520(struct ProcPrepUnit * proc)
 
     proc->list_num_pre = list_num;
     proc->list_num_cur = list_num;
+}
+
+struct PrepItemScreenProc
+{
+    /* 00 */ PROC_HEADER;
+    /* 29 */ u8 unk_29 : 1;
+    /* 2A */ u8 hoverUnitIdx;
+};
+extern void sub_809A08C(struct PrepItemScreenProc * proc);
+extern void PrepItemScreen_SetupGfx(struct PrepItemScreenProc * proc);
+// when pressing B in stat screen in prep, return to that unit
+void PrepItemScreen_ResumeFromStatScreen(struct PrepItemScreenProc * proc)
+{
+    PrepItemScreen_SetupGfx(proc);
+    proc->hoverUnitIdx = GetPrepListIndexByUnit(gStatScreen.unit); // GetLatestUnitIndexInPrepListByUId();
+    sub_809A08C(proc);
+    return;
 }
 
 extern struct TextHandle gPrepUnitTexts[];
