@@ -588,7 +588,19 @@ int CountTempUnits(void)
     }
     return cur;
 }
+static inline s8 InlineIsUnitInCurrentRoster(struct Unit * unit)
+{
+    if ((US_DEAD | US_BIT16) & unit->state)
+        return 0;
 
+    if (0x200 & UNIT_CATTRIBUTES(unit))
+    {
+        unit->state = 8;
+        return 0;
+    }
+
+    return 1;
+}
 extern s8 IsUnitInCurrentRoster(struct Unit * unit);
 int CountAndUndeployTempUnits(void)
 {
@@ -599,7 +611,7 @@ int CountAndUndeployTempUnits(void)
         struct Unit * unit = GetTempUnit(i);
         if (unit->pCharacterData)
         {
-            if (IsUnitInCurrentRoster(unit))
+            if (InlineIsUnitInCurrentRoster(unit))
             {
                 NewRegisterPrepUnitList(cur, unit);
                 cur++;
@@ -620,10 +632,10 @@ int CountUnusableStoredUnitsUpToIndex(int index)
     for (i = 0; i < BoxCapacity; ++i)
     {
         struct Unit * unit = GetTempUnit(i);
-        if (unit->pCharacterData)
-        // if (ALIVE_UNIT(unit))
+        // if (unit->pCharacterData)
+        if (UNIT_IS_VALID(unit))
         {
-            if (!IsUnitInCurrentRoster(unit))
+            if (!InlineIsUnitInCurrentRoster(unit))
             {
                 cur++;
             }

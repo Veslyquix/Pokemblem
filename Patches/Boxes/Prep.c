@@ -336,7 +336,7 @@ void PrepUnit_InitSMS(struct ProcPrepUnit * proc)
     PrepUpdateSMS();
 }
 
-inline s8 InlineIsUnitInCurrentRoster(struct Unit * unit)
+static inline s8 InlineIsUnitInCurrentRoster(struct Unit * unit)
 {
     if ((US_DEAD | US_BIT16) & unit->state)
         return 0;
@@ -405,7 +405,8 @@ int CountTotalUnitsInUnitStructRam(void)
     {
         unit = &gUnitArrayBlue[i];
 
-        if (UNIT_IS_VALID(unit))
+        // if (UNIT_IS_VALID(unit))
+        if (UNIT_IS_VALID(unit) && (unit->state & US_DEAD) == 0)
         {
             cur++;
         }
@@ -422,8 +423,8 @@ int CountUnusableUnitsUpToIndex(int index)
     {
         unit = &gUnitArrayBlue[i];
 
-        // if (ALIVE_UNIT(unit))
-        if (UNIT_IS_VALID(unit))
+        if (ALIVE_UNIT(unit))
+        // if (UNIT_IS_VALID(unit))
         {
             if (!InlineIsUnitInCurrentRoster(unit)) // checks for dead
             {
