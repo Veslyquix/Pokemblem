@@ -136,10 +136,10 @@ callHackNew(HookInitSave)
 
 // reset unit sprites whenever scrolling down in prep items menu 
 // to avoid running out of sprite space 
-// ORG $99124
-// callHackNew(Hook_sub8099120) //UseUnitSprite
-// ORG $992D8
-// callHackNew(Hook_sub8099120_2) 
+ORG $99124
+callHackNew(Hook_sub8099120) //UseUnitSprite
+ORG $992D8
+callHackNew(Hook_sub8099120_2) 
   
 POP
 

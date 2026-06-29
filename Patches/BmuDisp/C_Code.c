@@ -904,42 +904,6 @@ void ResetUnitSpritesB(void)
     gSMS16xGfxIndexCounter = SMS_16X16_GFX_SLOT_COUNT - 1;
 }
 
-extern void PutClassSpriteForSecretShop(struct Unit * unit, u16 x, u16 y);
-extern bool IsCoordHiddenByMinimug(u32, int);
-void sub_809A274(struct PrepItemScreenProc * proc)
-{
-    int i;
-    ResetUnitSprites();
-    for (i = 0; i < PrepGetUnitAmount(); i++)
-    {
-        int x = (i % 3) * 64;
-        u32 y = (i / 3) * 16 - proc->unk_34; // scrollOffset;
-
-        if (y + 20 > 68)
-        {
-            continue;
-        }
-
-        if (proc->unitSelected && IsCoordHiddenByMinimug(x, y))
-        {
-            continue;
-        }
-
-        if (gGMData.state.bits.state_0 && GetGMapBaseMenuKind() == SHOP_TYPE_SECRET_SHOP)
-        {
-            PutClassSpriteForSecretShop(GetUnitFromPrepList(i), (x + 24) & 0xffff, (y + 4) & 0xff);
-        }
-        else
-        {
-            PutUnitSprite(0, (x + 24), (y + 4) & 0xff, GetUnitFromPrepList(i));
-        }
-    }
-    ForceSyncUnitSpriteSheet();
-    // SyncUnitSpriteSheet();
-
-    return;
-}
-
 /*
 // commented here
 int StartUiSMS(int smsId, int frameId)
