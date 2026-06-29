@@ -133,11 +133,13 @@ SHORT $1c20 // Mov r0, r4 (vanilla)
 ORG $A4EA4 
 callHackNew(HookInitSave) 
 
-ORG $99124
-callHackNew(Hook_sub8099120) 
 
-ORG $992D8
-callHackNew(Hook_sub8099120_2) 
+// reset unit sprites whenever scrolling down in prep items menu 
+// to avoid running out of sprite space 
+// ORG $99124
+// callHackNew(Hook_sub8099120) //UseUnitSprite
+// ORG $992D8
+// callHackNew(Hook_sub8099120_2) 
   
 POP
 

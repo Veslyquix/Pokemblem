@@ -218,6 +218,11 @@ void CopyPCBox(int sourceSlot, int targetSlot)
     UnpackUnitsFromBox(targetSlot);
 }
 
+inline int InlinePrepGetUnitAmount()
+{
+    return gPrepUnitList.max_num;
+}
+
 void PrepAutoCapDeployUnits(struct ProcAtMenu * proc)
 {
     int i;
@@ -253,7 +258,7 @@ void PrepAutoCapDeployUnits(struct ProcAtMenu * proc)
     if (proc->unit_count < proc->max_counter)
         proc->max_counter = proc->unit_count;
 
-    // int unitAmount = PrepGetUnitAmount();
+    // int unitAmount = InlinePrepGetUnitAmount();
     // if (unitAmount < proc->max_counter)
     //     proc->max_counter = unitAmount;
 }
@@ -331,6 +336,20 @@ void PrepUnit_InitSMS(struct ProcPrepUnit * proc)
     PrepUpdateSMS();
 }
 
+inline s8 InlineIsUnitInCurrentRoster(struct Unit * unit)
+{
+    if ((US_DEAD | US_BIT16) & unit->state)
+        return 0;
+
+    if (0x200 & UNIT_CATTRIBUTES(unit))
+    {
+        unit->state = 8;
+        return 0;
+    }
+
+    return 1;
+}
+
 // latest unit is in proc+0x2C
 void MakePrepUnitList()
 {
@@ -344,7 +363,7 @@ void MakePrepUnitList()
         if (!UNIT_IS_VALID(unit))
             continue;
 
-        if (IsUnitInCurrentRoster(unit))
+        if (InlineIsUnitInCurrentRoster(unit))
         {
             NewRegisterPrepUnitList(cur, unit);
             cur++;
@@ -366,7 +385,7 @@ int CountUnitsInUnitStructRam(void) {
         unit = &gUnitArrayBlue[i];
 
         if (UNIT_IS_VALID(unit)) {
-                        if (IsUnitInCurrentRoster(unit)) {
+                        if (InlineIsUnitInCurrentRoster(unit)) {
                                 NewRegisterPrepUnitList(cur, unit);
                                 cur++;
                         }
@@ -403,9 +422,10 @@ int CountUnusableUnitsUpToIndex(int index)
     {
         unit = &gUnitArrayBlue[i];
 
-        if (ALIVE_UNIT(unit))
+        // if (ALIVE_UNIT(unit))
+        if (UNIT_IS_VALID(unit))
         {
-            if (!IsUnitInCurrentRoster(unit))
+            if (!InlineIsUnitInCurrentRoster(unit)) // checks for dead
             {
                 // NewRegisterPrepUnitList(cur, unit);
                 cur++;
@@ -517,7 +537,7 @@ static bool IsUnitInPCBoxBuffer(struct Unit * unit)
 static int GetPrepListIndexByUnit(struct Unit * unit)
 {
     int i;
-    int count = PrepGetUnitAmount();
+    int count = InlinePrepGetUnitAmount();
 
     for (i = 0; i < count; i++)
     {
@@ -586,7 +606,7 @@ struct Unit * FindNextUnit(struct Unit * u, int direction)
     }
 
     {
-        int unit_count = PrepGetUnitAmount();
+        int unit_count = InlinePrepGetUnitAmount();
         int i;
         int attempts;
 
@@ -855,7 +875,7 @@ void PrepUnit_DrawUnitListNames(struct ProcPrepUnit * proc, int line)
     {
         itext = val + i;
 
-        if (itext >= PrepGetUnitAmount())
+        if (itext >= InlinePrepGetUnitAmount())
             continue;
 
         unit = GetUnitFromPrepList(itext);
@@ -889,7 +909,7 @@ void PrepUpdateMenuTsaScroll(int val)
 void PrepUnit_DrawSMSAndObjs(struct ProcPrepUnit *proc)
 {
     int i;
-    for (i = 0; i < PrepGetUnitAmount(); i++) {
+    for (i = 0; i < InlinePrepGetUnitAmount(); i++) {
         u32 yOff = ((i >> 1) << 4) - proc->yDiff_cur;
         if((yOff + 0xF) < 0x60 )
             PutUnitSprite(0, (i & 1) * 56 + 0x70, yOff + 0x18,
@@ -1104,7 +1124,7 @@ s8 ShouldPrepUnitMenuScroll(struct ProcPrepUnit *proc)
         return 1;
 
     val2 = val1 + 5;
-    val3 = (PrepGetUnitAmount() - 1) >> 1;
+    val3 = (InlinePrepGetUnitAmount() - 1) >> 1;
     if (val2 < val3 && proc->list_num_cur / 2 >= val2)
         return 1;
 
@@ -1116,7 +1136,7 @@ void sub_809ADC8(struct ProcPrepUnit *proc)
     if (ShouldPrepUnitMenuScroll(proc)) {
         int lst = proc->list_num_cur / 2;
         int dif = proc->yDiff_cur / 16;
-        int amt = (PrepGetUnitAmount() - 1) >> 1;
+        int amt = (InlinePrepGetUnitAmount() - 1) >> 1;
 
         if (lst <= dif) {
             if (lst == 0)
@@ -1139,7 +1159,7 @@ void sub_809AE10(struct ProcPrepUnit *proc)
 {
     int msk = 0;
     int dif = proc->yDiff_cur / 16;
-    int amt = (PrepGetUnitAmount() - 1) >> 1;
+    int amt = (InlinePrepGetUnitAmount() - 1) >> 1;
 
     if (dif > 0)
         msk = 1;
@@ -1188,7 +1208,7 @@ void ProcPrepUnit_InitScreen(struct ProcPrepUnit *proc)
         0x7, 0x800);
 
     PrepStartSideBarScroll(proc, 0xE0, 0x20, 0x200, 2);
-    sub_80976CC(0xA, proc->yDiff_cur, (PrepGetUnitAmount() - 1) / 2 + 1, 6);
+    sub_80976CC(0xA, proc->yDiff_cur, (InlinePrepGetUnitAmount() - 1) / 2 + 1, 6);
     StartHelpPromptSprite(0x20, 0x8F, 9, proc);
     PrepUnit_DrawUnitItems(GetUnitFromPrepList(proc->list_num_cur));
     PrepUnit_DrawLeftUnitName(GetUnitFromPrepList(proc->list_num_cur));
@@ -1286,7 +1306,7 @@ void ProcPrepUnit_Idle(struct ProcPrepUnit * proc)
 
         if (DPAD_RIGHT & key_pre)
         {
-            if (!(1 & proc->list_num_cur) && proc->list_num_cur < (PrepGetUnitAmount() - 1))
+            if (!(1 & proc->list_num_cur) && proc->list_num_cur < (InlinePrepGetUnitAmount() - 1))
                 proc->list_num_cur++;
         }
 
@@ -1298,7 +1318,7 @@ void ProcPrepUnit_Idle(struct ProcPrepUnit * proc)
 
         if (DPAD_DOWN & key_pre)
         {
-            if ((proc->list_num_cur + 2) <= (PrepGetUnitAmount() - 1))
+            if ((proc->list_num_cur + 2) <= (InlinePrepGetUnitAmount() - 1))
                 proc->list_num_cur += 2;
         }
 
@@ -1346,7 +1366,7 @@ void ProcPrepUnit_Idle(struct ProcPrepUnit * proc)
     }
 
     BG_SetPosition(BG_2, 0, proc->yDiff_cur - 0x18);
-    sub_80976CC(0xA, proc->yDiff_cur, (PrepGetUnitAmount() - 1) / 2 + 1, 6);
+    sub_80976CC(0xA, proc->yDiff_cur, (InlinePrepGetUnitAmount() - 1) / 2 + 1, 6);
 }
 
 /*
