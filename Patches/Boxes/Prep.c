@@ -612,12 +612,13 @@ struct Unit * FindNextUnit(struct Unit * u, int direction)
 
     if (!proc)
     {
+        int faction = UNIT_FACTION(u);
         int i = u->index;
 
         while (TRUE)
         {
             i = (i + direction) & 0x3F;
-            unit = GetUnit(i);
+            unit = GetUnit(faction + i);
             if (IsStatusScreenDisabled(unit))
                 continue;
 
