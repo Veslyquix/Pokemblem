@@ -137,8 +137,84 @@ ENDA
 
 LocationBasedEvents:
 House(VermilionGymClosedFlag,EnterGym,12,23) //
+House(0,VermilionDebugQuickLoad,13,3)
 Vendor(ShopItems,27,11)
 END_MAIN
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(TrainerL, 70000)
+DebugItems SuperRepel 3
+BYTE SkillAcc(VantagePlusID)
+BYTE JellyDonut 5
+BYTE SkillScroll PoisonStrikeID
+BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite
+BYTE SpellScroll Ember SpellScroll Bubble SpellScroll LeafFlurry SpellScroll Confusion
+BYTE SpellScroll IcyWind
+BYTE WarpCrystal 3
+BYTE SuperPotion 5
+BYTE SpellScroll AttackPulse
+BYTE SkillScroll SwarmID
+BYTE StatAccessory LeatherShield_BoostIndex
+BYTE Revive 3
+BYTE SkillScroll ShedSkinID
+BYTE SpellScroll LeechLife SpellScroll MegaPunch
+BYTE StatAccessory MuscleBand_BoostIndex
+BYTE StatAccessory WiseGlasses_BoostIndex
+BYTE EscapeRope 3
+BYTE SpellScroll MudShot SpellScroll Gust
+BYTE SkillAcc(SteadyStanceID)
+BYTE SpellScroll RockTomb
+BYTE SkillScroll RecklessRockID
+BYTE DryingPan 1
+BYTE SkillScroll ParagonID
+BYTE SpellScroll DoubleHit
+BYTE SkillScroll DrySkinID
+BYTE SpellScroll WaterGun
+BYTE ExoticCandy 1
+BYTE StatAccessory EnergyBand_BoostIndex
+BYTE Iron 1
+BYTE SpellScroll Harden
+BYTE StatAccessory BronzeShield_BoostIndex
+BYTE SkillAcc(RockyHelmetSkillID)
+BYTE SkillScroll ShellArmorID
+BYTE SpellScroll KarateChop
+BYTE SkillScroll SniperID
+BYTE SpellScroll PoisonPowder
+BYTE SkillAcc(WardingStanceID)
+BYTE SpellScroll SignalBeam SpellScroll MagicalLeaf SpellScroll Magnitude
+BYTE SpellScroll BubbleBeam
+BYTE SkillAcc(RenewalID)
+BYTE SkillScroll VantagePlusID
+BYTE SkillAcc(CertainBlowID)
+BYTE SkillAcc(DowngradeID)
+BYTE SkillAcc(CantoPlusID)
+BYTE SkillAcc(WaryFighterID)
+BYTE SpellScroll Scorch SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile
+
+SHORT 0
+
+DebugFlags FlyFlag OldAmberFlag
+SHORT 0
+
+DebugClasses FarfetchdID
+BYTE GrowlitheID OddishID PsyduckID DiglettID SandshrewID
+BYTE VoltorbID MeowthID DrowzeeID VulpixID CharmanderID
+BYTE SquirtleID BulbasaurID EeveeID ChanseyID PidgeyID
+BYTE RattataID SpearowID PidgeottoID RaticateID FearowID
+BYTE BellsproutID VenonatID AbraID HorseaID PoliwagID
+BYTE MagikarpID GoldeenID EkansID ZubatID GeodudeID
+BYTE ParasID ClefairyID JigglypuffID MankeyID NidoranMID
+BYTE NidoranFID MetapodID KakunaID PikachuID CaterpieID
+BYTE WeedleID
+BYTE 0 // Terminator
+
+}
+ALIGN 4
+VermilionDebugQuickLoad:
+ASMC DebugLoadUnits
+NoFade
+ENDA
+ALIGN 4
 
 EnterGym:
 ENUF VermilionGymClosedFlag 

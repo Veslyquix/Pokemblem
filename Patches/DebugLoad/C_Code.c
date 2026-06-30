@@ -40,7 +40,10 @@ static void DebugAddItemsToConvoy(const u16 * itemList)
         if (!ITEM_USES(item))
             item = MakeNewItem(item);
 
-        AddItemToConvoy(item);
+        if (AddItemToConvoy(item) < 0) // Convoy is full
+        {
+            return;
+        }
     }
 }
 
@@ -83,10 +86,15 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
 
     gEventSlots[1] = DefaultUnitID_Link; // unit ID
     gEventSlots[3] = 1;                  // visible levels
+    int i = 0;
 
     while (*classList)
     {
         classID = *classList++;
+        if (i > 15)
+        {
+            return;
+        }
 
         if (!CheckIfCaught(classID))
         {
@@ -94,6 +102,7 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
             int uid = FindFreeSlot();
             if (unit && uid != 0xFF)
             {
+                i++;
 
                 unit->pClassData = &classTablePoin[classID];
                 unit->pCharacterData = GetCharacterData(uid);

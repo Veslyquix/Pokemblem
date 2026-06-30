@@ -108,8 +108,73 @@ LocationBasedEvents:
 House(CeruleanGymClosedFlag,EnterGym,24,20) //
 House(0, EnterPillagedHouseS, 23,10) 
 House(0, EnterPillagedHouseN, 24, 7)
+House(0,CeruleanDebugQuickLoad,15,17)
 Vendor(ShopItems,22,27)
 END_MAIN
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(TrainerL, 55000)
+DebugItems SuperRepel 3
+BYTE SkillAcc(VantagePlusID)
+BYTE JellyDonut 4
+BYTE SkillScroll PoisonStrikeID
+BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite
+BYTE SpellScroll Ember SpellScroll Bubble SpellScroll LeafFlurry SpellScroll Confusion
+BYTE SpellScroll IcyWind
+BYTE WarpCrystal 3
+BYTE SpellScroll AttackPulse
+BYTE SkillScroll SwarmID
+BYTE StatAccessory LeatherShield_BoostIndex
+BYTE Revive 3
+BYTE SkillScroll ShedSkinID
+BYTE SpellScroll LeechLife SpellScroll MegaPunch
+BYTE StatAccessory MuscleBand_BoostIndex
+BYTE StatAccessory WiseGlasses_BoostIndex
+BYTE EscapeRope 3
+BYTE SpellScroll MudShot SpellScroll Gust
+BYTE SkillAcc(SteadyStanceID)
+BYTE SpellScroll RockTomb
+BYTE SkillScroll RecklessRockID
+BYTE DryingPan 1
+BYTE SkillScroll ParagonID
+BYTE SpellScroll DoubleHit
+BYTE SkillScroll DrySkinID
+BYTE SpellScroll WaterGun
+BYTE ExoticCandy 1
+BYTE StatAccessory EnergyBand_BoostIndex
+BYTE Iron 1
+BYTE SpellScroll Harden
+BYTE StatAccessory BronzeShield_BoostIndex
+BYTE SkillAcc(RockyHelmetSkillID)
+BYTE SkillScroll ShellArmorID
+BYTE SpellScroll KarateChop
+BYTE SkillScroll SniperID
+BYTE SpellScroll PoisonPowder
+BYTE SkillAcc(WardingStanceID)
+BYTE SuperPotion 5
+BYTE SpellScroll SignalBeam SpellScroll MagicalLeaf SpellScroll Magnitude
+
+SHORT 0
+
+DebugFlags FlyFlag OldAmberFlag
+SHORT 0
+
+DebugClasses GrowlitheID
+BYTE OddishID PsyduckID HorseaID PoliwagID MagikarpID
+BYTE GoldeenID BellsproutID SpearowID VoltorbID EkansID
+BYTE ZubatID GeodudeID SandshrewID ParasID ClefairyID
+BYTE JigglypuffID RattataID MankeyID NidoranMID NidoranFID
+BYTE PidgeyID MetapodID KakunaID PikachuID CaterpieID
+BYTE WeedleID
+BYTE 0 // Terminator
+
+}
+ALIGN 4
+CeruleanDebugQuickLoad:
+ASMC DebugLoadUnits
+NoFade
+ENDA
+ALIGN 4
 
 EnterPillagedHouseS:
 PauseFreeMovement
