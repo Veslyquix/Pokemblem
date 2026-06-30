@@ -1,2 +1,43 @@
 
 #include "C_Code.lyn.event" 
+DefaultUnit:
+UNIT TempAlly_A 0 0x0 Level(0, Enemy, 1) [0,0]  0b 0x0	0x1 REDA0R0 [0x0,0x0,0x0,0x0] DoNothing
+UNIT
+
+ALIGN 4 
+DefaultUnitID_Link: 
+WORD TempAlly_A
+
+// level, gold, items, classes 
+ALIGN 4 
+DebugStuff: 
+FILL 128*4 
+
+#define DebugStuffEntry(DebugStuffLabel) "PUSH; ORG DebugStuff + (ChapterID * 4); POIN DebugStuffLabel; POP" 
+
+
+ALIGN 4 
+DebugStuffPewter: 
+BYTE 10 // everyone level up to 10 
+ALIGN 4 
+WORD 25000 // set the player to 25k gold 
+POIN ItemList ClassesList FlagList
+
+ALIGN 4 
+ItemList: 
+BYTE SpellScroll Screech 
+BYTE SkillScroll RecklessRock 
+SHORT Berry // since no durability was specified, use Make new item to give it default durability 
+SHORT 0 // Terminator 
+
+ALIGN 4 
+FlagList: // SetFlag these flags 
+SHORT 0 // Terminator 
+
+ALIGN 4 
+ClassesList: 
+BYTE BulbasaurID CharmanderID SquirtleID 
+BYTE 0 // Terminator 
+
+
+
