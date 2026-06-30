@@ -13,9 +13,22 @@ ALIGN 4
 DebugStuff: 
 FILL 128*4 
 
-#define DebugStuffEntry(DebugStuffLabel) "PUSH; ORG DebugStuff + (ChapterID * 4); POIN DebugStuffLabel; POP" 
+#define DebugStuffEntry(DebugStuffLabel, level, gold) "PUSH; ORG DebugStuff + (ChapterID * 4); POIN DebugStuffLabel; POP" 
+
+#define DebugItems "" // ? 
+
+DebugItems SpellScroll Screech 
+BYTE SkillScroll RecklessRock 
+SHORT 0 
+
+DebugFlags 0x10E 
+SHORT 0 
+
+DebugClasses BulbasaurID CharmanderID SquirtleID 
+BYTE 0 // Terminator 
 
 
+/*
 ALIGN 4 
 DebugStuffPewter: 
 BYTE 10 // everyone level up to 10 
@@ -38,6 +51,6 @@ ALIGN 4
 ClassesList: 
 BYTE BulbasaurID CharmanderID SquirtleID 
 BYTE 0 // Terminator 
-
+*/
 
 
