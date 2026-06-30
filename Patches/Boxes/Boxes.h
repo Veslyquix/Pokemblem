@@ -97,6 +97,9 @@ void ClearAllBoxUnits(int slot);
 void ClearAllBoxUnitsASMC(void);
 void EnsureUnitInPartyASMC(void);
 int EnsureUnitInParty(int slot, int charID);
+int AreBoxesFull(void);
+int SetBoxAsFull(void);
+int SetBoxAsNotFull(void);
 
 int CountTotalUnitsInUnitStructRam(void); 
 int CountUnusableUnitsUpToIndex(int index);

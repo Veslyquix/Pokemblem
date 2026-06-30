@@ -22,7 +22,11 @@ int SendItemsToConvoy(struct Unit * unit)
     }
     return true;
 }
+#ifdef POKEMBLEM_VERSION
 extern int BoxesFullFlag_Link;
+extern void SetFlag(int);
+extern void ClearFlag(int);
+extern s8 CheckFlag(int);
 int AreBoxesFull(void)
 {
     return CheckFlag(BoxesFullFlag_Link);
@@ -30,11 +34,14 @@ int AreBoxesFull(void)
 int SetBoxAsFull(void)
 {
     SetFlag(BoxesFullFlag_Link);
+    return true;
 }
 int SetBoxAsNotFull(void)
 {
     ClearFlag(BoxesFullFlag_Link);
+    return false;
 }
+#endif
 /*
 int IsBoxFull(int slot) {
         (*ReadSramFast)((void*)PC_GetSaveAddressBySlot(slot), (void*)&unit[0], PCBoxSizeLookup[0]);
@@ -142,6 +149,9 @@ void ClearAllBoxUnits(int slot)
 {
     memset((void *)&bunit[0], 0, PCBoxSizeLookup[0]);
     WriteAndVerifySramFast((void *)&bunit[0], (void *)PC_GetSaveAddressBySlot(slot), PCBoxSizeLookup[0]);
+#ifdef POKEMBLEM_VERSION
+    SetBoxAsNotFull();
+#endif
 
     // struct BoxUnit* boxRam;
     // void* baseRam = PC_GetSaveAddressBySlot(slot);
@@ -197,6 +207,9 @@ void RelocateUnitsPastThreshold(int startingOffset)
 {
 
 #ifdef POKEMBLEM_VERSION
+    if (AreBoxesFull())
+        return;
+
     // if protag is not in the first 50 units, don't let it go in box
     // struct Unit someUnit;
     // someUnit.pCharacterData = 0;
@@ -393,6 +406,33 @@ static void EnsureRegularUnitBoxIndexes(void)
         EnsureUnitBoxIndex(&gUnitArrayBlue[i]);
 }
 
+static struct Unit * GetFreeRegularUnitAddrPastThreshold(void)
+{
+    for (int i = PartySizeThreshold; i < REGULAR_UNIT_RAM_COUNT; i++)
+    {
+        struct Unit * unit = &gUnitArrayBlue[i];
+
+        if (!unit->pCharacterData)
+            return unit;
+    }
+
+    return NULL;
+}
+
+static int MoveTempUnitToRegularRamPastThreshold(struct Unit * unit)
+{
+    struct Unit * newUnit = GetFreeRegularUnitAddrPastThreshold();
+
+    if (!newUnit)
+        return false;
+
+    memcpy((void *)newUnit, (void *)unit, 0x48);
+    newUnit->index = newUnit - &gUnitArrayBlue[0];
+    ClearUnit(unit);
+
+    return true;
+}
+
 static struct BoxUnit * GetBoxUnitFromNewIndex(int newIndex)
 {
     if (!newIndex)
@@ -535,8 +575,11 @@ void DeploySelectedUnits()
     { // move units that were undeployed back into unit struct ram until it's full. Then into PC box
         if ((unit[i].pCharacterData))
         {
-            if (c <= PartySizeThreshold) // yes <= !!!! 2026
+            if ((c <= PartySizeThreshold) || AreBoxesFull()) // yes <= !!!! 2026
             {
+                if (c >= REGULAR_UNIT_RAM_COUNT)
+                    break;
+
                 // deploymentID = GetFreeDeploymentID();
                 newUnit = &gUnitArrayBlue[c];
                 memcpy((void *)newUnit, (void *)&unit[i], 0x48);
@@ -677,7 +720,14 @@ void PackUnitsIntoBox(int slot)
             bunit2 = GetFreeBoxSlot(slot);
 
         if (!bunit2)
+        {
+            SetBoxAsFull();
+
+            if (MoveTempUnitToRegularRamPastThreshold(unit2))
+                continue;
+
             break;
+        }
 
         PackUnitIntoBox((void *)bunit2, unit2);
         ClearUnit(unit2);
@@ -690,6 +740,13 @@ void PackUnitsIntoBox(int slot)
 
         ClearUnit(unit2);
     }
+
+#ifdef POKEMBLEM_VERSION
+    if (GetFreeBoxSlot(slot))
+        SetBoxAsNotFull();
+    else
+        SetBoxAsFull();
+#endif
 
     return;
 }

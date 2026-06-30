@@ -14,7 +14,7 @@ LYN := "C:/devkitPro/lyn.exe"
 
 # setting up compilation flags
 ARCH   := -mcpu=arm7tdmi -mthumb -mthumb-interwork
-CFLAGS := $(ARCH) -Wall -Os -mtune=arm7tdmi -mlong-calls
+CFLAGS := $(ARCH) -Wall -Os -mtune=arm7tdmi -mlong-calls -fno-jump-tables
 
 # C to ASM rule
 %.s: %.c *.c

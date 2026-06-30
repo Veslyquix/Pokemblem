@@ -17,8 +17,10 @@ WORD True
 #else 
 WORD False 
 #endif 
+#ifdef POKEMBLEM 
 BoxesFullFlag_Link:
 WORD BoxesFullFlag 
+#endif 
 
 #define EnsureUnitInParty(unitID) "SVAL s1 unitID; ASMC EnsureUnitInPartyASMC" 
 

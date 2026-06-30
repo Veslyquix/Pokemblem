@@ -674,19 +674,32 @@ extern struct StatScreenSt gStatScreen;
 
 extern struct ProcCmd gProcScr_SSUnitSlide[];
 
+// this is not the normal struct, be careful
 struct StatScreenEffectProc
 {
     PROC_HEADER;
 
-    /* 2C */ int timer;
+    /* 2C */ int timer1;
     /* 30 */ int timerMax;
-    /* 34 */ int newItem;
-    /* 38 */ int key;
+    /* 34 */ struct Unit * unit;
+    /* 38 */ int direction;
+    /* 3C */ int yDispInit;
+    /* 40 */ int yDispFinal;
+
+    /* 44 */ u8 pad44[0x4A - 0x44];
+
+    /* 4A */ short newItem; // page or unit depending on slide
+    /* 4C */ short timer;
+    /* 4E */ short blendDirection;
+
+    /* 50 */ u8 pad50[0x52 - 0x50];
+
+    /* 52 */ u16 key;
 };
 
 void UnitSlide_SetNewPrepUnit(struct StatScreenEffectProc * proc)
 {
-    gStatScreen.unit = (struct Unit *)proc->newItem;
+    gStatScreen.unit = proc->unit;
     StatScreen_Display();
 }
 extern void StartGlowBlendCtrl(void);
@@ -718,10 +731,10 @@ void StartPrepUnitSlide(struct Unit * unit, int direction, struct Proc * parent)
 
     proc = (void *)Proc_StartBlocking(ProcScr_PrepUnitSlide, parent);
 
-    proc->timer = 0;
+    proc->timer1 = 0;
     proc->timerMax = 12;
-    proc->newItem = (int)unit;
-    proc->key = direction;
+    proc->unit = unit;
+    proc->direction = direction;
 
     gStatScreen.help = NULL;
     gStatScreen.inTransition = TRUE;
@@ -729,7 +742,17 @@ void StartPrepUnitSlide(struct Unit * unit, int direction, struct Proc * parent)
     // EndGlowBlendCtrl((void *)parent);
 }
 
-static void ChangeStatScreenUnit(struct Unit * unit, int direction, struct Proc * proc)
+void StartNonPrepUnitSlide(struct Unit * unit, int direction, struct Proc * parent)
+{
+    struct StatScreenEffectProc * proc = (void *)Proc_StartBlocking(gProcScr_SSUnitSlide, parent);
+
+    proc->newItem = unit->index;
+    proc->direction = direction;
+
+    PlaySoundEffect(0xC8);
+}
+
+void StartUnitSlide(struct Unit * unit, int direction, struct Proc * proc)
 {
     if (IsUnitInPCBoxBuffer(gStatScreen.unit) || IsUnitInPCBoxBuffer(unit))
     {
@@ -737,71 +760,7 @@ static void ChangeStatScreenUnit(struct Unit * unit, int direction, struct Proc 
         return;
     }
 
-    StartUnitSlide(unit, direction, proc);
-}
-
-void StatScreen_OnIdle(struct Proc * proc)
-{
-    struct Unit * unit;
-
-    if (gKeyStatusPtr->newKeys & B_BUTTON)
-    {
-        gLCDControlBuffer.dispcnt.bg0_on = TRUE;
-        gLCDControlBuffer.dispcnt.bg1_on = FALSE;
-        gLCDControlBuffer.dispcnt.bg2_on = TRUE;
-        gLCDControlBuffer.dispcnt.bg3_on = TRUE;
-        gLCDControlBuffer.dispcnt.obj_on = TRUE;
-
-        SetSpecialColorEffectsParameters(3, 0, 0, 0x10);
-
-        SetBlendTargetA(0, 0, 0, 0, 0);
-        SetBlendBackdropA(1);
-
-        // TODO: ResetBackdropColor macro?
-        gPaletteBuffer[0] = 0;
-        EnablePaletteSync();
-
-        Proc_Break(proc);
-
-        PlaySoundEffect(0x6B);
-    }
-
-    else if (gKeyStatusPtr->repeatedKeys & DPAD_LEFT)
-    {
-        gStatScreen.page = (gStatScreen.page + gStatScreen.pageAmt - 1) % gStatScreen.pageAmt;
-        StartPageSlide(DPAD_LEFT, gStatScreen.page, proc);
-        return;
-    }
-
-    else if (gKeyStatusPtr->repeatedKeys & DPAD_RIGHT)
-    {
-        gStatScreen.page = (gStatScreen.page + gStatScreen.pageAmt + 1) % gStatScreen.pageAmt;
-        StartPageSlide(DPAD_RIGHT, gStatScreen.page, proc);
-    }
-
-    else if (gKeyStatusPtr->repeatedKeys & DPAD_UP)
-    {
-        unit = FindNextUnit(gStatScreen.unit, -1);
-        ChangeStatScreenUnit(unit, -1, proc);
-    }
-
-    else if (gKeyStatusPtr->repeatedKeys & DPAD_DOWN)
-    {
-        unit = FindNextUnit(gStatScreen.unit, +1);
-        ChangeStatScreenUnit(unit, +1, proc);
-    }
-
-    else if ((gKeyStatusPtr->repeatedKeys & A_BUTTON) && (gStatScreen.unit->rescue))
-    {
-        unit = GetUnit(gStatScreen.unit->rescue);
-        ChangeStatScreenUnit(unit, (gStatScreen.unit->state & US_RESCUING) ? +1 : -1, proc);
-    }
-
-    else if (gKeyStatusPtr->newKeys & R_BUTTON)
-    {
-        Proc_Goto(proc, 0); // TODO: label name
-        StartStatScreenHelp(gStatScreen.page, proc);
-    }
+    StartNonPrepUnitSlide(unit, direction, proc);
 }
 
 /*

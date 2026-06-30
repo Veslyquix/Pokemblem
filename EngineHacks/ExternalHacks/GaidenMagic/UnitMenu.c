@@ -18,7 +18,8 @@ int GaidenBlackMagicUMUsability(
 }
 
 extern int *Capture_Usability(void);
-
+int GaidenMagicUMEffectExtCapture(u8 *spellsList, MenuProc *proc,
+                                  MenuCommandProc *commandProc);
 extern int AreBoxesFull(void);
 // Vesly added - usability is identical for now
 int CaptureGaidenBlackMagicUMUsability(
@@ -51,8 +52,8 @@ int CaptureGaidenBlackMagicUMEffect(MenuProc *proc,
                                          //
 
   UsingSpellMenu = BLACK_MAGIC;
-  return GaidenMagicUMEffectExt(SpellsGetter(gActiveUnit, BLACK_MAGIC), proc,
-                                commandProc);
+  return GaidenMagicUMEffectExtCapture(SpellsGetter(gActiveUnit, BLACK_MAGIC),
+                                       proc, commandProc);
 }
 
 int GaidenWhiteMagicUMUsability(void) {
@@ -106,6 +107,25 @@ int GaidenMagicUMEffectExt(u8 *spellsList, MenuProc *proc,
   if (proc && commandProc->availability == 2) {
     // Option is greyed out. Error R-text!
     MenuCallHelpBox(proc, gGaidenMagicUMErrorText);
+    return 0x08;
+  } else {
+    _ResetIconGraphics();
+    SelectedSpell = spellsList[0];
+    LoadIconPalettes(4);
+    MenuProc *menu = StartMenu(&SpellSelectMenuDefs);
+    // We're going to load a face now. I'm going to leave out the hardcoded
+    // check for the phantom (for now at least).
+    StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
+    SetFaceBlinkControlById(0, 5);
+    ForceMenuItemPanel(menu, gActiveUnit, 15, 11);
+    return 0x17;
+  }
+}
+int GaidenMagicUMEffectExtCapture(u8 *spellsList, MenuProc *proc,
+                                  MenuCommandProc *commandProc) {
+  if (proc && commandProc->availability == 2) {
+    // Option is greyed out. Error R-text!
+    MenuCallHelpBox(proc, gCaptureUMErrorText);
     return 0x08;
   } else {
     _ResetIconGraphics();

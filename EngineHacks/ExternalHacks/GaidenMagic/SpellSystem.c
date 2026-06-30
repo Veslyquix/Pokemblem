@@ -537,9 +537,11 @@ int DoesUnitKnowSpell(Unit* unit, u8 spell)
 int GetSpellType(int spell)
 {
 	int wType = GetItemType(spell);
-	if ( wType == ITYPE_ANIMA || wType == ITYPE_DARK ) { return BLACK_MAGIC; }
-	else if ( wType == ITYPE_STAFF || wType == ITYPE_LIGHT) { return WHITE_MAGIC; }
-	else { return -1; }
+	if ( wType == ITYPE_ANIMA ) { return BLACK_MAGIC; }
+	if ( wType == ITYPE_DARK ) { return BLACK_MAGIC; }
+	if ( wType == ITYPE_STAFF ) { return WHITE_MAGIC; }
+	if ( wType == ITYPE_LIGHT ) { return WHITE_MAGIC; }
+	return -1;
 }
 
 int GetSpellCost(int spell)
