@@ -1,3 +1,4 @@
+#include "DebugLoad/Installer.event" 
 #include "GoldenSunTalkBeeps/Installer.event" 
 #include "AiTryMoveTowards/Installer.event" 
 #include "PoisonGasTrap/Installer.event" 

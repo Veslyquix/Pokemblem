@@ -126,19 +126,21 @@ Seize(10,2)
 END_MAIN
 
 
-CheatUnits:
-UNIT TempAlly_A PorygonID 0x0 Level(0, Ally, 1) [0,0]  0b 0x0	0x1 REDA0R0 [0x0,0x0,0x0,0x0] DoNothing
-UNIT TempAlly_B ClefairyID 0x0 Level(0, Ally, 1) [0,1]  0b 0x0	0x1 REDA0R1 [0x0,0x0,0x0,0x0] DoNothing
-UNIT TempAlly_C DratiniID 0x0 Level(0, Ally, 1) [0,2]  0b 0x0	0x1 REDA0R2 [0x0,0x0,0x0,0x0] DoNothing
-UNIT TempAlly_D LickitungID 0x0 Level(0, Ally, 1) [0,3]  0b 0x0	0x1 REDA0R3 [0x0,0x0,0x0,0x0] DoNothing
-UNIT TempAlly_E SnorlaxID 0x0 Level(0, Ally, 1) [0,4]  0b 0x0	0x1 REDA0R4 [0x0,0x0,0x0,0x0] DoNothing
-UNIT
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(10, 25000)
+DebugItems SpellScroll Screech 
+BYTE SkillScroll RecklessRockID 
+SHORT 0 
 
+DebugFlags 0x10E 
+SHORT 0 
+
+DebugClasses BulbasaurID CharmanderID SquirtleID MewtwoID MoltresID ArticunoID ZapdosID
+BYTE 0 // Terminator 
+
+}
 CheatQuickLoad:
-LOAD1 1 PrizesUnitGroup  
-ENUN 
-ENUT FIXED_GROWTHS_FLAG_ID
-AutoLevelUnits(19, True, TempAlly_A<<8|TempAlly_E)
+ASMC DebugLoadUnits
 
 NoFade 
 ENDA 

@@ -6,19 +6,28 @@ UNIT
 
 ALIGN 4 
 DefaultUnitID_Link: 
-WORD TempAlly_A
+WORD 0x50
 
 // level, gold, items, classes 
 ALIGN 4 
 DebugStuff: 
 FILL 128*4 
 
-#define DebugStuffEntry(DebugStuffLabel, level, gold) "PUSH; ORG DebugStuff + (ChapterID * 4); POIN DebugStuffLabel; POP" 
+#define DebugStuffEntry(level, gold) "PUSH; ORG DebugStuff + (ChapterID * 4); POIN DebugStuffLabel; POP; ALIGN 4; DebugStuffLabel:; BYTE level; ALIGN 4; WORD gold; POIN DebugItemsLabel DebugClassesLabel DebugFlagsLabel" 
 
-#define DebugItems "" // ? 
+#define DebugItems "ALIGN 4; DebugItemsLabel:; BYTE" 
+#define DebugFlags "ALIGN 4; DebugFlagsLabel:; SHORT" 
+#define DebugClasses "ALIGN 4; DebugClassesLabel:; BYTE" 
 
+// Example usage 
+
+
+
+/*
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(10, 25000)
 DebugItems SpellScroll Screech 
-BYTE SkillScroll RecklessRock 
+BYTE SkillScroll RecklessRockID 
 SHORT 0 
 
 DebugFlags 0x10E 
@@ -27,30 +36,12 @@ SHORT 0
 DebugClasses BulbasaurID CharmanderID SquirtleID 
 BYTE 0 // Terminator 
 
+}
+CheatQuickLoad:
+ASMC DebugLoadUnits
 
-/*
-ALIGN 4 
-DebugStuffPewter: 
-BYTE 10 // everyone level up to 10 
-ALIGN 4 
-WORD 25000 // set the player to 25k gold 
-POIN ItemList ClassesList FlagList
-
-ALIGN 4 
-ItemList: 
-BYTE SpellScroll Screech 
-BYTE SkillScroll RecklessRock 
-SHORT Berry // since no durability was specified, use Make new item to give it default durability 
-SHORT 0 // Terminator 
-
-ALIGN 4 
-FlagList: // SetFlag these flags 
-SHORT 0 // Terminator 
-
-ALIGN 4 
-ClassesList: 
-BYTE BulbasaurID CharmanderID SquirtleID 
-BYTE 0 // Terminator 
+NoFade 
+ENDA 
 */
 
 
