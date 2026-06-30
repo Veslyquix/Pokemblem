@@ -146,7 +146,6 @@ void ClearAllBoxUnits(int slot)
 struct BoxUnit * ClearBoxUnit(struct BoxUnit * boxRam)
 { // unused
     boxRam->classID = 0;
-    boxRam->newIndex = 0;
     boxRam->hp = 0;
     boxRam->mag = 0;
     boxRam->str = 0;
@@ -250,6 +249,39 @@ int AreSameBoxStoredUnit(struct Unit * a, struct Unit * b)
 #define BOX_UNIT_NEW_INDEX_RANK 5
 #define REGULAR_UNIT_RAM_COUNT 0x3F
 
+static u8 * GetBoxUnitNewIndexTable(void)
+{
+    return ((u8 *)&bunit[0]) + (sizeof(struct BoxUnit) * BoxCapacity);
+}
+
+static int GetBoxUnitSlot(struct BoxUnit * boxUnit)
+{
+    if (!boxUnit)
+        return -1;
+
+    return boxUnit - &bunit[0];
+}
+
+static u8 GetBoxUnitSavedIndex(struct BoxUnit * boxUnit)
+{
+    int slot = GetBoxUnitSlot(boxUnit);
+
+    if ((slot < 0) || (slot >= BoxCapacity))
+        return 0;
+
+    return GetBoxUnitNewIndexTable()[slot];
+}
+
+static void SetBoxUnitSavedIndex(struct BoxUnit * boxUnit, u8 newIndex)
+{
+    int slot = GetBoxUnitSlot(boxUnit);
+
+    if ((slot < 0) || (slot >= BoxCapacity))
+        return;
+
+    GetBoxUnitNewIndexTable()[slot] = newIndex;
+}
+
 static int IsBoxUnitFilled(struct BoxUnit * boxUnit)
 {
     return boxUnit && boxUnit->classID && (boxUnit->classID != 0xFF);
@@ -269,7 +301,7 @@ static int IsIndexUsedByBoxUnits(int newIndex, struct BoxUnit * ignore)
     {
         struct BoxUnit * boxUnit = &bunit[i];
 
-        if ((boxUnit != ignore) && IsBoxUnitFilled(boxUnit) && (boxUnit->newIndex == newIndex))
+        if ((boxUnit != ignore) && IsBoxUnitFilled(boxUnit) && (GetBoxUnitSavedIndex(boxUnit) == newIndex))
             return true;
     }
 
@@ -337,10 +369,10 @@ static u8 EnsureBoxUnitIndex(struct BoxUnit * boxUnit)
     if (!IsBoxUnitFilled(boxUnit))
         return 0;
 
-    if (!boxUnit->newIndex)
-        boxUnit->newIndex = GetFreeBoxUnitIndex();
+    if (!GetBoxUnitSavedIndex(boxUnit))
+        SetBoxUnitSavedIndex(boxUnit, GetFreeBoxUnitIndex());
 
-    return boxUnit->newIndex;
+    return GetBoxUnitSavedIndex(boxUnit);
 }
 
 static void EnsureRegularUnitBoxIndexes(void)
@@ -358,7 +390,7 @@ static struct BoxUnit * GetBoxUnitFromNewIndex(int newIndex)
     {
         struct BoxUnit * boxUnit = &bunit[i];
 
-        if (IsBoxUnitFilled(boxUnit) && (boxUnit->newIndex == newIndex))
+        if (IsBoxUnitFilled(boxUnit) && (GetBoxUnitSavedIndex(boxUnit) == newIndex))
             return boxUnit;
     }
 
@@ -635,6 +667,10 @@ void PackUnitsIntoBox(int slot)
         if (!bunit2)
             break;
 
+        PackUnitIntoBox((void *)bunit2, unit2);
+        ClearUnit(unit2);
+        continue;
+
 #endif
 
         PackUnitIntoBox((void *)&bunit[i], unit2);
@@ -653,7 +689,7 @@ struct BoxUnit * PackUnitIntoBox(struct BoxUnit * boxRam, struct Unit * unit)
     if (SendItemsToConvoy(unit))
     { // if convoy is full, do not deposit unit into pc box
         boxRam->classID = unit->pClassData->number;
-        boxRam->newIndex = EnsureUnitBoxIndex(unit);
+        SetBoxUnitSavedIndex(boxRam, EnsureUnitBoxIndex(unit));
         boxRam->hp = unit->maxHP < 127 ? unit->maxHP : 127;
         boxRam->mag = unit->unk3A < 64 ? unit->unk3A : 63;
         boxRam->str = unit->pow < 64 ? unit->pow : 63;
