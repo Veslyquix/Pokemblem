@@ -41,6 +41,12 @@ int SetBoxAsNotFull(void)
     ClearFlag(BoxesFullFlag_Link);
     return false;
 }
+#else
+int AreBoxesFull(void)
+{
+    return false;
+}
+
 #endif
 /*
 int IsBoxFull(int slot) {
@@ -577,8 +583,10 @@ void DeploySelectedUnits()
         {
             if ((c <= PartySizeThreshold) || AreBoxesFull()) // yes <= !!!! 2026
             {
+#ifdef POKEMBLEM_VERSION
                 if (c >= REGULAR_UNIT_RAM_COUNT)
                     break;
+#endif
 
                 // deploymentID = GetFreeDeploymentID();
                 newUnit = &gUnitArrayBlue[c];
