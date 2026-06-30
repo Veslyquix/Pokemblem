@@ -17,6 +17,8 @@ WORD True
 #else 
 WORD False 
 #endif 
+BoxesFullFlag_Link:
+WORD BoxesFullFlag 
 
 #define EnsureUnitInParty(unitID) "SVAL s1 unitID; ASMC EnsureUnitInPartyASMC" 
 
@@ -151,7 +153,7 @@ WORD NumberOfUnitsBeforeStoring
 ALIGN 4 
 BoxCapacity: 
 #ifdef EXPAND_PARTY_MAX 
-WORD 97 
+WORD 100 
 #endif 
 #ifndef EXPAND_PARTY_MAX 
 WORD 51 

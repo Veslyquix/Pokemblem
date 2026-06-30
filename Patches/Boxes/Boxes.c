@@ -22,7 +22,19 @@ int SendItemsToConvoy(struct Unit * unit)
     }
     return true;
 }
-
+extern int BoxesFullFlag_Link;
+int AreBoxesFull(void)
+{
+    return CheckFlag(BoxesFullFlag_Link);
+}
+int SetBoxAsFull(void)
+{
+    SetFlag(BoxesFullFlag_Link);
+}
+int SetBoxAsNotFull(void)
+{
+    ClearFlag(BoxesFullFlag_Link);
+}
 /*
 int IsBoxFull(int slot) {
         (*ReadSramFast)((void*)PC_GetSaveAddressBySlot(slot), (void*)&unit[0], PCBoxSizeLookup[0]);

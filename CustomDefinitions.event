@@ -436,7 +436,7 @@ String("V1.21.00             Jun 2026") ; BYTE 0; POP // this overflows into the
 #define KogaSafariFlag2 0xF7 
 
 #define SkippableCutscenesFlag 0xFF
-// 0xF7 - 0x10C free 
+// 0xF7 - 0x10B free 
 
 // New flags 0x12D - 0x22D or more even 
 #define VisitedViridianPokecenterFlag 0x12D 
@@ -492,7 +492,7 @@ String("V1.21.00             Jun 2026") ; BYTE 0; POP // this overflows into the
 #define RandomizeSkillsFlag 0x10E
 //#define CannotCaptureFlag 0xE8 
 #define CannotEvolveFlag 0x10D 
-
+#define BoxesFullFlag 0x10C 
 
 
 // Unit IDs 

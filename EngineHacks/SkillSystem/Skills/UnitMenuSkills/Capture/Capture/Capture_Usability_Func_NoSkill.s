@@ -33,10 +33,10 @@ ldr		r1,[r0,#0xC]		@status word
 mov		r2,#0x50			@is rescuing + has moved
 tst		r1,r2
 bne		RetFalse
-mov		r2,#0x80
-lsl		r2,#0x4				@is in ballista
-tst		r1,r2
-bne		RetFalse
+@mov		r2,#0x80
+@lsl		r2,#0x4				@is in ballista
+@tst		r1,r2
+@bne		RetFalse
 
 @ Vesly added 
 ldr r2, =0x202BCF0 @ Chapter Data Struct 
