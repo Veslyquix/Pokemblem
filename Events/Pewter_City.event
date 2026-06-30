@@ -104,8 +104,37 @@ ENDA
 LocationBasedEvents:
 House(PewterGymClosedFlag,EnterGym,12,16)  
 House(0,OldAmberEvent,22,4)
+House(0,ViridianQuickLoad,23,24) 
 Vendor(ShopItems,24,20)
 END_MAIN
+
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(6, 35000)
+DebugItems SpellScroll LeechLife 
+BYTE StatAccessory MuscleBand_BoostIndex
+BYTE SkillAcc(VantagePlusID)
+// BYTE SkillScroll RecklessRockID 
+
+SHORT 0 
+
+DebugFlags FlyFlag 
+// SSAnneTicketFlag RockSmashFlag CutHmFlag  
+// SaffronArrived CinnabarArrived IndigoPlateauArrived 
+SHORT 0 
+
+DebugClasses 
+// PidgeyID RattataID MankeyID PsyduckID 
+BYTE 0 // Terminator 
+
+}
+ALIGN 4 
+PewterQuickLoad:
+ASMC DebugLoadUnits
+NoFade 
+ENDA 
+
+
 
 OldAmberEvent:
 CHECK_EVENTID OldAmberFlag 
