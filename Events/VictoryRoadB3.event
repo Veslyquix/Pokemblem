@@ -35,7 +35,7 @@ END_MAIN
 //Reinforce(BushUnitID, NumberOfEnemies, UnitGroup, GracePeriod, FrequencyInTurns)
 { ; ReinforceEntry(ChapterID)
 Reinforce(0xF0, 1, ReinforcementUnitsA, 2, 4) 
-Reinforce(0xF1, 1, ReinforcementUnitsA, 3, 4) 
+Reinforce(0xF1, 1, ReinforcementUnitsB, 3, 4) 
 }
 
 
@@ -218,12 +218,12 @@ UNIT
 EnemyUnitsA:
 //   UnitID  			ClassID    		Comm   Level,Alleg,AutoL  Coords Spec,ItemD,Mons n/a REDAShort	 ItemWord 			AIWord 
 UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
-UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,1] 001b	0x0 0x01 REDA0R1 [0x0,0x0,0x0,0x0] AttackInRangeAI
+UNIT GenericA ClassB 0x0 Level(0, Enemy, 1)   [0,1] 001b	0x0 0x01 REDA0R1 [0x0,0x0,0x0,0x0] AttackInRangeAI
 UNIT 
 
 EnemyUnitsB:
 UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
-UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,1] 001b	0x0 0x01 REDA0R1 [0x0,0x0,0x0,0x0] AttackInRangeAI
+UNIT GenericA ClassB 0x0 Level(0, Enemy, 1)   [0,1] 001b	0x0 0x01 REDA0R1 [0x0,0x0,0x0,0x0] AttackInRangeAI
 UNIT 
 
 EnemyBurrows:
@@ -233,6 +233,9 @@ UNIT
 
 ReinforcementUnitsA:
 UNIT Reinforcement0 ClassA 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackIfWithin2
+UNIT 
+ReinforcementUnitsB:
+UNIT Reinforcement0 ClassB 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackIfWithin2
 UNIT 
 EnemyTrainers:
 //UNIT 0xE0 battle_girlID 0x0 Level(0, Enemy, 1) 	[24,3]  0b 0x0	1 REDA24R3  [OneRangeWep,0x0,0x0,0x0] TrainerAI
