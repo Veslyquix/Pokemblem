@@ -114,6 +114,7 @@ House(0,VisitViridianPokecenter, 23,25)
 House(0,ViridianUpperHouseEvent, 21,11)
 House(0x16, OldManHouseEvent, 21,18) 
 House(ViridianGymClosedFlag,EnterGym,30,10) 
+House(0,CheatQuickLoad,23,24) 
 Vendor(ShopItems,30,19)
 /*
 
@@ -123,6 +124,25 @@ House(0,HouseEvent,6,24)
 Seize(10,2)
 */
 END_MAIN
+
+
+CheatUnits:
+UNIT TempAlly_A PorygonID 0x0 Level(0, Ally, 1) [0,0]  0b 0x0	0x1 REDA0R0 [0x0,0x0,0x0,0x0] DoNothing
+UNIT TempAlly_B ClefairyID 0x0 Level(0, Ally, 1) [0,1]  0b 0x0	0x1 REDA0R1 [0x0,0x0,0x0,0x0] DoNothing
+UNIT TempAlly_C DratiniID 0x0 Level(0, Ally, 1) [0,2]  0b 0x0	0x1 REDA0R2 [0x0,0x0,0x0,0x0] DoNothing
+UNIT TempAlly_D LickitungID 0x0 Level(0, Ally, 1) [0,3]  0b 0x0	0x1 REDA0R3 [0x0,0x0,0x0,0x0] DoNothing
+UNIT TempAlly_E SnorlaxID 0x0 Level(0, Ally, 1) [0,4]  0b 0x0	0x1 REDA0R4 [0x0,0x0,0x0,0x0] DoNothing
+UNIT
+
+CheatQuickLoad:
+LOAD1 1 PrizesUnitGroup  
+ENUN 
+ENUT FIXED_GROWTHS_FLAG_ID
+AutoLevelUnits(19, True, TempAlly_A<<8|TempAlly_E)
+
+NoFade 
+ENDA 
+
 
 VisitViridianPokecenter:
 ENUT VisitedViridianPokecenterFlag
