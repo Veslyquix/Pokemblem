@@ -162,7 +162,8 @@ BYTE SpellScroll LeafBlade SpellScroll AuroraBeam SpellScroll Psybeam SpellScrol
 
 SHORT 0
 
-DebugFlags FlyFlag OldAmberFlag HelixFossilFlag DomeFossilFlag
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
+SHORT PokefluteFlag RockSmashFlag 
 SHORT 0
 
 DebugClasses ExeggcuteID

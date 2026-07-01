@@ -132,12 +132,9 @@ BYTE StatAccessory WiseGlasses_BoostIndex
 BYTE EscapeRope 1
 BYTE SpellScroll MudShot SpellScroll Gust
 BYTE SkillAcc(SteadyStanceID)
-
 SHORT 0 
 
-DebugFlags FlyFlag OldAmberFlag
-// SSAnneTicketFlag RockSmashFlag CutHmFlag  
-// SaffronArrived CinnabarArrived IndigoPlateauArrived 
+DebugFlags OldAmberFlag
 SHORT 0 
 
 DebugClasses OddishID

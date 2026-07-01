@@ -243,7 +243,8 @@ BYTE SpellScroll JumpKick SpellScroll Dragonbreath
 
 SHORT 0
 
-DebugFlags FlyFlag OldAmberFlag HelixFossilFlag DomeFossilFlag
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
+SHORT PokefluteFlag RockSmashFlag SoulbadgeObtained FlyFlag RainbowbadgeObtained SaffronArrived 
 SHORT 0
 
 DebugClasses GrowlitheID

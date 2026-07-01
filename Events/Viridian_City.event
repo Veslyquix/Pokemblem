@@ -138,11 +138,9 @@ DebugStuffEntry(6, 25000)
 DebugItems SpellScroll LeechLife 
 BYTE StatAccessory MuscleBand_BoostIndex
 BYTE SkillAcc(VantagePlusID)
-// BYTE SkillScroll RecklessRockID 
-
 SHORT 0 
 
-DebugFlags FlyFlag 
+DebugFlags 0 
 SHORT 0 
 
 DebugClasses PidgeyID RattataID MankeyID PsyduckID 

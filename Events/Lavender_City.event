@@ -143,10 +143,9 @@ BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll 
 BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
 BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
 BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll ShadowPunch SpellScroll MudBomb
-
 SHORT 0
 
-DebugFlags FlyFlag OldAmberFlag HelixFossilFlag DomeFossilFlag
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
 SHORT 0
 
 DebugClasses ZubatID

@@ -153,10 +153,9 @@ BYTE SpellScroll PoisonPowder
 BYTE SkillAcc(WardingStanceID)
 BYTE SuperPotion 5
 BYTE SpellScroll SignalBeam SpellScroll MagicalLeaf SpellScroll Magnitude
-
 SHORT 0
 
-DebugFlags FlyFlag OldAmberFlag
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained
 SHORT 0
 
 DebugClasses GrowlitheID

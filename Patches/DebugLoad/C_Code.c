@@ -25,7 +25,6 @@ struct DebugStuffStruct
     const u16 * flagList;
 };
 extern const struct DebugStuffStruct * DebugStuff[];
-
 static void DebugAddItemsToConvoy(const u16 * itemList)
 {
     int item;
@@ -33,6 +32,8 @@ static void DebugAddItemsToConvoy(const u16 * itemList)
     if (!itemList)
         return;
 
+    int i = GetConvoyItemCount();
+    u16 * data = GetConvoyItemArray();
     while (*itemList)
     {
         item = *itemList++;
@@ -40,7 +41,10 @@ static void DebugAddItemsToConvoy(const u16 * itemList)
         if (!ITEM_USES(item))
             item = MakeNewItem(item);
 
-        if (AddItemToConvoy(item) < 0) // Convoy is full
+        data[i] = item;
+        i++;
+
+        if (i >= 200) // Convoy is full
         {
             return;
         }

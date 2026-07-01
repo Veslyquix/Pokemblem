@@ -248,10 +248,11 @@ BYTE SpellScroll JumpKick SpellScroll Dragonbreath SpellScroll ThunderMove Spell
 BYTE SpellScroll Surf SpellScroll Waterfall SpellScroll EarthPower SpellScroll Blizzard SpellScroll SolarBeam
 BYTE SpellScroll Sludge SpellScroll ShadowBall SpellScroll FireBlast SpellScroll HydroPump SpellScroll HyperBeam
 BYTE SpellScroll Earthquake SpellScroll DoubleEdge SpellScroll Outrage SpellScroll DarkPulse SpellScroll Megahorn SpellScroll MeteorMash
-
 SHORT 0
 
-DebugFlags FlyFlag OldAmberFlag HelixFossilFlag DomeFossilFlag
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
+SHORT PokefluteFlag RockSmashFlag SoulbadgeObtained FlyFlag RainbowbadgeObtained SaffronArrived SilphCoDefeated MarshbadgeObtained CinnabarArrived SecretKeyObtained
+SHORT VolcanobadgeObtained EarthbadgeObtained StrengthBoulderFlag IndigoPlateauArrived 
 SHORT 0
 
 DebugClasses GravellerID

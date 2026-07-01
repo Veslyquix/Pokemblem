@@ -190,10 +190,9 @@ BYTE SkillAcc(DowngradeID)
 BYTE SkillAcc(CantoPlusID)
 BYTE SkillAcc(WaryFighterID)
 BYTE SpellScroll Scorch SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile
-
 SHORT 0
 
-DebugFlags FlyFlag OldAmberFlag
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag
 SHORT 0
 
 DebugClasses FarfetchdID
