@@ -287,11 +287,15 @@ void LoadSprite() {
   LZ77UnCompVram(&minimapSprite, &tile_mem[5][MinimapBaseTID]);
   LZ77UnCompVram(&fpsSprite, &tile_mem[5][FPSBaseTID]); // fps numbers
   LZ77UnCompVram(&lensFlareSprite, &tile_mem[5][LensFlareBaseTID]);
+  LZ77UnCompVram(&coinSprite, &tile_mem[5][CoinBaseTID]);
+  LZ77UnCompVram(&coinMinimapSprite, &tile_mem[5][CoinMinimapBaseTID]);
   // LoadMapSpritePalettes(); //puts in palette 0xc
   ApplyPalette((void *)&miniCursorPal, 0x1d);
   ApplyPalette((void *)&locationPal, 0x1e);
   ApplyPalette((void *)&minimapPal, 0x12);
   ApplyPalette((void *)&lensFlarePal, 0x13);
+  ApplyPalette((void *)&coinPal, 0x14);
+  ApplyPalette((void *)&coinMinimapPal, 0x15);
 };
 
 const int PkOamData = 0;

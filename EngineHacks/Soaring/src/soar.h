@@ -69,6 +69,10 @@ extern const void* miniCursorPal;
 extern const void* fpsSprite;
 extern const void* lensFlareSprite;
 extern const void* lensFlarePal;
+extern const void* coinSprite;
+extern const void* coinPal;
+extern const void* coinMinimapSprite;
+extern const void* coinMinimapPal;
 extern const int* SkyBG;
 extern const int* SkyBG_lighter;
 extern const int* SkyBG_darker;
@@ -89,6 +93,8 @@ extern const u8 translatedLocations[];
 #define sizeofMinimapSprite 64
 #define sizeofFPSSprite 32
 #define sizeofLensFlareSprite 16
+#define sizeofCoinSprite 128
+#define sizeofCoinMinimapSprite 1
 
 #define PKBaseTID 0
 #define LocationBaseTID PKBaseTID+sizeofPKSprite
@@ -96,6 +102,8 @@ extern const u8 translatedLocations[];
 #define MinimapBaseTID CursorBaseTID+sizeofCursorSprite
 #define FPSBaseTID MinimapBaseTID+sizeofMinimapSprite
 #define LensFlareBaseTID FPSBaseTID+sizeofFPSSprite
+#define CoinBaseTID LensFlareBaseTID+sizeofLensFlareSprite
+#define CoinMinimapBaseTID CoinBaseTID+sizeofCoinSprite
 
 //from tonc
 // tile 8x8@4bpp: 32bytes; 8 ints

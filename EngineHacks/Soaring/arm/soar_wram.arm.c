@@ -100,10 +100,11 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
   };
 
   if (CurrentProc->coinZ) {
-    if (CurrentProc->ShowMap)
+    if (CurrentProc->ShowMap && ((animClock & 0x10) == 0))
       ObjInsertSafe(8, 176 + (CurrentProc->coinX >> 4),
                     (CurrentProc->coinY - MAP_YOFS) >> 4, (void *)&gObj_8x8,
-                    OAM_ATTR2(CursorBaseTID, 2, 0xE)); // minimap coin marker
+                    OAM_ATTR2(CoinMinimapBaseTID, 2,
+                              0x5)); // minimap coin marker
 
     int collectDx = CurrentProc->coinX - CurrentProc->sFocusPtX;
     int collectDy = CurrentProc->coinY - CurrentProc->sFocusPtY;
@@ -127,8 +128,9 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
         int screenX = 104 + (right >> 1);
         int screenY = 82 - (forward >> 2) - (CurrentProc->sPlayerStepZ << 1);
 
-        ObjInsertSafe(9, screenX, screenY, (void *)&gObj_aff32x32,
-                      OAM_ATTR2(LensFlareBaseTID - 1, 2, 0x3));
+        ObjInsertSafe(9, screenX, screenY, (void *)&gObj_32x32,
+                      OAM_ATTR2(CoinBaseTID + ((animClock >> 3) << 4), 2,
+                                0x4));
       }
     }
   }
