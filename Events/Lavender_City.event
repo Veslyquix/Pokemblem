@@ -1,7 +1,7 @@
 #define ChapterID LavenderCh
 #define GenericB UnitCeruleanTrainer
 #define WildLvl 20
-#define TrainerL 20 
+#define TrainerL 24 
 
 
 

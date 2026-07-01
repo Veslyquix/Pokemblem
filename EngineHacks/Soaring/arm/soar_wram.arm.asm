@@ -25,9 +25,9 @@ NewWMLoop:
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 @ arm/soar_wram.arm.c:59:   u8 animClock = *(u8 *)(0x3000014) & 0x3F;
-	mov	r3, #50331648	@ tmp173,
+	mov	r3, #50331648	@ tmp229,
 @ arm/soar_wram.arm.c:9: void NewWMLoop(SoarProc *CurrentProc) {
-	push	{r4, r5, r6, r7, lr}	@
+	push	{r4, r5, r6, r7, r8, r9, lr}	@
 @ arm/soar_wram.arm.c:59:   u8 animClock = *(u8 *)(0x3000014) & 0x3F;
 	ldrb	r3, [r3, #20]	@ zero_extendqisi2	@ _11, MEM[(u8 *)50331668B]
 @ arm/soar_wram.arm.c:61:   if (animClock < 0x10)
@@ -36,279 +36,416 @@ NewWMLoop:
 	mov	r4, r0	@ CurrentProc, CurrentProc
 	sub	sp, sp, #12	@,,
 @ arm/soar_wram.arm.c:61:   if (animClock < 0x10)
-	beq	.L39		@,
+	beq	.L47		@,
 @ arm/soar_wram.arm.c:64:   else if (animClock < 0x20)
 	tst	r3, #32	@ _11,
 @ arm/soar_wram.arm.c:65:     ObjInsertSafe(8, 0x68, 0x58, (void *)&gObj_32x32,
-	ldreq	r3, .L45	@ tmp184,
+	ldreq	r3, .L55	@ tmp240,
 @ arm/soar_wram.arm.c:64:   else if (animClock < 0x20)
-	beq	.L37		@,
+	beq	.L44		@,
 @ arm/soar_wram.arm.c:59:   u8 animClock = *(u8 *)(0x3000014) & 0x3F;
-	and	r3, r3, #63	@ tmp186, _11,
+	and	r3, r3, #63	@ tmp242, _11,
 @ arm/soar_wram.arm.c:67:   else if (animClock < 0x30)
-	cmp	r3, #47	@ tmp186,
+	cmp	r3, #47	@ tmp242,
 @ arm/soar_wram.arm.c:68:     ObjInsertSafe(8, 0x68, 0x58, (void *)&gObj_32x32,
-	ldrls	r3, .L45+4	@ tmp191,
+	ldrls	r3, .L55+4	@ tmp247,
 @ arm/soar_wram.arm.c:71:     ObjInsertSafe(8, 0x68, 0x58, (void *)&gObj_32x32,
-	ldrhi	r3, .L45+8	@ tmp194,
-.L37:
-	str	r3, [sp]	@ tmp194,
+	ldrhi	r3, .L55+8	@ tmp250,
+.L44:
+	str	r3, [sp]	@ tmp250,
 	mov	r2, #88	@,
-	ldr	r3, .L45+12	@,
+	ldr	r3, .L55+12	@,
 	mov	r1, #104	@,
 	mov	r0, #8	@,
-	ldr	r5, .L45+16	@ tmp299,
+	ldr	r5, .L55+16	@ tmp419,
 	mov	lr, pc
-	bx	r5		@ tmp299
+	bx	r5		@ tmp419
 @ arm/soar_wram.arm.c:74:   if (CurrentProc->ShowMap)
 	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ _15, *CurrentProc_6(D)
 @ arm/soar_wram.arm.c:74:   if (CurrentProc->ShowMap)
 	tst	r3, #1	@ _15,
-	bne	.L40		@,
+	bne	.L48		@,
 .L6:
 @ arm/soar_wram.arm.c:78:   if (CurrentProc->ShowFPS)
 	tst	r3, #2	@ _15,
-	bne	.L41		@,
+	bne	.L49		@,
 .L7:
-@ arm/soar_wram.arm.c:84:     if (CurrentProc->disableFlare == 0) { // draw lens flare test
+@ arm/soar_wram.arm.c:82:   if (CurrentProc->disableFlare == 0) { // draw lens flare test
 	tst	r3, #16	@ _15,
 	bne	.L8		@,
-@ arm/soar_wram.arm.c:89:       switch (CurrentProc->sPlayerYaw) {
+@ arm/soar_wram.arm.c:87:     switch (CurrentProc->sPlayerYaw) {
 	ldr	r2, [r4, #60]	@ _33, CurrentProc_6(D)->sPlayerYaw
-@ arm/soar_wram.arm.c:88:           80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
-	ldr	r3, .L45+20	@ tmp220,
-@ arm/soar_wram.arm.c:89:       switch (CurrentProc->sPlayerYaw) {
+@ arm/soar_wram.arm.c:86:         80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+	ldr	r3, .L55+20	@ tmp276,
+@ arm/soar_wram.arm.c:87:     switch (CurrentProc->sPlayerYaw) {
 	cmp	r2, #11	@ _33,
-@ arm/soar_wram.arm.c:88:           80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+@ arm/soar_wram.arm.c:86:         80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
 	ldr	r3, [r3, #208]	@ _28, MEM[(volatile vu32 *)50344144B]
-@ arm/soar_wram.arm.c:89:       switch (CurrentProc->sPlayerYaw) {
-	beq	.L18		@,
+@ arm/soar_wram.arm.c:87:     switch (CurrentProc->sPlayerYaw) {
+	beq	.L22		@,
 	bgt	.L10		@,
 	cmp	r2, #9	@ _33,
-	beq	.L19		@,
+	beq	.L23		@,
 	cmp	r2, #10	@ _33,
-	moveq	r1, #96	@ prephitmp_139,
+	moveq	r1, #96	@ prephitmp_222,
 	bne	.L8		@,
 .L11:
-@ arm/soar_wram.arm.c:88:           80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+@ arm/soar_wram.arm.c:86:         80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
 	sub	r3, r3, #40448	@ _29, _28,
 	sub	r3, r3, #64	@ _29, _29,
-@ arm/soar_wram.arm.c:88:           80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+@ arm/soar_wram.arm.c:86:         80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
 	ldr	r0, [r4, #56]	@ CurrentProc_6(D)->sPlayerStepZ, CurrentProc_6(D)->sPlayerStepZ
-@ arm/soar_wram.arm.c:88:           80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+@ arm/soar_wram.arm.c:86:         80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
 	lsr	r2, r3, #10	@ _30, _29,
-@ arm/soar_wram.arm.c:88:           80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
-	rsb	r2, r2, #80	@ _97, _30,
-@ arm/soar_wram.arm.c:99:         ObjInsertSafe(9, flarex, flarey, (void *)&gObj_aff32x32,
-	ldr	r3, .L45+24	@ tmp231,
-@ arm/soar_wram.arm.c:88:           80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
-	sub	r2, r2, r0, lsl #2	@ _32, _97, CurrentProc_6(D)->sPlayerStepZ,
-@ arm/soar_wram.arm.c:99:         ObjInsertSafe(9, flarex, flarey, (void *)&gObj_aff32x32,
+@ arm/soar_wram.arm.c:86:         80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+	rsb	r2, r2, #80	@ _160, _30,
+@ arm/soar_wram.arm.c:97:       ObjInsertSafe(9, flarex, flarey, (void *)&gObj_aff32x32,
+	ldr	r3, .L55+24	@ tmp287,
+@ arm/soar_wram.arm.c:86:         80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+	sub	r2, r2, r0, lsl #2	@ _32, _160, CurrentProc_6(D)->sPlayerStepZ,
+@ arm/soar_wram.arm.c:97:       ObjInsertSafe(9, flarex, flarey, (void *)&gObj_aff32x32,
 	lsl	r2, r2, #16	@, _32,
-	str	r3, [sp]	@ tmp231,
+	str	r3, [sp]	@ tmp287,
 	mov	r0, #9	@,
-	ldr	r3, .L45+28	@,
+	ldr	r3, .L55+28	@,
 	lsr	r2, r2, #16	@,,
 	mov	lr, pc
-	bx	r5		@ tmp299
+	bx	r5		@ tmp419
 .L8:
-@ arm/soar_wram.arm.c:133:   int posY = CurrentProc->sFocusPtY;
-	ldr	r6, [r4, #76]	@ posY, CurrentProc_6(D)->sFocusPtY
-@ arm/soar_wram.arm.c:137:   if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
-	ldr	r3, .L45+32	@ tmp234,
-@ arm/soar_wram.arm.c:137:   if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
-	sub	r2, r6, #1	@ _44, posY,
-@ arm/soar_wram.arm.c:137:   if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
-	cmp	r2, r3	@ _44, tmp234
-	bhi	.L15		@,
-@ arm/soar_wram.arm.c:132:   int posX = CurrentProc->sFocusPtX;
-	ldr	r2, [r4, #72]	@ posX, CurrentProc_6(D)->sFocusPtX
-	mov	r7, r2	@ posX, posX
-@ arm/soar_wram.arm.c:137:   if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
-	sub	r2, r2, #1	@ _46, posX,
-	cmp	r2, r3	@ _46, tmp234
-	bls	.L42		@,
+@ arm/soar_wram.arm.c:102:   if (CurrentProc->coinZ) {
+	ldrsh	r3, [r4, #92]	@ CurrentProc_6(D)->coinZ, CurrentProc_6(D)->coinZ
+	cmp	r3, #0	@ CurrentProc_6(D)->coinZ,
+	beq	.L45		@,
+@ arm/soar_wram.arm.c:103:     if (CurrentProc->ShowMap)
+	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ *CurrentProc_6(D), *CurrentProc_6(D)
+@ arm/soar_wram.arm.c:103:     if (CurrentProc->ShowMap)
+	tst	r3, #1	@ *CurrentProc_6(D),
+	bne	.L50		@,
 .L15:
-@ arm/soar_wram.arm.c:148:   CurrentProc->location = translatedLocations[loc];
-	ldr	r3, .L45+36	@ tmp235,
+@ arm/soar_wram.arm.c:109:     int collectDy = CurrentProc->coinY - CurrentProc->sFocusPtY;
+	ldrsh	r1, [r4, #90]	@ _57, CurrentProc_6(D)->coinY
+@ arm/soar_wram.arm.c:109:     int collectDy = CurrentProc->coinY - CurrentProc->sFocusPtY;
+	ldr	r6, [r4, #76]	@ _58, CurrentProc_6(D)->sFocusPtY
+@ arm/soar_wram.arm.c:109:     int collectDy = CurrentProc->coinY - CurrentProc->sFocusPtY;
+	sub	r2, r1, r6	@ collectDy, _57, _58
+@ arm/soar_wram.arm.c:111:     if ((collectDx * collectDx + collectDy * collectDy) < (24 * 24)) {
+	mul	r0, r2, r2	@ _61, collectDy, collectDy
+	mov	r2, r0	@ _61, _61
+@ arm/soar_wram.arm.c:108:     int collectDx = CurrentProc->coinX - CurrentProc->sFocusPtX;
+	ldrsh	ip, [r4, #88]	@ _53, CurrentProc_6(D)->coinX
+@ arm/soar_wram.arm.c:108:     int collectDx = CurrentProc->coinX - CurrentProc->sFocusPtX;
+	ldr	r7, [r4, #72]	@ _54, CurrentProc_6(D)->sFocusPtX
+@ arm/soar_wram.arm.c:108:     int collectDx = CurrentProc->coinX - CurrentProc->sFocusPtX;
+	sub	r3, ip, r7	@ collectDx, _53, _54
+@ arm/soar_wram.arm.c:111:     if ((collectDx * collectDx + collectDy * collectDy) < (24 * 24)) {
+	mla	r0, r3, r3, r2	@ _62, collectDx, collectDx, _61
+@ arm/soar_wram.arm.c:111:     if ((collectDx * collectDx + collectDy * collectDy) < (24 * 24)) {
+	cmp	r0, #576	@ _62,
+	blt	.L51		@,
+@ arm/soar_wram.arm.c:117:           ((dx * cam_dx_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF]) +
+	ldr	r0, [r4, #60]	@ _67, CurrentProc_6(D)->sPlayerYaw
+@ arm/soar_wram.arm.c:115:       int dy = CurrentProc->coinY - CurrentProc->sPlayerPosY;
+	ldr	r3, [r4, #48]	@ CurrentProc_6(D)->sPlayerPosY, CurrentProc_6(D)->sPlayerPosY
+@ arm/soar_wram.arm.c:122:            (dy * cam_dy_Angles[CurrentProc->sPlayerYaw])) >>
+	ldr	r9, .L55+32	@ tmp428,
+@ arm/soar_wram.arm.c:121:           ((dx * cam_dx_Angles[CurrentProc->sPlayerYaw]) +
+	lsl	r2, r0, #1	@ tmp315, _67,
+@ arm/soar_wram.arm.c:115:       int dy = CurrentProc->coinY - CurrentProc->sPlayerPosY;
+	sub	r1, r1, r3	@ dy, _57, CurrentProc_6(D)->sPlayerPosY
+@ arm/soar_wram.arm.c:122:            (dy * cam_dy_Angles[CurrentProc->sPlayerYaw])) >>
+	ldrsh	r3, [r9, r2]	@ _82, cam_dy_Angles[_67]
+@ arm/soar_wram.arm.c:122:            (dy * cam_dy_Angles[CurrentProc->sPlayerYaw])) >>
+	mul	r3, r1, r3	@ _83, dy, _83
+@ arm/soar_wram.arm.c:121:           ((dx * cam_dx_Angles[CurrentProc->sPlayerYaw]) +
+	ldr	lr, .L55+36	@ tmp314,
+	ldrsh	r8, [lr, r2]	@ _79, cam_dx_Angles[_67]
+@ arm/soar_wram.arm.c:114:       int dx = CurrentProc->coinX - CurrentProc->sPlayerPosX;
+	ldr	r2, [r4, #44]	@ CurrentProc_6(D)->sPlayerPosX, CurrentProc_6(D)->sPlayerPosX
+	sub	r2, ip, r2	@ dx, _53, CurrentProc_6(D)->sPlayerPosX
+@ arm/soar_wram.arm.c:121:           ((dx * cam_dx_Angles[CurrentProc->sPlayerYaw]) +
+	mla	r3, r2, r8, r3	@ _84, dx, _84, _83
+@ arm/soar_wram.arm.c:120:       int forward =
+	asr	ip, r3, #2	@ forward_85, _84,
+@ arm/soar_wram.arm.c:125:       if ((forward > -32) && (forward < 192) && (right > -112) &&
+	add	ip, ip, #31	@ _87, forward_85,
+@ arm/soar_wram.arm.c:125:       if ((forward > -32) && (forward < 192) && (right > -112) &&
+	cmp	ip, #222	@ _87,
+	bhi	.L14		@,
+@ arm/soar_wram.arm.c:117:           ((dx * cam_dx_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF]) +
+	add	r0, r0, #4	@ _68, _67,
+@ arm/soar_wram.arm.c:117:           ((dx * cam_dx_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF]) +
+	and	r0, r0, #15	@ _69, _68,
+@ arm/soar_wram.arm.c:117:           ((dx * cam_dx_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF]) +
+	lsl	r0, r0, #1	@ tmp328, _69,
+@ arm/soar_wram.arm.c:118:            (dy * cam_dy_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF])) >>
+	ldrsh	ip, [r9, r0]	@ _74, cam_dy_Angles[_69]
+@ arm/soar_wram.arm.c:118:            (dy * cam_dy_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF])) >>
+	mul	r1, ip, r1	@ _75, _74, _75
+@ arm/soar_wram.arm.c:117:           ((dx * cam_dx_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF]) +
+	ldrsh	r0, [lr, r0]	@ _71, cam_dx_Angles[_69]
+@ arm/soar_wram.arm.c:117:           ((dx * cam_dx_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF]) +
+	mla	r1, r2, r0, r1	@ _76, dx, _71, _76
+@ arm/soar_wram.arm.c:116:       int right =
+	asr	r2, r1, #2	@ right_77, _76,
+@ arm/soar_wram.arm.c:125:       if ((forward > -32) && (forward < 192) && (right > -112) &&
+	add	r2, r2, #111	@ _89, right_77,
+	cmp	r2, #222	@ _89,
+	bhi	.L14		@,
+@ arm/soar_wram.arm.c:128:         int screenY = 82 - (forward >> 2) - (CurrentProc->sPlayerStepZ << 1);
+	ldr	r0, [r4, #56]	@ CurrentProc_6(D)->sPlayerStepZ, CurrentProc_6(D)->sPlayerStepZ
+@ arm/soar_wram.arm.c:128:         int screenY = 82 - (forward >> 2) - (CurrentProc->sPlayerStepZ << 1);
+	asr	r2, r3, #4	@ _92, _84,
+@ arm/soar_wram.arm.c:128:         int screenY = 82 - (forward >> 2) - (CurrentProc->sPlayerStepZ << 1);
+	rsb	r2, r2, #82	@ _93, _92,
+@ arm/soar_wram.arm.c:127:         int screenX = 104 + (right >> 1);
+	asr	r1, r1, #3	@ _90, _76,
+@ arm/soar_wram.arm.c:130:         ObjInsertSafe(9, screenX, screenY, (void *)&gObj_aff32x32,
+	ldr	r3, .L55+24	@ tmp351,
+@ arm/soar_wram.arm.c:128:         int screenY = 82 - (forward >> 2) - (CurrentProc->sPlayerStepZ << 1);
+	sub	r2, r2, r0, lsl #1	@ screenY_96, _93, CurrentProc_6(D)->sPlayerStepZ,
+@ arm/soar_wram.arm.c:127:         int screenX = 104 + (right >> 1);
+	add	r1, r1, #104	@ screenX_91, _90,
+@ arm/soar_wram.arm.c:130:         ObjInsertSafe(9, screenX, screenY, (void *)&gObj_aff32x32,
+	lsl	r2, r2, #16	@, screenY_96,
+	lsl	r1, r1, #16	@, screenX_91,
+	str	r3, [sp]	@ tmp351,
+	mov	r0, #9	@,
+	ldr	r3, .L55+28	@,
+	lsr	r2, r2, #16	@,,
+	lsr	r1, r1, #16	@,,
+	mov	lr, pc
+	bx	r5		@ tmp419
+.L45:
+@ arm/soar_wram.arm.c:137:   int posX = CurrentProc->sFocusPtX;
+	ldr	r7, [r4, #72]	@ _54, CurrentProc_6(D)->sFocusPtX
+@ arm/soar_wram.arm.c:138:   int posY = CurrentProc->sFocusPtY;
+	ldr	r6, [r4, #76]	@ _58, CurrentProc_6(D)->sFocusPtY
+.L14:
+@ arm/soar_wram.arm.c:142:   if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
+	ldr	r3, .L55+40	@ tmp354,
+@ arm/soar_wram.arm.c:142:   if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
+	sub	r2, r6, #1	@ _102, _58,
+@ arm/soar_wram.arm.c:142:   if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
+	cmp	r2, r3	@ _102, tmp354
+	bhi	.L19		@,
+@ arm/soar_wram.arm.c:142:   if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
+	sub	r2, r7, #1	@ _104, _54,
+	cmp	r2, r3	@ _104, tmp354
+	bls	.L52		@,
+.L19:
+@ arm/soar_wram.arm.c:153:   CurrentProc->location = translatedLocations[loc];
+	ldr	r3, .L55+44	@ tmp355,
 	ldrb	r3, [r3]	@ zero_extendqisi2	@ translatedLocations[0], translatedLocations[0]
 	str	r3, [r4, #80]	@ translatedLocations[0], CurrentProc_6(D)->location
-.L14:
+.L18:
 @ arm/soar_wram.arm.c:12:   if (thumb_loop(CurrentProc)) {
 	mov	r0, r4	@, CurrentProc
-	ldr	r3, .L45+40	@ tmp293,
+	ldr	r3, .L55+48	@ tmp413,
 	mov	lr, pc
-	bx	r3		@ tmp293
+	bx	r3		@ tmp413
 @ arm/soar_wram.arm.c:12:   if (thumb_loop(CurrentProc)) {
 	cmp	r0, #0	@ _1,
-	bne	.L43		@,
+	bne	.L53		@,
 @ arm/soar_wram.arm.c:17: };
 	add	sp, sp, #12	@,,
 	@ sp needed	@
-	pop	{r4, r5, r6, r7, lr}	@
+	pop	{r4, r5, r6, r7, r8, r9, lr}	@
 	bx	lr	@
-.L42:
-@ arm/soar_wram.arm.c:139:     if (CurrentProc->ShowMap)
+.L52:
+@ arm/soar_wram.arm.c:144:     if (CurrentProc->ShowMap)
 	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ *CurrentProc_6(D), *CurrentProc_6(D)
-@ arm/soar_wram.arm.c:139:     if (CurrentProc->ShowMap)
+@ arm/soar_wram.arm.c:144:     if (CurrentProc->ShowMap)
 	tst	r3, #1	@ *CurrentProc_6(D),
-	bne	.L44		@,
-.L16:
-@ arm/soar_wram.arm.c:146:     loc = WorldMapNodes[posY][posX];
-	ldr	r3, .L45+44	@ tmp263,
-@ arm/soar_wram.arm.c:145:     posY = (posY - MAP_YOFS) >> 6;
-	asr	r6, r6, #6	@ posY_59, posY,
-@ arm/soar_wram.arm.c:146:     loc = WorldMapNodes[posY][posX];
-	add	r3, r3, r6, lsl #4	@ tmp267, tmp263, posY_59,
-	ldrb	r3, [r3, r7, asr #6]	@ zero_extendqisi2	@ loc, WorldMapNodes[posY_59][posX_58]
-@ arm/soar_wram.arm.c:148:   CurrentProc->location = translatedLocations[loc];
-	ldr	r2, .L45+36	@ tmp269,
-	ldrb	r2, [r2, r3]	@ zero_extendqisi2	@ translatedLocations[_62], translatedLocations[_62]
-@ arm/soar_wram.arm.c:149:   if (loc > 0) {
+	bne	.L54		@,
+.L20:
+@ arm/soar_wram.arm.c:151:     loc = WorldMapNodes[posY][posX];
+	ldr	r3, .L55+52	@ tmp383,
+@ arm/soar_wram.arm.c:150:     posY = (posY - MAP_YOFS) >> 6;
+	asr	r6, r6, #6	@ posY_117, _58,
+@ arm/soar_wram.arm.c:151:     loc = WorldMapNodes[posY][posX];
+	add	r3, r3, r6, lsl #4	@ tmp387, tmp383, posY_117,
+	ldrb	r3, [r3, r7, asr #6]	@ zero_extendqisi2	@ loc, WorldMapNodes[posY_117][posX_116]
+@ arm/soar_wram.arm.c:153:   CurrentProc->location = translatedLocations[loc];
+	ldr	r2, .L55+44	@ tmp389,
+	ldrb	r2, [r2, r3]	@ zero_extendqisi2	@ translatedLocations[_120], translatedLocations[_120]
+@ arm/soar_wram.arm.c:154:   if (loc > 0) {
 	cmp	r3, #0	@ loc,
-@ arm/soar_wram.arm.c:148:   CurrentProc->location = translatedLocations[loc];
-	str	r2, [r4, #80]	@ translatedLocations[_62], CurrentProc_6(D)->location
-@ arm/soar_wram.arm.c:149:   if (loc > 0) {
-	beq	.L14		@,
-@ arm/soar_wram.arm.c:150:     ObjInsertSafe(8, 0x10, 0x10, (void *)&gObj_32x8,
+@ arm/soar_wram.arm.c:153:   CurrentProc->location = translatedLocations[loc];
+	str	r2, [r4, #80]	@ translatedLocations[_120], CurrentProc_6(D)->location
+@ arm/soar_wram.arm.c:154:   if (loc > 0) {
+	beq	.L18		@,
+@ arm/soar_wram.arm.c:155:     ObjInsertSafe(8, 0x10, 0x10, (void *)&gObj_32x8,
 	mov	r2, #16	@,
-@ arm/soar_wram.arm.c:151:                   (OAM_ATTR2(LocationBaseTID + ((loc - 1) << 3), 2,
-	sub	r3, r3, #1	@ tmp271, loc,
-	lsl	r3, r3, #19	@ tmp274, tmp271,
-	lsr	r6, r3, r2	@ _67, tmp274,
-	add	r3, r6, #576	@ tmp276, _67,
-@ arm/soar_wram.arm.c:150:     ObjInsertSafe(8, 0x10, 0x10, (void *)&gObj_32x8,
-	orr	r3, r3, #59392	@ tmp280, tmp276,
-	lsl	r3, r3, r2	@ tmp282, tmp280,
-	lsr	r3, r3, r2	@ tmp281, tmp282,
+@ arm/soar_wram.arm.c:156:                   (OAM_ATTR2(LocationBaseTID + ((loc - 1) << 3), 2,
+	sub	r3, r3, #1	@ tmp391, loc,
+	lsl	r3, r3, #19	@ tmp394, tmp391,
+	lsr	r6, r3, r2	@ _125, tmp394,
+	add	r3, r6, #576	@ tmp396, _125,
+@ arm/soar_wram.arm.c:155:     ObjInsertSafe(8, 0x10, 0x10, (void *)&gObj_32x8,
+	orr	r3, r3, #59392	@ tmp400, tmp396,
+	lsl	r3, r3, r2	@ tmp402, tmp400,
+	lsr	r3, r3, r2	@ tmp401, tmp402,
 	mov	r1, r2	@,
-	str	r3, [sp]	@ tmp281,
+	str	r3, [sp]	@ tmp401,
 	mov	r0, #8	@,
-	ldr	r3, .L45+48	@,
+	ldr	r3, .L55+56	@,
 	mov	lr, pc
-	bx	r5		@ tmp299
-@ arm/soar_wram.arm.c:153:     ObjInsertSafe(8, 0x30, 0x10, (void *)&gObj_32x8,
+	bx	r5		@ tmp419
+@ arm/soar_wram.arm.c:158:     ObjInsertSafe(8, 0x30, 0x10, (void *)&gObj_32x8,
 	mov	r2, #16	@,
-@ arm/soar_wram.arm.c:154:                   (OAM_ATTR2(LocationBaseTID + ((loc - 1) << 3) + 4, 2,
-	add	ip, r6, #580	@ tmp285, _67,
-@ arm/soar_wram.arm.c:153:     ObjInsertSafe(8, 0x30, 0x10, (void *)&gObj_32x8,
-	orr	ip, ip, #59392	@ tmp289, tmp285,
-	lsl	ip, ip, r2	@ tmp291, tmp289,
-	lsr	ip, ip, r2	@ tmp290, tmp291,
+@ arm/soar_wram.arm.c:159:                   (OAM_ATTR2(LocationBaseTID + ((loc - 1) << 3) + 4, 2,
+	add	ip, r6, #580	@ tmp405, _125,
+@ arm/soar_wram.arm.c:158:     ObjInsertSafe(8, 0x30, 0x10, (void *)&gObj_32x8,
+	orr	ip, ip, #59392	@ tmp409, tmp405,
+	lsl	ip, ip, r2	@ tmp411, tmp409,
+	lsr	ip, ip, r2	@ tmp410, tmp411,
 	mov	r1, #48	@,
 	mov	r0, #8	@,
-	ldr	r3, .L45+48	@,
-	str	ip, [sp]	@ tmp290,
+	ldr	r3, .L55+56	@,
+	str	ip, [sp]	@ tmp410,
 	mov	lr, pc
-	bx	r5		@ tmp299
-	b	.L14		@
-.L43:
+	bx	r5		@ tmp419
+	b	.L18		@
+.L47:
+@ arm/soar_wram.arm.c:62:     ObjInsertSafe(8, 0x68, 0x58, (void *)&gObj_32x32,
+	mov	ip, #51712	@ tmp234,
+	ldr	r3, .L55+12	@,
+	mov	r2, #88	@,
+	mov	r1, #104	@,
+	mov	r0, #8	@,
+	ldr	r5, .L55+16	@ tmp419,
+	str	ip, [sp]	@ tmp234,
+	mov	lr, pc
+	bx	r5		@ tmp419
+@ arm/soar_wram.arm.c:74:   if (CurrentProc->ShowMap)
+	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ _15, *CurrentProc_6(D)
+@ arm/soar_wram.arm.c:74:   if (CurrentProc->ShowMap)
+	tst	r3, #1	@ _15,
+	beq	.L6		@,
+.L48:
+@ arm/soar_wram.arm.c:75:     ObjInsertSafe(8, 176, 0, (void *)&gObj_64x64,
+	ldr	r3, .L55+60	@ tmp256,
+	mov	r2, #0	@,
+	str	r3, [sp]	@ tmp256,
+	mov	r1, #176	@,
+	ldr	r3, .L55+64	@,
+	mov	r0, #8	@,
+	mov	lr, pc
+	bx	r5		@ tmp419
+@ arm/soar_wram.arm.c:78:   if (CurrentProc->ShowFPS)
+	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ _15, *CurrentProc_6(D)
+@ arm/soar_wram.arm.c:78:   if (CurrentProc->ShowFPS)
+	tst	r3, #2	@ _15,
+	beq	.L7		@,
+.L49:
+@ arm/soar_wram.arm.c:79:     ObjInsertSafe(8, 0, 0, (void *)&gObj_8x8,
+	mov	r2, #0	@,
+@ arm/soar_wram.arm.c:80:                   (OAM_ATTR2(FPSBaseTID + FPS_CURRENT, 2, 0xC))); // fps counter
+	ldr	r1, .L55+68	@ tmp262,
+	ldr	r1, [r1, #4092]	@ MEM[(int *)33816572B], MEM[(int *)33816572B]
+	add	r1, r1, #784	@ tmp265, MEM[(int *)33816572B],
+@ arm/soar_wram.arm.c:79:     ObjInsertSafe(8, 0, 0, (void *)&gObj_8x8,
+	orr	r1, r1, #51200	@ tmp269, tmp265,
+	lsl	r1, r1, #16	@ tmp270, tmp269,
+	lsr	r1, r1, #16	@ tmp270, tmp270,
+	ldr	r3, .L55+72	@,
+	str	r1, [sp]	@ tmp270,
+	mov	r0, #8	@,
+	mov	r1, r2	@,
+	mov	lr, pc
+	bx	r5		@ tmp419
+@ arm/soar_wram.arm.c:82:   if (CurrentProc->disableFlare == 0) { // draw lens flare test
+	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ _15, *CurrentProc_6(D)
+	b	.L7		@
+.L53:
 @ arm/soar_wram.arm.c:13:     iwram_Render_arm(CurrentProc);
 	mov	r0, r4	@, CurrentProc
-	ldr	r3, .L45+52	@ tmp294,
+	ldr	r3, .L55+76	@ tmp414,
 	mov	lr, pc
-	bx	r3		@ tmp294
+	bx	r3		@ tmp414
 @ arm/soar_wram.arm.c:15:     FPS_COUNTER += 1;
-	ldr	r2, .L45+56	@ tmp295,
+	ldr	r2, .L55+68	@ tmp415,
 	ldr	r3, [r2, #4088]	@ MEM[(int *)33816568B], MEM[(int *)33816568B]
 	add	r3, r3, #1	@ _3, MEM[(int *)33816568B],
 	str	r3, [r2, #4088]	@ _3, MEM[(int *)33816568B]
 @ arm/soar_wram.arm.c:17: };
 	add	sp, sp, #12	@,,
 	@ sp needed	@
-	pop	{r4, r5, r6, r7, lr}	@
+	pop	{r4, r5, r6, r7, r8, r9, lr}	@
 	bx	lr	@
-.L39:
-@ arm/soar_wram.arm.c:62:     ObjInsertSafe(8, 0x68, 0x58, (void *)&gObj_32x32,
-	mov	ip, #51712	@ tmp178,
-	ldr	r3, .L45+12	@,
-	mov	r2, #88	@,
-	mov	r1, #104	@,
+.L50:
+@ arm/soar_wram.arm.c:104:       ObjInsertSafe(8, 176 + (CurrentProc->coinX >> 4),
+	ldrsh	r1, [r4, #88]	@ CurrentProc_6(D)->coinX, CurrentProc_6(D)->coinX
+@ arm/soar_wram.arm.c:105:                     (CurrentProc->coinY - MAP_YOFS) >> 4, (void *)&gObj_8x8,
+	ldrsh	r2, [r4, #90]	@ _297, CurrentProc_6(D)->coinY
+@ arm/soar_wram.arm.c:104:       ObjInsertSafe(8, 176 + (CurrentProc->coinX >> 4),
+	asr	r1, r1, #4	@ tmp301, CurrentProc_6(D)->coinX,
+	ldr	r3, .L55+80	@ tmp306,
+@ arm/soar_wram.arm.c:105:                     (CurrentProc->coinY - MAP_YOFS) >> 4, (void *)&gObj_8x8,
+	asr	r2, r2, #4	@ _50, _297,
+@ arm/soar_wram.arm.c:104:       ObjInsertSafe(8, 176 + (CurrentProc->coinX >> 4),
+	add	r1, r1, #176	@ tmp303, tmp301,
+	lsl	r2, r2, #16	@, _50,
+	lsl	r1, r1, #16	@, tmp303,
+	str	r3, [sp]	@ tmp306,
 	mov	r0, #8	@,
-	ldr	r5, .L45+16	@ tmp299,
-	str	ip, [sp]	@ tmp178,
-	mov	lr, pc
-	bx	r5		@ tmp299
-@ arm/soar_wram.arm.c:74:   if (CurrentProc->ShowMap)
-	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ _15, *CurrentProc_6(D)
-@ arm/soar_wram.arm.c:74:   if (CurrentProc->ShowMap)
-	tst	r3, #1	@ _15,
-	beq	.L6		@,
-.L40:
-@ arm/soar_wram.arm.c:75:     ObjInsertSafe(8, 176, 0, (void *)&gObj_64x64,
-	ldr	r3, .L45+60	@ tmp200,
-	mov	r2, #0	@,
-	str	r3, [sp]	@ tmp200,
-	mov	r1, #176	@,
-	ldr	r3, .L45+64	@,
-	mov	r0, #8	@,
-	mov	lr, pc
-	bx	r5		@ tmp299
-@ arm/soar_wram.arm.c:78:   if (CurrentProc->ShowFPS)
-	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ _15, *CurrentProc_6(D)
-@ arm/soar_wram.arm.c:78:   if (CurrentProc->ShowFPS)
-	tst	r3, #2	@ _15,
-	beq	.L7		@,
-.L41:
-@ arm/soar_wram.arm.c:79:     ObjInsertSafe(8, 0, 0, (void *)&gObj_8x8,
-	mov	r2, #0	@,
-@ arm/soar_wram.arm.c:80:                   (OAM_ATTR2(FPSBaseTID + FPS_CURRENT, 2, 0xC))); // fps counter
-	ldr	r1, .L45+56	@ tmp206,
-	ldr	r1, [r1, #4092]	@ MEM[(int *)33816572B], MEM[(int *)33816572B]
-	add	r1, r1, #784	@ tmp209, MEM[(int *)33816572B],
-@ arm/soar_wram.arm.c:79:     ObjInsertSafe(8, 0, 0, (void *)&gObj_8x8,
-	orr	r1, r1, #51200	@ tmp213, tmp209,
-	lsl	r1, r1, #16	@ tmp214, tmp213,
-	lsr	r1, r1, #16	@ tmp214, tmp214,
-	ldr	r3, .L45+68	@,
-	str	r1, [sp]	@ tmp214,
-	mov	r0, #8	@,
-	mov	r1, r2	@,
-	mov	lr, pc
-	bx	r5		@ tmp299
-@ arm/soar_wram.arm.c:84:     if (CurrentProc->disableFlare == 0) { // draw lens flare test
-	ldrb	r3, [r4, #69]	@ zero_extendqisi2	@ _15, *CurrentProc_6(D)
-	b	.L7		@
-.L18:
-@ arm/soar_wram.arm.c:89:       switch (CurrentProc->sPlayerYaw) {
-	mov	r1, #128	@ prephitmp_139,
-	b	.L11		@
-.L19:
-	mov	r1, #64	@ prephitmp_139,
-	b	.L11		@
-.L44:
-@ arm/soar_wram.arm.c:142:                     OAM_ATTR2(CursorBaseTID + CurrentProc->sPlayerYaw, 2,
-	ldr	r3, [r4, #60]	@ CurrentProc_6(D)->sPlayerYaw, CurrentProc_6(D)->sPlayerYaw
-	add	r3, r3, #704	@ tmp255, CurrentProc_6(D)->sPlayerYaw,
-@ arm/soar_wram.arm.c:140:       ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
-	asr	r1, r7, #4	@ _49, posX,
-@ arm/soar_wram.arm.c:140:       ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
-	orr	r3, r3, #55296	@ tmp259, tmp255,
-@ arm/soar_wram.arm.c:140:       ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
-	asr	r2, r6, #4	@ _52, posY,
-@ arm/soar_wram.arm.c:140:       ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
-	lsl	r3, r3, #16	@ tmp260, tmp259,
-	add	r1, r1, #176	@ tmp250, _49,
-	lsr	r3, r3, #16	@ tmp260, tmp260,
-	lsl	r2, r2, #16	@, _52,
-	lsl	r1, r1, #16	@, tmp250,
-	str	r3, [sp]	@ tmp260,
-	mov	r0, #8	@,
-	ldr	r3, .L45+68	@,
+	ldr	r3, .L55+72	@,
 	lsr	r2, r2, #16	@,,
 	lsr	r1, r1, #16	@,,
 	mov	lr, pc
-	bx	r5		@ tmp299
-	b	.L16		@
+	bx	r5		@ tmp419
+	b	.L15		@
+.L51:
+@ arm/soar_wram.arm.c:112:       SoarCollectCoin(CurrentProc);
+	mov	r0, r4	@, CurrentProc
+	ldr	r3, .L55+84	@ tmp311,
+	mov	lr, pc
+	bx	r3		@ tmp311
+@ arm/soar_wram.arm.c:137:   int posX = CurrentProc->sFocusPtX;
+	ldr	r7, [r4, #72]	@ _54, CurrentProc_6(D)->sFocusPtX
+@ arm/soar_wram.arm.c:138:   int posY = CurrentProc->sFocusPtY;
+	ldr	r6, [r4, #76]	@ _58, CurrentProc_6(D)->sFocusPtY
+	b	.L14		@
+.L23:
+@ arm/soar_wram.arm.c:87:     switch (CurrentProc->sPlayerYaw) {
+	mov	r1, #64	@ prephitmp_222,
+	b	.L11		@
+.L22:
+	mov	r1, #128	@ prephitmp_222,
+	b	.L11		@
+.L54:
+@ arm/soar_wram.arm.c:147:                     OAM_ATTR2(CursorBaseTID + CurrentProc->sPlayerYaw, 2,
+	ldr	r3, [r4, #60]	@ CurrentProc_6(D)->sPlayerYaw, CurrentProc_6(D)->sPlayerYaw
+	add	r3, r3, #704	@ tmp375, CurrentProc_6(D)->sPlayerYaw,
+@ arm/soar_wram.arm.c:145:       ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
+	asr	r1, r7, #4	@ _107, _54,
+@ arm/soar_wram.arm.c:145:       ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
+	orr	r3, r3, #55296	@ tmp379, tmp375,
+@ arm/soar_wram.arm.c:145:       ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
+	asr	r2, r6, #4	@ _110, _58,
+@ arm/soar_wram.arm.c:145:       ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
+	lsl	r3, r3, #16	@ tmp380, tmp379,
+	add	r1, r1, #176	@ tmp370, _107,
+	lsr	r3, r3, #16	@ tmp380, tmp380,
+	lsl	r2, r2, #16	@, _110,
+	lsl	r1, r1, #16	@, tmp370,
+	str	r3, [sp]	@ tmp380,
+	mov	r0, #8	@,
+	ldr	r3, .L55+72	@,
+	lsr	r2, r2, #16	@,,
+	lsr	r1, r1, #16	@,,
+	mov	lr, pc
+	bx	r5		@ tmp419
+	b	.L20		@
 .L10:
-@ arm/soar_wram.arm.c:89:       switch (CurrentProc->sPlayerYaw) {
+@ arm/soar_wram.arm.c:87:     switch (CurrentProc->sPlayerYaw) {
 	cmp	r2, #12	@ _33,
-	moveq	r1, #160	@ prephitmp_139,
+	moveq	r1, #160	@ prephitmp_222,
 	beq	.L11		@,
 	b	.L8		@
-.L46:
+.L56:
 	.align	2
-.L45:
+.L55:
 	.word	51728
 	.word	51744
 	.word	51760
@@ -317,15 +454,19 @@ NewWMLoop:
 	.word	50343936
 	.word	15151
 	.word	gObj_aff32x32
+	.word	cam_dy_Angles
+	.word	cam_dx_Angles
 	.word	1022
 	.word	translatedLocations
 	.word	thumb_loop
 	.word	WorldMapNodes
 	.word	gObj_32x8
-	.word	iwram_Render_arm
-	.word	33812480
 	.word	10959
 	.word	gObj_64x64
+	.word	33812480
 	.word	gObj_8x8
+	.word	iwram_Render_arm
+	.word	60096
+	.word	SoarCollectCoin
 	.size	NewWMLoop, .-NewWMLoop
 	.ident	"GCC: (devkitARM release 66) 15.1.0"

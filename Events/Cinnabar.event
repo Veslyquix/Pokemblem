@@ -1,7 +1,7 @@
 #define ChapterID CinnabarCh
 #define GenericB UnitCeruleanTrainer
 #define WildLvl 30 
-#define TrainerL 26 
+#define TrainerL CinnabarGymLevel 
 
 
 

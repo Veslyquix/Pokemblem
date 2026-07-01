@@ -79,53 +79,57 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
     ObjInsertSafe(8, 0, 0, (void *)&gObj_8x8,
                   (OAM_ATTR2(FPSBaseTID + FPS_CURRENT, 2, 0xC))); // fps counter
 
-  int coinTest = false;
-  if (!coinTest) {
-    if (CurrentProc->disableFlare == 0) { // draw lens flare test
+  if (CurrentProc->disableFlare == 0) { // draw lens flare test
 
-      int flarex = 64;
-      int flarey =
-          80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
-      switch (CurrentProc->sPlayerYaw) {
-      default:
-        break;
-      case a_W:
-        flarex += 32;
-      case a_WSW:
-        flarex += 32;
-      case a_SW:
-        flarex += 32;
-      case a_SSW:
-        ObjInsertSafe(9, flarex, flarey, (void *)&gObj_aff32x32,
-                      OAM_ATTR2(LensFlareBaseTID - 1, 2, 0x3));
-      };
-    };
-  }
-
-  else {
-
-    ObjInsertSafe(8, 176 + (CurrentProc->coinX >> 4),
-                  (CurrentProc->coinY - MAP_YOFS) >> 4, (void *)&gObj_8x8,
-                  OAM_ATTR2(CursorBaseTID, 2, 0xE)); // minimap
-    // apparently we need to use pleftmatrix.dmp to calculate the 16 directions
-    // and whether a coin would be visible or not
-    CurrentProc->coinX = 8 << 4;
-    CurrentProc->coinY = 1;
-    if (CurrentProc->coinX > 260) {
-      CurrentProc->coinX = 0;
-    }
-    if (CurrentProc->coinY > 160) {
-      CurrentProc->coinY = 0;
-    }
-    int dx = CurrentProc->coinX - CurrentProc->sPlayerPosX;
-    int dy = CurrentProc->coinY - CurrentProc->sPlayerPosY;
-
-    if ((dx * dx + dy * dy) < (4 * 64) * (4 * 64)) {
-      int screenX = 120 + (dx >> 6);
-      int screenY = 80 + (dy >> 6);
-
-      ObjInsertSafe(9, screenX, screenY, (void *)&gObj_aff32x32,
+    int flarex = 64;
+    int flarey =
+        80 - (CurrentProc->sPlayerStepZ << 2) - ((g_REG_BG2X - 0x9e40) >> 10);
+    switch (CurrentProc->sPlayerYaw) {
+    default:
+      break;
+    case a_W:
+      flarex += 32;
+    case a_WSW:
+      flarex += 32;
+    case a_SW:
+      flarex += 32;
+    case a_SSW:
+      ObjInsertSafe(9, flarex, flarey, (void *)&gObj_aff32x32,
                     OAM_ATTR2(LensFlareBaseTID - 1, 2, 0x3));
+    };
+  };
+
+  if (CurrentProc->coinZ) {
+    if (CurrentProc->ShowMap)
+      ObjInsertSafe(8, 176 + (CurrentProc->coinX >> 4),
+                    (CurrentProc->coinY - MAP_YOFS) >> 4, (void *)&gObj_8x8,
+                    OAM_ATTR2(CursorBaseTID, 2, 0xE)); // minimap coin marker
+
+    int collectDx = CurrentProc->coinX - CurrentProc->sFocusPtX;
+    int collectDy = CurrentProc->coinY - CurrentProc->sFocusPtY;
+
+    if ((collectDx * collectDx + collectDy * collectDy) < (24 * 24)) {
+      SoarCollectCoin(CurrentProc);
+    } else {
+      int dx = CurrentProc->coinX - CurrentProc->sPlayerPosX;
+      int dy = CurrentProc->coinY - CurrentProc->sPlayerPosY;
+      int right =
+          ((dx * cam_dx_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF]) +
+           (dy * cam_dy_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF])) >>
+          2;
+      int forward =
+          ((dx * cam_dx_Angles[CurrentProc->sPlayerYaw]) +
+           (dy * cam_dy_Angles[CurrentProc->sPlayerYaw])) >>
+          2;
+
+      if ((forward > -32) && (forward < 192) && (right > -112) &&
+          (right < 112)) {
+        int screenX = 104 + (right >> 1);
+        int screenY = 82 - (forward >> 2) - (CurrentProc->sPlayerStepZ << 1);
+
+        ObjInsertSafe(9, screenX, screenY, (void *)&gObj_aff32x32,
+                      OAM_ATTR2(LensFlareBaseTID - 1, 2, 0x3));
+      }
     }
   }
 

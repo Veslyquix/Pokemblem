@@ -1,7 +1,7 @@
 #define ChapterID CeladonCh
 #define GenericB UnitCeruleanTrainer
 #define WildLvl 10 
-#define TrainerL 30 
+#define TrainerL CeladonGymLevel 
 
 
 

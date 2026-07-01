@@ -1,7 +1,7 @@
 #define ChapterID FuschiaCh
 #define GenericB UnitCeruleanTrainer
 #define WildLvl 10 
-#define TrainerL 26 
+#define TrainerL FuschiaGymLevel 
 
 
 

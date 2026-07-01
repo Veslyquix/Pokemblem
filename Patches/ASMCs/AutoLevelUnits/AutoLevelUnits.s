@@ -362,12 +362,12 @@ Get_Growth_With_Evolutions:
 push {r4-r7, lr}
 mov r4, r8
 mov r5, r9 
-mov r6, r10 
 push {r4-r5} 
 mov r4, r0 @ unit struct 
 
 
 mov r5, r1 @ levels 
+mov r6, #0
 @r2 as growth getter function 
 mov r9, r3 @ class stat growth offset 
 
@@ -380,7 +380,6 @@ add r5, r1 @ final expected level
 mov lr, r2 @ growth getter function given as a parameter 
 .short 0xf800 @ blh to the growth getter function 
 mov r7, r0 @ natural growth in final class
-
 
 
 ldr r3, =AutolevelTable 
@@ -447,7 +446,6 @@ sub r1, #1 @ No level-up from level 0 to 1.
 NoSub: 
 mul r0, r1 @ Levels * growth 
 mov r6, r0 
-
 @ r5 as final expected level 
 @ eg. 42 
 @ Venusaur: 42-32 = 10. 10 levels as final evolution 

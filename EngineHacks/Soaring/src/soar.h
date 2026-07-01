@@ -179,7 +179,7 @@ struct SoarProc { //so we can store this info locally.
   int sunsetVal;
   s16 coinX;
   s16 coinY; 
-  s16 coinZ; 
+  s16 coinZ;
 };
 
 typedef struct Point Point;
@@ -236,4 +236,6 @@ void EndLoop(SoarProc* CurrentProc);
 void MoveLord(SoarProc* CurrentProc);
 void OnVBlankMain();
 void BumpScreen(int direction);
+void SoarSpawnCoin(SoarProc* CurrentProc);
+void SoarCollectCoin(SoarProc* CurrentProc);
 #endif

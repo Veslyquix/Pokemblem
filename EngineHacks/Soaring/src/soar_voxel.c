@@ -23,6 +23,11 @@ extern u8 FlyLocationTable[10];
 extern u32 FlyDestinationEvent;
 const u8 originCoords[106][2];
 extern int ProtagID_Link;
+
+static const u16 CoinSpawnCoords[][2] = {
+    {8 << 6, 4 << 6},  {11 << 6, 7 << 6}, {14 << 6, 7 << 6},
+    {2 << 6, 9 << 6},  {9 << 6, 12 << 6}, {1 << 6, 5 << 6},
+};
 // procs
 
 extern const ProcCode Proc_Soaring[] = { // expose it to lyn
@@ -195,6 +200,11 @@ void SetUpNewWMGraphics(SoarProc *CurrentProc) {
   CurrentProc->sPlayerPosZ = CAMERA_MIN_HEIGHT + (2 * CAMERA_Z_STEP);
   CurrentProc->sPlayerStepZ = 2;
   CurrentProc->sPlayerYaw = a_SE;
+  CurrentProc->sFocusPtX =
+      CurrentProc->sPlayerPosX + cam_pivot_dx_Angles[CurrentProc->sPlayerYaw];
+  CurrentProc->sFocusPtY =
+      CurrentProc->sPlayerPosY + cam_pivot_dy_Angles[CurrentProc->sPlayerYaw];
+  SoarSpawnCoin(CurrentProc);
   CurrentProc->ShowMap = TRUE;
   CurrentProc->ShowFPS = FALSE;
   CurrentProc->location = 0;
@@ -246,6 +256,21 @@ void SetUpNewWMGraphics(SoarProc *CurrentProc) {
 
   SetInterrupt_LCDVBlank(SoarVBlankInterrupt);
 };
+
+void SoarSpawnCoin(SoarProc *CurrentProc) {
+  int spawn = NextRN_N(sizeof(CoinSpawnCoords) / sizeof(CoinSpawnCoords[0]));
+
+  CurrentProc->coinX = CoinSpawnCoords[spawn][0];
+  CurrentProc->coinY = CoinSpawnCoords[spawn][1];
+  CurrentProc->coinZ = 1;
+}
+
+void SoarCollectCoin(SoarProc *CurrentProc) {
+  SetPartyGoldAmount(GetPartyGoldAmount() + 1000);
+  if (gChapterData.muteSfxOption == 0)
+    m4aSongNumStart(0x5A);
+  SoarSpawnCoin(CurrentProc);
+}
 
 void LoadSprite() {
 

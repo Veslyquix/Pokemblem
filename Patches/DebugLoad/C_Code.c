@@ -91,7 +91,6 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
     gEventSlots[1] = DefaultUnitID_Link; // unit ID
     gEventSlots[3] = 1;                  // visible levels
     int i = 0;
-
     while (*classList)
     {
         classID = *classList++;

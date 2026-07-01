@@ -1,7 +1,7 @@
 #define ChapterID VermilionCh
 #define GenericB UnitCeruleanTrainer
 #define WildLvl 10 
-#define TrainerL 16 
+#define TrainerL VermilionGymLevel 
 
 
 
