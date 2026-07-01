@@ -33,6 +33,11 @@
     .set SHADOW_DISTANCE, (MIN_Z_DISTANCE+16)
     .set FOG_DISTANCE, (MAX_Z_DISTANCE>>1)
 
+    .equ CoinScreenX, 0x201F148
+    .equ CoinScreenY, 0x201F14A
+    .equ CoinCalibEnabled, 0x201F14C
+    .equ CoinCalibBreakMode, 0x201F14E
+    .equ CoinCalibData, 0x201F150
 	.equ o_zdist, (MODE5_ROTATED_WIDTH + 4) @keep this on the stack above the ybuffer
 	.equ o_maxzdist, o_zdist+4
 	.equ o_dx, o_zdist+8
@@ -54,6 +59,12 @@ Render_arm:
 	push {r4-r11, lr}
 	sub sp, sp, #(MODE5_ROTATED_WIDTH + 40) @this is ybuffer
 	str r0, [sp, #o_currproc]
+	mvn r1, #0
+	ldrsh r2, [r0, #92] @coinZ
+	cmp r2, #0
+	movle r1, #0
+	ldr r2, =CoinScreenX
+	strh r1, [r2] @CoinScreenX = -1
 
 	ldrb r1, [r0, #70] @oceanClock
 	ldr r4, [r0, #60] @r4 = angle

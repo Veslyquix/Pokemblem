@@ -50,6 +50,9 @@ ORG FreeSpaceBLRange //defined in custom definitions
 	
 #ifdef INCLUDE_FLYING
   //Soaring stuff
+  ALIGN 4 
+  CoinsEnabled:
+  WORD True 
   #define RefreshWMSprite 0x80bf555
   #define RefreshWMProc 0x80b9155
   #define gObj_8x8 0x8590F44

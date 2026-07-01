@@ -8,8 +8,8 @@ void iwram_Render_arm(SoarProc *CurrentProc);
 
 void NewWMLoop(SoarProc *CurrentProc) {
 
-  UpdateSprites(CurrentProc);
   if (thumb_loop(CurrentProc)) {
+    UpdateSprites(CurrentProc);
     iwram_Render_arm(CurrentProc);
     // Render(CurrentProc); //draw and then flip
     FPS_COUNTER += 1;
@@ -99,9 +99,35 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
     };
   };
 
-  if (CurrentProc->coinZ) {
+  // check if player is in a zone
+  int posX = CurrentProc->sFocusPtX;
+  int posY = CurrentProc->sFocusPtY;
+
+  u8 loc = 0;
+
+  if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
+      (posX < MAP_DIMENSIONS)) {
+    if (CurrentProc->ShowMap)
+      ObjInsertSafe(8, 176 + (posX >> 4) + MINIMAP_CURSOR_X_OFFSET,
+                    ((posY - MAP_YOFS) >> 4) + MINIMAP_CURSOR_Y_OFFSET,
+                    (void *)&gObj_8x8,
+                    OAM_ATTR2(CursorBaseTID + CurrentProc->sPlayerYaw, 2,
+                              0xD)); // draw cursor on minimap
+    posX >>= 6;
+    posY = (posY - MAP_YOFS) >> 6;
+    loc = WorldMapNodes[posY][posX];
+  };
+  if (loc > 11)
+    loc = 0;
+  // asm("mov r11, r11");
+  CurrentProc->location = translatedLocations[loc];
+
+  if (CoinsEnabled && CurrentProc->coinZ) {
+    SoarProjectCoin(CurrentProc);
+
     if (CurrentProc->ShowMap && ((animClock & 0x10) == 0))
-      ObjInsertSafe(8, 176 + (CurrentProc->coinX >> 4),
+      ObjInsertSafe(8,
+                    176 + (CurrentProc->coinX >> 4) + MINIMAP_CURSOR_X_OFFSET,
                     (CurrentProc->coinY - MAP_YOFS) >> 4, (void *)&gObj_8x8,
                     OAM_ATTR2(CoinMinimapBaseTID, 2,
                               0x5)); // minimap coin marker
@@ -112,48 +138,63 @@ static inline void UpdateSprites(SoarProc *CurrentProc) {
     if ((collectDx * collectDx + collectDy * collectDy) < (24 * 24)) {
       SoarCollectCoin(CurrentProc);
     } else {
-      int dx = CurrentProc->coinX - CurrentProc->sPlayerPosX;
-      int dy = CurrentProc->coinY - CurrentProc->sPlayerPosY;
-      int right =
-          ((dx * cam_dx_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF]) +
-           (dy * cam_dy_Angles[(CurrentProc->sPlayerYaw + 4) & 0xF])) >>
-          2;
-      int forward =
-          ((dx * cam_dx_Angles[CurrentProc->sPlayerYaw]) +
-           (dy * cam_dy_Angles[CurrentProc->sPlayerYaw])) >>
-          2;
+      int screenX = *CoinScreenX;
+      int screenY = *CoinScreenY;
 
-      if ((forward > -32) && (forward < 192) && (right > -112) &&
-          (right < 112)) {
-        int screenX = 104 + (right >> 1);
-        int screenY = 82 - (forward >> 2) - (CurrentProc->sPlayerStepZ << 1);
-
-        ObjInsertSafe(9, screenX, screenY, (void *)&gObj_32x32,
-                      OAM_ATTR2(CoinBaseTID + ((animClock >> 3) << 4), 2,
-                                0x4));
+#ifdef COIN_DEBUG
+      if (CoinCalibEnabled) {
+        CoinCalibData[0] = CurrentProc->sPlayerYaw;
+        CoinCalibData[1] = CurrentProc->sPlayerStepZ;
+        CoinCalibData[2] = CurrentProc->sPlayerPosX;
+        CoinCalibData[3] = CurrentProc->sPlayerPosY;
+        CoinCalibData[4] = CurrentProc->sFocusPtX;
+        CoinCalibData[5] = CurrentProc->sFocusPtY;
+        CoinCalibData[6] = CurrentProc->coinX;
+        CoinCalibData[7] = CurrentProc->coinY;
+        CoinCalibData[8] = collectDx;
+        CoinCalibData[9] = collectDy;
+        CoinCalibData[10] = screenX;
+        CoinCalibData[11] = screenY;
+        CoinCalibData[12] = *CoinScreenX;
+        CoinCalibData[13] = *CoinScreenY;
+        if (CoinCalibBreakMode & 1)
+          asm("mov r11, r11");
       }
+#endif
+
+      if ((screenX >= 0) && (screenX <= 208) && (screenY >= 0) &&
+          (screenY <= 128)) {
+#ifdef COIN_DEBUG
+        if (CoinCalibEnabled) {
+          CoinCalibData[14] = 1;
+          if (CoinCalibBreakMode & 2)
+            asm("mov r11, r11");
+          if (CoinCalibBreakMode & 4) {
+            if (CoinCalibData[26] != 0x4C43) {
+              CoinCalibData[25] = -1;
+              CoinCalibData[26] = 0x4C43;
+            }
+            if (CoinCalibData[25] != CurrentProc->sPlayerYaw) {
+              CoinCalibData[25] = CurrentProc->sPlayerYaw;
+              asm("mov r11, r11");
+            }
+          }
+        }
+#endif
+        ObjInsertSafe(9, screenX, screenY, (void *)&gObj_32x32,
+                      OAM_ATTR2(CoinBaseTID + ((animClock >> 3) << 4), 2, 0x4));
+      }
+#ifdef COIN_DEBUG
+      else if (CoinCalibEnabled) {
+        CoinCalibData[14] = 0;
+      }
+#endif
     }
   }
-
-  // check if player is in a zone
-  int posX = CurrentProc->sFocusPtX;
-  int posY = CurrentProc->sFocusPtY;
-
-  u8 loc = 0;
-
-  if ((posY > MAP_YOFS) && (posY < (MAP_DIMENSIONS - MAP_YOFS)) && (posX > 0) &&
-      (posX < MAP_DIMENSIONS)) {
-    if (CurrentProc->ShowMap)
-      ObjInsertSafe(8, (176 + (posX >> 4)), (posY - MAP_YOFS) >> 4,
-                    (void *)&gObj_8x8,
-                    OAM_ATTR2(CursorBaseTID + CurrentProc->sPlayerYaw, 2,
-                              0xD)); // draw cursor on minimap
-    posX >>= 6;
-    posY = (posY - MAP_YOFS) >> 6;
-    loc = WorldMapNodes[posY][posX];
-  };
-  CurrentProc->location = translatedLocations[loc];
-  if (loc > 0) {
+  if (loc > 0) { // location name isn't drawing atm, and moving this above the
+                 // coin stuff makes an immediate crash atm
+    // might be good to have SoarProc an extern ram address instead of a proc
+    // - might save on a few lines of code?
     ObjInsertSafe(8, 0x10, 0x10, (void *)&gObj_32x8,
                   (OAM_ATTR2(LocationBaseTID + ((loc - 1) << 3), 2,
                              0xe))); // draw in the top corner if we're there

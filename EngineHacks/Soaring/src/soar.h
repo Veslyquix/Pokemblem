@@ -8,6 +8,7 @@
 #define __FPSCOUNT__ //remove to hide fps counter
 
 
+
 #define m7_screenbase 0x17
 #define m7_charbase 2
 #define CHARBLOCK(num) VRAM+(num * 0x4000)
@@ -47,9 +48,13 @@
 
 #define MOVEMENT_STEP 4
 
-#define FREE_WRAM 0x3007000 //i sure hope this is free lol it's between the heap and the stack
+#define FREE_WRAM 0x3007000
 
 #define WM_CURSOR ((volatile int*)(0x3005288)) //[0] is x<<8 and [1] is y<<8
+
+// #define TEST_COIN_LOC
+#define MINIMAP_CURSOR_X_OFFSET (-7)
+#define MINIMAP_CURSOR_Y_OFFSET 0
 
 extern const u16 colourMap[];
 extern const u16 colourMap_sunset[];
@@ -73,6 +78,14 @@ extern const void* coinSprite;
 extern const void* coinPal;
 extern const void* coinMinimapSprite;
 extern const void* coinMinimapPal;
+extern int CoinsEnabled;
+#define CoinScreenX (s16*)0x201F148
+#define CoinScreenY (s16*)0x201F14A
+#define CoinCalibEnabled (*(volatile u16*)0x201F14C)
+#define CoinCalibBreakMode (*(volatile u16*)0x201F14E)
+#define CoinCalibData ((volatile s16*)0x201F150)
+// extern s16 CoinScreenX;
+// extern s16 CoinScreenY;
 extern const int* SkyBG;
 extern const int* SkyBG_lighter;
 extern const int* SkyBG_darker;
@@ -246,4 +259,5 @@ void OnVBlankMain();
 void BumpScreen(int direction);
 void SoarSpawnCoin(SoarProc* CurrentProc);
 void SoarCollectCoin(SoarProc* CurrentProc);
+void SoarProjectCoin(SoarProc* CurrentProc);
 #endif

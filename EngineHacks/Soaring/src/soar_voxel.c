@@ -7,8 +7,8 @@ extern void m4aSoundVSync(void);
 extern void m4aSoundMain(void);
 extern int CheckEventId(int);
 void LZ77UnCompVram(const void *src, void *dest);
-#define IRAM_NewWMLoop 0x3007000 // using as a safe??? place
-#define SIZEOF_NewWMLoop 0xa00   // to be safe?
+#define IRAM_NewWMLoop 0x3007000
+#define SIZEOF_NewWMLoop 0xB00
 
 int MU_AllDisable(void);
 int MU_AllEnable(void);
@@ -25,9 +25,18 @@ const u8 originCoords[106][2];
 extern int ProtagID_Link;
 
 static const u16 CoinSpawnCoords[][2] = {
-    {8 << 6, 4 << 6},  {11 << 6, 7 << 6}, {14 << 6, 7 << 6},
-    {2 << 6, 9 << 6},  {9 << 6, 12 << 6}, {1 << 6, 5 << 6},
+    {8 << 6, 4 << 6}, {11 << 6, 7 << 6}, {14 << 6, 7 << 6},
+    {2 << 6, 9 << 6}, {9 << 6, 12 << 6}, {1 << 6, 5 << 6},
 };
+
+#ifdef TEST_COIN_LOC
+#ifndef TEST_COIN_X
+#define TEST_COIN_X (2 << 6) // Pewter City
+#endif
+#ifndef TEST_COIN_Y
+#define TEST_COIN_Y (5 << 6)
+#endif
+#endif
 // procs
 
 extern const ProcCode Proc_Soaring[] = { // expose it to lyn
@@ -67,6 +76,9 @@ extern const s16 cam_pivot_dx_Angles[16] = DX_TABLE(
 extern const s16 cam_pivot_dy_Angles[16] =
     DY_TABLE((MIN_Z_DISTANCE + SHADOW_DISTANCE));
 //
+
+// s16 CoinScreenX = -1;
+// s16 CoinScreenY = -1;
 
 u16 *vid_flip(u16 *vid_page) {
 #ifdef __PAGEFLIP__
@@ -258,14 +270,29 @@ void SetUpNewWMGraphics(SoarProc *CurrentProc) {
 };
 
 void SoarSpawnCoin(SoarProc *CurrentProc) {
+  if (!CoinsEnabled) {
+    CurrentProc->coinZ = 0;
+    return;
+  }
+
+#ifdef TEST_COIN_LOC
+  CurrentProc->coinX = TEST_COIN_X;
+  CurrentProc->coinY = TEST_COIN_Y;
+#else
   int spawn = NextRN_N(sizeof(CoinSpawnCoords) / sizeof(CoinSpawnCoords[0]));
 
   CurrentProc->coinX = CoinSpawnCoords[spawn][0];
   CurrentProc->coinY = CoinSpawnCoords[spawn][1];
+#endif
   CurrentProc->coinZ = 1;
 }
 
 void SoarCollectCoin(SoarProc *CurrentProc) {
+  if (!CoinsEnabled) {
+    CurrentProc->coinZ = 0;
+    return;
+  }
+
   SetPartyGoldAmount(GetPartyGoldAmount() + 1000);
   if (gChapterData.muteSfxOption == 0)
     m4aSongNumStart(0x5A);
@@ -273,7 +300,8 @@ void SoarCollectCoin(SoarProc *CurrentProc) {
 }
 
 void LoadSprite() {
-
+  CpuFastFill(0, &tile_mem[5][CoinBaseTID],
+              (512 - CoinBaseTID) * sizeof(TILE)); // fix for mgba
   if (isMaleAvatar()) {
     LZ77UnCompVram(&pkSprite, &tile_mem[5][PKBaseTID]);
     ApplyPalette((void *)&pkPal, 0x1c);
@@ -287,6 +315,7 @@ void LoadSprite() {
   LZ77UnCompVram(&minimapSprite, &tile_mem[5][MinimapBaseTID]);
   LZ77UnCompVram(&fpsSprite, &tile_mem[5][FPSBaseTID]); // fps numbers
   LZ77UnCompVram(&lensFlareSprite, &tile_mem[5][LensFlareBaseTID]);
+
   LZ77UnCompVram(&coinSprite, &tile_mem[5][CoinBaseTID]);
   LZ77UnCompVram(&coinMinimapSprite, &tile_mem[5][CoinMinimapBaseTID]);
   // LoadMapSpritePalettes(); //puts in palette 0xc
@@ -556,6 +585,67 @@ static inline int getPtHeight_thumb(int ptx, int pty) {
     return 0;
   return heightMap[(pty << MAP_DIMENSIONS_LOG2) + ptx];
 };
+
+void SoarProjectCoin(SoarProc *CurrentProc) {
+  if (!CoinsEnabled || !CurrentProc->coinZ) {
+    *CoinScreenX = -1;
+    *CoinScreenY = -1;
+    return;
+  }
+
+  int yaw = CurrentProc->sPlayerYaw & 0xF;
+  int rightYaw = (yaw + 4) & 0xF;
+  int relX = CurrentProc->coinX - CurrentProc->sPlayerPosX;
+  int relY = CurrentProc->coinY - CurrentProc->sPlayerPosY;
+  int forward =
+      ((relX * cam_pivot_dx_Angles[yaw]) + (relY * cam_pivot_dy_Angles[yaw])) >>
+      6;
+  int lateral = ((relX * cam_pivot_dx_Angles[rightYaw]) +
+                 (relY * cam_pivot_dy_Angles[rightYaw])) >>
+                6;
+
+  if ((forward <= 4) || (forward > 512)) {
+    *CoinScreenX = -1;
+    *CoinScreenY = -1;
+    return;
+  }
+
+  int column = 64 + Div(lateral << 6, forward);
+  int zdist = forward + (forward >> 2) + (forward >> 3) + (forward >> 5);
+
+  if ((column < -32) || (column > 160) || (zdist <= 0) || (zdist > 510)) {
+    *CoinScreenX = -1;
+    *CoinScreenY = -1;
+    return;
+  }
+
+  int coinHeight =
+      getPtHeight_thumb(CurrentProc->coinX, CurrentProc->coinY) + 16;
+  if (coinHeight > 255)
+    coinHeight = 255;
+
+  int zIndex = zdist >> 1;
+  int screenX = 48 + column;
+  int screenY = 136 - hosTables[CurrentProc->sPlayerStepZ][zIndex][coinHeight];
+
+  *CoinScreenX = screenX;
+  *CoinScreenY = screenY;
+
+#ifdef COIN_DEBUG
+  if (CoinCalibEnabled) {
+    CoinCalibData[15] = forward;
+    CoinCalibData[16] = lateral;
+    CoinCalibData[17] = column;
+    CoinCalibData[18] = zdist;
+    CoinCalibData[19] = screenX;
+    CoinCalibData[20] = CurrentProc->coinX;
+    CoinCalibData[21] = CurrentProc->coinY;
+    CoinCalibData[22] = relX;
+    CoinCalibData[23] = relY;
+    CoinCalibData[24] = screenY;
+  }
+#endif
+}
 
 int thumb_loop(SoarProc *CurrentProc) // return 1 if continuing, else 0 to break
 {
