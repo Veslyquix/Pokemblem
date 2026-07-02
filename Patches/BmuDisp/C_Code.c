@@ -49,6 +49,43 @@ extern u16 SmsObjVramUpperChr;
 #define SMS_16X16_GFX_SLOT_COUNT (0x80 - SMS_32X32_GFX_SLOT_STRIDE)
 #define MMS_RESERVED_OBJ_CHR 0x39C
 #define MMS_RESERVED_GFX_SLOT_START (SMS_16X16_GFX_SLOT_COUNT - SMS_32X32_GFX_SLOT_STRIDE)
+
+// static u8 CONST_DATA sMuImgBufOffLut[MU_MAX_COUNT + 1] = {
+// 0, // dummy because active ids start at 1
+// 0, 2, 1, 3
+// };
+// changed to 0, 0, 1, 2, 3
+
+// void * GetMuImgBufById(int slot) // 8079558
+// {
+// return gMUGfxBuffer + (sMuImgBufOffLut[slot] * MU_GFX_MAX_SIZE);
+// }
+extern struct MuConfig sMuConfig[MU_MAX_COUNT];
+static u16 const sMuChrOffLut_Default2[MU_MAX_COUNT] = { 0x00, 0x10, 0x08, 0x18 };
+struct MuConfig * GetDefaultMuConfig(int objTileId, u8 * outIndex)
+{
+    int i;
+    for (i = 0; i < MU_MAX_COUNT; ++i)
+    {
+        if (sMuConfig[i].slot)
+            continue;
+
+        sMuConfig[i].slot = i + 1;
+        if (!i)
+        {
+            sMuConfig[i].chr = objTileId;
+        }
+        else
+        {
+            sMuConfig[i].chr = sMuChrOffLut_Default2[i] + 0x278;
+        }
+
+        *outIndex = i;
+        return sMuConfig + i;
+    }
+    return NULL;
+}
+
 extern int TradeLeftFaceChr;
 extern int TradeRightFaceChr;
 // Capture hack hooks this for enemies to use portrait fid 1

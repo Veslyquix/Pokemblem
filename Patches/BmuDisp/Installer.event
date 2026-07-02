@@ -1,4 +1,19 @@
 
+// vanilla buffer 
+//02034010 gSMSGfxBuffer_Frame1
+//02036010 gSMSGfxBuffer_Frame2
+//02038010 gSMSGfxBuffer_Frame3
+
+
+// 2004be0 B gMUGfxBuffer[slot0]
+// 2006de0 B gMUGfxBuffer[slot1]
+// 2008fe0 B gMUGfxBuffer[slot2]
+
+// #define SMS_Frame1_Buffer 0x201A5C8 
+#define SMS_Frame1_Buffer 0x2008fe0  //[2008000..200c000]!!
+#define SMS_Frame2_Buffer 0x20165c8
+#define SMS_Frame3_Buffer 0x2034010
+
 
 // 8a177a0 T ProcScr_UnitListScreen_Field
 // 8a178c0 T ProcScr_UnitListScreen_PrepMenu
@@ -44,7 +59,17 @@ ALIGN 4
 PlaytimeGfx:
 #incbin "PlaytimeGfx.dmp" 
 
+#define BattleForecast2x 0x2C8 // 0x2D8 vanilla 
+
 PUSH 
+// sMuImgBufOffLut change MU buffer order IDs so we can use SMS_Frame1_Buffer during map battles 
+ORG $9a2c7a
+BYTE 0 0 1 2 3 
+
+ORG $36E10 
+WORD 0x6010000|(BattleForecast2x<<5)
+ORG $36FE4 
+WORD 0x2000|(BattleForecast2x-2)
 
 // issue: prep view map press R button 
 // added gProcScr_PrepHelpPrompt to ProcExceptionsList in ExtendWepDescBox 
@@ -272,3 +297,74 @@ ORG $8d0c0
 WORD 0x6013140 //CpuFastCopy(BG_CHR_ADDR(0x175), OBJ_CHR_ADDR(0x2EA), CHR_SIZE);
 POP 
 */ 
+
+
+
+PUSH 
+ORG $266a6 
+BYTE 0x7F 
+
+ORG $26884
+BYTE 0x3E 
+
+ORG $26888 
+BYTE 0x3E 
+
+POP 
+
+
+
+PUSH 
+// SMS frame 1 buffer 
+ORG $26958
+WORD SMS_Frame1_Buffer 
+ORG $26a2c 
+WORD SMS_Frame1_Buffer 
+ORG $26b24 
+WORD SMS_Frame1_Buffer 
+ORG $26c18 
+WORD SMS_Frame1_Buffer 
+ORG $26d0c
+WORD SMS_Frame1_Buffer 
+ORG $26dfc
+WORD SMS_Frame1_Buffer 
+ORG $26f14
+WORD SMS_Frame1_Buffer 
+ORG $26f84
+WORD SMS_Frame1_Buffer 
+ORG $26fec
+WORD SMS_Frame1_Buffer 
+ORG $27058
+WORD SMS_Frame1_Buffer 
+ORG $270d4
+WORD SMS_Frame1_Buffer 
+ORG $27138
+WORD SMS_Frame1_Buffer 
+
+ORG $26F8C
+WORD SMS_Frame2_Buffer 
+ORG $26FD0 
+WORD SMS_Frame2_Buffer 
+ORG $2705C 
+WORD SMS_Frame2_Buffer 
+ORG $27094 
+WORD SMS_Frame2_Buffer 
+ORG $27108 
+WORD SMS_Frame2_Buffer 
+
+ORG $26F90 
+WORD SMS_Frame3_Buffer 
+ORG $26FB8
+WORD SMS_Frame3_Buffer 
+ORG $27060
+WORD SMS_Frame3_Buffer 
+ORG $27088 
+WORD SMS_Frame3_Buffer 
+ORG $270FC 
+WORD SMS_Frame3_Buffer 
+
+POP 
+
+
+
+
