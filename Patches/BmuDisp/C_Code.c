@@ -96,6 +96,13 @@ struct MuConfig * GetDefaultMuConfig(int objTileId, u8 * outIndex)
 
 extern int TradeLeftFaceChr;
 extern int TradeRightFaceChr;
+extern int ItemMenuFaceChr;
+
+void HookFace_ItemCommandEffect(int fid, ProcPtr proc)
+{
+    // StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
+    StartFaceChibiSpr(120, 0, fid, ItemMenuFaceChr, 3, 1, (void *)proc);
+}
 // Capture hack hooks this for enemies to use portrait fid 1
 void TradeMenu_InitItemDisplay(struct TradeMenuProc * proc)
 {
@@ -1325,21 +1332,62 @@ void TornOutUnitSprite(struct Unit * unit, int timer)
         sUnitSpriteSlots[slot] |= 0xff;
 }
 
+extern u8 * sSyncSMS;
+void ResetSMSSync(void)
+{
+
+    *sSyncSMS = 0;
+}
+
 void SyncUnitSpriteSheet(void)
 {
     int frame = GetGameClock() % 72;
+    int bitflags = *sSyncSMS;
 
-    if (frame == 0)
+    if (frame >= 70)
+    {
+        *sSyncSMS = 0;
+        return;
+    }
+
+    if (frame >= 68)
+    {
+        if (!(bitflags & 8))
+        {
+            CopySMSGfxBufferToObjVram(1);
+            *sSyncSMS |= 8;
+        }
+
+        return;
+    }
+
+    if (frame >= 36)
+    {
+        if (!(bitflags & 4))
+        {
+            CopySMSGfxBufferToObjVram(2);
+            *sSyncSMS |= 4;
+        }
+
+        return;
+    }
+
+    if (frame >= 32)
+    {
+        if (!(bitflags & 2))
+        {
+            CopySMSGfxBufferToObjVram(1);
+            *sSyncSMS |= 2;
+        }
+
+        return;
+    }
+
+    if (!(bitflags & 1))
+    {
         CopySMSGfxBufferToObjVram(0);
-
-    if (frame == 32)
-        CopySMSGfxBufferToObjVram(1);
-
-    if (frame == 36)
-        CopySMSGfxBufferToObjVram(2);
-
-    if (frame == 68)
-        CopySMSGfxBufferToObjVram(1);
+        *sSyncSMS |= 1;
+    }
 }
 
 void ForceSyncUnitSpriteSheet(void)

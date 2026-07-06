@@ -50,10 +50,14 @@ TradeLeftFaceChr:
 WORD 0x18 
 TradeRightFaceChr: 
 WORD 0x58 
+ItemMenuFaceChr:
+WORD 0x18 
 StatusScreenChrLink:
 WORD StatusScreenChr
 StatusScreenTextChrLink:
 WORD StatusScreenTextChr
+sSyncSMS:
+WORD 0x201f147 // right before gUnk_SoundRoom_0201F148 
 
 ALIGN 4 
 PlaytimeGfx:
@@ -65,6 +69,12 @@ PUSH
 
 ORG $B4C84 
 callHackNew(HookFace_Shop_Init)
+SHORT $46c0 
+
+
+ORG $23312
+SHORT $1C29 // mov r1, r5 (proc) 
+callHackNew(HookFace_ItemCommandEffect)
 SHORT $46c0 
 
 
@@ -133,11 +143,14 @@ ORG $590fec
 WORD 0x180<<5 6
 WORD 0x200<<5 7 
 WORD 0x280<<5 8 // overlaps with MMS 
-WORD 0x380 9 // overlaps with SMS 
+WORD 0x380<<5 10 // overlaps with SMS - palette 10 here instead of 9 because prep list, and face slot 3 is unused elsewhere maybe  
 
 ORG $205c14 
 WORD 0x200<<5 6
 WORD 0x280<<5 7 
+
+ORG $9f01e 
+BYTE 3 // face slot 3 in 8005544 SetupFaceGfxData
 
 ORG $99714 // when pressing R, end face while in prep Items section 
 callHackNew(Hook_sub_80996E8) 

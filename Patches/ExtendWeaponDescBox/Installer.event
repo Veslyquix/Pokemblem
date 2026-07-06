@@ -143,6 +143,9 @@ ORG $9D9FC // Supply	//{U}
 //ORG $9FC9C // Supply	//{J}
 WORD 0x6012000 // 13000 vanilla 
 
+ORG $9C7EC // prep item use 
+WORD 0x6013000 // 0x6014000 vanilla 
+
 //ORG $9F0C4 // List 
 //WORD 0x6013000 // 12000 vanilla 
 
