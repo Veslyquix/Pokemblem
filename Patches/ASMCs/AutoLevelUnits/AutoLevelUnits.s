@@ -132,8 +132,8 @@ lsr r2, #30
 sub r2, #1 
 mov r3, #1 
 and r2, r3 
-lsl r2, #1 @ to 1/4 
-lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
+@lsl r2, #1 @ to 1/4 
+lsr r0, r2 @ if autolevels are hidden, 1/2 Hp growths 
 
 mov r1, r7 
 blh EnemyAutoLevel @takes r1 as # of levels and r0 as growth for that level 
@@ -222,7 +222,7 @@ sub r2, #1
 mov r3, #1 
 and r2, r3 
 @lsl r2, #1 @ to 1/4 
-lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
+lsr r0, r2 @ if autolevels are hidden, 1/2 Def/Res/Spd/Hp growths 
 
 mov r1, r7 
 blh EnemyAutoLevel @takes r1 as # of levels and r0 as growth for that level 
@@ -249,7 +249,7 @@ sub r2, #1
 mov r3, #1 
 and r2, r3 
 @lsl r2, #1 @ to 1/4 
-lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
+@lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
 
 mov r1, r7 
 blh EnemyAutoLevel @takes r1 as # of levels and r0 as growth for that level 
@@ -276,7 +276,7 @@ sub r2, #1
 mov r3, #1 
 and r2, r3 
 @lsl r2, #1 @ to 1/4 
-lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
+@lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
 
 mov r1, r7 
 blh EnemyAutoLevel @takes r1 as # of levels and r0 as growth for that level 

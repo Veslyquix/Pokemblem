@@ -449,7 +449,6 @@ String("V1.21.00             Jun 2026") ; BYTE 0; POP // this overflows into the
 #define MistyRoute1Flag 0x134
 #define MistyRoute5Flag 0x135
 #define SnorlaxFlag 0x136 
- 
 
 // Pewter City: visit gym with flag 0x12C 
 

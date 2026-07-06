@@ -1,6 +1,7 @@
 #include "C_Code.h"
 #include "global.h"
 #include "muctrl.h"
+#include "prepscreen.h"
 
 extern int CheckIfCaught(int classID);
 extern void AutoLevelSummonedUnit(struct Unit * unit, int levels);
@@ -12,7 +13,8 @@ extern int DefaultUnitID_Link;
 
 enum
 {
-    DEBUG_STUFF_CHAPTER_COUNT = 128
+    DEBUG_STUFF_CHAPTER_COUNT = 128,
+    DEBUG_PREP_LIST_COUNT = 150
 };
 
 struct DebugStuffStruct
@@ -25,6 +27,34 @@ struct DebugStuffStruct
     const u16 * flagList;
 };
 extern const struct DebugStuffStruct * DebugStuff[];
+extern const u16 DebugRemoveFlagsList[];
+
+static int DebugIsSameItem(int convoyItem, int listedItem)
+{
+    if (!convoyItem)
+        return 0;
+
+    if (ITEM_USES(listedItem))
+        return convoyItem == listedItem;
+
+    return ITEM_INDEX(convoyItem) == ITEM_INDEX(listedItem);
+}
+
+static int DebugConvoyHasItem(int item)
+{
+    int i;
+    int count = GetConvoyItemCount();
+    u16 * data = GetConvoyItemArray();
+
+    for (i = 0; i < count; i++)
+    {
+        if (DebugIsSameItem(data[i], item))
+            return 1;
+    }
+
+    return 0;
+}
+
 static void DebugAddItemsToConvoy(const u16 * itemList)
 {
     int item;
@@ -32,22 +62,17 @@ static void DebugAddItemsToConvoy(const u16 * itemList)
     if (!itemList)
         return;
 
-    int i = GetConvoyItemCount();
-    u16 * data = GetConvoyItemArray();
     while (*itemList)
     {
         item = *itemList++;
 
+        if (DebugConvoyHasItem(item))
+            continue;
+
         if (!ITEM_USES(item))
             item = MakeNewItem(item);
 
-        data[i] = item;
-        i++;
-
-        if (i >= 200) // Convoy is full
-        {
-            return;
-        }
+        AddItemToConvoy(item);
     }
 }
 
@@ -58,6 +83,15 @@ static void DebugSetFlags(const u16 * flagList)
 
     while (*flagList)
         SetFlag(*flagList++);
+}
+
+static void DebugClearFlags(const u16 * flagList)
+{
+    if (!flagList)
+        return;
+
+    while (*flagList)
+        ClearFlag(*flagList++);
 }
 
 extern void FindFreeTile(struct Unit * unit, int * xOut, int * yOut);
@@ -79,6 +113,7 @@ static void DebugPlaceUnitNearActiveUnit(struct Unit * unit)
     }
 }
 
+extern int BerserkGeneLink;
 static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
 {
     int classID;
@@ -90,37 +125,63 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
 
     gEventSlots[1] = DefaultUnitID_Link; // unit ID
     gEventSlots[3] = 1;                  // visible levels
+    int level = debugStuff->level;
     int i = 0;
+    for (; i < 0x40; ++i)
+    {
+        unit = GetUnit(i);
+        if (UNIT_IS_VALID(unit))
+        {
+            if (unit->state & (US_NOT_DEPLOYED | US_BIT16))
+            {
+                ClearUnit(unit);
+            }
+        }
+    }
+    i = 0;
+
     while (*classList)
     {
+        int isCaught;
+
         classID = *classList++;
-        if (i > 15)
+        isCaught = CheckIfCaught(classID);
+
+        if (i > 40)
         {
             return;
         }
 
-        if (!CheckIfCaught(classID))
+        // if (!isCaught || !DebugPrepListHasClass(classID))
+        // {
+        unit = LoadUnit(DefaultUnit);
+        int uid = FindFreeSlot();
+        if (unit && uid != 0xFF)
         {
-            unit = LoadUnit(DefaultUnit);
-            int uid = FindFreeSlot();
-            if (unit && uid != 0xFF)
-            {
-                i++;
+            i++;
 
-                unit->pClassData = &classTablePoin[classID];
-                unit->pCharacterData = GetCharacterData(uid);
+            unit->pClassData = &classTablePoin[classID];
+            unit->pCharacterData = GetCharacterData(uid);
+            if (!isCaught)
                 RegisterPokemon(classID);
-                AutoLevelSummonedUnit(unit, debugStuff->level);
-                unit->items[0] = 0;
-                unit->items[1] = 0;
-                unit->items[2] = 0;
-                unit->items[3] = 0;
-                DebugPlaceUnitNearActiveUnit(unit);
-                UnitChangeFaction(unit, FACTION_BLUE);
-            }
-        }
-    }
+            AutoLevelSummonedUnit(unit, level);
+            unit->items[0] = BerserkGeneLink;
+            unit->items[1] = 0;
+            unit->items[2] = 0;
+            unit->items[3] = 0;
 
+            if (i < 16)
+            {
+                DebugPlaceUnitNearActiveUnit(unit);
+            }
+            else
+            {
+                unit->state |= US_NOT_DEPLOYED | US_HIDDEN;
+            }
+            UnitChangeFaction(unit, FACTION_BLUE);
+        }
+        // }
+    }
     RefreshAllies();
 }
 
@@ -139,6 +200,7 @@ void DebugLoadUnits(void)
 
     SetPartyGoldAmount(debugStuff->gold);
     DebugAddItemsToConvoy(debugStuff->itemList);
+    DebugClearFlags(DebugRemoveFlagsList);
     DebugSetFlags(debugStuff->flagList);
     DebugLoadClasses(debugStuff);
 }
