@@ -62,6 +62,12 @@ PlaytimeGfx:
 #define BattleForecast2x 0x2C8 // 0x2D8 vanilla 
 
 PUSH 
+
+ORG $B4C84 
+callHackNew(HookFace_Shop_Init)
+SHORT $46c0 
+
+
 // sMuImgBufOffLut change MU buffer order IDs so we can use SMS_Frame1_Buffer during map battles 
 ORG $9a2c7a
 BYTE 0 0 1 2 3 

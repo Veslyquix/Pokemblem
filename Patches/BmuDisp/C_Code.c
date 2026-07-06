@@ -60,6 +60,14 @@ extern u16 SmsObjVramUpperChr;
 // {
 // return gMUGfxBuffer + (sMuImgBufOffLut[slot] * MU_GFX_MAX_SIZE);
 // }
+
+extern struct TalkState * sTalkState;
+void HookFace_Shop_Init(int fid)
+{
+    int slot = 2;
+    sTalkState->faces[1] = StartFace(slot, fid, 32, 8, 3);
+}
+
 extern struct MuConfig sMuConfig[MU_MAX_COUNT];
 static u16 const sMuChrOffLut_Default2[MU_MAX_COUNT] = { 0x00, 0x10, 0x08, 0x18 };
 struct MuConfig * GetDefaultMuConfig(int objTileId, u8 * outIndex)
