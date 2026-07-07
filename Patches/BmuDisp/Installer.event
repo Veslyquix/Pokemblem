@@ -28,8 +28,6 @@
 
 // UseUnitSprite needs to be uncommented for vanilla build 
 
-#define USE_256_COLS
-
 
 #include "C_Code.lyn.event" 
 // #include "MirrorSprites.lyn.event" 
@@ -269,24 +267,6 @@ SmsObjVramUpperChr:
 SHORT SmsObjVram2
 
 sSlotToChrLut2:
-#ifdef USE_256_COLS
-SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x00)  (SmsObjVram1 + 2 * CHR_LINE + 0x00)  (SmsObjVram1 + 0 * CHR_LINE + 0x04)  (SmsObjVram1 + 2 * CHR_LINE + 0x04)
-SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x08)  (SmsObjVram1 + 2 * CHR_LINE + 0x08)  (SmsObjVram1 + 0 * CHR_LINE + 0x0C)  (SmsObjVram1 + 2 * CHR_LINE + 0x0C)
-SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x10)  (SmsObjVram1 + 2 * CHR_LINE + 0x10)  (SmsObjVram1 + 0 * CHR_LINE + 0x14)  (SmsObjVram1 + 2 * CHR_LINE + 0x14)
-SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x18)  (SmsObjVram1 + 2 * CHR_LINE + 0x18)  (SmsObjVram1 + 0 * CHR_LINE + 0x1C)  (SmsObjVram1 + 2 * CHR_LINE + 0x1C)
-SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x00)  (SmsObjVram1 + 6 * CHR_LINE + 0x00)  (SmsObjVram1 + 4 * CHR_LINE + 0x04)  (SmsObjVram1 + 6 * CHR_LINE + 0x04)
-SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x08)  (SmsObjVram1 + 6 * CHR_LINE + 0x08)  (SmsObjVram1 + 4 * CHR_LINE + 0x0C)  (SmsObjVram1 + 6 * CHR_LINE + 0x0C)
-SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x10)  (SmsObjVram1 + 6 * CHR_LINE + 0x10)  (SmsObjVram1 + 4 * CHR_LINE + 0x14)  (SmsObjVram1 + 6 * CHR_LINE + 0x14)
-SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x18)  (SmsObjVram1 + 6 * CHR_LINE + 0x18)  (SmsObjVram1 + 4 * CHR_LINE + 0x1C)  (SmsObjVram1 + 6 * CHR_LINE + 0x1C)
-SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x00)  (SmsObjVram2 + 2 * CHR_LINE + 0x00)  (SmsObjVram2 + 0 * CHR_LINE + 0x04)  (SmsObjVram2 + 2 * CHR_LINE + 0x04)
-SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x08)  (SmsObjVram2 + 2 * CHR_LINE + 0x08)  (SmsObjVram2 + 0 * CHR_LINE + 0x0C)  (SmsObjVram2 + 2 * CHR_LINE + 0x0C)
-SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x10)  (SmsObjVram2 + 2 * CHR_LINE + 0x10)  (SmsObjVram2 + 0 * CHR_LINE + 0x14)  (SmsObjVram2 + 2 * CHR_LINE + 0x14)
-SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x18)  (SmsObjVram2 + 2 * CHR_LINE + 0x18)  (SmsObjVram2 + 0 * CHR_LINE + 0x1C)  (SmsObjVram2 + 2 * CHR_LINE + 0x1C)
-SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x00)  (SmsObjVram2 + 6 * CHR_LINE + 0x00)  (SmsObjVram2 + 4 * CHR_LINE + 0x04)  (SmsObjVram2 + 6 * CHR_LINE + 0x04)
-SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x08)  (SmsObjVram2 + 6 * CHR_LINE + 0x08)  (SmsObjVram2 + 4 * CHR_LINE + 0x0C)  (SmsObjVram2 + 6 * CHR_LINE + 0x0C)
-SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x10)  (SmsObjVram2 + 6 * CHR_LINE + 0x10)  (SmsObjVram2 + 4 * CHR_LINE + 0x14)  (SmsObjVram2 + 6 * CHR_LINE + 0x14)
-SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x18)  (SmsObjVram2 + 6 * CHR_LINE + 0x18)  (SmsObjVram2 + 4 * CHR_LINE + 0x1C)  (SmsObjVram2 + 6 * CHR_LINE + 0x1C)
-#else
 SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x00)  (SmsObjVram1 + 2 * CHR_LINE + 0x00)  (SmsObjVram1 + 0 * CHR_LINE + 0x02)  (SmsObjVram1 + 2 * CHR_LINE + 0x02)
 SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x04)  (SmsObjVram1 + 2 * CHR_LINE + 0x04)  (SmsObjVram1 + 0 * CHR_LINE + 0x06)  (SmsObjVram1 + 2 * CHR_LINE + 0x06)
 SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x08)  (SmsObjVram1 + 2 * CHR_LINE + 0x08)  (SmsObjVram1 + 0 * CHR_LINE + 0x0A)  (SmsObjVram1 + 2 * CHR_LINE + 0x0A)
@@ -319,7 +299,6 @@ SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x10)  (SmsObjVram2 + 6 * CHR_LINE + 0x10
 SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x14)  (SmsObjVram2 + 6 * CHR_LINE + 0x14)  (SmsObjVram2 + 4 * CHR_LINE + 0x16)  (SmsObjVram2 + 6 * CHR_LINE + 0x16)
 SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x18)  (SmsObjVram2 + 6 * CHR_LINE + 0x18)  (SmsObjVram2 + 4 * CHR_LINE + 0x1A)  (SmsObjVram2 + 6 * CHR_LINE + 0x1A)
 SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x1C)  (SmsObjVram2 + 6 * CHR_LINE + 0x1C)  (SmsObjVram2 + 4 * CHR_LINE + 0x1E)  (SmsObjVram2 + 6 * CHR_LINE + 0x1E)
-#endif
 
 
 

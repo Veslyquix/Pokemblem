@@ -36,24 +36,17 @@ extern u8 * const sUnitSpriteSlots;
 
 extern u16 SmsObjVramLowerChr;
 extern u16 SmsObjVramUpperChr;
-#define USE_256_COLS
+
 #define SMS_VRAM_TILE_ROWS 16
 #define SMS_GFX_BUFFER_SIZE (SMS_VRAM_TILE_ROWS * 0x20 * CHR_SIZE)
 #define SMS_GFX_BUFFER_SPLIT_SIZE (SMS_GFX_BUFFER_SIZE / 2)
 #define SMS_OBJ_VRAM_LOWER ((u8 *)0x06011000)
 #define SMS_OBJ_CHR_REMAP_THRESHOLD (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
 #define SMS_OBJ_CHR_REMAP_OFFSET (SMS_GFX_BUFFER_SPLIT_SIZE / CHR_SIZE)
-#ifdef USE_256_COLS
-#define SMS_SHEET_CHR_SIZE (CHR_SIZE * 2)
-#define SMS_32X_GFX_SLOT_BASE 0x20
-#else
-#define SMS_SHEET_CHR_SIZE CHR_SIZE
-#define SMS_32X_GFX_SLOT_BASE 0x40
-#endif
 
 #define SMS_16X32_GFX_SLOT_STRIDE 2
 #define SMS_32X32_GFX_SLOT_STRIDE 4
-#define SMS_16X16_GFX_SLOT_COUNT ((SMS_32X_GFX_SLOT_BASE * 2) - SMS_32X32_GFX_SLOT_STRIDE)
+#define SMS_16X16_GFX_SLOT_COUNT (0x80 - SMS_32X32_GFX_SLOT_STRIDE)
 #define MMS_RESERVED_OBJ_CHR 0x39C
 #define MMS_RESERVED_GFX_SLOT_START (SMS_16X16_GFX_SLOT_COUNT - SMS_32X32_GFX_SLOT_STRIDE)
 
@@ -509,8 +502,8 @@ void CopyUnitSpriteFrameToSmsBuffer(int frame, void * src, int dstChr, int width
     for (i = 0; i < heightTiles; i++)
     {
         CpuFastCopy(
-            src + i * widthTiles * SMS_SHEET_CHR_SIZE,
-            GetSMSGfxBuffer(frame) + dstChr * CHR_SIZE + i * CHR_LINE * CHR_SIZE, widthTiles * SMS_SHEET_CHR_SIZE);
+            src + i * widthTiles * CHR_SIZE, GetSMSGfxBuffer(frame) + dstChr * CHR_SIZE + i * CHR_LINE * CHR_SIZE,
+            widthTiles * CHR_SIZE);
     }
 }
 
@@ -519,7 +512,7 @@ void CopyUnitSpriteSheetToSmsBuffers(void * data, int dstChr, u16 size, u32 id)
     int i;
     int widthTiles = size < UNIT_ICON_SIZE_32x32 ? 2 : 4;
     int heightTiles = size > UNIT_ICON_SIZE_16x16 ? 4 : 2;
-    int frameSize = widthTiles * heightTiles * SMS_SHEET_CHR_SIZE;
+    int frameSize = widthTiles * heightTiles * CHR_SIZE;
 
     Decompress(data, gGenericBuffer);
 
@@ -1055,7 +1048,7 @@ void EnsureSMS32xGfxCounterHasRoom(int slotCount)
         limit = MMS_RESERVED_GFX_SLOT_START;
 
     if (gSMS32xGfxIndexCounter > limit)
-        gSMS32xGfxIndexCounter = SMS_32X_GFX_SLOT_BASE;
+        gSMS32xGfxIndexCounter = 0x40;
 }
 
 /*
@@ -1112,14 +1105,14 @@ int ApplyUnitSpriteImage16x16(int slot, u32 id)
 
     for (i = 0; i < 3; i++)
     {
-        int imgOff = (i * frameStep) * 4 * SMS_SHEET_CHR_SIZE;
+        int imgOff = (i * frameStep) * 4 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 0 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,
+            2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 2 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff,
+            2 * CHR_SIZE);
     }
     return bufferChr;
 }
@@ -1134,17 +1127,17 @@ int ApplyUnitSpriteUiImage16x16(int slot, u32 id)
 
     for (i = 0; i < 3; i++)
     {
-        int imgOff = (i * frameStep) * 4 * SMS_SHEET_CHR_SIZE;
+        int imgOff = (i * frameStep) * 4 * CHR_SIZE;
 
-        CpuFastFill(0, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
-        CpuFastFill(0, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+        CpuFastFill(0, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
+        CpuFastFill(0, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff, 2 * CHR_SIZE);
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 0 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff,
+            2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 2 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
+            2 * CHR_SIZE);
     }
     return bufferChr;
 }
@@ -1160,20 +1153,20 @@ int ApplyUnitSpriteImage16x32(int slot, u32 id)
 
     for (i = 0; i < 3; i++)
     {
-        int imgOff = (i * frameStep) * 8 * SMS_SHEET_CHR_SIZE;
+        int imgOff = (i * frameStep) * 8 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 0 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,
+            2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 2 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 2 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff,
+            2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 4 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 4 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff,
+            2 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 6 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff, 2 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 6 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
+            2 * CHR_SIZE);
     }
     return bufferChr;
 }
@@ -1188,20 +1181,20 @@ int ApplyUnitSpriteImage32x32(int slot, u32 id)
     int frameStep = id ? id : 1;
     for (i = 0; i < 3; i++)
     {
-        int imgOff = (i * frameStep) * 16 * SMS_SHEET_CHR_SIZE;
+        int imgOff = (i * frameStep) * 16 * CHR_SIZE;
 
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 0 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff, 4 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 0 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 0 * CHR_SIZE * CHR_LINE + outOff,
+            4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 4 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff, 4 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 4 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 1 * CHR_SIZE * CHR_LINE + outOff,
+            4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 8 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff, 4 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 8 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 2 * CHR_SIZE * CHR_LINE + outOff,
+            4 * CHR_SIZE);
         CpuFastCopy(
-            UnitSpriteUnpackBuf2 + 12 * SMS_SHEET_CHR_SIZE + imgOff,
-            GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff, 4 * SMS_SHEET_CHR_SIZE);
+            UnitSpriteUnpackBuf2 + 12 * CHR_SIZE + imgOff, GetSMSGfxBuffer(i) + 3 * CHR_SIZE * CHR_LINE + outOff,
+            4 * CHR_SIZE);
     }
     return bufferChr;
 }
