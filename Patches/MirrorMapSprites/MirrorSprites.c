@@ -300,6 +300,8 @@ int UseUnitSprite(u32 id)
         ForceSyncUnitSpriteSheet();
 }
 */
+#define USE_256_COLS OAM0_256COLORS // for 256 col mode
+// #define USE_256_COLS 0
 
 void PutUnitSpritesOam(void)
 {
@@ -339,39 +341,41 @@ void PutUnitSpritesOam(void)
             {
                 case 0:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y + verticalShake), gObject_16x16_HFlipped,
-                        it->oam2Base + OAM2_LAYER(2));
+                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y + verticalShake) | USE_256_COLS,
+                        gObject_16x16_HFlipped, it->oam2Base + OAM2_LAYER(2));
                     break;
 
                 case 1:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake),
+                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake) | USE_256_COLS,
                         gObject_16x32_HFlipped, it->oam2Base + OAM2_LAYER(2));
                     break;
 
                 case 2:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X((x - 8) + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake),
-                        gObject_32x32_HFlipped, it->oam2Base + OAM2_LAYER(2));
+                        OAM1_X((x - 8) + horizontalShake + 0x200),
+                        OAM0_Y(0x100 + y - 16 + verticalShake) | USE_256_COLS, gObject_32x32_HFlipped,
+                        it->oam2Base + OAM2_LAYER(2));
                     break;
 
                 case 3:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y + verticalShake), gObject_16x16_HFlipped,
-                        it->oam2Base + OAM2_LAYER(3));
+                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y + verticalShake) | USE_256_COLS,
+                        gObject_16x16_HFlipped, it->oam2Base + OAM2_LAYER(3));
                     ;
                     break;
 
                 case 4:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake),
+                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake) | USE_256_COLS,
                         gObject_16x32_HFlipped, it->oam2Base + OAM2_LAYER(3));
                     break;
 
                 case 5:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X((x - 8) + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake),
-                        gObject_32x32_HFlipped, it->oam2Base + OAM2_LAYER(3));
+                        OAM1_X((x - 8) + horizontalShake + 0x200),
+                        OAM0_Y(0x100 + y - 16 + verticalShake) | USE_256_COLS, gObject_32x32_HFlipped,
+                        it->oam2Base + OAM2_LAYER(3));
                     break;
             }
         }
@@ -382,39 +386,41 @@ void PutUnitSpritesOam(void)
             {
                 case 0:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y + verticalShake), gObject_16x16,
-                        it->oam2Base + OAM2_LAYER(2));
+                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y + verticalShake) | USE_256_COLS,
+                        gObject_16x16, it->oam2Base + OAM2_LAYER(2));
                     break;
 
                 case 1:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake), gObject_16x32,
-                        it->oam2Base + OAM2_LAYER(2));
+                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake) | USE_256_COLS,
+                        gObject_16x32, it->oam2Base + OAM2_LAYER(2));
                     break;
 
                 case 2:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X((x - 8) + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake),
-                        gObject_32x32, it->oam2Base + OAM2_LAYER(2));
+                        OAM1_X((x - 8) + horizontalShake + 0x200),
+                        OAM0_Y(0x100 + y - 16 + verticalShake) | USE_256_COLS, gObject_32x32,
+                        it->oam2Base + OAM2_LAYER(2));
                     break;
 
                 case 3:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y + verticalShake), gObject_16x16,
-                        it->oam2Base + OAM2_LAYER(3));
+                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y + verticalShake) | USE_256_COLS,
+                        gObject_16x16, it->oam2Base + OAM2_LAYER(3));
                     ;
                     break;
 
                 case 4:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake), gObject_16x32,
-                        it->oam2Base + OAM2_LAYER(3));
+                        OAM1_X(x + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake) | USE_256_COLS,
+                        gObject_16x32, it->oam2Base + OAM2_LAYER(3));
                     break;
 
                 case 5:
                     CallARM_PushToSecondaryOAM(
-                        OAM1_X((x - 8) + horizontalShake + 0x200), OAM0_Y(0x100 + y - 16 + verticalShake),
-                        gObject_32x32, it->oam2Base + OAM2_LAYER(3));
+                        OAM1_X((x - 8) + horizontalShake + 0x200),
+                        OAM0_Y(0x100 + y - 16 + verticalShake) | USE_256_COLS, gObject_32x32,
+                        it->oam2Base + OAM2_LAYER(3));
                     break;
             }
         }
