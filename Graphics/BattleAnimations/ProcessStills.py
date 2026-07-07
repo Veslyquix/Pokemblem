@@ -1,23 +1,101 @@
-from PIL import Image, ImageDraw, ImageOps, ImageEnhance, ImageFilter
-from os import scandir
-import os 
-import libimagequant as liq
-import png 
+from pathlib import Path
 
-directory = 'raw/'
-portrait_size = (64,64)
-portrait_offset = (128,48)
+from PIL import Image
+import imagequant
 
-dir_entries = scandir(directory)
+
+directory = Path('raw')
+output_directory = Path('Png')
+canvas_size = (248, 160)
+portrait_size = (64, 64)
+portrait_offset = (128, 48)
+transparent_display_color = (0, 255, 0)
+max_colors = 16
+
+
+def flatten_palette(palette):
+    palette_data = []
+    for color in palette:
+        palette_data.extend(color)
+    return palette_data
+
+
+def rgb_palette_from_rgba(palette_data):
+    return [
+        list(palette_data[index:index + 3])
+        for index in range(0, len(palette_data), 4)
+    ]
+
+
+def ensure_transparent_index_zero(out_pixels, rgba_palette, rgba_bytes):
+    pixels = bytearray(out_pixels)
+    palette = rgb_palette_from_rgba(rgba_palette)
+    transparent_positions = []
+    opaque_zero_positions = []
+    opaque_indices = set()
+
+    for pixel_index, palette_index in enumerate(pixels):
+        alpha = rgba_bytes[pixel_index * 4 + 3]
+        if alpha == 0:
+            transparent_positions.append(pixel_index)
+        else:
+            opaque_indices.add(palette_index)
+            if palette_index == 0:
+                opaque_zero_positions.append(pixel_index)
+
+    if not transparent_positions:
+        return bytes(pixels), flatten_palette(palette)
+
+    if not palette:
+        palette.append([0, 0, 0])
+
+    if opaque_zero_positions:
+        old_zero_color = palette[0]
+        transparent_indices = {pixels[index] for index in transparent_positions}
+        replacement_index = next(
+            (
+                index for index in transparent_indices
+                if index != 0 and index not in opaque_indices
+            ),
+            None,
+        )
+
+        if replacement_index is None:
+            used_indices = set(pixels)
+            replacement_index = next(
+                (index for index in range(1, max_colors) if index not in used_indices),
+                None,
+            )
+
+        if replacement_index is None:
+            raise RuntimeError('No free palette slot available for opaque index 0 pixels.')
+
+        while len(palette) <= replacement_index:
+            palette.append([0, 0, 0])
+
+        palette[replacement_index] = old_zero_color
+        for index in opaque_zero_positions:
+            pixels[index] = replacement_index
+
+    for index in transparent_positions:
+        pixels[index] = 0
+
+    palette[0] = list(transparent_display_color)
+    return bytes(pixels), flatten_palette(palette)
+
+
+output_directory.mkdir(exist_ok=True)
+
+dir_entries = directory.iterdir()
 for entry in dir_entries:
-    if entry.is_file():
-        info = entry.stat()
+    if entry.is_file() and entry.suffix.lower() == '.png':
         print(f'{entry.name}')
 
 #step 1: open & resize image
         
-        portrait_filename = directory + (f"{entry.name}")
-        im = Image.open(portrait_filename).convert('RGBA')
+        portrait_filename = entry
+        with Image.open(portrait_filename) as source_image:
+            im = source_image.convert('RGBA')
 
 
 
@@ -26,45 +104,21 @@ for entry in dir_entries:
 
         mug = mug.resize(portrait_size, Image.LANCZOS) # NEAREST, BILINEAR, BICUBIC, LANCZOS 
 
-        im_por_temp = Image.open("blank.png")
-
-        im5 = Image.new("RGBA", im_por_temp.size)
+        im5 = Image.new("RGBA", canvas_size)
 
         im5.paste(mug, portrait_offset, mug)
 
         img = im5
 
-        attr = liq.Attr()
-
-
-
-        img2 = png.Reader(portrait_filename)
-        width, height, data, info = img2.read_flat()
-
-        input_image = attr.create_rgba(img.tobytes(), img.width, img.height, info.get('gamma', 0))
-
-        attr = liq.Attr()
-        attr.max_colors = 16
-
-        result = input_image.quantize(attr)
-        out_pixels = result.remap_image(input_image)
-        out_palette = result.get_palette()
+        rgba_bytes = img.tobytes()
+        out_pixels, rgba_palette = imagequant.quantize_raw_rgba_bytes(
+            rgba_bytes,
+            img.width,
+            img.height,
+            max_colors=max_colors - 1,
+        )
+        out_pixels, palette_data = ensure_transparent_index_zero(out_pixels, rgba_palette, rgba_bytes)
         out_img = Image.frombytes('P', (img.width, img.height), out_pixels)
-        palette_data = []
-        for color in out_palette:
-            palette_data.append(color.r)
-            palette_data.append(color.g)
-            palette_data.append(color.b)
-            #palette_data.append(color.a)
-        # If index 0/1/2 is all white, then we don't adjust it
-        # Usually index 0/1/2 is the transparent bg colour
-        
-        if ((palette_data[0] == 255) | (palette_data[0] == 0)):
-            if ((palette_data[1] == 255) | (palette_data[1] == 0)):
-                if ((palette_data[2] != 255) | (palette_data[2] != 0)):
-                    palette_data[0] = 0
-                    palette_data[1] = 255
-                    palette_data[2] = 0
 
         out_img.putpalette(palette_data)
         
@@ -73,13 +127,13 @@ for entry in dir_entries:
 
         im5 = out_img#.quantize(16)
 
-        im5.save(f"Png/{entry.name}", quality=100, optimize=True)
+        im5.save(output_directory / entry.name, quality=100, optimize=True)
 
         #print(f"Png/{entry.name}" + ".txt")
         #with open(f"bin/{entry.name}" + ".bin", 'w') as fp: 
          #   pass # make a bunch of empty .bin files to write over when exporting via feb 
 
-        with open(f"Png/{entry.name}" + ".txt", 'w') as f:
+        with open(output_directory / f"{entry.name}.txt", 'w') as f:
             f.write('/// - Mode 1\n')
             f.write('C03\n')
             f.write('C07\n')

@@ -1,6 +1,6 @@
 @echo off
 
-@set "AnimationAssembler=%~dp0/../../Tools/AA/AA"
+@set "AnimationAssembler=%~dp0/../../Tools/AA/AA.exe"
 
 @cd %~dp0/bin
 
