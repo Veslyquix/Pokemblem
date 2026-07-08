@@ -4,6 +4,37 @@
   mov lr, \reg
   .short 0xf800
 .endm
+
+.global Hook_DrawBattleForecastContents
+.type Hook_DrawBattleForecastContents, %function 
+Hook_DrawBattleForecastContents: 
+push {r5, lr} 
+mov r1, #0 
+str r1, [r4, #0x2C] 
+add r0, #0x34 
+strb r1, [r0] 
+sub r0, #2 
+ldrb r5, [r0] 
+
+blh 0x8005B68 @ EndFaceChibiSpr 
+
+mov r1, #0x35 
+ldrb r1, [r4, r1] 
+mov r0, r4 
+bl BattleForecastChibi
+
+
+
+
+mov r0, r5 
+pop {r5} 
+pop {r3} 
+bx r3 
+.ltorg 
+
+
+
+
 .global Hook_BattleForecast_LoopSlideIn 
 .type Hook_BattleForecast_LoopSlideIn, %function 
 Hook_BattleForecast_LoopSlideIn: 
@@ -34,7 +65,7 @@ bne Exit2
 mov r0, #0 
 strb r0, [r6] 
 mov r0, r7 
-blh 0x8002d6c @Proc_End
+blh 0x8002e94 @Proc_Break
 b Exit 
 EndChibi: 
 blh 0x8005B68 @ EndFaceChibiSpr 

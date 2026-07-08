@@ -70,12 +70,15 @@ PUSH
 
 // BattleForecast_LoopSlideIn 803710c
 ORG $371CC 
-callHackNew(Hook_BattleForecast_LoopSlideIn) 
-SHORT $46C0 
+// callHackNew(Hook_BattleForecast_LoopSlideIn) 
+// SHORT $46C0 
 
-ORG $372B0 
-callHackNew(Hook_BattleForecast_LoopSlideOut) 
-SHORT $46c0 
+ORG $36CD4 
+callHackNew(Hook_DrawBattleForecastContents) 
+
+// ORG $372B0 
+// callHackNew(Hook_BattleForecast_LoopSlideOut) 
+// SHORT $46c0 
 
 ORG $B4C84 
 callHackNew(HookFace_Shop_Init)
