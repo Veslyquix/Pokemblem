@@ -706,33 +706,33 @@ ALIGN 4
 
 ALIGN 4 
 UnitLeftBulbasaurEnemy: 
-UNIT 0xA0  BulbasaurID GaryOakLabLeftUnitParameters
+UNIT GymPkmn_1  BulbasaurID GaryOakLabLeftUnitParameters
 UNIT
 
 ALIGN 4 
 UnitLeftCharmanderEnemy: 
-UNIT 0xA0  CharmanderID GaryOakLabLeftUnitParameters
+UNIT GymPkmn_1  CharmanderID GaryOakLabLeftUnitParameters
 UNIT
 
 ALIGN 4 
 UnitLeftSquirtleEnemy: 
-UNIT 0xA0  SquirtleID GaryOakLabLeftUnitParameters
+UNIT GymPkmn_1  SquirtleID GaryOakLabLeftUnitParameters
 UNIT
 
 
 ALIGN 4 
 UnitRightBulbasaurEnemy: 
-UNIT 0xA1  BulbasaurID GaryOakLabRightUnitParameters
+UNIT GymPkmn_2  BulbasaurID GaryOakLabRightUnitParameters
 UNIT
 
 ALIGN 4 
 UnitRightCharmanderEnemy: 
-UNIT 0xA1  CharmanderID GaryOakLabRightUnitParameters
+UNIT GymPkmn_2  CharmanderID GaryOakLabRightUnitParameters
 UNIT
 
 ALIGN 4 
 UnitRightSquirtleEnemy: 
-UNIT 0xA1  SquirtleID GaryOakLabRightUnitParameters
+UNIT GymPkmn_2  SquirtleID GaryOakLabRightUnitParameters
 UNIT
 
 

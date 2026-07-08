@@ -6,6 +6,7 @@
 SET_DATA UnitMenuLeft, 0x801d4fa 
 SET_DATA UnitMenuRight, 0x801d4fc 
  
+SET_FUNC StartFaceChibiSpr, 0x08005B05
 SET_FUNC GetUnitRangeMask, (0x080171E8+1)
 
 SET_FUNC CanUnitUseWeapon, (0x8016750+1)

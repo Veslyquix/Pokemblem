@@ -67,15 +67,39 @@ PlaytimeGfx:
 
 PUSH 
 
+
+// BattleForecast_LoopSlideIn 803710c
+ORG $371CC 
+callHackNew(Hook_BattleForecast_LoopSlideIn) 
+SHORT $46C0 
+
+ORG $372B0 
+callHackNew(Hook_BattleForecast_LoopSlideOut) 
+SHORT $46c0 
+
 ORG $B4C84 
 callHackNew(HookFace_Shop_Init)
 SHORT $46c0 
 
 
 ORG $23312
-SHORT $1C29 // mov r1, r5 (proc) 
+SHORT $1C29 // mov r1, r5 (menu proc) 
 callHackNew(HookFace_ItemCommandEffect)
 SHORT $46c0 
+
+ORG $23570 // sub_8023550 (Equip item) 
+SHORT $1C29 // mov r1, r5 (menu proc) 
+SHORT $46c0 
+callHackNew(HookFace_ItemCommandEffect)
+
+ORG $23608 // sub_80235A8 (Discard item) 
+SHORT $1C21 // mov r1, r4 (menu proc) 
+SHORT $46c0 
+callHackNew(HookFace_ItemCommandEffect)
+ 
+// There's also staff / dance / ballista, but I don't use those anyway 
+// StartUnitWeaponSelect as well, but that's in GaidenMagic 
+
 
 
 // sMuImgBufOffLut change MU buffer order IDs so we can use SMS_Frame1_Buffer during map battles 
@@ -139,6 +163,7 @@ WORD 0x6010000|((StatusScreenTextChr)<<5) // sprite text obj vram for status scr
 
 // edit gDefaultFaceConfig / faceConfig in PrepItemScreen_SetupGfx for obj vram placement of faces 
 ORG $590fec
+DefaultFaceConfig: 
 // normally 0x300, 0x280, 0x200, 0x380 
 WORD 0x180<<5 6
 WORD 0x200<<5 7 

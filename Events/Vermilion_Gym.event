@@ -89,10 +89,10 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 
 SilentGiveSkillAccessory(DowngradeUnitID, LifeAndDeathID)
 SilentGiveItemWithDurability(DowngradeUnitID, SuperPotion,0x1)
-SilentGiveItemWithDurability(0xA0, Berry,0x82)
-SilentGiveItemWithDurability(0xA1, Berry,0x82)
-SilentGiveItemWithDurability(0xA2, Berry,0x82)
-SilentGiveItemWithDurability(0xA3, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_1, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_2, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_3, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_4, Berry,0x82)
 
 
 MUSCFAST IntroBGM 
@@ -123,11 +123,11 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
 SilentGiveItemWithDurability(DowngradeUnitID, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Raichu 
-SilentGiveSkillAccessory(0xA0, HoverBoardID) // Magneton  
-SilentGiveSkillAccessory(0xA1, SavageBlowID) // Electrode 
-SilentGiveItemWithDurability(0xA2, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Electabuzz 
-SilentGiveItemWithDurability(0xA3, StatAccessory, VintageBoots_BoostIndex|0x80) // Jolteon
-SilentGiveSkillAccessory(0xA4, VantagePlusID) // Marowak 
+SilentGiveSkillAccessory(GymPkmn_1, HoverBoardID) // Magneton  
+SilentGiveSkillAccessory(GymPkmn_2, SavageBlowID) // Electrode 
+SilentGiveItemWithDurability(GymPkmn_3, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Electabuzz 
+SilentGiveItemWithDurability(GymPkmn_4, StatAccessory, VintageBoots_BoostIndex|0x80) // Jolteon
+SilentGiveSkillAccessory(GymPkmn_5, VantagePlusID) // Marowak 
 
 
 MUSCFAST IntroBGM 
@@ -214,26 +214,26 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 
 EnemyTrainersA:
 UNIT DowngradeUnitID RaichuID 0x0 Level(0, Enemy, 1) [7,8]  0b 0x0	0x1 REDA7R8 		[Thunderbolt,AttackPulse,GrassKnot,0x0] ZoningHeal50GroupOneAI
-UNIT 0xA0 MagnemiteID DowngradeUnitID Level(0, Enemy, 1) [6,10]  0b 0x0	0x1 REDA6R10 	[Thundershock,Tackle,ThunderWave,0x0] ZoningHeal50GroupOneAI
-UNIT 0xA1 VoltorbID DowngradeUnitID Level(0, Enemy, 1) [8,10]  0b 0x0	0x1 REDA8R10 	[Screech,ThunderWave,0x0,0x0] ZoningHeal50GroupOneAI
-UNIT 0xA2 ElectabuzzID DowngradeUnitID Level(0, Enemy, 1) [4,10]  0b 0x0 0x1 REDA4R10 [ThunderPunch,IcePunch,FirePunch,0x0] ZoningHeal50GroupOneAI
-UNIT 0xA3 JolteonID DowngradeUnitID Level(0, Enemy, 1) [10,10]  0b 0x0	0x1 REDA10R10 	[Thundershock,TailWhip,TakeDown,0x0] ZoningHeal50GroupOneAI
-UNIT 0xA4 MarowakID DowngradeUnitID Level(0, Enemy, 1) [7,12]  0b 0x0	0x1 REDA7R12 	[Bonemerang,Leer,0x0,0x0] ZoningHeal50GroupOneAI
+UNIT GymPkmn_1 MagnemiteID DowngradeUnitID Level(0, Enemy, 1) [6,10]  0b 0x0	0x1 REDA6R10 	[Thundershock,Tackle,ThunderWave,0x0] ZoningHeal50GroupOneAI
+UNIT GymPkmn_2 VoltorbID DowngradeUnitID Level(0, Enemy, 1) [8,10]  0b 0x0	0x1 REDA8R10 	[Screech,ThunderWave,0x0,0x0] ZoningHeal50GroupOneAI
+UNIT GymPkmn_3 ElectabuzzID DowngradeUnitID Level(0, Enemy, 1) [4,10]  0b 0x0 0x1 REDA4R10 [ThunderPunch,IcePunch,FirePunch,0x0] ZoningHeal50GroupOneAI
+UNIT GymPkmn_4 JolteonID DowngradeUnitID Level(0, Enemy, 1) [10,10]  0b 0x0	0x1 REDA10R10 	[Thundershock,TailWhip,TakeDown,0x0] ZoningHeal50GroupOneAI
+UNIT GymPkmn_5 MarowakID DowngradeUnitID Level(0, Enemy, 1) [7,12]  0b 0x0	0x1 REDA7R12 	[Bonemerang,Leer,0x0,0x0] ZoningHeal50GroupOneAI
 UNIT
 
 EnemyTrainersB:
 UNIT DowngradeUnitID RaichuID 0x0 Level(0, Enemy, 1) [7,8]  0b 0x0	0x1 REDA7R8 		[Thunderbolt,GrassKnot,Surf,0x0] PursueWithoutHeedAI
-UNIT 0xA0 MagnetonID DowngradeUnitID Level(0, Enemy, 1) [8,10]  0b 0x0	0x1 REDA8R10 	[ThunderMove,Screech,0x0,0x0] PursueWithoutHeedAI
-UNIT 0xA1 ElectrodeID DowngradeUnitID Level(0, Enemy, 1) [7,12]  0b 0x0	0x1 REDA7R12 	[Screech,Explosion,0x0,0x0] PursueWithoutHeedAI
-UNIT 0xA2 ElectabuzzID DowngradeUnitID Level(0, Enemy, 1) [4,10]  0b 0x0 0x1 REDA4R10 [ThunderPunch,IcePunch,FirePunch,0x0] PursueWithoutHeedAI
-UNIT 0xA3 JolteonID DowngradeUnitID Level(0, Enemy, 1) [10,10]  0b 0x0	0x1 REDA10R10 	[Thunderbolt,SignalBeam, 0x0,0x0] PursueWithoutHeedAI
-UNIT 0xA4 MarowakID DowngradeUnitID Level(0, Enemy, 1) [6,10]  0b 0x0	0x1 REDA6R10 	[Bonemerang,RockSlide,0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_1 MagnetonID DowngradeUnitID Level(0, Enemy, 1) [8,10]  0b 0x0	0x1 REDA8R10 	[ThunderMove,Screech,0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_2 ElectrodeID DowngradeUnitID Level(0, Enemy, 1) [7,12]  0b 0x0	0x1 REDA7R12 	[Screech,Explosion,0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_3 ElectabuzzID DowngradeUnitID Level(0, Enemy, 1) [4,10]  0b 0x0 0x1 REDA4R10 [ThunderPunch,IcePunch,FirePunch,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_4 JolteonID DowngradeUnitID Level(0, Enemy, 1) [10,10]  0b 0x0	0x1 REDA10R10 	[Thunderbolt,SignalBeam, 0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_5 MarowakID DowngradeUnitID Level(0, Enemy, 1) [6,10]  0b 0x0	0x1 REDA6R10 	[Bonemerang,RockSlide,0x0,0x0] PursueWithoutHeedAI
 UNIT
 	
 

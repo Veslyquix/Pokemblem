@@ -252,16 +252,16 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 SilentGiveItemWithDurability(FuryUnitID, StatAccessory, 0x80|EnergyBandT3_BoostIndex)
 //SilentGiveSkillAccessory(FuryUnitID, AmaterasuID)
 SilentGiveItemWithDurability(FuryUnitID, MaxPotion,0x1)
-//SilentGiveItemWithDurability(0xA0, Berry,0x8A)
-SilentGiveItemWithDurability(0xA0, HyperPotion,0x1)
-//SilentGiveItemWithDurability(0xA1, Berry,0x8A)
-SilentGiveItemWithDurability(0xA1, HyperPotion,0x1)
-//SilentGiveItemWithDurability(0xA2, Berry,0x8A)
-SilentGiveItemWithDurability(0xA2, HyperPotion,0x1)
-//SilentGiveItemWithDurability(0xA3, Berry,0x8A)
-SilentGiveItemWithDurability(0xA3, HyperPotion,0x1)
-//SilentGiveItemWithDurability(0xA4, Berry,0x8A)
-SilentGiveItemWithDurability(0xA4, HyperPotion,0x1)
+//SilentGiveItemWithDurability(GymPkmn_1, Berry,0x8A)
+SilentGiveItemWithDurability(GymPkmn_1, HyperPotion,0x1)
+//SilentGiveItemWithDurability(GymPkmn_2, Berry,0x8A)
+SilentGiveItemWithDurability(GymPkmn_2, HyperPotion,0x1)
+//SilentGiveItemWithDurability(GymPkmn_3, Berry,0x8A)
+SilentGiveItemWithDurability(GymPkmn_3, HyperPotion,0x1)
+//SilentGiveItemWithDurability(GymPkmn_4, Berry,0x8A)
+SilentGiveItemWithDurability(GymPkmn_4, HyperPotion,0x1)
+//SilentGiveItemWithDurability(GymPkmn_5, Berry,0x8A)
+SilentGiveItemWithDurability(GymPkmn_5, HyperPotion,0x1)
 
 
 MUSCFAST IntroBGM 
@@ -293,11 +293,11 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
 SilentGiveSkillAccessory(FuryUnitID, GuardBreakerID) // Arcanine 
-SilentGiveItemWithDurability(0xA0, StatAccessory, StuddedShield_BoostIndex|0x80) // Ninetales 
-SilentGiveItemWithDurability(0xA1, StatAccessory, VintageBoots_BoostIndex|0x80) // Rapidash  
-SilentGiveItemWithDurability(0xA2, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Magmar   
-SilentGiveSkillAccessory(0xA3, DazzleID) // Flareon 
-SilentGiveSkillAccessory(0xA4, WaryFighterID) // Venusaur 
+SilentGiveItemWithDurability(GymPkmn_1, StatAccessory, StuddedShield_BoostIndex|0x80) // Ninetales 
+SilentGiveItemWithDurability(GymPkmn_2, StatAccessory, VintageBoots_BoostIndex|0x80) // Rapidash  
+SilentGiveItemWithDurability(GymPkmn_3, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Magmar   
+SilentGiveSkillAccessory(GymPkmn_4, DazzleID) // Flareon 
+SilentGiveSkillAccessory(GymPkmn_5, WaryFighterID) // Venusaur 
 
 
 SilentGiveItemWithDurability(FuryUnitID, StatAccessory, 0x80|EnergyBandT3_BoostIndex)
@@ -429,26 +429,26 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 
 EnemyTrainersA:
 UNIT FuryUnitID ArcanineID 0x0 Level(0, Enemy, 1) 	[2,4]  0b 0x0	0 0	[TakeDown,FireBlast,0x0,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA2 MagmarID FuryUnitID Level(0, Enemy, 1) 	[3,6]  0b 0x0 	0 0	[Flamethrower, BodySlam,0x0,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA4 VenusaurID FuryUnitID Level(0, Enemy, 1) 	[5,7]  0b 0x0	0 0	[PetalDance, BodySlam,0x0,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA0 NinetalesID FuryUnitID Level(0, Enemy, 1) [5,5]  0b 0x0	0 0 [TailWhip, Flamethrower,0x0,0x0] 	[0,0,8,1]
-UNIT 0xA1 RapidashID FuryUnitID Level(0, Enemy, 1) 	[8,4]  0b 0x0	0 0	[BodySlam, FlameWheel,0x0,0x0] 		[0,0,8,1]
-UNIT 0xA3 FlareonID FuryUnitID Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[FlameWheel, DoubleEdge, 0x0 ,0x0] 		[0,0,8,1] // pursue 
+UNIT GymPkmn_3 MagmarID FuryUnitID Level(0, Enemy, 1) 	[3,6]  0b 0x0 	0 0	[Flamethrower, BodySlam,0x0,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_5 VenusaurID FuryUnitID Level(0, Enemy, 1) 	[5,7]  0b 0x0	0 0	[PetalDance, BodySlam,0x0,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_1 NinetalesID FuryUnitID Level(0, Enemy, 1) [5,5]  0b 0x0	0 0 [TailWhip, Flamethrower,0x0,0x0] 	[0,0,8,1]
+UNIT GymPkmn_2 RapidashID FuryUnitID Level(0, Enemy, 1) 	[8,4]  0b 0x0	0 0	[BodySlam, FlameWheel,0x0,0x0] 		[0,0,8,1]
+UNIT GymPkmn_4 FlareonID FuryUnitID Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[FlameWheel, DoubleEdge, 0x0 ,0x0] 		[0,0,8,1] // pursue 
 UNIT
 
 EnemyTrainersB: // rematch 
 UNIT FuryUnitID ArcanineID 0x0 Level(0, Enemy, 1) 	[2,4]  0b 0x0	0 0	[SacredFire,FireBlast,Outrage,0x0] 		PursueWithoutHeedAI
-UNIT 0xA0 NinetalesID FuryUnitID Level(0, Enemy, 1) [5,5]  0b 0x0	0 0 [Psychic, Flamethrower,SolarBeam,0x0] 	PursueWithoutHeedAI
-UNIT 0xA1 RapidashID FuryUnitID Level(0, Enemy, 1) 	[8,4]  0b 0x0	0 0	[TakeDown, SacredFire,SolarBeam,0x0] 		PursueWithoutHeedAI
-UNIT 0xA2 MagmarID FuryUnitID Level(0, Enemy, 1) 	[3,6]  0b 0x0 	0 0	[Flamethrower, Psychic, ThunderPunch,0x0] 	PursueWithoutHeedAI
-UNIT 0xA3 FlareonID FuryUnitID Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[SacredFire, DoubleEdge, DoubleKick ,0x0] 		PursueWithoutHeedAI
-UNIT 0xA4 VenusaurID FuryUnitID Level(0, Enemy, 1) 	[5,7]  0b 0x0	0 0	[PetalDance, Sludge,Earthquake,0x0] 		PursueWithoutHeedAI
+UNIT GymPkmn_1 NinetalesID FuryUnitID Level(0, Enemy, 1) [5,5]  0b 0x0	0 0 [Psychic, Flamethrower,SolarBeam,0x0] 	PursueWithoutHeedAI
+UNIT GymPkmn_2 RapidashID FuryUnitID Level(0, Enemy, 1) 	[8,4]  0b 0x0	0 0	[TakeDown, SacredFire,SolarBeam,0x0] 		PursueWithoutHeedAI
+UNIT GymPkmn_3 MagmarID FuryUnitID Level(0, Enemy, 1) 	[3,6]  0b 0x0 	0 0	[Flamethrower, Psychic, ThunderPunch,0x0] 	PursueWithoutHeedAI
+UNIT GymPkmn_4 FlareonID FuryUnitID Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[SacredFire, DoubleEdge, DoubleKick ,0x0] 		PursueWithoutHeedAI
+UNIT GymPkmn_5 VenusaurID FuryUnitID Level(0, Enemy, 1) 	[5,7]  0b 0x0	0 0	[PetalDance, Sludge,Earthquake,0x0] 		PursueWithoutHeedAI
 UNIT
 	
 

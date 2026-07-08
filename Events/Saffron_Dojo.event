@@ -132,16 +132,16 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 
 SilentGiveItemWithDurability(ScrappyUnitID, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Machoke 
 SilentGiveItemWithDurability(ScrappyUnitID, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA0, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA0, SuperPotion,0x2)
-SilentGiveItemWithDurability(0xA1, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA1, SuperPotion,0x2)
-SilentGiveItemWithDurability(0xA2, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA2, SuperPotion,0x2)
-SilentGiveItemWithDurability(0xA3, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA3, SuperPotion,0x2)
-SilentGiveItemWithDurability(0xA4, StatAccessory, MuscleBandT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA4, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_1, StatAccessory, MuscleBandT2_BoostIndex|0x80)
+SilentGiveItemWithDurability(GymPkmn_1, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_2, StatAccessory, MuscleBandT2_BoostIndex|0x80)
+SilentGiveItemWithDurability(GymPkmn_2, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_3, StatAccessory, MuscleBandT2_BoostIndex|0x80)
+SilentGiveItemWithDurability(GymPkmn_3, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_4, StatAccessory, MuscleBandT2_BoostIndex|0x80)
+SilentGiveItemWithDurability(GymPkmn_4, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_5, StatAccessory, MuscleBandT2_BoostIndex|0x80)
+SilentGiveItemWithDurability(GymPkmn_5, SuperPotion,0x2)
 
 
 MUSCFAST IntroBGM 
@@ -192,18 +192,18 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 
 EnemyTrainersA:
 UNIT 0xE1 blackbeltID 		0x0  Level(0, Enemy, 1) [8,4]  0b 0x0	0 0	[0,0,0x0,0x0] 		DoNothingAI
 UNIT ScrappyUnitID MachokeID 		0x0  Level(0, Enemy, 1) [8,5]  0b 0x0	0 0	[Submission,DoubleEdge,0x0,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA0 HitmonleeID 		ScrappyUnitID Level(0, Enemy, 1) [6,5]  0b 0x0	0 0 [MegaKick,JumpKick,0x0,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA1 HitmonchanID 		ScrappyUnitID Level(0, Enemy, 1) [10,5]  0b 0x0	0 0	[IcePunch,ThunderPunch,FirePunch,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA2 GolduckID 		ScrappyUnitID Level(0, Enemy, 1) [5,7]  0b 0x0 0 0	[BodySlam, Surf,Psybeam,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA3 PinsirID 			ScrappyUnitID Level(0, Enemy, 1) [11,7]  0b 0x0	0 0	[XScissor, Submission, 0x0 ,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA4 PrimeapeID 		ScrappyUnitID Level(0, Enemy, 1) [8,8]  0b 0x0	0 0	[KarateChop,Leer,0x0,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_1 HitmonleeID 		ScrappyUnitID Level(0, Enemy, 1) [6,5]  0b 0x0	0 0 [MegaKick,JumpKick,0x0,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_2 HitmonchanID 		ScrappyUnitID Level(0, Enemy, 1) [10,5]  0b 0x0	0 0	[IcePunch,ThunderPunch,FirePunch,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_3 GolduckID 		ScrappyUnitID Level(0, Enemy, 1) [5,7]  0b 0x0 0 0	[BodySlam, Surf,Psybeam,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_4 PinsirID 			ScrappyUnitID Level(0, Enemy, 1) [11,7]  0b 0x0	0 0	[XScissor, Submission, 0x0 ,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_5 PrimeapeID 		ScrappyUnitID Level(0, Enemy, 1) [8,8]  0b 0x0	0 0	[KarateChop,Leer,0x0,0x0] 		ZoningHeal50GroupOneAI
 UNIT
 
 

@@ -97,12 +97,58 @@ struct MuConfig * GetDefaultMuConfig(int objTileId, u8 * outIndex)
 extern int TradeLeftFaceChr;
 extern int TradeRightFaceChr;
 extern int ItemMenuFaceChr;
+extern struct FaceVramEntry const DefaultFaceConfig[4];
+int GetFaceSlotPalID(int slot)
+{
+    return DefaultFaceConfig[slot].paletteId;
+}
+
+int GetActiveUnitMenuBottomY(int count)
+{
+    int result = 20;
+    if (count < 0) // count items as a default
+    {
+        struct Unit unit = *gActiveUnit;
+        count = 0;
+
+        for (int i = 0; i < 5; ++i)
+        {
+            if (!unit.items[i])
+            {
+                break;
+            }
+            count++;
+        }
+    }
+
+    result += (16 * count);
+
+    return result;
+}
 
 void HookFace_ItemCommandEffect(int fid, ProcPtr proc)
 {
     // StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
-    StartFaceChibiSpr(120, 0, fid, ItemMenuFaceChr, 3, 1, (void *)proc);
+    StartFaceChibiSpr(48, GetActiveUnitMenuBottomY(-1), fid, ItemMenuFaceChr, GetFaceSlotPalID(0), 0, (void *)proc);
 }
+#define BF_ChibiDist 31
+void BattleForecastChibi(ProcPtr proc, int side)
+{
+    int x1 = 167 + ((36 - BF_ChibiDist) >> 1);
+    int x2 = x1 + BF_ChibiDist;
+    if (side < 0)
+    {
+        x1 = 7 + ((36 - BF_ChibiDist) >> 1);
+        x2 = x1 + BF_ChibiDist;
+    }
+
+    StartFaceChibiSpr(
+        x1, 125, GetUnitPortraitId(&gBattleTarget.unit), TradeLeftFaceChr, GetFaceSlotPalID(0), 0, (void *)proc);
+    StartFaceChibiSpr(
+        x2, 125, GetUnitPortraitId(&gBattleActor.unit), TradeRightFaceChr, GetFaceSlotPalID(1), 1, (void *)proc);
+    Proc_Break(proc);
+}
+
 // Capture hack hooks this for enemies to use portrait fid 1
 void TradeMenu_InitItemDisplay(struct TradeMenuProc * proc)
 {

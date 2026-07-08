@@ -101,6 +101,11 @@ int GaidenWhiteMagicUMEffect(MenuProc *proc, MenuCommandProc *commandProc) {
   return GaidenMagicUMEffectExt(SpellsGetter(gActiveUnit, WHITE_MAGIC), proc,
                                 commandProc);
 }
+extern int GetFaceSlotPalID(int slot);
+extern int GetActiveUnitMenuBottomY(int);
+extern int ItemMenuFaceChr;
+extern void StartFaceChibiSpr(int x, int y, int fid, int chr, int pal,
+                              s8 isFlipped, MenuProc *parent);
 
 int GaidenMagicUMEffectExt(u8 *spellsList, MenuProc *proc,
                            MenuCommandProc *commandProc) {
@@ -115,8 +120,9 @@ int GaidenMagicUMEffectExt(u8 *spellsList, MenuProc *proc,
     MenuProc *menu = StartMenu(&SpellSelectMenuDefs);
     // We're going to load a face now. I'm going to leave out the hardcoded
     // check for the phantom (for now at least).
-    StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
-    SetFaceBlinkControlById(0, 5);
+    StartFaceChibiSpr(48, GetActiveUnitMenuBottomY(menu->commandCount),
+                      GetUnitPortraitId(gActiveUnit), ItemMenuFaceChr,
+                      GetFaceSlotPalID(0), 0, (void *)menu);
     ForceMenuItemPanel(menu, gActiveUnit, 15, 11);
     return 0x17;
   }
@@ -134,8 +140,10 @@ int GaidenMagicUMEffectExtCapture(u8 *spellsList, MenuProc *proc,
     MenuProc *menu = StartMenu(&SpellSelectMenuDefs);
     // We're going to load a face now. I'm going to leave out the hardcoded
     // check for the phantom (for now at least).
-    StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
-    SetFaceBlinkControlById(0, 5);
+    StartFaceChibiSpr(48, GetActiveUnitMenuBottomY(menu->commandCount),
+                      GetUnitPortraitId(gActiveUnit), ItemMenuFaceChr,
+                      GetFaceSlotPalID(0), 0, (void *)menu);
+
     ForceMenuItemPanel(menu, gActiveUnit, 15, 11);
     return 0x17;
   }

@@ -1,66 +1,66 @@
 INLINE MagCharTable,Base Magic,Magic Growth
 None,0,0
-Eirika,0,10
-Seth,0,10
-Gilliam,0,10
-Franz,0,10
-Moulder,0,10
-Vanessa,0,10
-Ross,0,10
-Neimi,0,10
-Colm,0,10
-Garcia,0,10
-Innes,0,10
-Lute,0,10
-Natasha,0,10
-Cormag,0,10
-Ephraim,0,10
-Forde,0,10
-Kyle,0,10
-Amelia,0,10
-Artur,0,10
-Gerik,0,10
-Tethys,0,10
-Marisa,0,10
-Saleh,0,10
-Ewan,0,10
-L'Arachel,0,10
-Dozla,0,10
-+AC0-0,0,10
-Rennac,0,10
-Duessel,0,10
-Myrrh,0,10
-Knoll,0,10
-Joshua,0,10
-Syrene,0,10
-Tana,0,10
-Lyon,0,10
-Orson,0,10
-Glen,0,10
-Selena,0,10
-Valter,0,10
-Riev,0,10
-Caellach,0,10
-Fado,0,10
-Ismaire,0,10
-Hayden,0,10
-FakeEirika,0,10
-+AC0-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-+AC0-0,0,10
-+AC0-0,0,10
-+AC0-0,0,10
-+AC0-0,0,10
-+AC0-0,0,10
-+AC0-0,0,10
-+AC0-0,0,10
-+AC0-0,0,10
-Lyon's Summon,0,10
-+AC0-0,0,10
-+AC0-0,0,10
+Eirika,0,5
+Seth,0,5
+Gilliam,0,5
+Franz,0,5
+Moulder,0,5
+Vanessa,0,5
+Ross,0,5
+Neimi,0,5
+Colm,0,5
+Garcia,0,5
+Innes,0,5
+Lute,0,5
+Natasha,0,5
+Cormag,0,5
+Ephraim,0,5
+Forde,0,5
+Kyle,0,5
+Amelia,0,5
+Artur,0,5
+Gerik,0,5
+Tethys,0,5
+Marisa,0,5
+Saleh,0,5
+Ewan,0,5
+L'Arachel,0,5
+Dozla,0,5
++AC0-0,0,5
+Rennac,0,5
+Duessel,0,5
+Myrrh,0,5
+Knoll,0,5
+Joshua,0,5
+Syrene,0,5
+Tana,0,5
+Lyon,0,5
+Orson,0,5
+Glen,0,5
+Selena,0,5
+Valter,0,5
+Riev,0,5
+Caellach,0,5
+Fado,0,5
+Ismaire,0,5
+Hayden,0,5
+FakeEirika,0,5
++AC0-0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
++AC0-0,0,5
++AC0-0,0,5
++AC0-0,0,5
++AC0-0,0,5
++AC0-0,0,5
++AC0-0,0,5
++AC0-0,0,5
++AC0-0,0,5
+Lyon's Summon,0,5
++AC0-0,0,5
++AC0-0,0,5
 Knoll's Summon,0,0
 Ewan's Summon,0,0
 Lyon (Ch 17),0,0
@@ -162,74 +162,74 @@ Wraith (Axes),0,0
 0,0,0
 0,0,0
 0,0,0
-0xa0,0,10
-0,0,10
-0,0,10
-0,0,10
-Mercenary (C9A),0,10
-Mercenary (C10A),0,10
-Merc Remnant (C13A),0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Monster,0,10
-Demon King,0,10
-0,0,10
-Frelian,0,10
-Frelian,0,10
-0,0,10
-0,0,10
-0,0,10
-Fado (Renais),0,10
-0,0,10
-Hayden (Frelia),0,10
-Mansel (Rausten),0,10
-Klimt (Carcino),0,10
-Dara (Caer Pelyn),0,10
-Ismaire (Jehanna),0,10
-Pegasus Messenger,0,10
-Rausten Knight,0,10
-Rausten Knight,0,10
-(Untested Beyond this point),0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
-0,0,10
+0xa0,0,5
+0,0,5
+0,0,5
+0,0,5
+Mercenary (C9A),0,5
+Mercenary (C10A),0,5
+Merc Remnant (C13A),0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Monster,0,5
+Demon King,0,5
+0,0,5
+Frelian,0,5
+Frelian,0,5
+0,0,5
+0,0,5
+0,0,5
+Fado (Renais),0,5
+0,0,5
+Hayden (Frelia),0,5
+Mansel (Rausten),0,5
+Klimt (Carcino),0,5
+Dara (Caer Pelyn),0,5
+Ismaire (Jehanna),0,5
+Pegasus Messenger,0,5
+Rausten Knight,0,5
+Rausten Knight,0,5
+(Untested Beyond this point),0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,0,5
 0,0,0
 0,0,0
 0,0,0

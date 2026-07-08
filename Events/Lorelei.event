@@ -170,18 +170,18 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 
 
 SilentGiveItemWithDurability(RenewalUnitID, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Lapras 
-SilentGiveItemWithDurability(0xA0, StatAccessory, SteelShield_BoostIndex|0x80) // Dewgong 
-SilentGiveSkillAccessory(0xA1, MiracleID) // Jynx 
-// SilentGiveItemWithDurability(0xA2, StatAccessory, WiseGlassesT2_BoostIndex|0x80) 
-SilentGiveSkillAccessory(0xA3, AssaultVestID) // Slowbro 
-SilentGiveSkillAccessory(0xA4, CounterMagicID) // Cloister 
+SilentGiveItemWithDurability(GymPkmn_1, StatAccessory, SteelShield_BoostIndex|0x80) // Dewgong 
+SilentGiveSkillAccessory(GymPkmn_2, MiracleID) // Jynx 
+// SilentGiveItemWithDurability(GymPkmn_3, StatAccessory, WiseGlassesT2_BoostIndex|0x80) 
+SilentGiveSkillAccessory(GymPkmn_4, AssaultVestID) // Slowbro 
+SilentGiveSkillAccessory(GymPkmn_5, CounterMagicID) // Cloister 
 
 SilentGiveItemWithDurability(RenewalUnitID, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA0, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA1, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA2, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA3, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA4, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_1, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_2, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_3, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_4, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_5, MaxPotion,0x1)
 
 
 
@@ -240,7 +240,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 BossTrainer:
@@ -249,11 +249,11 @@ UNIT
 
 EnemyTrainersA:
 UNIT RenewalUnitID LaprasID 		0x0  Level(0, Enemy, 1) [12,8]  0b 0x0	0 0	[Blizzard, Waterfall,BodySlam,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA0 DewgongID 		RenewalUnitID Level(0, Enemy, 1) [11,10]  0b 0x0	0 0 [Growl, TailWhip, AuroraBeam,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA1 JynxID 			RenewalUnitID Level(0, Enemy, 1) [11,6]  0b 0x0	0 0	[Psychic,IceBeam,0x0,0x0] 		ZoningHeal50GroupOneAI
-//UNIT 0xA2 VaporeonID 		RenewalUnitID Level(0, Enemy, 1) [11,6]  0b 0x0 	0 0	[Surf, IceBeam,0,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA3 SlowbroID 		RenewalUnitID Level(0, Enemy, 1) [13,6]  0b 0x0	0 0	[FireBlast, Surf, 0x0 ,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA4 CloysterID 		RenewalUnitID Level(0, Enemy, 1) [13,10]  0b 0x0	0 0	[Clamp, AuroraBeam,0x0,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_1 DewgongID 		RenewalUnitID Level(0, Enemy, 1) [11,10]  0b 0x0	0 0 [Growl, TailWhip, AuroraBeam,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_2 JynxID 			RenewalUnitID Level(0, Enemy, 1) [11,6]  0b 0x0	0 0	[Psychic,IceBeam,0x0,0x0] 		ZoningHeal50GroupOneAI
+//UNIT GymPkmn_3 VaporeonID 		RenewalUnitID Level(0, Enemy, 1) [11,6]  0b 0x0 	0 0	[Surf, IceBeam,0,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_4 SlowbroID 		RenewalUnitID Level(0, Enemy, 1) [13,6]  0b 0x0	0 0	[FireBlast, Surf, 0x0 ,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_5 CloysterID 		RenewalUnitID Level(0, Enemy, 1) [13,10]  0b 0x0	0 0	[Clamp, AuroraBeam,0x0,0x0] 		ZoningHeal50GroupOneAI
 UNIT
 
 

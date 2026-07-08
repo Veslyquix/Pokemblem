@@ -199,7 +199,7 @@ super_nerdID - Electric/Fire - Vulpix, Ponyta, Koffing, Grimer, Voltorb, Magnemi
 
 //Enemy unit IDs 
 // Wilds are 0x50 - 0x8F, reinforcements are 0x90-0x9F for some reason 
-// Trainers are 0xA0 - 0xBD & 0xC0 - 0xCF I guess 
+// Trainers are GymPkmn_1 - 0xBD & 0xC0 - 0xCF I guess 
 // 0xBE is Formotiis iirc 
 
 
@@ -319,9 +319,17 @@ super_nerdID - Electric/Fire - Vulpix, Ponyta, Koffing, Grimer, Voltorb, Magnemi
 #define UnitCeruleanCaveBoss 0xC9 
 #define GaryStarterAdaptabilityUnitID 0xCA 
 
+#define DefaultSethThing 0xA1 
+#define GymPkmn_1 0xCB 
+#define GymPkmn_2 0xCC 
+#define GymPkmn_3 0xCD 
+#define GymPkmn_4 0xCE 
+#define GymPkmn_5 0xCF 
+#define GymPkmn_6 UnitRoute22Trainer // champion phase 2 uses this 
+#define GymPkmn_7 UnitRoute23Trainer // champion phase 2 uses this 
+#define GymPkmn_8 UnitElite4Trainer // champion phase 2 uses this 
+
 // unit IDs 0xD0 and higher don't get move debuff by 1 
-
-
 #define SavageBlowUnitID 0xD0 // Lance   
 #define RecklessUnitID 0xD1 // Brock 
 #define RenewalUnitID 0xD2 // Misty / Lorelei 
