@@ -128,7 +128,8 @@
   #endif // USE_STRMAG_SPLIT
   
   
-    #include "pages/mss_page2_original.lyn.event"
+    // #include "pages/mss_page2_original.lyn.event"
+    #include "pages/mss_page2_ballista.lyn.event"
   
   #ifdef ONLY_SHOW_USED_RANKS
   

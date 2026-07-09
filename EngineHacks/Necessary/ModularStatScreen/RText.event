@@ -218,15 +218,30 @@ ST_Skill6:
   
 #endif // USE_STRMAG_SPLIT
   
-  
+PUSH 
+// ORG $87190 
+// POIN RText_Page4 
+// ORG $a00ed4 
+// POIN RText_Page4 
+// ORG $a00f4c 
+// POIN RText_Page4 
+// ORG $a00f68 
+// POIN RText_Page4 
+// ORG $a00fb8 
+// POIN RText_Page4 
+// ORG $a00fbc 
+// POIN RText_Page4 
 
+POP 
+PUSH 
+ORG 0xA00EB8
 #ifdef ENABLE_PERSONAL_INFO
 
     RText_Page4:
   
   ST_Name4:
     RMenu(0,ST_Level4,0,ST_Spell1,0x18,0x50,0x6E8,ClassDescGetter)
-
+    
   ST_Class4:
   
 	#ifdef GAIDEN_MAGIC
@@ -274,9 +289,6 @@ ST_Skill6:
 
 #else // ENABLE_PERSONAL_INFO
 
-PUSH
-	ORG 0xA00EB8 //page 3 ? 
-
 
 ALIGN 4 
 
@@ -284,47 +296,111 @@ ALIGN 4
 
 
 #ifdef GAIDEN_MAGIC
-  ST_Class4:
-    RMenu(ST_HP4,ST_Level4,ST_Spell1,ST_Spell1,0x18, 0x50,0x6E8,ClassDescGetter)
-    //RMenu(0,0,0,0,0x18,0x50,0x0,NameDescGetter)
+// MESSAGE CURRENTOFFSET 
+// duplicates are to make it so going from a move to class etc and back will return to that same move 
+     ST_Spell1:
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+      RMenu(Inventory_Hit,ST_Spell2,ST_ClassA,ST_ClassA,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
 
-  ST_Name4:
-    RMenu(ST_HP4,ST_Level4,ST_Spell5,ST_Spell5,0x18, 0x50,0x6E8,ClassDescGetter)
+ POP
+ALIGN 4
+ST_ClassA:
+  RMenu(ST_HPA,ST_LevelA,ST_Spell1,ST_Spell1,0x18, 0x50,0x6E8,ClassDescGetter)
+ST_ClassB:
+  RMenu(ST_HPB,ST_LevelB,ST_Spell2,ST_Spell2,0x18, 0x50,0x6E8,ClassDescGetter)
+  ST_ClassC:
+  RMenu(ST_HPC,ST_LevelC,ST_Spell3,ST_Spell3,0x18, 0x50,0x6E8,ClassDescGetter)
+  ST_ClassD:
+  RMenu(ST_HPD,ST_LevelD,ST_Spell4,ST_Spell4,0x18, 0x50,0x6E8,ClassDescGetter)
+  ST_ClassE:
+  RMenu(ST_HPE,ST_LevelE,ST_Spell5,ST_Spell5,0x18, 0x50,0x6E8,ClassDescGetter)
 
-  ST_Level4:
-    RMenu(ST_Class4,ST_HP4,ST_Spell5,ST_Exp4,0x6,0x78,0x542)
+  ST_NameA:
+    RMenu(ST_HPA,ST_LevelA,ST_Spell1,ST_Spell1,0x18, 0x50,0x6E8,ClassDescGetter)
+  ST_NameB:
+    RMenu(ST_HPB,ST_LevelB,ST_Spell2,ST_Spell2,0x18, 0x50,0x6E8,ClassDescGetter)
+  ST_NameC:
+    RMenu(ST_HPC,ST_LevelC,ST_Spell3,ST_Spell3,0x18, 0x50,0x6E8,ClassDescGetter)
+  ST_NameD:
+    RMenu(ST_HPD,ST_LevelD,ST_Spell4,ST_Spell4,0x18, 0x50,0x6E8,ClassDescGetter)
+  ST_NameE:
+    RMenu(ST_HPE,ST_LevelE,ST_Spell5,ST_Spell5,0x18, 0x50,0x6E8,ClassDescGetter)
 
-  ST_Exp4:
-    RMenu(ST_Class4,ST_HP4,ST_Level4,ST_Spell5,0x26,0x78,0x543)
+  ST_LevelA:
+    RMenu(ST_ClassA,ST_HPA,Inventory_Crt,ST_ExpA,0x6,0x78,0x542)
+  ST_LevelB:
+    RMenu(ST_ClassB,ST_HPB,Inventory_Crt,ST_ExpB,0x6,0x78,0x542)
+  ST_LevelC:
+    RMenu(ST_ClassC,ST_HPC,Inventory_Crt,ST_ExpC,0x6,0x78,0x542)
+  ST_LevelD:
+    RMenu(ST_ClassD,ST_HPD,Inventory_Crt,ST_ExpD,0x6,0x78,0x542)
+  ST_LevelE:
+    RMenu(ST_ClassE,ST_HPE,Inventory_Crt,ST_ExpE,0x6,0x78,0x542)
 
-  ST_HP4:
-    RMenu(ST_Level4,ST_Class4,ST_Spell5,ST_Spell5,0x6,0x88,0x544)
+  ST_ExpA:
+    RMenu(ST_ClassA,ST_HPA,ST_LevelA,Inventory_Atk,0x26,0x78,0x543)
+  ST_ExpB:
+    RMenu(ST_ClassB,ST_HPB,ST_LevelB,Inventory_Atk,0x26,0x78,0x543)
+  ST_ExpC:
+    RMenu(ST_ClassC,ST_HPC,ST_LevelC,Inventory_Atk,0x26,0x78,0x543)
+  ST_ExpD:
+    RMenu(ST_ClassD,ST_HPD,ST_LevelD,Inventory_Atk,0x26,0x78,0x543)
+  ST_ExpE:
+    RMenu(ST_ClassE,ST_HPE,ST_LevelE,Inventory_Atk,0x26,0x78,0x543)
 
-    ST_Spell1:
-      RMenu(ST_Spell5,ST_Spell2,ST_Class4,ST_Class4,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter) //      RMenu(ST_Spell8,ST_Spell2,ST_Class4,ST_Spell9,0x66,0x18,0,GaidenRTextLooper,GaidenRTextGetter)
+  ST_HPA:
+    RMenu(ST_LevelA,ST_ClassA,Inventory_Avo,Inventory_Hit,0x6,0x88,0x544)
+  ST_HPB:
+    RMenu(ST_LevelB,ST_ClassB,Inventory_Avo,Inventory_Hit,0x6,0x88,0x544)
+  ST_HPC:
+    RMenu(ST_LevelC,ST_ClassC,Inventory_Avo,Inventory_Hit,0x6,0x88,0x544)
+  ST_HPD:
+    RMenu(ST_LevelD,ST_ClassD,Inventory_Avo,Inventory_Hit,0x6,0x88,0x544)
+  ST_HPE:
+    RMenu(ST_LevelE,ST_ClassE,Inventory_Avo,Inventory_Hit,0x6,0x88,0x544)
+
 
 
   ST_Donate:
-    RMenu(0,0,ST_Class4,0,0x86,0x48,DonateURL)
+    // RMenu(0,0,ST_Class4,0,0x86,0x48,DonateURL)
 #endif 
-	POP 
-ALIGN 4
+
 	
 #endif // ENABLE_PERSONAL_INFO
+
 
 #ifdef GAIDEN_MAGIC
 
 //(up,down,left,right,xcoord,ycoord,TID)
 
   ST_Spell2:
-    RMenu(ST_Spell1,ST_Spell3,ST_Class4,ST_Class4,0x66,0x28,1,GaidenRTextLooper,GaidenRTextGetter)
+    RMenu(ST_Spell1,ST_Spell3,ST_ClassB,ST_ClassB,0x66,0x28,1,GaidenRTextLooper,GaidenRTextGetter)
 
   ST_Spell3:
-    RMenu(ST_Spell2,ST_Spell4,ST_Class4,ST_Class4,0x66,0x38,2,GaidenRTextLooper,GaidenRTextGetter)
+    RMenu(ST_Spell2,ST_Spell4,ST_ClassC,ST_ClassC,0x66,0x38,2,GaidenRTextLooper,GaidenRTextGetter)
   ST_Spell4:
-    RMenu(ST_Spell3,ST_Spell5,ST_Class4,ST_Class4,0x66,0x48,3,GaidenRTextLooper,GaidenRTextGetter)
+    RMenu(ST_Spell3,ST_Spell5,ST_ClassD,ST_ClassD,0x66,0x48,3,GaidenRTextLooper,GaidenRTextGetter)
   ST_Spell5:
-    RMenu(ST_Spell4,ST_Spell1,ST_Class4,ST_Class4,0x66,0x58,4,GaidenRTextLooper,GaidenRTextGetter)
+    RMenu(ST_Spell4,Inventory_Atk,ST_ClassE,ST_ClassE,0x66,0x58,4,GaidenRTextLooper,GaidenRTextGetter)
+    
+Inventory_Atk:
+  RMenu(ST_Spell5,Inventory_Hit,ST_ExpE,Inventory_Crt,0x76,0x78,0x55C)
+Inventory_Hit:
+  RMenu(Inventory_Atk,ST_Spell1,ST_HPE,Inventory_Avo,0x76,0x88,0x55D)
+Inventory_Rng:
+  RMenu(ST_Spell5,Inventory_Crt,ST_ClassE,ST_ClassE,0xae,0x68,0x55E)
+Inventory_Crt:
+  RMenu(Inventory_Rng,Inventory_Avo,Inventory_Atk,ST_LevelE,0xae,0x78,0x55F)
+Inventory_Avo:
+  RMenu(Inventory_Crt,ST_Spell1,Inventory_Hit,ST_HPE,0xae,0x88,0x560)
   //ST_Spell6:
   //  RMenu(ST_Spell5,ST_Spell7,ST_Exp4,ST_Spell14,0x66,0x68,10,GaidenRTextLooper,GaidenRTextGetter)
 	//

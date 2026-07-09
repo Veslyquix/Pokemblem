@@ -11,5 +11,7 @@ page_start
 
 @draw_textID_at 13, 3, 0xd4b, 16, Green
 draw_gaiden_spells_at 13, 3, GaidenStatScreen @ GaidenStatScreen is a pointer to the routine, GaidenStatScreen.
-
+LoadEquipBox
+draw_equip_highlight showAccessory=0
+draw_stats_box
 page_end
