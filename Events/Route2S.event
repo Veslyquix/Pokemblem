@@ -4,7 +4,7 @@
 #define ClassA ClassRoute2SWildA
 #define ClassB ClassRoute2SWildB
 #define WildLvl 4
-#define TrainerL 4 
+#define TrainerL 4 // so Gary's starter lacks stab 
 
 EventPointerTable(ChapterID,ThisChapter)
 
@@ -180,9 +180,6 @@ RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(6,15,12,19)) //top patch
 
 AutoLevelUnits(WildLvl, True, 0x50FF) // Wilds  
 
-
-
-CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 
 CALL SetBushHpEvent
 LOAD1 0x1 HumanTrainers 

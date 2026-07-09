@@ -246,25 +246,9 @@ mov r0, r6 @ unit
 bl AutoLevelSummonedUnit
 
 
-bl GetDifficulty
-mov r1, #0 
-cmp r0, #0 
-beq NoMoreBonusLevels
-
-ldr r1, =TrainerDifficultyBonusLink_Hard
-ldr r1, [r1] @ Additional hidden levels for trainer's pokemon on higher difficulties 
-cmp r0, #1 
-beq NoMoreBonusLevels
-ldr r1, =TrainerDifficultyBonusLink_Lunatic
-ldr r1, [r1] @ Additional hidden levels for trainer's pokemon on higher difficulties 
-
+bl GetDifficultyBonus
+mov r1, r0 
 NoMoreBonusLevels: 
-ldr r2, =0x202BCF0 @ ch data 
-ldrb r2, [r2, #0x0E] @ chapter ID 
-cmp r2, #9 
-bge DontReduceBonusLevelsForEarlyChapters 
-lsr r1, #1 
-DontReduceBonusLevelsForEarlyChapters: 
 
 ldr r0, [r6] @ unit ID 
 ldrb r0, [r0, #4] 
@@ -273,19 +257,13 @@ bge NoReduction
 add r1, #2 @ rounding 
 lsr r1, #2 @ 1/4 bonus levels for capturable mons 
 NoReduction:
-mov r2, r1 @ bonus levels 
-
-@ldr r1, [r6, #4]
-@ldrb r1, [r1, #4] @ class id of summon 
-@mov r0, r6 @ Summon unit pointer 
-@blh IncreaseUnitStatsByLevelCount @ // str/mag split compatible
 
 ldr r3, =MemorySlot 
 mov r0, #0 
 str r0, [r3, #4*3] @ s3 as increase level: false 
 
 mov r0, r6 @ unit 
-mov r1, r2 @ levels 
+@mov r1, r1 @ levels 
 bl AutoLevelSummonedUnit
 
 @ ensure they are the same level 
@@ -622,6 +600,7 @@ mov r0, #0x17	@makes the unit wait?? makes the menu disappear after command is s
 	
 .align 
 .ltorg
+
 
 .global ModularSummon_UnhideActive 
 .type ModularSummon_UnhideActive, %function 

@@ -31,6 +31,37 @@
 	.equ MemorySlot3,0x30004C4    @item ID to give @[0x30004C4]!!?
 	.equ DivisionRoutine, 0x080D18FC
 
+
+
+.global GetDifficultyBonus 
+.type GetDifficultyBonus, %function 
+GetDifficultyBonus:
+push {lr} 
+bl GetDifficulty 
+cmp r0, #0 
+beq EasyBonus @ None 
+
+ldr r3, =0x803462c @ POIN gChapterDataTable 
+ldr r3, [r3] 
+ldr r2, =0x202BCF0 @ ch data 
+ldrb r2, [r2, #0x0E] @ chapter ID 
+mov r1, #0x94 @ size of each entry 
+mul r1, r2 
+add r1, r3 
+cmp r0, #1 
+beq HardBonus 
+@ lunatic 
+ldrb r0, [r1, #0x15] 
+b EasyBonus 
+
+HardBonus: 
+ldrb r0, [r1, #0x14] 
+
+EasyBonus:  
+pop {r1} 
+bx r1 
+.ltorg 
+
 .global AutoLevelSummonedUnit
 .type AutoLevelSummonedUnit, %function 
 AutoLevelSummonedUnit: 
@@ -55,6 +86,10 @@ AutoLevelUnits:
 ldr r0, =MemorySlot 
 mov r6, #0x1 
 ldr r7, [r0, #4*0x01] @r7 / s1 as number of levels 
+cmp r7, #0 
+bge LoopThroughUnits 
+bl GetDifficultyBonus 
+mov r7, r0 
 
 LoopThroughUnits:
 mov r0,r6

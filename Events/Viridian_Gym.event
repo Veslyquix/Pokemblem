@@ -118,10 +118,7 @@ LOAD1 0x1 EnemyTrainersA
 ENUN 
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(TrainerL, True, 0x90EF) 
-ENUT FIXED_GROWTHS_FLAG_ID
-AutoLevelUnits(ViridianGymBonus, False, 0x90EF) // 9 hidden levels regardless of difficulty 
-//AutoLevelUnits(3, False, 0x90EF) 
-CALL GenericAutolevelEvent_Earlygame // Trainers given invisible levels based on difficulty 
+CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 

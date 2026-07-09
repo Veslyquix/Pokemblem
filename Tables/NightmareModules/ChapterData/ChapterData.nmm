@@ -102,9 +102,15 @@ BattleBG
 NEHU
 NULL
 
-DifficultyBonus
+HardBonus
 20
-2
+1
+NEHU
+NULL
+
+LunaticBonus
+21
+1
 NEHU
 NULL
 

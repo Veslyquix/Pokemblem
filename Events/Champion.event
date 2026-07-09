@@ -184,9 +184,6 @@ ENUN
 
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(TrainerL, True, 0x90EF) 
-ENUT FIXED_GROWTHS_FLAG_ID
-AutoLevelUnits(ChampionBonus, False, 0x90EF) // 9 hidden levels regardless of difficulty 
-//AutoLevelUnits(3, False, 0x90EF) 
 CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
@@ -315,7 +312,7 @@ LABEL 13
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(99, True, 0x90EF) // lvl 99 on Lunatic only 
 //AutoLevelUnits(SaffronGymBonus, False, 0x90EF) // 9 hidden levels regardless of difficulty 
-//CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
+// CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 SetUnitStatus(GymPkmn_6, Defence, 50)
 SetUnitStatus(GymPkmn_6, Resistance, 50)
 SilentGiveItemWithDurability(SableyeUnitID, 0x80|Berry,5)

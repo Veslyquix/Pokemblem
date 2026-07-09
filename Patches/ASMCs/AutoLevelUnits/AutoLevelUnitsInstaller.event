@@ -15,7 +15,12 @@ ALIGN 4
 AutoLvlUnit_ASMC:
 #incbin "AutoLvlUnit.dmp" 
 
-
+#ifdef POKEMBLEM 
+PUSH 
+ORG $180CC//UnitApplyBonusLevels
+SHORT $4770 // bx lr 
+POP 
+#endif 
 
 ALIGN 4 
 
@@ -25,6 +30,7 @@ ALIGN 4
 #define VanillaAutoLevel(UnitID, Levels, VisibleOrNot) "SVAL 1 UnitID; SVAL 3 Levels; SVAL 4 VisibleOrNot; ASMC ASMC_ApplyBonusLevels"
 
 #define AutoLevelUnits(Levels, IncreaseDisplayedLevelBoolean, UnitIDRange) "STAL 5; SVAL 1 Levels; SVAL 3 IncreaseDisplayedLevelBoolean; SVAL 4 UnitIDRange; SVAL 5 0; ASMC AutoLevelUnits; ENUF FIXED_GROWTHS_FLAG_ID" 
+#define ApplyHiddenLevels(UnitIDRange) "STAL 5; SVAL 1 (-1); SVAL 3 0; SVAL 4 UnitIDRange; SVAL 5 0; ASMC AutoLevelUnits; ENUF FIXED_GROWTHS_FLAG_ID" 
 
 #define AutoLevelUnits(Levels, IncreaseDisplayedLevelBoolean, UnitIDRange, Coordinate) "STAL 5; SVAL 1 Levels; SVAL 3 IncreaseDisplayedLevelBoolean; SVAL 4 UnitIDRange; SVAL 5 Coordinate; ASMC AutoLevelUnits; ENUF FIXED_GROWTHS_FLAG_ID" 
 
