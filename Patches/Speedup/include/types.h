@@ -3,13 +3,13 @@
 
 #include "gba/types.h"
 
-#ifndef __STDBOOL_H__
-typedef s8 bool;
-enum { false, true };
-#define false	false
-#define true	true
-#define __bool_true_false_are_defined	1
-#endif /* bool */
+// #ifndef __STDBOOL_H__
+// typedef s8 bool;
+// enum { false, true };
+// #define false	false
+// #define true	true
+// #define __bool_true_false_are_defined	1
+// #endif /* bool */
 
 // Forward declarations for common types
 struct Proc;

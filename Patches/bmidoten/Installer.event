@@ -1,6 +1,21 @@
 
 #include "bmidoten.lyn.event" 
 
+ALIGN 4 
+AI_UseWexpAsWeps:
+#ifdef AI_USE_WEXP_AS_WEPS
+WORD True 
+#else 
+WORD False 
+#endif 
+
+
+PUSH 
+ORG $3DB60 // AiAttemptStealActionWithinMovement 
+SHORT $2000 // mov r0, #0 no action taken 
+SHORT $4770 // bx lr 
+
+POP 
 
 
 

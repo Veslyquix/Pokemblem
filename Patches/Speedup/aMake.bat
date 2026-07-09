@@ -1,4 +1,3 @@
 make "AiAttemptOffensiveAction.lyn.event"
-make "AiTryMoveTowards.lyn.event"
-make "CpDecide.lyn.event"
+@rem make "CpDecide.lyn.event"
 pause 
