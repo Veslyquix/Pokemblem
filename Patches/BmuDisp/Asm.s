@@ -18,8 +18,8 @@ ldrb r5, [r0]
 
 blh 0x8005B68 @ EndFaceChibiSpr 
 
-mov r1, #0x35 
-ldrb r1, [r4, r1] 
+blh 0x80364d8 @ GetBattleForecastPanelSide 
+mov r1, r0 
 mov r0, r4 
 bl BattleForecastChibi
 
