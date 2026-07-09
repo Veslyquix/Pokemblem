@@ -22,8 +22,9 @@ beq Exit @ if player unit, do nothing
 ldr r1, [r4] @ unit pointer 
 ldrb r1, [r1, #4] @ unit id 
 cmp r1, #0xE0 
-bge Exit 
+@bge Exit 
 
+mov r1, #0 
 mov r5, #0x27
 mov r6, #0x1c 
 Loop: 
@@ -34,10 +35,14 @@ bge Exit
 @ldrb r0, [r4, r6] 
 @blh GetItemAttributes
 ldrb r2, [r4, r6] 
+cmp r2, #0 
+beq Exit 
+strh r1, [r4, r6] @ delete item now 
 @mov r1, #1 @ equip 
 @tst r0, r1 
 @bne Store 
 @mov r2, #0 
+
 Store: 
 strb r2, [r4, r5] 
 b Loop 
@@ -45,6 +50,8 @@ b Loop
 
 
 Exit: 
+mov r0, r4 
+blh 0x8017984 @UnitRemoveInvalidItems
 pop {r4-r6}
 pop {r0}
 bx r0 

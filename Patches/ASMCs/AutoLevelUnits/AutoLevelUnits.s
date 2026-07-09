@@ -378,12 +378,12 @@ SkipIncreaseShownLevel:
 
 
 mov r0, r5 
-blh CheckCaps 
+blh CheckCaps
 mov r0, r5 
-
+bl CopyWepsToWEXP 
+mov r0, r5 
 bl AutolevelSpells
-mov r0, r5 
-bl CopyWepsToWEXP
+
 b NextUnit 
 
 

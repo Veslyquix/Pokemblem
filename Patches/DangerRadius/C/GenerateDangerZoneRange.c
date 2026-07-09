@@ -201,13 +201,18 @@ void NewGenerateUnitCompleteAttackRange(struct Unit * unit)
             {
                 for (i = 0; i < 5; i++)
                 {
+                    // asm("mov r11, r11");
                     range = PokemblemGetItemEncodedRange(GM_GetNthSpell(unit, i));
                     if (range == 0)
                     {
                         break;
                     }
-                    minRange = range & 0xF;
-                    maxRange = (range & 0xF0) >> 4;
+                    maxRange = range & 0xF;
+                    minRange = (range & 0xF0) >> 4;
+                    // if ((minRange == 1) && (maxRange == 5))
+                    // {
+                    // asm("mov r11, r11");
+                    // }
                     FOR_EACH_IN_MOVEMENT_RANGE({ PokemblemMapAddInBoundedRange(ix, iy, minRange, maxRange); })
                 }
             }
@@ -227,8 +232,8 @@ void NewGenerateUnitCompleteAttackRange(struct Unit * unit)
                 if (CanUnitUseWeapon(unit, item))
                 {
                     range = PokemblemGetItemEncodedRange(item);
-                    minRange = range & 0xF;
-                    maxRange = (range & 0xF0) >> 4;
+                    maxRange = range & 0xF;
+                    minRange = (range & 0xF0) >> 4;
 
                     FOR_EACH_IN_MOVEMENT_RANGE({ PokemblemMapAddInBoundedRange(ix, iy, minRange, maxRange); })
                 }

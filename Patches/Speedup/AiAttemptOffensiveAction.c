@@ -378,7 +378,7 @@ s8 AiAttemptCombatWithinMovement(s8 (*isEnemy)(struct Unit * unit))
 
 extern void sub_803EC18(int);
 //! FE8U = 0x0803E93C
-s8 AiEquipGetFlags(u16 * out)
+s8 AiEquipGetFlags(u16 * out) // if doing nothing else, equip some item
 {
     int i;
     u32 perc;
@@ -431,12 +431,12 @@ s8 AiEquipGetFlags(u16 * out)
     }
     return ret;
 }
-
+// NOTE: MSG/3rdParty/InjectMovGetters hooks this function
 #define gMapRangeSigned ((s8 **)gBmMapRange)
 #define gMapMovementSigned ((s8 **)gBmMapMovement)
 extern int sub_803CF60(int x, int y);
 //! FE8U = 0x0803CFB4
-s8 sub_803CFB4(int x, int y, struct Vec2 * out, u8 * itemSlotOut)
+s8 sub_803CFB4(int x, int y, struct Vec2 * out, u8 * itemSlotOut) // only used in AiScriptCmd_18_TryAttackSnagWall
 {
     int slot;
 

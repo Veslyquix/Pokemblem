@@ -1243,7 +1243,7 @@ int BuildStraightLineRangeFromUnit(struct Unit * unit)
         dangerRadius = true;
     }
 
-    int wep = GetUnitEquippedWeapon(unit);
+    int wep = GetUnitEquippedWeapon(unit) & 0xFF;
     int c = 0;
     int range = 0;
     while (StraightLineWeaponsList[c])

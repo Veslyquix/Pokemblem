@@ -351,6 +351,7 @@ NoFade
 ENDB 
 
 CannotEscapeTrainer_Oak:
+PlayerInRange 
 SVAL s1 0xEF 
 SVAL s2 CannotEscapeTrainerBattleText
 CALL CannotEscapeEvent
@@ -358,6 +359,7 @@ NoFade
 ENDA 
 
 CannotEscapeWild:
+PlayerInRange 
 SVAL s1 0xEE 
 SVAL s2 CannotEscapeAuraBattleText
 CALL CannotEscapeEvent
@@ -500,6 +502,7 @@ ENDA
 
 ALIGN 4 
 CannotEscapeTrainerBattleEvent:
+PlayerInRange
 Text(CannotEscapeTrainerBattleText)
 NoFade 
 ENDA 

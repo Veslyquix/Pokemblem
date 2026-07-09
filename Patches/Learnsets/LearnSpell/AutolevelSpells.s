@@ -57,17 +57,15 @@ cmp r0, #0
 beq RandomizerDoesntMatter
 	
 	mov r0, #0 
-	strh r0, [r4, #0x1E] 
-	strh r0, [r4, #0x20] 
-	strh r0, [r4, #0x22] 
-	strh r0, [r4, #0x24] 
-	strh r0, [r4, #0x26] 
+	str r0, [r4, #0x28] @ clear learned moves, even if they had some in their inventory when doing the randomizer  
+	mov r1, #0x30 
+    strb r0, [r4, r1] 
 	
 	RandomizerDoesntMatter: 
-	ldrh r0, [r4, #0x1E] @ inv slot 1
+    mov r1, #0x28 
+	ldrb r0, [r4, r1] @ Do not give moves if they had something in wexp slot 1 
 	cmp r0, #0 
-	beq Start
-	mov r7, #0 @ Do not give moves if they had something in inventory slot 1 
+    bne End @ They're already learned moves 
 	Start:
 	ldr r1, [r4, #4] @ Class pointer 
 	ldrb r2, [r1, #4] @ Class ID 
@@ -106,34 +104,6 @@ beq RandomizerDoesntMatter
 	add r3, #0x28 
 	strb r0, [r4, r3] @ this is overwritten by some CopyOver function I think 
 	sub r3, #0x27 @ add 1 
-	
-	
-	cmp r7, #0 
-	beq LearnSpellLoop 
-	sub r7, r3, #1 
-	push {r3}
-	lsl r7, r7, #1 @ 2 bytes per weapon 
-	add r7, #0x1C @ weapon inv slot - 2 
-	mov r3, r7 
-	FindFreeInventorySpaceLoop:
-	add r3, #2 
-	cmp r3, #0x26 @ enemies only learn 4 moves so they have 1 free inv space 
-	bge BreakFindFreeInventorySpaceLoop
-	ldrh r7, [r4, r3] 
-	cmp r7, #0 
-	bne FindFreeInventorySpaceLoop
-	@ We found free inventory, so store 
-	
-	strb r0, [r4, r3] 
-	mov r0, #0x9 @ 9 durability i guess 
-	add r3, #1 
-	strb r0, [r4, r3] 
-	mov r7, #2 @ non zero value 
-	pop {r3}
-	b LearnSpellLoop
-	BreakFindFreeInventorySpaceLoop:
-	mov r7, #0 @ Inv full 
-	pop {r3}
 	b LearnSpellLoop
 
 	

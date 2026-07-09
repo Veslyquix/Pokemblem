@@ -374,14 +374,14 @@ and r1, r2
 and r2, r3  
 cmp r2, r1 
 beq NextAllegiance
-mov r7, #0x1C @ Weapon index -2
+mov r7, #0x27 @ wexp index -1
 ContinueAnyoneWithinRangeLoop:
-add r7, #2 
-cmp r7, #0x26 
+add r7, #1 
+cmp r7, #0x2C 
 bgt AnyoneWithinRangeLoop 
 mov r1, r0 @ Target 
 mov r0, r6 
-ldrh r2, [r6, r7]
+ldrb r2, [r6, r7]
 cmp r2, #0 @ 
 beq AnyoneWithinRangeLoop @ No weapon, so move on to next unit 
 @ r0 actor, r1 target, r2 weapon 
