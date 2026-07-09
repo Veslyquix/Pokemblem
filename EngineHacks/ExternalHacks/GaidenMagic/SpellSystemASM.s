@@ -39,7 +39,44 @@ neg r1, r1  	@ These 4 lines were commented out for some reason by Snek
 cmp r3, r1		@ but they cause an AI bug where they always use their last inv wep 
 bne EnemyExists @ so I uncommented them - Vesly 	
 OverwriteR3:
-mov r3, r0
+ldr r0, =gBattleActor 
+cmp r0, r5 
+bne DontSwapMoves 
+ldrb r0, [r5, #0xB] 
+lsr r0, #6 
+cmp r0, #0 
+beq DontSwapMoves @ Player 
+mov r2, #0x28 
+add r2, r5 
+ldrb r1, [r2] @ 1st move 
+ldr r0, =SelectedSpell 
+strb r1, [r0] @ default 
+cmp r3, #0 
+blt DontSwapMoves 
+cmp r3, #9 
+beq DontSwapMoves
+
+
+ldrb r0, [r2, r3] @ move to use 
+strb r0, [r2] 
+strb r1, [r2, r3] 
+push {r3} 
+ldr r3, =SelectedSpell 
+strb r0, [r3] 
+ldrb r0, [r5, #0xB] @ index 
+
+blh 0x8019430, r1 @ get unit 
+pop {r3} 
+mov r2, #0x28 
+add r2, r0 
+ldrb r0, [r2, r3] 
+ldrb r1, [r2] 
+strb r0, [r2] 
+strb r1, [r2, r3] @ swap moves 
+
+
+DontSwapMoves: 
+mov r3, #9 
 EnemyExists:
 
 
