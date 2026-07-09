@@ -5,7 +5,7 @@ void PokemblemSetWorkingBmMap(u8 ** map)
 {
     gWorkingBmMap = map;
 }
-
+extern int GetEnemyWepBySlot(struct Unit * unit, int slot);
 #ifdef POKEMBLEM_VERSION
 void PokemblemGenerateDangerZoneRange(void) // I don't use staves
 #endif
@@ -120,7 +120,7 @@ int doesUnitHaveSpecialRange(struct Unit * unit)
     if (unit->index & 0xC0)
     { // players do not use regular weapons in pokemblem
 #endif
-        for (i = 0; (i < UNIT_ITEM_COUNT) && (item = unit->items[i]); ++i)
+        for (i = 0; (i < UNIT_ITEM_COUNT) && (item = GetEnemyWepBySlot(unit, i)); ++i)
         {
             // if (CanUnitUseWeapon(unit, item))
             result |= PokemblemGetItemReachBits(item);
@@ -220,7 +220,7 @@ void NewGenerateUnitCompleteAttackRange(struct Unit * unit)
             return; // players do not use regular weapons in pokemblem
         }
 #endif
-        for (i = 0; (i < UNIT_ITEM_COUNT) && (item = unit->items[i]); ++i)
+        for (i = 0; (i < UNIT_ITEM_COUNT) && (item = GetEnemyWepBySlot(unit, i)); ++i)
         {
             if (item)
             {
@@ -380,9 +380,9 @@ int PokemblemGetUnitWeaponReachBits(struct Unit * unit, int itemSlot)
     }
 
     if (itemSlot >= 0)
-        return PokemblemGetItemReachBits(unit->items[itemSlot]) | result; // use gaiden magic? or not?
+        return PokemblemGetItemReachBits(GetEnemyWepBySlot(unit, itemSlot)) | result; // use gaiden magic? or not?
 
-    for (i = 0; (i < UNIT_ITEM_COUNT) && (item = unit->items[i]); ++i)
+    for (i = 0; (i < UNIT_ITEM_COUNT) && (item = GetEnemyWepBySlot(unit, i)); ++i)
         if (CanUnitUseWeapon(unit, item))
             result |= PokemblemGetItemReachBits(item);
 

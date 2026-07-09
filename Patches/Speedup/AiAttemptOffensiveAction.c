@@ -23,6 +23,17 @@ extern void TurnOnBGMFlag(void);
 extern u8 BossChapterTable[];
 // ai fill danger map
 
+extern int AI_UseWexpAsWeps;
+int GetEnemyWepBySlot(struct Unit * unit, int slot)
+{
+    // UNIT_ITEM_COUNT
+    if (AI_UseWexpAsWeps)
+    {
+        return unit->ranks[slot] | 0xA00; // 10 durability
+    }
+    return unit->items[slot];
+}
+
 //! FE8U = 0x0803D450
 // NOTE: Shade+ and Steal+ hook this function
 // WARNING: Barricade normally sets r11 to 0 despite not pushing / popping r11
@@ -159,7 +170,8 @@ s8 AiAttemptOffensiveAction(s8 (*isEnemy)(struct Unit * unit))
 
         for (i = 0; i < 5; i++)
         {
-            u16 item = actor->items[i];
+            // u16 item = actor->items[i];
+            u16 item = GetEnemyWepBySlot(actor, i);
 
             if (item == 0)
             {
@@ -275,7 +287,8 @@ s8 AiAttemptCombatWithinMovement(s8 (*isEnemy)(struct Unit * unit))
 
         for (i = 0; i < UNIT_ITEM_COUNT; i++)
         {
-            u16 item = gActiveUnit->items[i];
+            // u16 item = gActiveUnit->items[i];
+            u16 item = GetEnemyWepBySlot(gActiveUnit, i);
 
             if (item == 0)
             {
@@ -379,7 +392,8 @@ s8 AiEquipGetFlags(u16 * out)
         u16 item;
         out[i] = 0;
 
-        item = gActiveUnit->items[i];
+        // item = gActiveUnit->items[i];
+        item = GetEnemyWepBySlot(gActiveUnit, i);
 
         if (item == 0)
             break;
@@ -438,7 +452,8 @@ s8 sub_803CFB4(int x, int y, struct Vec2 * out, u8 * itemSlotOut)
         int ix;
         int iy;
 
-        u16 item = gActiveUnit->items[slot];
+        // u16 item = gActiveUnit->items[slot];
+        u16 item = GetEnemyWepBySlot(gActiveUnit, slot);
 
         if (item == 0)
         {

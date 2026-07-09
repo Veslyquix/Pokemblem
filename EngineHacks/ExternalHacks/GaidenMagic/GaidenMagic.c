@@ -51,7 +51,7 @@ struct RTextProc {
 };
 
 // extern int GetVanillaEquipped(Unit* unit); //
-static int GetVanillaEquipped(Unit *unit);
+int GetVanillaEquipped(Unit *unit);
 
 extern SpellList
     *SpellListTable[0xFF]; // Entirely different from vanilla Spell Association
@@ -76,7 +76,7 @@ extern u16 gCaptureUMErrorText;
 extern u16 gGaidenMagicUMErrorText;
 extern u16 gGaidenMagicSpellMenuErrorText;
 extern u8 GaidenSpellCostTable[];
-
+extern int GetEnemyWepBySlot(struct Unit *unit, int slot);
 extern int (*gCan_Attack_Target)(
     int item, int range,
     Unit *unit); // These exist in the FE8-Item Range Fix hack.

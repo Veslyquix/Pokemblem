@@ -29,19 +29,19 @@ enum {
     REACH_TO15   = (1 << 4),
     REACH_MAGBY2 = (1 << 5),
 }; */
-
+extern int GetEnemyWepBySlot(struct Unit * unit, int slot);
 int NewGetUnitWeaponReachBits(struct Unit * unit, int itemSlot)
 {
     int i, item, result = 0;
 
     if (itemSlot >= 0)
     {
-        return GetItemReachBits(unit->items[itemSlot]);
+        return GetItemReachBits(GetEnemyWepBySlot(unit, itemSlot));
     }
 
     if (unit->index > 0x3F)
     {
-        for (i = 0; (i < UNIT_ITEM_COUNT) && (item = unit->items[i]); ++i)
+        for (i = 0; (i < UNIT_ITEM_COUNT) && (item = GetEnemyWepBySlot(unit, i)); ++i)
             if (CanUnitUseWeapon(unit, item))
                 result |= GetItemReachBits(item);
     }

@@ -17,5 +17,7 @@ SHORT $4770 // bx lr
 
 POP 
 
+// no need to edit SpellSystemASM.s for AI_UseWexpAsWeps, as it seems to be staff related 
+
 
 
