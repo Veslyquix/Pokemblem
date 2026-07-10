@@ -59,6 +59,7 @@ END_MAIN
 MiscBasedEvents:
 CauseGameOverIfLordDies
 AFEV 0 GlobalAfev 0
+AFEV 0 TrainerChargeEvent 0 
 //AFEV flagID eventOffset activationFlag
 //AREA flagID eventOffset [corner1x, corner1y] [corner2x, corner2y]
 //AFEV 0 RefreshIfNotInDanger 0 
@@ -75,6 +76,19 @@ EscapeTileEntry(38,32)
 EscapeTileEntry(5,7) 
 EscapeTileTerminator ; } 
 #endif 
+
+// range event for 0xE0 - force summon next trainer or change ai to approach? 
+ALIGN 4 
+TrainerChargeEvent: 
+CHECK_ACTIVE 
+SVAL s1 0xE0 
+BNE 99 sC s1 
+TutText(0xEDF)
+SVAL 1 TrainerPursueAI_chai
+CHAI 0xE1
+LABEL 99 
+NoFade 
+ENDA 
 
 ToRoute2N:
 ChapterTransition(Route2NCh, 6, 13)
@@ -368,7 +382,7 @@ UNIT 0xE1 bug_catcherID 0x0 Level(0, Enemy, 1) [29,13]  0b 0x0	0x1 REDA29R13 [On
 //UNIT 0xE2 bug_catcherID 0x0 Level(0, Enemy, 1) [19,14]  0b 0x0	0x1 REDA19R14 [OneRangeWep,0x0,0x0,0x0] TrainerAI
 UNIT 0xE3 bug_catcherID 0x0 Level(0, Enemy, 1) [12,8 ]  0b 0x0	0x1 REDA12R8  [OneRangeWep,0x0,0x0,0x0] TrainerFleeAI // This makes them run into a corner i think 
 UNIT 0xE4 bug_catcherID 0x0 Level(0, Enemy, 1) [9,25]  0b 0x0	0x1 REDA9R25 [OneRangeWep,0x0,0x0,0x0] TrainerAI 
-UNIT 0xE5 hikerID 		0x0 Level(0, Enemy, 1) [43,24]  0b 0x0	0x0 0 [0x0,0x0,0x0,0x0] DoNothing
+// UNIT 0xE5 hikerID 		0x0 Level(0, Enemy, 1) [43,24]  0b 0x0	0x0 0 [0x0,0x0,0x0,0x0] DoNothing // reports of npc bugs, so whatever 
 UNIT
 
 HireGeodudeUnitGroup:

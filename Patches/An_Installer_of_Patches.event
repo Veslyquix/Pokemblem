@@ -176,8 +176,8 @@
 // misc QoL
 
 
-
-#include "FillAIRangeMapFix/FillAIDangerMap.event"
+#include "FillAiDangerMap/Installer.event" 
+// #include "FillAIRangeMapFix/FillAIDangerMap.event"
 
 
 #include "TutorialDisabler.event"
