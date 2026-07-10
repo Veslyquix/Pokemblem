@@ -268,6 +268,7 @@ LABEL 10
 CALL SetBushHpEvent
 
 MarkTrainerAsDefeated(0xE5) 
+UnmarkTrainerAsDefeated(0xE0)
 
 /*
 LOAD1 1 HireGeodudeUnitGroup

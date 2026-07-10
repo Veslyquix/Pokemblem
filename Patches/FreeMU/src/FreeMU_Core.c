@@ -1382,7 +1382,7 @@ void MU_OnEnd(struct MuProc * proc)
     {
         return;
     }
-    facing = GetBestDirection(unit, facing);
+    facing = MUToSMSDir(GetBestDirection(unit, facing));
     SetUnitFacingAndUpdateGfx(unit, facing);
 }
 
@@ -1428,21 +1428,21 @@ int MUToSMSDir(int dir)
     switch (dir)
     {
 
-        case MU_FACING_DOWN:
+        case MU_FACING_DOWN: // 2
         {
-            return LVFACEDOWN;
+            return LVFACEDOWN; // 0
         }
-        case MU_FACING_UP:
+        case MU_FACING_UP: // 3
         {
-            return LVFACEUP;
+            return LVFACEUP; // 3
         }
-        case MU_FACING_LEFT:
+        case MU_FACING_LEFT: // 0
         {
-            return LVFACELEFT;
+            return LVFACELEFT; // 2
         }
-        case MU_FACING_RIGHT:
+        case MU_FACING_RIGHT: // 1
         {
-            return LVFACERIGHT;
+            return LVFACERIGHT; // 1
         }
     }
     return LVFACEDOWN;

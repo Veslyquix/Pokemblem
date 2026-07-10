@@ -1,7 +1,7 @@
 #include "C_Code.h"
 extern int AnyTargetWithinRange(struct Unit * unit);
 extern int ShouldTrainerSummonTeam(); // uses gActiveUnit
-
+extern int FiveRangeWepLink;
 int GetBestDirection(struct Unit * unit, int direction)
 {
     int i;
@@ -12,12 +12,11 @@ int GetBestDirection(struct Unit * unit, int direction)
     {
         return direction;
     }
-
+    int move = FiveRangeWepLink; // 1-3 range wep;
     for (i = 1; i < 0xC0; i++)
     {
         struct Unit * target = GetUnit(i);
-        u16 move = 0;
-        u8 might = 0;
+
         int xDiff;
         int yDiff;
         int xDist;
@@ -26,7 +25,6 @@ int GetBestDirection(struct Unit * unit, int direction)
         int offAxis;
         int score;
         int targetDirection;
-        int j;
 
         if (!UNIT_IS_VALID(target))
         {
@@ -39,35 +37,6 @@ int GetBestDirection(struct Unit * unit, int direction)
         }
 
         if (AreUnitsAllied(unit->index, target->index))
-        {
-            continue;
-        }
-
-        for (j = 0; j < UNIT_ITEM_COUNT; j++)
-        {
-            u8 moveTmp = target->ranks[j];
-            u8 moveMt;
-
-            if (moveTmp == 0)
-            {
-                break;
-            }
-
-            if (!CanUnitUseWeapon(target, moveTmp))
-            {
-                continue;
-            }
-
-            moveMt = GetItemMight(moveTmp);
-
-            if (moveMt > might)
-            {
-                move = moveTmp;
-                might = moveMt;
-            }
-        }
-
-        if (move == 0)
         {
             continue;
         }
@@ -95,12 +64,12 @@ int GetBestDirection(struct Unit * unit, int direction)
 
         if (xDist >= yDist)
         {
-            targetDirection = xDiff < 0 ? 2 : 1; // left/right
+            targetDirection = xDiff < 0 ? 0 : 1; // left/right
             offAxis = yDist;
         }
         else
         {
-            targetDirection = yDiff < 0 ? 3 : 0; // up/down
+            targetDirection = yDiff < 0 ? 3 : 2; // up/down
             offAxis = xDist;
         }
 
