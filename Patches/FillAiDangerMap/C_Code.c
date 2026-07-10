@@ -1,6 +1,135 @@
 #include "C_Code.h"
 extern int AnyTargetWithinRange(struct Unit * unit);
 extern int ShouldTrainerSummonTeam(); // uses gActiveUnit
+
+int GetBestDirection(struct Unit * unit, int direction)
+{
+    int i;
+    int bestDirection = direction;
+    int bestScore = 0x7fffffff;
+
+    if (!UNIT_IS_VALID(unit))
+    {
+        return direction;
+    }
+
+    for (i = 1; i < 0xC0; i++)
+    {
+        struct Unit * target = GetUnit(i);
+        u16 move = 0;
+        u8 might = 0;
+        int xDiff;
+        int yDiff;
+        int xDist;
+        int yDist;
+        int distance;
+        int offAxis;
+        int score;
+        int targetDirection;
+        int j;
+
+        if (!UNIT_IS_VALID(target))
+        {
+            continue;
+        }
+
+        if (target->state & (US_HIDDEN | US_DEAD | US_NOT_DEPLOYED | US_BIT16))
+        {
+            continue;
+        }
+
+        if (AreUnitsAllied(unit->index, target->index))
+        {
+            continue;
+        }
+
+        for (j = 0; j < UNIT_ITEM_COUNT; j++)
+        {
+            u8 moveTmp = target->ranks[j];
+            u8 moveMt;
+
+            if (moveTmp == 0)
+            {
+                break;
+            }
+
+            if (!CanUnitUseWeapon(target, moveTmp))
+            {
+                continue;
+            }
+
+            moveMt = GetItemMight(moveTmp);
+
+            if (moveMt > might)
+            {
+                move = moveTmp;
+                might = moveMt;
+            }
+        }
+
+        if (move == 0)
+        {
+            continue;
+        }
+
+        xDiff = target->xPos - unit->xPos;
+        yDiff = target->yPos - unit->yPos;
+
+        if ((xDiff == 0) && (yDiff == 0))
+        {
+            continue;
+        }
+
+        xDist = xDiff;
+        yDist = yDiff;
+
+        if (xDist < 0)
+        {
+            xDist = -xDist;
+        }
+
+        if (yDist < 0)
+        {
+            yDist = -yDist;
+        }
+
+        if (xDist >= yDist)
+        {
+            targetDirection = xDiff < 0 ? 2 : 1; // left/right
+            offAxis = yDist;
+        }
+        else
+        {
+            targetDirection = yDiff < 0 ? 3 : 0; // up/down
+            offAxis = xDist;
+        }
+
+        distance = xDist + yDist;
+
+        if (!AiCouldReachByBirdsEyeDistance(unit, target, move))
+        {
+            continue;
+        }
+
+        FillMovementAndRangeMapForItem(target, move);
+
+        if (gBmMapRange[unit->yPos][unit->xPos] == 0)
+        {
+            continue;
+        }
+
+        score = distance + offAxis;
+
+        if (score < bestScore)
+        {
+            bestScore = score;
+            bestDirection = targetDirection;
+        }
+    }
+
+    return bestDirection;
+}
+
 int IsTrainerWithinRangeForSummon(void)
 {
     // if AiSetDecision has not happened, don't do anything

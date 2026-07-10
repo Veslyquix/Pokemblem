@@ -1362,6 +1362,30 @@ struct MuConfig
     /* 45 */ // 3 byte padding
     /* 48 */ struct MuProc * mu;
 };
+extern int GetBestDirection(struct Unit * unit, int direction);
+int DoesUnitHaveFacing(struct Unit * unit)
+{
+    int smsID = FMU_GetUnitSMSId(unit);
+    return FMU_idleSMSGfxTable_left[smsID] != NULL;
+}
+void MU_OnEnd(struct MuProc * proc)
+{
+    proc->config->slot = 0;
+    AP_Delete(proc->sprite_anim);
+    struct Unit * unit = proc->unit;
+    if (!UNIT_IS_VALID(unit))
+    {
+        return;
+    }
+    int facing = proc->facing;
+    if (!DoesUnitHaveFacing(unit))
+    {
+        return;
+    }
+    facing = GetBestDirection(unit, facing);
+    SetUnitFacingAndUpdateGfx(unit, facing);
+}
+
 extern void * GetMuImgBufById(int slot);
 extern const void * GetMuImg(struct MuProc * proc);
 extern void SetMuFacing(struct MuProc * proc, int facing);
@@ -1454,6 +1478,7 @@ extern void CopySMSGfxBufferToObjVram(int frame);
 extern int GetSMSBufferChr(int chr);
 extern void SMSCopySheetToBuffers(void * data, int dstChr, u16 size, u32 id);
 // u8 EWRAM_DATA gSMSGfxBuffer[3][8*0x20*0x20] = {};
+
 void UpdateSMSDir(struct Unit * unit, u8 smsID, int facing)
 {
     void * data;

@@ -92,6 +92,7 @@ LABEL 99
 NoFade 
 ENDA 
 
+
 ToRoute2N:
 ChapterTransition(Route2NCh, 6, 13)
 
@@ -380,10 +381,10 @@ TDQ_TableTerminator ; }
 // all trainers with the same sprite will face the same direction! 
 HumanTrainers:
 UNIT 0xE0 bug_catcherID 0x0 Level(0, Enemy, 1) [39,18]  0b 0x0	0x1 REDA39R18 [Tackle,0x0,0x0,0x0] TrainerAI
-UNIT 0xE1 bug_catcherID 0x0 Level(0, Enemy, 1) [22,21]  0b 0x0	0x1 REDA22R21 [OneRangeWep,0x0,0x0,0x0] TrainerAI
+UNIT 0xE1 picnickerID 0x0 Level(0, Enemy, 1) [22,21]  0b 0x0	0x1 REDA22R21 [OneRangeWep,0x0,0x0,0x0] TrainerAI
 //UNIT 0xE2 bug_catcherID 0x0 Level(0, Enemy, 1) [19,14]  0b 0x0	0x1 REDA19R14 [OneRangeWep,0x0,0x0,0x0] TrainerAI
-UNIT 0xE3 bug_catcherID 0x0 Level(0, Enemy, 1) [12,8 ]  0b 0x0	0x1 REDA12R8  [OneRangeWep,0x0,0x0,0x0] TrainerFleeAI // This makes them run into a corner i think 
-UNIT 0xE4 bug_catcherID 0x0 Level(0, Enemy, 1) [9,25]  0b 0x0	0x1 REDA9R25 [OneRangeWep,0x0,0x0,0x0] TrainerAI 
+UNIT 0xE3 boyID 0x0 Level(0, Enemy, 1) [12,8 ]  0b 0x0	0x1 REDA12R8  [OneRangeWep,0x0,0x0,0x0] TrainerFleeAI // This makes them run into a corner i think 
+UNIT 0xE4 camperID 0x0 Level(LVFACEUP, Enemy, 1) [12,21]  0b 0x0	0x1 REDA12R21 [OneRangeWep,0x0,0x0,0x0] TrainerAI 
 // UNIT 0xE5 hikerID 		0x0 Level(0, Enemy, 1) [43,24]  0b 0x0	0x0 0 [0x0,0x0,0x0,0x0] DoNothing // reports of npc bugs, so whatever 
 UNIT
 
