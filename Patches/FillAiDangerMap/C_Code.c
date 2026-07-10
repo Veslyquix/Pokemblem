@@ -3,7 +3,8 @@ extern int AnyTargetWithinRange(struct Unit * unit);
 extern int ShouldTrainerSummonTeam(); // uses gActiveUnit
 int IsTrainerWithinRangeForSummon(void)
 {
-    if (!gAiDecision.actionPerformed)
+    // if AiSetDecision has not happened, don't do anything
+    if (!gAiDecision.unitId) //&& gActiveUnit->xPos == gAiDecision.xMove && gActiveUnit->yPos == gAiDecision.yMove)
     {
         return false;
     }
@@ -12,7 +13,7 @@ int IsTrainerWithinRangeForSummon(void)
     unit.index = gActiveUnit->index;
     unit.xPos = gAiDecision.xMove;
     unit.yPos = gAiDecision.yMove;
-    unit.movBonus += 1; // so they go 1 outside range, then summon everything
+    unit.movBonus += 3; // so they go 1 outside range, then summon everything
 
     int result = AnyTargetWithinRange(&unit);
     if (result)
