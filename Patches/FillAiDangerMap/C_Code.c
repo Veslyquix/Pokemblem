@@ -97,7 +97,7 @@ void AiFillDangerMap(void)
 
 //! FE8U = 0x0803BA08
 extern int prMovGetter(struct Unit * unit);
-int AreAdjacentTilesToTargetTooExpensiveToUseBlueArrowPathing(int x, int y)
+int IsTargetCoordTooExpensiveToUseBlueArrowPathing(int x, int y)
 {
     // return gBmMapMovement[y - 1][x] > 63 && gBmMapMovement[y + 1][x] > 63 && gBmMapMovement[y][x - 1] > 63 &&
     // gBmMapMovement[y][x + 1] > 63;
@@ -148,8 +148,9 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
     // due to acrobat's taking over of SetWorkingBmMap, so we're using GenerateUnitMovementMapExt
     // GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
     // it could also be because some of them put 0 as the unit for GenerateMovementMap
-    if (!AreAdjacentTilesToTargetTooExpensiveToUseBlueArrowPathing(x, y))
+    if (!IsTargetCoordTooExpensiveToUseBlueArrowPathing(x, y))
     {
+        u8 activeUnitId = gActiveUnitId;
         GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
 
         GenerateBestMovementScript(x, y, gWorkingMovementScript);
@@ -157,7 +158,14 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
 
         for (;;)
         {
-            switch (*it)
+            u8 cmd = *it;
+
+            if (cmd == MOVE_CMD_HALT)
+            {
+                break;
+            }
+
+            switch (cmd)
             {
 
                 case MOVE_CMD_MOVE_UP: // up
@@ -177,16 +185,12 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
                     break;
 
             } // switch (*it)
-            if (*it == MOVE_CMD_HALT)
-            {
-                break;
-            }
             if (gBmMapMovement[iy][ix] > mov)
             {
                 break;
             }
             it++;
-            if (gBmMapUnit[iy][ix] != 0 && gBmMapUnit[iy][ix] != gActiveUnitId)
+            if (gBmMapUnit[iy][ix] != 0 && gBmMapUnit[iy][ix] != activeUnitId)
             {
                 continue;
             }
@@ -217,23 +221,32 @@ Vanilla_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOn
 
     GenerateUnitMovementMap(gActiveUnit);
     int bestRange = gBmMapRange[gActiveUnit->yPos][gActiveUnit->xPos];
+    u8 activeUnitId = gActiveUnitId;
+
     for (int iy = gBmMapSize.y - 1; iy >= 0; iy--)
     {
+        u8 * movementRow = gBmMapMovement[iy];
+        u8 * unitRow = gBmMapUnit[iy];
+        u8 * otherRow = gBmMapOther[iy];
+        u8 * rangeRow = gBmMapRange[iy];
+
         for (int ix = gBmMapSize.x - 1; ix >= 0; ix--)
         {
-            if (gBmMapMovement[iy][ix] > MAP_MOVEMENT_MAX)
+            u8 range = rangeRow[ix];
+
+            if (movementRow[ix] > MAP_MOVEMENT_MAX)
             {
                 continue;
             }
 
-            if (gBmMapUnit[iy][ix] != 0 && gBmMapUnit[iy][ix] != gActiveUnitId)
+            if (unitRow[ix] != 0 && unitRow[ix] != activeUnitId)
             {
                 continue;
             }
 
             if (maxDanger == 0)
             {
-                if (mov < gAiState.bestBlueMov && gBmMapOther[iy][ix] != 0)
+                if (mov < gAiState.bestBlueMov && otherRow[ix] != 0)
                 {
                     continue;
                 }
@@ -244,12 +257,12 @@ Vanilla_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOn
                 continue;
             }
 
-            if (gBmMapRange[iy][ix] > bestRange)
+            if (range > bestRange)
             {
                 continue;
             }
 
-            bestRange = gBmMapRange[iy][ix];
+            bestRange = range;
             coord->x = ix;
             coord->y = iy;
         }
@@ -277,19 +290,26 @@ s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
 
     for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
     {
+        u8 * rangeRow = gBmMapRange[iy];
+        u8 * unitRow = gBmMapUnit[iy];
+
         for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
         {
-            if (gBmMapRange[iy][ix] > MAP_MOVEMENT_MAX)
+            u8 distance = rangeRow[ix];
+            u8 unitId = unitRow[ix];
+            struct Unit * unit;
+
+            if (distance > MAP_MOVEMENT_MAX)
             {
                 continue;
             }
 
-            if (gBmMapUnit[iy][ix] == 0)
+            if (unitId == 0)
             {
                 continue;
             }
 
-            if (gBmMapUnit[iy][ix] == gActiveUnitId)
+            if (unitId == gActiveUnitId)
             {
                 continue;
             }
@@ -299,21 +319,23 @@ s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
             // continue;
             // }
 
-            if (!func(GetUnit(gBmMapUnit[iy][ix])))
+            unit = GetUnit(unitId);
+
+            if (!func(unit))
             {
                 continue;
             }
 
-            if (gBmMapRange[iy][ix] > bestDistance)
+            if (distance > bestDistance)
             {
                 continue;
             }
-            if (gBmMapRange[iy][ix] == bestDistance && NextRN_N(2))
+            if (distance == bestDistance && NextRN_N(2))
             {
                 continue;
             }
 
-            bestDistance = gBmMapRange[iy][ix];
+            bestDistance = distance;
             xOut = ix;
             yOut = iy;
         }
