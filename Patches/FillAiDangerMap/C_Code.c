@@ -6,13 +6,14 @@ void AiFillDangerMap(void)
     int iy;
     int i;
     int j;
-
-    u16 item = 0;
-    u8 might = 0;
+    int xSize = gBmMapSize.x;
+    int ySize = gBmMapSize.y;
 
     for (i = 1; i < 0xC0; i++)
     {
-        u16 itemTmp;
+        int danger;
+        u16 move = 0;
+        u8 might = 0;
 
         struct Unit * unit = GetUnit(i);
 
@@ -31,44 +32,62 @@ void AiFillDangerMap(void)
             continue;
         }
 
-        // BUG: Item is never re-initialized in the loop
-
-        for (j = 0; (j < UNIT_ITEM_COUNT) && (itemTmp = unit->items[j]); j++)
+        for (j = 0; j < UNIT_ITEM_COUNT; j++)
         {
-            if (!CanUnitUseWeapon(unit, itemTmp))
+            u8 moveTmp = unit->ranks[j];
+            u8 moveMt;
+
+            if (moveTmp == 0)
+            {
+                break;
+            }
+
+            if (!CanUnitUseWeapon(unit, moveTmp))
             {
                 continue;
             }
 
-            if (GetItemMight(itemTmp) > might)
+            moveMt = GetItemMight(moveTmp);
+
+            if (moveMt > might)
             {
-                item = itemTmp;
-                might = GetItemMight(itemTmp);
+                move = moveTmp;
+                might = moveMt;
             }
         }
 
-        if (item == 0)
+        if (move == 0)
         {
             continue;
         }
 
-        if (!AiCouldReachByBirdsEyeDistance(gActiveUnit, unit, item))
+        if (!AiCouldReachByBirdsEyeDistance(gActiveUnit, unit, move))
         {
             continue;
         }
 
-        FillMovementAndRangeMapForItem(unit, item);
+        FillMovementAndRangeMapForItem(unit, move);
 
-        for (iy = gBmMapSize.y - 1; iy >= 0; iy--)
+        danger = (GetUnitPower(unit) + might) >> 1;
+
+        if (danger == 0)
         {
-            for (ix = gBmMapSize.x - 1; ix >= 0; ix--)
+            continue;
+        }
+
+        for (iy = ySize - 1; iy >= 0; iy--)
+        {
+            s8 * rangeRow = gMapRangeSigned[iy];
+            u8 * otherRow = gBmMapOther[iy];
+
+            for (ix = xSize - 1; ix >= 0; ix--)
             {
-                if (gMapRangeSigned[iy][ix] == 0)
+                if (rangeRow[ix] == 0)
                 {
                     continue;
                 }
 
-                gBmMapOther[iy][ix] += (GetUnitPower(unit) + might) >> 1;
+                otherRow[ix] += danger;
             }
         }
     }

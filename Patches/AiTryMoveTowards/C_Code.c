@@ -12,6 +12,7 @@ Vanilla_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOn
 void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap)
 {
     struct Vec2 coord = { 0, 0 };
+    coord.x = -1;
 
     if ((gActiveUnit->xPos == x) && (gActiveUnit->yPos == y))
     {
@@ -21,9 +22,8 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
 
     int ix = gActiveUnit->xPos;
     int iy = gActiveUnit->yPos;
-
     int mov = prMovGetter(gActiveUnit);
-    coord.x = -1;
+
     // u8 savedUnit = gBmMapUnit[y][x];
     // gBmMapUnit[y][x] = 0;
     if (ignoreUnitsOnMap)
@@ -34,6 +34,19 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
     {
         sub_80410C4(x, y, gActiveUnit);
     }
+
+    if (maxDanger != 0xFF) // not random pathing when following safety rules
+    {
+        Vanilla_AiTryMoveTowards(x, y, action, maxDanger, ignoreUnitsOnMap, mov, &coord); // for danger / safety
+        x = coord.x;
+        y = coord.y;
+        if (coord.x >= 0)
+        {
+            AiSetDecision(coord.x, coord.y, action, AI_ACTION_NONE, 0, 0, 0);
+            return;
+        }
+    }
+
     // gBmMapUnit[y][x] = savedUnit;
     // I believe GenerateUnitExtendedMovementMap and GenerateExtendedMovementMapOnRange are broken
     // due to acrobat's taking over of SetWorkingBmMap, so we're using GenerateUnitMovementMapExt
