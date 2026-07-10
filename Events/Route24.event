@@ -252,6 +252,12 @@ UNIT GenericA 	ClassB		0xEE 	Level(0, Enemy, 1) [11,9]  1b 0x0	0x0 0x00 [0x0,0x0
 UNIT
 
 
+ChaiStart
+ChaiEntry(0xE0)
+ChaiEntry(0xE1)
+ChaiEntry(0xE2)
+ChaiEntry(0) // Terminator 
+
 // ChapterID is defined in each chapter.event. The { } brackets are necessary here. 
 { ; MS_ChTableEntry(ChapterID) // Modular Summon table per chapter 
 // MS_TableEntry(UnitID, ClassID, LevelReq, FlagReq, PosType, MatchLvl, ResetStats, AllowDuplicates, UnitGroup)

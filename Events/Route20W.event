@@ -245,6 +245,12 @@ BD(5, R20W_0xE5_BD, 600)
 TDQ_TableTerminator ; }
 
 
+ChaiStart
+ChaiEntry(0xE0)
+ChaiEntry(0xE1)
+ChaiEntry(0xE2)
+ChaiEntry(0xE4)
+ChaiEntry(0) // Terminator 
 // 20:
 // TentacruelID	SeadraID	KinglerID	0x00
 // GyaradosID	GolduckID	KinglerID

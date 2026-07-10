@@ -309,6 +309,12 @@ BD(5, R21_0xE5_BD, 1300)
 BD(0xE, 0, 0)
 TDQ_TableTerminator ; }
 
+ChaiStart
+ChaiEntry(0xE0)
+ChaiEntry(0xE3)
+ChaiEntry(0xE4)
+ChaiEntry(0) // Terminator 
+
 BossSummons: 
 UNIT GenericA 	ClassA 		0xEE 	Level(0, Enemy, 1) [9,11]  1b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupSixAI
 UNIT GenericA 	ClassA 		0xEE 	Level(0, Enemy, 1) [11,11]  1b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupSixAI

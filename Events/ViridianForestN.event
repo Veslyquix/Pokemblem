@@ -44,7 +44,7 @@ Reinforce(0xF2, 1, ReinforcementUnits, 8, 4) // W-Mid
 
 CharacterBasedEvents:
 CharacterEventBothWays(0,GlobalTalkEvent, 0xFF, Ephraim)
-CHAR HiredPokemonFlag HireGeodudeevent [0x0, 0xE5] 0 // NPC
+// CHAR HiredPokemonFlag HireGeodudeevent [0x0, 0xE5] 0 // NPC
 TrainerPostBattleTalk(0xE5) // NPC talk again 
 AllTrainersPostBattleTalk
 //TrainerPostBattleTalk(0xE0)
@@ -59,7 +59,6 @@ END_MAIN
 MiscBasedEvents:
 CauseGameOverIfLordDies
 AFEV 0 GlobalAfev 0
-AFEV 0 TrainerChargeEvent 0 
 //AFEV flagID eventOffset activationFlag
 //AREA flagID eventOffset [corner1x, corner1y] [corner2x, corner2y]
 //AFEV 0 RefreshIfNotInDanger 0 
@@ -76,21 +75,6 @@ EscapeTileEntry(38,32)
 EscapeTileEntry(5,7) 
 EscapeTileTerminator ; } 
 #endif 
-
-// range event for 0xE0 - force summon next trainer or change ai to approach? 
-ALIGN 4 
-TrainerChargeEvent: 
-CHECK_ACTIVE 
-SVAL s1 0xE0 
-BNE 99 sC s1 
-// TutText(0xED0)
-SVAL 1 TrainerPursueAI_chai
-CHAI 0xE1
-// CHAI 0xE3
-CHAI 0xE4
-LABEL 99 
-NoFade 
-ENDA 
 
 
 ToRoute2N:
@@ -378,6 +362,14 @@ SHORT 900 // Gold
 SHORT HiredGeodudeText // 0xE4 
 SHORT 900 // Gold 
 TDQ_TableTerminator ; }
+
+
+
+ChaiStart
+ChaiEntry(0xE0)
+ChaiEntry(0xE1)
+ChaiEntry(0xE4)
+ChaiEntry(0) // Terminator 
 
 // all trainers with the same sprite will face the same direction! 
 HumanTrainers:

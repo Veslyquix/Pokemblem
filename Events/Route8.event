@@ -245,6 +245,11 @@ SHORT 1100 // Gold
 TDQ_TableTerminator ; }
 
 
+ChaiStart
+ChaiEntry(0xE1)
+ChaiEntry(0xE3)
+ChaiEntry(0xE5)
+ChaiEntry(0) // Terminator 
 
 // Wild: Vulpix, Jigglypuff, Pidgeotto, Machoke 
 // boss: Ninetales 

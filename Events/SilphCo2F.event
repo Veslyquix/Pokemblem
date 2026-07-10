@@ -285,6 +285,15 @@ SHORT SilphCo_2F_0xE5_BD // 0xE0
 SHORT 600 // Gold 
 TDQ_TableTerminator ; }
 
+
+ChaiStart
+ChaiEntry(0xE1)
+ChaiEntry(0xE2)
+ChaiEntry(0xE3)
+ChaiEntry(0xE4)
+ChaiEntry(0xE5)
+ChaiEntry(0) // Terminator 
+
 // wild: Porygon 
 // trainer's 2F: Zubat/Golbat, Rattata/Raticate, Machop/Machoke 
 // Trainer's 3F: Ekans/Arbok, Koffing/Weezing, Zubat, Rattata 

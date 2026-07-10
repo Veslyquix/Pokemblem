@@ -329,6 +329,15 @@ UNIT 0xE5 rocket_mID 0x0 Level(0, Enemy, 1) [11,2]  0b 0x0	0x1 REDA11R2 [FiveRan
 UNIT 0xE6 rocket_fID 0x0 Level(0, Enemy, 1) [8,2]  0b 0x0	0x1 REDA8R2 [OneRangeWep,0x0,0x0,0x0] TrainerAI //
 UNIT
 
+
+ChaiStart
+ChaiEntry(0xE0)
+ChaiEntry(0xE3)
+ChaiEntry(0xE5)
+ChaiEntry(0xE6)
+ChaiEntry(0) // Terminator 
+
+
 BillUnitGroup:
 UNIT GymLeader billID 0x0 Level(LVFACELEFT, Enemy, 1) [31,16]  0b 0x0	0x1 REDA31R16 [0,0x0,0x0,0x0] DoNothing
 UNIT

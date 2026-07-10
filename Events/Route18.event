@@ -243,6 +243,10 @@ SHORT 600 // Gold
 TDQ_TableTerminator ; }
 
 
+ChaiStart
+ChaiEntry(0xE0)
+ChaiEntry(0xE1)
+ChaiEntry(0) // Terminator 
 
 // Fearow, Doduo, Raticate 
 // trainer exclusive: slowpoke, gyarados, fearow 

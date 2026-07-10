@@ -38,7 +38,7 @@ POIN IsTrainersTeamDefeated // if event, use mem slot: 2, 3, 9, B and once event
 POIN CapturePokemon // needs to be after IsTrainersTeamDefeated 
 POIN RockyHelmetFunc
 POIN SavageBlow  //I like having savage blow as the first one because it makes the activation sound play first
-POIN SelfDebuffMoves
+POIN SelfDebuffMoves ChangeAiAfterActionFunc
 POIN GroupAI 
 POIN RegeneratorEffect SporeTouchEffect ArenaTrapEffect PoisonTouchEffect GrudgeEffect 
 // POIN AftermathEffect  

@@ -2,6 +2,45 @@
 extern int AnyTargetWithinRange(struct Unit * unit);
 extern int ShouldTrainerSummonTeam(); // uses gActiveUnit
 extern int FiveRangeWepLink;
+struct ChangeAiAfterActionStruct
+{
+    u8 pid;
+    u8 pad;
+    u8 ai1;
+    u8 ai2;
+};
+extern const struct ChangeAiAfterActionStruct * ChangeAiAfterAction[0x100];
+
+void ChangeAiAfterActionFunc(struct Unit * unitA, struct Unit * unitB)
+{
+    const struct ChangeAiAfterActionStruct * list = ChangeAiAfterAction[gPlaySt.chapterIndex];
+    const struct ChangeAiAfterActionStruct * it = list;
+    int uid;
+
+    if (!UNIT_IS_VALID(unitA) || !list)
+    {
+        return;
+    }
+
+    uid = unitA->pCharacterData->number;
+
+    for (; it->pid; ++it)
+    { // are any of these units the actor?
+        if (it->pid == uid)
+        {
+            int tmp;
+
+            while ((tmp = list->pid) != 0)
+            { // now set all of their AIs differently
+                ChangeAiForCharacter(tmp, list->ai1, list->ai2, 0);
+                ++list;
+            }
+
+            break;
+        }
+    }
+}
+
 int GetBestDirection(struct Unit * unit, int direction)
 {
     int i;
