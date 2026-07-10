@@ -1,4 +1,27 @@
 #include "C_Code.h"
+extern int AnyTargetWithinRange(struct Unit * unit);
+extern int ShouldTrainerSummonTeam(); // uses gActiveUnit
+int IsTrainerWithinRangeForSummon(void)
+{
+    if (!gAiDecision.actionPerformed)
+    {
+        return false;
+    }
+    struct Unit unit;
+    CopyUnit(gActiveUnit, &unit);
+    unit.index = gActiveUnit->index;
+    unit.xPos = gAiDecision.xMove;
+    unit.yPos = gAiDecision.yMove;
+    unit.movBonus += 1; // so they go 1 outside range, then summon everything
+
+    int result = AnyTargetWithinRange(&unit);
+    if (result)
+    {
+        result = ShouldTrainerSummonTeam();
+    }
+    return result;
+}
+
 //! FE8U = 0x0803E320
 void AiFillDangerMap(void)
 {
@@ -104,7 +127,7 @@ int IsTargetCoordTooExpensiveToUseBlueArrowPathing(int x, int y)
     return gBmMapRange[y][x] > 63;
 }
 struct Vec2 *
-Vanilla_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap, int mov, struct Vec2 * coord);
+New_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap, int mov, struct Vec2 * coord);
 void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap)
 {
     struct Vec2 coord = { 0, 0 };
@@ -116,8 +139,6 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
         return;
     }
 
-    int ix = gActiveUnit->xPos;
-    int iy = gActiveUnit->yPos;
     int mov = prMovGetter(gActiveUnit);
 
     // u8 savedUnit = gBmMapUnit[y][x];
@@ -131,81 +152,20 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
         sub_80410C4(x, y, gActiveUnit);
     }
 
-    if (maxDanger != 0xFF) // not random pathing when following safety rules
-    {
-        Vanilla_AiTryMoveTowards(x, y, action, maxDanger, ignoreUnitsOnMap, mov, &coord); // for danger / safety
-        x = coord.x;
-        y = coord.y;
-        if (coord.x >= 0)
-        {
-            AiSetDecision(coord.x, coord.y, action, AI_ACTION_NONE, 0, 0, 0);
-            return;
-        }
-    }
-
     // gBmMapUnit[y][x] = savedUnit;
     // I believe GenerateUnitExtendedMovementMap and GenerateExtendedMovementMapOnRange are broken
     // due to acrobat's taking over of SetWorkingBmMap, so we're using GenerateUnitMovementMapExt
     // GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
     // it could also be because some of them put 0 as the unit for GenerateMovementMap
-    if (!IsTargetCoordTooExpensiveToUseBlueArrowPathing(x, y))
-    {
-        u8 activeUnitId = gActiveUnitId;
-        GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
+    // if (!IsTargetCoordTooExpensiveToUseBlueArrowPathing(x, y))
+    // {
+    // u8 activeUnitId = gActiveUnitId;
+    // GenerateUnitMovementMapExt(gActiveUnit, MAP_MOVEMENT_EXTENDED);
 
-        GenerateBestMovementScript(x, y, gWorkingMovementScript);
-        u8 * it = gWorkingMovementScript;
+    // GenerateBestMovementScript(x, y, gWorkingMovementScript);
+    // u8 * it = gWorkingMovementScript;
 
-        for (;;)
-        {
-            u8 cmd = *it;
-
-            if (cmd == MOVE_CMD_HALT)
-            {
-                break;
-            }
-
-            switch (cmd)
-            {
-
-                case MOVE_CMD_MOVE_UP: // up
-                    iy--;
-                    break;
-
-                case MOVE_CMD_MOVE_DOWN: // down
-                    iy++;
-                    break;
-
-                case MOVE_CMD_MOVE_LEFT: // left
-                    ix--;
-                    break;
-
-                case MOVE_CMD_MOVE_RIGHT: // right
-                    ix++;
-                    break;
-
-            } // switch (*it)
-            if (gBmMapMovement[iy][ix] > mov)
-            {
-                break;
-            }
-            it++;
-            if (gBmMapUnit[iy][ix] != 0 && gBmMapUnit[iy][ix] != activeUnitId)
-            {
-                continue;
-            }
-            coord.x = ix;
-            coord.y = iy;
-        }
-        if (coord.x < 0)
-        {
-            Vanilla_AiTryMoveTowards(x, y, action, maxDanger, ignoreUnitsOnMap, mov, &coord);
-        }
-    }
-    else
-    { // vanilla version when really far away
-        Vanilla_AiTryMoveTowards(x, y, action, maxDanger, ignoreUnitsOnMap, mov, &coord);
-    }
+    New_AiTryMoveTowards(x, y, action, maxDanger, ignoreUnitsOnMap, mov, &coord);
 
     if (coord.x >= 0)
     {
@@ -216,11 +176,12 @@ void AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap
 }
 
 struct Vec2 *
-Vanilla_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap, int mov, struct Vec2 * coord)
+New_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOnMap, int mov, struct Vec2 * coord)
 {
 
     GenerateUnitMovementMap(gActiveUnit);
     int bestRange = gBmMapRange[gActiveUnit->yPos][gActiveUnit->xPos];
+    int bestCoordCount = 0;
     u8 activeUnitId = gActiveUnitId;
 
     for (int iy = gBmMapSize.y - 1; iy >= 0; iy--)
@@ -262,9 +223,22 @@ Vanilla_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOn
                 continue;
             }
 
-            bestRange = range;
-            coord->x = ix;
-            coord->y = iy;
+            if (range < bestRange)
+            {
+                bestRange = range;
+                bestCoordCount = 1;
+                coord->x = ix;
+                coord->y = iy;
+                continue;
+            }
+
+            bestCoordCount++;
+
+            if (NextRN_N(bestCoordCount) == 0)
+            {
+                coord->x = ix;
+                coord->y = iy;
+            }
         }
     }
     return coord;
@@ -272,7 +246,7 @@ Vanilla_AiTryMoveTowards(s16 x, s16 y, u8 action, u8 maxDanger, u8 ignoreUnitsOn
 extern int ProtagID_Link;
 //! FE8U = 0x0803A924
 
-// if multiple targets within the same distance but outside attack range, 50% chance of overwriting the previous target
+// if multiple targets within the same distance but outside attack range, pick one randomly
 // for TryMoveTowardsEnemy
 s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
 {
@@ -280,6 +254,7 @@ s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
     s16 iy;
 
     u8 bestDistance = 0xff;
+    int bestCoordCount = 0;
 
     s16 xOut = 0;
     s16 yOut = 0;
@@ -314,13 +289,12 @@ s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
                 continue;
             }
 
-            // if (GetUnit(gBmMapUnit[iy][ix])->pCharacterData->number == ProtagID_Link)
-            // {
-            // continue;
-            // }
-
             unit = GetUnit(unitId);
 
+            if (unit->pCharacterData->number == ProtagID_Link)
+            {
+                continue;
+            }
             if (!func(unit))
             {
                 continue;
@@ -330,14 +304,23 @@ s8 AiFindTargetInReachByFunc(s8 (*func)(struct Unit * unit), struct Vec2 * out)
             {
                 continue;
             }
-            if (distance == bestDistance && NextRN_N(2))
+
+            if (distance < bestDistance)
             {
+                bestDistance = distance;
+                bestCoordCount = 1;
+                xOut = ix;
+                yOut = iy;
                 continue;
             }
 
-            bestDistance = distance;
-            xOut = ix;
-            yOut = iy;
+            bestCoordCount++;
+
+            if (NextRN_N(bestCoordCount) == 0)
+            {
+                xOut = ix;
+                yOut = iy;
+            }
         }
     }
 

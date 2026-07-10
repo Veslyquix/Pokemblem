@@ -66,7 +66,8 @@ bge MoveTowardsLeader
 @ldr r2, [r2] @ 
 @str r2, [r3] 
 
-
+ldr r0, =CurrentUnit 
+ldr r0, [r0] 
 bl AnyTargetWithinRange 
 cmp r0, #1 
 bne MoveTowardsTarget

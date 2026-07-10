@@ -83,9 +83,11 @@ TrainerChargeEvent:
 CHECK_ACTIVE 
 SVAL s1 0xE0 
 BNE 99 sC s1 
-TutText(0xEDF)
+// TutText(0xED0)
 SVAL 1 TrainerPursueAI_chai
 CHAI 0xE1
+// CHAI 0xE3
+CHAI 0xE4
 LABEL 99 
 NoFade 
 ENDA 
@@ -377,7 +379,7 @@ TDQ_TableTerminator ; }
 
 // all trainers with the same sprite will face the same direction! 
 HumanTrainers:
-UNIT 0xE0 bug_catcherID 0x0 Level(0, Enemy, 1) [39,18]  0b 0x0	0x1 REDA39R18 [OneRangeWep,0x0,0x0,0x0] TrainerAI
+UNIT 0xE0 bug_catcherID 0x0 Level(0, Enemy, 1) [39,18]  0b 0x0	0x1 REDA39R18 [SevenRangeWep,0x0,0x0,0x0] TrainerAI
 UNIT 0xE1 bug_catcherID 0x0 Level(0, Enemy, 1) [29,13]  0b 0x0	0x1 REDA29R13 [OneRangeWep,0x0,0x0,0x0] TrainerAI
 //UNIT 0xE2 bug_catcherID 0x0 Level(0, Enemy, 1) [19,14]  0b 0x0	0x1 REDA19R14 [OneRangeWep,0x0,0x0,0x0] TrainerAI
 UNIT 0xE3 bug_catcherID 0x0 Level(0, Enemy, 1) [12,8 ]  0b 0x0	0x1 REDA12R8  [OneRangeWep,0x0,0x0,0x0] TrainerFleeAI // This makes them run into a corner i think 

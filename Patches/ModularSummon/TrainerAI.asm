@@ -12,6 +12,30 @@
 	.equ CurrentUnit, 0x3004E50
 	.equ EventEngine, 0x800D07C
 .equ RemoveUnitBlankItems,0x8017984
+
+.global TrainerPursueSummonTeamAIFunc
+.type TrainerPursueSummonTeamAIFunc, %function 
+TrainerPursueSummonTeamAIFunc: 
+push {r4-r6, lr} 
+mov r4, #1 
+mov r5, #1 
+ldr r6, =0x203AA96 @ AI decision +0x92 (XX) 
+mov r0, r6 
+add r0, #0x2 @ padding byte 
+blh AIScript12_Move_Towards_Enemy @0x803ce18 
+
+bl IsTrainerWithinRangeForSummon 
+
+
+cmp r0, #0 
+beq DontSummonStuff
+
+ldrb r0, [r6, #0x0] @ XX 
+ldrb r1, [r6, #0x1] @ YY 
+
+b SetMovementDecision
+
+
 .global TrainerFleeSummonTeamAIFunc
 .type TrainerFleeSummonTeamAIFunc, %function 
 TrainerFleeSummonTeamAIFunc: 
@@ -42,7 +66,8 @@ b TrainerSummonTeamStart
 
 
 TrainerSummonTeamStart:
-
+ldr r0, =CurrentUnit 
+ldr r0, [r0] 
 bl AnyTargetWithinRange
 cmp r0, #0 
 beq DontSummonStuff 
@@ -160,7 +185,7 @@ lsr r0, #16
 blh SetEventId
 pop {r0} 
 
-add r0, #0x45 
+add r0, #0x2 @ padding byte 
 
 blh AIScript12_Move_Towards_Enemy @0x803ce18 
 

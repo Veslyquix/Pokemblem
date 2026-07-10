@@ -1374,14 +1374,6 @@ They're comfy and easy to wear![A][X]
 Awww..[A][X]
 
 
-## VF_0xE5_BQ
-I might be little, but I won't like[N]
-it if you go easy on me![A][X]
-
-## VF_0xE5_BD
-That totally stinks! I'm going to[N]
-catch some stronger ones![A][X]
-
 
 ## R1_0xE1_BQ
 I might be little, but I won't like[N]
@@ -1423,6 +1415,7 @@ Ack! I lost?[A][X]
 
 
 ## VF_0xE0_BQ
+Hey Boss, I found someone![A][N]
 I'm itching for a battle![A][X]
 
 ## VF_0xE0_BD
