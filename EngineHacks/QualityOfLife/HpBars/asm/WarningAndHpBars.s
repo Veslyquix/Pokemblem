@@ -254,9 +254,9 @@ beq		TalkEventCheck			@if not enemy, no need for this check
 	cmp		r0,#0
 	bne		IsEffective
 .endif
-mov		r5,#inventory_slot1
+mov		r5,#0x28
 LoopThroughItems:
-ldrh	r1,[r4,r5]
+ldrb	r1,[r4,r5]
 cmp		r1,#0
 beq		TalkEventCheck
 mov		r0,r4
@@ -265,7 +265,7 @@ mov		r14,r2
 .short	0xF800
 cmp		r0,#0
 beq		NextItem
-ldrh	r0,[r4,r5]
+ldrb	r0,[r4,r5]
 mov		r1,r6
 ldr		r2,=Check_Effectiveness
 mov		r14,r2
@@ -284,8 +284,8 @@ mov		r14,r1
 cmp		r0,#crit_warning_cutoff
 bgt		IsCritty
 NextItem:
-add		r5,#2
-cmp		r5,#inventory_slot1+8
+add		r5,#1
+cmp		r5,#0x2C
 ble		LoopThroughItems
 b		TalkEventCheck
 

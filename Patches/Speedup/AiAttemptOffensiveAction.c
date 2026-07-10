@@ -34,6 +34,8 @@ int GetEnemyWepBySlot(struct Unit * unit, int slot)
     return unit->items[slot];
 }
 
+extern u8 * SelectedSpell_Link;
+
 //! FE8U = 0x0803D450
 // NOTE: Shade+ and Steal+ hook this function
 // WARNING: Barricade normally sets r11 to 0 despite not pushing / popping r11
@@ -199,6 +201,7 @@ s8 AiAttemptOffensiveAction(s8 (*isEnemy)(struct Unit * unit))
             AiFillReversedAttackRangeMap(unit, item);
 
             tmpResult.targetId = unit->index;
+            *SelectedSpell_Link = item;
 
             if (!AiSimulateBestBattleAgainstTarget(&tmpResult))
             { // 800k cycles per unit
@@ -239,10 +242,18 @@ _0803D628:
 
     if ((finalResult.score != 0) || (finalResult.targetId != 0))
     {
-        AiSetDecision(finalResult.xMove, finalResult.yMove, 1, finalResult.targetId, finalResult.itemSlot, 0, 0);
 #ifdef POKEMBLEM_VERSION
         TurnOnBGMFlag();
+        // Now swap moves around and set
+        int move1 = actor->ranks[0];
+        int move2 = actor->ranks[finalResult.itemSlot];
+        actor->ranks[0] = move2;
+        actor->ranks[finalResult.itemSlot] = move1;
+        *SelectedSpell_Link = move2;
+        finalResult.itemSlot = 0;
 #endif
+
+        AiSetDecision(finalResult.xMove, finalResult.yMove, 1, finalResult.targetId, finalResult.itemSlot, 0, 0);
 
 #ifndef POKEMBLEM_VERSION
         if ((s8)finalResult.itemSlot != -1)
@@ -365,6 +376,7 @@ s8 AiAttemptCombatWithinMovement(s8 (*isEnemy)(struct Unit * unit))
 
     if ((finalResult.score != 0) || (finalResult.targetId != 0))
     {
+
         AiSetDecision(
             finalResult.xMove, finalResult.yMove, AI_ACTION_COMBAT, finalResult.targetId, finalResult.itemSlot, 0, 0);
 

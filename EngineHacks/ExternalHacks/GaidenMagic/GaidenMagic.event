@@ -26,6 +26,10 @@
 	
 	#define GaidenUsingSpellMenu 0x0203F082
 	#define GaidenSelectedSpell 0x0203F080
+    
+    ALIGN 4 
+    SelectedSpell_Link:
+    WORD GaidenSelectedSpell
 	
 	#include "GaidenMagic.lyn.event" // Compiled C.
 	
