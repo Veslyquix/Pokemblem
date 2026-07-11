@@ -10,7 +10,7 @@ SET_DATA gText_HelpBoxTextOffset, 0x203E7AC
 SET_FUNC StartDrawDialogProcs, (0x808A0FC+1)
 SET_FUNC MakeHelpDialog_WeaponDetail, (0x8089CD4+1) 
 SET_FUNC DrawHelpBoxWeaponStatLabels, (0x8089C40+1) 
-
+SET_DATA gItemSelectMenuFont, 0x2002774
 SET_FUNC StartOrphanMenuAt, 0x0804EBD9 
 SET_FUNC StartOrphanMenu, 0x0804EBE5 
 SET_FUNC RefreshUnitsOnBmMap, 0x8019fa1 
