@@ -22,16 +22,7 @@ LearnSpellSetup:
 	mov r5, r2 @ var r5 = Parent proc
 	mov r6, r1 @ var r6 = spell index 
 
-	b Continue 
-	@ Store new Spell (without bit set)
-	cmp r1, #0 
-	bne Continue @ No spell to learn so exit 
-	ldr r0, =pExtraItemOrSkill
-	strh r1, [r0] @ Set to 0 
-	b exit 
-	
-	
-	Continue:
+
 	ldr r3, =pExtraItemOrSkill
 	strh r1, [r3]
 
@@ -87,11 +78,9 @@ end:
 	
 	ForgetOldMove_store:
     @ new stuff here
-	mov r2, r6  @ Spell
-	mov r3, r4 @ Unit
 				@pop {r2, r3} @ retrieve what we saved earlier; we needed to save it because a call to pr6C_New may clobber r0-r3
-    str r2, [r0, #0x2C] @ store r2 in field +2C of the proc struct (the first free word)
-    str r3, [r0, #0x30] @ store r3 in field +30 of the proc struct (the second free word)
+    str r6, [r0, #0x2C] @ store r2 in field +2C of the proc struct (the first free word)
+    str r4, [r0, #0x30] @ store r3 in field +30 of the proc struct (the second free word)
 	b exit
 
 	
@@ -103,9 +92,9 @@ exit:
 	@ cba making this work properly via storing to the proc fields 
 	@ so we're storing it to s6 and s7 instead
 	@ oh well 
-	ldr r1, =MemorySlot
-	str r2, [r1, #4*0x07]
-	str r3, [r1, #4*0x06]
+	@ldr r1, =MemorySlot
+	@str r2, [r1, #4*0x07]
+	@str r3, [r1, #4*0x06]
 	pop {r4-r6}
 
 	pop {r1}

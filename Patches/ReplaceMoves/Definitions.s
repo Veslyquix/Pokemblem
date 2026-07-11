@@ -11,6 +11,14 @@ SET_FUNC StartDrawDialogProcs, (0x808A0FC+1)
 SET_FUNC MakeHelpDialog_WeaponDetail, (0x8089CD4+1) 
 SET_FUNC DrawHelpBoxWeaponStatLabels, (0x8089C40+1) 
 
+SET_FUNC StartOrphanMenuAt, 0x0804EBD9 
+SET_FUNC StartOrphanMenu, 0x0804EBE5 
+SET_FUNC RefreshUnitsOnBmMap, 0x8019fa1 
+SET_FUNC RefreshMinesOnBmMap, 0x801a1a1 
+SET_FUNC RefreshEntityBmMaps, 0x801a1f5
+SET_FUNC RefreshBMapGraphics, 0x80311a9
+SET_FUNC RenderBmMap, 0x8019c3d
+
 
 SET_FUNC GetUnitRangeMask, (0x080171E8+1)
 
