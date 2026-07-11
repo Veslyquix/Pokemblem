@@ -150,14 +150,6 @@ static void ReplaceMoveMenuEnd(struct MenuProc * menu);
 extern void RenderBmMap();
 extern void RefreshUnitsOnBmMap();
 extern void PostForgetOldMoveMenu(void);
-void BPressForgetOldMoveMenu(void)
-{
-    // if we can end the menu (e.g. not a tm)
-    RefreshUnitsOnBmMap();
-    RefreshMinesOnBmMap();
-    RenderBmMap();
-    RefreshBMapGraphics();
-}
 
 static const struct ProcInstruction Proc_ReplaceMove[] = {
     PROC_CALL_ROUTINE(LockGameLogic),
@@ -219,7 +211,7 @@ static const struct MenuCommandDefinition MenuCommands_ReplaceMove[] = {
 
     {} // END
 };
-
+u8 BPressConfirmGiveUpOnMoveMenu(struct MenuProc * menu, struct MenuCommandProc * command);
 void DrawItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, struct ReplaceMoveProc * proc);
 void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, struct ReplaceMoveProc * proc);
 
@@ -229,8 +221,7 @@ static const struct MenuDefinition Menu_ReplaceMoveDebug = {
 
     .onEnd = ReplaceMoveMenuEnd,
 
-    //.onBPress = (void*) (0x08022860+1), // FIXME
-    // .onBPress = (void *)(BPressForgetOldMoveMenu), // Now in the proc call routine
+    .onBPress = BPressConfirmGiveUpOnMoveMenu, // Now in the proc call routine
 };
 
 extern const ProcCode gProc_8A01650[];
@@ -723,8 +714,13 @@ static int MoveListCommandSelect(struct MenuProc * menu, struct MenuCommandProc 
 {
     return ME_NONE;
 }
+u8 ClearYesNoBox(struct MenuProc * menu, struct MenuCommandProc * command);
 static int MoveCommandConfirm(struct MenuProc * menu, struct MenuCommandProc * command);
 static int MoveCommandDecline(struct MenuProc * menu, struct MenuCommandProc * command);
+MenuProc * StartOrphanMenuAt(const MenuDefinition *, MenuGeometry);
+MenuProc * StartOrphanMenu(const MenuDefinition *);
+
+extern struct FontData gItemSelectMenuFont;
 
 static const struct MenuCommandDefinition MenuCommands_Confirmation[] = {
     {
@@ -737,6 +733,40 @@ static const struct MenuCommandDefinition MenuCommands_Confirmation[] = {
         .onEffect = MoveCommandDecline,
         .rawName = " No",
     },
+    {},
+    {},
+};
+
+static const struct MenuCommandDefinition MenuCommands_GiveUpOnMove[];
+static const struct MenuDefinition Menu_GiveUpOnMove = {
+    .geometry = { 196, 0, 0, 0 }, // The box
+                                  //.onInit = ClearStuff,
+    .commandList = MenuCommands_GiveUpOnMove,
+
+    .onBPress = ClearYesNoBox,
+};
+
+static int AbandonMove(struct MenuProc * menu, struct MenuCommandProc * command)
+{
+    EndAllMenus();
+    return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
+}
+
+static int AbandonMove(struct MenuProc * menu, struct MenuCommandProc * command);
+static const struct MenuCommandDefinition MenuCommands_GiveUpOnMove[] = {
+    {
+        .isAvailable = MenuCommandAlwaysUsable,
+        .onEffect = AbandonMove,
+        .rawName = " Yes",
+    },
+    {
+        .isAvailable = MenuCommandAlwaysUsable,
+        .onEffect = MoveCommandDecline,
+        .rawName = " No",
+    },
+    {},
+    {},
+    {},
 
 };
 
@@ -777,23 +807,26 @@ u8 ClearYesNoBox(struct MenuProc * menu, struct MenuCommandProc * command)
     // ReplaceMoveCommandDraw((void *)menu->parent, command);
     return ME_DISABLE | ME_END | ME_PLAY_BEEP;
 }
+u8 BPressConfirmGiveUpOnMoveMenu(struct MenuProc * menu, struct MenuCommandProc * command)
+{
+    // struct ReplaceMoveProc * proc = (void *)menu->parent;
+
+    struct MenuGeometry ConfirmationMenuGeometry = { .x = YesNoX, .y = YesNoY, .h = 0, .w = YesNoW };
+    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
+
+    struct MenuProc * subMenu = StartMenuAt(&Menu_GiveUpOnMove, ConfirmationMenuGeometry, (void *)menu);
+    subMenu->commandIndex = 1; // start on "No"
+
+    return ME_DISABLE | ME_PLAY_BEEP;
+}
+
 static const struct MenuDefinition Menu_Confirmation = {
     .geometry = { 196, 0, 0, 0 }, // The box
                                   //.onInit = ClearStuff,
     .commandList = MenuCommands_Confirmation,
 
-    //.onEnd = ReplaceMoveMenuEnd,
+    // .onEnd = ReplaceMoveMenuEnd, // this clears all gfx if you press no/b
     .onBPress = ClearYesNoBox,
-};
-
-static const struct ProcInstruction Proc_Confirmation[] = {
-    PROC_CALL_ROUTINE(LockGameLogic),
-
-    PROC_YIELD,
-
-    PROC_CALL_ROUTINE(UnlockGameLogic),
-    PROC_END,
-
 };
 
 static int MoveCommandConfirm(struct MenuProc * menu, struct MenuCommandProc * command)
@@ -811,13 +844,10 @@ static int MoveCommandDecline(struct MenuProc * menu, struct MenuCommandProc * c
     ClearYesNoBox(menu, command);
     return ME_DISABLE | ME_END | ME_PLAY_BEEP;
 }
-MenuProc * StartOrphanMenuAt(const MenuDefinition *, MenuGeometry);
-MenuProc * StartOrphanMenu(const MenuDefinition *);
 
-extern struct FontData gItemSelectMenuFont;
 static int MoveCommandSelect(struct MenuProc * menu, struct MenuCommandProc * command)
 {
-    struct ReplaceMoveProc * const proc = (void *)menu->parent;
+    // struct ReplaceMoveProc * proc = (void *)menu->parent;
 
     struct MenuGeometry ConfirmationMenuGeometry = { .x = YesNoX, .y = YesNoY, .h = 0, .w = YesNoW };
     Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
