@@ -1,0 +1,24 @@
+
+// Thanks to Mokha for the updated fe-clib! 
+
+#include "C_Code.lyn.event" 
+
+// 1. AoE death fades 
+// 2. Exp / levelup / learn spells 
+// 3. 
+// StartPostCmbProcs
+
+ALIGN 4 
+FuncList: 
+POIN CheckLearnNewSpellLevelUp 
+POIN ExpShare // ExpShare uses s2 and s4 but restores these afterwards as part of its event 
+POIN IsTrainersTeamDefeated // if event, use mem slot: 2, 3, 9, B and once event starts: 7, 8, C 
+POIN CallAoE_PokemblemTrainerPostBattle // if event, use mem slot: 2, 3, 9, B and once event starts: 7, 8, C 
+
+POIN CapturePokemon // needs to be after IsTrainersTeamDefeated 
+WORD 0 // Terminator 
+
+
+
+
+

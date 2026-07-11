@@ -107,7 +107,9 @@ callHackNew(HookFace_ItemCommandEffect)
 
 // sMuImgBufOffLut change MU buffer order IDs so we can use SMS_Frame1_Buffer during map battles 
 ORG $9a2c7a
-BYTE 0 0 1 2 3 
+// BYTE 0, 0, 2, 1, 3 // vanilla 
+// BYTE 0 0 1 2 3 // slot 2/3 overlap with SMS now 
+BYTE 0 0 1 0 1 // so AoE won't go into SMS 
 
 ORG $36E10 
 WORD 0x6010000|(BattleForecast2x<<5)

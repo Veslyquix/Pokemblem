@@ -1725,7 +1725,7 @@ blh 0x08032750   @KillUnitIfNoHealth    {U}
 blh 0x080321C8   @UpdateMapAndUnit    {U}
 @blh 0x08032114   @UpdateMapAndUnit    {J}
 
-b AoE_RemoveDeadUnitLoop_Exit
+b AoeRemoveDeadUnit_Stal
 
 AoE_RemoveDeadUnitLoop_Next:
 add r5, #0x48
@@ -1746,6 +1746,14 @@ AoE_RemoveDeadUnitLoop_BreakProcLoop:
 @Now that all the units have been explored, we're done.
 mov r0, r4 @  @ parent to break from 
 blh BreakProcLoop
+blh 0x8026688 @ ResetUnitSprites
+
+b AoE_RemoveDeadUnitLoop_Exit 
+
+AoeRemoveDeadUnit_Stal:
+mov r0, r4 
+mov r1, #3 
+blh ProcGoto
 
 AoE_RemoveDeadUnitLoop_Exit:
 pop {r4-r7}
@@ -2026,7 +2034,9 @@ bx r0
 .global CallAoE_DroppedItemsProc
 CallAoE_DroppedItemsProc:
 push {lr} 
+mov r1, r0 @ proc 
 ldr r0, =AoE_DroppedItemsProc
+@blh New6CBlocking
 mov r1, #3 @ root proc 3 
 blh New6C 
 pop {r0} 
@@ -2061,8 +2071,7 @@ b Exit_GotItemDrop
 
 Break_GotItemDrop: 
 mov r0, r4 @ parent 
-mov r1, #2 
-blh ProcGoto 
+blh BreakProcLoop 
 
 Exit_GotItemDrop: 
 
