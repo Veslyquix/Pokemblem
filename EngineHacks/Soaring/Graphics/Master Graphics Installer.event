@@ -63,6 +63,22 @@ lensFlarePal:
 #incbin "sprites/lensflare.pal.bin"
 ALIGN 4
 
+coinSprite:
+#incbin "sprites/coin_gold.img.bin"
+ALIGN 4
+
+coinPal:
+#incbin "sprites/coin_gold.pal.bin"
+ALIGN 4
+
+coinMinimapSprite:
+#incbin "sprites/coin_minimap.img.bin"
+ALIGN 4
+
+coinMinimapPal:
+#incbin "sprites/coin_minimap.pal.bin"
+ALIGN 4
+
 SkyBG:
 #incbin "sky_wrap.img.bin"
 ALIGN 4

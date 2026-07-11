@@ -1,4 +1,10 @@
 
+## GiveUpOnMoveText
+Give up on move?[X]
+
+## ReplaceMoveText
+Replace move?[X]
+
 ## UM_Travel
  Travel[X]
 

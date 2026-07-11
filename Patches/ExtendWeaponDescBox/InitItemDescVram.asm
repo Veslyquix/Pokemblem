@@ -19,7 +19,7 @@
 push {r4-r7, lr} 
 
 ldr r5, =0x10000D8 @ Vanilla uses this 
-ldr r6, =0x44444444
+ldr r6, =0x44444444 @ if instead zero, it erases the bg when drawing new text for 4/5 line boxes 
 
 @ mov r0, r4 
 @ add r0, #0x18 

@@ -31,6 +31,37 @@
 	.equ MemorySlot3,0x30004C4    @item ID to give @[0x30004C4]!!?
 	.equ DivisionRoutine, 0x080D18FC
 
+
+
+.global GetDifficultyBonus 
+.type GetDifficultyBonus, %function 
+GetDifficultyBonus:
+push {lr} 
+bl GetDifficulty 
+cmp r0, #0 
+beq EasyBonus @ None 
+
+ldr r3, =0x803462c @ POIN gChapterDataTable 
+ldr r3, [r3] 
+ldr r2, =0x202BCF0 @ ch data 
+ldrb r2, [r2, #0x0E] @ chapter ID 
+mov r1, #0x94 @ size of each entry 
+mul r1, r2 
+add r1, r3 
+cmp r0, #1 
+beq HardBonus 
+@ lunatic 
+ldrb r0, [r1, #0x15] 
+b EasyBonus 
+
+HardBonus: 
+ldrb r0, [r1, #0x14] 
+
+EasyBonus:  
+pop {r1} 
+bx r1 
+.ltorg 
+
 .global AutoLevelSummonedUnit
 .type AutoLevelSummonedUnit, %function 
 AutoLevelSummonedUnit: 
@@ -55,6 +86,10 @@ AutoLevelUnits:
 ldr r0, =MemorySlot 
 mov r6, #0x1 
 ldr r7, [r0, #4*0x01] @r7 / s1 as number of levels 
+cmp r7, #0 
+bge LoopThroughUnits 
+bl GetDifficultyBonus 
+mov r7, r0 
 
 LoopThroughUnits:
 mov r0,r6
@@ -132,8 +167,8 @@ lsr r2, #30
 sub r2, #1 
 mov r3, #1 
 and r2, r3 
-lsl r2, #1 @ to 1/4 
-lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
+@lsl r2, #1 @ to 1/4 
+lsr r0, r2 @ if autolevels are hidden, 1/2 Hp growths 
 
 mov r1, r7 
 blh EnemyAutoLevel @takes r1 as # of levels and r0 as growth for that level 
@@ -222,7 +257,7 @@ sub r2, #1
 mov r3, #1 
 and r2, r3 
 @lsl r2, #1 @ to 1/4 
-lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
+lsr r0, r2 @ if autolevels are hidden, 1/2 Def/Res/Spd/Hp growths 
 
 mov r1, r7 
 blh EnemyAutoLevel @takes r1 as # of levels and r0 as growth for that level 
@@ -249,7 +284,7 @@ sub r2, #1
 mov r3, #1 
 and r2, r3 
 @lsl r2, #1 @ to 1/4 
-lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
+@lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
 
 mov r1, r7 
 blh EnemyAutoLevel @takes r1 as # of levels and r0 as growth for that level 
@@ -276,7 +311,7 @@ sub r2, #1
 mov r3, #1 
 and r2, r3 
 @lsl r2, #1 @ to 1/4 
-lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
+@lsr r0, r2 @ if autolevels are hidden, 1/4 Def/Res/Spd/Hp growths 
 
 mov r1, r7 
 blh EnemyAutoLevel @takes r1 as # of levels and r0 as growth for that level 
@@ -343,12 +378,12 @@ SkipIncreaseShownLevel:
 
 
 mov r0, r5 
-blh CheckCaps 
+blh CheckCaps
 mov r0, r5 
-
+bl CopyWepsToWEXP 
+mov r0, r5 
 bl AutolevelSpells
-mov r0, r5 
-bl CopyWepsToWEXP
+
 b NextUnit 
 
 
@@ -362,12 +397,12 @@ Get_Growth_With_Evolutions:
 push {r4-r7, lr}
 mov r4, r8
 mov r5, r9 
-mov r6, r10 
 push {r4-r5} 
 mov r4, r0 @ unit struct 
 
 
 mov r5, r1 @ levels 
+mov r6, #0
 @r2 as growth getter function 
 mov r9, r3 @ class stat growth offset 
 
@@ -380,7 +415,6 @@ add r5, r1 @ final expected level
 mov lr, r2 @ growth getter function given as a parameter 
 .short 0xf800 @ blh to the growth getter function 
 mov r7, r0 @ natural growth in final class
-
 
 
 ldr r3, =AutolevelTable 
@@ -447,7 +481,6 @@ sub r1, #1 @ No level-up from level 0 to 1.
 NoSub: 
 mul r0, r1 @ Levels * growth 
 mov r6, r0 
-
 @ r5 as final expected level 
 @ eg. 42 
 @ Venusaur: 42-32 = 10. 10 levels as final evolution 

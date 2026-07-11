@@ -174,11 +174,11 @@ ALIGN 4
 Stage2_List: 
 BYTE IvysaurID CharmeleonID WartortleID ButterfreeID BeedrillID PidgeottoID RaticateID FearowID ArbokID NidorinaID 
 BYTE NidorinoID GolbatID GloomID ParasectID PoliwhirlID KadabraID MachokeID WeepinbellID GravellerID HaunterID OnixID 
-BYTE ChanseyID GyaradosID DragonairID DittoID 0 
+BYTE ChanseyID DragonairID DittoID 0 
 
 ALIGN 4 
 Stage3_List: 
-BYTE RaichuID ClefableID SandslashID NinetalesID WigglytuffID VenomothID DugtrioID PersianID GolduckID PrimeapeID 
+BYTE RaichuID ClefableID SandslashID NinetalesID WigglytuffID VenomothID DugtrioID PersianID GolduckID PrimeapeID GyaradosID
 BYTE ArcanineID TentacruelID RapidashID SlowbroID MagnetonID FarfetchdID DodrioID DewgongID MukID CloysterID 
 BYTE HypnoID KinglerID ElectrodeID ExeggutorID MarowakID LickitungID WeezingID RhydonID TangelaID KangaskhanID 
 BYTE SeadraID SeakingID StarmieID MrMimeID ScytherID PinsirID TaurosID VaporeonID JolteonID FlareonID OmastarID 

@@ -49648,3 +49648,9 @@ dat 0x08EFB2E0, _banim_pal_end
 dat 0x08FE0000, gUnknown_08FE0000
 dat 0x08FFF000, gUnknown_08FFF000
 dat 0x68736D53, ID_NUMBER
+
+fun Div, __aeabi_idiv
+fun Div, __aeabi_idivmod
+fun Div, __aeabi_uidiv
+fun Div, __aeabi_uidivmod
+

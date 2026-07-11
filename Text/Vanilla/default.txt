@@ -130,6 +130,11 @@ Mov[X]
 ## UM_GaidenMagicDesc
 Attack an enemy.[X]
 
+## CaptureUMErrorText
+Your PC box is full, or[N]
+you don't have enough HP[NL]
+to use any moves.[X]
+
 ## GaidenMagicUMErrorText
 You don't have enough HP[NL]
 to use any moves.[X]

@@ -1,7 +1,7 @@
 #define ChapterID CeladonCh
 #define GenericB UnitCeruleanTrainer
 #define WildLvl 10 
-#define TrainerL 30 
+#define TrainerL CeladonGymLevel 
 
 
 
@@ -148,6 +148,7 @@ ENDA
 
 LocationBasedEvents:
 House(CeladonGymClosedFlag,EnterGym,9,26) 
+House(0,CeladonDebugQuickLoad,36,9)
 Vendor(ShopItems_A,6,11)
 Vendor(ShopItems_B,9,11)
 Vendor(ShopItems_C,12,11)
@@ -158,6 +159,88 @@ House(0,GameDeveloperEvent,22,10)
 House(0,SlotMachineEvent,30,20) 
 House(0,PrizesEvent,37,19) 
 END_MAIN
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(TrainerL, 130000)
+DebugItems SuperRepel 5
+BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
+BYTE SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
+BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
+BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID)
+BYTE JellyDonut 5
+BYTE SuperPotion 5
+BYTE Revive 3
+BYTE WarpCrystal 3
+BYTE EscapeRope 3
+BYTE ExoticCandy 3
+BYTE FullHeal 5
+BYTE HPUp 1
+BYTE Protein 1
+BYTE Carbos 1
+BYTE Zinc 1
+BYTE Iron 1
+BYTE MoonStone 1
+BYTE FireStone 1
+BYTE WaterStone 1
+BYTE ThunderStone 1
+BYTE LeafStone 1
+BYTE LinkStone 1
+BYTE DryingPan 1
+BYTE StatAccessory MuscleBand_BoostIndex StatAccessory WiseGlasses_BoostIndex
+BYTE StatAccessory LeatherShield_BoostIndex StatAccessory EnergyBand_BoostIndex
+BYTE StatAccessory BronzeShield_BoostIndex StatAccessory OldWard_BoostIndex
+BYTE StatAccessory PaddedShield_BoostIndex StatAccessory IronShield_BoostIndex
+BYTE StatAccessory WiseGlassesT2_BoostIndex StatAccessory MuscleBandT2_BoostIndex
+BYTE StatAccessory MagicWard_BoostIndex StatAccessory EnergyBandT2_BoostIndex
+BYTE StatAccessory QuickBoots_BoostIndex StatAccessory LuckyBracerT3_BoostIndex
+BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
+BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
+BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
+BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll FierceStanceID SkillScroll OpportunistID
+BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
+BYTE SkillScroll ChargeID SkillScroll AdaptabilityID
+BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
+BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
+BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
+BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
+BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
+BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
+BYTE SpellScroll LeafBlade SpellScroll AuroraBeam SpellScroll Psybeam SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch
+BYTE SpellScroll BugBite SpellScroll PoisonJab SpellScroll DrillPeck SpellScroll Flamethrower SpellScroll Fly
+BYTE SpellScroll IceBeam SpellScroll TriAttack
+
+SHORT 0
+
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
+SHORT PokefluteFlag RockSmashFlag SoulbadgeObtained FlyFlag
+SHORT 0
+
+DebugClasses DoduoID
+BYTE GrimerID PonytaID FearowID RaticateID GoldeenID
+BYTE PoliwagID RhyhornID ParasID ParasectID LickitungID
+BYTE KangaskhanID VenonatID VenomothID TaurosID TangelaID
+BYTE ExeggcuteID CuboneID MarowakID ScytherID PinsirID
+BYTE NidoranMID NidoranFID NidorinoID NidorinaID ChanseyID
+BYTE DittoID GrowlitheID GloomID PidgeottoID WeepinbellID
+BYTE FarfetchdID KrabbyID HorseaID MagikarpID GastlyID
+BYTE ZubatID MachopID GeodudeID OnixID KoffingID
+BYTE VoltorbID MagnemiteID PikachuID SpearowID DiglettID
+BYTE SandshrewID MeowthID DrowzeeID VulpixID CharmanderID
+BYTE SquirtleID BulbasaurID EeveeID PidgeyID OddishID
+BYTE RattataID BellsproutID AbraID EkansID ClefairyID
+BYTE JigglypuffID MankeyID MetapodID KakunaID CaterpieID
+BYTE WeedleID PsyduckID
+BYTE 0 // Terminator
+
+}
+ALIGN 4
+CeladonDebugQuickLoad:
+ASMC DebugLoadUnits
+NoFade
+ENDA
+ALIGN 4
 
 EeveeEvent:
 EVBIT_MODIFY 4 
@@ -445,6 +528,7 @@ BYTE $00; ALIGN 4
 ALIGN 4 
 ShopItems_Slots:
 BYTE SpellScroll Flamethrower SpellScroll Thunderbolt SpellScroll IceBeam
+BYTE SpellScroll Clamp SpellScroll ThunderWave SpellScroll PoisonPowder  
 BYTE SpellScroll IronTail SpellScroll ShadowBall 
 BYTE $00; ALIGN 4
 // iron tail, shadow ball 
@@ -458,12 +542,19 @@ BYTE $00; ALIGN 4
 
 ALIGN 4
 ShopItems_C: // Skill Scrolls 
-BYTE SkillScroll ReliefID SkillScroll FocusID SkillScroll TantivyID
-BYTE SkillScroll PatienceID SkillScroll ParagonID SkillScroll PrescienceID
-BYTE SkillScroll StrongRiposteID SkillScroll WindDiscipleID SkillScroll ChivalryID
-BYTE SkillScroll PerfectionistID SkillScroll InsightID SkillScroll PragmaticID
-BYTE SkillScroll VigilanceID SkillScroll AnathemaID SkillScroll OpportunistID
-BYTE SkillScroll FierceStanceID
+BYTE SkillScroll ParagonID SkillScroll OpportunistID
+BYTE SkillScroll FierceStanceID SkillScroll ChargeID 
+BYTE SkillScroll LifetakerID SkillScroll DazzleID 
+BYTE SkillScroll RenewalID SkillScroll MultiscaleID 
+BYTE SkillScroll AdaptabilityID SkillScroll TintedLensID 
+BYTE SkillScroll SolarPowerID SkillScroll HarvestID 
+BYTE SkillScroll ChlorophyllID SkillScroll ScrappyID 
+BYTE SkillScroll PoisonTouchID SkillScroll ForewarnID 
+BYTE SkillScroll VantagePlusID SkillScroll RockyHelmetSkillID 
+BYTE SkillScroll RecklessRockID SkillScroll SniperID 
+BYTE SkillScroll ShellArmorID SkillScroll DrySkinID 
+BYTE SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll PoisonStrikeID 
+
 // 16 items 
 BYTE $00; ALIGN 4
 
@@ -509,7 +600,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 JynxUnitGroup:

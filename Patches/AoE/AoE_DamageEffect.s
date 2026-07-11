@@ -102,7 +102,8 @@ bx r1
 .type AoE_RegularDamage, %function
 AoE_RegularDamage:
 push {r4-r7, lr} 
-
+mov r4, r8 
+push {r4} 
 mov r4, r0 @r0 = table effect address 
 mov r5, r3 @ do min dmg bool 
 mov r6, r1 @r1 = attacker / current unit ram 
@@ -230,7 +231,7 @@ LoadDef:
 blh GetUnitDefense 
 
 LoadedBattleDef: 
-
+mov r8, r0 
 
 mov r1, r5 @ dmg 
 sub r1, r0 @ Dmg to deal 
@@ -251,10 +252,11 @@ swi 6
 SkipPercent2:
 
 
-ldr r3, AoE_PokemblemDamageModifier @ Given r0 dmg, r1, target, and r2 'equipped' weapon, recalc dmg 
+ldr r3, AoE_PokemblemDamageModifier @ Given r0 dmg, r1, target, r2 'equipped' weapon, and r3 battleDef, recalc dmg 
 cmp r3, #0 
 beq NoModifier
 mov lr, r3 
+mov r3, r8 @ effective def 
 mov r1, r7 @ target 
 ldrb r2, [r4, #GaidenSpellWexpByte] @ required item - used for effectiveness 
 .short 0xF800 
@@ -265,7 +267,8 @@ cmp r0, #0
 bgt NoCap 
 mov r0, #1 @ Always deal at least 1 damage 
 NoCap:
-
+pop {r4} 
+mov r8, r4 
 pop {r4-r7} 
 pop {r1} 
 bx r1

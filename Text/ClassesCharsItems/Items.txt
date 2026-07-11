@@ -24,6 +24,23 @@ Saddle[X]
 Unleash your inner horse.[N]
 Grants Canto+.[X]
 
+
+## AssaultVestName ^
+Assault Vest[X]
+## AssaultVestDesc
++50% Res. Disables boosting moves.[X]
+## TacticalVestName ^
+Tactical Vest[X]
+## TacticalVestDesc
++50% Def. Disables boosting moves.[X]
+## EvioliteName
+Eviolite[X]
+## EvioliteDesc
++50% Def/Res to Pokémon[N]
+that aren't fully evolved.[X]
+
+
+
 ## EscapeRopeName
 Escape Rope[X]
 ## EscapeRopeDesc
@@ -63,13 +80,7 @@ for 250 steps.[X]
 // Items use ^ for narrowfont I guess, while classes use * 
 ## DebugTextHere
  Debug[A][X]
- 
-## IcyWindName
-Icy Wind[X]
-## IcyWindDesc
-[SI] A chilling wind attack.[N]
-Debuffs Spd by 8.[N]
-AoE: Debuffs Spd by 5.[X]
+
 
 ## SwordsDanceName ^
 Swords Dance[X]
@@ -336,7 +347,7 @@ Def+10.[X]
 Enhanced Ward[X]
 ## EnhancedWardDescText
 Res+10.[X]
-## VintageBootsNameText
+## VintageBootsNameText ^
 Vintage Boots[X]
 ## VintageBootsDescText
 Spd+10.[X]
@@ -912,7 +923,7 @@ Submission[X]
 ## ConstrictDesc
 Chip damage.[N]
 Pulls the target towards you.[N]
-Debuffs Spd by 8 (AoE: by 5).[X]
+Debuffs Spd by 8 (AoE: by 6).[X]
 
 
 ## DoubleHitDesc
@@ -920,22 +931,81 @@ Hits twice.[X]
 ## LeerDesc
 Chip damage.[N]
 Debuffs Def/Res by 8.[N]
-AoE: Debuffs Def/Res by 5.[X]
+AoE: Debuffs Def/Res by 6.[X]
 ## TailWhipDesc
 Chip damage.[N]
 Debuffs Def/Res by 8.[N]
-AoE: Debuffs Def/Res by 5.[X]
+AoE: Debuffs Def/Res by 6.[X]
 
 ## FlashDesc
 Chip damage.[N]
 Debuffs stats by 4.[N]
-AoE: Debuffs stats by 2.[X]
+AoE: Debuffs stats by 3.[X]
 
 
 ## GrowlDesc
 Chip damage.[N]
 Debuffs Str/Mag by 8.[N]
-AoE: Debuffs Str/Mag by 5.[X]
+AoE: Debuffs Str/Mag by 6.[X]
+
+
+## PoundDesc
+Chip damage.[N]
+Debuffs stats by 4.[N]
+AoE: Debuffs stats by 3.[X]
+## SandAttackDesc
+Chip damage.[N]
+Debuffs stats by 4.[N]
+AoE: Debuffs stats by 3.[X]
+## AcidDesc
+Chip damage.[N]
+Debuffs Def/Res by 8.[N]
+AoE: Debuffs Def/Res by 6.[X]
+## RockTombName ^
+Rock Tomb[X]
+## RockTombDesc
+[PI] Debuffs Spd by 8.[N]
+AoE: Debuffs Spd by 6.[X]
+## StringShotName ^
+String Shot[X]
+## StringShotDesc
+Chip damage.[N]
+Debuffs Spd by 8.[N]
+AoE: Debuffs Spd by 6.[X]
+## ScreechName ^
+Screech[X]
+
+## ScreechDesc
+Chip damage.[N]
+Debuffs Def/Res by 12.[N]
+AoE: Debuffs Def/Res by 10.[X]
+## SnarlName
+Snarl[X]
+
+## SnarlDesc
+Chip damage.[N]
+Debuffs Str/Mag by 8.[N]
+AoE: Debuffs Str/Mag by 6.[X]
+## MetalSoundName ^
+Metal Sound[X]
+
+## MetalSoundDesc
+Chip damage.[N]
+Debuffs Def/Res by 12.[N]
+AoE: Debuffs Def/Res by 10.[X]
+## MudShotName ^
+Mud Shot[X]
+
+## MudShotDesc
+[SI] Shoots a wad of mud.[N]
+Debuffs Speed by 8.[X]
+## IcyWindName
+Icy Wind[X]
+## IcyWindDesc
+[SI] A chilling wind attack.[N]
+Debuffs Spd by 8.[N]
+AoE: Debuffs Spd by 6.[X]
+
 
 ## VineWhipDesc
 [PI] A weak whipping attack.[X]
@@ -955,18 +1025,11 @@ Knocks the target back.[N]
 [SI] A powerful bolt of electricity.[N]
 10% Paralysis chance.[X]
 
-## PoundDesc
-Chip damage.[N]
-Debuffs stats by 4.[N]
-AoE: Debuffs stats by 2.[X]
+
 ## QuickAttackDesc
 [PI] Strike first when attacked.[X]
 
 
-## SandAttackDesc
-Chip damage.[N]
-Debuffs stats by 4.[N]
-AoE: Debuffs stats by 2.[X]
 ## ScratchDesc
 [PI] A weak scratch.[X]
 
@@ -998,10 +1061,6 @@ more damage on heavier foes.[X]
 [SI] A weak jolt of electricity.[N]
 10% Paralysis chance.[X]
 
-## AcidDesc
-Chip damage.[N]
-Debuffs Def/Res by 8.[N]
-AoE: Debuffs Def/Res by 5.[X]
 
 ## PoisonStingDesc
 [PI] A weak, venomous sting.[N]
@@ -1153,11 +1212,7 @@ Ancientpower[X]
 ## AncientpowerDesc
 [SI] A prehistoric attack.[N]
 10% chance to boost stats by 8.[X]
-## RockTombName ^
-Rock Tomb[X]
-## RockTombDesc
-[PI] Debuffs Spd by 8.[N]
-AoE: Debuffs Spd by 5.[X]
+
 ## RolloutName ^
 Rollout[X]
 ## RolloutDesc
@@ -1248,12 +1303,8 @@ Pin Missile[X]
 Signal Beam[X]
 ## SignalBeamDesc
 [SI] A strange beam attack.[X]
-## StringShotName ^
-String Shot[X]
-## StringShotDesc
-Chip damage.[N]
-Debuffs Spd by 8.[N]
-AoE: Debuffs Spd by 5.[X]
+
+
 ## UTurnName ^
 U-Turn[X]
 ## UTurnDesc
@@ -1265,14 +1316,6 @@ X-Scissor[X]
 [PI] A dual-slashing attack.[X]
 
 
-
-## ScreechName ^
-Screech[X]
-
-## ScreechDesc
-Chip damage.[N]
-Debuffs Def/Res by 12.[N]
-AoE: Debuffs Def/Res by 8.[X]
 
 ## ThunderWaveName ^
 Thunder Wave[X]
@@ -1304,13 +1347,8 @@ Thief[X]
 [PI] A weak swipe.[N]
 Does not steal anything.[X]
 
-## SnarlName
-Snarl[X]
 
-## SnarlDesc
-Chip damage.[N]
-Debuffs Str/Mag by 8.[N]
-AoE: Debuffs Str/Mag by 5.[X]
+
 
 ## CometPunchDesc 
 [PI] Flurry of 2-5 strikes.[X]
@@ -1410,12 +1448,7 @@ Flash Cannon[X]
 [SI] Emits a technological flash.[N]
 10% chance to debuff Res by 8.[X]
 
-## MetalSoundName ^
-Metal Sound[X]
 
-## MetalSoundDesc
-Chip damage.[N]
-Debuffs Def/Res by 12.[X]
 
 ## SlamDesc
 [PI] Slams the foe with a[N]
@@ -1636,12 +1669,7 @@ Mud Bomb[X]
 [SI] Shoots a massive wad of mud.[N]
 30% chance to debuff Skl by 15.[X]
 
-## MudShotName ^
-Mud Shot[X]
 
-## MudShotDesc
-[SI] Shoots a wad of mud.[N]
-Debuffs Speed by 8.[X]
 
 ## DrillPeckDesc
 [PI] A drilling peck from the sky.[X]

@@ -1,7 +1,7 @@
 #define ChapterID SaffronCh
 #define GenericB UnitCeruleanTrainer
 #define WildLvl 10 
-#define TrainerL 32
+#define TrainerL SaffronGymLevel
 
 
 
@@ -179,8 +179,98 @@ House(0,EnterSilphCo,17,23)
 House(PsychicObtained,ObtainPsychicEvent,27,31) 
 House(0,ObtainPsychicEvent2,27,31) 
 House(0,EnterSaffronEHouse,27,14) 
+House(0,SaffronDebugQuickLoad,12,30)
 Vendor(ShopItems,24,14)
 END_MAIN
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(TrainerL, 150000)
+DebugItems SuperRepel 10
+BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
+BYTE SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
+BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
+BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID)
+BYTE SkillAcc(AmaterasuID) SkillAcc(HoverBoardID)
+BYTE JellyDonut 5
+BYTE SuperPotion 5
+BYTE Revive 3
+BYTE WarpCrystal 3
+BYTE EscapeRope 3
+BYTE ExoticCandy 3
+BYTE FullHeal 5
+BYTE HPUp 1
+BYTE Protein 1
+BYTE Carbos 1
+BYTE Zinc 1
+BYTE Iron 1
+BYTE Calcium 1
+BYTE HoplonGuard2 1
+BYTE MoonStone 1
+BYTE FireStone 1
+BYTE WaterStone 1
+BYTE ThunderStone 1
+BYTE LeafStone 1
+BYTE LinkStone 1
+BYTE DryingPan 1
+BYTE StatAccessory MuscleBand_BoostIndex StatAccessory WiseGlasses_BoostIndex
+BYTE StatAccessory LeatherShield_BoostIndex StatAccessory EnergyBand_BoostIndex
+BYTE StatAccessory BronzeShield_BoostIndex StatAccessory OldWard_BoostIndex
+BYTE StatAccessory PaddedShield_BoostIndex StatAccessory IronShield_BoostIndex
+BYTE StatAccessory WiseGlassesT2_BoostIndex StatAccessory MuscleBandT2_BoostIndex
+BYTE StatAccessory MagicWard_BoostIndex StatAccessory EnergyBandT2_BoostIndex
+BYTE StatAccessory QuickBoots_BoostIndex StatAccessory LuckyBracerT3_BoostIndex
+BYTE StatAccessory MuscleBandT3_BoostIndex StatAccessory SteelShield_BoostIndex
+BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
+BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
+BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
+BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll FierceStanceID SkillScroll OpportunistID
+BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
+BYTE SkillScroll ChargeID SkillScroll AdaptabilityID SkillScroll RecklessFighterID SkillScroll DowngradeID
+BYTE SkillScroll Intimidate2ID SkillScroll SteadyBrawlerID
+BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
+BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
+BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
+BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
+BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
+BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
+BYTE SpellScroll LeafBlade SpellScroll AuroraBeam SpellScroll Psybeam SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch
+BYTE SpellScroll BugBite SpellScroll PoisonJab SpellScroll DrillPeck SpellScroll Flamethrower SpellScroll Fly
+BYTE SpellScroll IceBeam SpellScroll TriAttack SpellScroll PetalDance SpellScroll Psychic SpellScroll GrassKnot
+BYTE SpellScroll Screech SpellScroll SwordsDance SpellScroll BugBuzz SpellScroll HiJumpKick SpellScroll BulkUp SpellScroll CalmMind
+BYTE SpellScroll JumpKick SpellScroll Dragonbreath
+
+SHORT 0
+
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
+SHORT PokefluteFlag RockSmashFlag SoulbadgeObtained FlyFlag RainbowbadgeObtained SaffronArrived 
+SHORT 0
+
+DebugClasses GrowlitheID
+BYTE MeowthID PidgeottoID PoliwhirlID MankeyID DoduoID
+BYTE GrimerID PonytaID FearowID RaticateID GoldeenID
+BYTE PoliwagID RhyhornID ParasID ParasectID LickitungID
+BYTE KangaskhanID VenonatID VenomothID TaurosID TangelaID
+BYTE ExeggcuteID CuboneID MarowakID ScytherID PinsirID
+BYTE NidoranMID NidoranFID NidorinoID NidorinaID ChanseyID
+BYTE DittoID GloomID WeepinbellID FarfetchdID KrabbyID
+BYTE HorseaID MagikarpID GastlyID ZubatID MachopID
+BYTE GeodudeID OnixID KoffingID VoltorbID MagnemiteID
+BYTE PikachuID SpearowID DiglettID SandshrewID DrowzeeID
+BYTE VulpixID CharmanderID SquirtleID BulbasaurID EeveeID
+BYTE PidgeyID OddishID RattataID BellsproutID AbraID
+BYTE EkansID ClefairyID JigglypuffID MetapodID KakunaID
+BYTE CaterpieID WeedleID PsyduckID
+BYTE 0 // Terminator
+
+}
+ALIGN 4
+SaffronDebugQuickLoad:
+ASMC DebugLoadUnits
+NoFade
+ENDA
+ALIGN 4
 
 ObtainPsychicEvent:
 EVBIT_MODIFY 4 
@@ -380,22 +470,34 @@ TDQ_TableTerminator
 
 ALIGN 4
 ShopItems:
-//SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
-//SHLI 0
 BYTE SkillAccShop(MiracleID)
 BYTE SkillAccShop(CounterMagicID)
 BYTE SkillAccShop(CounterID)
+BYTE SkillScroll DowngradeID
+BYTE SkillScroll GuardBreakerID
+BYTE SkillScroll Intimidate2ID
+BYTE SkillScroll SteadyBrawlerID
+BYTE SkillScroll RecklessFighterID
 BYTE Revive 1 
 BYTE SuperPotion 5 
 BYTE SuperRepel 10
-BYTE SpellScroll Screech SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
+BYTE SpellScroll Screech //SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
 BYTE SpellScroll JumpKick
 BYTE SpellScroll BubbleBeam SpellScroll DrillPeck
 BYTE SpellScroll RockSlide SpellScroll Dragonbreath
-//BYTE SpellScroll HealPulse SpellScroll RockSlide SpellScroll Dragonbreath
 BYTE SpellScroll Psybeam SpellScroll BugBite SpellScroll PoisonJab 
 BYTE SpellScroll LeafBlade // 19 
-//SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
+// BYTE SpellScroll HealPulse SpellScroll RockSlide SpellScroll Dragonbreath
+// BYTE SkillAccShop(DazzleID)
+// BYTE SkillAccShop(RenewalID)
+// BYTE SkillAccShop(DowngradeID)
+// BYTE SkillAccShop(GuardBreakerID)
+// BYTE SkillAccShop(Intimidate2ID)
+// BYTE SkillAccShop(GaleforceID)
+// BYTE SkillAccShop(FuryID)
+// BYTE SkillAccShop(SavageBlowID)
+// BYTE SkillAccShop(GrislyWoundID)
+// BYTE SkillAccShop(PoisonStrikeID)
 //SHLI SuperPotion
 BYTE $00; ALIGN 4
 
@@ -422,7 +524,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 

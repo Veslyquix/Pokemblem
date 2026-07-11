@@ -61,54 +61,15 @@ mov	r1, #0x01		@0x01 = wait for events
 blh EventEngine 
 
 SkipEvent:
-
-
-
-pop {r1}
-bx r1 
-
-.global BPressForgetOldMoveMenu
-.type BPressForgetOldMoveMenu, function
-BPressForgetOldMoveMenu:
-push {lr} 
-ldr r0, =ExitedNewMoveMenuEvent
-
 ExecuteEvent:
-mov	r1, #0x01		@0x01 = wait for events
-blh EventEngine 
 
-blh 0x08019FA0   //UpdateUnitMapAndVision
-blh 0x0801A1A0   //UpdateTrapHiddenStates
-@blh  0x080271a0   @SMS_UpdateFromGameData
-blh  0x08019c3c   @UpdateGameTilesGraphics
-blh  0x80311a8 		@ReloadGameCoreGraphics
-
-mov r0, #0xB7 @ just in case 
 
 pop {r1}
 bx r1 
 
 
 
-.global ReplaceMove
-.type ReplaceMove, function 
-ReplaceMove:
-push {lr} 
-ldr r3, =MemorySlot
-ldr r2, [r3, #4*0x01] @ Unit ram struct pointer 
-add r2, #0x28 @ first wexp rank 
-ldrb r1, [r3, #4*0x04] @ Move to learn 
-ldrb r0, [r3, #4*0x05] @ WEXP offset 
-strb r1, [r2, r0] @ Store new move where it should go 
 
-blh 0x08019FA0   //UpdateUnitMapAndVision
-blh 0x0801A1A0   //UpdateTrapHiddenStates
-@blh  0x080271a0   @SMS_UpdateFromGameData
-@blh  0x08019c3c   @UpdateGameTilesGraphics
-blh  0x80311a8 		@ReloadGameCoreGraphics
-
-pop {r1}
-bx r1 
 
 .global ClearSpellLearnedRam
 .type ClearSpellLearnedRam, function 

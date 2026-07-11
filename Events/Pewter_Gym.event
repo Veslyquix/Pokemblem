@@ -83,18 +83,18 @@ LOAD1 0x1 EnemyTrainersA
 ENUN 
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(TrainerL, True, 0x90EF) // Trainers given +5 visible levels 
-CALL GenericAutolevelEvent_Earlygame // Trainers given invisible levels based on difficulty 
+CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-//SilentGiveSkillAccessory(0xD0, HoverBoardID)
-SilentGiveItemWithDurability(0xD0, DryingPan,0x81)
-SilentGiveItemWithDurability(0xD0, JellyDonut,0x2)
-SilentGiveItemWithDurability(0xA0, Berry,0x81)
-SilentGiveItemWithDurability(0xA1, Berry,0x81)
-SilentGiveItemWithDurability(0xA2, Berry,0x81)
-SilentGiveItemWithDurability(0xA3, Berry,0x81)
+//SilentGiveSkillAccessory(RecklessUnitID, HoverBoardID)
+SilentGiveItemWithDurability(RecklessUnitID, DryingPan,0x81)
+SilentGiveItemWithDurability(RecklessUnitID, JellyDonut,0x2)
+SilentGiveItemWithDurability(GymPkmn_1, Berry,0x81)
+SilentGiveItemWithDurability(GymPkmn_2, Berry,0x81)
+SilentGiveItemWithDurability(GymPkmn_3, Berry,0x81)
+SilentGiveItemWithDurability(GymPkmn_4, Berry,0x81)
 
 //FADI 16 
 EVBIT_MODIFY 4 
@@ -168,14 +168,14 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveSkillAccessory(0xD0, CounterID) // Onix 
-SilentGiveSkillAccessory(0xA1, RockyHelmetSkillID) // golem 
-SilentGiveSkillAccessory(0xA3, WaryFighterID) // Sandslash 
-//SilentGiveItemWithDurability(0xD0, SteelShield_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA0, StatAccessory, VintageBoots_BoostIndex|0x80) // Dugtrio 
-SilentGiveItemWithDurability(0xA2, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Ninetales 
-//SilentGiveItemWithDurability(0xA3, SteelShield_BoostIndex|0x80) // Sandslash 
-SilentGiveItemWithDurability(0xA4, StatAccessory, SteelShield_BoostIndex|0x80) // Rhydon 
+SilentGiveSkillAccessory(RecklessUnitID, CounterID) // Onix 
+SilentGiveSkillAccessory(GymPkmn_2, RockyHelmetSkillID) // golem 
+SilentGiveSkillAccessory(GymPkmn_4, WaryFighterID) // Sandslash 
+//SilentGiveItemWithDurability(RecklessUnitID, SteelShield_BoostIndex|0x80)
+SilentGiveItemWithDurability(GymPkmn_1, StatAccessory, VintageBoots_BoostIndex|0x80) // Dugtrio 
+SilentGiveItemWithDurability(GymPkmn_3, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Ninetales 
+//SilentGiveItemWithDurability(GymPkmn_4, SteelShield_BoostIndex|0x80) // Sandslash 
+SilentGiveItemWithDurability(GymPkmn_5, StatAccessory, SteelShield_BoostIndex|0x80) // Rhydon 
 
 EVBIT_MODIFY 4 
 MUSCFAST PreIntroBGM
@@ -209,6 +209,7 @@ MUSCSLOW GymBGM
 EVBIT_MODIFY 4 
 Text(BrockDefeatText)
 GiveItemWithDurability_Rand(0, SpellScroll, RockTomb)
+GiveItemWithDurability_Rand(0, SkillScroll, RecklessRockID)
 //GiveItemWithDurability(0, SpellScroll, RockTomb)
 ENUT BoulderbadgeObtained 
 ENUT PewterGymClosedFlag
@@ -262,25 +263,25 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 
 EnemyTrainersA:
-UNIT 0xD0 OnixID 0x0 Level(0, Enemy, 1) [7,6]  0b 0x0	0x1 REDA7R6 		[0x0,0x0,0x0,0x0] ZoningHeal80GroupOneAI
-UNIT 0xA0 DiglettID 0xD0 Level(0, Enemy, 1) [5,7]  0b 0x0	0x1 REDA5R7 	[0x0,0x0,0x0,0x0] ZoningHeal50GroupOneAI
-UNIT 0xA1 GeodudeID 0xD0 Level(0, Enemy, 1) [9,7]  0b 0x0	0x1 REDA9R7 	[0x0,0x0,0x0,0x0] ZoningHeal50GroupOneAI
-UNIT 0xA2 VulpixID 0xD0 Level(0, Enemy, 1) [3,8]  0b 0x0	0x1 REDA3R8 	[0x0,0x0,0x0,0x0] ZoningHeal50GroupOneAI
-UNIT 0xA3 SandshrewID 0xD0 Level(0, Enemy, 1) [11,8]  0b 0x0 0x1 REDA11R8 [0x0,0x0,0x0,0x0] ZoningHeal50GroupOneAI
+UNIT RecklessUnitID OnixID 0x0 Level(0, Enemy, 1) [7,6]  0b 0x0	0x1 REDA7R6 		[0x0,0x0,0x0,0x0] ZoningHeal80GroupOneAI
+UNIT GymPkmn_1 DiglettID RecklessUnitID Level(0, Enemy, 1) [5,7]  0b 0x0	0x1 REDA5R7 	[0x0,0x0,0x0,0x0] ZoningHeal50GroupOneAI
+UNIT GymPkmn_2 GeodudeID RecklessUnitID Level(0, Enemy, 1) [9,7]  0b 0x0	0x1 REDA9R7 	[0x0,0x0,0x0,0x0] ZoningHeal50GroupOneAI
+UNIT GymPkmn_3 VulpixID RecklessUnitID Level(0, Enemy, 1) [3,8]  0b 0x0	0x1 REDA3R8 	[0x0,0x0,0x0,0x0] ZoningHeal50GroupOneAI
+UNIT GymPkmn_4 SandshrewID RecklessUnitID Level(0, Enemy, 1) [11,8]  0b 0x0 0x1 REDA11R8 [0x0,0x0,0x0,0x0] ZoningHeal50GroupOneAI
 UNIT
 
 EnemyTrainersB:
-UNIT 0xD0 OnixID 0x0 Level(0, Enemy, 1) [7,7]  0b 0x0	0x1 REDA7R7 		[0x0,0x0,0x0,0x0] PursueWithoutHeedAI
-UNIT 0xA0 DugtrioID 0xD0 Level(0, Enemy, 1) [5,8]  0b 0x0	0x1 REDA5R8 	[0x0,0x0,0x0,0x0] PursueWithoutHeedAI
-UNIT 0xA1 GolemID 0xD0 Level(0, Enemy, 1) [9,8]  0b 0x0	0x1 REDA9R8 	[0x0,0x0,0x0,0x0] PursueWithoutHeedAI
-UNIT 0xA2 NinetalesID 0xD0 Level(0, Enemy, 1) [3,9]  0b 0x0	0x1 REDA3R9 	[0x0,0x0,0x0,0x0] PursueWithoutHeedAI
-UNIT 0xA3 SandslashID 0xD0 Level(0, Enemy, 1) [11,9]  0b 0x0 0x1 REDA11R9 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI
-UNIT 0xA4 RhydonID 0xD0 Level(0, Enemy, 1) [7,9]  0b 0x0 0x1 REDA7R9 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI
+UNIT RecklessUnitID OnixID 0x0 Level(0, Enemy, 1) [7,7]  0b 0x0	0x1 REDA7R7 		[0x0,0x0,0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_1 DugtrioID RecklessUnitID Level(0, Enemy, 1) [5,8]  0b 0x0	0x1 REDA5R8 	[0x0,0x0,0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_2 GolemID RecklessUnitID Level(0, Enemy, 1) [9,8]  0b 0x0	0x1 REDA9R8 	[0x0,0x0,0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_3 NinetalesID RecklessUnitID Level(0, Enemy, 1) [3,9]  0b 0x0	0x1 REDA3R9 	[0x0,0x0,0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_4 SandslashID RecklessUnitID Level(0, Enemy, 1) [11,9]  0b 0x0 0x1 REDA11R9 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_5 RhydonID RecklessUnitID Level(0, Enemy, 1) [7,9]  0b 0x0 0x1 REDA7R9 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI
 UNIT
 
 	

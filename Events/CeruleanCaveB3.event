@@ -48,6 +48,7 @@ END_MAIN
 
 LocationBasedEvents:
 House(0, ToCeruleanCaveB1, 5,7) 
+Vendor(ShopItems_A,5,1)
 END_MAIN
 
 MiscBasedEvents:
@@ -87,6 +88,7 @@ Traps1:
 //RockSmash(11,25)
 //RockSmash(32,25)
 //
+Flower(5,1)
 SaveCost(24,12) 
 
 
@@ -188,6 +190,15 @@ NoFade
 ENDA
 
 
+ALIGN 4 
+ShopItems_A:
+BYTE SkillScroll PoisonStrikeID 
+BYTE SkillScroll MiracleID 
+BYTE SkillScroll SavageBlowID
+BYTE SkillScroll GrislyWoundID
+BYTE SkillScroll FuryID
+BYTE $00; ALIGN 4
+
 
 ShopItems:
 SHLI Elfire 
@@ -214,7 +225,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 // no reinforcements. 6 unique classes 

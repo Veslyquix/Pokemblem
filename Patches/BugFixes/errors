@@ -1,0 +1,7 @@
+error: Graphics/MapSprites/MapSprites.event:520:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+warning: Patches/../../ASM/WalkCalcLoop/Installer.event:5:9: Redefining jumpToHack_r1(...) with 1 parameters.
+error: Patches/BugFixes/BugFixesInstaller.event:110:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:250:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:277:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:280:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1
+error: Patches/BugFixes/BugFixesInstaller.event:283:1: Trying to write data to area protected by C:/Users/David/Desktop/Pokemblem/CustomDefinitions.event:2:1

@@ -405,7 +405,7 @@ After each set of module options are definitions that you can use to adjust the 
 
 	#define MMBInventoryObjectPaletteIndex 4
 
-	#define MMBInventoryTileIndex 0x300
+	#define MMBInventoryTileIndex 0x1A0
 
 	// Coordinates are in pixels
 	#define MMBInventoryX 40
@@ -531,7 +531,7 @@ After each set of module options are definitions that you can use to adjust the 
 
 	#define MMBAffinityX 40
 	#define MMBAffinityY 24
-	#define MMBAffinityTile 0x30A
+	#define MMBAffinityTile 0x1AA
 
 // Skills modules (requires skill system)
 
@@ -578,7 +578,7 @@ After each set of module options are definitions that you can use to adjust the 
 	// Coordinates are in pixels
 
 	#define MMBSkillObjectPaletteIndex 4
-	#define MMBSkillTile 0x30C
+	#define MMBSkillTile 0x1AC
 
 	#define MMBSkillsX 120
 	#define MMBSkillsY 8
@@ -604,7 +604,7 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBSkillsAlternateX 72
 	#define MMBSkillsAlternateY 40
 
-	#define MMBEquippedItemSkillTileIndex 0x318
+	#define MMBEquippedItemSkillTileIndex 0x1B8
 
 	#define MMBEquippedItemSkillX 8
 	#define MMBEquippedItemSkillY 8

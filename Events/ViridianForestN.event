@@ -44,7 +44,7 @@ Reinforce(0xF2, 1, ReinforcementUnits, 8, 4) // W-Mid
 
 CharacterBasedEvents:
 CharacterEventBothWays(0,GlobalTalkEvent, 0xFF, Ephraim)
-CHAR HiredPokemonFlag HireGeodudeevent [0x0, 0xE5] 0 // NPC
+// CHAR HiredPokemonFlag HireGeodudeevent [0x0, 0xE5] 0 // NPC
 TrainerPostBattleTalk(0xE5) // NPC talk again 
 AllTrainersPostBattleTalk
 //TrainerPostBattleTalk(0xE0)
@@ -75,6 +75,7 @@ EscapeTileEntry(38,32)
 EscapeTileEntry(5,7) 
 EscapeTileTerminator ; } 
 #endif 
+
 
 ToRoute2N:
 ChapterTransition(Route2NCh, 6, 13)
@@ -160,7 +161,7 @@ RedPokeballTrap(36,25, (ChapterID*2)+1, Revive, 3)
 SignBTrap(6,10, ChapterID, 0x0) //no extra text 
 SignATrap(44,28, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
 
-SkillScrollTrap(20,30, ChapterID*2, TantivyID)
+SkillScrollTrap(20,30, ChapterID*2, ShedSkinID)
 SpellScrollTrap(44, 14, (ChapterID*2)+1, LeechLife)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)
@@ -251,6 +252,7 @@ LABEL 10
 CALL SetBushHpEvent
 
 MarkTrainerAsDefeated(0xE5) 
+UnmarkTrainerAsDefeated(0xE0)
 
 /*
 LOAD1 1 HireGeodudeUnitGroup
@@ -292,7 +294,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 // Wilds
@@ -361,14 +363,22 @@ SHORT HiredGeodudeText // 0xE4
 SHORT 900 // Gold 
 TDQ_TableTerminator ; }
 
+
+
+ChaiStart
+ChaiEntry(0xE0)
+ChaiEntry(0xE1)
+ChaiEntry(0xE4)
+ChaiEntry(0) // Terminator 
+
 // all trainers with the same sprite will face the same direction! 
 HumanTrainers:
-UNIT 0xE0 bug_catcherID 0x0 Level(0, Enemy, 1) [39,18]  0b 0x0	0x1 REDA39R18 [OneRangeWep,0x0,0x0,0x0] TrainerAI
-UNIT 0xE1 bug_catcherID 0x0 Level(0, Enemy, 1) [29,13]  0b 0x0	0x1 REDA29R13 [OneRangeWep,0x0,0x0,0x0] TrainerAI
+UNIT 0xE0 bug_catcherID 0x0 Level(0, Enemy, 1) [39,18]  0b 0x0	0x1 REDA39R18 [Tackle,0x0,0x0,0x0] TrainerAI
+UNIT 0xE1 picnickerID 0x0 Level(0, Enemy, 1) [22,21]  0b 0x0	0x1 REDA22R21 [OneRangeWep,0x0,0x0,0x0] TrainerAI
 //UNIT 0xE2 bug_catcherID 0x0 Level(0, Enemy, 1) [19,14]  0b 0x0	0x1 REDA19R14 [OneRangeWep,0x0,0x0,0x0] TrainerAI
-UNIT 0xE3 bug_catcherID 0x0 Level(0, Enemy, 1) [12,8 ]  0b 0x0	0x1 REDA12R8  [OneRangeWep,0x0,0x0,0x0] TrainerFleeAI // This makes them run into a corner i think 
-UNIT 0xE4 bug_catcherID 0x0 Level(0, Enemy, 1) [9,25]  0b 0x0	0x1 REDA9R25 [OneRangeWep,0x0,0x0,0x0] TrainerAI 
-UNIT 0xE5 hikerID 		0x0 Level(0, Enemy, 1) [43,24]  0b 0x0	0x0 0 [0x0,0x0,0x0,0x0] DoNothing
+UNIT 0xE3 boyID 0x0 Level(0, Enemy, 1) [12,8 ]  0b 0x0	0x1 REDA12R8  [OneRangeWep,0x0,0x0,0x0] TrainerFleeAI // This makes them run into a corner i think 
+UNIT 0xE4 camperID 0x0 Level(LVFACEUP, Enemy, 1) [12,21]  0b 0x0	0x1 REDA12R21 [OneRangeWep,0x0,0x0,0x0] TrainerAI 
+// UNIT 0xE5 hikerID 		0x0 Level(0, Enemy, 1) [43,24]  0b 0x0	0x0 0 [0x0,0x0,0x0,0x0] DoNothing // reports of npc bugs, so whatever 
 UNIT
 
 HireGeodudeUnitGroup:
@@ -389,8 +399,8 @@ UNIT
 
 EnemyTrainersC:
 UNIT GenericB 	PikachuID 0xE2 	Level(0, Enemy, 1) [ 8,12]  0b 0x0	0x0 0x0 [0x0,0x0,0x0,0x0] SafestZoningGroupThreeAI
-UNIT GenericB 	CaterpieID 0xE2 	Level(0, Enemy, 1) [10,12]  0b 0x0	0x0 0x0 [0x0,0x0,0x0,0x0] SafestZoningGroupThreeAI
-UNIT GenericB 	WeedleID 0xE2 	Level(0, Enemy, 1) [12,12]  0b 0x0	0x0 0x0 [0x0,0x0,0x0,0x0] SafestZoningGroupThreeAI
+UNIT GenericB 	NidoranMID 0xE2 	Level(0, Enemy, 1) [10,12]  0b 0x0	0x0 0x0 [0x0,0x0,0x0,0x0] SafestZoningGroupThreeAI
+UNIT GenericB 	NidoranFID 0xE2 	Level(0, Enemy, 1) [12,12]  0b 0x0	0x0 0x0 [0x0,0x0,0x0,0x0] SafestZoningGroupThreeAI
 UNIT
 
 EnemyTrainersD:

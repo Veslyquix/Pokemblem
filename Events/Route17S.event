@@ -108,7 +108,7 @@ SkillAccessoryTrap(15,23, (ChapterID*2)+1, CounterMagicID)
 //SkillAccessoryTrap(37,14, ChapterID*2, DeathBlowID) 
 //SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
 
-SkillScrollTrap(11,41, (ChapterID*2)+1, PursuitID) 
+SkillScrollTrap(11,41, (ChapterID*2)+1, AdaptabilityID) 
 
 SignBTrap(9,3, ChapterID, 0x0) //no extra text 
 SignATrap(12,56, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
@@ -200,6 +200,13 @@ SHORT 600 // Gold
 TDQ_TableTerminator ; }
 
 
+ChaiStart
+ChaiEntry(0xE0)
+ChaiEntry(0xE1)
+ChaiEntry(0xE2)
+ChaiEntry(0xE3)
+ChaiEntry(0xE4)
+ChaiEntry(0) // Terminator 
 
 // trainer exclusive: Koffing, Weezing, Voltorb, Electrode, Primeape, Machoke, Graveller
 
@@ -235,7 +242,7 @@ EnemyTrainers4: // biker
 //UNIT GenericB 	MachokeID 		0xE4 		Level(0, Enemy, 1) [9,11]   0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFiveAI
 //UNIT GenericB 	GravellerID 	0xE4 		Level(0, Enemy, 1) [11,11]  0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFiveAI
 UNIT GenericB 	WeezingID 		0xE4 		Level(0, Enemy, 1) [9,9]    0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFiveAI
-UNIT GenericB 	GravellerID 	0xE4 		Level(0, Enemy, 1) [11,9]   0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFiveAI
+UNIT GenericB 	PoliwhirlID 	0xE4 		Level(0, Enemy, 1) [11,9]   0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFiveAI
 UNIT GenericB 	MachokeID 		0xE4 		Level(0, Enemy, 1) [11,9]   0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFiveAI
 UNIT
 

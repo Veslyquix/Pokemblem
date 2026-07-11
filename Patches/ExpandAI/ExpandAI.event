@@ -1,5 +1,6 @@
 #ifndef EXPAND_AI 
 #define EXPAND_AI
+#define Routine_AISafety(routine, Safety) "BYTE 0x01 0x00 Safety 0x00; WORD 0x00000000; POIN routine; POIN 0"
 
 PUSH 
 ORG $3C86C 
@@ -31,7 +32,7 @@ NewAI1Entry(25, AttackIfEnemyInRange)
 NewAI1Entry(26, MakeAIWaitLabel)
 NewAI1Entry(27, RunAwayLabel)
 
-NewAI1Entry(28, PursueAndSummonOrAttackLabel)
+NewAI1Entry(28, PursueAndSummonLabel)
 NewAI1Entry(29, RunAwayAndSummonLabel)
 NewAI1Entry(30, SummonOrAttackInRangeLabel)
 NewAI1Entry(31, TrainerSummonTeamAILabel)
@@ -51,7 +52,7 @@ NewAI2Entry(25, BeedrilAI_2)
 
 NewAI2Entry(26, MakeAIWaitLabel)
 NewAI2Entry(27, RunAwayLabel)
-NewAI2Entry(28, PursueAndSummonOrAttackLabel)
+NewAI2Entry(28, PursueAndSummonLabel)
 NewAI2Entry(29, RunAwayAndSummonLabel)
 NewAI2Entry(30, SummonOrAttackInRangeLabel)
 NewAI2Entry(31, TrainerSummonTeamAILabel)
@@ -96,16 +97,26 @@ b Exit
 #define SummonOrAttackIfAdjacentAI [30,30,0,32]
 #define TrainerAI [31, 3, 0, 0] 
 #define TrainerAI_chai (0x3<<8 | 31)
-
 #define TrainerBossAI [31, 3, 0, 32] 
 #define TrainerFleeAI [33, 3, 0, 0] 
 #define AttackIfWithin2 [0, 6] 
 #define GuidePlayerAI [34, 34, 0, 0]
 #define TrainerStandAI [31, 35, 0, 0] // works because TrainerMovementBane checks for 0x23 ai2 to set Mov to 0 
 
+
+// #define TrainerPursueAI [31, 23, 0, 0]
+#define TrainerPursueAI [31, 28, 0, 0]
+#define TrainerPursueWithin2AI [31, 22, 0, 0]
+#define TrainerPursueThenFleeAI [33, 23, 0, 0] 
+#define TrainerChargeAI [31, 0, 0, 0] 
+
+// #define TrainerPursueAI_chai (23<<8 | 31)
+// #define TrainerPursueAI_chai (23<<8 | 31)
+#define TrainerPursueAI_chai (28<<8 | 31)
+
 ALIGN 4 
 TrainerAIListToDoAI2:
-BYTE 25 0 // Do AI2 for beedrill AI 
+BYTE 25 23 22 24 28 0 // Do AI2 for beedrill AI 
 
 
 ALIGN 32
@@ -133,10 +144,9 @@ Routine_AI(TrainerSummonTeamAIFunc, 0)
 Goto(0)
 ALIGN 32
 
-
 ALIGN 32 
-PursueAndSummonOrAttackLabel:
-Routine_AI(PursueAndSummonOrAttackFunc, 0)
+PursueAndSummonLabel:
+Routine_AISafety(TrainerPursueSummonTeamAIFunc, 0) // used to be this func PursueAndSummonOrAttackFunc 
 Goto(0)
 ALIGN 32 
 

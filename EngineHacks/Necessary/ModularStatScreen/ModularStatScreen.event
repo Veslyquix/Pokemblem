@@ -18,10 +18,20 @@
   #include "DisplayGrowthsOptions/DisplayGrowthsOptions.event"
   #include "WeaponRankStatScreen/WeaponRankStatScreen.event"
   #include "Background/Background.event"
+  #include "pages/LoadNewStatScreenEquipmentPal.lyn.event"
+  
+  ALIGN 4 
+  SS_MenuPal: 
+  #incbin "Gfx8A01F24_pal.dmp"
  
   PUSH
+  
+  ORG $884CC 
+  callHack_r3(LoadNewStatScreenEquipmentPal)
+  SHORT $46C0 
+  
     ORG 0x205b24 //24 for stat screen
-      POIN MSS_page1|1 MSS_page2|1 MSS_page3|1 MSS_page4|1
+      POIN MSS_page1|1 MSS_page2|1 MSS_page3|1 MSS_page2|1
 
     ORG $88690
       BYTE 3 //make 3 pages
@@ -128,7 +138,8 @@
   #endif // USE_STRMAG_SPLIT
   
   
-    #include "pages/mss_page2_original.lyn.event"
+    // #include "pages/mss_page2_original.lyn.event"
+    #include "pages/mss_page2_ballista.lyn.event"
   
   #ifdef ONLY_SHOW_USED_RANKS
   

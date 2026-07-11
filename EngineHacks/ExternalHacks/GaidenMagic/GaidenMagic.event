@@ -1,7 +1,7 @@
 
 #ifdef GAIDEN_MAGIC // 2.0 version by Snek based on original version by Hypergammaspaces.
 	
-#include "GetVanillaEquipped.lyn.event"	
+// #include "GetVanillaEquipped.lyn.event"	
 
 	/* Notes on Gaiden Magic 2.0 behavior:
 		Adds 2 unit menu options: Black magic and White magic. Black magic has anima and dark spells, and White magic has light spells and staves.
@@ -26,6 +26,10 @@
 	
 	#define GaidenUsingSpellMenu 0x0203F082
 	#define GaidenSelectedSpell 0x0203F080
+    
+    ALIGN 4 
+    SelectedSpell_Link:
+    WORD GaidenSelectedSpell
 	
 	#include "GaidenMagic.lyn.event" // Compiled C.
 	
@@ -34,6 +38,8 @@
 	#include "GaidenSpellLists.event" // Go here to define per-character spell lists.
 	
 	ALIGN 4
+	gCaptureUMErrorText:
+	SHORT CaptureUMErrorText
 	gGaidenMagicUMErrorText:
 	SHORT GaidenMagicUMErrorText
 	gGaidenMagicSpellMenuErrorText:

@@ -109,10 +109,7 @@ LOAD1 0x1 EnemyTrainersB
 ENUN 
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(RematchLevel, True, 0x90EF) 
-ENUT FIXED_GROWTHS_FLAG_ID
-AutoLevelUnits(ViridianGymBonus, False, 0x90EF) // 9 hidden levels regardless of difficulty 
-//AutoLevelUnits(3, False, 0x90EF) 
-CALL GenericAutolevelEvent_Earlygame // Trainers given invisible levels based on difficulty 
+CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 
 
 SetUnitStatus(ShedinjaUnitID, MaxHP, 1) // Shedinja 
@@ -135,16 +132,16 @@ SilentGiveItemWithDurability(0xA7, StatAccessory, 0x80|EnergyBandT4_BoostIndex)
 SilentGiveItemWithDurability(0xA8, StatAccessory, 0x80|SteelShield_BoostIndex)
 ////SilentGiveSkillAccessory(0xD0, AmaterasuID)
 //SilentGiveItemWithDurability(0xD0, MaxPotion,0x1)
-////SilentGiveItemWithDurability(0xA0, Berry,0x8A)
-//SilentGiveItemWithDurability(0xA0, SuperPotion,0x1)
-////SilentGiveItemWithDurability(0xA1, Berry,0x8A)
-//SilentGiveItemWithDurability(0xA1, SuperPotion,0x1)
-////SilentGiveItemWithDurability(0xA2, Berry,0x8A)
-//SilentGiveItemWithDurability(0xA2, SuperPotion,0x1)
-////SilentGiveItemWithDurability(0xA3, Berry,0x8A)
-//SilentGiveItemWithDurability(0xA3, SuperPotion,0x1)
-////SilentGiveItemWithDurability(0xA4, Berry,0x8A)
-//SilentGiveItemWithDurability(0xA4, SuperPotion,0x1)
+////SilentGiveItemWithDurability(GymPkmn_1, Berry,0x8A)
+//SilentGiveItemWithDurability(GymPkmn_1, SuperPotion,0x1)
+////SilentGiveItemWithDurability(GymPkmn_2, Berry,0x8A)
+//SilentGiveItemWithDurability(GymPkmn_2, SuperPotion,0x1)
+////SilentGiveItemWithDurability(GymPkmn_3, Berry,0x8A)
+//SilentGiveItemWithDurability(GymPkmn_3, SuperPotion,0x1)
+////SilentGiveItemWithDurability(GymPkmn_4, Berry,0x8A)
+//SilentGiveItemWithDurability(GymPkmn_4, SuperPotion,0x1)
+////SilentGiveItemWithDurability(GymPkmn_5, Berry,0x8A)
+//SilentGiveItemWithDurability(GymPkmn_5, SuperPotion,0x1)
 
 
 MUSCFAST IntroBGM 
@@ -205,7 +202,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 

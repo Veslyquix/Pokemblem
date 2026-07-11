@@ -308,20 +308,9 @@ GuardBreakerID
 //By circleseverywhere
  SavageBlowID
 
-//Cultured: If unit attacks next to a unit with Nice Thighs, move again. -50 hit against units with Nice Thighs.
-//By Sme
- CulturedID
-
-//Gridmaster: Movement skills do not end your action.
-//By Sme
- GridmasterID
-
-
-//Pre-Battle Skills
-
-//Axefaith: Axes can't lose durability, and grants +Luck*1.5 Hit when wielding axes.
-//By 2WB & Colorz
- AxeFaithID
+AssaultVestID
+TacticalVestID
+EvioliteID
 
 
 //Battle Veteran: Gain +1 damage and +5% Hit per 10 levels unit has.
@@ -851,6 +840,21 @@ ThickClubSkillID // +50% str
 
 //Down With Arch: If the hit lands, instantly kill the enemy unit. (Only if name starts with "Arch")
  DownWithArchID 255
+ 
+ //Cultured: If unit attacks next to a unit with Nice Thighs, move again. -50 hit against units with Nice Thighs.
+//By Sme
+ CulturedID
+
+//Gridmaster: Movement skills do not end your action.
+//By Sme
+ GridmasterID
+
+
+//Pre-Battle Skills
+
+//Axefaith: Axes can't lose durability, and grants +Luck*1.5 Hit when wielding axes.
+//By 2WB & Colorz
+ AxeFaithID
 
 //Resolve: When HP < 50%, gain 1.5x Str, Skl, & Spd.
 //By Sme

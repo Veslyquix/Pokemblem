@@ -12,20 +12,6 @@
 
 #define SaffronDojoLevel 46
 
-// hidden levels applied to gyms 
-#define VermilionGymBonus 3
-#define FuschiaGymBonus 5
-#define CeladonGymBonus 2
-#define SaffronGymBonus 2 
-#define CinnabarGymBonus 6
-#define ViridianGymBonus 3 // + 9 as half of usual lategame bonuses 
-
-#define LoreleiBonus 1 // +9 as half of usual lategame bonuses 
-#define BrunoBonus 2 
-#define AgathaBonus 2
-#define LanceBonus 1
-#define ChampionBonus 10 
-
 
 
 /*
@@ -199,7 +185,7 @@ super_nerdID - Electric/Fire - Vulpix, Ponyta, Koffing, Grimer, Voltorb, Magnemi
 
 //Enemy unit IDs 
 // Wilds are 0x50 - 0x8F, reinforcements are 0x90-0x9F for some reason 
-// Trainers are 0xA0 - 0xBD & 0xC0 - 0xCF I guess 
+// Trainers are GymPkmn_1 - 0xBD & 0xC0 - 0xCF I guess 
 // 0xBE is Formotiis iirc 
 
 
@@ -317,14 +303,32 @@ super_nerdID - Electric/Fire - Vulpix, Ponyta, Koffing, Grimer, Voltorb, Magnemi
 #define UnitVictoryRoadTrainer 0xC7 
 #define UnitElite4Trainer 0xC8 
 #define UnitCeruleanCaveBoss 0xC9 
+#define GaryStarterAdaptabilityUnitID 0xCA 
 
+#define DefaultSethThing 0xA1 
+#define GymPkmn_1 0xCB 
+#define GymPkmn_2 0xCC 
+#define GymPkmn_3 0xCD 
+#define GymPkmn_4 0xCE 
+#define GymPkmn_5 0xCF 
+#define GymPkmn_6 UnitRoute22Trainer // champion phase 2 uses this 
+#define GymPkmn_7 UnitRoute23Trainer // champion phase 2 uses this 
+#define GymPkmn_8 UnitElite4Trainer // champion phase 2 uses this 
 
 // unit IDs 0xD0 and higher don't get move debuff by 1 
-
+#define SavageBlowUnitID 0xD0 // Lance   
+#define RecklessUnitID 0xD1 // Brock 
+#define RenewalUnitID 0xD2 // Misty / Lorelei 
+#define DowngradeUnitID 0xD3 // Surge 
+#define GuardBreakerUnitID 0xD4 // Koga 
 //#define ShedinjaUnitID 0xD5  
 //#define SableyeUnitID 0xD6  
-#define StarmieRenewalUnitID 0xD7  
-
+#define TintedLensUnitID 0xD7 // Erika 
+#define ForewarnUnitID 0xD8 // Sabrina 
+#define FuryUnitID 0xD9 // Blaine 
+#define SturdyUnitID 0xDA // Giovanni  
+#define ScrappyUnitID 0xDB // Saffron Dojo / Bruno 
+#define DazzleUnitID 0xDC // Agatha   
 
 
 

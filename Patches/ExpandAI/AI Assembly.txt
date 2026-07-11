@@ -42,6 +42,7 @@
 // Eg. if condition is met, branch to the routine 
 #define AI_Conditional(routine, pointer) "BYTE 0x01 0x00 0xFF 0x00; WORD 0x00000000; POIN routine; POIN pointer"
 #define Routine_AI(routine, paramPointer) "BYTE 0x01 0x00 0xFF 0x00; WORD 0x00000000; POIN routine; POIN paramPointer"
+#define Routine_AISafety(routine, Safety) "BYTE 0x01 0x00 Safety 0x00; WORD 0x00000000; POIN routine; POIN 0"
 
 #define ChangeAI(AI1, AI2) "BYTE 0x02 AI1 AI2 0x00; WORD 0x00000000; WORD 0x00000000; WORD 0x00000000"
 //Does not take action.

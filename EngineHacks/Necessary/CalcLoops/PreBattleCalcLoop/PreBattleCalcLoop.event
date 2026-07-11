@@ -94,7 +94,7 @@ POIN 0
 // Occurs once both attacker and defender are confirmed. If weapons negate def, will occur after def is negated. 
 ALIGN 4 
 DamageModifierCalcLoop:
-POIN RivalryEffect AnalyticEffect RecklessRockEffect SheerForceEffect 
+POIN GaleforceEffect RivalryEffect AnalyticEffect RecklessRockEffect SheerForceEffect 
 POIN WeaponsThatAlwaysDouble
 POIN WeakChipDmg ScaledUp
 POIN EnemyWeightBonus
@@ -104,6 +104,8 @@ POIN TypeEffectiveness // also caps moves to deal max 255
 #ifdef ENABLE_DAMAGE_REDUCTION
 	POIN LevelDamageReduction
 #endif 
+POIN DefResDmgReduction 
+POIN EasyModeDmgReduction 
 POIN DoublingDamageModifierFunc // this also occurs on weapons that cannot double if you would be able to otherwise 
 POIN ScaledBackFunc FlankEffect SwarmEffect HustleEffect
 POIN TransformFunction 

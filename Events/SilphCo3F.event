@@ -180,7 +180,7 @@ RedPokeballTrap(33,14, (ChapterID*2), Calcium)
 StatAccessoryTrap(4,21, (ChapterID*2)+1, SteelShield_BoostIndex)
 //SkillAccessoryTrap(37,14, ChapterID*2, DeathBlowID)
  
-SkillScrollTrap(3,8, ChapterID*2, SilentPrideID)
+SkillScrollTrap(3,8, ChapterID*2, DowngradeID)
 
 SpellScrollTrap(30,19, (ChapterID*2)+1, SwordsDance) 
 
@@ -302,7 +302,7 @@ UNIT
 EnemyTrainers3: 
 UNIT GenericB 	ZubatID 		0xE3 		Level(0, Enemy, 1) [9,11]   0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFourAI
 UNIT GenericB 	RattataID 	0xE3 		Level(0, Enemy, 1) [11,11]  0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFourAI
-UNIT GenericB 	RattataID 		0xE3 		Level(0, Enemy, 1) [9,9]    0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFourAI
+UNIT GenericB 	SandshrewID 		0xE3 		Level(0, Enemy, 1) [9,9]    0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFourAI
 UNIT GenericB 	ZubatID 		0xE3 		Level(0, Enemy, 1) [11,9]   0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupFourAI
 UNIT
 

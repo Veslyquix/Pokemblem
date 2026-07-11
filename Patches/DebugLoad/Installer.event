@@ -1,0 +1,58 @@
+
+#include "C_Code.lyn.event" 
+DefaultUnit:
+UNIT TempAlly_A 0 0x0 Level(0, Enemy, 1) [0,0]  0b 0x0	0x1 REDA0R0 [0x0,0x0,0x0,0x0] DoNothing
+UNIT
+
+ALIGN 4 
+DefaultUnitID_Link: 
+WORD 0x50
+BerserkGeneLink:
+// WORD SkillAcc(FuryID)
+WORD 0xA6FC // Berserk Gene 
+
+// level, gold, items, classes, flags to set
+ALIGN 4 
+DebugStuff: 
+FILL 128*4 
+
+#define DebugStuffEntry(level, gold) "PUSH; ORG DebugStuff + (ChapterID * 4); POIN DebugStuffLabel; POP; ALIGN 4; DebugStuffLabel:; BYTE level; ALIGN 4; WORD gold; POIN DebugItemsLabel DebugClassesLabel DebugFlagsLabel" 
+
+#define DebugItems "ALIGN 4; DebugItemsLabel:; BYTE" 
+#define DebugFlags "ALIGN 4; DebugFlagsLabel:; SHORT" 
+#define DebugClasses "ALIGN 4; DebugClassesLabel:; BYTE" 
+
+ALIGN 4
+DebugRemoveFlagsList:
+SHORT OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
+SHORT PokefluteFlag RockSmashFlag SoulbadgeObtained FlyFlag RainbowbadgeObtained SaffronArrived SilphCoDefeated MarshbadgeObtained CinnabarArrived SecretKeyObtained
+SHORT VolcanobadgeObtained EarthbadgeObtained StrengthBoulderFlag IndigoPlateauArrived 
+SHORT PewterGymClosedFlag CeruleanGymClosedFlag VermilionGymClosedFlag FuschiaGymClosedFlag CeladonGymClosedFlag SaffronGymClosedFlag CinnabarGymClosedFlag ViridianGymClosedFlag 
+SHORT 0
+
+// Example usage 
+
+
+
+/*
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(10, 25000)
+DebugItems SpellScroll Screech 
+BYTE SkillScroll RecklessRockID 
+SHORT 0 
+
+DebugFlags 0x10E 
+SHORT 0 
+
+DebugClasses BulbasaurID CharmanderID SquirtleID 
+BYTE 0 // Terminator 
+
+}
+CheatQuickLoad:
+ASMC DebugLoadUnits
+
+NoFade 
+ENDA 
+*/
+
+

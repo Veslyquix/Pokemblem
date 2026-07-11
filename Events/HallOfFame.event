@@ -150,16 +150,16 @@ MNC2 PCBoxCh
 //
 //SilentGiveItemWithDurability(0xD0, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Machoke 
 //SilentGiveItemWithDurability(0xD0, MaxPotion,0x1)
-//SilentGiveItemWithDurability(0xA0, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-//SilentGiveItemWithDurability(0xA0, SuperPotion,0x2)
-//SilentGiveItemWithDurability(0xA1, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-//SilentGiveItemWithDurability(0xA1, SuperPotion,0x2)
-//SilentGiveItemWithDurability(0xA2, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-//SilentGiveItemWithDurability(0xA2, SuperPotion,0x2)
-//SilentGiveItemWithDurability(0xA3, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-//SilentGiveItemWithDurability(0xA3, SuperPotion,0x2)
-//SilentGiveItemWithDurability(0xA4, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-//SilentGiveItemWithDurability(0xA4, SuperPotion,0x2)
+//SilentGiveItemWithDurability(GymPkmn_1, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
+//SilentGiveItemWithDurability(GymPkmn_1, SuperPotion,0x2)
+//SilentGiveItemWithDurability(GymPkmn_2, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
+//SilentGiveItemWithDurability(GymPkmn_2, SuperPotion,0x2)
+//SilentGiveItemWithDurability(GymPkmn_3, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
+//SilentGiveItemWithDurability(GymPkmn_3, SuperPotion,0x2)
+//SilentGiveItemWithDurability(GymPkmn_4, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
+//SilentGiveItemWithDurability(GymPkmn_4, SuperPotion,0x2)
+//SilentGiveItemWithDurability(GymPkmn_5, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
+//SilentGiveItemWithDurability(GymPkmn_5, SuperPotion,0x2)
 //
 //
 //MUSCFAST IntroBGM 
@@ -208,7 +208,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 
@@ -216,11 +216,11 @@ EnemyTrainersA:
 UNIT 0xE1 LoreleiID 		0x0  Level(0, Enemy, 1) [12,4]  0b 0x0	1 REDA12R4	[0,0,0x0,0x0] 		DoNothingAI
 
 UNIT 0xD0 LaprasID 		0x0  Level(0, Enemy, 1) [12,8]  0b 0x0	0 0	[Blizzard, Waterfall,BodySlam,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA0 DewgongID 		0xD0 Level(0, Enemy, 1) [11,10]  0b 0x0	0 0 [Growl, TailWhip, AuroraBeam,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA1 JynxID 			0xD0 Level(0, Enemy, 1) [11,6]  0b 0x0	0 0	[Psychic,IceBeam,0x0,0x0] 		ZoningHeal50GroupOneAI
-//UNIT 0xA2 VaporeonID 		0xD0 Level(0, Enemy, 1) [11,6]  0b 0x0 	0 0	[Surf, IceBeam,0,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA3 SlowbroID 		0xD0 Level(0, Enemy, 1) [13,6]  0b 0x0	0 0	[FireBlast, Surf, 0x0 ,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA4 CloysterID 		0xD0 Level(0, Enemy, 1) [13,10]  0b 0x0	0 0	[Clamp, AuroraBeam,0x0,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_1 DewgongID 		0xD0 Level(0, Enemy, 1) [11,10]  0b 0x0	0 0 [Growl, TailWhip, AuroraBeam,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_2 JynxID 			0xD0 Level(0, Enemy, 1) [11,6]  0b 0x0	0 0	[Psychic,IceBeam,0x0,0x0] 		ZoningHeal50GroupOneAI
+//UNIT GymPkmn_3 VaporeonID 		0xD0 Level(0, Enemy, 1) [11,6]  0b 0x0 	0 0	[Surf, IceBeam,0,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_4 SlowbroID 		0xD0 Level(0, Enemy, 1) [13,6]  0b 0x0	0 0	[FireBlast, Surf, 0x0 ,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_5 CloysterID 		0xD0 Level(0, Enemy, 1) [13,10]  0b 0x0	0 0	[Clamp, AuroraBeam,0x0,0x0] 		ZoningHeal50GroupOneAI
 UNIT
 
 

@@ -1218,6 +1218,14 @@ ORG SkillIcon(PridefulWarriorID)
 // #incbin "SkillIcons/PridefulWarrior.dmp"
 #incbin "SkillIcons/ProudBird.dmp"
 
+ORG SkillIcon(AssaultVestID)
+#incbin "SkillIcons/ProudBird.dmp"
+ORG SkillIcon(TacticalVestID)
+#incbin "SkillIcons/ProudBird.dmp"
+ORG SkillIcon(EvioliteID)
+#incbin "SkillIcons/ProudBird.dmp"
+
+
 ORG SkillIcon(LastWordID)
 #incbin "SkillIcons/LastWord.dmp"
 ORG SkillIcon(BoldFighterID)

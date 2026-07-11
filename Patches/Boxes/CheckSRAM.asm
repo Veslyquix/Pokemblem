@@ -14,6 +14,9 @@
 .equ gChapterData, 0x202BCF0 
 .equ ReadLastGameSaveId, 0x80a4da0
 
+
+
+
 .global CheckSRAMWorking 
 .type CheckSRAMWorking, %function 
 CheckSRAMWorking: @ 0x80D184C 

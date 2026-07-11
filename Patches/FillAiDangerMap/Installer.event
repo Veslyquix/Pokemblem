@@ -1,0 +1,21 @@
+
+// Thanks to Mokha for the updated fe-clib! 
+
+#include "C_Code.lyn.event" 
+ALIGN 4 
+FiveRangeWepLink:
+WORD FiveRangeWep 
+
+ALIGN 4 
+ChangeAiAfterAction: 
+FILL 256*4
+
+#define ChaiStart "PUSH; ORG ChangeAiAfterAction + (ChapterID * 4); POIN ChaiLabel; POP; ALIGN 4; ChaiLabel:;"
+#define ChaiEntry(pid) "BYTE pid 0; SHORT TrainerPursueAI_chai" 
+#define ChaiEntry(pid, ai) "BYTE pid 0; SHORT ai" 
+#define ChaiEntry(pid, ai1, ai2) "BYTE pid 0 ai1 ai2"
+ 
+
+
+
+

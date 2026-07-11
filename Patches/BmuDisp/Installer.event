@@ -1,0 +1,419 @@
+
+// vanilla buffer 
+//02034010 gSMSGfxBuffer_Frame1
+//02036010 gSMSGfxBuffer_Frame2
+//02038010 gSMSGfxBuffer_Frame3
+
+
+// 2004be0 B gMUGfxBuffer[slot0]
+// 2006de0 B gMUGfxBuffer[slot1]
+// 2008fe0 B gMUGfxBuffer[slot2]
+
+// #define SMS_Frame1_Buffer 0x201A5C8 
+#define SMS_Frame1_Buffer 0x2008fe0  //[2008000..200c000]!!
+#define SMS_Frame2_Buffer 0x20165c8
+#define SMS_Frame3_Buffer 0x2034010
+
+
+// 8a177a0 T ProcScr_UnitListScreen_Field
+// 8a178c0 T ProcScr_UnitListScreen_PrepMenu
+
+// prep menu - working 
+// fixed mmb and blue arrow and made traps / 16x16 sprites appear 
+// notes: MirrorSprites, FMU, TrapRework, TrapSMSSize 
+// uggh 
+
+// todo: edit ExtendWepDescBox to only clear as many obj vram lines as it needs - working now 
+// then, move faces during conversations to 0x6013000 from 0x6015000 - working 
+
+// UseUnitSprite needs to be uncommented for vanilla build 
+
+
+#include "C_Code.lyn.event" 
+// #include "MirrorSprites.lyn.event" 
+#include "Asm.lyn.event" 
+
+
+#define BlueArrowChr 0x240 
+#define ArrChr "0x3800|BlueArrowChr"
+#define BottomHelpChr 0x240 
+#define MMSChr 0x39C // gets >>2 
+// #define MMSChr 0x80 // gets >>2 
+#define BrownBoxChr 0x2C0 // gets >> 2
+#define PrepMenuStartButtonChr 0x200
+#define PrepChInfoButtonChr 0x180 // gets >>2 then <<7
+#define StatusScreenChr 0x280
+#define StatusScreenTextChr 0x200
+
+ALIGN 4 
+TradeLeftFaceChr:
+WORD 0x18 
+TradeRightFaceChr: 
+WORD 0x58 
+ItemMenuFaceChr:
+WORD 0x18 
+StatusScreenChrLink:
+WORD StatusScreenChr
+StatusScreenTextChrLink:
+WORD StatusScreenTextChr
+sSyncSMS:
+WORD 0x201f147 // right before gUnk_SoundRoom_0201F148 
+
+ALIGN 4 
+PlaytimeGfx:
+#incbin "PlaytimeGfx.dmp" 
+
+#define BattleForecast2x 0x2C8 // 0x2D8 vanilla 
+
+PUSH 
+
+
+// BattleForecast_LoopSlideIn 803710c
+ORG $371CC 
+// callHackNew(Hook_BattleForecast_LoopSlideIn) 
+// SHORT $46C0 
+
+ORG $36CD4 
+callHackNew(Hook_DrawBattleForecastContents) 
+
+// ORG $372B0 
+// callHackNew(Hook_BattleForecast_LoopSlideOut) 
+// SHORT $46c0 
+
+ORG $B4C84 
+callHackNew(HookFace_Shop_Init)
+SHORT $46c0 
+
+
+ORG $23312
+SHORT $1C29 // mov r1, r5 (menu proc) 
+callHackNew(HookFace_ItemCommandEffect)
+SHORT $46c0 
+
+ORG $23570 // sub_8023550 (Equip item) 
+SHORT $1C29 // mov r1, r5 (menu proc) 
+SHORT $46c0 
+callHackNew(HookFace_ItemCommandEffect)
+
+ORG $23608 // sub_80235A8 (Discard item) 
+SHORT $1C21 // mov r1, r4 (menu proc) 
+SHORT $46c0 
+callHackNew(HookFace_ItemCommandEffect)
+ 
+// There's also staff / dance / ballista, but I don't use those anyway 
+// StartUnitWeaponSelect as well, but that's in GaidenMagic 
+
+
+
+// sMuImgBufOffLut change MU buffer order IDs so we can use SMS_Frame1_Buffer during map battles 
+ORG $9a2c7a
+// BYTE 0, 0, 2, 1, 3 // vanilla 
+// BYTE 0 0 1 2 3 // slot 2/3 overlap with SMS now 
+BYTE 0 0 1 0 1 // so AoE won't go into SMS 
+
+ORG $36E10 
+WORD 0x6010000|(BattleForecast2x<<5)
+ORG $36FE4 
+WORD 0x2000|(BattleForecast2x-2)
+
+// issue: prep view map press R button 
+// added gProcScr_PrepHelpPrompt to ProcExceptionsList in ExtendWepDescBox 
+
+// Unit list stuff 
+ORG $A17B58 
+POIN NewSprite_08A17B40 NewSprite_08A17B48 NewSprite_08A17B50
+
+ORG $A17C20
+POIN NewSprite_08A17C0A
+POIN NewSprite_08A17B98
+POIN NewSprite_08A17BA6
+POIN NewSprite_08A17BBA
+POIN NewSprite_08A17BCE
+POIN NewSprite_08A17BE2
+POIN NewSprite_08A17BF6
+POIN NewSprite_08A17BF6
+POIN NewSprite_08A17BF6
+POIN NewSprite_08A17BF6
+ORG $908B4 
+POIN NewSprite_08A17B6C
+ORG $9083C 
+POIN NewSprite_08A17B64
+
+ORG $9073A 
+BYTE $240>>2 // InitMenuScrollBarImg(0x7200, 1); UnitListScreenSprites_Init
+
+ORG $90F80 
+WORD 0x6010000|(0x220<<5) // 0x240 
+ORG $90F8C 
+WORD 0x6010000|(0x260<<5) // 0x2C0 Character Fighting Skill Personal data etc. 
+
+
+// Chapter Status stuff 
+// 8A01B54 gProcScr_ChapterStatusScreen 
+// 8a01c04 T ProcScr_ChapterStatusScreen_FromPrep
+// ChapterStatus_Init 808DF24 Decompress(Img_08A2E5EC, BG_CHR_ADDR(0x2C0)); 
+// 0x0808E7B4 StatusScreenSpriteDraw_Init Decompress(Img_StatusScreenLabelSprites, OBJ_CHR_ADDR(0x340));
+ORG $8E15C 
+SHORT $46c0 $46c0 // Kill 80894e0 StartHelpPromptSprite from being called in ChapterStatus_Init
+
+ORG $8DCAC 
+SHORT $4770 // kill StartChapterStatusHelpBox 
+// not going to bother working with 808E19C DrawChapterStatusTextForUnit
+
+ORG $8E078 
+// WORD 0x6010000|((0x2C0)<<5) // dunno what this is for tbh 
+
+ORG $8E438 
+WORD 0x6010000|((StatusScreenTextChr)<<5) // sprite text obj vram for status screen 
+
+// edit gDefaultFaceConfig / faceConfig in PrepItemScreen_SetupGfx for obj vram placement of faces 
+ORG $590fec
+DefaultFaceConfig: 
+// normally 0x300, 0x280, 0x200, 0x380 
+WORD 0x180<<5 6
+WORD 0x200<<5 7 
+WORD 0x280<<5 8 // overlaps with MMS 
+WORD 0x380<<5 10 // overlaps with SMS - palette 10 here instead of 9 because prep list, and face slot 3 is unused elsewhere maybe  
+
+ORG $205c14 
+WORD 0x200<<5 6
+WORD 0x280<<5 7 
+
+ORG $9f01e 
+BYTE 3 // face slot 3 in 8005544 SetupFaceGfxData
+
+ORG $99714 // when pressing R, end face while in prep Items section 
+callHackNew(Hook_sub_80996E8) 
+
+
+// ORG $9697c 
+// SHORT $e034 // b 0x80969e8 
+// (skip PutPrepChapterSprite) 
+ORG $969A6 // prep menu buttons 
+BYTE ((PrepChInfoButtonChr>>7)|0xC0)
+ORG $969BA
+BYTE ((PrepChInfoButtonChr>>7)|0xC0)
+ORG $969CE
+BYTE ((PrepChInfoButtonChr>>7)|0xC0)
+ORG $969DC
+BYTE ((PrepChInfoButtonChr>>7)|0xC0)
+
+ORG $96A7C
+WORD 0x9000|PrepChInfoButtonChr
+ORG $96AB8
+WORD 0x9000|PrepChInfoButtonChr
+
+ORG $96A28 
+BYTE (PrepMenuStartButtonChr>>2)
+ORG $96A4E 
+BYTE (PrepMenuStartButtonChr>>2)
+ORG $96A8A
+BYTE (PrepMenuStartButtonChr>>2)
+
+
+ORG $95D40 // decompress the graphics 
+SHORT $2000|(PrepChInfoButtonChr>>2)
+ORG $95E2C
+WORD (0x6010000 + (PrepMenuStartButtonChr << 5))
+
+ORG $9a888 // after pressing "Pick Units" 
+BYTE 0x200>>2
+ORG $9a77e 
+BYTE 0x80|(0x200>>8)
+
+#define PrepBMenuBExitChr 0x280 
+// when viewing the map via prep 
+ORG $33570 
+WORD 0x6010000|(PrepBMenuBExitChr<<5)
+ORG $335e8
+WORD 0x2000|(PrepBMenuBExitChr)+0xB
+ORG $335eC
+WORD 0x2000|(PrepBMenuBExitChr)+0xF
+ORG $335f4
+WORD 0x2000|(PrepBMenuBExitChr)+0x13
+ORG $335f8
+WORD 0x2000|(PrepBMenuBExitChr)+0x15
+ORG $335fc
+WORD 0x2000|(PrepBMenuBExitChr)+0x19
+ORG $33604
+WORD 0x2000|(PrepBMenuBExitChr)+0x1D
+
+
+
+ORG 0x02D2EA // in TradeMenu_InitUnitNameDisplay
+BYTE (BrownBoxChr>>2) // 4800 (vanilla) -> 7080 (vesly) -> 5800 (nat)
+
+
+// the value is obtained via mov + lsl 
+ORG $78572 
+SHORT $2500|(MMSChr>>2) // Default MMS as tile 0x39C instead of 0x380 
+SHORT $00ad // lsl 2 
+ORG $79754 
+SHORT $2200|(MMSChr>>2) // Default MMS as tile 0x39C instead of 0x380  
+SHORT $0092 // lsl 2
+
+// 12 52 92 D2 
+
+
+ORG $32E9C // Blue Arrow from PathArrowDisp_Init
+WORD (0x6010000 + (BlueArrowChr << 5))
+
+ORG $59db6c // gPathArrowOAMTable[5][5] = {
+SHORT ArrChr|0x0 ArrChr|0x14 ArrChr|0x16 ArrChr|0x10 ArrChr|0x12
+SHORT ArrChr|0x0 ArrChr|0x0  ArrChr|0x08 ArrChr|0x1C ArrChr|0x0C
+SHORT ArrChr|0x2 ArrChr|0x8  ArrChr|0x02 ArrChr|0x0A ArrChr|0x18
+SHORT ArrChr|0x4 ArrChr|0x1E ArrChr|0x0A ArrChr|0x04 ArrChr|0x0E
+SHORT ArrChr|0x6 ArrChr|0xC  ArrChr|0x1A ArrChr|0x0E ArrChr|0x06
+
+// PutSubtitleHelpText
+ORG $355A4 // "Select an item to send to supply / discard" 	//{U}
+//ORG $354AC // "Select an item to send to supply / discard"		//{J}
+WORD (0x6010000 + (BottomHelpChr << 5)) // 14800 vanilla 
+
+ORG $354D8		//{U}
+//ORG $353E0		//{J}
+SHORT 0x4000|BottomHelpChr // 4240 vanilla 
+
+// 7743 did this fix by directly editing the oam table in rom instead of replacing the poin as I did 
+ORG $354D4 // from 0x803547C called by 356BC Procs BottomHelpText CallASM
+POIN SomeNewOAMTable
+
+//Make scrolling help text only clear space for one line. (It doesn't seem to need it anyway.
+//https://discord.com/channels/144670830150811649/725478895226191892/1219846780590751845
+ORG $3552A	//{U}
+//ORG $35432	//{J}
+SHORT 0x46C0 //Remove loop branch so code only runs once
+
+POP 
+
+#define SmsObjVram1 0x80 
+#define SmsObjVram2 0x300 
+#define CHR_LINE 0x20
+
+ALIGN 4 
+SmsObjVramLowerChr:
+SHORT SmsObjVram1
+SmsObjVramUpperChr:
+SHORT SmsObjVram2
+
+sSlotToChrLut2:
+SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x00)  (SmsObjVram1 + 2 * CHR_LINE + 0x00)  (SmsObjVram1 + 0 * CHR_LINE + 0x02)  (SmsObjVram1 + 2 * CHR_LINE + 0x02)
+SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x04)  (SmsObjVram1 + 2 * CHR_LINE + 0x04)  (SmsObjVram1 + 0 * CHR_LINE + 0x06)  (SmsObjVram1 + 2 * CHR_LINE + 0x06)
+SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x08)  (SmsObjVram1 + 2 * CHR_LINE + 0x08)  (SmsObjVram1 + 0 * CHR_LINE + 0x0A)  (SmsObjVram1 + 2 * CHR_LINE + 0x0A)
+SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x0C)  (SmsObjVram1 + 2 * CHR_LINE + 0x0C)  (SmsObjVram1 + 0 * CHR_LINE + 0x0E)  (SmsObjVram1 + 2 * CHR_LINE + 0x0E)
+SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x10)  (SmsObjVram1 + 2 * CHR_LINE + 0x10)  (SmsObjVram1 + 0 * CHR_LINE + 0x12)  (SmsObjVram1 + 2 * CHR_LINE + 0x12)
+SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x14)  (SmsObjVram1 + 2 * CHR_LINE + 0x14)  (SmsObjVram1 + 0 * CHR_LINE + 0x16)  (SmsObjVram1 + 2 * CHR_LINE + 0x16)
+SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x18)  (SmsObjVram1 + 2 * CHR_LINE + 0x18)  (SmsObjVram1 + 0 * CHR_LINE + 0x1A)  (SmsObjVram1 + 2 * CHR_LINE + 0x1A)
+SHORT    (SmsObjVram1 + 0 * CHR_LINE + 0x1C)  (SmsObjVram1 + 2 * CHR_LINE + 0x1C)  (SmsObjVram1 + 0 * CHR_LINE + 0x1E)  (SmsObjVram1 + 2 * CHR_LINE + 0x1E)
+SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x00)  (SmsObjVram1 + 6 * CHR_LINE + 0x00)  (SmsObjVram1 + 4 * CHR_LINE + 0x02)  (SmsObjVram1 + 6 * CHR_LINE + 0x02)
+SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x04)  (SmsObjVram1 + 6 * CHR_LINE + 0x04)  (SmsObjVram1 + 4 * CHR_LINE + 0x06)  (SmsObjVram1 + 6 * CHR_LINE + 0x06)
+SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x08)  (SmsObjVram1 + 6 * CHR_LINE + 0x08)  (SmsObjVram1 + 4 * CHR_LINE + 0x0A)  (SmsObjVram1 + 6 * CHR_LINE + 0x0A)
+SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x0C)  (SmsObjVram1 + 6 * CHR_LINE + 0x0C)  (SmsObjVram1 + 4 * CHR_LINE + 0x0E)  (SmsObjVram1 + 6 * CHR_LINE + 0x0E)
+SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x10)  (SmsObjVram1 + 6 * CHR_LINE + 0x10)  (SmsObjVram1 + 4 * CHR_LINE + 0x12)  (SmsObjVram1 + 6 * CHR_LINE + 0x12)
+SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x14)  (SmsObjVram1 + 6 * CHR_LINE + 0x14)  (SmsObjVram1 + 4 * CHR_LINE + 0x16)  (SmsObjVram1 + 6 * CHR_LINE + 0x16)
+SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x18)  (SmsObjVram1 + 6 * CHR_LINE + 0x18)  (SmsObjVram1 + 4 * CHR_LINE + 0x1A)  (SmsObjVram1 + 6 * CHR_LINE + 0x1A)
+SHORT    (SmsObjVram1 + 4 * CHR_LINE + 0x1C)  (SmsObjVram1 + 6 * CHR_LINE + 0x1C)  (SmsObjVram1 + 4 * CHR_LINE + 0x1E)  (SmsObjVram1 + 6 * CHR_LINE + 0x1E)
+SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x00)  (SmsObjVram2 + 2 * CHR_LINE + 0x00)  (SmsObjVram2 + 0 * CHR_LINE + 0x02)  (SmsObjVram2 + 2 * CHR_LINE + 0x02)
+SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x04)  (SmsObjVram2 + 2 * CHR_LINE + 0x04)  (SmsObjVram2 + 0 * CHR_LINE + 0x06)  (SmsObjVram2 + 2 * CHR_LINE + 0x06)
+SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x08)  (SmsObjVram2 + 2 * CHR_LINE + 0x08)  (SmsObjVram2 + 0 * CHR_LINE + 0x0A)  (SmsObjVram2 + 2 * CHR_LINE + 0x0A)
+SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x0C)  (SmsObjVram2 + 2 * CHR_LINE + 0x0C)  (SmsObjVram2 + 0 * CHR_LINE + 0x0E)  (SmsObjVram2 + 2 * CHR_LINE + 0x0E)
+SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x10)  (SmsObjVram2 + 2 * CHR_LINE + 0x10)  (SmsObjVram2 + 0 * CHR_LINE + 0x12)  (SmsObjVram2 + 2 * CHR_LINE + 0x12)
+SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x14)  (SmsObjVram2 + 2 * CHR_LINE + 0x14)  (SmsObjVram2 + 0 * CHR_LINE + 0x16)  (SmsObjVram2 + 2 * CHR_LINE + 0x16)
+SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x18)  (SmsObjVram2 + 2 * CHR_LINE + 0x18)  (SmsObjVram2 + 0 * CHR_LINE + 0x1A)  (SmsObjVram2 + 2 * CHR_LINE + 0x1A)
+SHORT    (SmsObjVram2 + 0 * CHR_LINE + 0x1C)  (SmsObjVram2 + 2 * CHR_LINE + 0x1C)  (SmsObjVram2 + 0 * CHR_LINE + 0x1E)  (SmsObjVram2 + 2 * CHR_LINE + 0x1E)
+SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x00)  (SmsObjVram2 + 6 * CHR_LINE + 0x00)  (SmsObjVram2 + 4 * CHR_LINE + 0x02)  (SmsObjVram2 + 6 * CHR_LINE + 0x02)
+SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x04)  (SmsObjVram2 + 6 * CHR_LINE + 0x04)  (SmsObjVram2 + 4 * CHR_LINE + 0x06)  (SmsObjVram2 + 6 * CHR_LINE + 0x06)
+SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x08)  (SmsObjVram2 + 6 * CHR_LINE + 0x08)  (SmsObjVram2 + 4 * CHR_LINE + 0x0A)  (SmsObjVram2 + 6 * CHR_LINE + 0x0A)
+SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x0C)  (SmsObjVram2 + 6 * CHR_LINE + 0x0C)  (SmsObjVram2 + 4 * CHR_LINE + 0x0E)  (SmsObjVram2 + 6 * CHR_LINE + 0x0E)
+SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x10)  (SmsObjVram2 + 6 * CHR_LINE + 0x10)  (SmsObjVram2 + 4 * CHR_LINE + 0x12)  (SmsObjVram2 + 6 * CHR_LINE + 0x12)
+SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x14)  (SmsObjVram2 + 6 * CHR_LINE + 0x14)  (SmsObjVram2 + 4 * CHR_LINE + 0x16)  (SmsObjVram2 + 6 * CHR_LINE + 0x16)
+SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x18)  (SmsObjVram2 + 6 * CHR_LINE + 0x18)  (SmsObjVram2 + 4 * CHR_LINE + 0x1A)  (SmsObjVram2 + 6 * CHR_LINE + 0x1A)
+SHORT    (SmsObjVram2 + 4 * CHR_LINE + 0x1C)  (SmsObjVram2 + 6 * CHR_LINE + 0x1C)  (SmsObjVram2 + 4 * CHR_LINE + 0x1E)  (SmsObjVram2 + 6 * CHR_LINE + 0x1E)
+
+
+
+ALIGN 4 
+SomeNewOAMTable: 
+SHORT 0   4   8    $C  $10 $14 $18 $1C // Use the full row of VRAM 
+SHORT $40 $44 $48 $4C $50 $54 $58 $5C 
+
+/* In MMB 
+// Move MMBNumberBaseTile - Vesly 
+PUSH 
+ORG $8d0b8 // InitPlayerPhaseInterface  
+WORD 0x6015800 //Decompress(gGfx_PlayerInterfaceNumbers, OBJ_CHR_ADDR(0x2E0));
+ORG $8d0c0
+WORD 0x6015940 //CpuFastCopy(BG_CHR_ADDR(0x175), OBJ_CHR_ADDR(0x2EA), CHR_SIZE);
+POP 
+*/ 
+
+
+
+PUSH 
+ORG $266a6 
+BYTE 0x7F 
+
+ORG $26884
+BYTE 0x3E 
+
+ORG $26888 
+BYTE 0x3E 
+
+POP 
+
+
+
+PUSH 
+// SMS frame 1 buffer 
+ORG $26958
+WORD SMS_Frame1_Buffer 
+ORG $26a2c 
+WORD SMS_Frame1_Buffer 
+ORG $26b24 
+WORD SMS_Frame1_Buffer 
+ORG $26c18 
+WORD SMS_Frame1_Buffer 
+ORG $26d0c
+WORD SMS_Frame1_Buffer 
+ORG $26dfc
+WORD SMS_Frame1_Buffer 
+ORG $26f14
+WORD SMS_Frame1_Buffer 
+ORG $26f84
+WORD SMS_Frame1_Buffer 
+ORG $26fec
+WORD SMS_Frame1_Buffer 
+ORG $27058
+WORD SMS_Frame1_Buffer 
+ORG $270d4
+WORD SMS_Frame1_Buffer 
+ORG $27138
+WORD SMS_Frame1_Buffer 
+
+ORG $26F8C
+WORD SMS_Frame2_Buffer 
+ORG $26FD0 
+WORD SMS_Frame2_Buffer 
+ORG $2705C 
+WORD SMS_Frame2_Buffer 
+ORG $27094 
+WORD SMS_Frame2_Buffer 
+ORG $27108 
+WORD SMS_Frame2_Buffer 
+
+ORG $26F90 
+WORD SMS_Frame3_Buffer 
+ORG $26FB8
+WORD SMS_Frame3_Buffer 
+ORG $27060
+WORD SMS_Frame3_Buffer 
+ORG $27088 
+WORD SMS_Frame3_Buffer 
+ORG $270FC 
+WORD SMS_Frame3_Buffer 
+
+POP 
+
+
+
+

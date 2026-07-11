@@ -1070,7 +1070,7 @@ struggling along back here.[A][N]
 
 
 ## GaryRoute2SDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Whatever, man.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Whatever, man.[N]
 I was goin' easy on ya.[A][X]
 
 
@@ -1374,14 +1374,6 @@ They're comfy and easy to wear![A][X]
 Awww..[A][X]
 
 
-## VF_0xE5_BQ
-I might be little, but I won't like[N]
-it if you go easy on me![A][X]
-
-## VF_0xE5_BD
-That totally stinks! I'm going to[N]
-catch some stronger ones![A][X]
-
 
 ## R1_0xE1_BQ
 I might be little, but I won't like[N]
@@ -1423,7 +1415,8 @@ Ack! I lost?[A][X]
 
 
 ## VF_0xE0_BQ
-I'm itching for a battle![A][X]
+Hey Boss, I found someone![N]
+We're itching to battle![A][X]
 
 ## VF_0xE0_BD
 Oh, boo.[N]
@@ -1431,15 +1424,15 @@ Nothing went right.[A][X]
 
 
 ## VF_0xE1_BQ
-Hey! You have Pokémon![N]
-Come on! Let's battle'em![A][X]
+Yo! You can't jam out if[N]
+you're a Pokémon trainer![A][X]
 
 ## VF_0xE1_BD
 No! CATERPIE can't cut it![A][X]
 
 ## VF_0xE2_BQ
-Yo! You can't jam out if[N]
-you're a Pokémon trainer![A][X]
+Hey! You have Pokémon![N]
+Come on! Let's battle'em![A][X]
 ## VF_0xE2_BD
 Huh? I ran out of Pokémon![A][X]
 
@@ -1613,10 +1606,12 @@ to get to Cerulean City.[A][X]
 
 
 ## MMB3_0xE0_BQ
-We, Team Rocket, shall find the[N]
-fossils![A][N]
-Reviving Pokémon from them will[N]
-earn us huge riches.[A][X]
+Hey boss, looks like we've[N]
+got company... [A][X]
+//We, Team Rocket, shall find the[N]
+//fossils![A][N]
+//Reviving Pokémon from them will[N]
+//earn us huge riches.[A][X]
 
 ## MMB3_0xE0_BD
 Urgh![N]
@@ -1641,7 +1636,7 @@ So, you are good...[A][X]
 
 ## MMB3_0xE3_BQ
 Little kids shouldn't be messing[N]
-around with grown-ups![A][N]
+around with us grown-ups![A][N]
 It could be bad news.[A][X]
 
 ## MMB3_0xE3_BD
@@ -1691,7 +1686,7 @@ blabbering about.[A][N]
 to blow off. Let's go![A][X]
 
 ## GaryCeruleanDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Tcch. I coulda won.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Tcch. I coulda won.[N]
 These rules are dumb.[A][N]
 I already beat Misty, y'kno.[A][N]
 She didn't stand a chance[N]
@@ -1759,7 +1754,7 @@ It's so uncool.[A][X]
 
 
 ## R24_0xE0_BQ
-Here I come![N]
+Here we come![N]
 I won't be easy![A][X]
 	
 ## R24_0xE0_BD
@@ -1939,8 +1934,8 @@ letter to Saffron in the north.[A][X]
 
 
 ## R11_0xE0_BQ
-I'm the best in my class.[N]
-I train every morning.[A][X]
+Everyone, look sharp![N]
+This one's wandered too close.[A][X]
 
 ## R11_0xE0_BD
 Darn![N]
@@ -1948,7 +1943,8 @@ My Pokémon need to be stronger![A][X]
 
 ## R11_0xE1_BQ
 Careful![N]
-I'm laying down some cables![A][X]
+I'm laying down some cables![A][N]
+This area's off-limits![A][X]
 
 ## R11_0xE1_BD
 That was electric![A][X]
@@ -1990,7 +1986,7 @@ I already caught 40 kinds, pal.[A][N]
 about to knock you overboard![A][X]
 
 ## SSA_0xE0_BD
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Humph![A][2NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Humph![A][2NL]
 If I didn't waste time[N]
 catching so many, I woulda won.[A][X]
 
@@ -2221,7 +2217,7 @@ resting point. How convenient![A][N]
 I can knock out. Let's go![A][X]
 
 ## GaryLavenderDefeatText
-[OpenMidLeft][LoadProtag][OpenRight][LoadGaryShrug][OpenRight]Arrgh![N]
+[OpenMidLeft][LoadProtag][OpenRight][LoadGaryPoint][OpenRight]Arrgh![N]
 You stinker![A][N]
 Tch.. I took it easy on you.[A][X]
 
@@ -2416,14 +2412,14 @@ Lost it![A][X]
 // 3, 4, 6
 
 ## R13_0xE0_BQ // picnicker, pic, lass 
-My Pokémon want to[N]
-battle with you![A][X]
+Let's all have a Pokémon[N]
+battle![A][X]
 ## R13_0xE0_BD
 My Pokémon look happy[N]
 even though they lost.[A][X]
 
 ## R13_0xE1_BQ
-I'm told that I'm[N]
+She says that I'm[N]
 good for a kid.[A][X]
 ## R13_0xE1_BD
 Ohh![N]
@@ -2480,7 +2476,7 @@ Not good enough![A][X]
 	
 	
 ## R15_0xE1_BQ
-Sure, I'll play with[N]
+Sure, we'll play with[N]
 you, sweetie.[A][X]
 
 ## R15_0xE1_BD
@@ -2489,16 +2485,17 @@ little beast![A][X]
 	
 	
 ## R15_0xE2_BQ
-You look gentle, so I[N]
-think I can beat you.[A][N]
-I'll give it a go![A][X]
+I raise Pokémon for protection[N]
+because I live alone.[A][X]
 
 ## R15_0xE2_BD
 No, wrong![A][X]
 
 ## R15_0xE3_BQ
-I raise Pokémon for protection[N]
-because I live alone.[A][X]
+You look gentle, so I[N]
+think we can beat you.[A][N]
+Let's give it a go![A][X]
+
 
 ## R15_0xE3_BD
 Uggh.. Pokémon isn't just about[N]
@@ -2518,8 +2515,8 @@ I don't have friends to trade with,[N]
 so I used a link stone to evolve.[A][X]
 
 ## R15_0xE5_BD
-Maybe I should find[N]
-some friends anyway...[A][X]
+I thought if I won,[N]
+I'd make some friends...[A][X]
 
 
 
@@ -2633,7 +2630,7 @@ local gym first...[A][X]
 
 ## R18_0xE0_BQ // coolertrainer_f
 I always check every grassy area[N]
-for new Pokémon.[A][X]
+for new Pokémon with my friends.[A][X]
 ## R18_0xE0_BD
 Tch![A][X]
 	
@@ -2645,27 +2642,29 @@ Get out of here![A][X]
 Darn![A][X]
 
 
-## R17S_0xE0_BQ // bikers 
-What do you want?[A][X]
-## R17S_0xE0_BD
+## R17S_0xE1_BQ // bikers 
+We've got company![A][X]
+## R17S_0xE1_BD
 We like just hanging here.[N]
 What's it to you?[A][X]
 
-## R17S_0xE1_BQ
+## R17S_0xE0_BQ
 Nice Pokémon![N]
 Hand 'em over![A][X]
-## R17S_0xE1_BD
+## R17S_0xE0_BD
 Forget it, who needs 'em![A][X]
 	
 ## R17S_0xE2_BQ
-Come out and play, little mouse![A][X]
+Come out and play, little mouse![N]
+We're watching this road![A][X]
 
 ## R17S_0xE2_BD
 You little rat![A][X]
 	
 
 ## R17S_0xE3_BQ
-Hey, you just bumped me![A][X]
+Hey, you just bumped me![A][N]
+Let's teach 'em manners![A][X]
 ## R17S_0xE3_BD
 Kaboom![A][X]
 	
@@ -2677,7 +2676,7 @@ Bad, bad, bad![A][X]
 
 
 ## R17N_0xE0_BQ // bikers 
-Hey, there! Let's have[N]
+Hey, there! Let's all have[N]
 ourselves a good time![A][X]
 
 ## R17N_0xE0_BD // bikers 
@@ -2690,11 +2689,12 @@ quick in battling kids.[A][X]
 Burned out![A][X]
 ## R17N_0xE2_BQ
 I'm mighty proud of my[N]
-bod, kiddo. Come on![A][X]
+crew, kiddo. Come on![A][X]
 ## R17N_0xE2_BD
 Whoo![A][X]
 ## R17N_0xE3_BQ
-I love racing downhill![A][X]
+I love racing downhill![N]
+Can you keep up with us?[A][X]
 ## R17N_0xE3_BD
 Crash and burn![A][X]
 ## R17N_0xE4_BQ
@@ -3043,14 +3043,14 @@ Don't get defiant![N]
 Or I'll have to hurt you![A][X]
 
 ## GarySilphCoChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Finally decided to show up, [Tact]?[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Finally decided to show up, [Tact]?[A][N]
 I saw you in Saffron, but I was starting[N]
 to get bored waiting here.[A][N]
 Thought maybe you'd chickened out.[A][N]
 [LoadGaryBattle]I never back down.[A][X]
 
 ## GarySilphCoDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Oh, man! You sure lucked out.[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Oh, man! You sure lucked out.[A][N]
 You wouldn't stand a chance[N]
 against my ace Pokémon.[A][N]
 Lucky for you, Gramps has it right now.[A][N]
@@ -3109,14 +3109,13 @@ Intruder spotted![A][X]
 Who are you?[A][X]
 
 ## SilphCo_2F_0xE4_BQ
-Team Rocket has taken control[N]
-of SILPH CO.![A][X]
+Team Rocket has taken control![N]
+Lock this floor down![A][X]
 
 ## SilphCo_2F_0xE4_BD
 Arrgh![A][X]
 
 ## SilphCo_2F_0xE5_BQ
-Whaaat?[A][N]
 There shouldn't be any[N]
 children here![A][X]
 
@@ -3263,8 +3262,7 @@ Never falter![A][X]
 
 
 ## R8_0xE0_BQ
-All right![N]
-Let's play a game![A][X]
+My bike's acting up, man.[A][X]
 
 ## R8_0xE0_BD
 Drat![N]
@@ -3272,7 +3270,8 @@ Came up short![A][X]
 	
 
 ## R8_0xE1_BQ
-My bike's acting up, man.[A][X]
+All right![N]
+Let's play a game![A][X]
 
 ## R8_0xE1_BD
 Aww, man.[N]
@@ -3306,7 +3305,7 @@ Don't be so mean to my CLEFAIRY![A][N]
 What? I nicknamed her CLEFAIRY.[A][X]
 
 ## R8_0xE5_BQ
-You need strategy and determination[N]
+You need strategy and teamwork[N]
 to win at this![A][X]
 
 ## R8_0xE5_BD
@@ -3386,7 +3385,7 @@ Shocker![A][X]
 
 ## R20W_0xE0_BQ
 The water is shallow here.[N]
-There are many people swimming.[A][X]
+We all swim together for safety.[A][X]
 
 ## R20W_0xE0_BD
 Splash![A][X]
@@ -3408,7 +3407,7 @@ back any minute now.[A][X]
 
 ## R20W_0xE2_BQ
 I love floating with the fishes[N]
-here among the waves.[A][X]
+and my friends among the waves.[A][X]
 
 ## R20W_0xE2_BD
 Yowch![A][N]
@@ -3487,7 +3486,8 @@ I lost![A][X]
 
 
 ## R21_0xE3_BQ
-Right now, I'm in a triathlon meet.[A][X]
+Right now, we're in a triathlon meet.[N]
+Keep pace if you can![A][X]
 
 ## R21_0xE3_BD
 Pant...[N]
@@ -3496,7 +3496,8 @@ I'm beat! But, I still have the[N]
 bike race and marathon left![A][X]
 
 ## R21_0xE4_BQ
-My boyfriend gave me big pearls.[A][X]
+My boyfriend gave me big pearls.[N]
+We protect our treasures![A][X]
 
 ## R21_0xE4_BD
 Oh, no![N]
@@ -4100,64 +4101,85 @@ We need more folks like[N]
 you on the force.[A][X]
 
 
-
 ## KogaChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]The moon wanes...[....] the shadows stir...[N]
-A mere child dares step onto my stage?[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]The pale moon grows dim.[N]
+Shadows gather on my stage.[A][N]
+A child enters.[A][N]
 [ToggleSmile]Fwahahaha![N]
-I am Koga, ninja master![A] My art[N]
-is a tapestry of stealth and strikes...[A][N]
-Silent steps, creeping poison...[N]
-until you bow to darkness itself![A][X]
-	
+I am Koga, shadow lord,
+master of poison![A][N]
+Footsteps make no sound.[N]
+Venom blooms beneath your feet.[N]
+Bow before the dark![A][X]
+    
 ## KogaDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[N]
-The shadow yields to the rising sun.[A][N]
-Take the Soul Badge![N]
-You have earned it.[A][X]
+The morning sun climbs.[A][N]
+The shadows yield to sunrise.[N]
+You have bested me.[A][N]
+Now take the Soul Badge.[N]
+Infuse it with your essence.[N]
+Walk proudly, young one.[A][X]
 
 ## KogaWaitText
-[OpenMidRight][LoadKoga][OpenMidRight]Ah![N]
-Take this, too![A][X]
+[OpenMidRight][LoadKoga][OpenMidRight]One gift yet remains.[N]
+Take it, and strike from the dark.[N]
+Let none see it come.[A][X]
+
+
 
 ## KogaRewardText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Silent as the dusk,[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Silent as the dusk,[N][A]
 the second blow comes unseen...[N]
 foes wither away.[A][X]
 
 ## KogaSafariText
-[OpenMidRight][LoadKoga][OpenMidRight]Fufufu..[N]
-Venomoth, use Toxic![A][X]
+[OpenMidRight][LoadKoga][OpenMidRight]Fufufufufu..[N][A]
+Venom stains the silent air.[N]
+Venomoth, Toxic![A][X]
 
 ## KogaSafariText2
-[OpenMidLeft][LoadKangaskhan][OpenMidRight][LoadKoga][OpenMidRight]Taste despair![N]
-Know no mercy![A][X]
+[OpenMidLeft][LoadKangaskhan][OpenMidRight][LoadKoga][OpenMidRight]Taste the cold despair.[N]
+Mercy flees the battlefield.[A][N]
+Strike without mercy![A][X]
+
 
 ## KogaSafariText3
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]I sensed your presence from afar...[N]
-Your aura trembles with potential.[A][N]
-[ToggleSmile]These feral Pokémon... they are[N]
-worthy sparring foes.[A][N]
-The air is thick with danger...[N]
-just how I like it.[A][X]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]I sensed you afar.[N]
+Your spirit shakes like young leaves.[A][N]
+Power sleeps within.[A][N]
+[ToggleSmile]Wild hearts bare their fangs.[N]
+Worthy foes sharpen the blade.[A][N]
+Let the hunt begin.[A][N]
+Danger fills the air.[N]
+Poison dances on the wind,[A][N]
+as I desire.[A][X]
 
 ## KogaSafariText4
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Strike swiftly...[....][N]
-before your foe can breathe.[A][N]
-The deadliest defense is[N]
-swift and merciless offense![A][X]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Strike before they breathe.[N]
+Let your blade outrun their fear.[N]
+Leave no chance to guard.[A][N]
+Swift and merciless,[N]
+offense becomes your armor.[N]
+Victory follows.[A][X]
+
+
+
 
 
 
 ## KogaRematchText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]Fufufu... destiny draws us together once more.[N]
-I am the unseen blade in the shadows.[A][N]
-[ToggleSmile]My art weaves confusion and despair,[N]
-to confound and destroy you![A][X]
-
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]Fufufu...[N]
+Fate draws us once more.[A][N]
+My blade bathed in shadow.[N]
+Our paths cross again.[A][N]
+[ToggleSmile]Shadows cloud your mind.[N][A]
+Confusion and dark despair...[N]
+Then my strike ends all![A][X]
 
 ## KogaRematchDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]The shadows betray me again.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Honed, I am not.[N]
+The shadows still betray me.[N][A]
 I must hone my skills.[A][X]
 
 
@@ -4401,7 +4423,7 @@ no one's challenged you yet.[A][N]
 [LoadGaryBattle]Let's settle the score, now.[A][X]
 
 ## GaryRematchDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryShrug][OpenMidRight]Tcch. You only won 'cuz[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGaryPoint][OpenMidRight]Tcch. You only won 'cuz[N]
 you have plot armor.[A][N]
 Overpowered protagonist much?[N]
 You're the real cheater.[A][N]
@@ -4459,7 +4481,7 @@ Just have your Pokémon[N]
 come up to me.[A][X]
 
 ## MewtwoChallengeText
-[OpenMidLeft][LoadProtag][OpenMidLeft][LoadMewtwo][OpenMidLeft][ToggleColorInvert]You, champion of Kanto,[N]
+[OpenMidRight][LoadProtag][OpenMidLeft][LoadMewtwo][OpenMidLeft][ToggleColorInvert]You, champion of Kanto,[N]
 I sense your overwhelming ambition.[A][N]
 If you desire power, then[N]
 I will show you power.[A][X]

@@ -17,6 +17,9 @@
 mov r5, r0 
 ldr r4, =CurrentUnit 
 push	{r4-r7, lr}
+mov r4, r8 
+push {r4} 
+mov r8, r0 @ proc 
 
 @reload current unit data to avoid weird staff on reload
 ldr	r5, =CurrentUnit
@@ -54,6 +57,7 @@ beq	End
 mov	lr, r3
 mov r0, r4 @ actor 
 mov r1, r5 @ possibly defender 
+mov r2, r8 @ proc 
 .short	0xf800
 	@mov	r0, r4		@swap pointers around
 	@mov	r1, r5
@@ -72,6 +76,8 @@ End:
 ldr	r0,=#0x203A4D4
 mov	r1,#0
 strb	r1,[r0]
+pop {r4} 
+mov r8, r4 
 pop	{r4-r7}
 pop {r3} 
 ldr r0, [r4] 

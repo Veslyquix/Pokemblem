@@ -33,6 +33,112 @@ extern u16 gBG1MapBuffer[32][32]; // 0x020234A8.
 #define menu_tile_Y 0
 #define menu_Length 10 // 29
 
+extern int LearnNewSpell(struct Unit * unit, int move);
+extern const struct ProcInstruction pProc_NewSpellLearn[];
+extern const struct ProcInstruction pProc_ReplaceSpellLearn[];
+
+struct ReplaceMoveProc
+{
+    /* 00 */ PROC_HEADER; // this ends at +29
+    /* 2C */ struct Unit * unit;
+    /* 30 */ u8 movesUpdated;
+    u8 moveSelected;
+    u8 hover_move_Updated;
+    u8 move_hovering;    //
+    u16 moveReplacement; // 0x34
+    u16 tileNext;
+    u16 returnTm;
+    struct TextHandle handle[3]; // 0x38 - 0x4F
+};
+
+extern void RefreshMinesOnBmMap(void);
+extern void RefreshBMapGraphics(void);
+void ReplaceMove(struct Unit * unit, int move, int slot)
+{
+    unit->ranks[slot] = move;
+}
+
+int DoesUnitKnowMoveAlready(struct Unit * unit, int moveID)
+{
+    for (int i = 0; i < 5; ++i)
+    {
+        if (unit->ranks[i] == moveID)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+static const struct MenuDefinition Menu_ReplaceMoveDebug;
+struct ReplaceMoveProc * prLearnNewSpell(struct Unit * unit, int move, struct Proc * parent)
+{
+
+    struct ReplaceMoveProc * proc = NULL;
+    if (DoesUnitKnowMoveAlready(unit, move))
+    {
+        return proc;
+    }
+    if (LearnNewSpell(unit, move))
+    {
+        if (parent)
+        {
+            proc = (struct ReplaceMoveProc *)ProcStartBlocking(pProc_NewSpellLearn, parent);
+        }
+        else
+        {
+            proc = (struct ReplaceMoveProc *)ProcStart(pProc_NewSpellLearn, ROOT_PROC_3);
+        }
+        return proc;
+    }
+    else
+    {
+        if (parent)
+        {
+            proc = (struct ReplaceMoveProc *)ProcStartBlocking(pProc_ReplaceSpellLearn, parent);
+        }
+        else
+        {
+            proc = (struct ReplaceMoveProc *)ProcStart(pProc_ReplaceSpellLearn, ROOT_PROC_3);
+        }
+    }
+
+    if (proc)
+    {
+        proc->unit = unit;
+        proc->moveReplacement = move;
+        proc->movesUpdated = FALSE;
+        proc->moveSelected = 0;
+        proc->returnTm = false;
+        proc->hover_move_Updated = FALSE;
+        proc->move_hovering = 0;
+    }
+    StartMenuChild(&Menu_ReplaceMoveDebug, (void *)proc);
+    return proc;
+}
+
+extern void UnitRemoveInvalidItems(struct Unit * unit);
+void MultiSpellScrollEffect2(struct Proc * proc)
+{
+    struct Unit * unit = GetUnit(gActionData.subjectIndex);
+    if (!UNIT_IS_VALID(unit))
+    {
+        return;
+    }
+
+    int slot = gActionData.itemSlotIndex;
+    int returnTm = unit->items[slot];
+    int move = (returnTm & 0xFF00) >> 8;
+    unit->items[slot] = 0;
+    UnitRemoveInvalidItems(unit);
+
+    struct ReplaceMoveProc * learnSpellProc = prLearnNewSpell(unit, move, proc);
+    if (learnSpellProc)
+    {
+        learnSpellProc->returnTm = returnTm;
+    }
+}
+
 /*extern const ItemData gItemData[]; */
 char * GetItemName(int item);
 
@@ -62,30 +168,9 @@ static int MoveListCommandSelect(struct MenuProc * menu, struct MenuCommandProc 
 static void ReplaceMoveCommandDraw(struct MenuProc * menu, struct MenuCommandProc * command);
 static void ReplaceMoveMenuEnd(struct MenuProc * menu);
 
-struct ReplaceMoveProc
-{
-    /* 00 */ PROC_HEADER; // this ends at +29
-    /* 2C */ struct Unit * unit;
-    /* 30 */ u8 movesUpdated;
-    u8 moveSelected;
-    u8 hover_move_Updated;
-    u8 move_hovering;    //
-    u16 moveReplacement; // 0x34
-    u16 tileNext;
-    struct TextHandle handle[3]; // 0x38 - 0x4F
-};
-
+extern void RenderBmMap();
+extern void RefreshUnitsOnBmMap();
 extern void PostForgetOldMoveMenu(void);
-extern void BPressForgetOldMoveMenu(void);
-
-static const struct ProcInstruction Proc_ReplaceMove[] = {
-    PROC_CALL_ROUTINE(LockGameLogic),
-
-    PROC_YIELD,
-    PROC_CALL_ROUTINE(PostForgetOldMoveMenu),
-    PROC_CALL_ROUTINE(UnlockGameLogic),
-    PROC_END,
-};
 
 static const struct MenuCommandDefinition MenuCommands_ReplaceMove[] = {
     { .isAvailable = MenuCommandAlwaysUsable,
@@ -137,7 +222,7 @@ static const struct MenuCommandDefinition MenuCommands_ReplaceMove[] = {
 
     {} // END
 };
-
+u8 BPressConfirmGiveUpOnMoveMenu(struct MenuProc * menu, struct MenuCommandProc * command);
 void DrawItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, struct ReplaceMoveProc * proc);
 void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, struct ReplaceMoveProc * proc);
 
@@ -147,60 +232,10 @@ static const struct MenuDefinition Menu_ReplaceMoveDebug = {
 
     .onEnd = ReplaceMoveMenuEnd,
 
-    //.onBPress = (void*) (0x08022860+1), // FIXME
-    .onBPress = (void *)(BPressForgetOldMoveMenu), // Now in the proc call routine
+    .onBPress = BPressConfirmGiveUpOnMoveMenu, // Now in the proc call routine
 };
 
-int DoesUnitKnowMoveAlready(struct Unit * unit, int moveID)
-{
-    for (int i = 0; i < 5; ++i)
-    {
-        if (unit->ranks[i] == moveID)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
 extern const ProcCode gProc_8A01650[];
-int ReplaceMoveCommand_OnSelect(struct MenuProc * menu, struct MenuCommandProc * command)
-{
-    int * gVeslyUnit = (int *)0x30017BC;
-    u16 * gVeslySkill = (u16 *)0x0202BCDE;
-    if (DoesUnitKnowMoveAlready((struct Unit *)*gVeslyUnit, *gVeslySkill))
-    {
-        return ME_END;
-    }
-    struct ReplaceMoveProc * proc = (void *)ProcStart(Proc_ReplaceMove, ROOT_PROC_3);
-    // struct ReplaceMoveProc* proc2 = (void*) ProcStart(&gProc_8A01650[0],
-    // ROOT_PROC_3);
-    gActiveUnit->state &= ~US_HIDDEN;
-    SMS_UpdateFromGameData();
-    MU_EndAll();
-
-    proc->moveReplacement = *gVeslySkill;    // Short
-    proc->unit = (struct Unit *)*gVeslyUnit; // Struct UnitRamPointer
-
-    int * MemorySlot1 = (int *)0x30004BC;
-    int * MemorySlot3 = (int *)0x30004C4;
-    int * MemorySlot4 = (int *)0x30004C8;
-
-    *MemorySlot1 = (int)proc->unit;
-    *MemorySlot3 = 0xF8;
-    *MemorySlot4 = proc->moveReplacement;
-
-    int * MemorySlot6 = (int *)0x30004D0;
-    *MemorySlot6 = 0; // TRUE
-
-    proc->movesUpdated = FALSE;
-    proc->moveSelected = 0;
-
-    proc->hover_move_Updated = FALSE;
-    proc->move_hovering = 0;
-    StartMenuChild(&Menu_ReplaceMoveDebug, (void *)proc);
-    return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
-}
 
 // stuff from A00AD0 HelpTextBubble
 // 203E784
@@ -247,6 +282,7 @@ static void PrepareText(TextHandle * handle, char * string)
     // Text_Display(&handle,&gBG0MapBuffer[y][x]);
 }
 
+#define BottomBoxX 4
 void DrawItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, struct ReplaceMoveProc * proc)
 {
     // for (int x = 0; x < 30; x++) { // clear out most of bg0
@@ -255,7 +291,7 @@ void DrawItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, stru
     // }
     // }
     BgMap_ApplyTsa(&gBG1MapBuffer[9][11], &PkmnDetailsTSA, 0);
-    BgMap_ApplyTsa(&gBG1MapBuffer[14][5], &ReplaceMovesTSA, 0);
+    BgMap_ApplyTsa(&gBG1MapBuffer[14][BottomBoxX], &ReplaceMovesTSA, 0);
     BgMap_ApplyTsa(&gBG1MapBuffer[1][10], &DescBoxTSA, 0);
     // [2000932..2000933]!!
     // [2028E6a..2028E6b]!!
@@ -307,7 +343,7 @@ void DrawItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, stru
     }
 
     u8 i = 0;
-    u8 x = 7;
+    // u8 x = 7;
 
     u32 width = (Text_GetStringTextWidth(GetStringFromIndex(GetItemDescId(proc->moveReplacement))) + 8) / 8;
     /*
@@ -482,7 +518,7 @@ void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, st
         }
     }
 
-    u8 x = 6;
+    u8 x = BottomBoxX + 1;
 
     u8 i = 0;
 
@@ -652,10 +688,15 @@ static int MoveListCommandSelect(struct MenuProc * menu, struct MenuCommandProc 
 {
     return ME_NONE;
 }
+u8 ClearYesNoBox(struct MenuProc * menu, struct MenuCommandProc * command);
+static int MoveCommandConfirm(struct MenuProc * menu, struct MenuCommandProc * command);
+static int MoveCommandDecline(struct MenuProc * menu, struct MenuCommandProc * command);
+MenuProc * StartOrphanMenuAt(const MenuDefinition *, MenuGeometry);
+MenuProc * StartOrphanMenu(const MenuDefinition *);
 
-/*
-static const struct MenuCommandDefinition MenuCommands_Confirmation[] =
-{
+extern struct FontData gItemSelectMenuFont;
+
+static const struct MenuCommandDefinition MenuCommands_Confirmation[] = {
     {
         .isAvailable = MenuCommandAlwaysUsable,
         .onEffect = MoveCommandConfirm,
@@ -666,107 +707,164 @@ static const struct MenuCommandDefinition MenuCommands_Confirmation[] =
         .onEffect = MoveCommandDecline,
         .rawName = " No",
     },
+    {},
+};
+
+static const struct MenuCommandDefinition MenuCommands_GiveUpOnMove[];
+static const struct MenuDefinition Menu_GiveUpOnMove = {
+    .geometry = { 196, 0, 0, 0 }, // The box
+                                  //.onInit = ClearStuff,
+    .commandList = MenuCommands_GiveUpOnMove,
+
+    .onBPress = ClearYesNoBox,
+};
+
+static int AbandonMove(struct MenuProc * menu, struct MenuCommandProc * command)
+{
+    EndAllMenus();
+    struct ReplaceMoveProc * proc = (void *)menu->parent->parent;
+    if (proc->returnTm)
+    {
+        struct Unit * unit = proc->unit;
+
+        for (int i = 0; i < 5; ++i)
+        {
+            if (!unit->items[i])
+            {
+                unit->items[i] = proc->returnTm;
+                break;
+            }
+        }
+    }
+    return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
+}
+
+static int AbandonMove(struct MenuProc * menu, struct MenuCommandProc * command);
+static const struct MenuCommandDefinition MenuCommands_GiveUpOnMove[] = {
+    {
+        .isAvailable = MenuCommandAlwaysUsable,
+        .onEffect = AbandonMove,
+        .rawName = " Yes",
+    },
+    {
+        .isAvailable = MenuCommandAlwaysUsable,
+        .onEffect = MoveCommandDecline,
+        .rawName = " No",
+    },
+    {},
 
 };
 
-
-static int ClearStuff(struct MenuProc* menu)
+/*
+struct MenuDefinition
 {
-    return ME_CLEAR_GFX;
+struct MenuGeometry geometry;
+
+u8 style;
+
+const struct MenuCommandDefinition* commandList;
+
+void(*onInit)(MenuProc*);
+void(*onEnd)(MenuProc*);
+void(*_u14)(MenuProc*);
+u8(*onBPress)(MenuProc*, MenuCommandProc*); // I had to correct this to fix ReplaceMovesMenu
+void(*onRPress)(MenuProc*);
+void(*onHelpBox)(MenuProc*, MenuCommandProc*);
+};
+*/
+#define YesNoX 0x19
+extern void EndHelpBox(void);
+#define YesNoY 0x9
+#define YesNoW 5
+#define YesNoH 6
+u8 ClearYesNoBox(struct MenuProc * menu, struct MenuCommandProc * command)
+{
+    for (int x = YesNoX; x < (YesNoX + YesNoW); x++)
+    { // clear out most of bg0
+        for (int y = YesNoY; y < (YesNoY + YesNoH); y++)
+        {
+            gBG0MapBuffer[y][x] = 0;
+            gBG1MapBuffer[y][x] = 0;
+        }
+    }
+    EnableBgSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
+    Text_SetFont(0);
+    EndHelpBox();
+    // ReplaceMoveCommandDraw((void *)menu->parent, command);
+    return ME_DISABLE | ME_END | ME_PLAY_BEEP;
 }
 
-static const struct MenuDefinition Menu_Confirmation =
+#define HelpBoxX 126
+#define HelpBoxY 60
+extern int GiveUpOnMoveTextLink;
+extern int ReplaceMoveTextLink;
+extern void LoadHelpBoxGfx(void * dest, int pal);
+void StartHelpBox_Unk(int x, int y, int mid);
+u8 MenuFrozenHelpBox(struct MenuProc * proc, int msgid);
+u8 BPressConfirmGiveUpOnMoveMenu(struct MenuProc * menu, struct MenuCommandProc * command)
 {
+    // struct ReplaceMoveProc * proc = (void *)menu->parent;
+    LoadHelpBoxGfx(NULL, -1); // TODO: default constants?
+    StartHelpBox_Unk(HelpBoxX, HelpBoxY, GiveUpOnMoveTextLink);
+    // MenuFrozenHelpBox(menu, GiveUpOnMoveTextLink);
+    struct MenuGeometry ConfirmationMenuGeometry = { .x = YesNoX, .y = YesNoY, .h = 0, .w = YesNoW };
+    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
+
+    struct MenuProc * subMenu = StartMenuAt(&Menu_GiveUpOnMove, ConfirmationMenuGeometry, (void *)menu);
+    subMenu->commandIndex = 1; // start on "No"
+
+    return ME_DISABLE | ME_PLAY_BEEP;
+}
+
+static const struct MenuDefinition Menu_Confirmation = {
     .geometry = { 196, 0, 0, 0 }, // The box
-        //.onInit = ClearStuff,
+                                  //.onInit = ClearStuff,
     .commandList = MenuCommands_Confirmation,
 
-    //.onEnd = ReplaceMoveMenuEnd,
-        //.onBPress = (void*) (ReturnTMIfUnused),
+    // .onEnd = ReplaceMoveMenuEnd, // this clears all gfx if you press no/b
+    .onBPress = ClearYesNoBox,
 };
 
-
-
-static const struct ProcInstruction Proc_Confirmation[] =
-{
-    PROC_CALL_ROUTINE(LockGameLogic),
-
-    PROC_YIELD,
-
-    PROC_CALL_ROUTINE(UnlockGameLogic),
-    PROC_END,
-
-
-void ClearBG0BG1(void); //! FE8U = 0x804E885
-
-void LoadGameCoreGfx(void);
-};
-
-static const struct ProcInstruction Proc_Confirmation[] =
-{
-    PROC_CALL_ROUTINE(LockGameLogic),
-    PROC_YIELD,
-
-    PROC_CALL_ROUTINE(UnlockGameLogic),
-    PROC_END,
-};
-
-
-static int MoveCommandConfirm(struct MenuProc* menu, struct MenuCommandProc*
-command)
+static int MoveCommandConfirm(struct MenuProc * menu, struct MenuCommandProc * command)
 {
 
-    struct ReplaceMoveProc* const proc = (void*) menu->parent;
-    UnitGetMoveList(proc->unit)[proc->move_hovering] = proc->moveReplacement;
-        return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
+    struct ReplaceMoveProc * proc = (void *)menu->parent->parent;
+    UnitGetMoveList(proc->unit)[proc->move_hovering - 1] = proc->moveReplacement; // replaces the move
+    EndAllMenus();
+    return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
 }
 
-static int MoveCommandDecline(struct MenuProc* menu, struct MenuCommandProc*
-command)
+static int MoveCommandDecline(struct MenuProc * menu, struct MenuCommandProc * command)
 {
-    struct ReplaceMoveProc* const proc = (void*) menu->parent;
-    UnitGetMoveList(proc->unit)[proc->move_hovering] = proc->moveReplacement;
-        return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
+    // struct ReplaceMoveProc * const proc = (void *)menu->parent;
+    ClearYesNoBox(menu, command);
+    return ME_DISABLE | ME_END | ME_PLAY_BEEP;
 }
-
-*/
 
 static int MoveCommandSelect(struct MenuProc * menu, struct MenuCommandProc * command)
 {
-    struct ReplaceMoveProc * const proc = (void *)menu->parent;
-    // UnitGetMoveList(proc->unit)[proc->move_hovering] = proc->moveReplacement;
-    int * MemorySlot5 = (int *)0x30004CC;
+    // struct ReplaceMoveProc * proc = (void *)menu->parent;
+    LoadHelpBoxGfx(NULL, -1); // TODO: default constants?
+    StartHelpBox_Unk(HelpBoxX, HelpBoxY, ReplaceMoveTextLink);
+    // MenuFrozenHelpBox(menu, ReplaceMoveTextLink);
+    struct MenuGeometry ConfirmationMenuGeometry = { .x = YesNoX, .y = YesNoY, .h = 0, .w = YesNoW };
+    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
 
-    *MemorySlot5 = proc->move_hovering - 1;
+    struct MenuProc * subMenu = StartMenuAt(&Menu_Confirmation, ConfirmationMenuGeometry, (void *)menu);
+    subMenu->commandIndex = 1; // start on "No"
 
-    int * MemorySlot6 = (int *)0x30004D0;
-
-    *MemorySlot6 = 1; // TRUE
-
-    // Assuming newMenuDefinition and parent are already defined as pointers.
-    // This geometry is for the hand cursor?
-    // MenuGeometry ConfirmationMenuGeometry = { .x = 196, .y = 0, .h = 0, .w = 0
-    // }; // Fill these with your own values. Also, you don't need to declare this
-    // as "struct MenuGeometry" because of the typedef at the top of menu.h.
-
-    // struct ConfirmationProc* proc_confirm = (void*)
-    // ProcStart(Proc_Confirmation, ROOT_PROC_3); EndMenu(menu);
-
-    // StartMenuAt(&Menu_Confirmation, ConfirmationMenuGeometry, (void*)
-    // proc_confirm);
-
-    // MenuProc* Menu_Confirmation = StartMenuAt(Menu_Confirmation,
-    // ConfirmationMenuGeometry, (void*) /*proc*/ Proc_Confirmation);
-
-    // StartMenuAt(&Menu_Confirmation, ConfirmationMenuGeometry, (void*) proc);
-    // StartMenuExt2(&Menu_Confirmation, backBgId, baseTile, frontBgId, idk,
-    // (void*) proc);
-
-    return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
+    return ME_DISABLE | ME_PLAY_BEEP;
     // return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
 }
 
 static void ReplaceMoveMenuEnd(struct MenuProc * menu)
 {
+    ProcEnd(menu->parent);
+    Text_SetFont(0);
+    EndHelpBox();
     EndFaceById(0);
+    RefreshUnitsOnBmMap();
+    RefreshMinesOnBmMap();
+    RenderBmMap();
+    RefreshBMapGraphics();
 }

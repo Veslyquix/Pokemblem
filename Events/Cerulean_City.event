@@ -108,8 +108,72 @@ LocationBasedEvents:
 House(CeruleanGymClosedFlag,EnterGym,24,20) //
 House(0, EnterPillagedHouseS, 23,10) 
 House(0, EnterPillagedHouseN, 24, 7)
+House(0,CeruleanDebugQuickLoad,15,17)
 Vendor(ShopItems,22,27)
 END_MAIN
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(TrainerL, 55000)
+DebugItems SuperRepel 3
+BYTE SkillAcc(VantagePlusID)
+BYTE JellyDonut 4
+BYTE SkillScroll PoisonStrikeID
+BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite
+BYTE SpellScroll Ember SpellScroll Bubble SpellScroll LeafFlurry SpellScroll Confusion
+BYTE SpellScroll IcyWind
+BYTE WarpCrystal 3
+BYTE SpellScroll AttackPulse
+BYTE SkillScroll SwarmID
+BYTE StatAccessory LeatherShield_BoostIndex
+BYTE Revive 3
+BYTE SkillScroll ShedSkinID
+BYTE SpellScroll LeechLife SpellScroll MegaPunch
+BYTE StatAccessory MuscleBand_BoostIndex
+BYTE StatAccessory WiseGlasses_BoostIndex
+BYTE EscapeRope 3
+BYTE SpellScroll MudShot SpellScroll Gust
+BYTE SkillAcc(SteadyStanceID)
+BYTE SpellScroll RockTomb
+BYTE SkillScroll RecklessRockID
+BYTE DryingPan 1
+BYTE SkillScroll ParagonID
+BYTE SpellScroll DoubleHit
+BYTE SkillScroll DrySkinID
+BYTE SpellScroll WaterGun
+BYTE ExoticCandy 1
+BYTE StatAccessory EnergyBand_BoostIndex
+BYTE Iron 1
+BYTE SpellScroll Harden
+BYTE StatAccessory BronzeShield_BoostIndex
+BYTE SkillAcc(RockyHelmetSkillID)
+BYTE SkillScroll ShellArmorID
+BYTE SpellScroll KarateChop
+BYTE SkillScroll SniperID
+BYTE SpellScroll PoisonPowder
+BYTE SkillAcc(WardingStanceID)
+BYTE SuperPotion 5
+BYTE SpellScroll SignalBeam SpellScroll MagicalLeaf SpellScroll Magnitude
+SHORT 0
+
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained
+SHORT 0
+
+DebugClasses GrowlitheID
+BYTE OddishID PsyduckID HorseaID PoliwagID MagikarpID
+BYTE GoldeenID BellsproutID SpearowID VoltorbID EkansID
+BYTE ZubatID GeodudeID SandshrewID ParasID ClefairyID
+BYTE JigglypuffID RattataID MankeyID NidoranMID NidoranFID
+BYTE PidgeyID MetapodID KakunaID PikachuID CaterpieID
+BYTE WeedleID
+BYTE 0 // Terminator
+
+}
+ALIGN 4
+CeruleanDebugQuickLoad:
+ASMC DebugLoadUnits
+NoFade
+ENDA
+ALIGN 4
 
 EnterPillagedHouseS:
 PauseFreeMovement
@@ -358,7 +422,9 @@ ShopItems:
 BYTE StatAccessory MuscleBand_BoostIndex 
 BYTE StatAccessory WiseGlasses_BoostIndex
 BYTE StatAccessory EnergyBand_BoostIndex
-
+BYTE SkillScroll RecklessRockID
+BYTE SkillScroll DrySkinID
+BYTE SkillScroll ShellArmorID
 BYTE SuperPotion 5 
 BYTE JellyDonut 5
 //BYTE SkillScroll TantivyID 
@@ -368,7 +434,7 @@ BYTE WarpCrystal 1
 BYTE SpellScroll Leer SpellScroll Bite SpellScroll MudShot SpellScroll IcyWind
 BYTE SpellScroll AttackPulse
 BYTE SpellScroll DoubleHit SpellScroll SignalBeam SpellScroll MagicalLeaf 
-BYTE SpellScroll Gust SpellScroll Magnitude SpellScroll Confusion // 19
+BYTE SpellScroll LeechLife SpellScroll Magnitude SpellScroll KarateChop // 19
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI SuperPotion
 BYTE $00; ALIGN 4
@@ -420,7 +486,7 @@ UNIT
 
  // Accidentally set Pidgey's Autolevel to false, which made it have no commander and not end the Gary fight 
 GaryUnitsA:
-UNIT GenericB	BulbasaurID 0xEF Level(0, Enemy, 1)   [9,9] 0b	0x0 	0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
+UNIT GaryStarterAdaptabilityUnitID	BulbasaurID 0xEF Level(0, Enemy, 1)   [9,9] 0b	0x0 	0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	RattataID 0xEF Level(0, Enemy, 1)   [9,11] 0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	BeedrillID 0xEF Level(0, Enemy, 1)   [11,9]  0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	AbraID 0xEF 	Level(0, Enemy, 1)   [11,10]  0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
@@ -429,7 +495,7 @@ UNIT GenericB 	PikachuID 0xEF Level(0, Enemy, 1)   [11,12] 0b	0x0 0x0  0x0 [0x0,
 UNIT
 
 GaryUnitsB:
-UNIT GenericB	CharmanderID 0xEF Level(0, Enemy, 1)   [9,9] 0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
+UNIT GaryStarterAdaptabilityUnitID	CharmanderID 0xEF Level(0, Enemy, 1)   [9,9] 0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	RattataID 0xEF Level(0, Enemy, 1)   [9,11] 0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	BeedrillID 0xEF Level(0, Enemy, 1)   [11,9]  0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	AbraID 0xEF 	Level(0, Enemy, 1)   [11,10]  0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
@@ -438,7 +504,7 @@ UNIT GenericB 	PikachuID 0xEF Level(0, Enemy, 1)   [11,12] 0b	0x0 0x0  0x0 [0x0,
 UNIT
 
 GaryUnitsC:
-UNIT GenericB	SquirtleID 0xEF Level(0, Enemy, 1)   [9,9] 	0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
+UNIT GaryStarterAdaptabilityUnitID	SquirtleID 0xEF Level(0, Enemy, 1)   [9,9] 	0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	RattataID 0xEF Level(0, Enemy, 1)   [9,11] 0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	BeedrillID 0xEF Level(0, Enemy, 1)   [11,9]  0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	AbraID 0xEF 	Level(0, Enemy, 1)   [11,10]  0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
@@ -447,7 +513,7 @@ UNIT GenericB 	PikachuID 0xEF Level(0, Enemy, 1)   [11,12] 0b	0x0 0x0  0x0 [0x0,
 UNIT
 
 GaryUnitsD:
-UNIT GenericB	EeveeID 0xEF Level(0, Enemy, 1)   [9,9] 		0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
+UNIT GaryStarterAdaptabilityUnitID	EeveeID 0xEF Level(0, Enemy, 1)   [9,9] 		0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	RattataID 0xEF Level(0, Enemy, 1)   [9,11] 0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	BeedrillID 0xEF Level(0, Enemy, 1)   [11,9]  0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
 UNIT GenericB 	AbraID 0xEF 	Level(0, Enemy, 1)   [11,10]  0b	0x0 0x0  0x0 [0x0,0x0,0x0,0x0] PursueWithoutHeedAI 
@@ -479,7 +545,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 

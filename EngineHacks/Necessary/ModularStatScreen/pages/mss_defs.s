@@ -756,7 +756,7 @@ add r1, r0 @ add 1 for caught icon instead if caught
   blh     DrawIcon 
 .endm
 
-.macro draw_stats_box showBallista=0
+.macro LoadEquipBox 
   ldr     r0, =SSS_Flag
   ldr     r0, [r0]
   cmp     r0, #0x0
@@ -776,6 +776,10 @@ add r1, r0 @ add 1 for caught icon instead if caught
   blh     BgMap_ApplyTsa
   ldr     r0, =#0x8205A24     @map of text labels and positions
   blh     DrawStatscreenTextMap
+  .endm 
+
+.macro draw_equip_highlight, showAccessory=0
+
   ldr     r6, =StatScreenStruct
   ldr     r0, [r6, #0xC]
   ldr     r0, [r0, #0x4]
@@ -784,35 +788,20 @@ add r1, r0 @ add 1 for caught icon instead if caught
     beq     SS_DoneEquipHighlightBar
   cmp     r0, #Deny_Statscreen_Class_Lo
     beq     SS_DoneEquipHighlightBar
-  
-    .if \showBallista
-
-        ldr     r2, [r6, #0xC]
-        ldr     r0, [r2, #0xC]
-        mov     r1, #0x80        
-        lsl     r1, r1, #0x4        @Check "in ballista" bit
-        and     r0, r1
-        cmp     r0, #0x0
-        beq     NoBallistaEquipped_Box
-        
-        @get a non-empty ballista at unit position
-        mov     r0, #0x10
-        mov     r1, #0x11
-        ldsb    r0, [r2, r0]
-        ldsb    r1, [r2, r1]
-        blh     GetBallistaItemAt
-        cmp     r0, #0x0
-        beq     NoBallistaEquipped_Box
-        mov     r5, r0
-        mov     r4, #0x0             @slot id
-        b       SS_DrawEquippedItemHighlight
-        
-    .endif
-  
-  NoBallistaEquipped_Box:
   ldr     r0, [r6, #0xC] 
   blh     EquippedItemSlotGetter
+  
+  .if \showAccessory
+  ldr r0, [r6, #0xC] 
+  blh EquippedAccessoryGetSlot 
+  .endif 
+  
   mov     r4, r0
+  cmp r0, #9 
+  bne NotGaidenMagic 
+  mov r4, #0 
+  
+  NotGaidenMagic: 
   mov     r5, #0x0
   cmp     r4, #0x0             @no equipped item will be -1
   blt     SS_DoneEquipHighlightBar
@@ -834,17 +823,20 @@ add r1, r0 @ add 1 for caught icon instead if caught
   mov     r2, #0xC1
   lsl     r2, r2, #0x6
   blh     BgMap_ApplyTsa
-  
   cmp     r5, #0x0
   bne     SS_DoneEquipHighlightBar
   
   SS_ItemBox_GetID:
   ldr     r0, [r6, #0xC]
-  add     r0, #0x1E
+  add     r0, #0x28
   add     r0, r0, r4
-  ldrh    r5, [r0]
+  ldrb    r5, [r0]
   
   SS_DoneEquipHighlightBar:
+.endm
+
+.macro draw_stats_box 
+
   ldr     r0, =StatScreenStruct
   ldr     r0, [r0, #0xC]
   ldr     r0, [r0, #0x4]
@@ -951,6 +943,8 @@ add r1, r0 @ add 1 for caught icon instead if caught
   ble     loc_0x8087660
   
 .endm
+
+
 
 .macro draw_items_text showBallista=0
   push    {r7}

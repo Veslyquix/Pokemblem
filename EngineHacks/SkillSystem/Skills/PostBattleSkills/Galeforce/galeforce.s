@@ -53,6 +53,9 @@ and	r0, r1		@unset bits 0x42
 mov	r1, #0x04
 lsl	r1, #0x08
 orr	r0, r1
+mov r1, #1 
+lsl r1, #31
+orr r0, r1 @ set bit 1<<31 
 str	r0, [r4,#0x0C]
 
 @add unit to the AI list so enemies act twice

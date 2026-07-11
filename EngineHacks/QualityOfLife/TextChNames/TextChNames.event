@@ -6,6 +6,8 @@
 // Extended Latin charset support by hypergammaspaces
 #include "asm/status_screen.lyn.event" 
 
+
+
 #ifdef _FE8_
 
   {
@@ -45,3 +47,6 @@
 #endif // _FE8_
 
 #endif // TEXT_CHAPTER_NAMES
+
+
+

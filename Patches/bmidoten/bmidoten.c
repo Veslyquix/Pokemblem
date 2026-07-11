@@ -12,7 +12,7 @@
 #include "include/bmarch.h"
 #include "include/bmidoten.h"
 
-void NewGenerateUnitStandingReachRange(struct Unit* unit, int reach); 
+void NewGenerateUnitStandingReachRange(struct Unit * unit, int reach);
 
 /*
 enum {
@@ -28,36 +28,39 @@ enum {
     REACH_TO10   = (1 << 3),
     REACH_TO15   = (1 << 4),
     REACH_MAGBY2 = (1 << 5),
-}; */ 
-
-int NewGetUnitWeaponReachBits(struct Unit* unit, int itemSlot) {
+}; */
+extern int GetEnemyWepBySlot(struct Unit * unit, int slot);
+int NewGetUnitWeaponReachBits(struct Unit * unit, int itemSlot)
+{
     int i, item, result = 0;
 
-    if (itemSlot >= 0) { 
-	return GetItemReachBits(unit->items[itemSlot]); } 
+    if (itemSlot >= 0)
+    {
+        return GetItemReachBits(GetEnemyWepBySlot(unit, itemSlot));
+    }
 
-	if (unit->index > 0x3F) { 
-    for (i = 0; (i < UNIT_ITEM_COUNT) && (item = unit->items[i]); ++i)
-        if (CanUnitUseWeapon(unit, item))
-            result |= GetItemReachBits(item);
-	}
-	else { 
-    for (i = 0; (i < 5) && (item = unit->ranks[i] | 0xA00); ++i)
-        if (CanUnitUseWeapon(unit, item))
-            result |= GetItemReachBits(item);
-	
-	} 
+    if (unit->index > 0x3F)
+    {
+        for (i = 0; (i < UNIT_ITEM_COUNT) && (item = GetEnemyWepBySlot(unit, i)); ++i)
+            if (CanUnitUseWeapon(unit, item))
+                result |= GetItemReachBits(item);
+    }
+    else
+    {
+        for (i = 0; (i < 5) && (item = unit->ranks[i] | 0xA00); ++i)
+            if (CanUnitUseWeapon(unit, item))
+                result |= GetItemReachBits(item);
+    }
 
     return result;
 }
 
-
-void NewAllWepsOneSquare(struct Unit* unit, int slot) { // -1 slot is all weps 
+void NewAllWepsOneSquare(struct Unit * unit, int slot)
+{ // -1 slot is all weps
 
     int reach = NewGetUnitWeaponReachBits(unit, -1);
     NewGenerateUnitStandingReachRange(unit, reach);
-
-} 
+}
 
 void NewMapAddInRange(int x, int y, int range, int value)
 {
@@ -124,11 +127,11 @@ void NewMapAddInRange(int x, int y, int range, int value)
 
 void NewMapAddInBoundedRange(short x, short y, short minRange, short maxRange)
 {
-    NewMapAddInRange(x, y, maxRange,     +1);
+    NewMapAddInRange(x, y, maxRange, +1);
     NewMapAddInRange(x, y, minRange - 1, -1);
 }
 
-void NewGenerateUnitStandingReachRange(struct Unit* unit, int reach)
+void NewGenerateUnitStandingReachRange(struct Unit * unit, int reach)
 {
     int x = unit->xPos;
     int y = unit->yPos;
@@ -136,60 +139,59 @@ void NewGenerateUnitStandingReachRange(struct Unit* unit, int reach)
     switch (reach)
     {
 
-    case REACH_RANGE1:
-        NewMapAddInBoundedRange(x, y, 1, 1);
-        break;
+        case REACH_RANGE1:
+            NewMapAddInBoundedRange(x, y, 1, 1);
+            break;
 
-    case REACH_RANGE1 | REACH_RANGE2:
-        NewMapAddInBoundedRange(x, y, 1, 2);
-        break;
+        case REACH_RANGE1 | REACH_RANGE2:
+            NewMapAddInBoundedRange(x, y, 1, 2);
+            break;
 
-    case REACH_RANGE1 | REACH_RANGE2 | REACH_RANGE3:
-        NewMapAddInBoundedRange(x, y, 1, 3);
-        break;
+        case REACH_RANGE1 | REACH_RANGE2 | REACH_RANGE3:
+            NewMapAddInBoundedRange(x, y, 1, 3);
+            break;
 
-    case REACH_RANGE2:
-        NewMapAddInBoundedRange(x, y, 2, 2);
-        break;
+        case REACH_RANGE2:
+            NewMapAddInBoundedRange(x, y, 2, 2);
+            break;
 
-    case REACH_RANGE2 | REACH_RANGE3:
-        NewMapAddInBoundedRange(x, y, 2, 3);
-        break;
+        case REACH_RANGE2 | REACH_RANGE3:
+            NewMapAddInBoundedRange(x, y, 2, 3);
+            break;
 
-    case REACH_RANGE3:
-        NewMapAddInBoundedRange(x, y, 3, 3);
-        break;
+        case REACH_RANGE3:
+            NewMapAddInBoundedRange(x, y, 3, 3);
+            break;
 
-    case REACH_RANGE3 | REACH_TO10:
-        NewMapAddInBoundedRange(x, y, 3, 10);
-        break;
+        case REACH_RANGE3 | REACH_TO10:
+            NewMapAddInBoundedRange(x, y, 3, 10);
+            break;
 
-    case REACH_RANGE1 | REACH_RANGE3:
-        NewMapAddInBoundedRange(x, y, 1, 1);
-        NewMapAddInBoundedRange(x, y, 3, 3);
-        break;
+        case REACH_RANGE1 | REACH_RANGE3:
+            NewMapAddInBoundedRange(x, y, 1, 1);
+            NewMapAddInBoundedRange(x, y, 3, 3);
+            break;
 
-    case REACH_RANGE1 | REACH_RANGE3 | REACH_TO10:
-        NewMapAddInBoundedRange(x, y, 1, 1);
-        NewMapAddInBoundedRange(x, y, 3, 10);
-        break;
+        case REACH_RANGE1 | REACH_RANGE3 | REACH_TO10:
+            NewMapAddInBoundedRange(x, y, 1, 1);
+            NewMapAddInBoundedRange(x, y, 3, 10);
+            break;
 
-    case REACH_RANGE1 | REACH_RANGE2 | REACH_RANGE3 | REACH_TO10:
-        NewMapAddInBoundedRange(x, y, 1, 10);
-        break;
+        case REACH_RANGE1 | REACH_RANGE2 | REACH_RANGE3 | REACH_TO10:
+            NewMapAddInBoundedRange(x, y, 1, 10);
+            break;
 
-    case REACH_RANGE1 | REACH_TO10:
-        NewMapAddInBoundedRange(x, y, 1, 4);
-        break;
+        case REACH_RANGE1 | REACH_TO10:
+            NewMapAddInBoundedRange(x, y, 1, 4);
+            break;
 
-    case REACH_MAGBY2:
-        NewMapAddInBoundedRange(x, y, 1, 2);
-        //NewMapAddInBoundedRange(x, y, 1, GetUnitMagBy2Range(unit));
-        break;
+        case REACH_MAGBY2:
+            NewMapAddInBoundedRange(x, y, 1, 2);
+            // NewMapAddInBoundedRange(x, y, 1, GetUnitMagBy2Range(unit));
+            break;
 
     } // switch (reach)
 }
-
 
 /*
 void MapAddInRange(int x, int y, int range, int value)
@@ -254,10 +256,4 @@ void MapAddInRange(int x, int y, int range, int value)
         }
     }
 }
-*/ 
-
-
-
-
-
-
+*/

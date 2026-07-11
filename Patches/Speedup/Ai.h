@@ -2,7 +2,8 @@
 
 //#define POKEMBLEM_VERSION 
 
-#define SHORTCALL __attribute__((short_call))
+// #define SHORTCALL __attribute__((short_call))
+#define SHORTCALL __attribute__((long_call))
 #define CONSTFUNC __attribute__((const))
 
 

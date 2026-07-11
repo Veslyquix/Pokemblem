@@ -137,10 +137,26 @@ pop {r1}
 bx r1 
 .ltorg
 .align
+
+.global IsTrainersTeamDefeatedNonAoe 
+.type IsTrainersTeamDefeatedNonAoe, %function 
+IsTrainersTeamDefeatedNonAoe:
+
+push {r4-r7, lr} 
+
+ldr r0, =0x203A958
+ldrb r0, [r0, #0x11] 
+cmp r0, #2 
+beq IsTrainersTeamDefeatedStart
+
+b False_IsTrainersTeamDefeated 
+
+
 .global IsTrainersTeamDefeated
 .type IsTrainersTeamDefeated, %function 
 IsTrainersTeamDefeated: 
 push {r4-r7, lr}
+IsTrainersTeamDefeatedStart: 
 @ checks if the whole team was defeated whenever a unit dies 
 ldr r4, =0x203A4EC  @ Atkr 
 ldr r5, =0x203A56C @ Dfdr
@@ -299,6 +315,8 @@ push {r4-r7, lr}
 
 mov r4, #0xDF 
 mov r5, #0x2D @ number of summoned units 
+mov r6, #0x44 @ ai2 
+mov r7, #0x28 
 
 AreAnyTrainerBattlesActive_Loop:
 add r4, #1 
@@ -308,6 +326,12 @@ mov r0, r4
 blh GetUnitByEventParameter 
 cmp r0, #0 
 beq AreAnyTrainerBattlesActive_Loop
+
+ldrb r1, [r0, r7] 
+cmp r1, #0 
+bne CheckAi 
+
+
 ldrb r1, [r0, r5]
 cmp r1, #0 
 beq AreAnyTrainerBattlesActive_Loop 
@@ -315,6 +339,13 @@ cmp r1, #50
 beq AreAnyTrainerBattlesActive_Loop
 
 @ if we got here, at least one battle is active, so ret true 
+mov r0, #1 
+b AreAnyTrainerBattlesActive_Exit
+
+CheckAi: 
+ldrb r1, [r0, r6] @ They still have a weapon, but are they also charging at the player? 
+cmp r1, #0x1C 
+bne AreAnyTrainerBattlesActive_Loop
 mov r0, #1 
 b AreAnyTrainerBattlesActive_Exit
 

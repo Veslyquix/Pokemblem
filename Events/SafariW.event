@@ -3,7 +3,9 @@
 #define GenericB UnitRoute16Wild
 #define ClassA ClassSafariWildA
 #define ClassB ClassSafariWildB
-#define ClassC ClassSafariWildE
+#define ClassC ClassSafariWildC
+#define ClassD ClassSafariWildD
+#define ClassE ClassSafariWildE
 #define WildLvl 28
 #define TrainerL 30
 
@@ -39,10 +41,10 @@ END_MAIN
 
 //Reinforce(BushUnitID, NumberOfEnemies, UnitGroup, GracePeriod, FrequencyInTurns)
 { ; ReinforceEntry(ChapterID)
-Reinforce(0xF0, 1, ReinforcementUnits, 2, 4) 
-Reinforce(0xF1, 1, ReinforcementUnits, 3, 4) 
-Reinforce(0xF2, 1, ReinforcementUnits, 7, 4) 
-Reinforce(0xF3, 1, ReinforcementUnits, 8, 4) 
+Reinforce(0xF0, 1, ReinforcementUnitsA, 2, 4) 
+Reinforce(0xF1, 1, ReinforcementUnitsB, 3, 4) 
+Reinforce(0xF2, 1, ReinforcementUnitsC, 7, 4) 
+Reinforce(0xF3, 1, ReinforcementUnitsD, 8, 4) 
 Reinforce(0xF4, 1, ReinforcementUnits_Water, 8, 4) 
 }
 
@@ -231,36 +233,56 @@ UNIT GymLeaderPkmn VenomothID 0x0 Level(0, Enemy, 1)   [15,17] 0	0x0 0x01 REDA17
 // UNIT BossPkmn ScytherID 0x0 Level(0, Enemy, 1) [13,11]  0b 0x0	0x1 REDA13R11 [Tackle, 0x0,0x0,0x0] DoNothingBoss
 UNIT 
 
+// Each boss will summon a, b, c, d, a 
+// so 2 or 3 common per group, 1 evolve, 1 or 2 rare  
+// in all areas: 
+// NidoranM, NidoranF, Exeggcute, Venonat, Doduo, Nidorino, Nidorina, Cubone, Paras, Rhyhorn, 
+// Rare: 
+// Pinsir, Lickitung, Tangela, Tauros, Kangaskhan, Scyther, Chansey, 
+// Marowak, Venomoth, Parasect, 
+// Dratini (boss summon only) 
 
 EnemyUnitsA:
 //   UnitID  			ClassID    		Comm   Level,Alleg,AutoL  Coords Spec,ItemD,Mons n/a REDAShort	 ItemWord 			AIWord 
-UNIT GenericB ClassB 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
+UNIT GenericB ClassA 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
 UNIT 0xF0 BushID 0x0 Level(0, Enemy, 1)   [0,3]  0b	0x0 0x01 REDA0R3  [0x0,0x0,0x0,0x0] BushAI
 UNIT 
 
 EnemyUnitsB:
-UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
+UNIT GenericA ClassB 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
 UNIT 0xF1 BushID 0x0 Level(0, Enemy, 1)   [0,4]  0b	0x0 0x01 REDA0R4  [0x0,0x0,0x0,0x0] BushAI
 UNIT 
 
 EnemyUnitsC:
-UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
+UNIT GenericA ClassC 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
 UNIT 0xF2 BushID 0x0 Level(0, Enemy, 1)   [0,3]  0b	0x0 0x01 REDA0R3  [0x0,0x0,0x0,0x0] BushAI
 UNIT 
 
 EnemyUnitsD:
-UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
+UNIT GenericA ClassD 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
 UNIT 0xF3 BushID 0x0 Level(0, Enemy, 1)   [0,3]  0b	0x0 0x01 REDA0R3  [0x0,0x0,0x0,0x0] BushAI
 UNIT 
 
 
 EnemyUnitsE:
-UNIT GenericA ClassC 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
+UNIT GenericA ClassE 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
 UNIT 0xF4 SuspiciousWaterID 0x0 Level(0, Enemy, 1)   [0,3]  0b	0x0 0x01 REDA0R3  [0x0,0x0,0x0,0x0] BushAI
 UNIT 
 
-ReinforcementUnits:
+ReinforcementUnitsA:
+UNIT Reinforcement0 ClassA 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackIfWithin2
+UNIT 
+
+ReinforcementUnitsB:
 UNIT Reinforcement0 ClassB 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackIfWithin2
+UNIT 
+
+ReinforcementUnitsC:
+UNIT Reinforcement0 ClassC 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackIfWithin2
+UNIT 
+
+ReinforcementUnitsD:
+UNIT Reinforcement0 ClassD 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackIfWithin2
 UNIT 
 
 ReinforcementUnits_Water:
@@ -318,7 +340,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 	
 #undef GenericA 
@@ -326,6 +348,8 @@ UNIT
 #undef ClassA
 #undef ClassB
 #undef ClassC
+#undef ClassD
+#undef ClassE
 #undef WildLvl
 #undef TrainerL
 #undef ChapterID

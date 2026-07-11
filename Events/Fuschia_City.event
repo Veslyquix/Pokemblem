@@ -1,7 +1,7 @@
 #define ChapterID FuschiaCh
 #define GenericB UnitCeruleanTrainer
 #define WildLvl 10 
-#define TrainerL 26 
+#define TrainerL FuschiaGymLevel 
 
 
 
@@ -108,10 +108,85 @@ ENDA
 LocationBasedEvents:
 House(FuschiaGymClosedFlag,EnterGym,8,29) 
 House(0,EnterSafariZone,21,4) 
+House(0,FuschiaDebugQuickLoad,22,27)
 Vendor(ShopItems,19,16)
 
 
 END_MAIN
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(TrainerL, 110000)
+DebugItems SuperRepel 5
+BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
+BYTE SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
+BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
+BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID)
+BYTE JellyDonut 5
+BYTE SuperPotion 5
+BYTE Revive 3
+BYTE WarpCrystal 3
+BYTE EscapeRope 3
+BYTE ExoticCandy 2
+BYTE FullHeal 1
+BYTE HPUp 1
+BYTE Protein 1
+BYTE Zinc 1
+BYTE Iron 1
+BYTE ThunderStone 1
+BYTE MoonStone 1
+BYTE WaterStone 1
+BYTE LeafStone 1
+BYTE LinkStone 1
+BYTE FireStone 1
+BYTE DryingPan 1
+BYTE StatAccessory MuscleBand_BoostIndex StatAccessory WiseGlasses_BoostIndex
+BYTE StatAccessory LeatherShield_BoostIndex StatAccessory EnergyBand_BoostIndex
+BYTE StatAccessory BronzeShield_BoostIndex StatAccessory OldWard_BoostIndex
+BYTE StatAccessory PaddedShield_BoostIndex StatAccessory IronShield_BoostIndex
+BYTE StatAccessory WiseGlassesT2_BoostIndex StatAccessory MuscleBandT2_BoostIndex
+BYTE StatAccessory MagicWard_BoostIndex
+BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
+BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
+BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
+BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll FierceStanceID SkillScroll OpportunistID
+BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
+BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
+BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
+BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
+BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
+BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
+BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
+BYTE SpellScroll LeafBlade SpellScroll AuroraBeam SpellScroll Psybeam SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch
+
+SHORT 0
+
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
+SHORT PokefluteFlag RockSmashFlag 
+SHORT 0
+
+DebugClasses ExeggcuteID
+BYTE DittoID GrowlitheID VenonatID GloomID PidgeottoID
+BYTE WeepinbellID FarfetchdID KrabbyID HorseaID MagikarpID
+BYTE PoliwagID GoldeenID GastlyID CuboneID ZubatID
+BYTE MachopID GeodudeID OnixID KoffingID VoltorbID
+BYTE MagnemiteID PikachuID SpearowID FearowID RaticateID
+BYTE DiglettID SandshrewID MeowthID DrowzeeID VulpixID
+BYTE CharmanderID SquirtleID BulbasaurID EeveeID ChanseyID
+BYTE PidgeyID OddishID RattataID BellsproutID AbraID
+BYTE EkansID ParasID ClefairyID JigglypuffID MankeyID
+BYTE NidoranMID NidoranFID MetapodID KakunaID CaterpieID
+BYTE WeedleID PsyduckID
+BYTE 0 // Terminator
+
+}
+ALIGN 4
+FuschiaDebugQuickLoad:
+ASMC DebugLoadUnits
+NoFade
+ENDA
+ALIGN 4
 
 EnterGym:
 ENUF FuschiaGymClosedFlag 
@@ -253,6 +328,9 @@ ALIGN 4
 ShopItems:
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI 0
+BYTE SkillScroll ChlorophyllID
+BYTE SkillScroll HarvestID
+BYTE SkillScroll SolarPowerID
 BYTE SkillAccShop(DazzleID)
 BYTE SkillAccShop(VantagePlusID)
 BYTE SkillAccShop(ExpShareID)
@@ -262,7 +340,7 @@ BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
 BYTE SkillScroll PrescienceID 
-BYTE SpellScroll SignalBeam SpellScroll Magnitude
+BYTE SpellScroll SignalBeam SpellScroll RockSlide
 BYTE SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
 BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick
 BYTE SpellScroll BubbleBeam SpellScroll MudBomb // 19 
@@ -305,7 +383,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 

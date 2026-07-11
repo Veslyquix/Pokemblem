@@ -64,13 +64,13 @@
 #define Q_8_8(iPart, fPart) (((iPart) << 8) | (fPart))
 #define IPART(n) ((n) >> 8)
 #define FPART(n) ((n) & 0xFFFF)
-
+typedef struct SoarProc SoarProc;
 //declare functions
 void CreateNewWorldMap();
-void NewWMLoop();
+void NewWMLoop(SoarProc *CurrentProc);
 void NewFadeIn(int duration);
 bool FadeInExists();
-void SetUpNewWMGraphics();
+void SetUpNewWMGraphics(SoarProc *CurrentProc);
 void m7HblCallBack();
 void m7VblCallBack();
 int SoarUsability();

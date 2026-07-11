@@ -1,7 +1,7 @@
 #define ChapterID AgathaCh
 
 #define WildLvl 5 
-#define TrainerL 55
+#define TrainerL 54
 
 
 
@@ -77,49 +77,6 @@ ChapterTransition(LanceCh, 12,19)
 
 Traps1:
 
-BrokenIceTrap(16,6)
-BrokenIceTrap(8,7)
-BrokenIceTrap(19,7)
-BrokenIceTrap(5,8)
-BrokenIceTrap(10,8)
-BrokenIceTrap(17,8)
-BrokenIceTrap(6,9)
-BrokenIceTrap(9,9)
-BrokenIceTrap(18,9)
-BrokenIceTrap(20,9)
-BrokenIceTrap(4,10)
-BrokenIceTrap(9,10)
-BrokenIceTrap(10,10)
-BrokenIceTrap(15,10)
-BrokenIceTrap(20,10)
-BrokenIceTrap(21,10)
-BrokenIceTrap(10,11)
-BrokenIceTrap(13,11)
-BrokenIceTrap(14,11)
-BrokenIceTrap(16,11)
-BrokenIceTrap(20,11)
-BrokenIceTrap(3,12)
-BrokenIceTrap(4,12)
-BrokenIceTrap(7,12)
-BrokenIceTrap(15,12)
-BrokenIceTrap(17,12)
-BrokenIceTrap(22,12)
-BrokenIceTrap(4,13)
-BrokenIceTrap(9,13)
-BrokenIceTrap(6,14)
-BrokenIceTrap(13,14)
-BrokenIceTrap(18,14)
-BrokenIceTrap(19,14)
-BrokenIceTrap(6,15)
-BrokenIceTrap(7,15)
-BrokenIceTrap(15,15)
-BrokenIceTrap(18,15)
-BrokenIceTrap(3,16)
-BrokenIceTrap(6,16)
-BrokenIceTrap(20,16)
-BrokenIceTrap(10,17)
-BrokenIceTrap(17,17)
-
 
 
 //PuddleTrap(14, 16)
@@ -152,29 +109,26 @@ LOAD1 0x1 EnemyTrainersA
 ENUN 
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(TrainerL, True, 0x90EF) 
-ENUT FIXED_GROWTHS_FLAG_ID
-AutoLevelUnits(AgathaBonus, False, 0x90EF) // 9 hidden levels regardless of difficulty 
-//AutoLevelUnits(3, False, 0x90EF) 
 CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
+SilentGiveItemWithDurability(DazzleUnitID, StatAccessory, VintageBoots_BoostIndex|0x80) // GengarID 
+SilentGiveSkillAccessory(GymPkmn_1, SavageBlowID) // GolbatID 
+SilentGiveSkillAccessory(GymPkmn_2, Intimidate2ID) // LickitungID 
+SilentGiveSkillAccessory(GymPkmn_3, GuardBreakerID) // ArbokID 
+SilentGiveSkillAccessory(GymPkmn_4, PoisonStrikeID) // HaunterID 
+SilentGiveSkillAccessory(GymPkmn_5, GrislyWoundID) // HaunterID 
 
 
-SilentGiveItemWithDurability(0xD0, StatAccessory, WiseGlassesT3_BoostIndex|0x80) // Machoke 
-SilentGiveItemWithDurability(0xA0, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA1, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA2, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA3, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
-SilentGiveItemWithDurability(0xA4, StatAccessory, WiseGlassesT2_BoostIndex|0x80)
 
-SilentGiveItemWithDurability(0xD0, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA0, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA1, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA2, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA3, MaxPotion,0x1)
-SilentGiveItemWithDurability(0xA4, MaxPotion,0x1)
+SilentGiveItemWithDurability(DazzleUnitID, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_1, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_2, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_3, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_4, MaxPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_5, MaxPotion,0x1)
 
 
 MUSCFAST IntroBGM 
@@ -233,7 +187,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 
@@ -243,12 +197,12 @@ UNIT 0xE1 AgathaID 		0x0  Level(0, Enemy, 1) [12,5]  0b 0x0	1 REDA12R5	[0,0,0x0,
 UNIT
 
 EnemyTrainersA:
-UNIT 0xD0 GengarID 		0x0  Level(0, Enemy, 1) [12,7]  0b 0x0	0 0	[ShadowBall,DarkPulse,0,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA0 GolbatID 		0xD0 Level(0, Enemy, 1) [10,8]  0b 0x0	0 0 [SkyAttack,Bite,Lick,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA1 LickitungID 		0xD0 Level(0, Enemy, 1) [14,8]  0b 0x0	0 0	[BodySlam,Lick,0x0,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA2 ArbokID 			0xD0 Level(0, Enemy, 1) [12,10]  0b 0x0 	0 0	[Glare,Lick,0,0x0] 	ZoningHeal50GroupOneAI
-UNIT 0xA3 HaunterID 		0xD0 Level(0, Enemy, 1) [8,9]  0b 0x0	0 0	[ShadowBall, ConfuseRay, 0x0 ,0x0] 		ZoningHeal50GroupOneAI
-UNIT 0xA4 HaunterID 		0xD0 Level(0, Enemy, 1) [16,9]  0b 0x0	0 0	[ShadowBall, ConfuseRay,0x0,0x0] 		ZoningHeal50GroupOneAI
+UNIT DazzleUnitID GengarID 		0x0  Level(0, Enemy, 1) [12,7]  0b 0x0	0 0	[ShadowBall,DarkPulse,0,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_1 GolbatID 		DazzleUnitID Level(0, Enemy, 1) [10,8]  0b 0x0	0 0 [SkyAttack,Bite,Lick,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_2 LickitungID 		DazzleUnitID Level(0, Enemy, 1) [14,8]  0b 0x0	0 0	[BodySlam,Lick,0x0,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_3 ArbokID 			DazzleUnitID Level(0, Enemy, 1) [12,10]  0b 0x0 	0 0	[Glare,Lick,0,0x0] 	ZoningHeal50GroupOneAI
+UNIT GymPkmn_4 HaunterID 		DazzleUnitID Level(0, Enemy, 1) [8,9]  0b 0x0	0 0	[ShadowBall, ConfuseRay, 0x0 ,0x0] 		ZoningHeal50GroupOneAI
+UNIT GymPkmn_5 HaunterID 		DazzleUnitID Level(0, Enemy, 1) [16,9]  0b 0x0	0 0	[ShadowBall, ConfuseRay,0x0,0x0] 		ZoningHeal50GroupOneAI
 UNIT
 
 

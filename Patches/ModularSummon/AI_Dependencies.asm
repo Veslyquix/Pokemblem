@@ -251,7 +251,8 @@ push {r4-r6, lr}
 mov r6, r0 @ Parent 
 mov r5, #0 @ No, we don't move unless there's a target in range 
 @ if nobody in range, do nothing 
-
+ldr r0, =CurrentUnit 
+ldr r0, [r0] 
 bl AnyTargetWithinRange
 cmp r0, #1
 b JudgeInRangeBranch
@@ -298,8 +299,7 @@ mov r6, r9
 push {r6} 
 
 mov r5, #0 @ We default to False 
-ldr r6, =CurrentUnit 
-ldr r6, [r6] 
+mov r6, r0 
 mov r0, #0 
 mov r8, r0 @ Searching players, NPCs, or enemies 
 
@@ -374,14 +374,14 @@ and r1, r2
 and r2, r3  
 cmp r2, r1 
 beq NextAllegiance
-mov r7, #0x1C @ Weapon index -2
+mov r7, #0x27 @ wexp index -1
 ContinueAnyoneWithinRangeLoop:
-add r7, #2 
-cmp r7, #0x26 
+add r7, #1 
+cmp r7, #0x2C 
 bgt AnyoneWithinRangeLoop 
 mov r1, r0 @ Target 
 mov r0, r6 
-ldrh r2, [r6, r7]
+ldrb r2, [r6, r7]
 cmp r2, #0 @ 
 beq AnyoneWithinRangeLoop @ No weapon, so move on to next unit 
 @ r0 actor, r1 target, r2 weapon 
@@ -503,6 +503,8 @@ mov r2, #5 @ Wait
 bl SetAIToWaitAtCoords
 
 DetermineSummonOrAttack:
+ldr r0, =CurrentUnit 
+ldr r0, [r0] 
 bl AnyTargetWithinRange 
 mov r6, r0 @ T/F 
 
@@ -540,7 +542,8 @@ b ReturnTrue
 
 Call_AiScriptCmd_05_DoStandardAction:
 push {lr}
-
+@ldr r0, =CurrentUnit 
+@ldr r0, [r0] 
 @bl AnyTargetWithinRange
 @cmp r0, #1 @ 
 @bne DontTryStandardAction

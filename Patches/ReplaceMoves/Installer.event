@@ -4,7 +4,21 @@
 #include "ReturnTM.lyn.event"
 #include "ReplaceMovesMenu.lyn.event"
 
+ALIGN 4 
+GiveUpOnMoveTextLink:
+WORD GiveUpOnMoveText 
+ReplaceMoveTextLink:
+WORD ReplaceMoveText
 
+PUSH 
+ORG $2c292 
+SHORT $46c0 // don't update unit ranks based on wexp 
+// https://github.com/FireEmblemUniverse/fireemblem8u/blob/6ad3525d582564356d56b655ea7b77110d26745e/src/bmbattle.c#L1644
+
+ORG $2C0B4 
+SHORT $2000 $3801 $4770 // return -1; // GetBattleUnitUpdatedWeaponExp
+
+POP 
 
 ALIGN 4
 ReplaceMovesTSA:

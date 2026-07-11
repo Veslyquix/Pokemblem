@@ -114,6 +114,7 @@ House(0,VisitViridianPokecenter, 23,25)
 House(0,ViridianUpperHouseEvent, 21,11)
 House(0x16, OldManHouseEvent, 21,18) 
 House(ViridianGymClosedFlag,EnterGym,30,10) 
+House(0,DebugQuickLoad,23,24) 
 Vendor(ShopItems,30,19)
 /*
 
@@ -124,6 +125,31 @@ Seize(10,2)
 */
 END_MAIN
 
+
+ALIGN 4 
+DebugQuickLoad:
+ASMC DebugLoadUnits
+NoFade 
+ENDA 
+ALIGN 4 
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(6, 25000)
+DebugItems SpellScroll LeechLife 
+BYTE StatAccessory MuscleBand_BoostIndex
+BYTE SkillAcc(VantagePlusID)
+SHORT 0 
+
+DebugFlags 0 
+SHORT 0 
+
+DebugClasses PidgeyID RattataID MankeyID PsyduckID 
+BYTE 0 // Terminator 
+
+}
+
+
+ALIGN 4 
 VisitViridianPokecenter:
 ENUT VisitedViridianPokecenterFlag
 CALL VisitPokecenter
@@ -317,7 +343,7 @@ CoinsTrap(26,14,(ChapterID*2)+1,600)
 
 RockSmash(9,22)
 RockSmash(10,23)
-SkillScrollTrap(12,5, (ChapterID*2)+1, ReliefID)
+SkillScrollTrap(12,5, (ChapterID*2)+1, PoisonStrikeID)
 SpellScrollTrap(9,29, (ChapterID*2), IcyWind)
 
 StrengthBoulder(5,16)
@@ -501,7 +527,7 @@ ShopItems:
 //BYTE SuperPotion 12
 BYTE JellyDonut 3
 //BYTE $00; ALIGN 4
-BYTE SkillScroll FocusID 
+BYTE SkillScroll PoisonStrikeID 
 BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
@@ -531,7 +557,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 

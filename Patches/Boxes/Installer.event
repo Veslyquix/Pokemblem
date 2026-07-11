@@ -17,6 +17,10 @@ WORD True
 #else 
 WORD False 
 #endif 
+#ifdef POKEMBLEM 
+BoxesFullFlag_Link:
+WORD BoxesFullFlag 
+#endif 
 
 #define EnsureUnitInParty(unitID) "SVAL s1 unitID; ASMC EnsureUnitInPartyASMC" 
 
@@ -34,6 +38,21 @@ WORD False
 #endif 
 
 PUSH
+
+// 
+ORG $A9458 // in ExecSaveMenuMiscOption 
+// "Cancel" button also allows you to not save (it doesn't go back to allow changing which slot you wish to save to) 
+
+ORG $a9648 //  from SaveMenu_SaveSlotSelectLoop
+// SHORT $2000 // Force saving by disabling B button in save screen 
+
+// force "Save" and not "Cancel" 
+ORG $a950a // SaveMenu_SaveSlotSelectLoop
+// SHORT $2000 
+ORG $a953c 
+// SHORT $2000 
+// problem is, copying saves, erasing, etc. uses this same proc 
+
 
 #ifdef EXPAND_PARTY_MAX 
 ORG 0x0AB90E
@@ -66,8 +85,15 @@ SHORT $4770 // bx lr
 ORG $A3EA4 // something that writes to sound room SRAM 
 SHORT $4770 // bx lr 
 
+
+
 ORG $A4000 // something that writes to arena SRAM 
 SHORT $4770 
+
+// ORG $a3f84 // EraseLinkArenaStruct2 // these don't actually matter, since they call one that's nop'd out already 
+// ORG $a402c //ModifySaveLinkArenaStruct2A
+// ORG $a4064 //ModifySaveLinkArenaStruct2B
+
 
 // func SRAMInit at 0x80A2C3C 
 ORG $A2CA4 // tests SRAM by writing to $7EA0 in SRAM 
@@ -111,6 +137,13 @@ SHORT $1c20 // Mov r0, r4 (vanilla)
 ORG $A4EA4 
 callHackNew(HookInitSave) 
 
+
+// reset unit sprites whenever scrolling down in prep items menu 
+// to avoid running out of sprite space 
+ORG $99124
+callHackNew(Hook_sub8099120) //UseUnitSprite
+ORG $992D8
+callHackNew(Hook_sub8099120_2) 
   
 POP
 
@@ -122,7 +155,7 @@ WORD NumberOfUnitsBeforeStoring
 ALIGN 4 
 BoxCapacity: 
 #ifdef EXPAND_PARTY_MAX 
-WORD 97 
+WORD 100 
 #endif 
 #ifndef EXPAND_PARTY_MAX 
 WORD 51 

@@ -129,19 +129,17 @@ LOAD1 0x1 EnemyTrainersA
 ENUN 
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(TrainerL, True, 0x90EF) 
-ENUT FIXED_GROWTHS_FLAG_ID
-AutoLevelUnits(FuschiaGymBonus, False, 0x90EF) // +7 hidden levels regardless of difficulty 
 CALL GenericAutolevelEvent // Trainers given invisible levels based on difficulty 
 
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveSkillAccessory(0xD0, GrislyWoundID)
-SilentGiveItemWithDurability(0xD0, SuperPotion,0x1)
-SilentGiveItemWithDurability(0xA0, Berry,0x82)
-SilentGiveItemWithDurability(0xA1, Berry,0x82)
-SilentGiveItemWithDurability(0xA2, Berry,0x82)
-SilentGiveItemWithDurability(0xA3, Berry,0x82)
+SilentGiveSkillAccessory(GuardBreakerUnitID, GrislyWoundID)
+SilentGiveItemWithDurability(GuardBreakerUnitID, SuperPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_1, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_2, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_3, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_4, Berry,0x82)
 
 
 MUSCFAST IntroBGM 
@@ -171,12 +169,12 @@ CALL GenericAutolevelEvent // Trainers given invisible levels based on difficult
 SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange, AnyItem)
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
-SilentGiveSkillAccessory(0xD0, SavageBlowID) // Venomoth 
-SilentGiveSkillAccessory(0xA0, GrislyWoundID) // Tentacruel  
-SilentGiveSkillAccessory(0xA1, PoisonStrikeID) // Muk 
-SilentGiveItemWithDurability(0xA2, StatAccessory, StuddedShield_BoostIndex|0x80) // Hypno   
-SilentGiveItemWithDurability(0xA3, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Scyther  
-SilentGiveItemWithDurability(0xA4, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Kabutops 
+SilentGiveSkillAccessory(GuardBreakerUnitID, SavageBlowID) // Venomoth 
+SilentGiveSkillAccessory(GymPkmn_1, GrislyWoundID) // Tentacruel  
+SilentGiveSkillAccessory(GymPkmn_2, PoisonStrikeID) // Muk 
+SilentGiveItemWithDurability(GymPkmn_3, StatAccessory, StuddedShield_BoostIndex|0x80) // Hypno   
+SilentGiveItemWithDurability(GymPkmn_4, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Scyther  
+SilentGiveItemWithDurability(GymPkmn_5, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Kabutops 
 
 
 
@@ -267,28 +265,28 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 
 EnemyTrainersA:
-UNIT 0xD0 VenomothID 	0x0 Level(0, Enemy, 1) [8,10]  0b 0x0	0x1 REDA8R10 	[Psybeam,SignalBeam,Sludge,0] PursueWithoutHeedAI
-UNIT 0xA0 TentacruelID 	0xD0 Level(0, Enemy, 1) [8,12]  0b 0x0	0x1 REDA8R12 	[Surf, Sludge, IceBeam, 0x0] PursueWithoutHeedAI
-UNIT 0xA1 MukID 		0xD0 Level(0, Enemy, 1) [10,12]  0b 0x0	0x1 REDA10R12 	[PoisonJab, FirePunch, ThunderPunch,0x0] PursueWithoutHeedAI
-UNIT 0xA2 WeezingID 	0xD0 Level(0, Enemy, 1) [6,12]  0b 0x0 	0x1 REDA6R12 	[Sludge,FireBlast,Flash,0x0] PursueWithoutHeedAI
-UNIT 0xA3 ScytherID 	0xD0 Level(0, Enemy, 1) [5,9]  0b 0x0	0x1 REDA5R9 	[XScissor, WingAttack,Slash,0] PursueWithoutHeedAI
-UNIT 0xA4 KabutopsID 	0xD0 Level(0, Enemy, 1) [11,9]  0b 0x0	0x1 REDA11R9 	[Waterfall, RockSlide,Slash,0x0] PursueWithoutHeedAI
-//UNIT 0xA4 HypnoID 		0xD0 Level(0, Enemy, 1) [7,12]  0b 0x0	0x1 REDA7R12 	[Psybeam, Headbutt,PoisonGas,0x0] PursueWithoutHeedAI
+UNIT GuardBreakerUnitID VenomothID 	0x0 Level(0, Enemy, 1) [8,10]  0b 0x0	0x1 REDA8R10 	[Psybeam,SignalBeam,Sludge,0] PursueWithoutHeedAI
+UNIT GymPkmn_1 TentacruelID 	GuardBreakerUnitID Level(0, Enemy, 1) [8,12]  0b 0x0	0x1 REDA8R12 	[Surf, Sludge, IceBeam, 0x0] PursueWithoutHeedAI
+UNIT GymPkmn_2 MukID 		GuardBreakerUnitID Level(0, Enemy, 1) [10,12]  0b 0x0	0x1 REDA10R12 	[PoisonJab, FirePunch, ThunderPunch,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_3 WeezingID 	GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0 	0x1 REDA6R12 	[Sludge,FireBlast,Flash,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_4 ScytherID 	GuardBreakerUnitID Level(0, Enemy, 1) [5,9]  0b 0x0	0x1 REDA5R9 	[XScissor, WingAttack,Slash,0] PursueWithoutHeedAI
+UNIT GymPkmn_5 KabutopsID 	GuardBreakerUnitID Level(0, Enemy, 1) [11,9]  0b 0x0	0x1 REDA11R9 	[Waterfall, RockSlide,Slash,0x0] PursueWithoutHeedAI
+//UNIT GymPkmn_5 HypnoID 		GuardBreakerUnitID Level(0, Enemy, 1) [7,12]  0b 0x0	0x1 REDA7R12 	[Psybeam, Headbutt,PoisonGas,0x0] PursueWithoutHeedAI
 UNIT
 
 EnemyTrainersB:
-UNIT 0xD0 VenomothID 	0x0 Level(0, Enemy, 1) [8,13]  0b 0x0	0x1 REDA8R13 	[Psychic,SignalBeam,Sludge,0] PursueWithoutHeedAI
-UNIT 0xA0 TentacruelID 	0xD0 Level(0, Enemy, 1) [8,15]  0b 0x0	0x1 REDA8R15 	[Surf, Sludge, IceBeam, 0x0] PursueWithoutHeedAI
-UNIT 0xA1 MukID 		0xD0 Level(0, Enemy, 1) [10,12]  0b 0x0	0x1 REDA10R12 	[PoisonJab, FirePunch, ThunderPunch,0x0] PursueWithoutHeedAI
-UNIT 0xA2 HypnoID 		0xD0 Level(0, Enemy, 1) [6,12]  0b 0x0	0x1 REDA6R12 	[Psychic, Headbutt,PoisonGas,0x0] PursueWithoutHeedAI
-//UNIT 0xA2 WeezingID 	0xD0 Level(0, Enemy, 1) [6,12]  0b 0x0 	0x1 REDA6R12 	[Sludge,FireBlast,Flash,0x0] PursueWithoutHeedAI
-UNIT 0xA3 ScytherID 	0xD0 Level(0, Enemy, 1) [5,9]  0b 0x0	0x1 REDA5R9 	[XScissor, WingAttack,Slash,0] PursueWithoutHeedAI
-UNIT 0xA4 KabutopsID 	0xD0 Level(0, Enemy, 1) [11,9]  0b 0x0	0x1 REDA11R9 	[Waterfall, RockSlide,Slash,0x0] PursueWithoutHeedAI
+UNIT GuardBreakerUnitID VenomothID 	0x0 Level(0, Enemy, 1) [8,13]  0b 0x0	0x1 REDA8R13 	[Psychic,SignalBeam,Sludge,0] PursueWithoutHeedAI
+UNIT GymPkmn_1 TentacruelID 	GuardBreakerUnitID Level(0, Enemy, 1) [8,15]  0b 0x0	0x1 REDA8R15 	[Surf, Sludge, IceBeam, 0x0] PursueWithoutHeedAI
+UNIT GymPkmn_2 MukID 		GuardBreakerUnitID Level(0, Enemy, 1) [10,12]  0b 0x0	0x1 REDA10R12 	[PoisonJab, FirePunch, ThunderPunch,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_3 HypnoID 		GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0	0x1 REDA6R12 	[Psychic, Headbutt,PoisonGas,0x0] PursueWithoutHeedAI
+//UNIT GymPkmn_3 WeezingID 	GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0 	0x1 REDA6R12 	[Sludge,FireBlast,Flash,0x0] PursueWithoutHeedAI
+UNIT GymPkmn_4 ScytherID 	GuardBreakerUnitID Level(0, Enemy, 1) [5,9]  0b 0x0	0x1 REDA5R9 	[XScissor, WingAttack,Slash,0] PursueWithoutHeedAI
+UNIT GymPkmn_5 KabutopsID 	GuardBreakerUnitID Level(0, Enemy, 1) [11,9]  0b 0x0	0x1 REDA11R9 	[Waterfall, RockSlide,Slash,0x0] PursueWithoutHeedAI
 UNIT
 	
 

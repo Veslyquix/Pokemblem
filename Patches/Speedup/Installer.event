@@ -292,10 +292,10 @@ LevelUpCheckProcExists: // 3000108
 #ifdef POKEMBLEM
 	// don't use this part unless you know what you are doing 
 	PUSH 
-	ORG $3D450 
-	#include "AiAttemptOffensiveAction.lyn.event" 
+	// ORG $3D450 
+	// #include "AiAttemptOffensiveAction.lyn.event" 
 	// 0x3D5F0 
-	ASSERT $3D6AC - (CurrentOffset&0xFFFFFF)
+	// ASSERT $3D6AC - (CurrentOffset&0xFFFFFF)
 	//MESSAGE CurrentOffset 
 
 	ORG $39B54 // Since we added RefreshEntityBmMaps(); RenderBmMap(); and RefreshUnitSprites();
@@ -303,9 +303,8 @@ LevelUpCheckProcExists: // 3000108
 	SHORT $46c0 $46c0 $46c0 $46c0 $46c0 $46c0 
 
 	POP 
-
-	#include "CpDecide.lyn.event" 
-	//#include "AiTryMoveTowards.lyn.event" 
+    #include "AiAttemptOffensiveAction.lyn.event" 
+	// #include "CpDecide.lyn.event" 
 #endif 
 
 

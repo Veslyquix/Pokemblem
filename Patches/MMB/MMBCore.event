@@ -1,4 +1,12 @@
 
+// Move MMBNumberBaseTile - Vesly 
+PUSH 
+ORG $8d0b8 // InitPlayerPhaseInterface  
+WORD 0x6015800 //Decompress(gGfx_PlayerInterfaceNumbers, OBJ_CHR_ADDR(0x2E0));
+ORG $8d0c0
+WORD 0x6015940 //CpuFastCopy(BG_CHR_ADDR(0x175), OBJ_CHR_ADDR(0x2EA), CHR_SIZE);
+POP 
+
 	#include "EAstdlib.event"
 	#include "Extensions/Hack Installation.txt"
 
@@ -440,8 +448,11 @@
 		#endif // MMBItem5Alternate
 		
 		#ifdef MMBDrawCaughtIconDef
+			#ifndef MMBCaughtTileIndex
+				#define MMBCaughtTileIndex 0x1E0
+			#endif
 			#include "Modules/DrawCaughtIcon.lyn.event" 
-			SHORT (MMBInventoryObjectPaletteIndex << 12) | 0x340
+			SHORT (MMBInventoryObjectPaletteIndex << 12) | MMBCaughtTileIndex
 			BYTE MMBDrawCaughtX MMBDrawCaughtY
 		#endif 
 

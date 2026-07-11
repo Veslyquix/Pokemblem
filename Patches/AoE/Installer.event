@@ -338,12 +338,12 @@ ALIGN 4
 AoE_DebuffTable:
 WORD 0 0 
 //DebuffUnitEntry(mag, str, skl, spd, def, res, luk, mov)
-DebuffUnitEntry(5, 5, 0,0,0,0,0,0)// -5 mag/str from Growl/Snarl 
-DebuffUnitEntry(0,0,0,0, 5, 5, 0,0)// -5 Res/Def Leer/Tail whip/Acid 
-DebuffUnitEntry(0,0,0,0, 8, 8, 0,0)// -8 Res/Def from Screech 
-DebuffUnitEntry(2,2,2,2, 2, 2, 2,0)// -2 all stats from Sand Attack/Pound
-DebuffUnitEntry(0,0,0, 5, 0,0,0,0)// -5 Spd from Constrict/Rock Tomb/String Shot/IcyWind 
-DebuffUnitEntry(2,2,2,2, 2, 2, 2,0)// -2 in stats from flash 
+DebuffUnitEntry(6, 6, 0,0,0,0,0,0)// -6 mag/str from Growl/Snarl 
+DebuffUnitEntry(0,0,0,0, 6, 6, 0,0)// -6 Res/Def Leer/Tail whip/Acid 
+DebuffUnitEntry(0,0,0,0, 10, 10, 0,0)// -10 Res/Def from Screech 
+DebuffUnitEntry(3,3,3,3, 3,3, 3,0)// -3 all stats from Sand Attack/Pound
+DebuffUnitEntry(0,0,0, 6, 0,0,0,0)// -6 Spd from Constrict/Rock Tomb/String Shot/IcyWind 
+DebuffUnitEntry(3,3,3,3, 3, 3, 3,0)// -3 in stats from flash 
 WORD 0xFFFFFFFF 0xFFFFFFFF 
 
 
@@ -1327,7 +1327,7 @@ BYTE 0 // Config2
 // Entry 
 BYTE 0 0 0 0
 BYTE 0 0 0 HyperBeam // Always usable by anyone 
-BYTE 0 FriendlyFireBool
+BYTE 0 FriendlyFireBool|MagBasedBool|HitResBool 
 BYTE T1AoE_Mt T1AoE_Var // variance range of 0 - 2 
 BYTE SpeMin 2 // Attack range
 BYTE SmallestLine normalAnimationID // Index of RangeMask, AnimationALL,

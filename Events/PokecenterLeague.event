@@ -61,6 +61,7 @@ ShopItems_B: // TMs CDs
 //BYTE SpellScroll Psychic SpellScroll PetalDance
 //BYTE SpellScroll Screech SpellScroll SwordsDance
 //BYTE SpellScroll BugBuzz SpellScroll CalmMind
+BYTE SpellScroll Sludge SpellScroll ShadowBall SpellScroll Waterfall
 BYTE SpellScroll SolarBeam  SpellScroll SkyAttack
 BYTE SpellScroll HiJumpKick SpellScroll BulkUp
 BYTE SpellScroll ThunderMove SpellScroll HoneClaws
@@ -77,9 +78,20 @@ BYTE $0 0; ALIGN 4
 ALIGN 4
 ShopItems_C: // Skill Scrolls 
 // 2nd store in Viridian? Or at league? 
-BYTE SkillScroll DartingStanceID SkillScroll ChargeID SkillScroll PursuitID
-BYTE SkillScroll WrathID SkillScroll SilentPrideID SkillScroll QuickDrawID 
-BYTE SkillScroll FieryBloodID SkillScroll RenewalID 
+BYTE SkillScroll FuryID
+BYTE SkillScroll SavageBlowID
+BYTE SkillScroll GrislyWoundID
+BYTE SkillScroll PoisonStrikeID
+BYTE SkillScroll MiracleID
+BYTE SkillScroll CounterMagicID
+BYTE SkillScroll CounterID
+BYTE SkillScroll GaleforceID
+BYTE SkillScroll DowngradeID
+BYTE SkillScroll GuardBreakerID
+BYTE SkillScroll Intimidate2ID
+BYTE SkillScroll SteadyBrawlerID
+BYTE SkillScroll RecklessFighterID
+BYTE SkillScroll RenewalID 
 BYTE $0 0; ALIGN 4
 
 
@@ -162,12 +174,117 @@ BYTE $0 0; ALIGN 4
 LocationBasedEvents:
 House(0, ToRoute23N, 11,16) 
 House(0, ToLorelei, 6,1) 
+House(0,LeagueDebugQuickLoad,17,11)
 Vendor(ShopItems_A,0,9)
 Vendor(ShopItems_B,1,9)
 Vendor(ShopItems_C,2,9)
 Vendor(ShopItems_D,10,9)
 Vendor(ShopItems_E,11,9)
 END_MAIN
+
+{ // Scope brackets, so DebugStuffLabel can be included in DebugStuffEntry
+DebugStuffEntry(TrainerL, 200000)
+DebugItems SuperRepel 10
+BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
+BYTE SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
+BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
+BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID)
+BYTE SkillAcc(AmaterasuID) SkillAcc(HoverBoardID) SkillAcc(GaleforceID) SkillAcc(BlossomID)
+BYTE JellyDonut 5
+BYTE SuperPotion 5
+BYTE HyperPotion 5
+BYTE MaxPotion 5
+BYTE Revive 3
+BYTE WarpCrystal 5
+BYTE EscapeRope 5
+BYTE ExoticCandy 5
+BYTE RareCandy 1
+BYTE FullHeal 5
+BYTE HPUp 1
+BYTE Protein 1
+BYTE Carbos 2
+BYTE Zinc 1
+BYTE Iron 1
+BYTE Calcium 2
+BYTE HoplonGuard2 1
+BYTE MoonStone 1
+BYTE FireStone 1
+BYTE WaterStone 1
+BYTE ThunderStone 1
+BYTE LeafStone 1
+BYTE LinkStone 1
+BYTE DryingPan 1
+BYTE StatAccessory MuscleBand_BoostIndex StatAccessory WiseGlasses_BoostIndex
+BYTE StatAccessory LeatherShield_BoostIndex StatAccessory EnergyBand_BoostIndex
+BYTE StatAccessory BronzeShield_BoostIndex StatAccessory OldWard_BoostIndex
+BYTE StatAccessory PaddedShield_BoostIndex StatAccessory IronShield_BoostIndex
+BYTE StatAccessory WiseGlassesT2_BoostIndex StatAccessory MuscleBandT2_BoostIndex
+BYTE StatAccessory MagicWard_BoostIndex StatAccessory EnergyBandT2_BoostIndex
+BYTE StatAccessory QuickBoots_BoostIndex StatAccessory LuckyBracerT3_BoostIndex
+BYTE StatAccessory MuscleBandT3_BoostIndex StatAccessory SteelShield_BoostIndex
+BYTE StatAccessory VintageBoots_BoostIndex StatAccessory EnhancedWard_BoostIndex StatAccessory WiseGlassesT3_BoostIndex
+BYTE StatAccessory StuddedShield_BoostIndex StatAccessory EnergyBandT3_BoostIndex StatAccessory EnergyBandT4_BoostIndex
+BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
+BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
+BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
+BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll FierceStanceID SkillScroll OpportunistID
+BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
+BYTE SkillScroll ChargeID SkillScroll AdaptabilityID SkillScroll RecklessFighterID SkillScroll DowngradeID
+BYTE SkillScroll Intimidate2ID SkillScroll SteadyBrawlerID SkillScroll MiracleID SkillScroll CounterMagicID SkillScroll CounterID SkillScroll GaleforceID
+BYTE SkillScroll GrislyWoundID SkillScroll FieryBloodID SkillScroll FuryID SkillScroll RenewalID SkillScroll SavageBlowID
+BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
+BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
+BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
+BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
+BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
+BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
+BYTE SpellScroll LeafBlade SpellScroll AuroraBeam SpellScroll Psybeam SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch
+BYTE SpellScroll BugBite SpellScroll PoisonJab SpellScroll DrillPeck SpellScroll Flamethrower SpellScroll Fly
+BYTE SpellScroll IceBeam SpellScroll TriAttack SpellScroll PetalDance SpellScroll Psychic SpellScroll GrassKnot
+BYTE SpellScroll Screech SpellScroll SwordsDance SpellScroll BugBuzz SpellScroll HiJumpKick SpellScroll BulkUp SpellScroll CalmMind
+BYTE SpellScroll JumpKick SpellScroll Dragonbreath SpellScroll ThunderMove SpellScroll Ancientpower SpellScroll HoneClaws
+BYTE SpellScroll Surf SpellScroll Waterfall SpellScroll EarthPower SpellScroll Blizzard SpellScroll SolarBeam
+BYTE SpellScroll Sludge SpellScroll ShadowBall SpellScroll FireBlast SpellScroll HydroPump SpellScroll HyperBeam
+BYTE SpellScroll Earthquake SpellScroll DoubleEdge SpellScroll Outrage SpellScroll DarkPulse SpellScroll Megahorn SpellScroll MeteorMash
+SHORT 0
+
+DebugFlags OldAmberFlag BillMtMoonFlag BoulderbadgeObtained CascadebadgeObtained SSAnneTicketFlag CutHmFlag ThunderbadgeObtained HelixFossilFlag DomeFossilFlag
+SHORT PokefluteFlag RockSmashFlag SoulbadgeObtained FlyFlag RainbowbadgeObtained SaffronArrived SilphCoDefeated MarshbadgeObtained CinnabarArrived SecretKeyObtained
+SHORT VolcanobadgeObtained EarthbadgeObtained StrengthBoulderFlag IndigoPlateauArrived 
+SHORT 0
+
+DebugClasses GravellerID
+BYTE ZubatID VenomothID GolbatID MarowakID OnixID
+BYTE MachokeID SandslashID PsyduckID SlowpokeID PoliwagID
+BYTE HorseaID GoldeenID FearowID ArbokID PrimeapeID
+BYTE DittoID NidoranMID NidoranFID RattataID SpearowID
+BYTE MankeyID PikachuID VoltorbID MagnemiteID GrimerID
+BYTE MukID ElectabuzzID RaichuID ElectrodeID MagnetonID
+BYTE TentacoolID TentacruelID SeakingID SeadraID KinglerID
+BYTE TangelaID PoliwhirlID MrMimeID RaticateID PidgeottoID
+BYTE MagmarID VulpixID GrowlitheID PonytaID WeezingID
+BYTE KoffingID JynxID DewgongID SlowbroID ShellderID
+BYTE SeelID GyaradosID GolduckID StaryuID KrabbyID
+BYTE MagikarpID JigglypuffID KadabraID MeowthID DoduoID
+BYTE RhyhornID ParasID ParasectID LickitungID KangaskhanID
+BYTE VenonatID TaurosID ExeggcuteID CuboneID ScytherID
+BYTE PinsirID NidorinoID NidorinaID ChanseyID GloomID
+BYTE WeepinbellID FarfetchdID GastlyID MachopID GeodudeID
+BYTE DiglettID SandshrewID DrowzeeID CharmanderID SquirtleID
+BYTE BulbasaurID EeveeID PidgeyID OddishID BellsproutID
+BYTE AbraID EkansID ClefairyID MetapodID KakunaID
+BYTE CaterpieID WeedleID
+BYTE 0 // Terminator
+
+}
+ALIGN 4
+LeagueDebugQuickLoad:
+ASMC DebugLoadUnits
+NoFade
+ENDA
+ALIGN 4
 
 MiscBasedEvents:
 CauseGameOverIfLordDies
@@ -298,7 +415,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 

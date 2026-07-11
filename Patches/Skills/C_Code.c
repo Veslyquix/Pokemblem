@@ -9,6 +9,109 @@ extern int FlankRequiresSkill_Link;
 extern int MultiscaleID_Link;
 extern int AreWeOutdoors();
 
+struct SkillUsabilityReq
+{
+    u16 type;
+    u16 statReq : 8;
+    // u16 curStatNotCap : 1; // uses current stat instead of stat cap
+    // u16 allStats : 1;      // all stats in the bitfield are required to be at the specified level
+    u16 hp : 1;
+    u16 str : 1;
+    u16 skl : 1;
+    u16 spd : 1;
+    u16 def : 1;
+    u16 res : 1;
+    u16 mag : 1;
+    //     u16 lck : 1; // lck is not class based
+};
+
+struct magClassTable
+{
+    u8 base;
+    u8 growth;
+    u8 cap;
+    u8 promo;
+};
+struct magCharTable
+{
+    u8 base;
+    u8 growth;
+};
+extern struct magClassTable MagClassTable[];
+extern struct magClassTable ClassLuckTable[];
+extern struct magCharTable MagCharTable[];
+extern const struct SkillUsabilityReq SkillUsabilityTable[];
+int CanUnitLearnSkill(struct Unit * unit, int skillID)
+{
+    int result = false;
+    const struct SkillUsabilityReq data = SkillUsabilityTable[skillID];
+    int amt = data.statReq;
+    if (!data.type && !amt)
+    {
+        return true;
+    }
+    if (data.type & (int)unit->pClassData->_pU50)
+    {
+        return true;
+    }
+    if (!amt)
+    {
+        return false;
+    }
+
+    if (data.hp)
+    {
+        if (unit->pClassData->maxHP >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.str)
+    {
+        if (unit->pClassData->maxPow >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.skl)
+    {
+        if (unit->pClassData->maxSkl >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.spd)
+    {
+        if (unit->pClassData->maxSpd >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.def)
+    {
+        if (unit->pClassData->maxDef >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.res)
+    {
+        if (unit->pClassData->maxRes >= amt)
+        {
+            result = true;
+        }
+    }
+    if (data.mag)
+    {
+        if (MagClassTable[unit->pClassData->number].cap >= amt)
+        {
+            result = true;
+        }
+    }
+
+    return result;
+}
+
 void ComputeBattleUnitHitRate(struct BattleUnit * bu)
 {
     int itemHit = GetItemHit(bu->weapon);
@@ -66,6 +169,51 @@ int GetSpellScrollDesc(int itemID)
     }
     int uses = ITEM_USES(itemID);
     return GetItemData(uses)->descTextId;
+}
+
+extern int AssaultVestID_Link;
+int AssaultVestEffect(int stat, struct Unit * unit) // 50% more res
+{
+    if (SkillTester(unit, AssaultVestID_Link))
+    {
+        stat += ((stat + 1) >> 1);
+    }
+    return stat;
+}
+extern int TacticalVestID_Link;
+int TacticalVestEffect(int stat, struct Unit * unit) // 50% more def
+{
+    if (SkillTester(unit, TacticalVestID_Link))
+    {
+        stat += ((stat + 1) >> 1);
+    }
+    return stat;
+}
+extern int EvioliteID_Link;
+
+extern u8 * pPromoJidLut;
+u8 CanUnitPromote(struct Unit * unit)
+{
+    u8 * promoTable = pPromoJidLut;
+    int classNumber = unit->pClassData->number;
+    if ((!promoTable[classNumber * 2]) && (!promoTable[(classNumber * 2) + 1]))
+    {
+        return false;
+    }
+
+    return true;
+}
+
+int EvioliteEffect(int stat, struct Unit * unit) // 50% more def/res if unevolved
+{
+    if (SkillTester(unit, EvioliteID_Link))
+    {
+        if (CanUnitPromote(unit))
+        {
+            stat += ((stat + 1) >> 1);
+        }
+    }
+    return stat;
 }
 
 extern int ChlorophyllID_Link;
@@ -310,6 +458,85 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
             if (highestB > highestA)
             {
                 AdjustDamageByPercent(bunitB, bunitA, 125);
+            }
+        }
+    }
+}
+extern int GetDifficulty(void);
+extern int EasyModeDmgReductionAmount;
+
+int AoeDamageReduction(int dmg, struct Unit * target, int defOrRes)
+{
+
+    if (defOrRes > 50)
+    {
+        defOrRes = 50;
+    }
+
+    // Apply percent with rounding: (x * percent + 50) / 100
+    int adjustedDamage = (dmg * (100 - defOrRes) + 50) / 100;
+    defOrRes >>= 1;
+    adjustedDamage = (adjustedDamage * (100 - defOrRes) + 50) / 100;
+    return adjustedDamage;
+}
+
+// Def/Res Damage Reduction
+void DefResDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        int battleDef = bunitA->battleDefense;
+        if (battleDef > 50)
+        {
+            battleDef = 50;
+        }
+        if (UNIT_FACTION(&bunitB->unit) == 0)
+        {
+            AdjustDamageByPercent(bunitB, bunitA, 100 - battleDef);
+        }
+        AdjustDamageByPercent(bunitB, bunitA, 100 - (battleDef >> 1));
+    }
+}
+
+// Def/Res Damage Reduction
+void EasyModeDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (GetDifficulty() == 0)
+    {
+        if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        {
+            if (UNIT_FACTION(&bunitB->unit) == 0)
+            {
+                return;
+            }
+            AdjustDamageByPercent(bunitB, bunitA, 100 - EasyModeDmgReductionAmount);
+        }
+    }
+}
+void GaleforceBitReset(void)
+{
+    struct Unit * unit;
+    for (int i = 0; i < 0xC0; ++i)
+    {
+        unit = GetUnit(i);
+        if (!UNIT_IS_VALID(unit))
+        {
+            continue;
+        }
+        unit->state &= ~(1 << 31);
+    }
+}
+
+void GaleforceEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+    {
+        if (UNIT_FACTION(&bunitB->unit) == GetCurrentPhase())
+        { // player phase galeforce ?
+            if (bunitB->unit.state & (1 << 31))
+            {
+                AdjustDamageByPercent(bunitB, bunitA, 50);
             }
         }
     }
@@ -1323,7 +1550,7 @@ int WeakArmorSpdEffect(int stat, struct Unit * unit)
     return stat;
 }
 
-// Unburden: Speed is doubled without a held item.
+// Unburden: +50% Speed without a held item.
 // Hitmonlee
 extern int EquippedAccessoryGetter(struct Unit * unit);
 extern int UnburdenID_Link;
@@ -1336,7 +1563,7 @@ int UnburdenEffect(int stat, struct Unit * unit)
 
         if (!heldItem)
         {
-            stat += stat;
+            stat += stat >> 1;
         }
     }
     return stat;
@@ -1445,14 +1672,14 @@ int AreWeOutdoorsOrDampAura(struct Unit * unit)
     return false;
 }
 
-// Strong Claws: Boosts str by 12.5%.
+// Strong Claws: Boosts str by 20%.
 extern int StrongClawsID_Link;
 // Aerodactyl
 int StrongClawsEffect(int stat, struct Unit * unit)
 {
     if (SkillTester(unit, StrongClawsID_Link))
     {
-        stat += (stat + 3) >> 3;
+        stat = (stat * 5) >> 2;
     }
     return stat;
 }
@@ -1504,6 +1731,13 @@ extern int LickitungID_Link;
 // double debuff or buff
 int AdjustForSimple(int debuffVal, struct Unit * unit)
 {
+    if (debuffVal > 0)
+    {
+        if (SkillTester(unit, TacticalVestID_Link) || SkillTester(unit, AssaultVestID_Link))
+        {
+            return 0;
+        }
+    }
     if (unit->pClassData->number != LickitungID_Link)
     {
         return debuffVal;

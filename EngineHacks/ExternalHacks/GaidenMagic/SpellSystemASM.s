@@ -39,7 +39,7 @@ neg r1, r1  	@ These 4 lines were commented out for some reason by Snek
 cmp r3, r1		@ but they cause an AI bug where they always use their last inv wep 
 bne EnemyExists @ so I uncommented them - Vesly 	
 OverwriteR3:
-mov r3, r0
+mov r3, #9 
 EnemyExists:
 
 

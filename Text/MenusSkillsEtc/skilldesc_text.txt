@@ -3,9 +3,18 @@
 Surf: Can traverse[N]
 deep waters.[X]
 
-## SD_Multiscale
-Multiscale: Take half[N]
-damage when at full HP.[X]
+
+
+
+## SD_AssaultVest
+Assault Vest: +50% Res.[X]
+## SD_TacticalVest
+Tactical Vest: +50% Def.[X]
+## SD_Eviolite
+Eviolite Vest: +50% Def/Res.[X]
+
+
+
 
 ## SD_SilphScope
 Silph Scope: Super effective[N]
@@ -16,9 +25,7 @@ Infiltrator: If an ally is on the[N]
 opposite side of an adjacent[N]
 target, deal 50% more damage.[X]
 
-## SD_Swarm
-Swarm: If an adjacent target is[N]
-surrounded, deal 100% more damage.[X]
+
 
 ## SD_Hover
 Hover: Can go over[N]
@@ -28,17 +35,7 @@ ledges and water.[X]
 Powerful Aura: Temporarily[N]
 immune to attacks![X]
 
-## SD_Intimidate2
-Intimidate: Battle debuffs[N]
-enemy Str/Mag by 20%.[X]
 
-## SD_GuardBreaker
-Guard Breaker: Battle debuffs[N]
-enemy Def/Res by 25%.[X]
-
-## SD_Downgrade
-Downgrade: Battle debuffs[N]
-enemy Spd by 25%.[X]
 
 // used these for skill names 
 //([:][^\n]*[\[X\]])
@@ -197,9 +194,6 @@ when initiating battle.[X]
 Armored Blow: +10 Def[N]
 when initiating battle.[X]
 
-## SD_Vantage
-Vantage: If HP < 50%,[N]
-strike first when attacked.[X]
 
 ## SD_Desperation
 Desperation: If HP < 50%,[N]
@@ -209,17 +203,7 @@ double attacks occur immediately.[X]
 Wrath: If HP < 50%,[N]
 +15 critical rate.[X]
 
-## SD_Counter
-Counter: Reflect physical damage[N]
-when attacked at 1-2 range.[X]
 
-## SD_CounterMagic
-Countermagic: Reflect magic damage[N]
-when attacked at 1-2 range.[X]
-
-## SD_Miracle
-Sturdy: Survive a lethal[N]
-attack if HP > 75%.[X]
 
 ## SD_Swordfaire
 Swordfaire: +4 damage[N]
@@ -255,19 +239,6 @@ soldier to fight alongside you.[X]
 ## SD_Dance
 Dance: Refresh an ally unit[N]
 to let them act again.[X]
-
-## SD_Lifetaker
-Lifetaker: Restore up to 25% HP after[N]
-attacking and defeating an enemy.[X]
-
-## SD_Galeforce
-Galeforce: Move again after[N]
-attacking and defeating an enemy[N]
-if this was equipped start of turn.[X]
-
-## SD_Renewal
-Renewal: Restore 30% of max HP[N]
-at the start of each turn.[X]
 
 ## SD_NiceThighs
 Nice Thighs: No effect, really.[N]
@@ -431,10 +402,7 @@ if there are allies within 2 tiles.[X]
 Foreign Princess: Foreign army units[N]
 take -2/+2 damage dealt/taken.[X]
 
-## SD_SavageBlow
-Savage Blow: After attacking,[N]
-enemies within 2 tiles lose[N]
-25% of their current HP.[X]
+
 
 ## SD_Relief
 Relief: Recover 20% HP each turn if[N]
@@ -639,14 +607,7 @@ with an adjacent ally.[X]
 Breath of Life: After attacking,[N]
 allies in 2 tiles heal 20% of max HP.[X]
 
-## SD_Fury
-Enhanced DNA: +20% Str/Mag/Spd.[N]
--20% Def/Res.[N]
-Unit loses 10% HP after combat.[X]
 
-## SD_Dazzle
-Dazzle: Opponents cannot[N]
-counterattack this unit.[X]
 
 ## SD_TriAdept
 Triangle Adept: Doubles weapon[N]
@@ -689,9 +650,9 @@ Life and Death: Grants[N]
 Catch 'Em All: Grants[N]
 the user every skill.[X]
 
-## SD_Vantage_Plus
-Vantage+: User always attacks first,[N]
-even if attacked.[X]
+## SD_Vantage
+Vantage: If HP < 50%,[N]
+strike first when attacked.[X]
 
 ## SD_Hawkeye
 Hawkeye: User will[N]
@@ -828,15 +789,7 @@ Devil's Whim: This unit is cursed, but[N]
 the curse spreads to the enemy as well.[N]
 (31-Luck % chance of Devil Reversal).[X]
 
-## SD_Poison_Strike
-Poison Strike: Deals damage equal to[N]
-25% of the enemy's current HP after[N]
-battle this unit initiates.[X]
 
-## SD_Grisly_Wound
-Aftermath: Deals damage equal[N]
-to 25% of the enemy's current[N]
-HP after every battle.[X]
 
 ## SD_Hex
 Hex: -15 avoid to all[N]
@@ -1799,7 +1752,8 @@ Avo -20 on that foe during combat.[X]
 ## SD_RecklessFighter
 Reckless Fighter: If below max HP,[N]
 this unit and the opponent[N]
-can always double.[X]
+can always double.[N]
+[lock][Fighting][X]
 
 ## SD_KeenFighter
 Keen Fighter: This unit takes 25%[N]
@@ -1827,7 +1781,8 @@ this unit always doubles.[X]
 ## SD_SteadyBrawler
 Steady Brawler: This unit deals[N]
 20% less damage while doubling,[N]
-but 20% more when not.[X]
+but 20% more when not.[N]
+[lock][Fighting][X]
 
 ## SD_QuickLearner
 Quick Learner: When attacking a[N]
@@ -1845,11 +1800,13 @@ cannot counter, this unit doubles.[X]
 
 ## SD_Chlorophyll
 Chlorophyll: Doubled speed while[N]
-outdoors or in Fiery Aura's range.[X]
+outdoors or in Fiery Aura's range.[N]
+[lock][Grass][X]
 
 ## SD_SolarPower
 Solar Power: +25% str/mag while[N]
-outdoors or in Fiery Aura's range.[X]
+outdoors or in Fiery Aura's range.[N]
+[lock][Fire][X]
 
 ## SD_Explorer
 Explorer: Restore 1/4th[N]
@@ -1858,11 +1815,13 @@ or in Damp Aura's range.[X]
 
 ## SD_TintedLens
 Tinted Lens: Ineffective moves[N]
-deal super effective damage.[X]
+deal super effective damage.[N]
+[lock][Bug][X]
 
 ## SD_ShedSkin
 Shed Skin: at the start of the turn,[N]
-recover from status effects.[X]
+recover from status effects.[N]
+[lock][Bug][X]
 
 ## SD_KeenEye
 Keen Eye: Moves are[N]
@@ -1870,7 +1829,8 @@ Keen Eye: Moves are[N]
 
 ## SD_Sniper
 Sniper: +30 Critical hit[N]
-rate.[X]
+rate.[N]
+[lock][Electric][X]
 
 ## SD_LightningRod
 Lightning Rod: Absorb nearby[N]
@@ -1918,7 +1878,8 @@ sleep after battle at 1 range.[X]
 
 ## SD_PoisonTouch
 Poison Touch: Inflict poison[N]
-after battle at 1 range.[X]
+after battle at 1 range.[N]
+[lock][Poison][X]
 
 ## SD_MagicGuard
 Magic Guard: [N]
@@ -1943,7 +1904,8 @@ or in range of Damp Aura.[X]
 
 ## SD_ShellArmor
 Shell Armor: Grants an immunity[N]
-to critical hits.[X]
+to critical hits.[N]
+[lock][Water], or 50+ Def cap.[X]
 
 ## SD_Grudge
 Grudge: After fainting, the opponent's[N]
@@ -1960,7 +1922,8 @@ effects instead deal[N]
 
 ## SD_Forewarn
 Forewarn: Adjacent units take[N]
-10 less damage.[X]
+10 less damage.[N]
+[lock][Psychic][X]
 
 ## SD_HyperCutter
 Hyper Cutter: Immune to debuffs.[X]
@@ -1968,19 +1931,22 @@ Hyper Cutter: Immune to debuffs.[X]
 ## SD_Harvest
 Harvest: Restore 50% HP each[N]
 turn while outdoors or in[N]
-Fiery Aura's range.[X]
+Fiery Aura's range.[N]
+[lock][Grass], [Bug][X]
 
 ## SD_Unburden
-Unburden: Speed is doubled[N]
+Unburden: +50% Speed[N]
 without a held item.[X]
 
 ## SD_RecklessRock
 Reckless Rock: Deal and take[N]
-20% more damage.[X]
+20% more damage.[N]
+[lock][Rock][X]
 
 ## SD_Scrappy
 Scrappy: Your attacks[N]
-ignore immunities.[X]
+ignore immunities.[N]
+[lock][Normal], [Fighting][X]
 
 ## SD_Filter
 Filter: Super Effective moves[N]
@@ -1992,7 +1958,8 @@ power have doubled power.[X]
 
 ## SD_DrySkin
 Dry Skin: Fully heal when hit[N]
-by water. Weak to fire.[X]
+by water. Weak to fire.[N]
+[lock][Bug], [Rock][X]
 
 ## SD_MotorDrive
 Motor Drive: Raise Spd by +10[N]
@@ -2012,7 +1979,8 @@ of the opponent in battle.[X]
 
 ## SD_Adaptability
 Adaptability: Same type[N]
-attack bonus is doubled.[X]
+attack bonus is doubled.[N]
+[lock][Normal], [Water], [Fire], [Grass], [Electric][X]
 
 ## SD_AcidArmor
 Acid Armor: Boost Def/Res by 25%[N]
@@ -2020,15 +1988,16 @@ while inflicted by status.[X]
 
 ## SD_QuickFeet
 Quick Feet: Boost speed by 25%[N]
-while inflicted by status.[X]
+while inflicted by status.[N]
+[lock][Normal][X]
 
 ## SD_WeakArmor
 Weak Armor: -5 def, +10 spd[N]
 while damaged.[X]
 
 ## SD_StrongClaws
-Strong Claws: Boosts str[N]
-by 1/8th.[X]
+Strong Claws: Boosts Str[N]
+by 20%.[X]
 
 ## SD_Pressure
 Pressure: Opponents counter[N]
@@ -2061,10 +2030,114 @@ ground moves.[X]
 
 ## SD_SwiftSwim
 Swift Swim: Speed is doubled[N]
-in water or in Damp Aura's range.[X]
+in water or in Damp Aura's range.[N]
+[lock][Water][X]
 
 ## SD_RockyHelmet
 Rough Skin: Opponent takes[N]
-25% of current HP after attacking.[X]
+25% of current HP after attacking.[N]
+[lock][Rock], [Ground], or 45+ Def cap.[X]
+
+
+
+## SD_Counter
+Counter: Reflect physical damage[N]
+when attacked at 1-2 range.[N]
+[lock][Fighting], or 50+ Str cap.[X]
+
+## SD_CounterMagic
+Countermagic: Reflect magic damage[N]
+when attacked at 1-2 range.[N]
+[lock][Psychic], or 50+ Mag cap.[X]
+
+## SD_Miracle
+Sturdy: Survive a lethal[N]
+attack if HP > 75%.[N]
+[lock][Rock], [Ground], [Steel], or 55+ Def cap.[X]
+
+## SD_Vantage_Plus
+Vantage: User always attacks first,[N]
+even if attacked.[N]
+[lock][Normal], [Flying], or 50+ Spd cap.[X]
+
+
+## SD_Multiscale
+Multiscale: Take half[N]
+damage when at full HP.[N]
+[lock][Dragon], [Water], or 55+ Def or Res cap.[X]
+
+
+## SD_Swarm
+Swarm: If an adjacent target is[N]
+surrounded, deal 100% more damage.[N]
+[lock][Bug], or 55+ Spd cap.[X]
+
+## SD_Intimidate2
+Intimidate: Battle debuffs[N]
+enemy Str/Mag by 20%.[N]
+[lock][Fighting], [Ghost][X]
+
+## SD_GuardBreaker
+Guard Breaker: Battle debuffs[N]
+enemy Def/Res by 25%.[N]
+[lock][Poison], [Ice][X]
+
+## SD_Downgrade
+Downgrade: Battle debuffs[N]
+enemy Spd by 25%.[N]
+[lock][Steel], [Electric][X]
+
+
+## SD_Fury
+Enhanced DNA: +20% Str/Mag/Spd.[N]
+-20% Def/Res.[N]
+Unit loses 10% HP after combat.[N]
+[lock] 60+ Str, Mag, or Spd.[X]
+
+## SD_Dazzle
+Dazzle: Opponents cannot[N]
+counterattack this unit.[N]
+[lock][Ghost][X]
+
+## SD_Lifetaker
+Lifetaker: Restore up to 25% HP after[N]
+attacking and defeating an enemy.[N]
+[lock][Ghost][X]
+
+## SD_Galeforce
+Galeforce: Move again with half power[N]
+after defeating an enemy on your phase[N]
+if this was equipped start of turn.[N]
+[lock][Flying], or 60+ Spd cap.[X]
+
+## Acc_Galeforce
+Galeforce: Move again with half power[N]
+after defeating an enemy on your phase[N]
+if this was equipped start of turn.[X]
+
+## SD_Renewal
+Renewal: Restore 30% of max HP[N]
+at the start of each turn.[N]
+[lock][Psychic], or 50+ Res cap.[X]
+
+## SD_Poison_Strike
+Poison Strike: Deals damage equal to[N]
+25% of the enemy's current HP after[N]
+battle this unit initiates.[N]
+[lock][Poison], or 50+ Def or Res cap.[X]
+
+## SD_Grisly_Wound
+Aftermath: Deals damage equal[N]
+to 25% of the enemy's current[N]
+HP after every battle.[N]
+[lock] 55+ Spd cap.[X]
+
+## SD_SavageBlow
+Savage Blow: After attacking,[N]
+enemies within 2 tiles lose[N]
+25% of their current HP.[N]
+[lock] 55+ Str or Mag cap.[X]
+
+
 
 

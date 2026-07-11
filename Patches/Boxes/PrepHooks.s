@@ -17,6 +17,61 @@
   .short 0xf800
 .endm
 
+@ reset unit sprites whenever scrolling down in prep items menu 
+@ to avoid running out of sprite space 
+.global Hook_sub8099120
+.type Hook_sub8099120, %function 
+Hook_sub8099120: 
+push {lr} 
+mov r6, r0 @ vanilla does this 
+ldrh r0, [r6, #0x34] 
+mov r1, #0xF 
+and r0, r1 
+cmp r0, #0 
+bne ResetUnitSpritesNow
+pop {r3} 
+ldr r3, =0x8099133 
+bx r3 
+.ltorg 
+ResetUnitSpritesNow: 
+mov r1, #0x2F 
+ldrb r0, [r6, r1] 
+cmp r0, #1 
+bne OnlyForceSyncUnitSpriteSheet
+mov r0, #0 
+strb r0, [r6, r1] 
+bl UpdateShownUnitsInPrep 
+b ExitUpdateShownUnitsInPrep 
+OnlyForceSyncUnitSpriteSheet: 
+blh 0x8026f94 @ForceSyncUnitSpriteSheet 
+
+ExitUpdateShownUnitsInPrep: 
+pop {r3} 
+bx r3 
+.ltorg 
+
+@ reset unit sprites whenever scrolling down in prep items menu 
+@ to avoid running out of sprite space 
+.global Hook_sub8099120_2
+.type Hook_sub8099120_2, %function 
+Hook_sub8099120_2: 
+push {lr} 
+mov r1, #0x2F @ unk_2f; // unreferenced 
+mov r0, #1 
+strb r0, [r6, r1] @ 
+
+
+mov r7, r6 
+add r7, #0x2a 
+ldrb r0, [r7] 
+blh 0x8095354 @ GetUnitFromPrepList
+mov r1, r0 
+pop {r3} 
+bx r3 
+.ltorg 
+
+
+
 .global PREEXT_StartExtraEntry
 .type PREEXT_StartExtraEntry, %function 
 PREEXT_StartExtraEntry:

@@ -152,6 +152,20 @@ int EquippedAccessoryGetter(struct Unit *unit) {
   }
   return 0; // if no equipped item return nothing
 }
+int EquippedAccessoryGetSlot(struct Unit *unit) {
+  // int itemId;
+
+  if (!unit)
+    return (-1); // if no unit return no accessory effect
+  for (int i = 0; i < 5; i++) {
+    int isItemAnAccessory = GetItemAttributes(unit->items[i]) & IA_ACCESSORY;
+    if (isItemAnAccessory) {
+      if (ITEM_EQUIPPED(unit->items[i]))
+        return i; // & isItemAnAccessory
+    }
+  }
+  return (-1); // if no equipped item return nothing
+}
 
 int EquippedAccessoryDurabilityGetter(struct Unit *unit) {
   // int itemId;

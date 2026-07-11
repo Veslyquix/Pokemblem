@@ -4,49 +4,86 @@
 // copied from Gamma 
 PUSH 
 ORG $A00D14 //sidebar
-//IT_Name:
-  RMenu(0,IT_Class,0,InventoryRtext4,0x18,0x50,0x0,NameDescGetter)
-IT_Name: 
-IT_Class:
-  //RMenu(IT_Name,IT_Level,0,Inventory_Rng,0x6,0x68,0x6E8,ClassDescGetter)
-  RMenu(0,IT_Level,0,Inventory_Rng,0x18,0x50,0x6E8,ClassDescGetter) 
-  // I moved the IT_Name label for Pokemblem so that it only ever goes to IT_Class 
 
-
-IT_Level:
-  RMenu(IT_Class,IT_HP,0,IT_Exp,0x6,0x78,0x542)
-IT_Exp:
-  RMenu(IT_Class,IT_HP,IT_Level,Inventory_Atk,0x26,0x78,0x543)
-IT_HP:
-  RMenu(IT_Level,0,0,Inventory_Hit,0x6,0x88,0x544)
 
 ORG $A00DA0 //items start here
 InventoryRtext1:
-  RMenu(0,InventoryRtext2,IT_Name,0,0x68,0x18,0x00,ItemMenuRtextLooper,ItemMenuRtextGetter)
+  RMenu(InventoryRtext5,InventoryRtext2,IT_ClassA,IT_ClassA,0x68,0x18,0x00,ItemMenuRtextLooper,ItemMenuRtextGetter)
 InventoryRtext2:
-  RMenu(InventoryRtext1,InventoryRtext3,IT_Name,0,0x68,0x28,0x0001,ItemMenuRtextLooper,ItemMenuRtextGetter)
+  RMenu(InventoryRtext1,InventoryRtext3,IT_ClassB,IT_ClassB,0x68,0x28,0x0001,ItemMenuRtextLooper,ItemMenuRtextGetter)
 InventoryRtext3:
-  RMenu(InventoryRtext2,InventoryRtext4,IT_Name,0,0x68,0x38,0x0002,ItemMenuRtextLooper,ItemMenuRtextGetter)
+  RMenu(InventoryRtext2,InventoryRtext4,IT_ClassC,IT_ClassC,0x68,0x38,0x0002,ItemMenuRtextLooper,ItemMenuRtextGetter)
 InventoryRtext4:
-  RMenu(InventoryRtext3,InventoryRtext5,IT_Name,0,0x68,0x48,0x0003,ItemMenuRtextLooper,ItemMenuRtextGetter)
+  RMenu(InventoryRtext3,InventoryRtext5,IT_ClassD,IT_ClassD,0x68,0x48,0x0003,ItemMenuRtextLooper,ItemMenuRtextGetter)
 InventoryRtext5:
-  RMenu(InventoryRtext4,Inventory_Atk,IT_Name,Inventory_Rng,0x68,0x58,0x0004,ItemMenuRtextLooper,ItemMenuRtextGetter)
+  RMenu(InventoryRtext4,InventoryRtext1,IT_ClassE,IT_ClassE,0x68,0x58,0x0004,ItemMenuRtextLooper,ItemMenuRtextGetter)
 
 ORG $A00E2C //bottom thing with atk/crit/etc
-Inventory_Atk:
-  RMenu(InventoryRtext5,Inventory_Hit,IT_Exp,Inventory_Crt,0x76,0x78,0x55C)
-Inventory_Hit:
-  RMenu(Inventory_Atk,0,IT_HP,Inventory_Avo,0x76,0x88,0x55D)
-Inventory_Rng:
-  RMenu(InventoryRtext5,Inventory_Crt,IT_Class,0,0xae,0x68,0x55E)
-Inventory_Crt:
-  RMenu(Inventory_Rng,Inventory_Avo,Inventory_Atk,0,0xae,0x78,0x55F)
-Inventory_Avo:
-  RMenu(Inventory_Crt,0,Inventory_Hit,0,0xae,0x88,0x560)
+WORD 0 0 0 0 
+WORD 0 0 0 0 
+WORD 0 0 0 0 
+WORD 0 0 0 0 
+
+// Inventory_Atk:
+  // RMenu(InventoryRtext5,Inventory_Hit,IT_Exp,Inventory_Crt,0x76,0x78,0x55C)
+// Inventory_Hit:
+  // RMenu(Inventory_Atk,0,IT_HP,Inventory_Avo,0x76,0x88,0x55D)
+// Inventory_Rng:
+  // RMenu(InventoryRtext5,Inventory_Crt,IT_Class,0,0xae,0x68,0x55E)
+// Inventory_Crt:
+  // RMenu(Inventory_Rng,Inventory_Avo,Inventory_Atk,0,0xae,0x78,0x55F)
+// Inventory_Avo:
+  // RMenu(Inventory_Crt,0,Inventory_Hit,0,0xae,0x88,0x560)
 
 POP 
 
+ALIGN 4 
 
+IT_ClassA:
+  RMenu(IT_HPA,IT_LevelA,InventoryRtext1,InventoryRtext1,0x18,0x50,0x6E8,ClassDescGetter) 
+IT_ClassB:
+  RMenu(IT_HPB,IT_LevelB,InventoryRtext2,InventoryRtext2,0x18,0x50,0x6E8,ClassDescGetter) 
+IT_ClassC:
+  RMenu(IT_HPC,IT_LevelC,InventoryRtext3,InventoryRtext3,0x18,0x50,0x6E8,ClassDescGetter) 
+IT_ClassD:
+  RMenu(IT_HPD,IT_LevelD,InventoryRtext4,InventoryRtext4,0x18,0x50,0x6E8,ClassDescGetter) 
+IT_ClassE:
+  RMenu(IT_HPE,IT_LevelE,InventoryRtext5,InventoryRtext5,0x18,0x50,0x6E8,ClassDescGetter) 
+
+
+IT_LevelA:
+  RMenu(IT_ClassA,IT_HPA,IT_ExpA,IT_ExpA,0x6,0x78,0x542)
+IT_LevelB:
+  RMenu(IT_ClassB,IT_HPB,IT_ExpB,IT_ExpB,0x6,0x78,0x542)
+IT_LevelC:
+  RMenu(IT_ClassC,IT_HPC,IT_ExpC,IT_ExpC,0x6,0x78,0x542)
+IT_LevelD:
+  RMenu(IT_ClassD,IT_HPD,IT_ExpD,IT_ExpD,0x6,0x78,0x542)
+IT_LevelE:
+  RMenu(IT_ClassE,IT_HPE,IT_ExpE,IT_ExpE,0x6,0x78,0x542)
+
+  
+IT_ExpA:
+  RMenu(IT_ClassA,IT_HPA,IT_LevelA,IT_LevelA,0x26,0x78,0x543)
+IT_ExpB:
+  RMenu(IT_ClassB,IT_HPB,IT_LevelB,IT_LevelB,0x26,0x78,0x543)
+IT_ExpC:
+  RMenu(IT_ClassC,IT_HPC,IT_LevelC,IT_LevelC,0x26,0x78,0x543)
+IT_ExpD:
+  RMenu(IT_ClassD,IT_HPD,IT_LevelD,IT_LevelD,0x26,0x78,0x543)
+IT_ExpE:
+  RMenu(IT_ClassE,IT_HPE,IT_LevelE,IT_LevelE,0x26,0x78,0x543)
+
+IT_HPA:
+  RMenu(IT_LevelA,IT_ClassA,0,0,0x6,0x88,0x544)
+IT_HPB:
+  RMenu(IT_LevelB,IT_ClassB,0,0,0x6,0x88,0x544)
+IT_HPC:
+  RMenu(IT_LevelC,IT_ClassC,0,0,0x6,0x88,0x544)
+IT_HPD:
+  RMenu(IT_LevelD,IT_ClassD,0,0,0x6,0x88,0x544)
+IT_HPE:
+  RMenu(IT_LevelE,IT_ClassE,0,0,0x6,0x88,0x544)
 
 
 

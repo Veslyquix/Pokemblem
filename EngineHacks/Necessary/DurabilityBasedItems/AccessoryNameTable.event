@@ -155,6 +155,14 @@ StatAccessory_DescEntry(LuckyBracerT3_BoostIndex, LuckyBracerT3DescText)
 
 
 // Skills 
+SkillAccessory_NameEntry(AssaultVestID, AssaultVestName)
+SkillAccessory_DescEntry(AssaultVestID, AssaultVestDesc)
+SkillAccessory_NameEntry(TacticalVestID, TacticalVestName)
+SkillAccessory_DescEntry(TacticalVestID, TacticalVestDesc)
+SkillAccessory_NameEntry(EvioliteID, EvioliteName)
+SkillAccessory_DescEntry(EvioliteID, EvioliteDesc)
+
+
 SkillAccessory_NameEntry(CleatsID, CleatsNameText)
 SkillAccessory_DescEntry(CleatsID, CleatsDescText)
 
@@ -230,7 +238,7 @@ SkillAccessory_DescEntry(AmaterasuID, LeftoversDesc)
 
 
 SkillAccessory_NameEntry(GaleforceID, SN_Galeforce)
-SkillAccessory_DescEntry(GaleforceID, SD_Galeforce)
+SkillAccessory_DescEntry(GaleforceID, Acc_Galeforce)
 
 SkillAccessory_NameEntry(VoiceOfPeaceID, SN_VoiceOfPeace)
 SkillAccessory_DescEntry(VoiceOfPeaceID, SD_VoiceOfPeace)

@@ -2,6 +2,7 @@
 //! This file uses decomp-based headers
 // https://github.com/MokhaLeee/FE-CLib-Mokha
 #define brk asm("mov r11, r11");
+#define CHR_LINE 0x20
 extern int gSMSSyncFlag;
 extern UnitIconWait unit_icon_wait_table[];
 extern struct SMSHandle gSMSHandleArray[100];
@@ -123,7 +124,7 @@ void SetMirrorSpriteInSmsHandle(struct Unit * unit, struct SMSHandle * smsHandle
     }
 }
 
-// 0x2033F40 gUnitSpriteSlots changed to 0x201F148 gUnk_SoundRoom_0201F148
+// 0x2033F40 sUnitSpriteSlots changed to 0x201F148 gUnk_SoundRoom_0201F148
 // // Make SMS_RegisterUsage return SMS ram+index in r2
 // needs new SMS table
 // size changed to 0xFF
@@ -139,8 +140,6 @@ extern UnitIconWait unit_icon_wait_table[];
 #define LVFACELEFT 2 // -> became 0 when calling HookUnitLoadForDirection
 #define LVFACEUP 3
 
-//
-
 // first turn / after resume on first turn, all sprites face down fsr
 // up works
 // left in level makes down
@@ -154,67 +153,72 @@ int GetUnitSMSAndDir(struct Unit * unit)
 
     return FMU_GetUnitSMSId(unit) | (dir << 8);
 };
-
-extern u8 gUnitSpriteSlots[0xFF];
+extern u8 * const sUnitSpriteSlots;
+extern u8 NewgSMSGfxIndexLookup[0xFF];
 extern int gSMS16xGfxIndexCounter;
 extern int gSMS32xGfxIndexCounter;
+extern int GetSMSObjChr(int chr);
+extern int GetSMSBufferChr(int chr);
+extern u8 * GetSMSGfxBuffer(int frame);
+#define SMS_16X32_GFX_SLOT_STRIDE 2
+#define SMS_32X32_GFX_SLOT_STRIDE 4
+extern u8 NewgSMSGfxIndexLookup[0xFF];
+extern int gSMS16xGfxIndexCounter;
+extern int gSMS32xGfxIndexCounter;
+extern int GetSMSObjChr(int chr);
+extern int GetSMSBufferChr(int chr);
+extern void SMSCopySheetToBuffers(void * data, int dstChr, u16 size, u32 id);
+extern void EnsureSMS32xGfxCounterHasRoom(int slotCount);
 int UseUnitSprite(u32 id)
 {
     int dir = (id & 0xFF00) >> 8;
     id &= 0xFF;
     u16 size = NewStandingMapSpriteTable[id].size;
-    u8 width = size < 2 ? 16 : 32;
-    u8 height = size > 0 ? 32 : 16;
-    u32 srcOffs[3] = { 0, 0, 0 };
-    int frame = GetGameClock() % 72;
-    // return;
-    srcOffs[0] = (srcOffs[0] << (7 + size)) * 3;
-    srcOffs[1] = (srcOffs[0] << ((7 + size)) * 3 * 2);
-    srcOffs[2] = (srcOffs[0] << ((7 + size)) * 3 * 4);
     void * data = NewStandingMapSpriteTable[id].sheet;
 
-    if (gUnitSpriteSlots[id] == 0xFF)
+    switch (dir)
     {
-        switch (dir)
+        case LVFACELEFT: //
         {
-            case LVFACELEFT: //
-            {
-                data = FMU_idleSMSGfxTable_left[id];
-                break;
-            } // down
-            case LVFACERIGHT:
-            {
-                data = FMU_idleSMSGfxTable_right[id];
-                break;
-            }
-            case LVFACEDOWN:
-            {
-                data = NewStandingMapSpriteTable[id].sheet;
-                break;
-            }
-            case LVFACEUP:
-            {
-                data = FMU_idleSMSGfxTable_up[id];
-                break;
-            }
-            default:
+            data = FMU_idleSMSGfxTable_left[id];
+            break;
+        } // down
+        case LVFACERIGHT:
+        {
+            data = FMU_idleSMSGfxTable_right[id];
+            break;
         }
-        if (!data)
+        case LVFACEDOWN:
         {
             data = NewStandingMapSpriteTable[id].sheet;
+            break;
         }
+        case LVFACEUP:
+        {
+            data = FMU_idleSMSGfxTable_up[id];
+            break;
+        }
+        default:
+    }
+    if (!data)
+    {
+        data = NewStandingMapSpriteTable[id].sheet;
+    }
 
-        Decompress(data, gGenericBuffer);
+    if (sUnitSpriteSlots[id] == 0xFF)
+    {
+        // Decompress(data, gGenericBuffer); SMSCopySheetToBuffers now decompresses it
 
         switch (size)
         {
             case UNIT_ICON_SIZE_16x16:
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage16x16(gSMS16xGfxIndexCounter, id) / 2;
                 gSMS16xGfxIndexCounter -= 1;
                 break;
 
             case UNIT_ICON_SIZE_16x32:
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
+                EnsureSMS32xGfxCounterHasRoom(SMS_16X32_GFX_SLOT_STRIDE);
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage16x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += 2;
                 break;
 
@@ -222,16 +226,20 @@ int UseUnitSprite(u32 id)
                 if ((gSMS32xGfxIndexCounter & 0x1E) == 0x1E)
                     gSMS32xGfxIndexCounter += 2;
 
-                gUnitSpriteSlots[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
+                EnsureSMS32xGfxCounterHasRoom(SMS_32X32_GFX_SLOT_STRIDE);
+                sUnitSpriteSlots[id] = ApplyUnitSpriteImage32x32(gSMS32xGfxIndexCounter, id) / 2;
                 gSMS32xGfxIndexCounter += 4;
                 break;
         }
-
+        int val = GetSMSBufferChr(GetSMSObjChr(sUnitSpriteSlots[id] << 1));
+        SMSCopySheetToBuffers(data, val, size, id);
         gSMSSyncFlag++;
     }
-    // asm("mov r11, r11");
+
+    int result = GetSMSObjChr(sUnitSpriteSlots[id] << 1);
     __asm__("mov r2, %[val]\n" : : [val] "r"(id) : "r2");
-    return gUnitSpriteSlots[id] << 1;
+    return result;
+    // return sUnitSpriteSlots[id] << 1;
 }
 
 /*

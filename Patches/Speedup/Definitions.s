@@ -10,7 +10,8 @@ SET_DATA PCBoxUnitsBuffer, 0x2026E30	// size: 0x2028	- normally used by debug pr
 SET_FUNC SetFlag,  0x8083d81 
 SET_FUNC ClearFlag, 0x8083d95
 SET_FUNC CheckFlag, 0x8083da9
-
+SET_FUNC AiEquipGetFlags, 0x803e93d
+SET_FUNC AiAttemptCombatWithinMovement, 0x0803D6B9
 
 SET_FUNC CheckInLinkArena, 0x8042e98+1
 SET_FUNC DrawSpecialUiStr, 0x8004d5c+1

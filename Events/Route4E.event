@@ -2,7 +2,7 @@
 #define GenericA UnitRoute4Wild
 #define GenericB UnitRoute4Trainer
 #define ClassA ClassRoute4WildA
-#define ClassB ClassRoute24WildB // water mons 
+#define ClassB ClassRoute4WildB // water mons 
 #define WildLvl 9 
 #define TrainerL 12
 
@@ -187,7 +187,7 @@ CutBush(9,6)
 //SkillAccessoryTrap(17,20, (ChapterID*2)+1, VantagePlusID) 
 
 //StatAccessoryTrap(14,2, (ChapterID*2)+1, OldWard_BoostIndex)
-SkillScrollTrap(14,2, (ChapterID*2)+1, WindDiscipleID) 
+SkillScrollTrap(14,2, (ChapterID*2)+1, SniperID) 
 TutSign(32,7, ChapterID*2,TrainerTip_MaxPokemon)
 
 
@@ -291,7 +291,7 @@ ENDTRAP
 ALIGN 4
 
 Units1: //only used for a pointless POIN at start 
-UNIT Seth  0x7 0x1 0xA1     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
+UNIT Seth  0x7 0x1 DefaultSethThing     [0,0] 0b 0x0 0x0 0x0 [0x2,0x3,0x4,0x5] [0x0,0x0,0x0,0x0]
 UNIT 
 
 // Wilds
@@ -307,7 +307,7 @@ UNIT
 EnemyUnitsB:
 //   UnitID  			ClassID    		Comm   Level,Alleg,AutoL  Coords Spec,ItemD,Mons n/a REDAShort	 ItemWord 			AIWord 
 UNIT GenericA ClassB 0x0 Level(0, Enemy, 1)   [0,0] 001b	0x0 0x01 REDA0R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
-//UNIT GenericA ClassB 0x0 Level(0, Enemy, 1)   [0,1] 001b	0x0 0x01 REDA0R1 [0x0,0x0,0x0,0x0] AttackInRangeAI
+UNIT GenericA ClassB 0x0 Level(0, Enemy, 1)   [0,1] 001b	0x0 0x01 REDA0R1 [0x0,0x0,0x0,0x0] AttackInRangeAI
 UNIT 
 
 ReinforcementUnits:
@@ -339,9 +339,9 @@ UNIT
 
 EnemyTrainers0: // Hiker 
 UNIT GenericB 	GeodudeID 0xE0 	Level(0, Enemy, 1) [9,9]  0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupOneAI
-UNIT GenericB 	GeodudeID 0xE0 	Level(0, Enemy, 1) [9,11]  0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupOneAI
+UNIT GenericB 	SandshrewID 0xE0 	Level(0, Enemy, 1) [9,11]  0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupOneAI
 UNIT GenericB 	GeodudeID 0xE0 	Level(0, Enemy, 1) [11,11]  0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupOneAI
-UNIT GenericB 	GeodudeID 0xE0 	Level(0, Enemy, 1) [12,11]  0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupOneAI
+// UNIT GenericB 	GeodudeID 0xE0 	Level(0, Enemy, 1) [12,11]  0b 0x0	0x0 0x00 [0x0,0x0,0x0,0x0] SafestZoningGroupOneAI
 UNIT
 
 

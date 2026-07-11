@@ -8,13 +8,7 @@
 	#include "Extensions/ProcDefinitions.txt" 
 
 
-	ALIGN 4
-	PUSH
-	ORG CurrentOffset+1
-	give_exp_Install:
-	POP 
-	#incbin "give_exp.dmp"
-	POIN give_exp_proc
+#include "give_exp.lyn.event" 
 
 
 	ALIGN 4

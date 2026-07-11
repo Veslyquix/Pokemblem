@@ -71,7 +71,7 @@ Show:
 	add  r4, r0
 
 	ldr r0, [r4, #0x00]
-	ldr r1, =0x06013000
+	ldr r1, =0x06010300
 	blh 0x08012f50                @FE8U UnLZ77Decompress 
 
 	ldr r0, [r4, #0x04]
@@ -79,8 +79,7 @@ Show:
 	blh 0x0800927c                @FE8U TCS_New Creates a new TCS TCS Pointer r0=Source ROMTCS, r1=OAM Index? idk
 
 	mov r7 ,r0
-	mov r0, #0x8c
-	lsl r0 ,r0 ,#0x5
+    ldr r0, =0x1018 
 	strh r0, [r7, #0x22]
 	mov r0 ,r7
 	mov r1, #0x0
