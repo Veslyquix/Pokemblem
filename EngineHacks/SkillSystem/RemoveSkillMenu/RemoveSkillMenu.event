@@ -72,10 +72,13 @@ PUSH; ORG 0xB126BC
 	_6C_JUMP(_pProc_FromPromotionProc)
 POP
 
+
+
 ALIGN 4
 _pProc_FromBattleProc:
 	_6C_CALL_ROUTINE_2(_prCheckForBattleSkillForgetting|1)
 	_6C_CALL_ROUTINE_2(CheckLearnNewSpellLevelUp|1)
+	// _6C_CALL_ROUTINE_2(ExpShare|1)
 	_6C_CALL_ROUTINE_2(0x0328D0|1) // Handles Item Drop
 	_6C_CALL_ROUTINE(0x03286C|1) // idk
 	_6C_YIELD

@@ -6,19 +6,6 @@
 #include "CheckLearnNewSpellLevelUp.lyn.event"
 
 
-ALIGN 4
-PUSH 
-ORG CURRENTOFFSET+1 
-// prLearnNewSpell:
-POP 
-// Arguments: r0 = Unit, r1 = Spell Index, r2 = Parent proc
-// Returns:   r0 = proc (if you really need it)
-//{  
-	#incbin "LearnSpellSetup.dmp" 
-	POIN pProc_NewSpellLearn
-	POIN (LearnNewSpell|1)
-	POIN pProc_ReplaceSpellLearn
-	POIN (ReplaceMoveCommand_OnSelect|1)
 
 ALIGN 4 
 pProc_NewSpellLearn:

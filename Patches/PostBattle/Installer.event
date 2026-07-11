@@ -8,12 +8,13 @@ ExpShareID_Link:
 WORD ExpShareID 
 
 ShareExpEvent:
-ASMC ExpShareSetupMemorySlots
-CUMO 0x7FFD 
-STAL 30 
-CURE 
-GiveEXP(0x7FFD)
-ASMC ExpShareRestoreMemorySlots
+ASMC ExpShare
+// ASMC ExpShareSetupMemorySlots
+// CUMO 0x7FFD 
+// STAL 30 
+// CURE 
+// GiveEXP(0x7FFD)
+// ASMC ExpShareRestoreMemorySlots
 NoFade 
 ENDA 
 

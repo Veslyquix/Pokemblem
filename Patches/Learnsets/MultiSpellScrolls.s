@@ -70,6 +70,15 @@ bx r1
 
 MultiSpellScrollEffect: @hybridized from some Tequila code
 
+push {lr} 
+mov r0, r6 
+bl MultiSpellScrollEffect2 
+pop {r0} 
+ldr        r0,GoBackLoc
+bx        r0
+.ltorg 
+
+
 @r4 = action struct, r6 = parent proc
 
 push {r4-r7, lr}

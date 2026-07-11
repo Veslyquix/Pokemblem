@@ -11,6 +11,19 @@
 @
 @
 .thumb
+
+.global giveExp
+.type giveExp, %function 
+giveExp: 
+push {r4-r6, lr} 
+mov r4, r0 @ unit 
+mov r6, r1 @ exp 
+mov r5, r2 @ proc 
+b Change 
+
+.global give_exp_Install 
+.type give_exp_Install, %function 
+give_exp_Install: 
 	push	{r4-r6,lr}     @ Event parameter in memory slot 0x1, EXP to grant in slot 0x4. Keep the unit in r4 and the EXP to give in r6.
 	mov  r5, r0               @Current Procs
 	
@@ -171,8 +184,7 @@ effect:
 @	blh     0x0807dc48     @SetupMapBattleAnim	{J}
 	blh     0x0807b900     @SetupMapBattleAnim	{U}
 
-
-	ldr	r0, give_exp_proc
+	ldr	r0, =give_exp_proc
 @		mov	r1, #0x3                     @これではダメ
 @		blh     0x08002bcc     @New6C    @これではダメ
 	mov	r1, r4
@@ -231,4 +243,3 @@ bx r0
 .align 
 .ltorg 
 
-give_exp_proc:

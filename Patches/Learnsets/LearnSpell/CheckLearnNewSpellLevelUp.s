@@ -123,7 +123,7 @@ mov r2, r4 @ Parent proc
 mov r0, r5 
 blh prLearnNewSpell
 
-bl CallWaitForMenusEvent
+
 
 
 Exit:
@@ -131,7 +131,8 @@ Exit:
 	@ldr r0, =pExtraItemOrSkill
 	@strh r1, [r0] @ Set to 0 
 	
-mov r0, r4 @ Parent proc 
+@mov r0, r4 @ Parent proc 
+mov r0, #0 @ yield 
 pop {r4-r5}
 
 pop {r1}
