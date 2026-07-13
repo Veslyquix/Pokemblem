@@ -14,7 +14,8 @@ extern int DefaultUnitID_Link;
 enum
 {
     DEBUG_STUFF_CHAPTER_COUNT = 128,
-    DEBUG_PREP_LIST_COUNT = 150
+    DEBUG_PREP_LIST_COUNT = 150,
+    DEBUG_MAX_LOADED_UNITS = 40
 };
 
 struct DebugStuffStruct
@@ -159,9 +160,10 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
     gEventSlots[1] = DefaultUnitID_Link; // unit ID
     gEventSlots[3] = 1;                  // visible levels
     int level = debugStuff->level;
-    int i = 0;
-    int max = 45;
-    for (; i < 0x40; ++i)
+    int loadedCount = 0;
+    int i;
+
+    for (i = 0; i < 0x40; ++i)
     {
         unit = GetUnit(i);
         if (UNIT_IS_VALID(unit))
@@ -172,31 +174,27 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
             }
             else
             {
-                max--;
+                loadedCount++;
             }
         }
     }
-    i = 0;
 
-    while (*classList)
+    while (*classList && (loadedCount < DEBUG_MAX_LOADED_UNITS))
     {
         int isCaught;
+        int uid;
 
         classID = *classList++;
         isCaught = CheckIfCaught(classID);
 
-        if (i > max)
-        {
-            break;
-        }
-
         // if (!isCaught || !DebugPrepListHasClass(classID))
         // {
         unit = LoadUnit(DefaultUnit);
-        int uid = FindFreeSlot();
+        uid = FindFreeSlot();
+
         if (unit && uid != 0xFF)
         {
-            i++;
+            loadedCount++;
 
             unit->pClassData = &classTablePoin[classID];
             unit->pCharacterData = GetCharacterData(uid);
@@ -208,7 +206,7 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
             unit->items[2] = 0;
             unit->items[3] = 0;
 
-            if (i < 16)
+            if (loadedCount < 16)
             {
                 DebugPlaceUnitNearActiveUnit(unit);
             }
@@ -216,7 +214,13 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
             {
                 unit->state |= US_NOT_DEPLOYED | US_HIDDEN;
             }
+
             UnitChangeFaction(unit, FACTION_BLUE);
+        }
+        else if (unit)
+        {
+            ClearUnit(unit);
+            break;
         }
         // }
     }
