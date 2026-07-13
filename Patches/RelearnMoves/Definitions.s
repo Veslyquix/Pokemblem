@@ -3,7 +3,7 @@
 
 //@ Vanilla function declarations:
 SET_DATA gStatScreen, 0x2003BFC 
-
+SET_DATA gItemSelectMenuFont, 0x2002774
 SET_FUNC GetUnitStructFromEventParameter, 0x800BC51
 
 SET_FUNC GetUnitRangeMask, (0x080171E8+1)

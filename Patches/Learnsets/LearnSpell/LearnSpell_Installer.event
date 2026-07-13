@@ -23,12 +23,9 @@ _psName:
 
 ALIGN 4 
 pProc_ReplaceSpellLearn:
-	//_6C_SET_NAME(_psName)
 PROC_YIELD 
-    // PROC_WHILE_EXISTS(0x8591ac0) // Event Engine but this makes an infinite loop 
-	_6C_CALL_ROUTINE(ReplaceMoveCommand_OnSelect|1)
+	// _6C_CALL_ROUTINE(ReplaceMoveCommand_OnSelect|1)
 	PROC_SLEEP(0)
-	//_6C_CALL_ROUTINE_2(ClearSpellLearnedRam|1)
 	_6C_END
 	
 	

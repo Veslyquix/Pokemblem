@@ -55,6 +55,39 @@ static int DebugConvoyHasItem(int item)
     return 0;
 }
 
+static void ClearConvoyItem(int item)
+{
+    int i;
+    int write = 0;
+    int kept;
+    int count = GetConvoyItemCount();
+    u16 * data = GetConvoyItemArray();
+
+    for (i = 0; i < count; i++)
+    {
+        if (!DebugIsSameItem(data[i], item))
+            data[write++] = data[i];
+    }
+
+    kept = write;
+
+    while (write < count)
+        data[write++] = 0;
+
+    gConvoyItemCount = kept;
+}
+extern u16 ItemListToDelete[];
+static void DebugClearExtraConvoyItems(void)
+{
+    u16 * data = ItemListToDelete;
+    int tmp;
+    while ((tmp = *data) != 0)
+    {
+        ClearConvoyItem(tmp);
+        data++;
+    }
+}
+
 static void DebugAddItemsToConvoy(const u16 * itemList)
 {
     int item;
@@ -127,6 +160,7 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
     gEventSlots[3] = 1;                  // visible levels
     int level = debugStuff->level;
     int i = 0;
+    int max = 45;
     for (; i < 0x40; ++i)
     {
         unit = GetUnit(i);
@@ -135,6 +169,10 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
             if (unit->state & (US_NOT_DEPLOYED | US_BIT16))
             {
                 ClearUnit(unit);
+            }
+            else
+            {
+                max--;
             }
         }
     }
@@ -147,9 +185,9 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
         classID = *classList++;
         isCaught = CheckIfCaught(classID);
 
-        if (i > 40)
+        if (i > max)
         {
-            return;
+            break;
         }
 
         // if (!isCaught || !DebugPrepListHasClass(classID))
@@ -199,6 +237,7 @@ void DebugLoadUnits(void)
         return;
 
     SetPartyGoldAmount(debugStuff->gold);
+    DebugClearExtraConvoyItems();
     DebugAddItemsToConvoy(debugStuff->itemList);
     DebugClearFlags(DebugRemoveFlagsList);
     DebugSetFlags(debugStuff->flagList);

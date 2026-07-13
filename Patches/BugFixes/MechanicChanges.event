@@ -168,10 +168,7 @@ ORG 0x2C8D2
 SHORT 0x20FE // mov r0, #0xFE 
 
 
-// Battle anims off - always use portrait id 1 (for leveling up)
-// by Tequila  
-ORG 0x7F264 
-BYTE 0x01 0x21 
+
 
 
 // Disable sound room by Aera 
@@ -189,10 +186,14 @@ BYTE 0x00 0x00 0x00 0x20
 
   
 
-  
-  // Remove portrait from promotion screen by Tequila 
-ORG $073DD0 
-BYTE $C0 $46 $C0 $46 
+// load class portrait when leveling up
+ORG $7F262 
+SHORT $6840 $8901 // ldr r0,[r1, #4]    ldrh r1, [r0, #8] 
+
+// load class portrait from promotion screen
+ORG $73dba 
+SHORT $6848 $8904 // ldr r0,[r1, #4]    ldrh r4, [r0, #8] 
+
 
 // Max name length in Name Input Screen 
 // By Circles 

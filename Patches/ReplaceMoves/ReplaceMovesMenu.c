@@ -75,6 +75,10 @@ struct ReplaceMoveProc * prLearnNewSpell(struct Unit * unit, int move, struct Pr
 {
 
     struct ReplaceMoveProc * proc = NULL;
+    if (!UNIT_IS_VALID(unit))
+    {
+        return proc;
+    }
     if (DoesUnitKnowMoveAlready(unit, move))
     {
         return proc;
@@ -116,7 +120,6 @@ struct ReplaceMoveProc * prLearnNewSpell(struct Unit * unit, int move, struct Pr
     StartMenuChild(&Menu_ReplaceMoveDebug, (void *)proc);
     return proc;
 }
-
 extern void UnitRemoveInvalidItems(struct Unit * unit);
 void MultiSpellScrollEffect2(struct Proc * proc)
 {
@@ -157,7 +160,7 @@ static int IsMove(int moveId)
 
     return GetItemDescId(moveId);
 }
-
+extern struct FontData gItemSelectMenuFont;
 static void MoveListCommandDraw(struct MenuProc * menu, struct MenuCommandProc * command);
 static int MoveCommandSelect(struct MenuProc * menu, struct MenuCommandProc * command);
 // static int MoveCommandConfirm(struct MenuProc* menu, struct MenuCommandProc*
@@ -296,112 +299,41 @@ void DrawItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, stru
     // [2000932..2000933]!!
     // [2028E6a..2028E6b]!!
     // 0x8004a9e
-
+    Text_SetFont(0);
     Text_ResetTileAllocation();
+    Text_SetFontStandardGlyphSet(0); // tile text numbers
+    CpuFastFill(0, (void *)VRAM + 0x1000, 0x4000);
 
     // u16 tile = gpCurrentFont->tileNext;
     //  u16 tileNext starts at 0 when ResetTileAllocation is used (vram 0x6001000)
     //
 
-    menu->pCommandProc[0]->text.tileIndexOffset = gpCurrentFont->tileNext;
+    // menu->pCommandProc[0]->text.tileIndexOffset = gpCurrentFont->tileNext;
 
-    menu->pCommandProc[0]->text.tileWidth = 0; // 92;
+    // menu->pCommandProc[0]->text.tileWidth = 0; // 92;
     // update tileNext to be whatever we offset it to
     // in this case it's 0, but it would be important if it wasn't
     // menu starts at tileNext as 0 (and draws spaces as needed)
     // asm("mov r11, r11");
-    for (u8 c = 1; c <= menu->commandCount; c++)
-    {
-        gpCurrentFont->tileNext =
-            menu->pCommandProc[c - 1]->text.tileIndexOffset + menu->pCommandProc[c - 1]->text.tileWidth;
-        if (c < menu->commandCount)
-        {
-            menu->pCommandProc[c]->text.tileIndexOffset = gpCurrentFont->tileNext;
-        }
-    }
+    // for (u8 c = 1; c <= menu->commandCount; c++)
+    // {
+    // gpCurrentFont->tileNext =
+    // menu->pCommandProc[c - 1]->text.tileIndexOffset + menu->pCommandProc[c - 1]->text.tileWidth;
+    // if (c < menu->commandCount)
+    // {
+    // menu->pCommandProc[c]->text.tileIndexOffset = gpCurrentFont->tileNext;
+    // }
+    // }
 
     // menu->pCommandProc[1]->text.currentBufferId = 0;
     // //handles[i].currentBufferId;
-    MoveListCommandDraw(menu, menu->pCommandProc[1]);
-    MoveListCommandDraw(menu, menu->pCommandProc[2]);
-    MoveListCommandDraw(menu, menu->pCommandProc[3]);
-    MoveListCommandDraw(menu, menu->pCommandProc[4]);
-    MoveListCommandDraw(menu, menu->pCommandProc[5]);
+    // MoveListCommandDraw(menu, menu->pCommandProc[1]);
+    // MoveListCommandDraw(menu, menu->pCommandProc[2]);
+    // MoveListCommandDraw(menu, menu->pCommandProc[3]);
+    // MoveListCommandDraw(menu, menu->pCommandProc[4]);
+    // MoveListCommandDraw(menu, menu->pCommandProc[5]);
 
     // u16 tile = menu->tileBase+20;
-
-    TextHandle * handles = gStatScreen.text;
-    for (int i = 0; i < 20; i++)
-    {
-        // handles[i].tileIndexOffset = tile; // offset to start at
-        handles[i].xCursor = 0;
-        // handles[i].tileIndexOffset = 0x180;
-        handles[i].colorId = TEXT_COLOR_NORMAL;
-        handles[i].useDoubleBuffer = 0;
-        handles[i].currentBufferId = 0;
-        handles[i].unk07 = 0;
-    }
-
-    u8 i = 0;
-    // u8 x = 7;
-
-    u32 width = (Text_GetStringTextWidth(GetStringFromIndex(GetItemDescId(proc->moveReplacement))) + 8) / 8;
-    /*
-    Text_InitClear(&handles[i], width);
-  handles[i].tileWidth = width;
-    Text_SetXCursor(&handles[i], 0);
-    Text_SetColorId(&handles[i], TEXT_COLOR_GREEN);
-  Text_DrawString(&handles[i],
-  GetStringFromIndex(GetItemDescId(proc->moveReplacement)));
-    Text_Display(&handles[i], &gBG0MapBuffer[1][14]);
-    i++;
-    */
-
-    // Text_SetXCursor(&handles[i], new_item_desc_offset+new_item_name_offset);
-    width = (Text_GetStringTextWidth(GetItemName(proc->moveReplacement)) + 8) / 8;
-    Text_InitClear(&handles[i], width);
-    handles[i].tileWidth = width;
-    // Text_SetXCursor(&handles[i], new_item_name_offset);
-    Text_SetColorId(&handles[i], TEXT_COLOR_GREEN);
-    Text_DrawString(&handles[i], GetItemName(proc->moveReplacement));
-    Text_Display(&handles[i], &gBG0MapBuffer[1][4]);
-    i++;
-
-    char * className = GetStringFromIndex(proc->unit->pClassData->nameTextId);
-    width = (Text_GetStringTextWidth(className) + 8 + 24) / 8;
-    Text_InitClear(&handles[i], width);
-    handles[i].tileWidth = width;
-    Text_SetXCursor(&handles[i], 24);
-    Text_SetColorId(&handles[i], TEXT_COLOR_GREEN);
-    Text_DrawString(&handles[i], className);
-    Text_Display(&handles[i], &gBG0MapBuffer[9][11]);
-    i++;
-
-    char * strName = (void *)&"Str";
-    width = (Text_GetStringTextWidth(strName) + 8 + 8) / 8;
-    Text_InitClear(&handles[i], width);
-    handles[i].tileWidth = width;
-    Text_SetXCursor(&handles[i], 4);
-    Text_SetColorId(&handles[i], TEXT_COLOR_GOLD);
-    Text_DrawString(&handles[i], strName);
-    Text_Display(&handles[i], &gBG0MapBuffer[11][11]);
-    i++;
-
-    char * magName = (void *)&"Mag";
-    width = (Text_GetStringTextWidth(magName) + 8 + 8) / 8;
-    Text_InitClear(&handles[i], width);
-    handles[i].tileWidth = width;
-    Text_SetXCursor(&handles[i], 4);
-    Text_SetColorId(&handles[i], TEXT_COLOR_GOLD);
-    Text_DrawString(&handles[i], magName);
-    Text_Display(&handles[i], &gBG0MapBuffer[11][17]);
-    i++;
-
-    DrawUiNumber(&gBG0MapBuffer[11][15], TEXT_COLOR_GOLD, (proc->unit->pow));
-    DrawUiNumber(&gBG0MapBuffer[11][22], TEXT_COLOR_GOLD,
-                 (proc->unit->unk3A)); // Magic.
-
-    proc->tileNext = gpCurrentFont->tileNext;
 
     // PrepareText(&handles[i], " Rng");
     // Text_Display(&handles[i], &gBG0MapBuffer[15][7+x]); i++;
@@ -522,7 +454,53 @@ void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, st
 
     u8 i = 0;
 
-    gpCurrentFont->tileNext = proc->tileNext;
+    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
+
+    TextHandle * handles = gStatScreen.text;
+
+    u32 width;
+    // = (Text_GetStringTextWidth(GetStringFromIndex(GetItemDescId(proc->moveReplacement))) + 8) / 8;
+
+    // Text_SetXCursor(&handles[i], new_item_desc_offset+new_item_name_offset);
+    width = (Text_GetStringTextWidth(GetItemName(proc->moveReplacement)) + 8) / 8;
+    Text_InitClear(&handles[i], width);
+    handles[i].tileWidth = width;
+    // Text_SetXCursor(&handles[i], new_item_name_offset);
+    Text_SetColorId(&handles[i], TEXT_COLOR_GREEN);
+    Text_DrawString(&handles[i], GetItemName(proc->moveReplacement));
+    Text_Display(&handles[i], &gBG0MapBuffer[1][4]);
+    i++;
+
+    char * className = GetStringFromIndex(proc->unit->pClassData->nameTextId);
+    width = (Text_GetStringTextWidth(className) + 8 + 24) / 8;
+    Text_InitClear(&handles[i], width);
+    handles[i].tileWidth = width;
+    Text_SetXCursor(&handles[i], 24);
+    Text_SetColorId(&handles[i], TEXT_COLOR_GREEN);
+    Text_DrawString(&handles[i], className);
+    Text_Display(&handles[i], &gBG0MapBuffer[9][11]);
+    i++;
+
+    char * strName = (void *)&"Str";
+    width = (Text_GetStringTextWidth(strName) + 8 + 8) / 8;
+    Text_InitClear(&handles[i], width);
+    handles[i].tileWidth = width;
+    Text_SetXCursor(&handles[i], 4);
+    Text_SetColorId(&handles[i], TEXT_COLOR_GOLD);
+    Text_DrawString(&handles[i], strName);
+    Text_Display(&handles[i], &gBG0MapBuffer[11][11]);
+    i++;
+
+    char * magName = (void *)&"Mag";
+    width = (Text_GetStringTextWidth(magName) + 8 + 8) / 8;
+    Text_InitClear(&handles[i], width);
+    handles[i].tileWidth = width;
+    Text_SetXCursor(&handles[i], 4);
+    Text_SetColorId(&handles[i], TEXT_COLOR_GOLD);
+    Text_DrawString(&handles[i], magName);
+    Text_Display(&handles[i], &gBG0MapBuffer[11][17]);
+    i++;
+
     u8 hover = proc->move_hovering - 1;
     u16 item;
 
@@ -535,17 +513,16 @@ void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, st
         item = UnitGetMoveList(proc->unit)[hover];
     }
 
-    TextHandle * handles = &gStatScreen.text[20];
-    for (int i = 0; i < 8; i++)
-    {
-        // handles[i].tileIndexOffset = tile; // offset to start at
-        handles[i].xCursor = 0;
-        // handles[i].tileIndexOffset = 0x180;
-        handles[i].colorId = TEXT_COLOR_NORMAL;
-        handles[i].useDoubleBuffer = 0;
-        handles[i].currentBufferId = 0;
-        handles[i].unk07 = 0;
-    }
+    handles = &gStatScreen.text[10];
+    i = 0;
+    // for (int i = 0; i < 8; i++)
+    // {
+    // handles[i].xCursor = 0;
+    // handles[i].colorId = TEXT_COLOR_NORMAL;
+    // handles[i].useDoubleBuffer = 0;
+    // handles[i].currentBufferId = 0;
+    // handles[i].unk07 = 0;
+    // }
 
     PrepareText(&handles[i], " Rng");
     Text_Display(&handles[i], &gBG0MapBuffer[15][7 + x]);
@@ -565,22 +542,40 @@ void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, st
     Text_Display(&handles[i], &gBG0MapBuffer[17][14 + x]);
     i++;
 
+    PrepareText(&proc->handle[0], GetItemDisplayRankString(item));
+    Text_Display(&proc->handle[0], &gBG0MapBuffer[15][5 + x]);
+    i++;
+    //  0x8004AE8 = POIN gSpecialUiCharAllocationTable
+    gStatScreen.unit = proc->unit;
+    PrepareText(&proc->handle[1], GetItemDisplayRangeString(item));
+    Text_Display(&proc->handle[1], &gBG0MapBuffer[15][10 + x]);
+    i++;
+
+    // PrepareText(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
+
+    Text_InitClear(&proc->handle[2], 6);
+    proc->handle[2].tileWidth = 6;
+
+    Text_SetColorId(&proc->handle[2], TEXT_COLOR_GOLD);
+    Text_DrawString(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
+
+    Text_Display(&proc->handle[2], &gBG0MapBuffer[15][0 + x]);
+    i++;
+
+    // gSpecialUiCharAllocationTable[0] = 0xFF; // no clue but it made DrawUiNumber work properly
+    Text_SetFont(0);
+    DrawUiNumber(&gBG0MapBuffer[15][18 + x], TEXT_COLOR_GOLD, GetItemWeight(item));
+    DrawUiNumber(&gBG0MapBuffer[17][5 + x], TEXT_COLOR_GOLD, GetItemMight(item));
+    DrawUiNumber(&gBG0MapBuffer[17][12 + x], TEXT_COLOR_GOLD, GetItemHit(item));
+    DrawUiNumberOrDoubleDashes(&gBG0MapBuffer[17][18 + x], TEXT_COLOR_GOLD, GetItemCrit(item));
+    DrawUiNumber(&gBG0MapBuffer[11][15], TEXT_COLOR_GOLD, (proc->unit->pow));
+    DrawUiNumber(&gBG0MapBuffer[11][22], TEXT_COLOR_GOLD,
+                 (proc->unit->unk3A)); // Magic.
+
+    Text_SetFont(&gItemSelectMenuFont);
     char * string = GetStringFromIndex(GetItemDescId(item));
     int lines = GetNumLines(string);
     DrawMultiline(&handles[i], string, lines);
-
-    /*
-            PrepareText(&handles[i], );
-            Text_Display(&handles[i], &gBG0MapBuffer[2][12]); i++;
-            char* strcpy(char* dest, const char* src);
-            unsigned strlen(const char* cstr);
-            PrepareText(&handles[i],
-       Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item))));
-            Text_Display(&handles[i], &gBG0MapBuffer[4][12]); i++;
-            PrepareText(&handles[i],
-       Text_GetStringNextLine(Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item)))));
-            Text_Display(&handles[i], &gBG0MapBuffer[6][12]); i++;
-    */
 
     for (int c = 0; c < lines; c++)
     {
@@ -589,29 +584,7 @@ void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, st
     i++;
     i++;
     i++;
-
-    PrepareText(&proc->handle[0], GetItemDisplayRankString(item));
-    Text_Display(&proc->handle[0], &gBG0MapBuffer[15][5 + x]);
-    i++;
-    // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
-    //  0x8004AE8 = POIN gSpecialUiCharAllocationTable
-    gStatScreen.unit = proc->unit;
-    PrepareText(&proc->handle[1], GetItemDisplayRangeString(item));
-    Text_Display(&proc->handle[1], &gBG0MapBuffer[15][10 + x]);
-    i++;
-    // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
-
-    PrepareText(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
-    Text_Display(&proc->handle[2], &gBG0MapBuffer[15][0 + x]);
-    i++;
-
-    gSpecialUiCharAllocationTable[0] = 0xFF; // no clue but it made DrawUiNumber work properly
-
-    DrawUiNumber(&gBG0MapBuffer[15][18 + x], TEXT_COLOR_GOLD, GetItemWeight(item));
-    DrawUiNumber(&gBG0MapBuffer[17][5 + x], TEXT_COLOR_GOLD, GetItemMight(item));
-    DrawUiNumber(&gBG0MapBuffer[17][12 + x], TEXT_COLOR_GOLD, GetItemHit(item));
-    DrawUiNumberOrDoubleDashes(&gBG0MapBuffer[17][18 + x], TEXT_COLOR_GOLD, GetItemCrit(item));
-
+    Text_SetFont(0);
     EnableBgSyncByMask(BG0_SYNC_BIT);
 }
 
@@ -693,8 +666,6 @@ static int MoveCommandConfirm(struct MenuProc * menu, struct MenuCommandProc * c
 static int MoveCommandDecline(struct MenuProc * menu, struct MenuCommandProc * command);
 MenuProc * StartOrphanMenuAt(const MenuDefinition *, MenuGeometry);
 MenuProc * StartOrphanMenu(const MenuDefinition *);
-
-extern struct FontData gItemSelectMenuFont;
 
 static const struct MenuCommandDefinition MenuCommands_Confirmation[] = {
     {
@@ -808,7 +779,7 @@ u8 BPressConfirmGiveUpOnMoveMenu(struct MenuProc * menu, struct MenuCommandProc 
     StartHelpBox_Unk(HelpBoxX, HelpBoxY, GiveUpOnMoveTextLink);
     // MenuFrozenHelpBox(menu, GiveUpOnMoveTextLink);
     struct MenuGeometry ConfirmationMenuGeometry = { .x = YesNoX, .y = YesNoY, .h = 0, .w = YesNoW };
-    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
+    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x3800, 0x1c0, 0);
 
     struct MenuProc * subMenu = StartMenuAt(&Menu_GiveUpOnMove, ConfirmationMenuGeometry, (void *)menu);
     subMenu->commandIndex = 1; // start on "No"
@@ -848,7 +819,7 @@ static int MoveCommandSelect(struct MenuProc * menu, struct MenuCommandProc * co
     StartHelpBox_Unk(HelpBoxX, HelpBoxY, ReplaceMoveTextLink);
     // MenuFrozenHelpBox(menu, ReplaceMoveTextLink);
     struct MenuGeometry ConfirmationMenuGeometry = { .x = YesNoX, .y = YesNoY, .h = 0, .w = YesNoW };
-    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
+    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x3800, 0x1c0, 0);
 
     struct MenuProc * subMenu = StartMenuAt(&Menu_Confirmation, ConfirmationMenuGeometry, (void *)menu);
     subMenu->commandIndex = 1; // start on "No"
@@ -859,7 +830,7 @@ static int MoveCommandSelect(struct MenuProc * menu, struct MenuCommandProc * co
 
 static void ReplaceMoveMenuEnd(struct MenuProc * menu)
 {
-    ProcEnd(menu->parent);
+    // Proc_End(menu->parent);
     Text_SetFont(0);
     EndHelpBox();
     EndFaceById(0);
