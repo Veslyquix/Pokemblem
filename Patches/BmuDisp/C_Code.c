@@ -131,6 +131,14 @@ void HookFace_ItemCommandEffect(int fid, ProcPtr proc)
     // StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
     StartFaceChibiSpr(48, GetActiveUnitMenuBottomY(-1), fid, ItemMenuFaceChr, GetFaceSlotPalID(0), 0, (void *)proc);
 }
+
+void Hook_HandleNewItemGetFromDrop(int fid, ProcPtr proc)
+{
+    // StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
+    StartFaceChibiSpr(
+        48, GetActiveUnitMenuBottomY(-1) + 16, fid, ItemMenuFaceChr, GetFaceSlotPalID(0), 0, (void *)proc);
+}
+
 #define BF_ChibiDist 31
 void BattleForecastChibi(ProcPtr proc, int side)
 {

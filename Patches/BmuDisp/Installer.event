@@ -36,7 +36,7 @@
 
 #define BlueArrowChr 0x240 
 #define ArrChr "0x3800|BlueArrowChr"
-#define BottomHelpChr 0x240 
+#define BottomHelpChr 0x2C0 
 #define MMSChr 0x39C // gets >>2 
 // #define MMSChr 0x80 // gets >>2 
 #define BrownBoxChr 0x2C0 // gets >> 2
@@ -83,6 +83,12 @@ callHackNew(Hook_DrawBattleForecastContents)
 ORG $B4C84 
 callHackNew(HookFace_Shop_Init)
 SHORT $46c0 
+
+// HandleNewItemGetFromDrop 801e098
+ORG $1E0BA
+SHORT $1C31 // mov r1, r6 (menu proc) 
+callHackNew(Hook_HandleNewItemGetFromDrop) 
+SHORT $46C0 
 
 
 ORG $23312

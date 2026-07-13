@@ -187,7 +187,8 @@ RedPokeballTrap(31,20, (ChapterID*2)+1, LinkStone)
 //SkillAccessoryTrap(37,14, ChapterID*2, DeathBlowID) 
 //SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
 
-SpellScrollTrap(3,20, (ChapterID*2)+1, Screech) 
+SkillAccessoryTrap(3, 20, (ChapterID*2), AssaultVestID)
+SkillAccessoryTrap(4, 20, (ChapterID*2)+1, TacticalVestID)
 
 
 ENDTRAP

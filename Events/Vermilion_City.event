@@ -37,9 +37,51 @@ END_MAIN
 CharacterBasedEvents:
 CharacterEventBothWays(0,GlobalTalkEvent, 0xFF, Ephraim)
 CHAR PurchasedFarfetchdFlag PurchaseFarfetchdevent [0x0, OaksAide] 0 // NPC
+CHAR 0 MoveRelearnerEvent [0x0, 0xE0] 0 // NPC
 CHAR 0 SSAnneTicketEvent [0x0, 0xE1] 0 // NPC
 TrainerPostBattleTalk(OaksAide) // NPC talk again 
 END_MAIN
+
+MoveRelearnerEvent:
+PauseFreeMovement
+SVAL 0xB 0xFFFFFFFF; 
+SOLOTEXTBOXSTART; 
+TEXTSHOW MoveRelearnerIntro; 
+TEXTEND; 
+//EVBIT_F 7 
+EVBIT_MODIFY 1 // no text skip 
+TEXTSHOW MoveRelearnerYes
+TEXTEND; REMA
+SVAL s1 1 
+BNE 99 sC s1 
+CHECK_ACTIVE 
+SVAL s1 ProtagID 
+BEQ 0 sC s1 
+
+// check if we have heart scale here 
+// if not, goto 1 
+ASMC ViewRelearnCommand_OnSelect
+BEQ 99 sC s0 
+CLEAN 
+STAL 2 
+ASMC prLearnNewSpell_ASMC 
+//prLearnNewSpell(proc->unit, proc->move_hovering, proc->parent);
+STAL 2
+//STAL 1 
+//TutText(DebugText) 
+GOTO 99 
+
+LABEL 0 // have pkmn 
+WallText(MoveRelearnerPokemonTalk)
+GOTO 99 
+LABEL 1 
+WallText(MoveRelearnerHeartScale)
+GOTO 99 
+
+LABEL 99 
+NoFade 
+ENDA 
+
 
 SSAnneTicketEvent: 
 CHECK_MONEY 
@@ -183,7 +225,7 @@ BYTE SpellScroll PoisonPowder
 BYTE SkillAcc(WardingStanceID)
 BYTE SpellScroll SignalBeam SpellScroll MagicalLeaf SpellScroll Magnitude
 BYTE SpellScroll BubbleBeam
-BYTE SkillAcc(RenewalID)
+BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID)
 BYTE SkillScroll VantagePlusID
 BYTE SkillAcc(CertainBlowID)
 BYTE SkillAcc(DowngradeID)
@@ -391,6 +433,7 @@ LOAD1 1 OaksAideUnitGroup
 ENUN 
 MarkTrainerAsDefeated(OaksAide) 
 MarkTrainerAsDefeated(OaksAidePkmn) 
+MarkTrainerAsDefeated(0xE0) 
 CHECK_EVENTID PurchasedFarfetchdFlag 
 BEQ 34 sC s0 
 DISA OaksAidePkmn 
@@ -422,6 +465,7 @@ ALIGN 4
 ShopItems:
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI 0
+BYTE SkillAccShop(EvioliteID)
 BYTE SkillAccShop(RockyHelmetSkillID)
 BYTE StatAccessory EnergyBand_BoostIndex 
 BYTE SkillAccShop(WaryFighterID)
@@ -482,6 +526,7 @@ UNIT
 OaksAideUnitGroup:
 UNIT OaksAide OaksAideClass 0x0 Level(LVFACEDOWN, Enemy, 1) [25,5]  0b 0x0	0 0 [0x0,0x0,0x0,0x0] DoNothing
 UNIT OaksAidePkmn FarfetchdID 0x0 Level(0, Enemy, 1) [26,5]  0b 0x0	0 0 [0x0,0x0,0x0,0x0] DoNothing
+UNIT 0xE0 balding_manID 0x0 Level(LVFACELEFT, Enemy, 1) [24,11]  0b 0x0	0 0 [0x0,0x0,0x0,0x0] DoNothing
 UNIT
 
 { ; TQ_ChEntry(ChapterID) // Trainer's quotes when they spot you 

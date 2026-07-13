@@ -155,7 +155,7 @@ AutoLevelUnits(WildLvl, True, 0x50FF) // Wilds
 LOAD1 0x1 HumanTrainers
 ENUN 
 MarkTrainerAsDefeated(0xE2)
-CHECK_EVENTID ThunderbadgeObtained
+CHECK_EVENTID ObtainedCutFlag
 BEQ 0 sC s0 
 DISA 0xE2 
 LABEL 0 

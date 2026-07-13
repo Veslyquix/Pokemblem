@@ -58,7 +58,7 @@ EVBIT_MODIFY 4
 TutText(CompleteGymFirst)
 GOTO 99 
 LABEL 10 
-SetMaxMove
+SetUnitStatusAll(Any, MovBonus, 5, AnyDeployed, PlayerArmy, AnyClass, AnyRange, AnyItem) 
 CHECK_COORDS 0x7FFF 
 SADD sB sC s0 
 PauseFreeMovement

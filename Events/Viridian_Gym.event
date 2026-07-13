@@ -124,18 +124,12 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
 SilentGiveItemWithDurability(SturdyUnitID, StatAccessory, 0x80|EnergyBandT3_BoostIndex)
-//SilentGiveSkillAccessory(SturdyUnitID, AmaterasuID)
-SilentGiveItemWithDurability(SturdyUnitID, MaxPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_1, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_1, SuperPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_2, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_2, SuperPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_3, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_3, SuperPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_4, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_4, SuperPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_5, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_5, SuperPotion,0x1)
+SilentGiveItemWithDurability(SturdyUnitID, MaxPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_1, HyperPotion, 0x2)
+SilentGiveItemWithDurability(GymPkmn_2, HyperPotion, 0x2)
+SilentGiveItemWithDurability(GymPkmn_3, HyperPotion, 0x2)
+SilentGiveItemWithDurability(GymPkmn_4, HyperPotion, 0x2)
+SilentGiveItemWithDurability(GymPkmn_5, HyperPotion, 0x2)
 
 
 MUSCFAST IntroBGM 

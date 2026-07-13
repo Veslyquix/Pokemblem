@@ -521,7 +521,7 @@ Jelly Donut[X]
 
 ## JellyDonutDescText
 Dub-exclusive.[NL]
-Heals 15 HP.[X]
+Heals 25 HP.[X]
 
  
 ## WiseGlassesNameText
@@ -670,13 +670,13 @@ Berry[X]
 Sitrus Berry[X]
 
 ## PotionDescText
-Restores 15 HP.[X]
+Restores 25 HP.[X]
 
 ## SuperPotionDescText
-Restores 25 HP.[X]
+Restores 40 HP.[X]
  
 ## HyperPotionDescText
-Restores 40 HP.[X]
+Restores 60 HP.[X]
 
 ## MaxPotionDescText
 Restores all HP.[X]

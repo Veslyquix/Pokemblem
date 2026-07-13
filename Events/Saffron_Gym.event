@@ -157,10 +157,11 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 SilentGiveItemWithDurability(ForewarnUnitID, HoplonGuard2, 1)
 //SilentGiveSkillAccessory(ForewarnUnitID, AmaterasuID)
 SilentGiveItemWithDurability(ForewarnUnitID, MaxPotion,0x1)
-SilentGiveItemWithDurability(GymPkmn_1, Berry,0x82)
-SilentGiveItemWithDurability(GymPkmn_2, Berry,0x82)
-SilentGiveItemWithDurability(GymPkmn_3, Berry,0x82)
-SilentGiveItemWithDurability(GymPkmn_4, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_1, HyperPotion, 0x1)
+SilentGiveItemWithDurability(GymPkmn_2, HyperPotion, 0x1)
+SilentGiveItemWithDurability(GymPkmn_3, HyperPotion, 0x1)
+SilentGiveItemWithDurability(GymPkmn_4, HyperPotion, 0x1)
+SilentGiveItemWithDurability(GymPkmn_5, HyperPotion, 0x1)
 
 
 MUSCFAST IntroBGM 
@@ -306,21 +307,21 @@ UNIT
 
 
 EnemyTrainersA:
-UNIT ForewarnUnitID AlakazamID 0x0 Level(0, Enemy, 1) [6,4]  0b 0x0	0x0 0	[Psybeam,Leer,0x0,0x0] 			PursueWithoutHeedAI
-UNIT GymPkmn_1 MrMimeID ForewarnUnitID Level(0, Enemy, 1) [4,5]  0b 0x0		0x0 0 	[Confusion,Doubleslap,0x0,0x0] 			PursueWithoutHeedAI
-UNIT GymPkmn_2 HypnoID ForewarnUnitID Level(0, Enemy, 1) [8,5]  0b 0x0		0x0 0	[Psybeam,BodySlam,0x0,0x0] 			PursueWithoutHeedAI
-UNIT GymPkmn_3 JynxID ForewarnUnitID Level(0, Enemy, 1) [3,7] 	 0b 0x0 	0x0 0	[Confusion,AuroraBeam,0x0,0x0] 			PursueWithoutHeedAI
-UNIT GymPkmn_4 PorygonID ForewarnUnitID Level(0, Enemy, 1) [9,7]  0b 0x0	0x0 0	[TriAttack, Spark, SignalBeam ,0]	PursueWithoutHeedAI
-UNIT GymPkmn_5 FarfetchdID ForewarnUnitID Level(0, Enemy, 1) [6,6]  0b 0x0	0x0 0	[Slash,DrillPeck,0x0,0x0] 			PursueWithoutHeedAI
+UNIT ForewarnUnitID AlakazamID 0x0 Level(0, Enemy, 1) [6,4]  0b 0x0	0x0 0	[Psybeam,Leer,0x0,0x0] 			SafestZoningGroupOneAI
+UNIT GymPkmn_1 MrMimeID ForewarnUnitID Level(0, Enemy, 1) [4,5]  0b 0x0		0x0 0 	[Confusion,Doubleslap,0x0,0x0] 			SafestZoningGroupOneAI
+UNIT GymPkmn_2 HypnoID ForewarnUnitID Level(0, Enemy, 1) [8,5]  0b 0x0		0x0 0	[Psybeam,BodySlam,0x0,0x0] 			SafestZoningGroupOneAI
+UNIT GymPkmn_3 JynxID ForewarnUnitID Level(0, Enemy, 1) [3,7] 	 0b 0x0 	0x0 0	[Confusion,AuroraBeam,0x0,0x0] 			SafestZoningGroupOneAI
+UNIT GymPkmn_4 PorygonID ForewarnUnitID Level(0, Enemy, 1) [9,7]  0b 0x0	0x0 0	[TriAttack, Spark, SignalBeam ,0]	SafestZoningGroupOneAI
+UNIT GymPkmn_5 FarfetchdID ForewarnUnitID Level(0, Enemy, 1) [6,6]  0b 0x0	0x0 0	[Slash,DrillPeck,0x0,0x0] 			SafestZoningGroupOneAI
 UNIT
 
 EnemyTrainersB: // rematch 
-UNIT ForewarnUnitID AlakazamID 0x0 Level(0, Enemy, 1) [6,4]  0b 0x0	0x0 0	[Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_1 MrMimeID ForewarnUnitID Level(0, Enemy, 1) [4,5]  0b 0x0		0x0 0 	[Psychic,DarkPulse,0x0,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_2 HypnoID ForewarnUnitID Level(0, Enemy, 1) [8,5]  0b 0x0		0x0 0	[Psychic,BodySlam,0x0,0x0] 		PursueWithoutHeedAI
-UNIT GymPkmn_3 JynxID ForewarnUnitID Level(0, Enemy, 1) [3,7] 	 0b 0x0 	0x0 0	[Psychic,Blizzard,0x0,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_4 PorygonID ForewarnUnitID Level(0, Enemy, 1) [9,7]  0b 0x0	0x0 0	[Screech, 0, 0 ,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_5 FarfetchdID ForewarnUnitID Level(0, Enemy, 1) [6,6]  0b 0x0	0x0 0	[Guillotine,SkyAttack,0x0,0x0] 			PursueWithoutHeedAI
+UNIT ForewarnUnitID AlakazamID 0x0 Level(0, Enemy, 1) [6,4]  0b 0x0	0x0 0	[Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_1 MrMimeID ForewarnUnitID Level(0, Enemy, 1) [4,5]  0b 0x0		0x0 0 	[Psychic,DarkPulse,0x0,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_2 HypnoID ForewarnUnitID Level(0, Enemy, 1) [8,5]  0b 0x0		0x0 0	[Psychic,BodySlam,0x0,0x0] 		SafestZoningGroupOneAI
+UNIT GymPkmn_3 JynxID ForewarnUnitID Level(0, Enemy, 1) [3,7] 	 0b 0x0 	0x0 0	[Psychic,Blizzard,0x0,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_4 PorygonID ForewarnUnitID Level(0, Enemy, 1) [9,7]  0b 0x0	0x0 0	[Screech, 0, 0 ,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_5 FarfetchdID ForewarnUnitID Level(0, Enemy, 1) [6,6]  0b 0x0	0x0 0	[Guillotine,SkyAttack,0x0,0x0] 			SafestZoningGroupOneAI
 UNIT
 	
 

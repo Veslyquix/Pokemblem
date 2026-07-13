@@ -16,10 +16,8 @@ expRoutine:
 // #incbin "Fates EXP Approximation.dmp"
 
 
-ALIGN 4 
-PUSH ; ORG CurrentOffset+1; 
-CanGainExpVesly: ; POP 
-#include "CanGainExpVesly.lyn.event" 
+
+#include "C_Code.lyn.event"
 
 ALIGN 4 
 maxLevelTableHard:
@@ -34,7 +32,9 @@ BYTE 55
 BYTE 100 
 
 
-
+ALIGN 4 
+NoExpFlag_Link:
+WORD NoExpFlag 
 
 ALIGN 4 
 BadgeFlagLink:

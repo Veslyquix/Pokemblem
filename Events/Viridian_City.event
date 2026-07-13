@@ -476,6 +476,12 @@ CHECK_EVENTID VolcanobadgeObtained
 BEQ 3 sC s0  
 CHECK_EVENTID SoulbadgeObtained 
 BEQ 3 sC s0  
+CHECK_EVENTID RainbowbadgeObtained
+BEQ 3 sC s0 
+CHECK_EVENTID MarshbadgeObtained 
+BEQ 3 sC s0 
+CHECK_EVENTID ThunderbadgeObtained 
+BEQ 3 sC s0 
 RemoveTrap(30,10) // remove the door locked trap if we have the volcanobadge 
 LABEL 3 
 

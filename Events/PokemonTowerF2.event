@@ -95,7 +95,7 @@ Traps1:
 
 StatAccessoryTrap(5,16, (ChapterID*2), WiseGlassesT2_BoostIndex) 
 //GoldPokeballTrap(14,13, (ChapterID*2)+1, Gust) 
-//SkillAccessoryTrap(17,20, (ChapterID*2)+1, VantagePlusID) 
+SkillAccessoryTrap(17,6, (ChapterID*2)+1, DazzleID) 
 
 //StatAccessoryTrap(14,2, (ChapterID*2)+1, OldWard_BoostIndex)
 //SkillAccessoryTrap(17,15, ChapterID*2, RockyHelmetSkillID) 
@@ -110,7 +110,6 @@ StatAccessoryTrap(5,16, (ChapterID*2), WiseGlassesT2_BoostIndex)
 
 //BerryTree(2,28,5)
 
-SkillScrollTrap(17,6, ChapterID*2, FierceStanceID)
 //SpellScrollTrap(18,9, (ChapterID*2)+1, DoubleHit)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)

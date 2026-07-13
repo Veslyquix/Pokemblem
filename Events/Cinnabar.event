@@ -236,7 +236,7 @@ END_MAIN
 DebugStuffEntry(TrainerL, 175000)
 DebugItems SuperRepel 10
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
-BYTE SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
 BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
 BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID)
@@ -276,7 +276,7 @@ BYTE StatAccessory VintageBoots_BoostIndex StatAccessory EnhancedWard_BoostIndex
 BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
 BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
 BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
-BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll FierceStanceID SkillScroll OpportunistID
+BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll OpportunistID
 BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
 BYTE SkillScroll ChargeID SkillScroll AdaptabilityID SkillScroll RecklessFighterID SkillScroll DowngradeID
 BYTE SkillScroll Intimidate2ID SkillScroll SteadyBrawlerID SkillScroll MiracleID SkillScroll CounterMagicID SkillScroll CounterID SkillScroll GaleforceID
@@ -491,6 +491,9 @@ ALIGN 4
 ShopItems:
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI 0
+BYTE SkillAccShop(TacticalVestID)
+BYTE SkillAccShop(AssaultVestID)
+BYTE SkillAccShop(EvioliteID)
 BYTE SkillAccShop(BreathOfLifeID)
 BYTE SkillAccShop(AmaterasuID)
 BYTE SkillScroll MiracleID

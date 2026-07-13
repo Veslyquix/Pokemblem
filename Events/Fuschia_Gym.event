@@ -136,10 +136,11 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 
 SilentGiveSkillAccessory(GuardBreakerUnitID, GrislyWoundID)
 SilentGiveItemWithDurability(GuardBreakerUnitID, SuperPotion,0x1)
-SilentGiveItemWithDurability(GymPkmn_1, Berry,0x82)
-SilentGiveItemWithDurability(GymPkmn_2, Berry,0x82)
-SilentGiveItemWithDurability(GymPkmn_3, Berry,0x82)
-SilentGiveItemWithDurability(GymPkmn_4, Berry,0x82)
+SilentGiveItemWithDurability(GymPkmn_1, SuperPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_2, SuperPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_3, SuperPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_4, SuperPotion,0x1)
+SilentGiveItemWithDurability(GymPkmn_5, SuperPotion,0x1)
 
 
 MUSCFAST IntroBGM 
@@ -270,23 +271,23 @@ UNIT
 
 
 EnemyTrainersA:
-UNIT GuardBreakerUnitID VenomothID 	0x0 Level(0, Enemy, 1) [8,10]  0b 0x0	0x1 REDA8R10 	[Psybeam,SignalBeam,Sludge,0] PursueWithoutHeedAI
-UNIT GymPkmn_1 TentacruelID 	GuardBreakerUnitID Level(0, Enemy, 1) [8,12]  0b 0x0	0x1 REDA8R12 	[Surf, Sludge, IceBeam, 0x0] PursueWithoutHeedAI
-UNIT GymPkmn_2 MukID 		GuardBreakerUnitID Level(0, Enemy, 1) [10,12]  0b 0x0	0x1 REDA10R12 	[PoisonJab, FirePunch, ThunderPunch,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_3 WeezingID 	GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0 	0x1 REDA6R12 	[Sludge,FireBlast,Flash,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_4 ScytherID 	GuardBreakerUnitID Level(0, Enemy, 1) [5,9]  0b 0x0	0x1 REDA5R9 	[XScissor, WingAttack,Slash,0] PursueWithoutHeedAI
-UNIT GymPkmn_5 KabutopsID 	GuardBreakerUnitID Level(0, Enemy, 1) [11,9]  0b 0x0	0x1 REDA11R9 	[Waterfall, RockSlide,Slash,0x0] PursueWithoutHeedAI
-//UNIT GymPkmn_5 HypnoID 		GuardBreakerUnitID Level(0, Enemy, 1) [7,12]  0b 0x0	0x1 REDA7R12 	[Psybeam, Headbutt,PoisonGas,0x0] PursueWithoutHeedAI
+UNIT GuardBreakerUnitID VenomothID 	0x0 Level(0, Enemy, 1) [8,10]  0b 0x0	0x1 REDA8R10 	[Psybeam,SignalBeam,Sludge,0] SafestZoningGroupOneAI
+UNIT GymPkmn_1 TentacruelID 	GuardBreakerUnitID Level(0, Enemy, 1) [8,12]  0b 0x0	0x1 REDA8R12 	[Surf, Sludge, IceBeam, 0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_2 MukID 		GuardBreakerUnitID Level(0, Enemy, 1) [10,12]  0b 0x0	0x1 REDA10R12 	[PoisonJab, FirePunch, ThunderPunch,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_3 WeezingID 	GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0 	0x1 REDA6R12 	[Sludge,FireBlast,Flash,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_4 ScytherID 	GuardBreakerUnitID Level(0, Enemy, 1) [5,9]  0b 0x0	0x1 REDA5R9 	[XScissor, WingAttack,Slash,0] SafestZoningGroupOneAI
+UNIT GymPkmn_5 KabutopsID 	GuardBreakerUnitID Level(0, Enemy, 1) [11,9]  0b 0x0	0x1 REDA11R9 	[Waterfall, RockSlide,Slash,0x0] SafestZoningGroupOneAI
+//UNIT GymPkmn_5 HypnoID 		GuardBreakerUnitID Level(0, Enemy, 1) [7,12]  0b 0x0	0x1 REDA7R12 	[Psybeam, Headbutt,PoisonGas,0x0] SafestZoningGroupOneAI
 UNIT
 
 EnemyTrainersB:
-UNIT GuardBreakerUnitID VenomothID 	0x0 Level(0, Enemy, 1) [8,13]  0b 0x0	0x1 REDA8R13 	[Psychic,SignalBeam,Sludge,0] PursueWithoutHeedAI
-UNIT GymPkmn_1 TentacruelID 	GuardBreakerUnitID Level(0, Enemy, 1) [8,15]  0b 0x0	0x1 REDA8R15 	[Surf, Sludge, IceBeam, 0x0] PursueWithoutHeedAI
-UNIT GymPkmn_2 MukID 		GuardBreakerUnitID Level(0, Enemy, 1) [10,12]  0b 0x0	0x1 REDA10R12 	[PoisonJab, FirePunch, ThunderPunch,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_3 HypnoID 		GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0	0x1 REDA6R12 	[Psychic, Headbutt,PoisonGas,0x0] PursueWithoutHeedAI
-//UNIT GymPkmn_3 WeezingID 	GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0 	0x1 REDA6R12 	[Sludge,FireBlast,Flash,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_4 ScytherID 	GuardBreakerUnitID Level(0, Enemy, 1) [5,9]  0b 0x0	0x1 REDA5R9 	[XScissor, WingAttack,Slash,0] PursueWithoutHeedAI
-UNIT GymPkmn_5 KabutopsID 	GuardBreakerUnitID Level(0, Enemy, 1) [11,9]  0b 0x0	0x1 REDA11R9 	[Waterfall, RockSlide,Slash,0x0] PursueWithoutHeedAI
+UNIT GuardBreakerUnitID VenomothID 	0x0 Level(0, Enemy, 1) [8,13]  0b 0x0	0x1 REDA8R13 	[Psychic,SignalBeam,Sludge,0] SafestZoningGroupOneAI
+UNIT GymPkmn_1 TentacruelID 	GuardBreakerUnitID Level(0, Enemy, 1) [8,15]  0b 0x0	0x1 REDA8R15 	[Surf, Sludge, IceBeam, 0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_2 MukID 		GuardBreakerUnitID Level(0, Enemy, 1) [10,12]  0b 0x0	0x1 REDA10R12 	[PoisonJab, FirePunch, ThunderPunch,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_3 HypnoID 		GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0	0x1 REDA6R12 	[Psychic, Headbutt,PoisonGas,0x0] SafestZoningGroupOneAI
+//UNIT GymPkmn_3 WeezingID 	GuardBreakerUnitID Level(0, Enemy, 1) [6,12]  0b 0x0 	0x1 REDA6R12 	[Sludge,FireBlast,Flash,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_4 ScytherID 	GuardBreakerUnitID Level(0, Enemy, 1) [5,9]  0b 0x0	0x1 REDA5R9 	[XScissor, WingAttack,Slash,0] SafestZoningGroupOneAI
+UNIT GymPkmn_5 KabutopsID 	GuardBreakerUnitID Level(0, Enemy, 1) [11,9]  0b 0x0	0x1 REDA11R9 	[Waterfall, RockSlide,Slash,0x0] SafestZoningGroupOneAI
 UNIT
 	
 

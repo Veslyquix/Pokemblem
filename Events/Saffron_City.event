@@ -187,7 +187,7 @@ END_MAIN
 DebugStuffEntry(TrainerL, 150000)
 DebugItems SuperRepel 10
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
-BYTE SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
 BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
 BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID)
@@ -224,7 +224,7 @@ BYTE StatAccessory MuscleBandT3_BoostIndex StatAccessory SteelShield_BoostIndex
 BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
 BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
 BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
-BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll FierceStanceID SkillScroll OpportunistID
+BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll OpportunistID
 BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
 BYTE SkillScroll ChargeID SkillScroll AdaptabilityID SkillScroll RecklessFighterID SkillScroll DowngradeID
 BYTE SkillScroll Intimidate2ID SkillScroll SteadyBrawlerID
@@ -412,8 +412,8 @@ BNE 0 sC s0
 LOAD1 1 RocketBlockingGym
 ENUN
 LABEL 0
-CHECK_EVENTID RainbowbadgeObtained
-BNE 1 sC s0 
+CHECK_EVENTID PokefluteFlag
+BNE 1 sC s0
 LOAD1 1 RocketBlockingSilphCo
 ENUN
 LABEL 1 

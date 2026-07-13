@@ -19,7 +19,7 @@ CeruleanCity: WardingStance
 store: RecklessRockSS, DrySkinSS, ShellArmorSS, AttackPulse, WaterGun, SignalBeam, Bite, DoubleHit, Gust, Magnitude, Confusion 
 Route24: SuperPotion, WingAttack, ThunderWave, WaryFighterAccessory, Calcium 
 Route25: RockyHelmetSkillSS, OldWardAccessory, 
-CeruleanGym: Bubblebeam, RenewalRingAccessory
+CeruleanGym: Bubblebeam, EvioliteAccessory, RenewalRing
 Route5: VantagePlusSS
 Route6: CertainBlowAccessory, Downgrader 
 VermilionCity: Saddle
@@ -33,9 +33,9 @@ Route9E: PaddedShieldAccessory, HealPulse, 1000g, HelixFossil
 Route10: PoisonTouchSS, ThunderStone 
 RockTunnelB1: MoonStone, ScrappySS, EscapeRope, RockSlide 
 RockTunnelB2: ThickClub, IronShield, 1500g, DomeFossil  
-LavenderTown: DazzleAccessory, SuperPotion 
+LavenderTown: Screech, SuperPotion
 PokeTowerF1: LifetakerSS
-PokeTowerF2: FierceStanceSS, WiseGlassesT2
+PokeTowerF2: DazzleAccessory, WiseGlassesT2
 PokeTowerF3: ExoticCandy, ShadowPunch 
 PokeTowerF4: OpportunistSS  
 Route12N: BreathOfLifeAcc, Protein 
@@ -58,7 +58,7 @@ Celadon: IceBeam, TriAttack, Fire/Ice/ThunderPunch, LuckyBracerT3, EvoStones
 CeladonGym: PetalDance, AmaterasuAcc, 
 Route7: RecklessFighterSS
 Saffron: Psychic, GrassKnot 
-SilphCo2F: Screech, LinkStone 
+SilphCo2F: AssaultVest, TacticalVest, LinkStone 
 SilphCo3F: SwordsDance, DowngradeSS, Calcium, HPUp, SteelShield, 3000g
 SilphCo4F: BugBuzz
 SilphCo5F: SilphScope 
