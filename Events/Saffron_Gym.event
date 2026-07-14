@@ -38,11 +38,15 @@ CAM1 [11,9]
 TEXTSTART
 TEXTSHOW ShowSabrinaText
 TEXTEND 
+CUMO [11, 11]
+STAL 15
+REMA
+CURE 
 ShowAnimation(psychic_slow_ID, Coord(11,11))
 SCOORD sB [11,9]
 TILECHANGE (-1)
 STAL 25
-REMA 
+
 NoFade 
 ENDA 
 

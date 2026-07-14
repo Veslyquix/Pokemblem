@@ -200,6 +200,10 @@ def MakeFontTable(gba_file, table_file):
 		offset = FontTableTextAt
 		)
 	
+	def ReadU24LE(data, offset):
+		return int(data[offset]) \
+			+ int(data[offset + 1]) * 0x100 \
+			+ int(data[offset + 2]) * 0x10000
 	
 	with open(table_file, 'w') as fp_table:
 		
@@ -215,10 +219,7 @@ def MakeFontTable(gba_file, table_file):
 			
 			
 			# Item Table
-			ptr = 0 \
-				+ FontItemTable[4 * i + 0] \
-				+ FontItemTable[4 * i + 1] * 0x100 \
-				+ FontItemTable[4 * i + 2] * 0x10000 \
+			ptr = ReadU24LE(FontItemTable, 4 * i)
 			#	+ FontItemTable[4 * i + 3] * 0x1000000
 			
 			
@@ -234,10 +235,7 @@ def MakeFontTable(gba_file, table_file):
 				"\n")
 		
 			# Text Table
-			ptr = 0 \
-				+ FontTextTale[4 * i + 0] \
-				+ FontTextTale[4 * i + 1] * 0x100 \
-				+ FontTextTale[4 * i + 2] * 0x10000 \
+			ptr = ReadU24LE(FontTextTale, 4 * i)
 			#	+ FontTextTale[4 * i + 3] * 0x1000000
 			
 			if 0 == ptr:

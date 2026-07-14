@@ -343,7 +343,7 @@ Def/Res+6.[X]
 Steel Shield[X]
 ## SteelShieldDescText
 Def+10.[X]
-## EnhancedWardNameText
+## EnhancedWardNameText ^
 Enhanced Ward[X]
 ## EnhancedWardDescText
 Res+10.[X]
@@ -356,7 +356,7 @@ Silph Scope[X]
 ## SilphScopeDescText
 Your super effective STAB[N]
 attacks will always critical hit.[X]
-## LuckyBracerT3NameText
+## LuckyBracerT3NameText ^
 Lucky Bracer[X]
 ## LuckyBracerT3DescText
 Luk+10.[X]
@@ -379,14 +379,14 @@ additional 50% str.[X]
 Assault Helmet[X]
 
 ## AssaultHelmetDesc
-Recoil physical damage[N]
+Recoil half physical damage[N]
 when attacked at 1-2 range.[X]
 
 
 ## MirrorShieldName
 Mirror Shield[X]
 ## MirrorShieldDesc
-Recoil magic damage[N]
+Recoil half magic damage[N]
 when attacked at 1-2 range.[X]
 
 ## FocusBandName

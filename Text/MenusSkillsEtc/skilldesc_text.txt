@@ -1886,8 +1886,8 @@ Magic Guard: [N]
 [X]
 
 ## SD_ClearBody
-Clear Body: Stats cannot[N]
-be lowered.[X]
+Clear Body: This unit's[N]
+stats cannot be lowered.[X]
 
 ## SD_Regenerator
 Regenerator: Restore 30% HP[N]
@@ -2043,12 +2043,12 @@ Rough Skin: Opponent takes[N]
 
 
 ## SD_Counter
-Counter: Reflect physical damage[N]
+Counter: Reflect half physical damage[N]
 when attacked at 1-2 range.[N]
 [lock][Fighting], or 50+ Str cap.[X]
 
 ## SD_CounterMagic
-Countermagic: Reflect magic damage[N]
+Countermagic: Reflect half magic damage[N]
 when attacked at 1-2 range.[N]
 [lock][Psychic], or 50+ Mag cap.[X]
 
@@ -2058,8 +2058,8 @@ attack if HP > 75%.[N]
 [lock][Rock], [Ground], [Steel], or 55+ Def cap.[X]
 
 ## SD_Vantage_Plus
-Vantage: User always attacks first,[N]
-even if attacked.[N]
+Vantage: User attacks[N]
+first when attacked.[N]
 [lock][Normal], [Flying], or 50+ Spd cap.[X]
 
 
@@ -2102,14 +2102,13 @@ counterattack this unit.[N]
 [lock][Ghost][X]
 
 ## SD_Lifetaker
-Lifetaker: Restore up to 25% HP after[N]
+Lifetaker: Restore up to 50% HP after[N]
 attacking and defeating an enemy.[N]
 [lock][Ghost][X]
 
 ## SD_Galeforce
 Galeforce: Move again with half power[N]
-after defeating an enemy on your phase[N]
-if this was equipped start of turn.[N]
+after defeating an enemy on your phase.[N]
 [lock][Flying], or 60+ Spd cap.[X]
 
 ## Acc_Galeforce

@@ -119,7 +119,7 @@ DebugStuffEntry(TrainerL, 110000)
 DebugItems SuperRepel 5
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
 BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
-BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
+BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(LifeAndDeathID) SkillAcc(Intimidate2ID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
 BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID)
 BYTE JellyDonut 5

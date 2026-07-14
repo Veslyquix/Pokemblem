@@ -1,13 +1,13 @@
 
 
 # 0x0896
-Welcome to the armory![A][0x02][NL]
+Welcome to the armory![A][Clear][NL]
 These are the weapons[.][NL]
 we have for sale.[.][A][X]
 
 # 0x0897
 Welcome to the[NL]
-general store![A][0x02][NL]
+general store![A][Clear][NL]
 Here are all the items[NL]
 we have for sale.[.][A][X]
 
@@ -18,17 +18,17 @@ Come back again.[A][X]
 Hope to see you again![A][X]
 
 # 0x089A
-Welcome to the armory.[A][0x02][NL]
+Welcome to the armory.[A][Clear][NL]
 I deal in all sorts of goods.[.][NL]
 [Buy/Sell][X]
 
 # 0x089B
-[Tact]![A][0x02][NL]
+[Tact]![A][Clear][NL]
 Take charge of your future![NL]
 [Buy/Sell][X]
 
 # 0x089C
-Shhh... Hee hee...[A][0x02][NL]
+Shhh... Hee hee...[A][Clear][NL]
 This is a secret shop![NL]
 [Buy/Sell][X]
 
@@ -49,7 +49,7 @@ Do you need anything else?[NL]
 [0x1B][X]
 
 # 0x08A1
-Don't leave unprepared!        [NL]// spaces are needed to avoid a gfx glitch 
+Don't leave unprepared![NL]// spaces are needed to avoid a gfx glitch 
 [0x1B][X]
 
 # 0x08A2
@@ -63,7 +63,7 @@ What would you like?[X]
 You'll need these.[X]
 
 # 0x08A5
-What do you need?[.][X]
+What do you need?[X]
 
 # 0x08A6
 How about another?[X]
@@ -72,14 +72,14 @@ How about another?[X]
 How about another?[X]
 
 # 0x08A8
-Any other requests?[.][X]
+Any other requests?[X]
 
 # 0x08A9
 What do you want to sell?[.][X]
 
-# 0x08AA
-Hmm.. let me see[NL]
-what I can give you.[X]
+# 0x08AA 
+[NL][Clear]Hmm.. let me see[NL]
+what I can give you.[X]//!!!ᢷޱ.
 
 # 0x08AB
 What would you sell?[X]
@@ -146,7 +146,7 @@ Hee hee... Wait a minute.[.][NL]
 I can't buy that![.][A][X]
 
 # 0x08BE
-Looks like you're full.[.][A][0x02][NL]
+Looks like you're full.[.][A][Clear][NL]
 Send it to storage?[.][NL]
 [Yes][X]
 
@@ -155,7 +155,7 @@ Send to your PC?[NL]
 [Yes][X]
 
 # 0x08C0
-Your hands are full.[A][0x02][NL]
+Your hands are full.[A][Clear][NL]
 Send it to storage?[.][NL]
 [Yes][X]
 
@@ -218,12 +218,12 @@ Welcome to the arena![.][A][X]
 
 # 0x08D1
 Welcome to the arena.[.][A][NL]
-Oh! It's you again.[.][A][0x02][NL]
+Oh! It's you again.[.][A][Clear][NL]
 I've lost a lot of gold[.][NL]
-thanks to you...[A][0x02][NL]
+thanks to you...[A][Clear][NL]
 If you want to continue,[A][NL]
 we're going to have to[NL]
-do things differently.[A][0x02][NL]
+do things differently.[A][Clear][NL]
 I'm going to prepare some[.][NL]
 more challenging foes.[A][X]
 

@@ -117,7 +117,7 @@ DebugStuffEntry(TrainerL, 90000)
 DebugItems SuperRepel 5
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
 BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
-BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
+BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(LifeAndDeathID) SkillAcc(Intimidate2ID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE JellyDonut 5
 BYTE SuperPotion 5
 BYTE Revive 3
@@ -219,9 +219,9 @@ CoinsTrap(20,7,ChapterID*2,350)
 Save(6,34) // Pokecenter 
 
 
-// RockSmash(1,39)
-// RockSmash(1,41)
-// RockSmash(0,40)
+RockSmash(1,39)
+RockSmash(1,41)
+RockSmash(0,40)
 
 //StatAccessoryTrap(30,18, ChapterID*2, WiseGlasses_BoostIndex)
 SkillAccessoryTrap(13,27, ChapterID*2, DazzleID)

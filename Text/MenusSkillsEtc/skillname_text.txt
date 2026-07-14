@@ -152,10 +152,10 @@ Desperation[X]
 ## SN_Wrath
 Wrath[X]
 
-## SN_Counter
+## SN_Counter ^
 Counter[X]
 
-## SN_CounterMagic
+## SN_CounterMagic ^
 Countermagic[X]
 
 ## SN_Miracle
@@ -1140,7 +1140,7 @@ Dragonskin[X]
 ## SN_StunningSmile
 Stunning Smile[X]
 
-## SN_RecklessFighter
+## SN_RecklessFighter ^
 Reckless Fighter[X]
 
 ## SN_KeenFighter
@@ -1155,10 +1155,10 @@ Proud Bird[X]
 ## SN_BoldFighter
 Bold Fighter[X]
 
-## SN_VengefulFighter
+## SN_VengefulFighter ^
 Vengeful Fighter[X]
 
-## SN_SteadyBrawler
+## SN_SteadyBrawler ^
 Steady Brawler[X]
 
 ## SN_QuickLearner
@@ -1233,7 +1233,7 @@ Analytic[X]
 ## SN_Hydration
 Hydration[X]
 
-## SN_PoisonTouch
+## SN_PoisonTouch ^
 Poison Touch[X]
 
 ## SN_ShellArmor
