@@ -47,11 +47,6 @@ SHORT $46C0 $46C0 // nop nop
 ORG $2AE54
 jumpToHack_r0(NegateDefHack)
 
-//ORG $25180  - This didn't work properly for some reason. It seemed to work in my context the first few iterations, but it led to a jump to d002d000 or something eventually 
-//jumpToHack_r3(AddUnitToTargetListHack)
-
-ORG $2AAD0 
-// callHack_r3(StabBonusFunc)
 
 ORG $9B788 
 jumpToHack_r6(DisplayDurabilitySupply|1) 
@@ -73,7 +68,7 @@ POP
 #include "DisplayDurabilitySupply.lyn.event"
 
 
-#include "StabBonus.lyn.event" 
+#include "ShouldWeaponHaveStabBonus.lyn.event" 
 
 
 

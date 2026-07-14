@@ -286,14 +286,14 @@ void SoarSpawnCoin(SoarProc *CurrentProc) {
 #endif
   CurrentProc->coinZ = 1;
 }
-
+extern int SoaringCoinGold;
 void SoarCollectCoin(SoarProc *CurrentProc) {
   if (!CoinsEnabled) {
     CurrentProc->coinZ = 0;
     return;
   }
 
-  SetPartyGoldAmount(GetPartyGoldAmount() + 1000);
+  SetPartyGoldAmount(GetPartyGoldAmount() + SoaringCoinGold);
   if (gChapterData.muteSfxOption == 0)
     m4aSongNumStart(0x5A);
   SoarSpawnCoin(CurrentProc);

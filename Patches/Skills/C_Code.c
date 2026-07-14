@@ -1204,7 +1204,7 @@ void ComputeBattleUnitAttack(struct BattleUnit * attacker, struct BattleUnit * d
     attacker->battleAttack = GetItemMight(attacker->weaponBefore);
     if (ShouldWeaponHaveStabBonus(attacker->weaponBefore, attacker->unit.pClassData->number))
     { // stab bonus hook
-        attacker->battleAttack += attacker->battleAttack;
+        attacker->battleAttack += (attacker->battleAttack + 1) >> 1;
     }
     attack = attacker->battleAttack;
 

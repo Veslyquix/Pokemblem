@@ -3610,9 +3610,9 @@ stop by - I have a little something for you.[A][X]
 ## MomGiveItemText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]You've come such a long way, sweetie.[N]
 I'm so proud of everything you've done![A][N]
-I put aside some money for you...[A][N]
-And please take this. Just a little[N]
-something from your biggest fan.[A][X]
+I put aside that money for you...[A][N]
+Just a little something[N]
+from your biggest fan.[A][X]
 
 
 

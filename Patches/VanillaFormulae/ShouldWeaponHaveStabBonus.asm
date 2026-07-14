@@ -11,58 +11,6 @@
   .short 0xf800
 .endm
 
-@ r0 = item might 
-@ r6 = attacker 
-@ r8 = defender 
-
-.global StabBonusFunc
-.type StabBonusFunc, %function 
-
-StabBonusFunc: 
-push {r4-r7, lr} 
-mov r4, r6 @ attacker  
-mov r5, r8 @ dfdr 
-mov r6, r0 @ wep might 
-
-
-mov r1, #0x48 
-ldrb r0, [r4, r1] @ atkr wep after bttl and is what vanilla uses so whatever - 4A before  
-
-ldr r1, [r4, #4] 
-ldrb r1, [r1, #4] @ Class ID 
-
-bl ShouldWeaponHaveStabBonus
-cmp r0, #0 
-beq ExitStabBonusFunc
-@mov r0, r6 
-@add r0, r6, #1 @ half rounded up 
-@lsr r0, #1 
-
-mov r0, r6 
-add r0, #1 
-lsr r0, #1 @ half mt 
-add r6, r0 @ 1.5x mt 
-
-
-
-
-ExitStabBonusFunc: 
-mov r0, r6 @ wep might 
-@ r0 should be weapon might at this point 
-
-pop {r4-r7} 
-
-@ vanilla stuff at end 
-
-mov r1, r6
-add r1, #0x54 
-ldrb r1, [r1]
-lsl r1, #24  
-asr r1, #24 
-add r1, r0 
-
-pop {r2} 
-bx r2 
 
 .type ShouldWeaponHaveStabBonus, %function 
 .global ShouldWeaponHaveStabBonus 
