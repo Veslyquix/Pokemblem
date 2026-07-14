@@ -116,7 +116,7 @@ END_MAIN
 DebugStuffEntry(TrainerL, 90000)
 DebugItems SuperRepel 5
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
-BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
 BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE JellyDonut 5
 BYTE SuperPotion 5
@@ -134,8 +134,8 @@ BYTE StatAccessory BronzeShield_BoostIndex StatAccessory OldWard_BoostIndex
 BYTE StatAccessory PaddedShield_BoostIndex StatAccessory IronShield_BoostIndex
 BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
 BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
-BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID
-BYTE SkillScroll PoisonTouchID SkillScroll ScrappyID SkillScroll PatienceID
+BYTE SkillScroll VantagePlusID SkillScroll ForewarnID 
+BYTE SkillScroll PoisonTouchID SkillScroll ScrappyID SkillScroll TechnicianID
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
 BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
@@ -285,6 +285,7 @@ ShopItems:
 BYTE SkillScroll ForewarnID
 BYTE SkillScroll PoisonTouchID
 BYTE SkillScroll ScrappyID
+BYTE SkillScroll TechnicianID 
 BYTE Revive 1 
 BYTE SuperPotion 5 
 BYTE SuperRepel 1
@@ -292,7 +293,6 @@ BYTE EscapeRope 1
 BYTE WarpCrystal 1
 BYTE SkillAccShop(PridefulWarriorID)
 BYTE SkillAccShop(ThickClubSkillID)
-BYTE SkillScroll PatienceID 
 BYTE SpellScroll MagicalLeaf SpellScroll Scorch SpellScroll Dig 
 BYTE SpellScroll SignalBeam SpellScroll MegaPunch SpellScroll BodySlam
 BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick

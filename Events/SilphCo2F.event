@@ -185,7 +185,8 @@ RedPokeballTrap(31,20, (ChapterID*2)+1, LinkStone)
 
 //StatAccessoryTrap(14,2, (ChapterID*2)+1, OldWard_BoostIndex)
 //SkillAccessoryTrap(37,14, ChapterID*2, DeathBlowID) 
-//SkillScrollTrap(18,28, ChapterID*2, StrongRiposteID)
+SkillScrollTrap(18,19, (ChapterID*2)+1, CounterID)
+SkillScrollTrap(23,19, ChapterID*2, CounterMagicID)
 
 SkillAccessoryTrap(3, 20, (ChapterID*2), AssaultVestID)
 SkillAccessoryTrap(4, 20, (ChapterID*2)+1, TacticalVestID)

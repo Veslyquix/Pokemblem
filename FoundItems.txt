@@ -5,7 +5,7 @@ store: PoisonStrikeSS, Tackle, Scratch, TailWhip, Bite, Ember, Bubble, LeafFlurr
 Route2S: WiseGlassesAccessory, WarpCrystal, RareCandy(Cut), PinMissile(Cut)
 ViridianForestS: 400g, SwarmSS
 ViridianForestN: 850g, LeatherShieldAccessory, ShedSkinSS, AttackPulse
-Route2N: 900g,, MegaPunch(Cut)
+Route2N: 900g,, TechnicianSS(Cut)
 PewterCity: SteadyStanceAccessory, OldAmber 
 store: SwarmSS, ShedSkinSS, Tackle, Leer, Ember, Bite, Bubble, LeafFlurry, Gust, Magnitude, Confusion 
 PewterGym: RockTomb, RecklessRockSS, DryingPanAccessory
@@ -25,7 +25,7 @@ Route6: CertainBlowAccessory, Downgrader
 VermilionCity: Saddle
 store: SniperSS, RoughSkinSS, VantageSS, MagicalLeaf, WaterGun, Scorch, Dig, Headbutt, SignalBeam, Magnitude, Confusion
 Diglett'sCave: , Carbos  
-Route11: ForewarnSS, Scorch, GuardBreaker, Iron 
+Route11: ForewarnSS, Scorch, GuardBreakerAccessory, Iron 
 SSAnne: PoisonStrikeID, BodySlam
 VermilionGym: Thunderbolt, Surge'sSigilAccessory
 Route9W: Leek, Skull Mask
@@ -36,43 +36,43 @@ RockTunnelB2: ThickClub, IronShield, 1500g, DomeFossil
 LavenderTown: Screech, SuperPotion
 PokeTowerF1: LifetakerSS
 PokeTowerF2: DazzleAccessory, WiseGlassesT2
-PokeTowerF3: ExoticCandy, ShadowPunch 
-PokeTowerF4: OpportunistSS  
+PokeTowerF3: ExoticCandy, RenewalSS 
+PokeTowerF4: ShadowPunch  
 Route12N: BreathOfLifeAcc, Protein 
 Route12S: Surf Board, Clamp, ChlorophyllSS, WaterStone 
 Route13: CounterAcc, MuscleBandT2, FullHeal, HPUp
 Route14: HarvestSS, LeafBlade, LeafStone 
 Route15: SolarPowerSS, Zinc, LinkStone 
-Fuschia: AuroraBeam, MagicWard, FireStone 
+Fuschia: Detonator, DazzleSS, FireStone 
 store: ChlorophyllSS, HarvestSS, SolarPowerSS
-SafariS: FocusBandAcc(Miracle), ExoticCandy 
+SafariS: FocusBandAcc(Miracle), ExoticCandy, MultiscaleSS
 SafariE: Psybeam, Protein
-SafariN: ChargeSS, EnergyBandT2 
+SafariN: EnergyBandT2, TintedLensSS 
 SafariW: BugBite, HPUp, VantageSkillScroll
 FuschiaGym: PoisonJab, SavageBlowAcc
 Route18: DrillPeck, QuickBoots, 
 Route17S: AdaptabilitySS, CounterMagicAcc
-Route17N: Flamethrower Carbos 
+Route17N: Flamethrower, Carbos 
 Route16: Fly, PaddedShieldT2 
 Celadon: IceBeam, TriAttack, Fire/Ice/ThunderPunch, LuckyBracerT3, EvoStones 
-CeladonGym: PetalDance, AmaterasuAcc, 
+CeladonGym: PetalDance, LeftoversAcc, 
 Route7: RecklessFighterSS
 Saffron: Psychic, GrassKnot 
-SilphCo2F: AssaultVest, TacticalVest, LinkStone 
+SilphCo2F: AssaultVest, TacticalVest, LinkStone, CounterSS, CounterMagicSS 
 SilphCo3F: SwordsDance, DowngradeSS, Calcium, HPUp, SteelShield, 3000g
 SilphCo4F: BugBuzz
 SilphCo5F: SilphScope 
 Dojo: HiJumpKick, BulkUp, MuscleBandT3 
 SaffronGym: CalmMind, HoplonGuard, Hover Board
-Route8: RecklessFighterSS, LeafStone, 800g
+Route8: IntimidateSS, LeafStone, 800g
 PowerPlant: Thunder, VintageBoots, ThunderStone, Carbos 
 Route19: Ancientpower, HoneClaws
 Route20E: ExoticCandy , Surf 
 Seafoam: Waterfall, WaterStone, EarthPower, Calcium, MaxPotion, Blizzard, 
-Route20W: EnhancedWard, 1500g 
+Route20W: EnhancedWard, MiracleSS 
 Cinnabar: Solarbeam, WiseGlassesT3
 Mansion: Sludge, Zinc, 1500g , FireStone 
-Mansion: ShadowBall, GrislyWoundSS, StuddedShield, FieryBloodSS 
+Mansion: ShadowBall, GrislyWoundSS, StuddedShield, FurySS 
 CinnabarGym: FireBlast, EnergyBandT3 
 Route21: HydroPump, ExoticCandy 
 ViridianGym: HyperBeam, Earthquake, Fury 
@@ -80,7 +80,7 @@ Route22: GaleforceAcc, BlossomAcc
 Route 23S: VoiceOfPeaceAcc, DoubleEdge 
 Route 23M: MaxPotion, Megahorn 
 VictoryRoadB1: RareCandy, Iron, 2000g
-VictoryRoadB2: Outrage, Protein, RenewalSS 
+VictoryRoadB2: Outrage, Protein, SavageBlowSS
 VictoryRoadB3: DarkPulse, MaxPotion 
 Route 23N: EnergyBandT4
 VictoryRoad: Megahorn 

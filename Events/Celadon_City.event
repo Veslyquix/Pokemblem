@@ -124,7 +124,7 @@ END_MAIN
 DebugStuffEntry(TrainerL, 130000)
 DebugItems SuperRepel 5
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
-BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
 BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
 BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID)
@@ -157,9 +157,9 @@ BYTE StatAccessory QuickBoots_BoostIndex StatAccessory LuckyBracerT3_BoostIndex
 BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
 BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
 BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
-BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll OpportunistID
-BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
-BYTE SkillScroll ChargeID SkillScroll AdaptabilityID
+BYTE SkillScroll ScrappyID SkillScroll TechnicianID SkillScroll LifetakerID SkillScroll RenewalID
+BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID 
+BYTE SkillScroll MultiscaleID SkillScroll TintedLensID SkillScroll AdaptabilityID
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
 BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
@@ -374,7 +374,7 @@ StatAccessoryTrap(23,18, ChapterID*2, LuckyBracerT3_BoostIndex)
 SignBTrap(41,11, ChapterID, 0x0) //no extra text 
 SignATrap(4,16, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
 
-//SkillScrollTrap(15,11, ChapterID*2, AcrobatID)
+SkillScrollTrap(33,21, ChapterID*2, GuardBreakerID)
 //SpellScrollTrap(17,11, (ChapterID*2)+1, Ember)
 //OpenPokeball(8,3)
 
@@ -502,10 +502,9 @@ BYTE $00; ALIGN 4
 
 ALIGN 4
 ShopItems_C: // Skill Scrolls 
-BYTE SkillScroll ParagonID SkillScroll OpportunistID
-BYTE SkillScroll ChargeID 
+BYTE SkillScroll ParagonID
 BYTE SkillScroll LifetakerID SkillScroll DazzleID 
-BYTE SkillScroll RenewalID SkillScroll MultiscaleID 
+BYTE SkillScroll RenewalID SkillScroll MultiscaleID
 BYTE SkillScroll AdaptabilityID SkillScroll TintedLensID 
 BYTE SkillScroll SolarPowerID SkillScroll HarvestID 
 BYTE SkillScroll ChlorophyllID SkillScroll ScrappyID 
@@ -519,13 +518,7 @@ BYTE SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll PoisonStrikeID
 BYTE $00; ALIGN 4
 
 
-ALIGN 4
-ShopItems_Unused: // Skill Scrolls 
-// 2nd store in Viridian? Or at league? 
-BYTE SkillScroll DartingStanceID SkillScroll ChargeID SkillScroll PursuitID
-BYTE SkillScroll WrathID SkillScroll SilentPrideID SkillScroll CharmID 
-BYTE SkillScroll GrislyWoundID SkillScroll FieryBloodID 
-BYTE $00; ALIGN 4
+
 
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI SuperPotion

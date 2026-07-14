@@ -393,7 +393,6 @@ ShopItems:
 BYTE StatAccessory MuscleBand_BoostIndex 
 BYTE StatAccessory WiseGlasses_BoostIndex
 BYTE JellyDonut 4
-// BYTE SkillScroll PatienceID
 BYTE SkillScroll SwarmID
 BYTE SkillScroll ShedSkinID
 BYTE SuperRepel 1

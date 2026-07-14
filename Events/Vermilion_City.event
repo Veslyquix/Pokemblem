@@ -219,6 +219,7 @@ BYTE SpellScroll Harden
 BYTE StatAccessory BronzeShield_BoostIndex
 BYTE SkillAcc(RockyHelmetSkillID)
 BYTE SkillScroll ShellArmorID
+BYTE SkillScroll TechnicianID
 BYTE SpellScroll KarateChop
 BYTE SkillScroll SniperID
 BYTE SpellScroll PoisonPowder
@@ -227,7 +228,7 @@ BYTE SpellScroll SignalBeam SpellScroll MagicalLeaf SpellScroll Magnitude
 BYTE SpellScroll BubbleBeam
 BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID)
 BYTE SkillScroll VantagePlusID
-BYTE SkillAcc(CertainBlowID)
+BYTE SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID)
 BYTE SkillAcc(DowngradeID)
 BYTE SkillAcc(CantoPlusID)
 BYTE SkillAcc(WaryFighterID)
@@ -478,7 +479,6 @@ BYTE JellyDonut 5
 BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
-BYTE SkillScroll PatienceID 
 BYTE SpellScroll MagicalLeaf SpellScroll WaterGun SpellScroll Scorch SpellScroll Dig 
 BYTE SpellScroll Headbutt 
 BYTE SpellScroll SignalBeam SpellScroll Magnitude SpellScroll PinMissile SpellScroll WingAttack// 19

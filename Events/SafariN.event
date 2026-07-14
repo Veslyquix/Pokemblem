@@ -134,7 +134,7 @@ StatAccessoryTrap(37,19, (ChapterID*2)+1, EnergyBandT2_BoostIndex)
 
 BerryTree(6,20,5)
 
-SkillScrollTrap(12,14, ChapterID*2, ChargeID)
+SkillScrollTrap(12,14, ChapterID*2, TintedLensID)
 //SpellScrollTrap(18,9, (ChapterID*2)+1, DoubleHit)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)

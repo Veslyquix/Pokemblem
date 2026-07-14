@@ -125,7 +125,7 @@ SignATrap(2,4, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 
 
 BerryTree(35,3,5)
 BerryTree(38,3,5)
-//SkillScrollTrap(42,16, ChapterID*2, PatienceID)
+//SkillScrollTrap(42,16, ChapterID*2, SkillID)
 //SpellScrollTrap(18,9, (ChapterID*2)+1, DoubleHit)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)

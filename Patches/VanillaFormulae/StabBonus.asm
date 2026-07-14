@@ -39,7 +39,9 @@ beq ExitStabBonusFunc
 @lsr r0, #1 
 
 mov r0, r6 
-add r6, r0 @ 2x mt
+add r0, #1 
+lsr r0, #1 @ half mt 
+add r6, r0 @ 1.5x mt 
 
 
 

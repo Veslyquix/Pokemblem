@@ -1771,11 +1771,11 @@ also doubles.[X]
 
 ## SD_BoldFighter
 Bold Fighter: When attacking,[N]
-this unit always doubles.[X]
+this unit can always double.[X]
 
 ## SD_VengefulFighter
 Vengeful Fighter: When defending,[N]
-this unit always doubles.[X]
+this unit can always double.[X]
 
 
 ## SD_SteadyBrawler
@@ -1865,7 +1865,7 @@ if the opponent's highest stat is[N]
 greater than yours.[X]
 
 ## SD_Hustle
-Hustle: Deal 25% more damage, but[N]
+Hustle: Deal 20% more damage, but[N]
 moves are 20% less accurate.[X]
 
 ## SD_ArenaTrap
@@ -1905,7 +1905,7 @@ or in range of Damp Aura.[X]
 ## SD_ShellArmor
 Shell Armor: Grants an immunity[N]
 to critical hits.[N]
-[lock][Water], or 50+ Def cap.[X]
+[lock][Rock], [Water], or 50+ Def cap.[X]
 
 ## SD_Grudge
 Grudge: After fainting, the opponent's[N]
@@ -1913,7 +1913,7 @@ def/res are debuffed by 30.[X]
 
 ## SD_Aftermath
 Aftermath: After fainting, the opponent[N]
-loses 25% HP.[X]
+loses 25% of their current HP.[X]
 
 ## SD_SheerForce
 Sheer Force: Moves with secondary[N]
@@ -1926,7 +1926,8 @@ Forewarn: Adjacent units take[N]
 [lock][Psychic][X]
 
 ## SD_HyperCutter
-Hyper Cutter: Immune to debuffs.[X]
+Hyper Cutter: User is[N]
+Immune to debuffs.[X]
 
 ## SD_Harvest
 Harvest: Restore 50% HP each[N]
@@ -1953,8 +1954,9 @@ Filter: Super Effective moves[N]
 deal 25% less damage.[X]
 
 ## SD_Technician
-Technician: Moves with 6 or less[N]
-power have doubled power.[X]
+Technician: Moves with 9 or less[N]
+power have doubled power.[N]
+[lock][Normal], [Bug][X]
 
 ## SD_DrySkin
 Dry Skin: Fully heal when hit[N]
@@ -1962,11 +1964,11 @@ by water. Weak to fire.[N]
 [lock][Bug], [Rock][X]
 
 ## SD_MotorDrive
-Motor Drive: Raise Spd by +10[N]
+Motor Drive: Raise Spd by +15[N]
 when hit by an electric move.[X]
 
 ## SD_FlashFire
-Flash Fire: Raise Mag by +10[N]
+Flash Fire: Raise Str/Mag by +15[N]
 when hit by a fire move.[X]
 
 ## SD_AngerPoint
@@ -1980,7 +1982,7 @@ of the opponent in battle.[X]
 ## SD_Adaptability
 Adaptability: Same type[N]
 attack bonus is doubled.[N]
-[lock][Normal], [Water], [Fire], [Grass], [Electric][X]
+[lock][Normal], [Water], [Fire], [Grass], [Electric], [Ice][X]
 
 ## SD_AcidArmor
 Acid Armor: Boost Def/Res by 25%[N]
@@ -2075,12 +2077,12 @@ surrounded, deal 100% more damage.[N]
 ## SD_Intimidate2
 Intimidate: Battle debuffs[N]
 enemy Str/Mag by 20%.[N]
-[lock][Fighting], [Ghost][X]
+[lock][Poison], [Flying][X]
 
 ## SD_GuardBreaker
 Guard Breaker: Battle debuffs[N]
 enemy Def/Res by 25%.[N]
-[lock][Poison], [Ice][X]
+[lock][Dragon], [Ice][X]
 
 ## SD_Downgrade
 Downgrade: Battle debuffs[N]

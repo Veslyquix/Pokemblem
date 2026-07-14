@@ -187,7 +187,7 @@ END_MAIN
 DebugStuffEntry(TrainerL, 150000)
 DebugItems SuperRepel 10
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
-BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
 BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
 BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID)
@@ -224,10 +224,10 @@ BYTE StatAccessory MuscleBandT3_BoostIndex StatAccessory SteelShield_BoostIndex
 BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
 BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
 BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
-BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll OpportunistID
-BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
-BYTE SkillScroll ChargeID SkillScroll AdaptabilityID SkillScroll RecklessFighterID SkillScroll DowngradeID
-BYTE SkillScroll Intimidate2ID SkillScroll SteadyBrawlerID
+BYTE SkillScroll ScrappyID SkillScroll TechnicianID SkillScroll LifetakerID SkillScroll RenewalID
+BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID 
+BYTE SkillScroll MultiscaleID SkillScroll TintedLensID SkillScroll AdaptabilityID SkillScroll RecklessFighterID SkillScroll DowngradeID
+BYTE SkillScroll Intimidate2ID 
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
 BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
@@ -476,7 +476,6 @@ BYTE SkillAccShop(CounterID)
 BYTE SkillScroll DowngradeID
 BYTE SkillScroll GuardBreakerID
 BYTE SkillScroll Intimidate2ID
-BYTE SkillScroll SteadyBrawlerID
 BYTE SkillScroll RecklessFighterID
 BYTE Revive 1 
 BYTE SuperPotion 5 

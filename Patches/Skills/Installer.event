@@ -50,6 +50,9 @@ FILL(256*4)
 
 #define SkillReq(id, typing, statReq, statType) "PUSH; ORG SkillUsabilityTable + (4 * id); SHORT typing; BYTE statReq statType; POP" 
 
+ 
+
+
 
 // Viridian Mart 
 SkillReq(PoisonStrikeID, PoisonType, 50, defReq|resReq) 
@@ -61,7 +64,7 @@ SkillReq(ShedSkinID, BugType, 0, 0) // Viridian Forest
 // Cerulean Mart 
 SkillReq(RecklessRockID, RockType, 0, 0) // Pewter Gym
 SkillReq(DrySkinID, BugType|RockType, 0, 0) // MtMoon
-SkillReq(ShellArmorID, WaterType, 50, defReq) // MtMoon
+SkillReq(ShellArmorID, WaterType|RockType, 50, defReq) // MtMoon
 
 // Vermilion Mart 
 SkillReq(SniperID, ElectricType, 0, 0) // route 4e 
@@ -70,6 +73,7 @@ SkillReq(VantagePlusID, NormalType|FlyingType, 50, spdReq) // route 5
 
 
 // Lavender mart 
+SkillReq(TechnicianID, NormalType|BugType, 0, 0) // Route2N (cut) 
 SkillReq(ForewarnID, PsychicType, 0, 0) // Route 11 (east of Vermilion) 
 SkillReq(PoisonTouchID, PoisonType, 0, 0) // Route 10 
 SkillReq(ScrappyID, NormalType|FightingType, 0, 0) // Rock Tunnel 
@@ -83,29 +87,28 @@ SkillReq(SolarPowerID, FireType, 0, 0) // 15
 
 // Celadon Mart  // NOT FOUND ANYWHERE IF INDENTED 
 SkillReq(LifetakerID, GhostType, 0, 0) 
-    SkillReq(DazzleID, GhostType, 0, 0) 
-    SkillReq(RenewalID, PsychicType, 50, resReq) // Lavender 
-    SkillReq(MultiscaleID, DragonType|WaterType, 55, defReq|resReq) // Safari Zone 
-SkillReq(AdaptabilityID, NormalType|WaterType|FireType|GrassType|ElectricType, 0, 0) 
-    SkillReq(TintedLensID, BugType, 0, 0) // Safari Zone, Celadon Mart 
+SkillReq(DazzleID, GhostType, 0, 0) // Fuschia 
+SkillReq(RenewalID, PsychicType, 50, resReq) // pkmn tower  
+SkillReq(MultiscaleID, DragonType|WaterType, 55, defReq|resReq) // Safari Zone 
+SkillReq(AdaptabilityID, NormalType|WaterType|FireType|GrassType|ElectricType|IceType, 0, 0) 
+SkillReq(TintedLensID, BugType, 0, 0) // Safari Zone
 
 // Saffron mart 
 SkillReq(DowngradeID, SteelType|ElectricType, 0, 0) // silph co 
-    SkillReq(GuardBreakerID, PoisonType|IceType, 0, 0) 
-    SkillReq(Intimidate2ID, FightingType|GhostType, 0, 0) 
-SkillReq(SteadyBrawlerID, FightingType, 0, 0) // route 8 
+SkillReq(GuardBreakerID, DragonType|IceType, 0, 0) // Celadon 
+SkillReq(Intimidate2ID, PoisonType|FlyingType, 0, 0) // route 8 // |NormalType|FireType (Tauros and Arcanine already have) 
 SkillReq(RecklessFighterID, FightingType, 0, 0) // route 7 
 
 // cinnabar mart  
-    SkillReq(MiracleID, GroundType|RockType|SteelType, 55, defReq|resReq) 
-    SkillReq(CounterMagicID, PsychicType, 50, magReq) 
-    SkillReq(CounterID, FightingType, 50, strReq) 
-    SkillReq(GaleforceID, FlyingType, 60, spdReq) 
+SkillReq(MiracleID, GroundType|RockType|SteelType, 55, defReq|resReq) // route 20w 
+SkillReq(CounterMagicID, PsychicType, 50, magReq) // Silph Co
+SkillReq(CounterID, FightingType, 50, strReq)  // Silph Co 
+SkillReq(GaleforceID, FlyingType, 60, spdReq) // Route 22 
 
 // league mart 
-    SkillReq(FuryID, 0, 60, strReq|magReq|spdReq) 
-    SkillReq(SavageBlowID, 0, 55, strReq|magReq) 
-    SkillReq(GrislyWoundID, 0, 55, spdReq) 
+SkillReq(FuryID, 0, 60, strReq|magReq|spdReq) // Mansion
+SkillReq(SavageBlowID, 0, 55, strReq|magReq) // victory road 
+SkillReq(GrislyWoundID, 0, 55, spdReq) // mansion 
     
 
 
