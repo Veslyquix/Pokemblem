@@ -1260,7 +1260,7 @@ Harvest[X]
 ## SN_Unburden
 Unburden[X]
 
-## SN_RecklessRock
+## SN_RecklessRock ^
 Reckless Rock[X]
 
 ## SN_Scrappy
