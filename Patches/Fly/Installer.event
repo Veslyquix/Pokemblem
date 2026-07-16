@@ -129,6 +129,7 @@ IGNORE_KEYS 0
 Write_Byte(0, DisableMenuOptionsRam) 
 ENUF PlayableCutsceneFlag 
 ENUF TrainerBattleActiveFlag
+ENUF RefreshEvenInTrainerBattleFlag
 EVBIT_MODIFY 0
 NoFade 
 ENDA 

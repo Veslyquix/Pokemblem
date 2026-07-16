@@ -502,7 +502,7 @@ BYTE $00; ALIGN 4
 
 ALIGN 4
 ShopItems_C: // Skill Scrolls 
-BYTE SkillScroll ParagonID
+BYTE SkillScroll ParagonID SkillScroll TechnicianID
 BYTE SkillScroll LifetakerID SkillScroll DazzleID 
 BYTE SkillScroll RenewalID SkillScroll MultiscaleID
 BYTE SkillScroll AdaptabilityID SkillScroll TintedLensID 

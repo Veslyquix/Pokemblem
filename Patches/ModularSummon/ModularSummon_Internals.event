@@ -90,6 +90,7 @@ ModularSummon_RestoreCameraEvent: // This is an event so that it gets queued aft
 ENUF FIXED_GROWTHS_FLAG_ID
 ASMC ModularSummon_RestoreCameraASMC // Move back to active unit using CenterCameraOntoPosition
 ENUT TrainerBattleActiveFlag 
+ENUF RefreshEvenInTrainerBattleFlag 
 NoFade 
 ENDA 
 

@@ -4102,44 +4102,44 @@ you on the force.[A][X]
 
 
 ## KogaChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]The pale moon grows dim.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]The pale moon grows dim.[N][A]
 Shadows gather on my stage.[A][N]
 A child enters.[A][N]
-[ToggleSmile]Fwahahaha![N]
-I am Koga, shadow lord,
+[ToggleSmile]Fwahahaha! Ha![A][N]
+I am Koga, shadow lord,[N][A]
 master of poison![A][N]
-Footsteps make no sound.[N]
-Venom blooms beneath your feet.[N]
+Footsteps make no sound.[N][A]
+Venom blooms beneath your feet.[N][A]
 Bow before the dark![A][X]
     
 ## KogaDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[A][N]
 The morning sun climbs.[A][N]
-The shadows yield to sunrise.[N]
+The shadows yield to sunrise.[A][N]
 You have bested me.[A][N]
-Now take the Soul Badge.[N]
-Infuse it with your essence.[N]
+Now take the Soul Badge.[A][N]
+Infuse it with your essence.[A][N]
 Walk proudly, young one.[A][X]
 
 ## KogaWaitText
-[OpenMidRight][LoadKoga][OpenMidRight]One gift yet remains.[N]
-Take it, and strike from the dark.[N]
+[OpenMidRight][LoadKoga][OpenMidRight]One gift yet remains.[A][N]
+Take it, and strike from the dark.[A][N]
 Let none see it come.[A][X]
 
 
 
 ## KogaRewardText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Silent as the dusk,[N][A]
-the second blow comes unseen...[N]
+the second blow comes unseen...[A][N]
 foes wither away.[A][X]
 
 ## KogaSafariText
-[OpenMidRight][LoadKoga][OpenMidRight]Fufufufufu..[N][A]
-Venom stains the silent air.[N]
+[OpenMidRight][LoadKoga][OpenMidRight]Fufufufufu..[A][N]
+Venom stains the silent air.[A][N]
 Venomoth, Toxic![A][X]
 
 ## KogaSafariText2
-[OpenMidLeft][LoadKangaskhan][OpenMidRight][LoadKoga][OpenMidRight]Taste the cold despair.[N]
+[OpenMidLeft][LoadKangaskhan][OpenMidRight][LoadKoga][OpenMidRight]Taste the cold despair.[A][N]
 Mercy flees the battlefield.[A][N]
 Strike without mercy![A][X]
 
@@ -4148,19 +4148,19 @@ Strike without mercy![A][X]
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]I sensed you afar.[N]
 Your spirit shakes like young leaves.[A][N]
 Power sleeps within.[A][N]
-[ToggleSmile]Wild hearts bare their fangs.[N]
+[ToggleSmile]Wild hearts bare their fangs.[A][N]
 Worthy foes sharpen the blade.[A][N]
 Let the hunt begin.[A][N]
-Danger fills the air.[N]
+Danger fills the air.[A][N]
 Poison dances on the wind,[A][N]
 as I desire.[A][X]
 
 ## KogaSafariText4
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Strike before they breathe.[N]
-Let your blade outrun their fear.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Strike before they breathe.[A][N]
+Let your blade outrun their fear.[A][N]
 Leave no chance to guard.[A][N]
-Swift and merciless,[N]
-offense becomes your armor.[N]
+Swift and merciless,[A][N]
+offense becomes your armor.[A][N]
 Victory follows.[A][X]
 
 
