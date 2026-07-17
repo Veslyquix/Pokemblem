@@ -105,10 +105,10 @@ b Exit
 
 
 // #define TrainerPursueAI [31, 23, 0, 0]
-#define TrainerPursueAI [31, 28, 0, 0]
-#define TrainerPursueWithin2AI [31, 22, 0, 0]
-#define TrainerPursueThenFleeAI [33, 23, 0, 0] 
-#define TrainerChargeAI [31, 0, 0, 0] 
+#define TrainerPursueAI [31, 28, 0, 0] // There's some hardcoding related to Ai2 of 28 / 0x1C, so tread carefully, Vesly 
+// #define TrainerPursueWithin2AI [31, 22, 0, 0] // If you want to add these, you may need to add more hardcoding, or make a list 
+// #define TrainerPursueThenFleeAI [33, 23, 0, 0] 
+
 
 // #define TrainerPursueAI_chai (23<<8 | 31)
 // #define TrainerPursueAI_chai (23<<8 | 31)

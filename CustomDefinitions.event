@@ -53,7 +53,7 @@
 //#define USE_PMD_SPRITES
 
 PUSH; ORG $D74D0	//{U}
-String("V1.22.01             Jul 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+String("V1.23.00             Jul 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 //String("V1.14.07 DEBUG BUILD  Mar 2024") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 
 #define ProtagID 0x45 
@@ -384,6 +384,8 @@ String("V1.22.01             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define DisableTutMsgsFlag 0xBD 
 #define DisableTutFlag_A 0xBE 
 #define DisableTutFlag_B 0xBF
+#define DisableTutFlag_C 0xC0 
+#define DisableTutFlag_D 0xC1 
 
 #define CinnabarArrived 0xC9  
 #define VolcanobadgeObtained 0xCA 

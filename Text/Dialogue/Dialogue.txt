@@ -425,6 +425,19 @@ Berries may be equipped[N]
 and eaten during battle.[A][N]
 They're tasty, too![N]
             -Trainer's Tips[A][X]
+            
+## TrainerTip_Bushes
+When certain bushes reach full health,[N]
+they'll spawn a Pokémon.[N]
+            -Trainer's Tips[A][X]
+            
+## TrainerTip_Trainers
+When you enter a trainer's range,[N]
+they'll send their team out on[N]
+enemy phase.[A][N]
+Press [ToggleRed]A[ToggleRed] on an empty tile and[N]
+select [ToggleRed]End[ToggleRed] to begin Enemy Phase.[N]
+            -Trainer's Tips[A][X]
 
 ## TrainerTip_Catch
 Press [ToggleRed]R[ToggleRed] on most things[N]

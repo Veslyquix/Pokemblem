@@ -24,13 +24,14 @@ TurnBasedEvents:
 TurnEventPlayer(0,GlobalTurnEvent,0,255)
 TurnEventPlayer(DisableTutFlag_A, TutMsg1, 0, 255) // 
 TurnEventPlayer(DisableTutFlag_B, TutMsg2, 0, 255) // 
+TurnEventPlayer(DisableTutFlag_C, BushTut, 5, 5) 
 END_MAIN
 
 //Reinforce(BushUnitID, NumberOfEnemies, UnitGroup, GracePeriod, FrequencyInTurns)
 { ; ReinforceEntry(ChapterID)
-Reinforce(0xF0, 1, ReinforcementUnits, 7, 4) // Top 
-Reinforce(0xF1, 1, ReinforcementUnits, 6, 3) // Middle 
-Reinforce(0xF2, 1, ReinforcementUnits, 3, 3) // Bottom 
+Reinforce(0xF0, 1, ReinforcementUnits, 8, 4) // Top 
+Reinforce(0xF1, 1, ReinforcementUnits, 5, 4) // Middle 
+// Reinforce(0xF2, 1, ReinforcementUnits, 3, 3) // Bottom 
 }
 
 CharacterBasedEvents:
@@ -66,6 +67,7 @@ END_MAIN
 MiscBasedEvents:
 CauseGameOverIfLordDies
 AFEV 0 GlobalAfev 0
+AREA 0x16 ChangeE0_AiEvent [2,27][11,35]
 //AFEV flagID eventOffset activationFlag
 //AREA flagID eventOffset [corner1x, corner1y] [corner2x, corner2y]
 AFEV 0 Restore_Options 0
@@ -82,6 +84,9 @@ EscapeTileEntry(12,39)
 EscapeTileEntry(13,39) 
 EscapeTileTerminator ; } 
 #endif 
+
+
+
 
 ToPallet:
 ChapterTransition(PalletCh, 12, 1)
@@ -138,6 +143,68 @@ ASMC SetNewFlag_ASMC
 LABEL 99 
 NoFade 
 ENDA 
+
+BushTut: 
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 99 sC s0
+EVBIT_MODIFY 4
+PauseFreeMovement
+CHECK_EXISTS 0xF1 
+BEQ 0 sC s0 
+STAL 5
+CAM1 [13,26]
+CUMO [13,26]
+STAL 40
+CURE  
+
+LABEL 0 
+TutText(TrainerTip_Bushes) 
+CHECK_EXISTS 0xF1 
+BEQ 1 sC s0 
+CUMO [13,26]
+STAL 40
+CURE  
+UseVulnerary(0xF1, 4)
+
+LABEL 1
+LABEL 99 
+NoFade 
+ENDA 
+
+
+ChangeE0_AiEvent:
+PlayerInRange 
+CHECK_EVENTID DisableTutFlag_D 
+BNE 99 sC s0 
+ASMC SetNearbyDR|1
+ASMC AreUnitsInDangerFogASMC 
+BEQ 0 sC s0 
+SVAL 1 TrainerPursueAI_chai 
+CHAI 0xE0 
+ENUT DisableTutFlag_D
+CHECK_EVENTID DisableTutMsgsFlag 
+BNE 99 sC s0 
+CHECK_CURSOR  
+SADD s9 sC s0 
+
+EVBIT_MODIFY 4
+PauseFreeMovement
+STAL 5
+CAM1 0xE0 
+CUMO 0xE0
+STAL 45
+CURE  
+TutText(TrainerTip_Trainers) 
+SADD sB s9 s0 
+CAM1 (-1) // This is necessary so the camera & cursor doesn't stay on the enemy trainer 
+GOTO 99 
+
+LABEL 0 
+ENUF 0x16 
+LABEL 99 
+NoFade 
+ENDA 
+
 
 
 // Allocated 2 traps per chapter, in most cases 
@@ -227,14 +294,20 @@ ENUN
 RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(16,13,21,17)) //upper mid 
 LOAD1 0x1 EnemyUnitsC
 ENUN
+CHECK_EVENTID DisableTutFlag_C 
+BNE 57 sC s0 
+DISA 0xF1 
+LOAD1 0x1 EnemyUnitsMiddleBush
+ENUN
+LABEL 57 
 
 RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(12,24,17,28)) //lower mid 
-LOAD1 0x1 EnemyUnitsD
-ENUN
-RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(2,33,21,34))  //bottom bush - prev 37y 
-LOAD1 0x1 EnemyUnitsE
-ENUN
-RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(2,32,9,35))  //bottom w
+// LOAD1 0x1 EnemyUnitsD
+// ENUN
+// RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(2,33,21,34))  //bottom bush - prev 37y 
+// LOAD1 0x1 EnemyUnitsE
+// ENUN
+// RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(2,32,9,35))  //bottom w
 LOAD1 0x1 EnemyUnitsF
 ENUN
 RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(20,32,21,35))  //bottom e - prev 18x 
@@ -608,9 +681,13 @@ UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,4] 001b	0x0 0x01 REDA0R4 [0x0,0
 UNIT 0xF1 BushID 0x0 Level(0, Enemy, 1)   [4,4] 0b	0x0 0x01 REDA4R4 [0x0,0x0,0x0,0x0] BushAI
 UNIT 
 
-EnemyUnitsD:
-UNIT 0xF2 BushID 0x0 Level(0, Enemy, 1)   [4,4] 0b	0x0 0x01 REDA4R4 [0x0,0x0,0x0,0x0] BushAI 
-UNIT
+EnemyUnitsMiddleBush:
+UNIT 0xF1 BushID 0x0 Level(0, Enemy, 1)   [26,13] 0b	0x0 0x01 REDA13R26 [0x0,0x0,0x0,0x0] BushAI
+UNIT 
+
+// EnemyUnitsD:
+// UNIT 0xF2 BushID 0x0 Level(0, Enemy, 1)   [4,4] 0b	0x0 0x01 REDA4R4 [0x0,0x0,0x0,0x0] BushAI 
+// UNIT
 
 EnemyUnitsE:
 UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [1,0] 001b	0x0 0x01 REDA1R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
@@ -652,7 +729,8 @@ TDQ_TableTerminator ; }
 
 
 HumanTrainers:
-UNIT 0xE0 boyID 0x0 Level(0, Enemy, 1) [7,27]  0b 0x0	0x1 REDA7R27 [FiveRangeWep,0x0,0x0,0x0] TrainerBossAI
+// UNIT 0xE0 boyID 0x0 Level(0, Enemy, 1) [7,27]  0b 0x0	0x1 REDA7R27 [FiveRangeWep,0x0,0x0,0x0] TrainerBossAI
+UNIT 0xE0 boyID 0x0 Level(0, Enemy, 1) [7,27]  0b 0x0	0x1 REDA7R27 [Tackle,0x0,0x0,0x0] TrainerAI //TrainerPursueAI
 UNIT 0xE1 bug_catcherID 0x0 Level(0, Enemy, 1) [12,17]  0b 0x0	0x1 REDA12R17 [OneRangeWep,0x0,0x0,0x0] TrainerAI
 UNIT 
 

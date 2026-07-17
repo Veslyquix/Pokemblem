@@ -68,6 +68,31 @@ void HookFace_Shop_Init(int fid)
     sTalkState->faces[1] = StartFace(slot, fid, 32, 8, 3);
 }
 
+void AreUnitsInDangerFogASMC(void)
+{
+
+    int result = 0;
+    int x;
+    int y;
+    struct Unit * unit;
+    for (int i = 1; i < 0x40; ++i)
+    {
+        unit = GetUnit(i);
+        if (!UNIT_IS_VALID(unit))
+        {
+            continue;
+        }
+        x = unit->xPos;
+        y = unit->yPos;
+        if (gBmMapFog[y][x])
+        {
+            result = true;
+            break;
+        }
+    }
+    gEventSlots[0xC] = result;
+}
+
 extern struct MuConfig sMuConfig[MU_MAX_COUNT];
 static u16 const sMuChrOffLut_Default2[MU_MAX_COUNT] = { 0x00, 0x10, 0x08, 0x18 };
 struct MuConfig * GetDefaultMuConfig(int objTileId, u8 * outIndex)
