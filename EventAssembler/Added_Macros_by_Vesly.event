@@ -16,7 +16,15 @@
 // Text 
 #define TutText(text) "PauseFreeMovement; SVAL 0xB 0xFFFFFFFF; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Centered 
 #define TutText_B(text) "PauseFreeMovement; SVAL 0xB 0x00B0FFFF; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Bottom-Centered 
-#define TutText_M(text) "PauseFreeMovement; SVAL 0xB 0x280028; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Bottom-Centered 
+#define TutText_M(text) "PauseFreeMovement; SVAL 0xB 0x280028; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Middle-Centered 
+#define TutText_T(text) "PauseFreeMovement; SVAL 0xB 0x0000FFFF; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Top-Centered 
+
+// PauseFreeMovement calls the event engine with EnableDangerRadiusEvent, which we don't want in tutorial battle forecast events 
+#define CleanTutText(text)   "SVAL 0xB 0xFFFFFFFF; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Centered 
+#define CleanTutText_B(text) "SVAL 0xB 0x00B0FFFF; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Bottom-Centered 
+#define CleanTutText_M(text) "SVAL 0xB 0x280028; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Middle-Centered 
+#define CleanTutText_T(text) "SVAL 0xB 0x0000FFFF; TUTORIALTEXTBOXSTART; TEXTSHOW text; TEXTEND; REMA" // Top-Centered 
+
 #define TutTextAutoFade(background,textID) "PauseFreeMovement; MUSI; SMOV 0x2 background; CALL $9EE2E8; TutText(textID); MUNO; CALL $9EE2C4"
 #define TutText(background,textID) "PauseFreeMovement; MUSI; SMOV 0x2 background; CALL $9EE2E8; TutText(textID); MUNO"
 

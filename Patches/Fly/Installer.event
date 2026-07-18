@@ -38,7 +38,7 @@ POP
 
 ALIGN 4
 IndoorMapsList:
-//BYTE OaksLabCh // 0 
+// BYTE OaksLabCh // 0 
 BYTE ViridianForestSCh
 BYTE ViridianForestNCh
 BYTE PewterGymCh 

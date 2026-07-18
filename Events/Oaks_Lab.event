@@ -217,7 +217,7 @@ BNE 2 rC r7
 Label 2 
 
 SADD rA rB r0 
-STAL 25
+STAL_SKIP_FAST 25
 TutText(UhOhText)
 SADD rB rA r0 
 CALL SendOutPkmnSlotB
@@ -241,7 +241,14 @@ AutoLevelUnits(1, True, 0x1FF) // all units to gain moves they should've learned
 
 LABEL 0x63
 ASMC RegisterAllOwnedPokemon
-
+ASMC 0x8015681 //LoadObjUIGfx 
+ASMC 0x8026689 // RefreshUnitSprites 
+EVBIT_MODIFY 4 
+TutText(SkipLabTutorial) 
+SVAL s1 1 
+BEQ 100 sC s1 
+EnqueneTutorialEvent_6_PlayerPhaseStart(MyTutorial1)
+LABEL 100 
 NoFade
 ENDA
 
@@ -290,10 +297,188 @@ END_MAIN
 Dunno3:
 END_MAIN
 Tutorial:
+POIN MyTutorial1 MyTutorial2 MyTutorial3 MyTutorial4 MyTutorial5 MyTutorial6 MyTutorial7
+POIN MyTutorial_Cleanup 
+WORD 0 
 END_MAIN
 Traps2:
 ENDTRAP
 ALIGN 4
+
+
+ALIGN 4
+MyTutorial1:
+CHECK_EXISTS 0x102 
+BNE 63 sC s0 // If more than 1 unit, don't do the tutorial. 
+ENUT PlayableCutsceneFlag
+// SetUnitStatus(GenericA+1, LuckStat, 2)
+DISABLEOPTIONS EndOption 
+SCOORD sB [7,12] 
+CAMERA_SB 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30
+TutText_T(OaksLabTut_1)
+CURE 
+SCOORD sB [6,9] 
+CURSOR_FLASHING_SB
+SCOORD sB [8,9] 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_T(OaksLabTut_2)
+CURE 
+SCOORD sB [7,12] 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_T(OaksLabTut_3)
+// LoadOverworldFaces does not work in TutorialTextBox / Solo 
+
+STAL_SKIP_FAST 30
+CURE
+SCOORD sB [7,12] 
+SET_CURSOR_SB
+EnqueneTutorialEvent_2_OnSelect(MyTutorial2)
+LABEL 63 
+SVAL 0xC 0x1
+NoFade 
+ENDA
+
+
+MyTutorial2:
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 98 sC s0 
+SHOW_MOVERANGE 0x7FFF
+SCOORD sB [7,10] // adjacent
+CURSOR_FLASHING_SB
+STAL 35
+DISABLEOPTIONS 0xFFFF // Disables all vanilla options, leaving only Guard and Capture. 
+IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
+Write_Byte(Guard_Off|AoE_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+// Write_Byte(Guard_Off|Attack_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+CURE
+// CHECK_COORDS 0x7FFF 
+// SADD sB sC s0 
+// ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
+EnqueneTutorialEvent_3_PreMove(MyTutorial3)
+GOTO 99 
+LABEL 98 
+CALL MyTutorial_Cleanup 
+LABEL 99 
+SVAL 0xC 0x1
+NoFade 
+ENDA
+
+ALIGN 4
+MyTutorial3:	// Move to Target postion
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 98 sC s0 
+EVBIT_T 0x7
+SVAL 0xD 0x0 // empty queue 
+
+CHECK_CURSOR
+SCOORD sB [7,10] 
+BNE 1 sC sB 
+LABEL 0
+CURE
+ASMC 0x1D7E9	// Skip selecting tile twice 
+EnqueneTutorialEvent_4_PostMove(MyTutorial4)
+SVAL 0xC 0x1
+GOTO 99
+
+LABEL 0x1	// if Not move to target
+SET_CURSOR_SB
+ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
+SCOORD sB [7,10] 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30
+TutText_B(OaksLabTut_4)
+// TutText_B 
+CURE
+ASMC 0x8032EB5 //UpdatePathArrowWithCursor
+ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
+EnqueneTutorialEvent_3_PreMove(MyTutorial3) // Repeat if failed to move as told 
+SVAL 0xC 0x0
+GOTO 99 
+LABEL 98 
+CALL MyTutorial_Cleanup 
+SVAL 0xC 0x1
+LABEL 99 
+
+NoFade 
+ENDA
+
+
+MyTutorial4:
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 98 sC s0 
+TutText_B(OaksLabTut_5)
+EnqueneTutorialEvent_5_BattleForecast(MyTutorial5)
+GOTO 99 
+LABEL 98 
+CALL MyTutorial_Cleanup 
+LABEL 99 
+NoFade 
+ENDA
+
+
+
+MyTutorial5:
+IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key|Right_Key|Left_Key|Up_Key|Down_Key
+Write_Byte(Guard_Off|AoE_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+CleanTutText_B(OaksLabTut_6)
+// ASMC 0x8003d21 // ResetTextFont
+EnqueneTutorialEvent_0_PhaseSwitch(MyTutorial6)
+IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
+Write_Byte(Guard_Off|AoE_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+ASMC SilenceEventEngineExecType
+SVAL 0xC 0x1
+NoFade 
+ENDA
+
+MyTutorial6:
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 98 sC s0 
+CALL MyTutorial_Cleanup // If they don't select the unit right away, they need to be able to press B 
+CHECK_COORDS 0x7FFF
+SADD sB sC s0 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_T(OaksLabTut_8)
+CURE
+DISABLEOPTIONS EndOption 
+SCOORD sB [6,9] 
+CURSOR_FLASHING_SB
+SCOORD sB [8,9] 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_B(OaksLabTut_7)
+CURE 
+EnqueneTutorialEvent_6_PlayerPhaseStart(MyTutorial7)
+GOTO 99 
+LABEL 98 
+CALL MyTutorial_Cleanup 
+LABEL 99 
+SVAL 0xC 0x1
+NoFade 
+ENDA
+
+MyTutorial7:
+CHECK_COORDS 0x101
+SADD sB sC s0 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_T(OaksLabTut_9)
+CURE
+NoFade 
+ENDA 
+
+
+MyTutorial_Cleanup:
+DISABLEOPTIONS 0 // Re-enable options 
+IGNORE_KEYS 0
+Write_Byte(0, DisableMenuOptionsRam) 
+NoFade 
+ENDA
+
 
 Units1:
 //UNIT Eirika  BulbasaurID 0x1 Level(5,Ally,True)   [5,5] 0b 0x0 0x0 0x0 [0x1,0x98,0x88,0x0] [0x0,0x0,0x0,0x0]

@@ -111,7 +111,7 @@ PauseFreeMovement
 STAL 5
 CAM1 [13,23]
 CUMO [13,23]
-STAL 30
+STAL_SKIP_FAST 30
 CURE  
 TutText(TrainerTip_Quicksave)
 SVAL s1 ((ChapterID*2)+(HelpMsgFlagOffset<<3)) 
@@ -135,7 +135,7 @@ PauseFreeMovement
 STAL 5
 CAM1 [20,8]
 CUMO [20,8]
-STAL 30
+STAL_SKIP_FAST 30
 CURE  
 TutText(TrainerTip_Berries) 
 SVAL s1 ((ChapterID*2+1)+(HelpMsgFlagOffset<<3)) 
@@ -154,7 +154,7 @@ BEQ 0 sC s0
 STAL 5
 CAM1 [13,26]
 CUMO [13,26]
-STAL 40
+STAL_SKIP_FAST 40
 CURE  
 
 LABEL 0 
@@ -162,7 +162,7 @@ TutText(TrainerTip_Bushes)
 CHECK_EXISTS 0xF1 
 BEQ 1 sC s0 
 CUMO [13,26]
-STAL 40
+STAL_SKIP_FAST 40
 CURE  
 UseVulnerary(0xF1, 4)
 
@@ -192,7 +192,7 @@ PauseFreeMovement
 STAL 5
 CAM1 0xE0 
 CUMO 0xE0
-STAL 45
+STAL_SKIP_FAST 45
 CURE  
 TutText(TrainerTip_Trainers) 
 SADD sB s9 s0 
@@ -379,42 +379,8 @@ Capture Pokemon tutorial
 */
 
 
-#define AttackOption 1
-#define StaffOption 2
-#define WaitOption 4
-#define RescueOption 8
-#define DropOption 0x10 
-#define VisitOption 0x20 
-#define TalkOption 0x40 
-#define ItemOption 0x80 
-#define DiscardOption 0x100 
-#define TradeOption 0x200 
-#define SupplyOption 0x400 
-#define SupportOption 0x800 
-#define ArmoryOption 0x1000 
-#define OptionsOption 0x2000 
-#define EndOption 0x4000 
-#define UnkOption 0x8000 
 
-#define A_Key 1
-#define B_Key 2
-#define Select_Key 4
-#define Start_Key 8
-#define Right_Key 0x10 
-#define Left_Key 0x20 
-#define Up_Key 0x40 
-#define Down_Key 0x80 
-#define R_Key 0x100 
-#define L_Key 0x200 
 
-// DisableMenuOptionsRam bitflags 
-#define Attack_Off 1
-#define Capture_Off 2
-#define Guard_Off 4
-#define Call_Off 8
-#define Submenu_Off 0x10 
-#define Supply_Off 0x20 
-#define AoE_Off 0x1 // maybe 0x40 later  
 
 ALIGN 4
 MyTutorial1:
@@ -426,9 +392,9 @@ DISABLEOPTIONS EndOption
 SCOORD sB [17,32] // adjacent
 CAMERA_SB // show Mankey 
 CURSOR_FLASHING_SB
-STAL 15
-TutText_B(CatchPokemonTutorial_1)
-STAL 15
+STAL_SKIP_FAST 15
+TutText(CatchPokemonTutorial_1)
+STAL_SKIP_FAST 15
 CHECK_COORDS 0 // Party Leader  
 SADD sB sC s0 
 SET_CURSOR_SB
@@ -456,7 +422,7 @@ SCOORD sB [14,35] // adjacent
 CURSOR_FLASHING_SB
 SCOORD sB [14,35] // adjacent
 CURSOR_FLASHING_SB
-STAL 25
+STAL_SKIP_FAST 25
 DISABLEOPTIONS 0xFFFF // Disables all vanilla options, leaving only Guard and Capture. 
 IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
 Write_Byte(Attack_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
@@ -496,6 +462,8 @@ STAL_SKIP_FAST 8
 TutText_B(CatchPokemonTutorial_2)
 // TutText_B 
 CURE
+ASMC 0x8032EB5 //UpdatePathArrowWithCursor
+ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
 EnqueneTutorialEvent_3_PreMove(MyTutorial3) // Repeat if failed to move as told 
 SVAL 0xC 0x0
 LABEL 63
@@ -537,9 +505,9 @@ SHOW_MOVERANGE 0x7FFF
 CURSOR_FLASHING [14,35] // adjacent
 CURSOR_FLASHING [16,35] // adjacent
 CURSOR_FLASHING [15,34] // adjacent
-STAL 20
+STAL_SKIP_FAST 20
 // Wild Mankey at 13, 35
-//STAL 15
+//STAL_SKIP_FAST 15
 DISABLEOPTIONS 0xFFFF // Disables all vanilla options, leaving only Guard and Capture. 
 IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
 
@@ -581,6 +549,8 @@ STAL_SKIP_FAST 8
 TutText_B(CatchPokemonTutorial_2)
 // TutText_B 
 CURE
+ASMC 0x8032EB5 //UpdatePathArrowWithCursor
+ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
 EnqueneTutorialEvent_3_PreMove(MyTutorial8) // Repeat if failed to move as told 
 SVAL 0xC 0x0
 LABEL 63

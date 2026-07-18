@@ -337,5 +337,41 @@ super_nerdID - Electric/Fire - Vulpix, Ponyta, Koffing, Grimer, Voltorb, Magnemi
 #define Reinforcement0 0x90 
 
 
+#define AttackOption 1
+#define StaffOption 2
+#define WaitOption 4
+#define RescueOption 8
+#define DropOption 0x10 
+#define VisitOption 0x20 
+#define TalkOption 0x40 
+#define ItemOption 0x80 
+#define DiscardOption 0x100 
+#define TradeOption 0x200 
+#define SupplyOption 0x400 
+#define SupportOption 0x800 
+#define ArmoryOption 0x1000 
+#define OptionsOption 0x2000 
+#define EndOption 0x4000 
+#define UnkOption 0x8000 
 
+#define A_Key 1
+#define B_Key 2
+#define Select_Key 4
+#define Start_Key 8
+#define Right_Key 0x10 
+#define Left_Key 0x20 
+#define Up_Key 0x40 
+#define Down_Key 0x80 
+#define R_Key 0x100 
+#define L_Key 0x200 
+
+
+// DisableMenuOptionsRam bitflags 
+#define Attack_Off 1
+#define Capture_Off 2
+#define Guard_Off 4
+#define Call_Off 8
+#define Submenu_Off 0x10 
+#define Supply_Off 0x20 
+#define AoE_Off 0x40 
 

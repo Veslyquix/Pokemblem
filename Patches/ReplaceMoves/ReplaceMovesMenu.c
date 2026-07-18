@@ -70,6 +70,18 @@ int DoesUnitKnowMoveAlready(struct Unit * unit, int moveID)
     return false;
 }
 
+extern const u32 NewGaidenSpellPopup;
+extern int LearnSpellPopupTime;
+int prCallSpellLearnedPopup(struct ReplaceMoveProc * proc)
+{
+
+    int move = proc->moveReplacement;
+    SetPopupItem(move);
+
+    Popup_Create(&NewGaidenSpellPopup, LearnSpellPopupTime, 0, (void *)proc);
+    return 0;
+}
+
 static const struct MenuDefinition Menu_ReplaceMoveDebug;
 struct ReplaceMoveProc * prLearnNewSpell(struct Unit * unit, int move, struct Proc * parent)
 {
@@ -88,10 +100,12 @@ struct ReplaceMoveProc * prLearnNewSpell(struct Unit * unit, int move, struct Pr
         if (parent)
         {
             proc = (struct ReplaceMoveProc *)ProcStartBlocking(pProc_NewSpellLearn, parent);
+            proc->moveReplacement = move;
         }
         else
         {
             proc = (struct ReplaceMoveProc *)ProcStart(pProc_NewSpellLearn, ROOT_PROC_3);
+            proc->moveReplacement = move;
         }
         return proc;
     }

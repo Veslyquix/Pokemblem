@@ -57,7 +57,7 @@ Pokemblem_Usability_Ram:
 ldr r0, =DisableMenuOptionsRamLink
 ldr r0, [r0] 
 ldrb r0, [r0] 
-mov r1, #0x1 @ AoE bitflag 
+mov r1, #0x40 @ AoE bitflag 
 and r0, r1
 cmp r0, #0 
 beq Usable_True 

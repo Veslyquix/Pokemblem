@@ -34,11 +34,11 @@ PROC_YIELD
 
 
 ALIGN 4
-prCallSpellLearnedPopup:
+// prCallSpellLearnedPopup: // now in ReplaceMovesMenu.c 
 // Arguments: r0 = Parent proc
 // Returns:   r0 = 0 on success (Spell is displayed and all)
 {
-	#incbin "CallSpellLearnedPopup.dmp"
+	// #incbin "CallSpellLearnedPopup.dmp"
 	#ifdef GAIDEN_MAGIC
 	POIN NewGaidenSpellPopup //_pPopupDef
 	#endif
@@ -74,7 +74,9 @@ PROC_END
 
 #include "WaitForMenus.lyn.event" 
 
-
+ALIGN 4 
+LearnSpellPopupTime: 
+WORD 50 
 /*
 	ALIGN 4
 	NewGaidenSpellPopup:

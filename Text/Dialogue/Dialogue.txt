@@ -628,6 +628,54 @@ Mewtwo[N]
 Placeholder text[N]
 is being used.[A][X]
 
+## SkipLabTutorial
+Skip tutorial?[N]
+[No][X]
+
+## OaksLabTut_1
+Control your units on the[N]
+map during Player Phase.[A][X]
+
+## OaksLabTut_2
+Opponents will then[N]
+act on Enemy Phase.[A][X]
+
+## OaksLabTut_3
+Place your cursor on your[N]
+starter and press [ToggleRed]A[ToggleRed].[A][X]
+
+## OaksLabTut_4
+Select the flashing tile.[A][X]
+
+## OaksLabTut_5
+//AoEs can hit multiple targets[N]
+//and debuff them.[A][N]
+Debuffs deal chip damage and[N]
+can attack at 1-2 range.[.....][N]
+Try debuffing an enemy.[A][X]
+
+
+## OaksLabTut_6
+The Battle Forecast shows the power of[N]
+your attack on the blue side.[A][N]
+The enemy cannot counter, so the red side[N]
+shows only the enemy's HP right now.[A][X]
+
+## OaksLabTut_7
+Now it's their turn.[A][X]
+
+## OaksLabTut_8
+During each combat, Pokémon[N]
+counter attack if their equipped[N]
+move has the attack range to do so.[A][N]
+Additionally, some moves will[N]
+knock back other Pokémon.[A][X]
+
+## OaksLabTut_9 
+At the start of their phase,[N]
+Pokémon eat their berries[N]
+if equipped.[A][X]
+
 
 ## CatchPokemonTutorial_1
 Let's catch a Pokémon.[A][X]
@@ -646,11 +694,11 @@ Great! It's weakened![A][N]
 Now we'll capture it.[A][X]
 
 ## CatchPokemonTutorial_6
-The Battle Forecast shows the[N]
-damage you'll deal in blue.[A][N]
-The red side shows the enemy's HP[N]
-dmg, hit rate, and crit chance.[A][N]
-You cannot miss; glancing[N]
+//The Battle Forecast shows your[N]
+//stats on the blue side.[A][N]
+//The red side shows the enemy's HP[N]
+//dmg, hit rate, and crit chance.[A][N]
+You cannot miss: glancing[N]
 blows instead deal half damage.[A][N]
 Knock out an enemy while[N]
 capturing to catch 'em all![A][X]
