@@ -416,19 +416,23 @@ ENDA
 
 MyTutorial2:
 SetUnitStatus(GenericA+1, LuckStat, 10)
+CHECK_COORDS 0x7FFF 
+SADD sB sC s0 
+ASMC ModularSummon_CenterCameraASMC
 SHOW_MOVERANGE 0x7FFF
 // Wild Mankey at 13, 35
 SCOORD sB [14,35] // adjacent
 CURSOR_FLASHING_SB
 SCOORD sB [14,35] // adjacent
 CURSOR_FLASHING_SB
-STAL_SKIP_FAST 25
+STAL 30
 DISABLEOPTIONS 0xFFFF // Disables all vanilla options, leaving only Guard and Capture. 
 IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
-Write_Byte(Attack_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+Write_Byte(Attack_Off|AoE_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
 CURE
 CHECK_COORDS 0x7FFF 
 SADD sB sC s0 
+// CAMERA_SB
 ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
 EnqueneTutorialEvent_3_PreMove(MyTutorial3)
 SVAL 0xC 0x1
@@ -438,6 +442,7 @@ ENDA
 
 ALIGN 4
 MyTutorial3:	// Move to Target postion
+HIDE_MOVERANGE
 EVBIT_T 0x7
 SVAL 0xD 0x0 // empty queue 
 
@@ -453,17 +458,18 @@ GOTO 63
 
 LABEL 0x1	// if Not move to target
 SET_CURSOR_SB
+
 ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
-//CAMERA_SB
-CURSOR_FLASHING_SB
 SCOORD sB [14,35] // adjacent
 CURSOR_FLASHING_SB
-STAL_SKIP_FAST 8
-TutText_B(CatchPokemonTutorial_2)
-// TutText_B 
+STAL 30
+TutText_B(CatchPokemonTutorial_2) 
 CURE
 ASMC 0x8032EB5 //UpdatePathArrowWithCursor
-ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
+ASMC CallPathArrowDisp_Init
+// ASMC 0x801CC1D // PlayerPhase_InitUnitMovementSelect
+// ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
+SHOW_MOVERANGE 0x7FFF
 EnqueneTutorialEvent_3_PreMove(MyTutorial3) // Repeat if failed to move as told 
 SVAL 0xC 0x0
 LABEL 63
@@ -491,7 +497,8 @@ ENDA
 MyTutorial6:
 SetUnitStatus(GenericA+1, CurrentHP, 3)
 SetUnitStatus(GenericA+1, LuckStat, 2)
-TutText_B(CatchPokemonTutorial_5)
+CleanTutText_B(CatchPokemonTutorial_5)
+ASMC SilenceEventEngineExecType
 CHECK_COORDS 0 // Party Leader  
 SADD sB sC s0 
 SET_CURSOR_SB
@@ -505,13 +512,13 @@ SHOW_MOVERANGE 0x7FFF
 CURSOR_FLASHING [14,35] // adjacent
 CURSOR_FLASHING [16,35] // adjacent
 CURSOR_FLASHING [15,34] // adjacent
-STAL_SKIP_FAST 20
+STAL 30
 // Wild Mankey at 13, 35
 //STAL_SKIP_FAST 15
 DISABLEOPTIONS 0xFFFF // Disables all vanilla options, leaving only Guard and Capture. 
 IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
 
-Write_Byte(Attack_Off|Guard_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+Write_Byte(Attack_Off|AoE_Off|Guard_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
 //WORD 0x30B41 MyTutorial2 | 0x8000000	// 0x3 = Pre Move
 EnqueneTutorialEvent_3_PreMove(MyTutorial8)
 SVAL 0xC 0x1
@@ -519,6 +526,7 @@ NoFade
 ENDA
 
 MyTutorial8:
+HIDE_MOVERANGE
 SVAL 0xD 0x0 // empty queue 
 CHECK_CURSOR
 SCOORD sB [14,35] // adjacent
@@ -541,16 +549,13 @@ SET_CURSOR_SB
 ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
 //CAMERA_SB
 CURSOR_FLASHING_SB
-SCOORD sB [16,35] // adjacent
-CURSOR_FLASHING_SB
-SCOORD sB [14,35] // adjacent
-CURSOR_FLASHING_SB
-STAL_SKIP_FAST 8
+STAL 30
 TutText_B(CatchPokemonTutorial_2)
 // TutText_B 
 CURE
 ASMC 0x8032EB5 //UpdatePathArrowWithCursor
 ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
+SHOW_MOVERANGE 0x7FFF
 EnqueneTutorialEvent_3_PreMove(MyTutorial8) // Repeat if failed to move as told 
 SVAL 0xC 0x0
 LABEL 63

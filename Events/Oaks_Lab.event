@@ -371,6 +371,7 @@ ALIGN 4
 MyTutorial3:	// Move to Target postion
 CHECK_EVENTID DisableTutMsgsFlag
 BNE 98 sC s0 
+HIDE_MOVERANGE
 EVBIT_T 0x7
 SVAL 0xD 0x0 // empty queue 
 
@@ -395,6 +396,7 @@ TutText_B(OaksLabTut_4)
 CURE
 ASMC 0x8032EB5 //UpdatePathArrowWithCursor
 ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
+SHOW_MOVERANGE 0x7FFF
 EnqueneTutorialEvent_3_PreMove(MyTutorial3) // Repeat if failed to move as told 
 SVAL 0xC 0x0
 GOTO 99 
@@ -468,6 +470,7 @@ CURSOR_FLASHING_SB
 STAL_SKIP_FAST 30 
 TutText_T(OaksLabTut_9)
 CURE
+CALL MyTutorial_Cleanup 
 NoFade 
 ENDA 
 
