@@ -1377,6 +1377,10 @@ void MU_OnEnd(struct MuProc * proc)
     {
         return;
     }
+    if (UNIT_FACTION(unit) != FACTION_RED)
+    {
+        return;
+    }
     int facing = proc->facing;
     if (!DoesUnitHaveFacing(unit))
     {
