@@ -53,7 +53,7 @@ POIN LilysPoise
 //Inspiration DivinelyInspiring Charm Solidarity VoiceOfPeace  LilysPoise Charisma Hex  Infiltrator
 //POIN ElbowRoom NaturalCover Gamble 
 POIN NightTide Insight Prescience Vigilance DefiantAvo DefiantCrit TowerShield ShortShield
-//POIN Daunt BloodTide WhitePool  //IndoorFighter OutdoorFighter Deadeye Fortune ChaosStyle StunningSmile
+//POIN Daunt BloodTide WhitePool  //IndoorFighter OutdoorFighter Deadeye  ChaosStyle StunningSmile
 POIN ChargePlus
 //POIN BlueFlame BlueFlameAura DoubleLion //Cultured Thighdeology Thotslayer KeepUp Armorboost Horseguard Skyguard ForeignPrincess 
 POIN Frenzy // This was moved here because Str/Mag Split conflict, and... I'm not sure why it wouldn't be here in the first place.
@@ -82,7 +82,7 @@ POIN WeakChipDmg
 // Dragonskin goes after anything effecting atk or def
 POIN Dragonskin MultiscaleEffect 
 // Because of how killing machine works, critical check should always be done last
-POIN CriticalCheck
+POIN CriticalCheck Fortune
 #ifdef CANNOT_CRIT
 	POIN NegateCritWeapons //This goes last, so that crit will always be set to 0 if set and never modified from there
 #endif // CANNOT_CRIT
