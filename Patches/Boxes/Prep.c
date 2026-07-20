@@ -475,6 +475,10 @@ int CountUnusableUnitsUpToIndex(int index)
                 }
             }
         }
+        else
+        {
+            cur++;
+        }
     }
     return cur;
 }
