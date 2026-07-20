@@ -224,7 +224,7 @@ RockSmash(1,41)
 RockSmash(0,40)
 
 //StatAccessoryTrap(30,18, ChapterID*2, WiseGlasses_BoostIndex)
-SkillAccessoryTrap(13,27, ChapterID*2, DazzleID)
+// SkillAccessoryTrap(13,27, ChapterID*2, DazzleID)
 
 RedPokeballTrap(11,12, (ChapterID*2)+1, SuperPotion) 
 
