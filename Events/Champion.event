@@ -436,6 +436,8 @@ UNCR(0x7FFF, 0x43) // Show SMS & Refresh
 ASMC 0x80790a5 //MU_EndAll //deselect unit
 CAM1 [12,8] 
 EVBIT_MODIFY 4 
+// MUSCFAST ObtainBadge 
+MUSCFAST 0x7FFF 
 Text(GaryDefeatText)
 TILECHANGE 0
 SVAL r3 25000 
@@ -445,6 +447,7 @@ AddTrapExt(SaveCostID, 12, 6, 0, SavePointSMS, 2)
 ENUT 0xA // prevent repeated ending scenes (but we just cutscene the rest so redundant) 
 ENUT ChampionDefeatedTemp
 ENUT CompletedPokemonLeague
+MUSCFAST OaksThemeBGM 
 Text(OakLeagueText)
 Text(OakLeagueText2)
 Text(OakLeagueText3)

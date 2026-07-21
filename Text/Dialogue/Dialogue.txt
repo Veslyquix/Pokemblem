@@ -1278,7 +1278,7 @@ This area is closed.[A][X]
 
 ## BrockDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight][ToggleSmile]As proof of your victory, [N]
-here's the Boulder Badge![A][N]
+here's the Boulder Badge![LoadOverworldFaces][A][N]
 Wear it proud, knowing[N]
 you've completed my gym.[A][N]
 [ToggleSmile]The others won't be[N]
@@ -1353,7 +1353,7 @@ Enough chatter! My Pokémon[N]
 will scrub the floor with you![A][X]
 
 ## MistyDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight]Ack! Washed away![A] Welp,[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight]Ack! Washed away![LoadOverworldFaces][A] Welp,[N]
 I guess you've earned this.[A][N]
 [ToggleSmile]The Cascade Badge is a[N]
 symbol of your victory.[A][N]
@@ -4133,7 +4133,7 @@ paralysis![A][N]
 	
 ## LtSurgeDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight]Bah. As a reward for your win,[N]
-take this Thunder Badge.[A][N]
+take this Thunder Badge.[LoadOverworldFaces][A][N]
 It mighta been a fluke,[N]
 but rules are rules...[A][X]
 
@@ -4175,7 +4175,7 @@ Bow before the dark![A][X]
     
 ## KogaDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[A][N]
-The morning sun climbs.[A][N]
+The morning sun climbs.[LoadOverworldFaces][A][N]
 The shadows yield to sunrise.[A][N]
 You have bested me.[A][N]
 Now take the Soul Badge.[A][N]
@@ -4275,7 +4275,7 @@ Oh... you wish to challenge me?[N]
 
 
 ## ErikaDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadErika][OpenMidRight]I concede defeat.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadErika][OpenMidRight]I concede defeat.[LoadOverworldFaces][A][N]
 How curious... your strength[N]
 feels so natural.[A][N]
 I must confer upon you the[N]
@@ -4338,7 +4338,7 @@ I will now take control.[A][X]
 [OpenMidRight][LoadSabrina][OpenMidRight]...[A][CloseSpeechSlow][X]
 
 ## SabrinaDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadSabrina][OpenMidRight]Hmpf. Go now.[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadSabrina][OpenMidRight]Hmpf. Go now.[LoadOverworldFaces][A][N]
 Your victory has earned[N]
 you the Marsh Badge.[A][N]
 You may now [ToggleRed]Surf[ToggleRed] the harsh[N]
@@ -4398,7 +4398,7 @@ You better have Burn Heal![A][X]
 
 ## BlaineDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadBlaine][OpenMidRight]I have burned down to nothing![N]
-Not even ashes remain![A][N]
+Not even ashes remain![LoadOverworldFaces][A][N]
 You have earned the Volcano Badge.[A][X]
 
 ## BlaineWaitText
@@ -4451,7 +4451,7 @@ Giovanni, the greatest trainer![A][X]
 
 ## Giovanni_GymDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadGiovanni][OpenMidRight][ToggleSmile]Ha![N]
-That was a truly intense fight.[A][Clear]
+That was a truly intense fight.[LoadOverworldFaces][A][Clear]
 You have won![A][N]
 As proof, here is the Earth Badge,[N]
 and with it, the power of Strength![A][X]

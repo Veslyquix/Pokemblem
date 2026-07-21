@@ -1,4 +1,4 @@
-// PROTECT $169f5c0
+// PROTECT $16ac428
 // PROTECT $267fc $2713c
 // PROTECT $27330 $2734c
 //PROTECT $144F944
@@ -53,7 +53,7 @@
 //#define USE_PMD_SPRITES
 
 PUSH; ORG $D74D0	//{U}
-String("V1.22.03             Jul 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+String("V1.22.04             Jul 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 //String("V1.14.07 DEBUG BUILD  Mar 2024") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 
 #define ProtagID 0x45 

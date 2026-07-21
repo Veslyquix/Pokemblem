@@ -61,6 +61,49 @@ extern u16 SmsObjVramUpperChr;
 // return gMUGfxBuffer + (sMuImgBufOffLut[slot] * MU_GFX_MAX_SIZE);
 // }
 // sub_809A114 809872A 809a174
+
+// 8026F94 ForceSyncUnitSpriteSheet
+// okay, so when lots of SMS get loaded at once, it can overflow gFrameTmRegister[32+] into sProcArray
+// this crashes the game
+// now, we safely flush the toilet away whenever it overflows
+void RegisterDataMove(const void * src, void * dst, int size)
+{
+    struct TileDataTransfer * ptr = &gFrameTmRegister[gFrameTmRegisterConfig.count];
+
+    ptr->src = src;
+    ptr->dest = dst;
+    ptr->size = size;
+    ptr->mode = (size & 0x1F) ? 0 : 1;
+    gFrameTmRegisterConfig.size += size;
+    gFrameTmRegisterConfig.count++;
+    if (gFrameTmRegisterConfig.count > 31)
+    {
+        FlushTiles();
+    }
+}
+
+void RegisterFillTile(const void * src, void * dst, int size)
+{
+    struct TileDataTransfer * ptr = &gFrameTmRegister[gFrameTmRegisterConfig.count];
+
+    ptr->src = src;
+    ptr->dest = dst;
+    ptr->size = size;
+    ptr->mode = 2;
+    gFrameTmRegisterConfig.size += size;
+    gFrameTmRegisterConfig.count++;
+    if (gFrameTmRegisterConfig.count > 31)
+    {
+        FlushTiles();
+    }
+} // 801300d
+
+// [2024cd4]!
+// 8002014
+// [0x20250f0]!!
+// [2024e68]!!
+// [2037c10]!!
+
 void sub_809A114(
     struct PrepItemScreenProc * proc, u8 row, s8 flag) // fix the last row in prep item menu from showing an extra name
 {
