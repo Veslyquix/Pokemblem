@@ -78,8 +78,9 @@ Any other requests?[X]
 What do you want to sell?[.][X]
 
 # 0x08AA 
-[NL][Clear]Hmm.. let me see[NL]
-what I can give you.[X]//!!!ᢷޱ.
+Let me see what I can offer.[X]
+//[NL][Clear]Hmm.. let me see[NL]
+//what I can give you.[X]//!!!ᢷޱ.
 
 # 0x08AB
 What would you sell?[X]
