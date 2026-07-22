@@ -52,9 +52,16 @@
 #define USE_HGSS_SPRITES
 //#define USE_PMD_SPRITES
 
+// #define CLEAN_TITLE_SCREEN // note: rebuild baserom 
+
 PUSH; ORG $D74D0	//{U}
+
+#ifdef CLEAN_TITLE_SCREEN 
+String("                        ") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+#else 
 String("V1.22.04             Jul 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
-//String("V1.14.07 DEBUG BUILD  Mar 2024") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+#endif 
+
 
 #define ProtagID 0x45 
 
