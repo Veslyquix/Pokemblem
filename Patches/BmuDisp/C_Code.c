@@ -66,6 +66,11 @@ extern u16 SmsObjVramUpperChr;
 // okay, so when lots of SMS get loaded at once, it can overflow gFrameTmRegister[32+] into sProcArray
 // this crashes the game
 // now, we safely flush the toilet away whenever it overflows
+
+// Event2C_LoadUnits 800fb84 2024cd4
+// EventLoadUnitSliently has a for loop
+// sub_800F8A8 -> if no REDAs, MoveUnit_ -> MoveUnitExt -> RefreshUnitSprites
+// each time a unit is loaded while faded to black, it refreshes the unit sprites, which takes up a transfer
 void RegisterDataMove(const void * src, void * dst, int size)
 {
     struct TileDataTransfer * ptr = &gFrameTmRegister[gFrameTmRegisterConfig.count];
