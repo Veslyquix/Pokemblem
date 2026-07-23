@@ -13,6 +13,8 @@ extern char * TacticianName; // 8 bytes long
 extern int CannotCaptureFlag_Link;
 extern int CannotEvolveFlag_Link;
 
+#define CR_BADGE_RING_COLOR_COUNT 6
+
 typedef struct
 {
     /* 00 */ PROC_HEADER;
@@ -29,6 +31,7 @@ typedef struct
     u8 nuzlocke;
     u8 displayedBadgeOption;
     u8 pkmn[7];
+    u16 badgePalBase[CR_BADGE_RING_COLOR_COUNT];
     // s8 Option[15];
 } ChallengeRunProc;
 
@@ -124,8 +127,14 @@ enum
 #define CR_BADGE_TILE_HEIGHT 17
 #define CR_BADGE_PAL_SLOT 7
 #define CR_BADGE_X 8
-#define CR_BADGE_Y 0
+#define CR_BADGE_Y (-1)
 #define CR_BADGE_PLACEHOLDER 0xFF
+#define CR_BADGE_RING_FIRST_COLOR 7
+#define CR_BADGE_CYCLE_HALF_LENGTH 16
+#define CR_BADGE_CYCLE_LENGTH (CR_BADGE_CYCLE_HALF_LENGTH * 2)
+#define CR_BADGE_PIXEL_X (CR_BADGE_X * 8)
+#define CR_BADGE_PIXEL_Y (CR_BADGE_Y * 8)
+#define CR_BADGE_GRAY_BLEND_PERCENT 60
 
 typedef const struct
 {
@@ -139,6 +148,15 @@ static const LocationTable CR_CursorLocationTable[] = {
     { MENU_X, MENU_Y + (16 * 6) }, //,
     { MENU_X, MENU_Y + (16 * 7) }  //,
                                    // {10, 0x88} //leave room for a description?
+};
+
+static const LocationTable CR_PokemonSpriteLocationTable[] = {
+    { CR_BADGE_PIXEL_X + 38, CR_BADGE_PIXEL_Y + 32 },  // 11 o'clock
+    { CR_BADGE_PIXEL_X + 82, CR_BADGE_PIXEL_Y + 32 },  // 1 o'clock
+    { CR_BADGE_PIXEL_X + 20, CR_BADGE_PIXEL_Y + 70 },  // 9 o'clock
+    { CR_BADGE_PIXEL_X + 100, CR_BADGE_PIXEL_Y + 70 }, // 3 o'clock
+    { CR_BADGE_PIXEL_X + 38, CR_BADGE_PIXEL_Y + 104 }, // 7 o'clock
+    { CR_BADGE_PIXEL_X + 82, CR_BADGE_PIXEL_Y + 104 }, // 5 o'clock
 };
 
 extern u16 * bg_table[4]; // = {gBG0TilemapBuffer, gBG1TilemapBuffer, gBG2TilemapBuffer, gBG3TilemapBuffer};
@@ -233,7 +251,6 @@ void DrawCR_Sprites(ChallengeRunProc * proc, int bg)
     }
     for (i = 0; i < 6; i++)
     {
-        u32 yOff = ((i >> 1) << 4) + 16; /// proc->yDiff_cur;
         // if((yOff + 0xF) < 0x60 )
         // PutUnitSprite(0, (i & 1) * 56 + 0x70, yOff + 0x18,
         // GetUnit(1));
@@ -241,10 +258,8 @@ void DrawCR_Sprites(ChallengeRunProc * proc, int bg)
         {
             break;
         }
-        u32 xOff = (i & 1) * 56 + 0x70;
-        if ((i == 2) || (i == 3))
-            xOff += 28;
-        PutUnitSpriteForClassId(bg, xOff, yOff + 0x18, 0xc800, proc->pkmn[i]);
+        PutUnitSpriteForClassId(
+            bg, CR_PokemonSpriteLocationTable[i].x, CR_PokemonSpriteLocationTable[i].y, 0xc800, proc->pkmn[i]);
     }
     if (proc->updateSMS)
     {
@@ -410,12 +425,13 @@ static void DrawChallengeRunRuleLine(ChallengeRunProc * proc, int textId, int y)
 
 void DrawAdditionalRulesText(ChallengeRunProc * proc)
 {
-    int y = 14;
+    int y = 13;
 
     UpdateChallengeRunRules(proc);
 
     TileMap_FillRect(TILEMAP_LOCATED(bg_table[0], 0xC, 0xC), 18, 6, 0);
-    DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, 12);
+    DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, y);
+    y += 2;
 
     if (!proc->cannotCatch && !proc->cannotEvolve && !proc->cannotGainExp && !proc->allRandomizerOptions &&
         !proc->enemySkills && !proc->nuzlocke)
@@ -471,6 +487,66 @@ void DrawAdditionalRulesText(ChallengeRunProc * proc)
     BG_EnableSyncByMask(BG_SYNC_BIT(0));
 }
 
+static u16 BlendColorTowardGray(u16 color, int amount)
+{
+    int red = color & 0x1F;
+    int green = (color >> 5) & 0x1F;
+    int blue = (color >> 10) & 0x1F;
+    int gray = (red + green + blue) / 3;
+    int grayAmount = (amount * CR_BADGE_GRAY_BLEND_PERCENT) / 100;
+
+    red = ((red * (CR_BADGE_CYCLE_HALF_LENGTH - grayAmount)) + (gray * grayAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
+    green = ((green * (CR_BADGE_CYCLE_HALF_LENGTH - grayAmount)) + (gray * grayAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
+    blue = ((blue * (CR_BADGE_CYCLE_HALF_LENGTH - grayAmount)) + (gray * grayAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
+
+    return red | (green << 5) | (blue << 10);
+}
+
+static void StoreBadgePaletteBase(ChallengeRunProc * proc)
+{
+    int i;
+
+    for (i = 0; i < CR_BADGE_RING_COLOR_COUNT; i++)
+    {
+        proc->badgePalBase[i] = PAL_BG_COLOR(CR_BADGE_PAL_SLOT, CR_BADGE_RING_FIRST_COLOR + i);
+    }
+}
+
+static void ApplyBadgePaletteCycle(ChallengeRunProc * proc)
+{
+    int i;
+    u32 amount = (GetGameClock() / 4) % CR_BADGE_CYCLE_LENGTH;
+
+    if (amount > CR_BADGE_CYCLE_HALF_LENGTH)
+        amount = CR_BADGE_CYCLE_LENGTH - amount;
+
+    for (i = 0; i < CR_BADGE_RING_COLOR_COUNT; i++)
+    {
+        PAL_BG_COLOR(CR_BADGE_PAL_SLOT, CR_BADGE_RING_FIRST_COLOR + i) =
+            BlendColorTowardGray(proc->badgePalBase[i], amount);
+    }
+
+    EnablePaletteSync();
+}
+
+static void EnableChallengeRunBadgeBg(void)
+{
+    switch (CR_BADGE_BG)
+    {
+        case 1:
+            gLCDControlBuffer.dispcnt.bg1_on = true;
+            break;
+
+        case 2:
+            gLCDControlBuffer.dispcnt.bg2_on = true;
+            break;
+
+        case 3:
+            gLCDControlBuffer.dispcnt.bg3_on = true;
+            break;
+    }
+}
+
 void DrawChallengeRunBadge(ChallengeRunProc * proc)
 {
     int x, y;
@@ -494,6 +570,8 @@ void DrawChallengeRunBadge(ChallengeRunProc * proc)
 
     Decompress(img, BG_CHR_ADDR(CR_BADGE_TILE_BASE));
     CopyToPaletteBuffer(pal, 0x20 * CR_BADGE_PAL_SLOT, 0x20);
+    StoreBadgePaletteBase(proc);
+    ApplyBadgePaletteCycle(proc);
 
     TileMap_FillRect(
         TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X, CR_BADGE_Y), CR_BADGE_TILE_WIDTH, CR_BADGE_TILE_HEIGHT, 0);
@@ -545,7 +623,7 @@ void DrawChallengeRun(ChallengeRunProc * proc)
         PrepareLine(i + proc->handleID, ChallengeRunInfoText[i]);
     }
 
-    DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 1, bg);
+    DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 0, bg); // "Challenge Runs" // 22 1
     DrawAdditionalRulesText(proc);
     BG_EnableSyncByMask(BG_SYNC_BIT(bg));
 }
@@ -579,7 +657,7 @@ void StartChallengeRun(ProcPtr parent)
         proc->handleID = 0;
         proc->pkmn[0] = 0;
         // ResetText();
-        gLCDControlBuffer.dispcnt.bg2_on = true;
+        EnableChallengeRunBadgeBg();
         BG_Fill(gBG3TilemapBuffer, 0);
         BG_Fill(gBG2TilemapBuffer, 0);
 
@@ -612,6 +690,7 @@ static void ChallengeRunLoop(ChallengeRunProc * proc)
 {
 
     DrawChallengeRunBadge(proc);
+    ApplyBadgePaletteCycle(proc);
     DrawCR_Sprites(proc, 0);
 
     if (proc->redraw)
