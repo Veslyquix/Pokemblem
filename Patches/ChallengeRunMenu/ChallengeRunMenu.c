@@ -27,6 +27,7 @@ typedef struct
     u8 allRandomizerOptions;
     u8 enemySkills;
     u8 nuzlocke;
+    u8 displayedBadgeOption;
     u8 pkmn[7];
     // s8 Option[15];
 } ChallengeRunProc;
@@ -95,6 +96,37 @@ enum
     CR_TEXT_COUNT,
 };
 
+enum
+{
+    CR_TYPE_NORMAL,
+    CR_TYPE_FIGHTING,
+    CR_TYPE_FLYING,
+    CR_TYPE_POISON,
+    CR_TYPE_GROUND,
+    CR_TYPE_ROCK,
+    CR_TYPE_BUG,
+    CR_TYPE_GHOST,
+    CR_TYPE_STEEL,
+    CR_TYPE_FIRE,
+    CR_TYPE_WATER,
+    CR_TYPE_GRASS,
+    CR_TYPE_ELECTRIC,
+    CR_TYPE_PSYCHIC,
+    CR_TYPE_ICE,
+    CR_TYPE_DRAGON,
+    CR_TYPE_DARK,
+    CR_TYPE_FAIRY,
+};
+
+#define CR_BADGE_BG 3
+#define CR_BADGE_TILE_BASE 0x440
+#define CR_BADGE_TILE_WIDTH 17
+#define CR_BADGE_TILE_HEIGHT 17
+#define CR_BADGE_PAL_SLOT 7
+#define CR_BADGE_X 8
+#define CR_BADGE_Y 0
+#define CR_BADGE_PLACEHOLDER 0xFF
+
 typedef const struct
 {
     u32 x;
@@ -122,6 +154,12 @@ void PrepareLine(int handleID, const char * str);
 void DrawLine(int handleID, int x, int y, int bg);
 void DrawChallengeRun(ChallengeRunProc * proc);
 void DrawAdditionalRulesText(ChallengeRunProc * proc);
+void DrawChallengeRunBadge(ChallengeRunProc * proc);
+
+extern const u8 * const CR_TypeBadgeBGTable[];
+extern const u8 * const CR_TypeBadgePalTable[];
+extern const u8 CR_PlaceholderBG[];
+extern const u8 CR_PlaceholderBG_pal[];
 
 #define white TEXT_COLOR_SYSTEM_WHITE
 #define gray TEXT_COLOR_SYSTEM_GRAY
@@ -273,6 +311,51 @@ static int GetCurrentChallengeRunOption(ChallengeRunProc * proc)
     return proc->id + proc->offset;
 }
 
+static int GetChallengeRunBadgeType(int opt)
+{
+    switch (opt)
+    {
+        case CR_OPTION_BROCK:
+            return CR_TYPE_ROCK;
+
+        case CR_OPTION_MISTY:
+            return CR_TYPE_WATER;
+
+        case CR_OPTION_LT_SURGE:
+            return CR_TYPE_ELECTRIC;
+
+        case CR_OPTION_ERIKA:
+            return CR_TYPE_GRASS;
+
+        case CR_OPTION_KOGA:
+            return CR_TYPE_POISON;
+
+        case CR_OPTION_SABRINA:
+            return CR_TYPE_PSYCHIC;
+
+        case CR_OPTION_BLAINE:
+            return CR_TYPE_FIRE;
+
+        case CR_OPTION_GIOVANNI:
+            return CR_TYPE_GROUND;
+
+        case CR_OPTION_LORELEI:
+            return CR_TYPE_ICE;
+
+        case CR_OPTION_BRUNO:
+            return CR_TYPE_FIGHTING;
+
+        case CR_OPTION_AGATHA:
+            return CR_TYPE_GHOST;
+
+        case CR_OPTION_LANCE:
+            return CR_TYPE_DRAGON;
+
+        default:
+            return CR_BADGE_PLACEHOLDER;
+    }
+}
+
 static void UpdateChallengeRunRules(ChallengeRunProc * proc)
 {
     int opt = GetCurrentChallengeRunOption(proc);
@@ -388,6 +471,45 @@ void DrawAdditionalRulesText(ChallengeRunProc * proc)
     BG_EnableSyncByMask(BG_SYNC_BIT(0));
 }
 
+void DrawChallengeRunBadge(ChallengeRunProc * proc)
+{
+    int x, y;
+    int opt = GetCurrentChallengeRunOption(proc);
+    int type = GetChallengeRunBadgeType(opt);
+    const u8 * img = CR_PlaceholderBG;
+    const u8 * pal = CR_PlaceholderBG_pal;
+
+    if (proc->displayedBadgeOption == opt)
+    {
+        return;
+    }
+
+    proc->displayedBadgeOption = opt;
+
+    if (type != CR_BADGE_PLACEHOLDER)
+    {
+        img = CR_TypeBadgeBGTable[type];
+        pal = CR_TypeBadgePalTable[type];
+    }
+
+    Decompress(img, BG_CHR_ADDR(CR_BADGE_TILE_BASE));
+    CopyToPaletteBuffer(pal, 0x20 * CR_BADGE_PAL_SLOT, 0x20);
+
+    TileMap_FillRect(
+        TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X, CR_BADGE_Y), CR_BADGE_TILE_WIDTH, CR_BADGE_TILE_HEIGHT, 0);
+
+    for (y = 0; y < CR_BADGE_TILE_HEIGHT; y++)
+    {
+        for (x = 0; x < CR_BADGE_TILE_WIDTH; x++)
+        {
+            TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X + x, CR_BADGE_Y + y)
+            [0] = ((CR_BADGE_TILE_BASE & 0x3FF) + (y * CR_BADGE_TILE_WIDTH) + x) | (CR_BADGE_PAL_SLOT << 12);
+        }
+    }
+
+    BG_EnableSyncByMask(BG_SYNC_BIT(CR_BADGE_BG));
+}
+
 void DrawChallengeRun(ChallengeRunProc * proc)
 {
     int i, x, y, bg;
@@ -452,10 +574,12 @@ void StartChallengeRun(ProcPtr parent)
         proc->allRandomizerOptions = false;
         proc->enemySkills = false;
         proc->nuzlocke = false;
+        proc->displayedBadgeOption = CR_OPTION_COUNT;
         proc->updateSMS = true;
         proc->handleID = 0;
         proc->pkmn[0] = 0;
         // ResetText();
+        gLCDControlBuffer.dispcnt.bg2_on = true;
         BG_Fill(gBG3TilemapBuffer, 0);
         BG_Fill(gBG2TilemapBuffer, 0);
 
@@ -466,6 +590,7 @@ void StartChallengeRun(ProcPtr parent)
         SetupMapSpritesPalettes();
         // CR_EraseText(proc);
         DrawChallengeRun(proc);
+        DrawChallengeRunBadge(proc);
         // DrawChallengeRun(proc);
         // BG_EnableSyncByMask(BG0_SYNC_BIT);
         StartGreenText(proc);
@@ -486,6 +611,7 @@ extern struct KeyStatusBuffer sKeyStatusBuffer;
 static void ChallengeRunLoop(ChallengeRunProc * proc)
 {
 
+    DrawChallengeRunBadge(proc);
     DrawCR_Sprites(proc, 0);
 
     if (proc->redraw)

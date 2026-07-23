@@ -389,13 +389,14 @@ ENUN
 MarkTrainerAsDefeated(0xE1) 
 LABEL 1
 
-
+CHECK_EVENTID ObtainedCutFlag 
+BNE 10 sC s0 
 CheckTrainerFlag(0xEF) // based on unit IDs 0xE0-0xEF per chapter 
 BNE 10 rC r0 
 LOAD1 0x1 GaryBattleUnitGroup 
 ENUN 
-
-GOTO 0x63 
+GOTO 0x63
+ 
 LABEL 10 
 CALL CityBeginningScene // Move bonus only when Gary is defeated 
 LABEL 0x63
