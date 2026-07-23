@@ -153,6 +153,9 @@ Text(WhosTheKidText)
 
 LOAD1 1 Units1 
 ENUN 
+
+
+
 LABEL 10 
 SelectCharacter(3, 4, 5, 0, 0, 0, 0, 0, 0, 0) 
 SVAL sB 0x100 
@@ -249,6 +252,7 @@ SVAL s1 1
 BEQ 100 sC s1 
 EnqueneTutorialEvent_6_PlayerPhaseStart(MyTutorial1)
 LABEL 100 
+ASMC CallRefreshUnitSprites50Times
 NoFade
 ENDA
 
@@ -826,18 +830,22 @@ ENDA
 
 OakMessageEvent: 
 Text(OakMessageText)
+ENUT CannotCaptureFlag
 ENUT Route1Tutorial_A
 NoFade 
 ENDA 
 
 LittleCupMessage:
 Text(LittleCupMessageText)
+ENUT CannotEvolveFlag
 ENUT Route1Tutorial_A
 NoFade 
 ENDA 
 
 VeslyMessage:
 Text(VeslyMessageText)
+ENUT CannotCaptureFlag
+ENUT CannotEvolveFlag
 ENUT Route1Tutorial_A
 NoFade 
 ENDA 
