@@ -447,6 +447,9 @@ String("V1.22.04             Jul 2026") ; BYTE 0; POP // this overflows into the
 
 #define SkippableCutscenesFlag 0xFF
 // 0xF7 - 0x10B free 
+#define NuzlockeFlag 0xF8 
+#define PlusFlag 0xF9 
+#define CheaterFlag 0xFA
 
 // New flags 0x12D - 0x22D or more even 
 #define VisitedViridianPokecenterFlag 0x12D 

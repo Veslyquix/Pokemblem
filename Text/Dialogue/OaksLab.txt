@@ -125,6 +125,38 @@ You cannot catch single-[N]
 stage Pokémon either.[A][N]
 But you may still struggle through...[A][X]
 
+## VoidMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. You [ToggleRed]cannot[NL]
+gain exp[ToggleRed] in this mode.[A][N]
+But you may still struggle through...[A][X]
+
+## ChaosMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. All [ToggleRed]randomizer options[ToggleRed][NL]
+have been enabled for this mode.[A][N]
+Additionally, the difficulty has[N]
+been set to Lunatic.[A][N]
+Best of luck...[A][X]
+
+## PlusMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. All enemies have[NL]
+[ToggleRed]randomized skills[ToggleRed] in this mode.[A][N]
+Additionally, the difficulty has[N]
+been set to Lunatic.[A][N]
+Best of luck...[A][X]
+
+## NuzlockeMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. When units [ToggleRed]faint[ToggleRed][NL]
+they're gone for good in this mode.[A][N]
+Additionally, the difficulty has[N]
+been set to Lunatic.[A][N]
+Best of luck...[A][X]
+
+
+## CheaterMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [ToggleRed][Tact][ToggleRed].[NL]
+Enjoy your overpowered team.[A][X]
+
+
 ## VeslyMessageText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, almighty [Tact]. You [ToggleRed]cannot capture/[NL]
 evolve Pokémon[ToggleRed] in this mode.[A][N]
@@ -141,7 +173,16 @@ But I'll be fine.[A][X]
 [Tact]?[A][NL]
 Nice try.[A][X]
 
-
+## VoidName
+Void[X]
+## ChaosName
+Chaos[X]
+## NuzlockeName
+Nuzlocke[X]
+## PlusName
+Plus[X]
+## CheaterName
+Cheater[X]
 
 
 ## JesterName

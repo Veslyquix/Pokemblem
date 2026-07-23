@@ -23,6 +23,10 @@ typedef struct
     u8 updateSMS;
     u8 cannotCatch;
     u8 cannotEvolve;
+    u8 cannotGainExp;
+    u8 allRandomizerOptions;
+    u8 enemySkills;
+    u8 nuzlocke;
     u8 pkmn[7];
     // s8 Option[15];
 } ChallengeRunProc;
@@ -44,6 +48,53 @@ const struct ProcCmd ChallengeRunProcCmd[] = {
 
 #define MENU_X 18
 #define MENU_Y 16
+#define CR_VISIBLE_OPTIONS 8
+
+enum
+{
+    CR_OPTION_NEW_NAME,
+    CR_OPTION_LITTLE_CUP,
+    CR_OPTION_VOID,
+    CR_OPTION_CHAOS,
+    CR_OPTION_PLUS,
+    CR_OPTION_NUZLOCKE,
+    CR_OPTION_ASH,
+    CR_OPTION_GARY,
+    CR_OPTION_OAK,
+    CR_OPTION_BILL,
+    CR_OPTION_BROCK,
+    CR_OPTION_MISTY,
+    CR_OPTION_LT_SURGE,
+    CR_OPTION_ERIKA,
+    CR_OPTION_KOGA,
+    CR_OPTION_SABRINA,
+    CR_OPTION_BLAINE,
+    CR_OPTION_GIOVANNI,
+    CR_OPTION_LORELEI,
+    CR_OPTION_BRUNO,
+    CR_OPTION_AGATHA,
+    CR_OPTION_LANCE,
+    CR_OPTION_VESLY,
+    CR_OPTION_CHEATER,
+    CR_OPTION_COUNT,
+};
+
+enum
+{
+    CR_TEXT_TITLE,
+    CR_TEXT_RULE_HEADER,
+    CR_TEXT_RULE_NONE,
+    CR_TEXT_RULE_CANNOT_EVOLVE,
+    CR_TEXT_RULE_CANNOT_CAPTURE_CERTAIN,
+    CR_TEXT_RULE_CANNOT_CAPTURE,
+    CR_TEXT_RULE_CANNOT_GAIN_EXP,
+    CR_TEXT_RULE_RANDOMIZER,
+    CR_TEXT_RULE_ENEMY_SKILLS,
+    CR_TEXT_RULE_ENEMY_SKILLS_2,
+    CR_TEXT_RULE_NUZLOCKE,
+    CR_TEXT_COUNT,
+};
+
 typedef const struct
 {
     u32 x;
@@ -170,86 +221,27 @@ void DrawCR_Sprites(ChallengeRunProc * proc, int bg)
     SyncUnitSpriteSheet();
 }
 void ClearLine(int);
-void DrawAdditionalRulesText(ChallengeRunProc * proc)
-{
-    // char* str2[4];
-    int i = 0;
-    // ResetUnitSprites();
-    proc->cannotCatch = false;
-    proc->cannotEvolve = false;
-    int redraw = false;
-    int opt = proc->id + proc->offset;
-    if (opt == 1)
-    {
-        proc->cannotEvolve = true;
-        redraw = true;
-    }
-    if ((opt >= (CR_TotalOptions)))
-    {
-        proc->cannotCatch = true;
-        proc->cannotEvolve = true;
-        redraw = true;
-    } // Vesly
-    if ((opt == 2) || (opt == (CR_TotalOptions - 1)) || (!opt))
-    {
-        redraw = true;
-    }
-    if (!redraw)
-    {
-        return;
-    }
-    if (opt > 1)
-    {
-        proc->cannotCatch = true;
-    }
+static const char * const ChallengeRunInfoText[CR_TEXT_COUNT] = {
+    "Challenge Runs",
+    "Additional Rules",
+    "None",
+    "Cannot evolve Pokémon",
+    "Cannot capture certain Pokémon",
+    "Cannot capture Pokémon",
+    "Cannot gain EXP",
+    "All randomizer options enabled",
+    "Enemies have random,",
+    "powerful skills",
+    "Fainted Pokémon are released",
+};
 
-    TileMap_FillRect(TILEMAP_LOCATED(bg_table[0], 0xC, 0xC), 18, 6, 0);
-    BG_EnableSyncByMask(BG_SYNC_BIT(0));
-
-    i = 1;
-    for (i = 1; i < 6; i++)
-    {
-        // ClearLine(i+proc->handleID);
-    }
-    i = 1;
-    DrawLine(i + proc->handleID, 12, 12, 0);
-    i++;
-
-    if ((!proc->cannotEvolve) && (!proc->cannotCatch))
-    {
-        DrawLine(i + proc->handleID, 12, 12 + 2, 0);
-    }
-    i++; // None
-    if ((proc->cannotCatch) && (proc->cannotEvolve))
-    {
-        DrawLine(i + proc->handleID, 12, 12 + 2, 0);
-        i++;
-        i++; // Cannot evolve
-        DrawLine(i + proc->handleID, 12, 12 + 4, 0);
-        i++; // Cannot catch pokemon
-        BG_EnableSyncByMask(BG_SYNC_BIT(0));
-        return;
-    }
-    if (proc->cannotEvolve)
-    {
-        DrawLine(i + proc->handleID, 12, 12 + 2, 0);
-        i++;                                         // Cannot evolve
-        DrawLine(i + proc->handleID, 12, 12 + 4, 0); // Cannot catch certain pokemon
-    }
-    i++;
-    i++;
-    if (proc->cannotCatch)
-    {
-        DrawLine(i + proc->handleID, 12, 12 + 2, 0); // Cannot catch
-    }
-    i++;
-
-    BG_EnableSyncByMask(BG_SYNC_BIT(0));
-}
-
-const char SpecialNames[25][10] = {
+const char SpecialNames[CR_OPTION_COUNT][10] = {
     "New Name",
     "LittleCup",
+    "Void",
+    "Chaos",
+    "Plus",
+    "Nuzlocke",
     "Ash",
     "Gary",
     //"UnderUsed",
@@ -273,164 +265,165 @@ const char SpecialNames[25][10] = {
     "Agatha",
     "Lance",
     "Vesly",
+    "Cheater",
 };
+
+static int GetCurrentChallengeRunOption(ChallengeRunProc * proc)
+{
+    return proc->id + proc->offset;
+}
+
+static void UpdateChallengeRunRules(ChallengeRunProc * proc)
+{
+    int opt = GetCurrentChallengeRunOption(proc);
+
+    proc->cannotCatch = false;
+    proc->cannotEvolve = false;
+    proc->cannotGainExp = false;
+    proc->allRandomizerOptions = false;
+    proc->enemySkills = false;
+    proc->nuzlocke = false;
+
+    if (opt == CR_OPTION_LITTLE_CUP)
+    {
+        proc->cannotEvolve = true;
+    }
+    else if (opt == CR_OPTION_VOID)
+    {
+        proc->cannotGainExp = true;
+    }
+    else if (opt == CR_OPTION_CHAOS)
+    {
+        proc->allRandomizerOptions = true;
+    }
+    else if (opt == CR_OPTION_PLUS)
+    {
+        proc->enemySkills = true;
+    }
+    else if (opt == CR_OPTION_NUZLOCKE)
+    {
+        proc->nuzlocke = true;
+    }
+    else if (opt == CR_OPTION_VESLY)
+    {
+        proc->cannotCatch = true;
+        proc->cannotEvolve = true;
+    }
+    else if (opt >= CR_OPTION_ASH)
+    {
+        proc->cannotCatch = true;
+    }
+    if (opt == CR_OPTION_CHEATER)
+    {
+        proc->cannotCatch = false;
+        proc->cannotEvolve = false;
+    }
+}
+
+static void DrawChallengeRunRuleLine(ChallengeRunProc * proc, int textId, int y)
+{
+    DrawLine(proc->handleID + textId, 12, y, 0);
+}
+
+void DrawAdditionalRulesText(ChallengeRunProc * proc)
+{
+    int y = 14;
+
+    UpdateChallengeRunRules(proc);
+
+    TileMap_FillRect(TILEMAP_LOCATED(bg_table[0], 0xC, 0xC), 18, 6, 0);
+    DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, 12);
+
+    if (!proc->cannotCatch && !proc->cannotEvolve && !proc->cannotGainExp && !proc->allRandomizerOptions &&
+        !proc->enemySkills && !proc->nuzlocke)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_NONE, y);
+        BG_EnableSyncByMask(BG_SYNC_BIT(0));
+        return;
+    }
+
+    if (proc->cannotEvolve)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_CANNOT_EVOLVE, y);
+        y += 2;
+    }
+
+    if (GetCurrentChallengeRunOption(proc) == CR_OPTION_LITTLE_CUP)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_CANNOT_CAPTURE_CERTAIN, y);
+        y += 2;
+    }
+
+    if (proc->cannotCatch)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_CANNOT_CAPTURE, y);
+        y += 2;
+    }
+
+    if (proc->cannotGainExp)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_CANNOT_GAIN_EXP, y);
+        y += 2;
+    }
+
+    if (proc->allRandomizerOptions)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_RANDOMIZER, y);
+        y += 2;
+    }
+
+    if (proc->enemySkills)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_ENEMY_SKILLS, y);
+        y += 2;
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_ENEMY_SKILLS_2, y);
+        y += 2;
+    }
+
+    if (proc->nuzlocke)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_NUZLOCKE, y);
+    }
+
+    BG_EnableSyncByMask(BG_SYNC_BIT(0));
+}
 
 void DrawChallengeRun(ChallengeRunProc * proc)
 {
-
     int i, x, y, bg;
-    const char * str[25];
+
+    ResetText();
 
     x = (MENU_X / 8) + 1;
     y = (MENU_Y / 8);
     bg = 0;
 
-    i = 0;
-    str[i] = SpecialNames[i];
-    i++;
-    str[i] = SpecialNames[i];
-    i++;
-    // str[i] = "UnderUsed"; i++;
-    // str[i] = "OverUsed"; i++;
-    str[i] = "Ash";
-    i++;
-    str[i] = "Gary";
-    i++;
-    // str[i] = "Red"; i++;
-    // str[i] = "Blue"; i++;
-    // str[i] = "Green"; i++;
-    // str[i] = "Yellow"; i++;
-    str[i] = "Oak";
-    i++;
-    str[i] = "Bill";
-    i++;
-    str[i] = "Brock";
-    i++;
-    str[i] = "Misty";
-    i++;
-    str[i] = "Lt. Surge";
-    i++;
-    str[i] = "Erika";
-    i++;
-    str[i] = "Koga";
-    i++;
-    str[i] = "Sabrina";
-    i++;
-    str[i] = "Blaine";
-    i++;
-    str[i] = "Giovanni";
-    i++;
-    str[i] = "Lorelei";
-    i++;
-    str[i] = "Bruno";
-    i++;
-    str[i] = "Agatha";
-    i++;
-    str[i] = "Lance";
-    i++;
-    str[i] = "Vesly";
-    i++;
+    for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
+    {
+        InitLine(i, x, y + (2 * i), white, 0, SpecialNames[i + proc->offset]);
+    }
 
-    char * str2[6];
-    i = 0;
-    str2[i] = "Challenge Runs";
-    i++;
-    str2[i] = "Additional Rules";
-    i++;
-    str2[i] = "None";
-    i++;
-    str2[i] = "Cannot evolve Pokémon";
-    i++;
-    str2[i] = "Cannot capture certain Pokémon";
-    i++; // extra rules
-    str2[i] = "Cannot capture Pokémon";
-    i++; // extra rules
+    proc->handleID = CR_VISIBLE_OPTIONS;
 
-    ResetText();
-    i = 0;
-    // InitLine(int handleID, int x, int y, int bg, int color, int width, char* str)
-    InitLine(i, x, y + 00, white, 0, str[i + proc->offset]);
-    i++;
-    InitLine(i, x, y + 02, white, 0, str[i + proc->offset]);
-    i++;
-    InitLine(i, x, y + 04, white, 0, str[i + proc->offset]);
-    i++;
-    InitLine(i, x, y + 06, white, 0, str[i + proc->offset]);
-    i++;
-    InitLine(i, x, y + 8, white, 0, str[i + proc->offset]);
-    i++;
-    InitLine(i, x, y + 10, white, 0, str[i + proc->offset]);
-    i++;
-    InitLine(i, x, y + 12, white, 0, str[i + proc->offset]);
-    i++;
-    InitLine(i, x, y + 14, white, 0, str[i + proc->offset]);
-    i++;
-    proc->handleID = i;
-    i = 0;
-    InitLine(i + proc->handleID, 12, 1, green, (GetStringTextLen(str2[i]) + 8) / 8, str2[i]);
-    i++;
-    InitLine(i + proc->handleID, 12, 12, white, (GetStringTextLen(str2[i]) + 8) / 8, str2[i]);
-    i++;
-    InitLine(i + proc->handleID, 12, 12 + 2, white, 0, str2[i]);
-    i++; // None
-    InitLine(i + proc->handleID, 12, 12 + 2, white, (GetStringTextLen(str2[i]) + 8) / 8, str2[i]);
-    i++; // Cannot evolve Pkmn
-    InitLine(i + proc->handleID, 12, 12 + 4, white, (GetStringTextLen(str2[i]) + 8) / 8, str2[i]);
-    i++; // Cannot capture certain
-    InitLine(i + proc->handleID, 12, 12 + 2, white, (GetStringTextLen(str2[i]) + 8) / 8, str2[i]);
-    i++; // Cannot capture
+    for (i = 0; i < CR_TEXT_COUNT; i++)
+    {
+        int color = (i == CR_TEXT_TITLE) ? green : white;
+        int width = (GetStringTextLen(ChallengeRunInfoText[i]) + 8) / 8;
+        InitLine(i + proc->handleID, 12, 1, color, width, ChallengeRunInfoText[i]);
+    }
 
-    i = 0;
-    PrepareLine(i, str[i + proc->offset]);
-    i++;
-    PrepareLine(i, str[i + proc->offset]);
-    i++;
-    PrepareLine(i, str[i + proc->offset]);
-    i++;
-    PrepareLine(i, str[i + proc->offset]);
-    i++;
-    PrepareLine(i, str[i + proc->offset]);
-    i++;
-    PrepareLine(i, str[i + proc->offset]);
-    i++;
-    PrepareLine(i, str[i + proc->offset]);
-    i++;
-    PrepareLine(i, str[i + proc->offset]);
-    i++;
+    for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
+    {
+        PrepareLine(i, SpecialNames[i + proc->offset]);
+        DrawLine(i, x, y + (2 * i), bg);
+    }
 
-    i = 0;
-    PrepareLine(i + proc->handleID, str2[i]);
-    i++;
-    PrepareLine(i + proc->handleID, str2[i]);
-    i++;
-    PrepareLine(i + proc->handleID, str2[i]);
-    i++;
-    PrepareLine(i + proc->handleID, str2[i]);
-    i++;
-    PrepareLine(i + proc->handleID, str2[i]);
-    i++;
-    PrepareLine(i + proc->handleID, str2[i]);
-    i++;
+    for (i = 0; i < CR_TEXT_COUNT; i++)
+    {
+        PrepareLine(i + proc->handleID, ChallengeRunInfoText[i]);
+    }
 
-    i = 0;
-    DrawLine(i, x, y + 00, bg);
-    i++;
-    DrawLine(i, x, y + 02, bg);
-    i++;
-    DrawLine(i, x, y + 04, bg);
-    i++;
-    DrawLine(i, x, y + 06, bg);
-    i++;
-    DrawLine(i, x, y + 8, bg);
-    i++;
-    DrawLine(i, x, y + 10, bg);
-    i++;
-    DrawLine(i, x, y + 12, bg);
-    i++;
-    DrawLine(i, x, y + 14, bg);
-    i++;
-    DrawLine(i, 12, 1, bg);
-    i++;
+    DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 1, bg);
     DrawAdditionalRulesText(proc);
     BG_EnableSyncByMask(BG_SYNC_BIT(bg));
 }
@@ -455,6 +448,10 @@ void StartChallengeRun(ProcPtr parent)
         proc->redraw = false;
         proc->cannotCatch = false;
         proc->cannotEvolve = false;
+        proc->cannotGainExp = false;
+        proc->allRandomizerOptions = false;
+        proc->enemySkills = false;
+        proc->nuzlocke = false;
         proc->updateSMS = true;
         proc->handleID = 0;
         proc->pkmn[0] = 0;

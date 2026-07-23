@@ -8,7 +8,7 @@ WORD CannotCaptureFlag
 
 ALIGN 4
 CR_TotalOptions: 
-WORD 18 // number of options to scroll through 
+WORD 23 // last option index to scroll through
 CR_MaxDisplayed:
 WORD 7 // Max is 7 (for 8 entries) 
 
@@ -29,6 +29,10 @@ ALIGN 4
 ChallengeRunUnitsTable: 
 POIN UnitsNone 
 POIN UnitsNone // Little Cup 
+POIN UnitsNone // Void
+POIN UnitsNone // Chaos
+POIN UnitsNone // Plus
+POIN UnitsNone // Nuzlocke
 POIN UnitsAsh
 POIN UnitsGary
 //POIN UnitsRed
@@ -50,6 +54,7 @@ POIN UnitsBruno
 POIN UnitsAgatha
 POIN UnitsLance
 POIN UnitsVesly
+POIN UnitsCheater
 
 ALIGN 4 
 UnitsNone: 
@@ -105,6 +110,15 @@ UNIT 0x07 WeedleID BonusUnitParameters
 UNIT 0x08 RattataID BonusUnitParameters 
 UNIT 0x09 PidgeyID BonusUnitParameters 
 UNIT 0x0A ZubatID BonusUnitParameters 
+UNIT
+
+ALIGN 4 ; UnitsCheater:
+UNIT 0x07 ArticunoID BonusUnitParameters
+UNIT 0x06 MewID BonusUnitParameters
+UNIT 0x02 MewtwoID BonusUnitParameters
+UNIT 0x08 DragoniteID BonusUnitParameters
+UNIT 0x0A ZapdosID BonusUnitParameters
+UNIT 0x09 MoltresID BonusUnitParameters
 UNIT
 
 ALIGN 4 

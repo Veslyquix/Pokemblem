@@ -246,13 +246,14 @@ LABEL 0x63
 ASMC RegisterAllOwnedPokemon
 ASMC 0x8015681 //LoadObjUIGfx 
 ASMC 0x8026689 // RefreshUnitSprites 
+CHECK_EVENTID Route1Tutorial_A 
+BNE 100 sC s0 
 EVBIT_MODIFY 4 
 TutText(SkipLabTutorial) 
 SVAL s1 1 
 BEQ 100 sC s1 
 EnqueneTutorialEvent_6_PlayerPhaseStart(MyTutorial1)
 LABEL 100 
-ASMC CallRefreshUnitSprites50Times
 NoFade
 ENDA
 
@@ -559,16 +560,16 @@ CompareTactText(HiroName)BNE 3 rC r7CALL PlaytesterCommonMessageSVAL r2 Units
 CompareTactText(N426Name)BNE 4 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsN426|IsPointerGOTO 200Label 4
 CompareTactText(ZoramineName)BNE 5 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsZoramine|IsPointerGOTO 200Label 5
 CompareTactText(OakName)BNE 6 rC r7CALL OakMessageEventSVAL r2 UnitsOak|IsPointerGOTO 200Label 6
-CompareTactText(BillName)BNE 7 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsBill|IsPointerGOTO 200Label 7
-CompareTactText(AshName)BNE 8 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsAsh|IsPointerGOTO 200Label 8
+CompareTactText(BillName)BNE 7 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsBill|IsPointerGOTO 200Label 7
+CompareTactText(AshName)BNE 8 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsAsh|IsPointerGOTO 200Label 8
 CompareTactText(RedName)BNE 9 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsRed|IsPointerGOTO 200Label 9
-CompareTactText(LanceName)BNE 10 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsLance|IsPointerGOTO 200Label 10
-CompareTactText(BrockName)BNE 11 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsBrock|IsPointerGOTO 200Label 11
-CompareTactText(MistyName)BNE 12 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsMisty|IsPointerGOTO 200Label 12
-CompareTactText(GaryName)BNE 13 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsGary|IsPointerGOTO 200Label 13
+CompareTactText(LanceName)BNE 10 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsLance|IsPointerGOTO 200Label 10
+CompareTactText(BrockName)BNE 11 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsBrock|IsPointerGOTO 200Label 11
+CompareTactText(MistyName)BNE 12 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsMisty|IsPointerGOTO 200Label 12
+CompareTactText(GaryName)BNE 13 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsGary|IsPointerGOTO 200Label 13
 CompareTactText(bpatName)BNE 14 rC r7CALL PlaytesterCommonMessageSVAL r2 Unitsbpat|IsPointerGOTO 200Label 14
 GOTO 15 
-CompareTactText(VeslyName)BNE 15 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsVesly|IsPointerGOTO 200Label 15
+CompareTactText(VeslyName)BNE 15 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsVesly|IsPointerGOTO 200Label 15
 CompareTactText(ZaimName)BNE 16 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsZaim|IsPointerGOTO 200Label 16
 CompareTactText(AriadnaName)BNE 17 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsAriadna|IsPointerGOTO 200Label 17
 CompareTactText(ScubName)
@@ -601,63 +602,63 @@ GOTO 200
 Label 21
 CompareTactText(LtSurgeName)
 BNE 22 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsLtSurge|IsPointer
 GOTO 200
 
 Label 22
 CompareTactText(ErikaName)
 BNE 23 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsErika|IsPointer
 GOTO 200
 
 Label 23
 CompareTactText(KogaName)
 BNE 24 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsKoga|IsPointer
 GOTO 200
 
 Label 24
 CompareTactText(SabrinaName)
 BNE 25 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsSabrina|IsPointer
 GOTO 200
 
 Label 25
 CompareTactText(BlaineName)
 BNE 26 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsBlaine|IsPointer
 GOTO 200
 
 Label 26
 CompareTactText(GiovanniName)
 BNE 27 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsGiovanni|IsPointer
 GOTO 200
 
 Label 27
 CompareTactText(LoreleiName)
 BNE 28 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsLorelei|IsPointer
 GOTO 200
 
 Label 28
 CompareTactText(BrunoName)
 BNE 29 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsBruno|IsPointer
 GOTO 200
 
 Label 29
 CompareTactText(AgathaName)
 BNE 30 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
 SVAL r2 UnitsAgatha|IsPointer
 GOTO 200
 Label 30
@@ -667,10 +668,10 @@ CALL NiceTryMessage
 GOTO 0x63
 
 Label 31
-CompareTactText(MewtwoStarterName)
-BNE 32 rC r7
-CALL NiceTryMessage
-GOTO 0x63
+// CompareTactText(MewtwoStarterName)
+// BNE 32 rC r7
+// CALL NiceTryMessage
+// GOTO 0x63
 
 Label 32
 CompareTactText(ChilanName)
@@ -792,26 +793,52 @@ CALL PlaytesterCommonMessage
 SVAL r2 UnitsFabula|IsPointer
 GOTO 200
 
-Label 48
-
-
-
-
-LABEL 60 
-CompareTactText(LittleCupName)
-BNE 61 sC s7 
-CALL LittleCupMessage 
+LABEL 48
+CompareTactText(VoidName)
+BNE 49 rC r7
+CALL VoidMessage
+GOTO 99 // No extra units
+LABEL 49
+CompareTactText(ChaosName)
+BNE 50 rC r7
+CALL ChaosMessage
+GOTO 99
+LABEL 50
+CompareTactText(PlusName)
+BNE 51 rC r7
+CALL PlusMessage
+GOTO 99
+LABEL 51
+CompareTactText(NuzlockeName)
+BNE 52 rC r7
+CALL NuzlockeMessage
 GOTO 99
 
-LABEL 61 
+
+LABEL 52
+
+
+LABEL 60
+CompareTactText(LittleCupName)
+BNE 61 sC s7
+CALL LittleCupMessage
+GOTO 99 // No extra units
+
+LABEL 61
 CompareTactText(VeslyName)
-BNE 62 sC s7 
-CALL VeslyMessage 
+BNE 62 sC s7
+CALL VeslyMessage
 SVAL r2 UnitsVesly|IsPointer
 GOTO 200
 
-
 Label 62
+CompareTactText(CheaterName)
+BNE 63 sC s7
+CALL CheaterMessage
+SVAL r2 UnitsCheater|IsPointer
+GOTO 200
+
+Label 63
 Label 199
 
 
@@ -828,27 +855,76 @@ Label 0x63
 NoFade 
 ENDA 
 
-OakMessageEvent: 
+OakMessageEvent:
 Text(OakMessageText)
 ENUT CannotCaptureFlag
 ENUT Route1Tutorial_A
-NoFade 
-ENDA 
+NoFade
+ENDA
 
 LittleCupMessage:
 Text(LittleCupMessageText)
 ENUT CannotEvolveFlag
 ENUT Route1Tutorial_A
-NoFade 
-ENDA 
+NoFade
+ENDA
+
+VoidMessage:
+Text(VoidMessageText)
+ForceLunatic
+ENUT NoExpFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
+
+ChaosMessage:
+Text(ChaosMessageText)
+ForceLunatic
+ENUT RandomizeWeaponStatsFlag
+ENUT RandomizeClassesFlag
+ENUT RandomizeTrainerClassesFlag
+ENUT RandomizeBossClassesFlag
+ENUT RandomizeGrowthsFlag
+ENUT RandomizeFoundItemsFlag
+ENUT RandomizeBaseStatsFlag
+ENUT RandomizeSkillsFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
+
+
+PlusMessage:
+Text(PlusMessageText)
+ForceLunatic
+ENUT PlusFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
+
+
+NuzlockeMessage:
+Text(NuzlockeMessageText)
+ForceLunatic
+ENUT NuzlockeFlag
+ENUF CasualModeFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
+
+CheaterMessage:
+Text(CheaterMessageText)
+ENUT CheaterFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
 
 VeslyMessage:
 Text(VeslyMessageText)
 ENUT CannotCaptureFlag
 ENUT CannotEvolveFlag
 ENUT Route1Tutorial_A
-NoFade 
-ENDA 
+NoFade
+ENDA
 
 PlaytesterCommonMessage:
 Text(PlaytesterMessage)
@@ -856,12 +932,18 @@ ENUT Route1Tutorial_A
 NoFade 
 ENDA 
 
-ChallengeRunMessageEvent:
+ChallengeRunMessageNoCaptureEvent:
 Text(ChallengeRunMessage)
 ENUT Route1Tutorial_A
 ENUT CannotCaptureFlag
-NoFade 
-ENDA 
+NoFade
+ENDA
+
+ChallengeRunMessageEvent:
+Text(ChallengeRunMessage)
+ENUT Route1Tutorial_A
+NoFade
+ENDA
 
 
 NiceTryMessage:
@@ -1293,6 +1375,14 @@ UNIT 0x07 WeedleID BonusUnitParameters
 UNIT 0x08 RattataID BonusUnitParameters 
 UNIT 0x09 PidgeyID BonusUnitParameters 
 UNIT 0x0A ZubatID BonusUnitParameters 
+UNIT
+
+ALIGN 4 ; UnitsCheater:
+UNIT 0x02 MewtwoID BonusUnitParameters
+UNIT 0x06 MewID BonusUnitParameters
+UNIT 0x07 ArticunoID BonusUnitParameters
+UNIT 0x08 ZapdosID BonusUnitParameters
+UNIT 0x09 MoltresID BonusUnitParameters
 UNIT
 
 
