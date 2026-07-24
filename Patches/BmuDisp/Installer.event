@@ -15,8 +15,6 @@
 #define SMS_Frame3_Buffer 0x2034010
 
 
-// #define SetDiff(value) "SVAL s1 value; ASMC SetDifficulty" 
-#define ForceLunatic "SVAL s1 2; ASMC SetDifficulty" 
 
 
 // 8a177a0 T ProcScr_UnitListScreen_Field

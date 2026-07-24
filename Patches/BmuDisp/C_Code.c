@@ -72,35 +72,6 @@ int GetDifficulty()
     return result;
 }
 
-void SetDifficulty(int value)
-{
-    gPlaySt.chapterStateBits &= ~PLAY_FLAG_HARD; // disable hard
-    gPlaySt.config.rankDisplay = 1;              // enable normal
-    switch (value)
-    {
-        case 0: // easy
-        {
-            gPlaySt.config.rankDisplay = 0;
-            break;
-        }
-        case 1: // normal
-        {
-            break;
-        }
-        case 2:
-        {
-            gPlaySt.chapterStateBits |= PLAY_FLAG_HARD;
-            // gPlaySt.config.rankDisplay = 1;              // this is already set at the start
-            break;
-        }
-    }
-}
-
-void SetDifficultyASMC(void)
-{
-    SetDifficulty(gEventSlots[1]);
-}
-
 // 8026F94 ForceSyncUnitSpriteSheet
 // okay, so when lots of SMS get loaded at once, it can overflow gFrameTmRegister[32+] into sProcArray
 // this crashes the game

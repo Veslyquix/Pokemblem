@@ -54,10 +54,9 @@ extern u8 AuraSkillTable[];
 extern u8 NegatedSkills[];
 extern u8 PersonalSkillTable[];
 extern u8 ClassSkillTable[];
-extern u8 PlusModeRandomSkills[];
 
 extern u8 NihilIDLink;
-extern int PlusFlag_Link;
+
 extern u32 PassiveSkillBit;
 
 extern SkillTestConfig gSkillTestConfig;

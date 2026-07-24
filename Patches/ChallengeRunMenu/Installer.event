@@ -295,6 +295,14 @@ UNIT 0x0A HorseaID BonusUnitParameters
 UNIT
 
 
+ALIGN 4 
+RedMug_Link:
+WORD RedAltMug 
+LeafMug_Link:
+WORD LeafMug 
+
+
+
 #undef BonusUnitParameters
 
 ALIGN 4 

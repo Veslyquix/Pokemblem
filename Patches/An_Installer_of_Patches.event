@@ -143,8 +143,7 @@
 
 #include "StatBarLength.event" 
 
-#include "CasualModeFlag/Installer.event"
-// DangerRadius used to conflict, so previously I edited ClearDR2.asm as needed 
+
 
 
 #include "SetUnitState.lyn.event"

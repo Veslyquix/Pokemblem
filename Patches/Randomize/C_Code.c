@@ -30,64 +30,131 @@ extern u32 * StartTimeSeedRamLabel;
 
 // extern int Div(int, int);
 // extern int Mod(int, int);
-u8 HashByte_Ch(int number, int max)
+u32 GetNthRN_Simple(int n, u32 seed, u32 currentRN);
+u32 HashSeed(u32 result)
 {
-    if (max == 0)
-        return 0;
-    u32 hash = 5381;
-    hash = ((hash << 5) + hash) ^ number;
-    hash = ((hash << 5) + hash) ^ gPlaySt.chapterIndex;
-    hash = ((hash << 5) + hash) ^ *StartTimeSeedRamLabel;
-    // for (int i = 0; i < 9; ++i){
-    //   if (TacticianName[i]==0) break;
-    //   hash = ((hash << 5) + hash) ^ TacticianName[i];
-    // };
-    return Mod((hash & 0x2FFFFFFF), max);
-};
-
-u16 HashShort_Ch(int number, int max)
-{
-    if (max == 0)
-        return 0;
-    u32 hash = 5381;
-    hash = ((hash << 5) + hash) ^ number;
-    hash = ((hash << 5) + hash) ^ gPlaySt.chapterIndex;
-    hash = ((hash << 5) + hash) ^ *StartTimeSeedRamLabel;
-    // for (int i = 0; i < 9; ++i){
-    //   if (TacticianName[i]==0) break;
-    //   hash = ((hash << 5) + hash) ^ TacticianName[i];
-    // };
-    return Mod((hash & 0x2FFFFFFF), max);
-};
-
-u32 HashSeed(u32 number)
-{
-    u32 hash = 5381;
-    hash = ((hash << 5) + hash) ^ number;
-    hash = hash * 2654435761 & ((2 ^ 31) - 1);
-    hash = ((hash << 5) + hash) ^ number;
-    // for (int i = 0; i < 9; ++i){
-    //   if (TacticianName[i]==0) break;
-    //   hash = ((hash << 5) + hash) ^ TacticianName[i];
-    // };
-    return hash;
+    int clock = GetGameClock();
+    // result = (GetNthRN_Simple(clock, (clock & 0xF)) << 4) | GetNthRN_Simple(clock, (clock & 0xF0));
+    result = GetNthRN_Simple(clock, result, 13);
+    if (!result)
+    {
+        result = GetGameClock() << 9;
+    }
+    if (result > 999999)
+    {
+        result &= 0xEFFFF;
+    }
+    return result;
 }
 
-u8 HashByte_Global(int number, int max, int variance)
+u32 NextSeededRN_Simple(u32 rn)
 {
-    if (max == 0)
-        return 0;
-    u32 hash = 5381;
-    hash = ((hash << 5) + hash) ^ number;
-    hash = ((hash << 5) + hash) ^ *StartTimeSeedRamLabel;
-    hash = ((hash << 5) + hash) ^ variance;
-    // for (int i = 0; i < 9; ++i){
-    //   if (TacticianName[i]==0) break;
-    //   hash = ((hash << 5) + hash) ^ TacticianName[i];
-    // };
-    hash = Mod((hash & 0x2FFFFFFF), max);
-    return hash;
-};
+    // This generates a pseudorandom string of 32 bits
+    u32 rn0 = rn & 0xFFFF;
+    u32 rn1 = rn >> 16;
+    rn = (rn1 << 11) + (rn0 >> 5) + (rn0 << 16);
+
+    // Shift state[2] one bit
+    rn0 *= 2;
+
+    // "carry" the top bit of state[1] to state[0]
+    if (rn1 & 0x8000)
+        rn0++;
+
+    rn ^= rn0;
+    return rn;
+}
+
+extern const u32 RNTable[]; // = { 0x924EA36E };
+
+u32 InitSeededRN_Simple(int seed, u32 currentRN)
+{
+    // This table is a collection of 8 possible initial rn state
+    // 3 entries will be picked based of which "seed" was given
+
+    u16 initTable[8] = { 0xA36E, 0x924E, 0xB784, 0x4F67, 0x8092, 0x592D, 0x8E70, 0xA794 };
+
+    int mod = Mod(seed, 7);
+
+    currentRN = initTable[(mod++ & 7)];
+    currentRN |= initTable[(mod++ & 7)] << 16;
+
+    if (Mod(seed, 23) > 0)
+    {
+        for (mod = Mod(seed, 23); mod != 0; mod--)
+        {
+            currentRN = NextSeededRN_Simple(currentRN);
+        }
+    }
+
+    return currentRN;
+}
+
+u32 GetNthRN_Simple(int n, u32 seed, u32 currentRN)
+{
+    int i = n + seed;
+    i = (i ^ (i >> 12)) & 0x3FFF;
+    // n = (n ^ (n >> 4)) & 0xF;
+    n &= 0xF;
+    if (!currentRN)
+    {
+        currentRN = RNTable[i]; // InitSeededRN_Simple(seed, currentRN);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        currentRN = NextSeededRN_Simple(currentRN);
+    }
+    return currentRN;
+}
+
+u16 HashByte_Global(int number, int max, int variance)
+{
+    // Mix values without large multiplications
+
+    int offset = *StartTimeSeedRamLabel;
+    offset ^= variance * 29;
+    offset ^= number * 37;
+
+    // Lightweight bit scrambling
+    offset ^= (offset >> 4) ^ (offset << 3);
+    offset *= 40503; // Smaller prime (fits in 16-bit)
+
+    u32 currentRN = GetNthRN_Simple(offset, *StartTimeSeedRamLabel, 0);
+
+    return Mod((currentRN & 0x2FFFFFFF), max);
+}
+
+u8 HashByte_Ch(int number, int max, int variance)
+{
+
+    int offset = gPlaySt.chapterIndex;
+    offset ^= variance * 29;
+    offset ^= number * 37;
+
+    // Lightweight bit scrambling
+    offset ^= (offset >> 4) ^ (offset << 3);
+    offset *= 40503; // Smaller prime (fits in 16-bit)
+
+    u32 currentRN = GetNthRN_Simple(offset, *StartTimeSeedRamLabel, 0);
+
+    return Mod((currentRN & 0x2FFFFFFF), max);
+}
+
+u16 HashShort_Ch(int number, int max, int variance)
+{
+
+    int offset = gPlaySt.chapterIndex;
+    offset ^= variance * 29;
+    offset ^= number * 37;
+
+    // Lightweight bit scrambling
+    offset ^= (offset >> 4) ^ (offset << 3);
+    offset *= 40503; // Smaller prime (fits in 16-bit)
+
+    u32 currentRN = GetNthRN_Simple(offset, *StartTimeSeedRamLabel, 0);
+
+    return Mod((currentRN & 0x2FFFFFFF), max);
+}
 
 int GetItemMight(int item)
 {
@@ -698,8 +765,8 @@ int GetItemTier(int item)
         {
             if (item == RandomItemsTable[tier][i])
             {
-                return HashByte_Ch(item, 2) + tier; // return 1 tier higher half the time for fun I guess
-                                                    // (Mod 2 means max 1)
+                return HashByte_Ch(item, 2, i) + tier; // return 1 tier higher half the time for fun I guess
+                                                       // (Mod 2 means max 1)
             }
             i++;
         }
@@ -712,7 +779,7 @@ int GetItemTier(int item)
         {
             if (itemID_only == RandomItemsTable[tier][i])
             {
-                return HashByte_Ch(item, 2) + tier; // return 1 tier higher half the time for fun I guess
+                return HashByte_Ch(item, 2, i) + tier; // return 1 tier higher half the time for fun I guess
             }
             i++;
         }
@@ -727,7 +794,7 @@ int RandomizeItem(int item)
     }
     int tier = GetItemTier(item);
     int max = CountItems(tier);
-    return RandomItemsTable[tier][HashShort_Ch(item, max)];
+    return RandomItemsTable[tier][HashShort_Ch(item, max, 0)];
 }
 
 void RandomizeItem_ASMC(void)
@@ -739,7 +806,7 @@ void RandomizeItem_ASMC(void)
     int item = gEventSlots[3];
     int tier = GetItemTier(item);
     int max = CountItems(tier);
-    gEventSlots[3] = RandomItemsTable[tier][HashShort_Ch(item, max)];
+    gEventSlots[3] = RandomItemsTable[tier][HashShort_Ch(item, max, 1)];
 }
 void RandomizeCoins_ASMC(void)
 {
@@ -753,7 +820,7 @@ void RandomizeCoins_ASMC(void)
     {
         max = 65000;
     }
-    gEventSlots[3] = HashShort_Ch(coins, max);
+    gEventSlots[3] = HashShort_Ch(coins, max, 2);
 }
 
 extern u8 RandomSkillsTable[];
@@ -766,6 +833,34 @@ int CountSkills()
     }
     return i;
 }
+
+extern u8 PlusModeRandomSkills[];
+extern int PlusFlag_Link;
+static bool IsSkillIDValid(u8 skillID)
+{
+    return skillID != 0 && skillID != 255;
+}
+u8 GetPlusModeRandomSkill(struct Unit * unit)
+{
+    int id = unit->pCharacterData->number;
+    int count = 0;
+    if (UNIT_FACTION(unit) == FACTION_RED && CheckFlag(PlusFlag_Link))
+    {
+        while (IsSkillIDValid(PlusModeRandomSkills[count]))
+        {
+            ++count;
+        }
+
+        if (!count)
+        {
+            return 0;
+        }
+
+        return PlusModeRandomSkills[HashByte_Ch(id, count, unit->pClassData->number)];
+    }
+    return 0;
+}
+
 int RandomizeSkill(int id, int classID)
 {
     if (!CheckFlag(RandomizeSkillsFlag_Link))

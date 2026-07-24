@@ -128,13 +128,13 @@ But you may still struggle through...[A][X]
 ## VoidMessageText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. You [ToggleRed]cannot[NL]
 gain exp[ToggleRed] in this mode.[A][N]
+Additionally, the difficulty has[N]
+been set to Lunatic.[A][N]
 But you may still struggle through...[A][X]
 
 ## ChaosMessageText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. All [ToggleRed]randomizer options[ToggleRed][NL]
 have been enabled for this mode.[A][N]
-Additionally, the difficulty has[N]
-been set to Lunatic.[A][N]
 Best of luck...[A][X]
 
 ## PlusMessageText
@@ -145,7 +145,7 @@ been set to Lunatic.[A][N]
 Best of luck...[A][X]
 
 ## NuzlockeMessageText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. When units [ToggleRed]faint[ToggleRed][NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. When units [ToggleRed]faint[ToggleRed],[NL]
 they're gone for good in this mode.[A][N]
 Additionally, the difficulty has[N]
 been set to Lunatic.[A][N]
@@ -164,8 +164,8 @@ Yes, I beat Lunatic mode like this.[N]
 So it's possible.[A][X]
 
 ## OakMessageText
-[OpenMidRight][LoadOak][OpenMidRight]Hello, me. I [ToggleRed]cannot capture/[NL]
-evolve Pokémon[ToggleRed] in this mode.[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, me. I [ToggleRed]cannot capture[NL]
+Pokémon[ToggleRed] in this mode.[A][N]
 But I'll be fine.[A][X]
 
 ## NiceTryText

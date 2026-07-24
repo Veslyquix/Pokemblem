@@ -11,6 +11,7 @@ extern const u8 CR_NumberOfOptionsPerEntryTable[];
 extern char * TacticianName; // 8 bytes long
 extern int CannotCaptureFlag_Link;
 extern int CannotEvolveFlag_Link;
+extern char * GetTacticianName(void);
 
 #define CR_BADGE_PALETTE_COLOR_COUNT 16
 #define RGB5(r, g, b) ((r) | ((g) << 5) | ((b) << 10))
@@ -351,6 +352,39 @@ const char SpecialNames[CR_OPTION_COUNT][10] = {
     "Cheater",
 };
 
+static bool StringEquals(const char * left, const char * right)
+{
+    while (*left && *right)
+    {
+        if (*left != *right)
+        {
+            return false;
+        }
+
+        left++;
+        right++;
+    }
+
+    return *left == *right;
+}
+
+extern u16 TrainerFIDTable[];
+int GetSpecialNamePortraitId(void)
+{
+    int i;
+    char * tacticianName = GetTacticianName();
+
+    for (i = 1; i < CR_OPTION_COUNT; i++)
+    {
+        if (StringEquals(tacticianName, SpecialNames[i]))
+        {
+            return TrainerFIDTable[i];
+        }
+    }
+
+    return 0;
+}
+
 static int GetCurrentChallengeRunOption(ChallengeRunProc * proc)
 {
     return proc->id + proc->offset;
@@ -441,7 +475,6 @@ static u8 UpdateChallengeRunRules(ChallengeRunProc * proc)
     return rulesState;
 }
 
-extern u16 TrainerFIDTable[];
 int GetTrainerFID(int opt)
 {
 

@@ -11,6 +11,11 @@
 //#include "NumberEntry.lyn.event" 
 
 ALIGN 4 
+RNTable:
+#incbin "RNTable.dmp" 
+
+
+ALIGN 4 
 bg_table:
 WORD 0x02022CA8
 WORD 0x020234A8

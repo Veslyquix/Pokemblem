@@ -239,6 +239,13 @@ SupplyItemWithDurability(SuperPotion, 5)
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(1, True, 0x1FF) // all units to gain moves they should've learned 
 
+SVAL s7 1 
+CompareTactText(VoidName) 
+BNE 0x63 rC r7
+ENUT NoExpFlag // set this flag AFTER loading the units, so they get leveled to 4 
+
+GOTO 0x63 
+
 
 
 
@@ -259,7 +266,7 @@ ENDA
 
 ALIGN 4 
 ProtagUnitGroupMaleSelect:
-UNIT ProtagID  RedID 0x1 Level(LVFACEUP,Ally,0)   [7,13] 0b 0x0 0x0 0x0 [0x0,0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
+UNIT ProtagID  prof_oakID 0x1 Level(LVFACEUP,Ally,0)   [7,13] 0b 0x0 0x0 0x0 [0x0,0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
 UNIT 
 ALIGN 4 
 ProtagUnitGroupFemaleSelect:
@@ -794,7 +801,7 @@ SVAL r2 UnitsFabula|IsPointer
 GOTO 200
 
 LABEL 48
-CompareTactText(VoidName)
+CompareTactText(VoidName) 
 BNE 49 rC r7
 CALL VoidMessage
 GOTO 99 // No extra units
@@ -890,14 +897,12 @@ ENDA
 VoidMessage:
 Text(VoidMessageText)
 ForceLunatic
-ENUT NoExpFlag
 ENUT Route1Tutorial_A
 NoFade
 ENDA
 
 ChaosMessage:
 Text(ChaosMessageText)
-ForceLunatic
 ENUT RandomizeWeaponStatsFlag
 ENUT RandomizeClassesFlag
 ENUT RandomizeTrainerClassesFlag
@@ -938,6 +943,7 @@ ENDA
 
 VeslyMessage:
 Text(VeslyMessageText)
+ForceLunatic
 ENUT CannotCaptureFlag
 ENUT CannotEvolveFlag
 ENUT Route1Tutorial_A
