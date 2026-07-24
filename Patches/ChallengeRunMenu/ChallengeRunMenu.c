@@ -14,7 +14,25 @@ extern int CannotCaptureFlag_Link;
 extern int CannotEvolveFlag_Link;
 
 #define CR_BADGE_RING_COLOR_COUNT 6
+#define RGB5(r, g, b) ((r) | ((g) << 5) | ((b) << 10))
 
+#define COLOR_WHITE RGB5(31, 31, 31)
+#define COLOR_BLACK RGB5(0, 0, 0)
+#define COLOR_GRAY RGB5(16, 16, 16)
+
+#define COLOR_RED RGB5(31, 0, 0)
+#define COLOR_GREEN RGB5(0, 31, 0)
+#define COLOR_BLUE RGB5(0, 0, 31)
+
+#define COLOR_YELLOW RGB5(31, 31, 0)
+#define COLOR_ORANGE RGB5(31, 18, 0)
+#define COLOR_GOLD RGB5(31, 24, 4)
+
+#define COLOR_CREAM RGB5(31, 29, 18)
+#define COLOR_AMBER RGB5(31, 21, 0)
+#define COLOR_PEACH RGB5(31, 22, 12)
+
+#define CR_BADGE_TARGET_COLOR COLOR_GOLD
 typedef struct
 {
     /* 00 */ PROC_HEADER;
@@ -52,7 +70,9 @@ const struct ProcCmd ChallengeRunProcCmd[] = {
 
 #define MENU_X 18
 #define MENU_Y 16
-#define CR_VISIBLE_OPTIONS 8
+#define CR_VISIBLE_OPTIONS 6
+#define RULES_X 1
+#define RULES_Y 13
 
 enum
 {
@@ -420,14 +440,15 @@ static void UpdateChallengeRunRules(ChallengeRunProc * proc)
 
 static void DrawChallengeRunRuleLine(ChallengeRunProc * proc, int textId, int y)
 {
-    DrawLine(proc->handleID + textId, 12, y, 0);
+    DrawLine(proc->handleID + textId, RULES_X, y, 0);
 }
 
 void DrawAdditionalRulesText(ChallengeRunProc * proc)
 {
-    int y = 13;
+    int y = RULES_Y;
 
     UpdateChallengeRunRules(proc);
+    // StartFace(0, 0x99, 120, 100, 0);
 
     TileMap_FillRect(TILEMAP_LOCATED(bg_table[0], 0xC, 0xC), 18, 6, 0);
     // DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, y);
@@ -487,17 +508,23 @@ void DrawAdditionalRulesText(ChallengeRunProc * proc)
     BG_EnableSyncByMask(BG_SYNC_BIT(0));
 }
 
-static u16 BlendColorTowardGray(u16 color, int amount)
+static u16 BlendColorToward(u16 color, u16 target, int amount)
 {
     int red = color & 0x1F;
     int green = (color >> 5) & 0x1F;
     int blue = (color >> 10) & 0x1F;
-    int gray = (red + green + blue) / 3;
-    int grayAmount = (amount * CR_BADGE_GRAY_BLEND_PERCENT) / 100;
 
-    red = ((red * (CR_BADGE_CYCLE_HALF_LENGTH - grayAmount)) + (gray * grayAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
-    green = ((green * (CR_BADGE_CYCLE_HALF_LENGTH - grayAmount)) + (gray * grayAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
-    blue = ((blue * (CR_BADGE_CYCLE_HALF_LENGTH - grayAmount)) + (gray * grayAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
+    int targetRed = target & 0x1F;
+    int targetGreen = (target >> 5) & 0x1F;
+    int targetBlue = (target >> 10) & 0x1F;
+
+    int blendAmount = (amount * CR_BADGE_GRAY_BLEND_PERCENT) / 100;
+
+    red = ((red * (CR_BADGE_CYCLE_HALF_LENGTH - blendAmount)) + (targetRed * blendAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
+    green = ((green * (CR_BADGE_CYCLE_HALF_LENGTH - blendAmount)) + (targetGreen * blendAmount)) /
+        CR_BADGE_CYCLE_HALF_LENGTH;
+    blue =
+        ((blue * (CR_BADGE_CYCLE_HALF_LENGTH - blendAmount)) + (targetBlue * blendAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
 
     return red | (green << 5) | (blue << 10);
 }
@@ -523,7 +550,7 @@ static void ApplyBadgePaletteCycle(ChallengeRunProc * proc)
     for (i = 0; i < CR_BADGE_RING_COLOR_COUNT; i++)
     {
         PAL_BG_COLOR(CR_BADGE_PAL_SLOT, CR_BADGE_RING_FIRST_COLOR + i) =
-            BlendColorTowardGray(proc->badgePalBase[i], amount);
+            BlendColorToward(proc->badgePalBase[i], CR_BADGE_TARGET_COLOR, amount);
     }
 
     EnablePaletteSync();
@@ -662,9 +689,16 @@ void StartChallengeRun(ProcPtr parent)
         BG_Fill(gBG2TilemapBuffer, 0);
 
         UnpackUiVArrowGfx(0x240, 3);
-        DrawUiFrame2(1, 8, 14, 12, 0);
-        // DrawUiFrame(BG_GetMapBuffer(1),            // back BG
-        // x, y, w, h, TILEREF(0, 0), 0); // style as 0 ?
+        StartFace(0, 0x99, 212, 80, 0);
+        // DrawUiFrame2(1, 8, 14, 12, 0);
+        DrawUiFrame(                          // menu
+            gBG1TilemapBuffer,                // back BG
+            1, 1, 8, 14, TILEREF(0, 0), 0);   // style as 0 ?
+        DrawUiFrame(                          // rules text
+            gBG1TilemapBuffer,                // back BG
+            1, 0xF, 20, 5, TILEREF(0, 0), 1); // style as 0 ?
+        SetBlendTargetA(0, 1, 0, 0, 0);       // transparent ui
+                                              // SetBlendTargetB(0, 0, 0, 0, 1);
         // SetTextFontGlyphs(0);
         // SetTextFont(0);
         // ResetTextFont();

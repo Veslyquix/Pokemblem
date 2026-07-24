@@ -9,12 +9,11 @@ from pathlib import Path
 from PIL import Image
 
 
-DEFAULT_INDICES = "0-1,7-12"
+DEFAULT_INDICES = "0-2,7-12"
 DEFAULT_DATA_DIR = Path(__file__).resolve().parent / "data"
 DEFAULT_SOURCE_DIR = Path(__file__).resolve().parent / "unmodified"
-WHITE_INDICES = range(1, 5)
-##WHITE_RGB = [26*8, 28*8, 29*8]
-WHITE_RGB = [31*8, 31*8, 31*8]
+BACKGROUND_INDICES = (1, 2)
+SOURCE_BACKGROUND_CANDIDATE_INDICES = range(1, 7)
 
 def parse_indices(text: str) -> set[int]:
     indices: set[int] = set()
@@ -69,6 +68,63 @@ def png_targets(source_dir: Path, template_name: str) -> list[Path]:
     )
 
 
+def palette_rgb(palette: list[int], idx: int) -> tuple[int, int, int]:
+    start = idx * 3
+    return tuple(palette[start : start + 3])
+
+
+def set_palette_rgb(palette: list[int], idx: int, rgb: tuple[int, int, int]) -> None:
+    start = idx * 3
+    palette[start : start + 3] = list(rgb)
+
+
+def is_inner_background_color(rgb: tuple[int, int, int]) -> bool:
+    return min(rgb) >= 200 and (max(rgb) - min(rgb)) <= 70
+
+
+def nearest_background_index(rgb: tuple[int, int, int], template_palette: list[int]) -> int:
+    best_idx = BACKGROUND_INDICES[0]
+    best_dist = 1 << 30
+
+    for idx in BACKGROUND_INDICES:
+        pal_rgb = palette_rgb(template_palette, idx)
+        dist = sum((rgb[i] - pal_rgb[i]) * (rgb[i] - pal_rgb[i]) for i in range(3))
+
+        if dist < best_dist:
+            best_idx = idx
+            best_dist = dist
+
+    return best_idx
+
+
+def normalize_inner_background_indices(
+    target: Image.Image, target_palette: list[int], template_palette: list[int]
+) -> int:
+    target_px = target.load()
+    width, height = target.size
+    remap: dict[int, int] = {}
+    changed = 0
+
+    for idx in SOURCE_BACKGROUND_CANDIDATE_INDICES:
+        rgb = palette_rgb(target_palette, idx)
+
+        if is_inner_background_color(rgb):
+            remap[idx] = nearest_background_index(rgb, template_palette)
+
+    for idx in BACKGROUND_INDICES:
+        set_palette_rgb(target_palette, idx, palette_rgb(template_palette, idx))
+
+    for y in range(height):
+        for x in range(width):
+            idx = target_px[x, y]
+
+            if idx in remap and idx != remap[idx]:
+                target_px[x, y] = remap[idx]
+                changed += 1
+
+    return changed
+
+
 def apply_template(template: Image.Image, source_path: Path, output_path: Path, indices: set[int], dry_run: bool) -> int:
     target = Image.open(source_path)
 
@@ -89,14 +145,11 @@ def apply_template(template: Image.Image, source_path: Path, output_path: Path, 
 
     target_palette = target.getpalette()[: 16 * 3]
     template_palette = template.getpalette()[: 16 * 3]
+    changed += normalize_inner_background_indices(target, target_palette, template_palette)
 
     for idx in indices:
         start = idx * 3
         target_palette[start : start + 3] = template_palette[start : start + 3]
-
-    for idx in WHITE_INDICES:
-        start = idx * 3
-        target_palette[start : start + 3] = WHITE_RGB
 
     target.putpalette(target_palette + [0, 0, 0] * (256 - 16))
 
@@ -114,13 +167,16 @@ def apply_template(template: Image.Image, source_path: Path, output_path: Path, 
                 ):
                     continue
 
+                if idx in BACKGROUND_INDICES and target_px[x, y] not in BACKGROUND_INDICES and target_px[x, y] != 0:
+                    continue
+
                 if target_px[x, y] != idx:
                     changed += 1
                 target_px[x, y] = idx
 
     if not dry_run:
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        target.save(output_path, transparency=0, optimize=False)
+        target.save(output_path, transparency=0, optimize=False, bits=4)
         trim_png_palette(output_path)
 
     return changed
@@ -139,7 +195,7 @@ def main() -> int:
     parser.add_argument(
         "--indices",
         default=DEFAULT_INDICES,
-        help="Palette indices to stamp, e.g. '0-1,7-12' or '1,4,7-12'. Defaults to transparent, inner circle edge, and shared gold ring.",
+        help="Palette indices to stamp, e.g. '0-2,7-12' or '1,4,7-12'. Defaults to transparent, inner circle whites, and shared gold ring.",
     )
     parser.add_argument(
         "--all-indices",
