@@ -28,6 +28,9 @@ and r0,r1 @unkill unit (needed for pair up compatibility)
 mov r1,r3 @5 for dead, 9 for retreated
 orr r0,r1
 str r0,[r4,#0xc]
+mov r0, #0 
+str r0, [r4] @ clear unit 
+
 mov r0,r4
 
 cmp r3, #9

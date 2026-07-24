@@ -329,46 +329,64 @@ SHORT CheaterMug
 
 
 ALIGN 4
-CR_TypeBadgeBGTable:
-POIN CR_NormalBG
-POIN CR_FightingBG
-POIN CR_FlyingBG
-POIN CR_PoisonBG
-POIN CR_GroundBG
-POIN CR_RockBG
-POIN CR_BugBG
-POIN CR_GhostBG
-POIN CR_SteelBG
-POIN CR_FireBG
-POIN CR_WaterBG
-POIN CR_GrassBG
-POIN CR_ElectricBG
-POIN CR_PsychicBG
-POIN CR_IceBG
-POIN CR_DragonBG
-POIN CR_DarkBG
-POIN CR_FairyBG
+CR_BadgeBGTable:
+POIN CR_PlaceholderBG // New Name
+POIN CR_LittleCupBG
+POIN CR_VoidBG
+POIN CR_ChaosBG
+POIN CR_PlusBG
+POIN CR_NuzlockeBG
+POIN CR_AshBG
+POIN CR_GaryBG
+POIN CR_LeafBG
+POIN CR_OakBG
+POIN CR_BillBG
+POIN CR_JamesBG
+POIN CR_JessieBG
+POIN CR_RockBG // Brock
+POIN CR_WaterBG // Misty
+POIN CR_ElectricBG // Lt. Surge
+POIN CR_GrassBG // Erika
+POIN CR_PoisonBG // Koga
+POIN CR_PsychicBG // Sabrina
+POIN CR_FireBG // Blaine
+POIN CR_GroundBG // Giovanni
+POIN CR_IceBG // Lorelei
+POIN CR_FightingBG // Bruno
+POIN CR_GhostBG // Agatha
+POIN CR_DragonBG // Lance
+POIN CR_VeslyBG
+POIN CR_CheaterBG
 
 ALIGN 4
-CR_TypeBadgePalTable:
-POIN CR_NormalBG_pal
-POIN CR_FightingBG_pal
-POIN CR_FlyingBG_pal
-POIN CR_PoisonBG_pal
-POIN CR_GroundBG_pal
-POIN CR_RockBG_pal
-POIN CR_BugBG_pal
-POIN CR_GhostBG_pal
-POIN CR_SteelBG_pal
-POIN CR_FireBG_pal
-POIN CR_WaterBG_pal
-POIN CR_GrassBG_pal
-POIN CR_ElectricBG_pal
-POIN CR_PsychicBG_pal
-POIN CR_IceBG_pal
-POIN CR_DragonBG_pal
-POIN CR_DarkBG_pal
-POIN CR_FairyBG_pal
+CR_BadgePalTable:
+POIN CR_PlaceholderBG_pal // New Name
+POIN CR_LittleCupBG_pal
+POIN CR_VoidBG_pal
+POIN CR_ChaosBG_pal
+POIN CR_PlusBG_pal
+POIN CR_NuzlockeBG_pal
+POIN CR_AshBG_pal
+POIN CR_GaryBG_pal
+POIN CR_LeafBG_pal
+POIN CR_OakBG_pal
+POIN CR_BillBG_pal
+POIN CR_JamesBG_pal
+POIN CR_JessieBG_pal
+POIN CR_RockBG_pal // Brock
+POIN CR_WaterBG_pal // Misty
+POIN CR_ElectricBG_pal // Lt. Surge
+POIN CR_GrassBG_pal // Erika
+POIN CR_PoisonBG_pal // Koga
+POIN CR_PsychicBG_pal // Sabrina
+POIN CR_FireBG_pal // Blaine
+POIN CR_GroundBG_pal // Giovanni
+POIN CR_IceBG_pal // Lorelei
+POIN CR_FightingBG_pal // Bruno
+POIN CR_GhostBG_pal // Agatha
+POIN CR_DragonBG_pal // Lance
+POIN CR_VeslyBG_pal
+POIN CR_CheaterBG_pal
 
 ALIGN 4
 CR_NormalBG:
@@ -502,6 +520,104 @@ CR_PlaceholderBG:
 ALIGN 4
 CR_PlaceholderBG_pal:
 #incbin "data/questionmark_pal.dmp"
+
+ALIGN 4
+CR_LittleCupBG:
+#incbin "data/LittleCup.dmp"
+ALIGN 4
+CR_LittleCupBG_pal:
+#incbin "data/LittleCup_pal.dmp"
+
+ALIGN 4
+CR_VoidBG:
+#incbin "data/Void.dmp"
+ALIGN 4
+CR_VoidBG_pal:
+#incbin "data/Void_pal.dmp"
+
+ALIGN 4
+CR_ChaosBG:
+#incbin "data/Chaos.dmp"
+ALIGN 4
+CR_ChaosBG_pal:
+#incbin "data/Chaos_pal.dmp"
+
+ALIGN 4
+CR_PlusBG:
+#incbin "data/plus.dmp"
+ALIGN 4
+CR_PlusBG_pal:
+#incbin "data/plus_pal.dmp"
+
+ALIGN 4
+CR_NuzlockeBG:
+#incbin "data/Nuzlocke.dmp"
+ALIGN 4
+CR_NuzlockeBG_pal:
+#incbin "data/Nuzlocke_pal.dmp"
+
+ALIGN 4
+CR_AshBG:
+#incbin "data/Ash.dmp"
+ALIGN 4
+CR_AshBG_pal:
+#incbin "data/Ash_pal.dmp"
+
+ALIGN 4
+CR_GaryBG:
+#incbin "data/Gary.dmp"
+ALIGN 4
+CR_GaryBG_pal:
+#incbin "data/Gary_pal.dmp"
+
+ALIGN 4
+CR_LeafBG:
+#incbin "data/Leaf.dmp"
+ALIGN 4
+CR_LeafBG_pal:
+#incbin "data/Leaf_pal.dmp"
+
+ALIGN 4
+CR_OakBG:
+#incbin "data/Oak.dmp"
+ALIGN 4
+CR_OakBG_pal:
+#incbin "data/Oak_pal.dmp"
+
+ALIGN 4
+CR_BillBG:
+#incbin "data/Bill.dmp"
+ALIGN 4
+CR_BillBG_pal:
+#incbin "data/Bill_pal.dmp"
+
+ALIGN 4
+CR_JamesBG:
+#incbin "data/James.dmp"
+ALIGN 4
+CR_JamesBG_pal:
+#incbin "data/James_pal.dmp"
+
+ALIGN 4
+CR_JessieBG:
+#incbin "data/Jessie.dmp"
+ALIGN 4
+CR_JessieBG_pal:
+#incbin "data/Jessie_pal.dmp"
+
+ALIGN 4
+CR_VeslyBG:
+#incbin "data/Vesly.dmp"
+ALIGN 4
+CR_VeslyBG_pal:
+#incbin "data/Vesly_pal.dmp"
+
+ALIGN 4
+CR_CheaterBG:
+#incbin "data/Cheater.dmp"
+ALIGN 4
+CR_CheaterBG_pal:
+#incbin "data/Cheater_pal.dmp"
 
 ALIGN 4
 CR_FRLGUiFrameBG:

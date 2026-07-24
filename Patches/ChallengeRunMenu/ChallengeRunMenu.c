@@ -12,7 +12,7 @@ extern char * TacticianName; // 8 bytes long
 extern int CannotCaptureFlag_Link;
 extern int CannotEvolveFlag_Link;
 
-#define CR_BADGE_RING_COLOR_COUNT 6
+#define CR_BADGE_PALETTE_COLOR_COUNT 16
 #define RGB5(r, g, b) ((r) | ((g) << 5) | ((b) << 10))
 
 #define COLOR_WHITE RGB5(31, 31, 31)
@@ -32,6 +32,17 @@ extern int CannotEvolveFlag_Link;
 #define COLOR_PEACH RGB5(31, 22, 12)
 
 #define CR_BADGE_TARGET_COLOR COLOR_WHITE
+#define CR_BADGE_LIGHTEN_PERCENT 60
+#define CR_BADGE_DARKEN_PERCENT 30
+
+#define CR_RULE_STATE_INVALID 0xFF
+#define CR_RULE_STATE_CANNOT_EVOLVE (1 << 0)
+#define CR_RULE_STATE_CANNOT_CAPTURE_CERTAIN (1 << 1)
+#define CR_RULE_STATE_CANNOT_CAPTURE (1 << 2)
+#define CR_RULE_STATE_CANNOT_GAIN_EXP (1 << 3)
+#define CR_RULE_STATE_RANDOMIZER (1 << 4)
+#define CR_RULE_STATE_ENEMY_SKILLS (1 << 5)
+#define CR_RULE_STATE_NUZLOCKE (1 << 6)
 typedef struct
 {
     /* 00 */ PROC_HEADER;
@@ -47,8 +58,9 @@ typedef struct
     u8 enemySkills;
     u8 nuzlocke;
     u8 displayedBadgeOption;
+    u8 displayedRulesState;
     u8 pkmn[7];
-    u16 badgePalBase[CR_BADGE_RING_COLOR_COUNT];
+    u16 badgePalBase[CR_BADGE_PALETTE_COLOR_COUNT];
     // s8 Option[15];
 } ChallengeRunProc;
 
@@ -125,28 +137,6 @@ enum
     CR_TEXT_COUNT,
 };
 
-enum
-{
-    CR_TYPE_NORMAL,
-    CR_TYPE_FIGHTING,
-    CR_TYPE_FLYING,
-    CR_TYPE_POISON,
-    CR_TYPE_GROUND,
-    CR_TYPE_ROCK,
-    CR_TYPE_BUG,
-    CR_TYPE_GHOST,
-    CR_TYPE_STEEL,
-    CR_TYPE_FIRE,
-    CR_TYPE_WATER,
-    CR_TYPE_GRASS,
-    CR_TYPE_ELECTRIC,
-    CR_TYPE_PSYCHIC,
-    CR_TYPE_ICE,
-    CR_TYPE_DRAGON,
-    CR_TYPE_DARK,
-    CR_TYPE_FAIRY,
-};
-
 #define CR_BADGE_BG 3
 #define CR_BADGE_TILE_BASE 0x440
 #define CR_BADGE_TILE_WIDTH 17
@@ -154,13 +144,18 @@ enum
 #define CR_BADGE_PAL_SLOT 7
 #define CR_BADGE_X 8
 #define CR_BADGE_Y (-1)
-#define CR_BADGE_PLACEHOLDER 0xFF
-#define CR_BADGE_RING_FIRST_COLOR 7
+#define CR_BADGE_ICON_FIRST_COLOR 3
+#define CR_BADGE_ICON_COLOR_COUNT 4
+#define CR_BADGE_RING_HIGHLIGHT_FIRST_COLOR 7
+#define CR_BADGE_RING_HIGHLIGHT_COLOR_COUNT 3
+#define CR_BADGE_INNER_RING_FIRST_COLOR 10
+#define CR_BADGE_INNER_RING_COLOR_COUNT 3
+#define CR_BADGE_ICON_EXTRA_FIRST_COLOR 13
+#define CR_BADGE_ICON_EXTRA_COLOR_COUNT 3
 #define CR_BADGE_CYCLE_HALF_LENGTH 16
 #define CR_BADGE_CYCLE_LENGTH (CR_BADGE_CYCLE_HALF_LENGTH * 2)
 #define CR_BADGE_PIXEL_X (CR_BADGE_X * 8)
 #define CR_BADGE_PIXEL_Y ((CR_BADGE_Y * 8) + 2)
-#define CR_BADGE_GRAY_BLEND_PERCENT 60
 #define CR_UIFRAME_BG 2
 #define CR_UIFRAME_TILE_ABS_BASE 0x200
 #define CR_UIFRAME_TILE_BASE 0
@@ -205,10 +200,8 @@ void DrawAdditionalRulesText(ChallengeRunProc * proc);
 void DrawChallengeRunBadge(ChallengeRunProc * proc);
 void DrawChallengeRunUiFrameBg(void);
 
-extern const u8 * const CR_TypeBadgeBGTable[];
-extern const u8 * const CR_TypeBadgePalTable[];
-extern const u8 CR_PlaceholderBG[];
-extern const u8 CR_PlaceholderBG_pal[];
+extern const u8 * const CR_BadgeBGTable[];
+extern const u8 * const CR_BadgePalTable[];
 extern const u8 CR_FRLGUiFrameBG[];
 extern const u8 CR_FRLGUiFrameBG_pal[];
 extern const u16 CR_FRLGUiFrameBG_map[];
@@ -363,54 +356,10 @@ static int GetCurrentChallengeRunOption(ChallengeRunProc * proc)
     return proc->id + proc->offset;
 }
 
-static int GetChallengeRunBadgeType(int opt)
-{
-    switch (opt)
-    {
-        case CR_OPTION_BROCK:
-            return CR_TYPE_ROCK;
-
-        case CR_OPTION_MISTY:
-            return CR_TYPE_WATER;
-
-        case CR_OPTION_LT_SURGE:
-            return CR_TYPE_ELECTRIC;
-
-        case CR_OPTION_ERIKA:
-            return CR_TYPE_GRASS;
-
-        case CR_OPTION_KOGA:
-            return CR_TYPE_POISON;
-
-        case CR_OPTION_SABRINA:
-            return CR_TYPE_PSYCHIC;
-
-        case CR_OPTION_BLAINE:
-            return CR_TYPE_FIRE;
-
-        case CR_OPTION_GIOVANNI:
-            return CR_TYPE_GROUND;
-
-        case CR_OPTION_LORELEI:
-            return CR_TYPE_ICE;
-
-        case CR_OPTION_BRUNO:
-            return CR_TYPE_FIGHTING;
-
-        case CR_OPTION_AGATHA:
-            return CR_TYPE_GHOST;
-
-        case CR_OPTION_LANCE:
-            return CR_TYPE_DRAGON;
-
-        default:
-            return CR_BADGE_PLACEHOLDER;
-    }
-}
-
-static void UpdateChallengeRunRules(ChallengeRunProc * proc)
+static u8 UpdateChallengeRunRules(ChallengeRunProc * proc)
 {
     int opt = GetCurrentChallengeRunOption(proc);
+    u8 rulesState = 0;
 
     proc->cannotCatch = false;
     proc->cannotEvolve = false;
@@ -453,6 +402,43 @@ static void UpdateChallengeRunRules(ChallengeRunProc * proc)
         proc->cannotCatch = false;
         proc->cannotEvolve = false;
     }
+
+    if (proc->cannotEvolve)
+    {
+        rulesState |= CR_RULE_STATE_CANNOT_EVOLVE;
+    }
+
+    if (opt == CR_OPTION_LITTLE_CUP)
+    {
+        rulesState |= CR_RULE_STATE_CANNOT_CAPTURE_CERTAIN;
+    }
+
+    if (proc->cannotCatch)
+    {
+        rulesState |= CR_RULE_STATE_CANNOT_CAPTURE;
+    }
+
+    if (proc->cannotGainExp)
+    {
+        rulesState |= CR_RULE_STATE_CANNOT_GAIN_EXP;
+    }
+
+    if (proc->allRandomizerOptions)
+    {
+        rulesState |= CR_RULE_STATE_RANDOMIZER;
+    }
+
+    if (proc->enemySkills)
+    {
+        rulesState |= CR_RULE_STATE_ENEMY_SKILLS;
+    }
+
+    if (proc->nuzlocke)
+    {
+        rulesState |= CR_RULE_STATE_NUZLOCKE;
+    }
+
+    return rulesState;
 }
 
 extern u16 TrainerFIDTable[];
@@ -470,11 +456,17 @@ static void DrawChallengeRunRuleLine(ChallengeRunProc * proc, int textId, int y)
 void DrawAdditionalRulesText(ChallengeRunProc * proc)
 {
     int y = RULES_Y;
-
-    UpdateChallengeRunRules(proc);
+    u8 rulesState = UpdateChallengeRunRules(proc);
 
     EndFaceById(0);
     StartFace(0, GetTrainerFID(proc->id + proc->offset), 206, 80, FACE_DISP_KIND(FACE_96x80));
+
+    if (proc->displayedRulesState == rulesState)
+    {
+        return;
+    }
+
+    proc->displayedRulesState = rulesState;
 
     // DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, y);
     y += 2;
@@ -534,7 +526,7 @@ void DrawAdditionalRulesText(ChallengeRunProc * proc)
     BG_EnableSyncByMask(BG_SYNC_BIT(0));
 }
 
-static u16 BlendColorToward(u16 color, u16 target, int amount)
+static u16 BlendColorToward(u16 color, u16 target, int amount, int percent)
 {
     int red = color & 0x1F;
     int green = (color >> 5) & 0x1F;
@@ -544,7 +536,7 @@ static u16 BlendColorToward(u16 color, u16 target, int amount)
     int targetGreen = (target >> 5) & 0x1F;
     int targetBlue = (target >> 10) & 0x1F;
 
-    int blendAmount = (amount * CR_BADGE_GRAY_BLEND_PERCENT) / 100;
+    int blendAmount = (amount * percent) / 100;
 
     red = ((red * (CR_BADGE_CYCLE_HALF_LENGTH - blendAmount)) + (targetRed * blendAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
     green = ((green * (CR_BADGE_CYCLE_HALF_LENGTH - blendAmount)) + (targetGreen * blendAmount)) /
@@ -559,25 +551,46 @@ static void StoreBadgePaletteBase(ChallengeRunProc * proc)
 {
     int i;
 
-    for (i = 0; i < CR_BADGE_RING_COLOR_COUNT; i++)
+    for (i = 0; i < CR_BADGE_PALETTE_COLOR_COUNT; i++)
     {
-        proc->badgePalBase[i] = PAL_BG_COLOR(CR_BADGE_PAL_SLOT, CR_BADGE_RING_FIRST_COLOR + i);
+        proc->badgePalBase[i] = PAL_BG_COLOR(CR_BADGE_PAL_SLOT, i);
+    }
+}
+
+static void
+ApplyBadgePaletteRange(ChallengeRunProc * proc, int firstColor, int colorCount, u16 target, int percent, int amount)
+{
+    int i;
+
+    for (i = 0; i < colorCount; i++)
+    {
+        int color = firstColor + i;
+        PAL_BG_COLOR(CR_BADGE_PAL_SLOT, color) = BlendColorToward(proc->badgePalBase[color], target, amount, percent);
     }
 }
 
 static void ApplyBadgePaletteCycle(ChallengeRunProc * proc)
 {
-    int i;
-    u32 amount = (GetGameClock() / 4) % CR_BADGE_CYCLE_LENGTH;
+    u32 amountLighten = (GetGameClock() / 2) % CR_BADGE_CYCLE_LENGTH;
+    u32 amountDarken = (GetGameClock() / 2) % CR_BADGE_CYCLE_LENGTH;
 
-    if (amount > CR_BADGE_CYCLE_HALF_LENGTH)
-        amount = CR_BADGE_CYCLE_LENGTH - amount;
+    if (amountLighten > CR_BADGE_CYCLE_HALF_LENGTH)
+        amountLighten = CR_BADGE_CYCLE_LENGTH - amountLighten;
 
-    for (i = 0; i < CR_BADGE_RING_COLOR_COUNT; i++)
-    {
-        PAL_BG_COLOR(CR_BADGE_PAL_SLOT, CR_BADGE_RING_FIRST_COLOR + i) =
-            BlendColorToward(proc->badgePalBase[i], CR_BADGE_TARGET_COLOR, amount);
-    }
+    if (amountDarken > CR_BADGE_CYCLE_HALF_LENGTH)
+        amountDarken = CR_BADGE_CYCLE_LENGTH - amountDarken;
+
+    ApplyBadgePaletteRange(
+        proc, CR_BADGE_RING_HIGHLIGHT_FIRST_COLOR, CR_BADGE_RING_HIGHLIGHT_COLOR_COUNT, CR_BADGE_TARGET_COLOR,
+        CR_BADGE_LIGHTEN_PERCENT, amountLighten);
+    ApplyBadgePaletteRange(
+        proc, CR_BADGE_ICON_FIRST_COLOR, CR_BADGE_ICON_COLOR_COUNT, COLOR_BLACK, CR_BADGE_DARKEN_PERCENT, amountDarken);
+    ApplyBadgePaletteRange(
+        proc, CR_BADGE_INNER_RING_FIRST_COLOR, CR_BADGE_INNER_RING_COLOR_COUNT, CR_BADGE_TARGET_COLOR,
+        CR_BADGE_LIGHTEN_PERCENT, amountLighten);
+    ApplyBadgePaletteRange(
+        proc, CR_BADGE_ICON_EXTRA_FIRST_COLOR, CR_BADGE_ICON_EXTRA_COLOR_COUNT, COLOR_BLACK, CR_BADGE_DARKEN_PERCENT,
+        amountDarken);
 
     EnablePaletteSync();
 }
@@ -632,9 +645,8 @@ void DrawChallengeRunBadge(ChallengeRunProc * proc)
 {
     int x, y;
     int opt = GetCurrentChallengeRunOption(proc);
-    int type = GetChallengeRunBadgeType(opt);
-    const u8 * img = CR_PlaceholderBG;
-    const u8 * pal = CR_PlaceholderBG_pal;
+    const u8 * img = CR_BadgeBGTable[opt];
+    const u8 * pal = CR_BadgePalTable[opt];
 
     if (proc->displayedBadgeOption == opt)
     {
@@ -642,12 +654,6 @@ void DrawChallengeRunBadge(ChallengeRunProc * proc)
     }
 
     proc->displayedBadgeOption = opt;
-
-    if (type != CR_BADGE_PLACEHOLDER)
-    {
-        img = CR_TypeBadgeBGTable[type];
-        pal = CR_TypeBadgePalTable[type];
-    }
 
     Decompress(img, BG_CHR_ADDR(CR_BADGE_TILE_BASE));
     CopyToPaletteBuffer(pal, 0x20 * CR_BADGE_PAL_SLOT, 0x20);
@@ -735,6 +741,7 @@ void StartChallengeRun(ProcPtr parent)
         proc->enemySkills = false;
         proc->nuzlocke = false;
         proc->displayedBadgeOption = CR_OPTION_COUNT;
+        proc->displayedRulesState = CR_RULE_STATE_INVALID;
         proc->updateSMS = true;
         proc->handleID = 0;
         proc->pkmn[0] = 0;
