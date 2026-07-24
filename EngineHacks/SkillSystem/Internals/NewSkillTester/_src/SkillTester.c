@@ -69,6 +69,11 @@ SkillBuffer *MakeSkillBuffer(Unit *unit, SkillBuffer *buffer) {
   int count = 0, temp = 0;
   buffer->lastUnitChecked = unit->index;
 
+  if (!unitNum) {
+    buffer->skills[count++];
+    return buffer;
+  }
+
   // Personal skill
   temp = PersonalSkillTable[unitNum];
   if (IsSkillIDValid(temp)) {

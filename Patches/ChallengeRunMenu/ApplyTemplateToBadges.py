@@ -207,7 +207,7 @@ def main() -> int:
 
     source_dir = args.source_dir.resolve()
     output_dir = args.output_dir.resolve()
-    template_path = output_dir / args.template
+    template_path = args.template
 
     if args.all_indices:
         indices = set(range(0, 16))

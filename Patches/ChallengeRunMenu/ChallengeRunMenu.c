@@ -6,7 +6,6 @@ int Div(int a, int b) PUREFUNC;
 int Mod(int a, int b) PUREFUNC;
 int DivArm(int b, int a) PUREFUNC;
 
-extern int CR_MaxDisplayed;
 extern int CR_TotalOptions;
 extern const u8 CR_NumberOfOptionsPerEntryTable[];
 extern char * TacticianName; // 8 bytes long
@@ -32,7 +31,7 @@ extern int CannotEvolveFlag_Link;
 #define COLOR_AMBER RGB5(31, 21, 0)
 #define COLOR_PEACH RGB5(31, 22, 12)
 
-#define CR_BADGE_TARGET_COLOR COLOR_GOLD
+#define CR_BADGE_TARGET_COLOR COLOR_WHITE
 typedef struct
 {
     /* 00 */ PROC_HEADER;
@@ -69,10 +68,14 @@ const struct ProcCmd ChallengeRunProcCmd[] = {
 };
 
 #define MENU_X 18
-#define MENU_Y 16
+#define MENU_Y 8
 #define CR_VISIBLE_OPTIONS 6
+#define CR_MAX_DISPLAYED_INDEX (CR_VISIBLE_OPTIONS - 1)
 #define RULES_X 1
 #define RULES_Y 13
+#define RULES_TEXT_CURSOR_X 3
+#define RULES_CLEAR_WIDTH 17
+#define RULES_CLEAR_HEIGHT 4
 
 enum
 {
@@ -153,8 +156,15 @@ enum
 #define CR_BADGE_CYCLE_HALF_LENGTH 16
 #define CR_BADGE_CYCLE_LENGTH (CR_BADGE_CYCLE_HALF_LENGTH * 2)
 #define CR_BADGE_PIXEL_X (CR_BADGE_X * 8)
-#define CR_BADGE_PIXEL_Y (CR_BADGE_Y * 8)
+#define CR_BADGE_PIXEL_Y ((CR_BADGE_Y * 8) + 2)
 #define CR_BADGE_GRAY_BLEND_PERCENT 60
+#define CR_UIFRAME_BG 2
+#define CR_UIFRAME_TILE_ABS_BASE 0x200
+#define CR_UIFRAME_TILE_BASE 0
+#define CR_UIFRAME_TILE_WIDTH 30
+#define CR_UIFRAME_TILE_HEIGHT 20
+#define CR_UIFRAME_PAL_SLOT 6
+#define CR_UIFRAME_TILE_DATA_OFFSET 0x4000
 
 typedef const struct
 {
@@ -165,9 +175,6 @@ typedef const struct
 static const LocationTable CR_CursorLocationTable[] = {
     { MENU_X, MENU_Y + (16 * 0) }, { MENU_X, MENU_Y + (16 * 1) }, { MENU_X, MENU_Y + (16 * 2) },
     { MENU_X, MENU_Y + (16 * 3) }, { MENU_X, MENU_Y + (16 * 4) }, { MENU_X, MENU_Y + (16 * 5) },
-    { MENU_X, MENU_Y + (16 * 6) }, //,
-    { MENU_X, MENU_Y + (16 * 7) }  //,
-                                   // {10, 0x88} //leave room for a description?
 };
 
 static const LocationTable CR_PokemonSpriteLocationTable[] = {
@@ -188,16 +195,20 @@ extern u16 * bg_table[4]; // = {gBG0TilemapBuffer, gBG1TilemapBuffer, gBG2Tilema
 // static char *GetStrNextLine(char *str);
 
 void InitLine(int handleID, int x, int y, int color, int width, const char * str);
-void PrepareLine(int handleID, const char * str);
+void PrepareLine(int handleID, const char * str, int x);
 void DrawLine(int handleID, int x, int y, int bg);
 void DrawChallengeRun(ChallengeRunProc * proc);
 void DrawAdditionalRulesText(ChallengeRunProc * proc);
 void DrawChallengeRunBadge(ChallengeRunProc * proc);
+void DrawChallengeRunUiFrameBg(void);
 
 extern const u8 * const CR_TypeBadgeBGTable[];
 extern const u8 * const CR_TypeBadgePalTable[];
 extern const u8 CR_PlaceholderBG[];
 extern const u8 CR_PlaceholderBG_pal[];
+extern const u8 CR_FRLGUiFrameBG[];
+extern const u8 CR_FRLGUiFrameBG_pal[];
+extern const u16 CR_FRLGUiFrameBG_map[];
 
 #define white TEXT_COLOR_SYSTEM_WHITE
 #define gray TEXT_COLOR_SYSTEM_GRAY
@@ -251,12 +262,12 @@ void DrawCR_Sprites(ChallengeRunProc * proc, int bg)
     // SetPkmn(proc);
     if (proc->offset)
     {
-        DisplayUiVArrow(MENU_X + 8, MENU_Y - 8, 0x3240, 1); // up arrow
+        DisplayUiVArrow(MENU_X + 14, MENU_Y - 8, 0x3240, 1); // up arrow
     }
     // should display down arrow?
-    if ((CR_TotalOptions > 7) && (proc->offset < (CR_TotalOptions - CR_MaxDisplayed)))
+    if ((CR_TotalOptions > CR_MAX_DISPLAYED_INDEX) && (proc->offset < (CR_TotalOptions - CR_MAX_DISPLAYED_INDEX)))
     {
-        DisplayUiVArrow(MENU_X + 8, MENU_Y + (16 * 8), 0x3240, 0);
+        DisplayUiVArrow(MENU_X + 14, MENU_Y + (16 * CR_VISIBLE_OPTIONS), 0x3240, 0);
     }
     DisplayUiHand(CR_CursorLocationTable[proc->id].x, CR_CursorLocationTable[proc->id].y);
 
@@ -297,15 +308,15 @@ void ClearLine(int);
 static const char * const ChallengeRunInfoText[CR_TEXT_COUNT] = {
     "Challenge Runs",
     "Additional Rules",
-    "None",
-    "Cannot evolve Pokémon",
-    "Cannot capture certain Pokémon",
-    "Cannot capture Pokémon",
-    "Cannot gain EXP",
-    "All randomizer options enabled",
+    "No additional restrictions.",
+    "Cannot evolve Pokémon.",
+    "Cannot capture certain Pokémon.",
+    "Cannot capture Pokémon.",
+    "Cannot gain EXP.",
+    "All randomizer options enabled.",
     "Enemies have random,",
-    "powerful skills",
-    "Fainted Pokémon are released",
+    "powerful skills.",
+    "Fainted Pokémon are released.",
 };
 
 const char SpecialNames[CR_OPTION_COUNT][10] = {
@@ -438,6 +449,13 @@ static void UpdateChallengeRunRules(ChallengeRunProc * proc)
     }
 }
 
+extern u16 TrainerFIDTable[];
+int GetTrainerFID(int opt)
+{
+
+    return TrainerFIDTable[opt];
+}
+
 static void DrawChallengeRunRuleLine(ChallengeRunProc * proc, int textId, int y)
 {
     DrawLine(proc->handleID + textId, RULES_X, y, 0);
@@ -448,11 +466,13 @@ void DrawAdditionalRulesText(ChallengeRunProc * proc)
     int y = RULES_Y;
 
     UpdateChallengeRunRules(proc);
-    // StartFace(0, 0x99, 120, 100, 0);
 
-    TileMap_FillRect(TILEMAP_LOCATED(bg_table[0], 0xC, 0xC), 18, 6, 0);
+    EndFaceById(0);
+    StartFace(0, GetTrainerFID(proc->id + proc->offset), 206, 80, FACE_DISP_KIND(FACE_96x80));
+
     // DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, y);
     y += 2;
+    TileMap_FillRect(TILEMAP_LOCATED(bg_table[0], RULES_X, y), RULES_CLEAR_WIDTH, RULES_CLEAR_HEIGHT, 0);
 
     if (!proc->cannotCatch && !proc->cannotEvolve && !proc->cannotGainExp && !proc->allRandomizerOptions &&
         !proc->enemySkills && !proc->nuzlocke)
@@ -574,6 +594,34 @@ static void EnableChallengeRunBadgeBg(void)
     }
 }
 
+void DrawChallengeRunUiFrameBg(void)
+{
+    int x, y;
+
+    gLCDControlBuffer.dispcnt.bg2_on = true;
+    BG_SetPriority(0, 0);
+    BG_SetPriority(1, 1);
+    BG_SetPriority(CR_BADGE_BG, 2);
+    BG_SetPriority(CR_UIFRAME_BG, 3);
+    SetBackgroundTileDataOffset(CR_UIFRAME_BG, CR_UIFRAME_TILE_DATA_OFFSET);
+    BG_SetColorBpp(CR_UIFRAME_BG, 4);
+
+    Decompress(CR_FRLGUiFrameBG, BG_CHR_ADDR(CR_UIFRAME_TILE_ABS_BASE));
+    CopyToPaletteBuffer(CR_FRLGUiFrameBG_pal, 0x20 * CR_UIFRAME_PAL_SLOT, 0x20);
+
+    for (y = 0; y < CR_UIFRAME_TILE_HEIGHT; y++)
+    {
+        for (x = 0; x < CR_UIFRAME_TILE_WIDTH; x++)
+        {
+            TILEMAP_LOCATED(bg_table[CR_UIFRAME_BG], x, y)
+            [0] = (CR_UIFRAME_TILE_BASE + CR_FRLGUiFrameBG_map[(y * CR_UIFRAME_TILE_WIDTH) + x]) |
+                (CR_UIFRAME_PAL_SLOT << 12);
+        }
+    }
+
+    BG_EnableSyncByMask(BG_SYNC_BIT(CR_UIFRAME_BG));
+}
+
 void DrawChallengeRunBadge(ChallengeRunProc * proc)
 {
     int x, y;
@@ -621,7 +669,7 @@ void DrawChallengeRun(ChallengeRunProc * proc)
 
     ResetText();
 
-    x = (MENU_X / 8) + 1;
+    x = (MENU_X / 8);
     y = (MENU_Y / 8);
     bg = 0;
 
@@ -635,19 +683,20 @@ void DrawChallengeRun(ChallengeRunProc * proc)
     for (i = 0; i < CR_TEXT_COUNT; i++)
     {
         int color = (i == CR_TEXT_TITLE) ? green : white;
-        int width = (GetStringTextLen(ChallengeRunInfoText[i]) + 8) / 8;
+        int width = 1 + ((GetStringTextLen(ChallengeRunInfoText[i]) + 8) / 8);
         InitLine(i + proc->handleID, 12, 1, color, width, ChallengeRunInfoText[i]);
     }
 
     for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
     {
-        PrepareLine(i, SpecialNames[i + proc->offset]);
+        PrepareLine(i, SpecialNames[i + proc->offset], 6);
         DrawLine(i, x, y + (2 * i), bg);
     }
 
     for (i = 0; i < CR_TEXT_COUNT; i++)
     {
-        PrepareLine(i + proc->handleID, ChallengeRunInfoText[i]);
+        int cursor = (i == CR_TEXT_TITLE) ? 0 : RULES_TEXT_CURSOR_X;
+        PrepareLine(i + proc->handleID, ChallengeRunInfoText[i], cursor);
     }
 
     DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 0, bg); // "Challenge Runs" // 22 1
@@ -687,24 +736,28 @@ void StartChallengeRun(ProcPtr parent)
         EnableChallengeRunBadgeBg();
         BG_Fill(gBG3TilemapBuffer, 0);
         BG_Fill(gBG2TilemapBuffer, 0);
+        DrawChallengeRunUiFrameBg();
 
         UnpackUiVArrowGfx(0x240, 3);
-        StartFace(0, 0x99, 212, 80, 0);
+
         // DrawUiFrame2(1, 8, 14, 12, 0);
         DrawUiFrame(                          // menu
             gBG1TilemapBuffer,                // back BG
-            1, 1, 8, 14, TILEREF(0, 0), 0);   // style as 0 ?
+            1, 0, 8, 14, TILEREF(0, 0), 0);   // style as 0 ?
         DrawUiFrame(                          // rules text
             gBG1TilemapBuffer,                // back BG
-            1, 0xF, 20, 5, TILEREF(0, 0), 1); // style as 0 ?
-        SetBlendTargetA(0, 1, 0, 0, 0);       // transparent ui
-                                              // SetBlendTargetB(0, 0, 0, 0, 1);
+            0, 0xE, 20, 6, TILEREF(0, 0), 2); // style as 0 ?
+        SetBlendTargetA(0, 1, 0, 1, 0);       // transparent ui
+        SetBlendBackdropA(1);
+        SetBlendAlpha(11, 5);
+        // SetBlendTargetB(0, 1, 1, 1, 0);
         // SetTextFontGlyphs(0);
         // SetTextFont(0);
         // ResetTextFont();
         SetupMapSpritesPalettes();
         // CR_EraseText(proc);
         DrawChallengeRun(proc);
+        // DrawAdditionalRulesText(proc);
         DrawChallengeRunBadge(proc);
         // DrawChallengeRun(proc);
         // BG_EnableSyncByMask(BG0_SYNC_BIT);
@@ -716,7 +769,7 @@ void StartChallengeRun(ProcPtr parent)
 
 void SetTactNameFromCase(int id)
 {
-    if (id > 1)
+    if (id >= 1)
     {
         SetTacticianName(SpecialNames[id]);
     }
@@ -763,7 +816,7 @@ static void ChallengeRunLoop(ChallengeRunProc * proc)
     if (keys & DPAD_DOWN)
     {
         proc->updateSMS = true;
-        if (proc->id < CR_MaxDisplayed)
+        if (proc->id < CR_MAX_DISPLAYED_INDEX)
         {
             proc->id++;
             DrawAdditionalRulesText(proc);
@@ -773,12 +826,12 @@ static void ChallengeRunLoop(ChallengeRunProc * proc)
         {
             proc->offset++;
         }
-        else if (proc->id >= CR_MaxDisplayed)
+        else if (proc->id >= CR_MAX_DISPLAYED_INDEX)
         {
             proc->id = 0;
             proc->offset = 0;
         }
-        CR_EraseText(proc);
+        // CR_EraseText(proc);
         proc->redraw = true;
     }
     if (keys & DPAD_UP)
@@ -797,10 +850,10 @@ static void ChallengeRunLoop(ChallengeRunProc * proc)
 
         else if (!proc->id)
         {
-            proc->id = CR_MaxDisplayed;
-            proc->offset = (CR_TotalOptions - CR_MaxDisplayed);
+            proc->id = CR_MAX_DISPLAYED_INDEX;
+            proc->offset = (CR_TotalOptions - CR_MAX_DISPLAYED_INDEX);
         }
-        CR_EraseText(proc);
+        // CR_EraseText(proc);
         proc->redraw = true;
     }
 
@@ -876,12 +929,13 @@ void InitLine(int handleID, int x, int y, int color, int width, const char * str
     // BG_EnableSyncByMask(BG_SYNC_BIT(bg));
 }
 
-void PrepareLine(int handleID, const char * str)
+void PrepareLine(int handleID, const char * str, int x)
 {
     if (handleID > 34)
         return;
     // struct Text* th = &gPrepMainMenuTexts[handleID]; // max 10
     struct Text * th = &gStatScreen.text[handleID]; // max 34
+    Text_SetCursor(th, x);
 
     while (1)
     {

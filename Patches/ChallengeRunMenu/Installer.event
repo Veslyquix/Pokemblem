@@ -1,4 +1,5 @@
 #include "ChallengeRunMenu.lyn.event"
+#include "MugDefinitions.event"
 
 ALIGN 4
 CannotEvolveFlag_Link:
@@ -261,6 +262,37 @@ UNIT
 
 #undef BonusUnitParameters
 
+ALIGN 4 
+TrainerFIDTable:
+// LeafMug
+SHORT NoPortraitMug // New Name
+SHORT PikachuMug // Little Cup
+SHORT FujiMug // Void
+SHORT JoyMug // Chaos
+SHORT JennyMug // Plus
+SHORT WardenMug // Nuzlocke
+SHORT AshMug
+SHORT GaryMug
+SHORT OakMug
+SHORT BillMug
+SHORT JamesMug
+SHORT JessieMug
+SHORT BrockMug
+SHORT MistyMug
+SHORT LtSurgeMug
+SHORT ErikaMug
+SHORT KogaMug
+SHORT SabrinaMug
+SHORT BlaineMug
+SHORT GiovanniMug
+SHORT LoreleiMug
+SHORT BrunoMug
+SHORT AgathaMug
+SHORT LanceMug
+SHORT VeslyMug
+SHORT CheaterMug
+
+
 ALIGN 4
 CR_TypeBadgeBGTable:
 POIN CR_NormalBG
@@ -435,3 +467,13 @@ CR_PlaceholderBG:
 ALIGN 4
 CR_PlaceholderBG_pal:
 #incbin "data/questionmark_pal.dmp"
+
+ALIGN 4
+CR_FRLGUiFrameBG:
+#incbin "data/frlgUiFrameTiles.dmp"
+ALIGN 4
+CR_FRLGUiFrameBG_pal:
+#incbin "data/frlgUiFrameTiles_pal.dmp"
+ALIGN 4
+CR_FRLGUiFrameBG_map:
+#incbin "data/frlgUiFrame_map.dmp"
