@@ -430,7 +430,7 @@ void DrawAdditionalRulesText(ChallengeRunProc * proc)
     UpdateChallengeRunRules(proc);
 
     TileMap_FillRect(TILEMAP_LOCATED(bg_table[0], 0xC, 0xC), 18, 6, 0);
-    DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, y);
+    // DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, y);
     y += 2;
 
     if (!proc->cannotCatch && !proc->cannotEvolve && !proc->cannotGainExp && !proc->allRandomizerOptions &&
@@ -662,6 +662,9 @@ void StartChallengeRun(ProcPtr parent)
         BG_Fill(gBG2TilemapBuffer, 0);
 
         UnpackUiVArrowGfx(0x240, 3);
+        DrawUiFrame2(1, 8, 14, 12, 0);
+        // DrawUiFrame(BG_GetMapBuffer(1),            // back BG
+        // x, y, w, h, TILEREF(0, 0), 0); // style as 0 ?
         // SetTextFontGlyphs(0);
         // SetTextFont(0);
         // ResetTextFont();
