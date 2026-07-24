@@ -8,6 +8,8 @@ typedef struct BWLData BWLData;
 
 extern s8 AreAllegiancesEqual(int factionA, int factionB);
 extern s8 AreAllegiancesAllied(int factionA, int factionB);
+extern int CheckEventId(int flag);
+extern int NextRN_N(int max);
 extern int AreUnitsAllied(int, int) __attribute__((long_call));
 extern int IsSameAllegience(int, int) __attribute__((long_call)); // forgive the typo
 extern BWLData* BWL_GetEntry(int charID);
@@ -52,8 +54,10 @@ extern u8 AuraSkillTable[];
 extern u8 NegatedSkills[];
 extern u8 PersonalSkillTable[];
 extern u8 ClassSkillTable[];
+extern u8 PlusModeRandomSkills[];
 
 extern u8 NihilIDLink;
+extern int PlusFlag_Link;
 extern u32 PassiveSkillBit;
 
 extern SkillTestConfig gSkillTestConfig;

@@ -8,6 +8,18 @@ static bool IsSkillIDValid(u8 skillID) {
 static bool IsBattleReal() {
   return gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE);
 }
+static u8 GetPlusModeRandomSkill(void) {
+  int count = 0;
+  while (IsSkillIDValid(PlusModeRandomSkills[count])) {
+    ++count;
+  }
+
+  if (!count) {
+    return 0;
+  }
+
+  return PlusModeRandomSkills[NextRN_N(count)];
+}
 
 extern int AccessorySkillGetter(struct Unit *unit);
 // Checks if given unit is on the field
@@ -69,9 +81,16 @@ SkillBuffer *MakeSkillBuffer(Unit *unit, SkillBuffer *buffer) {
   int count = 0, temp = 0;
   buffer->lastUnitChecked = unit->index;
 
-  if (!unitNum) {
-    buffer->skills[count++];
+  if (!unit || !unitNum) {
+    buffer->skills[count++] = 0;
     return buffer;
+  }
+
+  if (UNIT_FACTION(unit) == FACTION_RED && CheckEventId(PlusFlag_Link)) {
+    temp = GetPlusModeRandomSkill();
+    if (IsSkillIDValid(temp)) {
+      buffer->skills[count++] = temp;
+    }
   }
 
   // Personal skill

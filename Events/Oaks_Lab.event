@@ -839,6 +839,24 @@ SVAL r2 UnitsCheater|IsPointer
 GOTO 200
 
 Label 63
+CompareTactText(LeafName)
+BNE 64 rC r7
+CALL ChallengeRunMessageNoCaptureEvent
+SVAL r2 UnitsLeaf|IsPointer
+
+Label 64
+CompareTactText(JessieName)
+BNE 65 rC r7
+CALL ChallengeRunMessageNoCaptureEvent
+SVAL r2 UnitsJessie|IsPointer
+
+Label 65
+CompareTactText(JamesName)
+BNE 66 rC r7
+CALL ChallengeRunMessageNoCaptureEvent
+SVAL r2 UnitsJames|IsPointer
+Label 66
+
 Label 199
 
 

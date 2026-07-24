@@ -74,7 +74,7 @@ const struct ProcCmd ChallengeRunProcCmd[] = {
 #define RULES_X 1
 #define RULES_Y 13
 #define RULES_TEXT_CURSOR_X 3
-#define RULES_CLEAR_WIDTH 17
+#define RULES_CLEAR_WIDTH 18
 #define RULES_CLEAR_HEIGHT 4
 
 enum
@@ -87,8 +87,11 @@ enum
     CR_OPTION_NUZLOCKE,
     CR_OPTION_ASH,
     CR_OPTION_GARY,
+    CR_OPTION_LEAF,
     CR_OPTION_OAK,
     CR_OPTION_BILL,
+    CR_OPTION_JAMES,
+    CR_OPTION_JESSIE,
     CR_OPTION_BROCK,
     CR_OPTION_MISTY,
     CR_OPTION_LT_SURGE,
@@ -328,6 +331,7 @@ const char SpecialNames[CR_OPTION_COUNT][10] = {
     "Nuzlocke",
     "Ash",
     "Gary",
+    "Leaf",
     //"UnderUsed",
     //"OverUsed",
     //"Red",
@@ -336,6 +340,8 @@ const char SpecialNames[CR_OPTION_COUNT][10] = {
     //"Yellow",
     "Oak",
     "Bill",
+    "James",
+    "Jessie",
     "Brock",
     "Misty",
     "Lt. Surge",

@@ -7,9 +7,14 @@ WORD CannotEvolveFlag
 CannotCaptureFlag_Link:
 WORD CannotCaptureFlag
 
+ALIGN 4 
+PlusModeRandomSkills:
+BYTE CounterID CounterMagicID 
+BYTE 0 // Terminator 
+
 ALIGN 4
 CR_TotalOptions:
-WORD 23 // last option index to scroll through
+WORD 26 // last option index to scroll through
 CR_MaxDisplayed:
 WORD 7 // Max is 7 (for 8 entries)
 
@@ -36,12 +41,15 @@ POIN UnitsNone // Plus
 POIN UnitsNone // Nuzlocke
 POIN UnitsAsh
 POIN UnitsGary
+POIN UnitsLeaf
 //POIN UnitsRed
 //POIN UnitsBlue
 //POIN UnitsGreen
 //POIN UnitsYellow
 POIN UnitsOak
 POIN UnitsBill
+POIN UnitsJames
+POIN UnitsJessie
 POIN UnitsBrock
 POIN UnitsMisty
 POIN UnitsLtSurge
@@ -85,6 +93,15 @@ UNIT 0x09 AbraID BonusUnitParameters
 UNIT 0x0A NidoranMID BonusUnitParameters
 UNIT
 
+ALIGN 4
+UnitsLeaf:
+UNIT 0x02 OddishID BonusUnitParameters
+UNIT 0x06 VulpixID BonusUnitParameters
+UNIT 0x07 PoliwagID BonusUnitParameters
+UNIT 0x08 PikachuID BonusUnitParameters
+UNIT 0x09 ClefairyID BonusUnitParameters
+UNIT 0x0A EeveeID BonusUnitParameters
+UNIT
 
 
 ALIGN 4 ; UnitsOak:
@@ -102,6 +119,24 @@ UNIT 0x07 FlareonID BonusUnitParameters
 UNIT 0x08 ClefairyID BonusUnitParameters
 UNIT 0x09 PorygonID BonusUnitParameters
 UNIT 0x0A JigglypuffID BonusUnitParameters
+UNIT
+
+ALIGN 4 ; UnitsJames:
+UNIT 0x02 KoffingID BonusUnitParameters
+UNIT 0x06 DittoID BonusUnitParameters
+UNIT 0x07 MeowthID BonusUnitParameters
+UNIT 0x08 BellsproutID BonusUnitParameters
+UNIT 0x09 MagikarpID BonusUnitParameters
+UNIT 0x0A GrowlitheID BonusUnitParameters
+UNIT
+
+ALIGN 4 ; UnitsJessie:
+UNIT 0x02 EkansID BonusUnitParameters
+UNIT 0x06 SpearowID BonusUnitParameters
+UNIT 0x07 MeowthID BonusUnitParameters
+UNIT 0x08 LickitungID BonusUnitParameters
+UNIT 0x09 ZubatID BonusUnitParameters
+UNIT 0x0A ShellderID BonusUnitParameters
 UNIT
 
 ALIGN 4 ; UnitsVesly:
@@ -264,7 +299,6 @@ UNIT
 
 ALIGN 4 
 TrainerFIDTable:
-// LeafMug
 SHORT NoPortraitMug // New Name
 SHORT PikachuMug // Little Cup
 SHORT FujiMug // Void
@@ -273,6 +307,7 @@ SHORT JennyMug // Plus
 SHORT WardenMug // Nuzlocke
 SHORT AshMug
 SHORT GaryMug
+SHORT LeafMug
 SHORT OakMug
 SHORT BillMug
 SHORT JamesMug
