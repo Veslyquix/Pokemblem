@@ -14,7 +14,11 @@
 #define SMS_Frame2_Buffer 0x20165c8
 #define SMS_Frame3_Buffer 0x2034010
 
-
+ALIGN 4 
+FaintCounter_Link:
+WORD FaintCounter 
+GlobalFaintCounter_Link:
+WORD GlobalFaintCounter 
 
 
 // 8a177a0 T ProcScr_UnitListScreen_Field

@@ -31,7 +31,8 @@ and r0,r1 @unkill unit (needed for pair up compatibility)
 mov r1,r3 @5 for dead, 9 for retreated
 orr r0,r1
 str r0,[r4,#0xc]
-
+mov r0, r4 
+bl IncrementDeathCounter
 
 mov r0,r4
 ldr r3,=0x80283e1

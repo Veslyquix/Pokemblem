@@ -62,6 +62,22 @@ extern u16 SmsObjVramUpperChr;
 // }
 // sub_809A114 809872A 809a174
 
+extern u16 * FaintCounter_Link;
+extern u8 * GlobalFaintCounter_Link;
+void IncrementDeathCounter(struct Unit * unit)
+{
+    // struct GlobalSaveInfo local_info;
+    // ReadSramFast(&gSram->globalSaveInfo, local_info, sizeof(struct GlobalSaveInfo));
+    if (UNIT_FACTION(unit) == FACTION_BLUE)
+    {
+        *FaintCounter_Link += 1;
+        int globalCounter = (GlobalFaintCounter_Link[0] | (GlobalFaintCounter_Link[1] << 8)) + 1;
+        GlobalFaintCounter_Link[0] = globalCounter & 0xFF;
+        GlobalFaintCounter_Link[1] = (globalCounter & 0xFF00) >> 8;
+    }
+    // WriteGlobalSaveInfo(&local_info);
+}
+
 int GetDifficulty()
 {
     int result = gPlaySt.config.rankDisplay ? 1 : 0;

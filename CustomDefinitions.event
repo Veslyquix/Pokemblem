@@ -226,7 +226,9 @@ String("V1.22.04             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define BuffTableSize 0x1D8 // Pokemblem - 50 players/enemies, 15 NPCs - regular would be $21C i think 
 #define BuffTableEntrySize 4 
 
-#define FreeRamByte1 0x30017A0 // - 0x30017A6 
+#define FaintCounter 0x30017a0 // SHORT 
+#define GlobalFaintCounter 0xE000050 // SHORT, but sram packing is byte  
+#define FreeRamByte1 0x30017A2 // - 0x30017A6 
 #define FreeMoveRamByte 0x30017A7 
 
 #define TempRamWhileExpShare 0x2026E30 // used in pc boxes too 
