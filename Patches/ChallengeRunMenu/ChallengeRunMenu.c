@@ -312,8 +312,8 @@ static const char * const ChallengeRunInfoText[CR_TEXT_COUNT] = {
     "Cannot capture Pokémon.",
     "Cannot gain EXP.",
     "All randomizer options enabled.",
-    "Enemies have random,",
-    "powerful skills.",
+    "Enemies take half damage and",
+    "have random, powerful skills.",
     "Fainted Pokémon are released.",
     "Not recommended.",
 };

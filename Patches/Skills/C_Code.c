@@ -464,7 +464,7 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 }
 extern int GetDifficulty(void);
 extern int EasyModeDmgReductionAmount;
-
+extern int PlusFlag_Link;
 int AoeDamageReduction(int dmg, struct Unit * target, int defOrRes)
 {
 
@@ -477,6 +477,10 @@ int AoeDamageReduction(int dmg, struct Unit * target, int defOrRes)
     int adjustedDamage = (dmg * (100 - defOrRes) + 50) / 100;
     defOrRes >>= 1;
     adjustedDamage = (adjustedDamage * (100 - defOrRes) + 50) / 100;
+    if (CheckFlag(PlusFlag_Link))
+    {
+        adjustedDamage = adjustedDamage >> 1;
+    }
     return adjustedDamage;
 }
 
@@ -491,9 +495,13 @@ void DefResDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
         {
             battleDef = 50;
         }
-        if (UNIT_FACTION(&bunitB->unit) == 0)
+        if (UNIT_FACTION(&bunitB->unit) == 0) // player's attack
         {
             AdjustDamageByPercent(bunitB, bunitA, 100 - battleDef);
+            if (CheckFlag(PlusFlag_Link))
+            {
+                AdjustDamageByPercent(bunitB, bunitA, 50);
+            }
         }
         AdjustDamageByPercent(bunitB, bunitA, 100 - (battleDef >> 1));
     }

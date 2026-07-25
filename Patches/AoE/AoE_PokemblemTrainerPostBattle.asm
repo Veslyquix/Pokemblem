@@ -8,9 +8,6 @@ push {r4-r5, lr}
 mov r4, r0 @ actor 
 mov r5, r1 @ target 
 
-ldr r3, =0x203E894
-str r5, [r3] 
-
 ldr r3, =0x203A56C
 ldrb r0, [r5, #0x13] @ hp 
 cmp r0, #0 
@@ -38,21 +35,6 @@ pop {r0}
 bx r0 
 .ltorg 
 
-@ I want trainer quotes to appear after the death flash 
-
-.global CallAoE_PokemblemTrainerPostBattle
-.type CallAoE_PokemblemTrainerPostBattle, %function 
-CallAoE_PokemblemTrainerPostBattle: 
-push {r4-r5, lr} 
-ldr r1, =0x203E894
-ldr r1, [r1] 
-mov r0, #0 
-bl AoE_PokemblemTrainerPostBattle
-
-pop {r4-r5} 
-pop {r0} 
-bx r0 
-.ltorg 
 
 
 
