@@ -1,0 +1,257 @@
+
+ALIGN 4 
+ControlCodesStartWithBracket: // Only replace text starting with < 
+// there will be lag if you make this false 
+// but then you could replace vanilla text
+WORD 1 // True 
+// WORD 0 // False 
+
+// Also adds these codes to make conditional dialogue easier: 
+// <ifFlagXXX><endif> // replace XXX with flag e.g. 0B0 is casual mode 
+// <ifAliveXX><endif> // replace XX for 01 for Eirika 
+// <ifDeadXX><endif>
+// <ifMissingXX><endif>
+
+#ifndef TheyPronounFlag 
+    #define TheyPronounFlag 0x114
+#endif 
+#ifndef HePronounFlag 
+    #define HePronounFlag 0x115
+#endif 
+#ifndef ShePronounFlag 
+    #define ShePronounFlag 0x116
+#endif 
+
+
+#inctbl "fe8TR" "fe8_tr.tbl"
+#define tx(string2) STRING string2 "fe8TR"; BYTE 0 0; // fe8 version 
+// #define tx(characters) String(characters); BYTE 0 0 
+
+// Feel free to add more pronouns to ReplaceTextList if desired 
+ALIGN 4 
+ReplaceTextList:
+// required flag, required chapter, pad, text to find, replacement text 
+// SHORT 0; 			BYTE 0xFF 		0; 	POIN TextA 			TextB 
+/* <they> / <They> 
+E.g. 
+They have the toy. 
+He has the toy.
+She has the toy. 
+*/ 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_they text_they 
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_they text_he 
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_they text_she 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_They text_They 
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_They text_He 
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_They text_She 
+
+
+/* <have> / <Have>
+they have 
+he has 
+she has 
+*/ 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_have text_have
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_have text_has
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_have text_has 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_Have text_Have 
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_Have text_Has
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_Have text_Has 
+
+
+/* <them> / <Them>
+The toy belongs to him. 
+The toy belongs to her. 
+The toy belongs to them. 
+*/
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_them text_them
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_them text_him
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_them text_her 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_Them text_Them
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_Them text_Him
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_Them text_Her 
+
+
+/* <their> / <Their> 
+His toy is red.
+Her toy is red.
+Their toy is red. 
+*/ 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_their text_their
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_their text_his
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_their text_her 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_Their text_Their
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_Their text_His
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_Their text_Her 
+
+
+/* <theirs> / <Theirs>
+The toy is his.
+The toy is hers. 
+The toy is theirs. 
+*/ 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_theirs text_theirs
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_theirs text_his
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_theirs text_hers 
+SHORT TheyPronounFlag; BYTE 0xFF 0; POIN code_Theirs text_Theirs
+SHORT HePronounFlag;   BYTE 0xFF 0; POIN code_Theirs text_His
+SHORT ShePronounFlag;  BYTE 0xFF 0; POIN code_Theirs text_Hers 
+
+
+
+WORD 0 0 0// terminator 
+
+
+
+
+#ifdef _FE8_ 
+#include "Patches/FE8.lyn.event" 
+#include "Patches/FE8_asm.lyn.event" 
+
+
+code_they:
+tx("<they>")
+code_They: 
+tx("<They>")
+
+
+text_they:
+tx("they");  
+text_he:
+tx("he");  
+text_she: 
+tx("she");  
+text_They:
+tx("They");  
+text_He:
+tx("He");  
+text_She: 
+tx("She");  
+
+
+code_have:
+tx("have") 
+code_Have:
+tx("<Have>")
+text_have:
+tx("have")
+text_has:
+tx("has")
+text_Have:
+tx("Have")
+text_Has:
+tx("Has")
+
+
+
+code_them:
+tx("<them>")
+code_Them:
+tx("<Them>")
+text_them:
+tx("them")
+text_him:
+tx("him")
+text_Her:
+tx("her")
+text_Them:
+tx("Them")
+text_Him:
+tx("Him")
+// text_Her:
+// tx("Her")
+
+
+code_their:
+tx("<their>")
+code_Their:
+tx("<Their>")
+text_their:
+tx("their")
+text_his:
+tx("his")
+text_her:
+tx("her")
+text_Their:
+tx("Their")
+text_His:
+tx("His")
+// text_Her:
+// tx("Her")
+
+
+code_theirs:
+tx("<theirs>")
+code_Theirs:
+tx("<Theirs>") 
+text_theirs:
+tx("theirs")
+// text_his:
+// tx("his")
+text_hers: 
+tx("hers")
+text_Theirs:
+tx("Theirs")
+// text_His:
+// tx("His")
+text_Hers: 
+tx("Hers") 
+
+
+
+#endif 
+
+#ifdef _FE7_
+
+#include "Patches/FE7.lyn.event" 
+#include "Patches/FE7_asm.lyn.event" 
+
+TextA:
+String("Eliwood"); BYTE 0 
+TextB: ; String("Some name"); BYTE 0 
+TextC:
+String("Marcus"); BYTE 0 
+TextD: ; String("another name"); BYTE 0 
+TextE:
+String("I "); BYTE 0 
+TextF: ; String("arbitrary text "); BYTE 0 
+
+#endif 
+
+
+#ifdef _FE6_ 
+#include "Patches/FE6.lyn.event" 
+#include "Patches/FE6_asm.lyn.event" 
+
+//#inctbl "FE6TR" "fe6_tr.tbl"
+
+TextA:
+STRING "Roy" "FE6TR" ; BYTE 0
+TextB: ; STRING "Some name" "FE6TR"; BYTE 0 
+TextC:
+STRING "Marcus" "FE6TR"; BYTE 0 
+TextD: ; STRING "another name" "FE6TR"; BYTE 0 
+TextE:
+STRING "I " "FE6TR"; BYTE 0 
+TextF: ; STRING "arbitrary text " "FE6TR"; BYTE 0 
+
+#endif 
+
+
+
+#ifdef SRR 
+// the randomizer takes over GetStringFromIndex, so take over for now 
+PUSH
+ORG $a240
+ALIGN 4
+WORD $46C04778 $E59FC000 $E12FFF1C
+POIN GetStringFromIndex
+POP
+
+ALIGN 4
+PUSH
+ORG CURRENTOFFSET+$1;GetStringFromIndex:
+POP
+WORD $B5104B09 $4B096018 $681B4C09 $210080 $4B0858C0 $F812F000 $4B070020 $F80EF000 $BC100020 $4708BC02 $202B6AC $800A2A0 $202A6AC $8002BA5 $800A1C9 $46C04718
+// for SRR 
+#endif 
