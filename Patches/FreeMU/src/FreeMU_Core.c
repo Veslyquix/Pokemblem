@@ -526,7 +526,7 @@ void UpdateDestCoord(struct FMUProc * proc, int x, int y)
     proc->xTo = x;
     proc->yTo = y;
 }
-
+extern int WalkSlowlyFlag_Link;
 void FMU_InitVariables(struct FMUProc * proc)
 {
     pFMU_OnInit(proc);
@@ -567,7 +567,14 @@ void FMU_InitVariables(struct FMUProc * proc)
 
     if (FreeMoveRam->running)
     {
-        proc->moveSpeed = FreeMU_MovingSpeed.speedB;
+        if (CheckEventId(WalkSlowlyFlag_Link))
+        {
+            proc->moveSpeed = FreeMU_MovingSpeed.speedC;
+        }
+        else
+        {
+            proc->moveSpeed = FreeMU_MovingSpeed.speedB;
+        }
     }
     else
     {
@@ -592,7 +599,14 @@ void FMU_OnButton_ToggleSpeed(struct FMUProc * proc)
     if (FreeMoveRam->running == false)
     {
         FreeMoveRam->running = true; //
-        proc->moveSpeed = FreeMU_MovingSpeed.speedB;
+        if (CheckEventId(WalkSlowlyFlag_Link))
+        {
+            proc->moveSpeed = FreeMU_MovingSpeed.speedC;
+        }
+        else
+        {
+            proc->moveSpeed = FreeMU_MovingSpeed.speedB;
+        }
     }
     else
     {

@@ -1,7 +1,7 @@
 #include "C_Code.h"
 extern int RedMug_Link;
 extern int LeafMug_Link;
-extern int GetSpecialNamePortraitId(void);
+extern int GetAvatarPortraitId(void);
 extern const struct FaceData * sPortrait_data;
 static int GetSpecialPortraitOrDefault(int portraitId)
 {
@@ -12,7 +12,7 @@ static int GetSpecialPortraitOrDefault(int portraitId)
         return portraitId;
     }
 
-    specialPortraitId = GetSpecialNamePortraitId();
+    specialPortraitId = GetAvatarPortraitId();
     if (specialPortraitId)
     {
         return specialPortraitId;

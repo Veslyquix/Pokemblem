@@ -233,8 +233,8 @@ String("V1.22.04             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define TempRamWhileExpShare2 0x2026E34 // used in pc boxes too 
 #define TempRamWhileExpShare3 0x2026E38 // used in pc boxes too 
 
-#define ExpShareUnitID 0x30017A8 
-#define ExpShareAmount 0x30017A9 
+#define AvatarPortraitId 0x30017A8 
+#define AvatarClassId 0x30017A9 
 #define XCoordTeleport 0x30017AA
 #define YCoordTeleport 0x30017AB
 
@@ -450,6 +450,7 @@ String("V1.22.04             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define NuzlockeFlag 0xF8 
 #define PlusFlag 0xF9 
 #define CheaterFlag 0xFA
+#define WalkSlowlyFlag 0xFB 
 
 // New flags 0x12D - 0x22D or more even 
 #define VisitedViridianPokecenterFlag 0x12D 

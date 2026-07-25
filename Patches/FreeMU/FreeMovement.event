@@ -54,6 +54,10 @@ StraightLineWeaponsList:
 BYTE OneRangeWep ThreeRangeWep FiveRangeWep // SevenRangeWep used by Gary is not 
 BYTE 0x0 
 	
+ALIGN 4 
+WalkSlowlyFlag_Link:
+WORD WalkSlowlyFlag 
+    
 ALIGN 4
 TimerDelay:
 	/*
@@ -67,7 +71,7 @@ FreeMU_MovingSpeed:
 	/*
 	Moving speed can only set to 0x1/0x10/0x20/0x40/0x80/0x100
 	*/
-	BYTE 0x20 0x40 0x00 0x00 // walking, running, 0, 0 
+	BYTE 0x20 0x40 0x10 0x00 // walking, running, slow, 0 
 	WORD 0x0 
 	
 	/*

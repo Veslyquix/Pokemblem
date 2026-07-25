@@ -301,7 +301,73 @@ WORD RedAltMug
 LeafMug_Link:
 WORD LeafMug 
 
+AvatarPortraitId_Link:
+WORD AvatarPortraitId
+AvatarClassId_Link:
+WORD AvatarClassId
+SurfID_Link:
+WORD SurfID
 
+ALIGN 4 
+AvatarClassIdTable:
+BYTE 0 // New Name
+BYTE PikachuID // Little Cup
+BYTE mrfujiID // Void
+BYTE NurseID // Chaos / Joy
+BYTE policemanID // Plus / Jenny
+BYTE gentlemanID // Nuzlocke / Warden
+BYTE RedID // Ash
+BYTE blueID // Gary
+BYTE GreenID // Leaf
+BYTE prof_oakID // Oak
+BYTE billID // Bill
+BYTE rocket_mID // James
+BYTE rocket_fID // Jessie
+BYTE BrockID
+BYTE MistyID
+BYTE LtSurgeID
+BYTE ErikaID
+BYTE KogaID
+BYTE SabrinaID
+BYTE BlaineID
+BYTE giovanniID
+BYTE LoreleiID
+BYTE BrunoID
+BYTE AgathaID
+BYTE LanceID
+BYTE MagikarpID // Vesly
+BYTE MewtwoID // Cheater
+
+
+ALIGN 4 
+AvatarFIDTable:
+SHORT 0 
+SHORT PikachuMug // Little Cup
+SHORT FujiMug // Void
+SHORT JoyMug // Chaos
+SHORT JennyMug // Plus
+SHORT WardenMug // Nuzlocke
+SHORT AshMug
+SHORT GaryMug
+SHORT LeafMug
+SHORT OakMug
+SHORT BillMug
+SHORT JamesMug
+SHORT JessieMug
+SHORT BrockMug
+SHORT MistyMug
+SHORT LtSurgeMug
+SHORT ErikaMug
+SHORT KogaMug
+SHORT SabrinaMug
+SHORT BlaineMug
+SHORT GiovanniMug
+SHORT LoreleiMug
+SHORT BrunoMug
+SHORT AgathaMug
+SHORT LanceMug
+SHORT VeslyMug
+SHORT CheaterMug
 
 #undef BonusUnitParameters
 

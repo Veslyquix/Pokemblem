@@ -244,8 +244,8 @@
 #define MissingnoID 0xF4
 #define RedSurfID 0xF5
 #define GreenSurfID 0xF6
-#define Unused73ID 0xF7
-#define Unused74ID 0xF8
+#define PoisonGasID 0xF7
+#define SurfID 0xF8
 #define Unused75ID 0xF9
 #define Unused76ID 0xFA
 #define Unused77ID 0xFB

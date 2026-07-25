@@ -245,7 +245,7 @@
 #define RedSurfSMS 0xF4
 #define GreenSurfSMS 0xF5
 #define PoisonGasSMS 0xF6
-#define Unused74SMS 0xF7
+#define SurfSMS 0xF7
 #define Unused75SMS 0xF8
 #define Unused76SMS 0xF9
 #define Unused77SMS 0xFA
@@ -498,8 +498,8 @@
 #define MissingnoMMS 0xF4
 #define RedSurfMMS 0xF5
 #define GreenSurfMMS 0xF6
-#define Unused73MMS 0xF7
-#define Unused74MMS 0xF8
+#define PoisonGasMMS 0xF7
+#define SurfMMS 0xF8
 #define Unused75MMS 0xF9
 #define Unused76MMS 0xFA
 #define Unused77MMS 0xFB

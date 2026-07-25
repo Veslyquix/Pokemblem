@@ -656,6 +656,7 @@ GOTO 1
 LABEL 0 
 LOAD1 1 ProtagUnitGroupMale 
 LABEL 1 
+ASMC SetAvatarClass_ASMC
 ENUN 
 ASMC GiveRepelsToProtag // breaks supply atm 
 

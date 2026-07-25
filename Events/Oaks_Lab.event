@@ -125,7 +125,10 @@ LABEL 79
 //LABEL 73 
 #endif 
 CALL NameInputEvent
+ASMC GetAvatarSpecialClassId_ASMC 
+BNE 29 sC s0 
 SelectAvatar
+LABEL 29 
 
 CHECK_EVENTID GirlProtagFlag 
 BEQ 31 sC s0 
@@ -134,6 +137,7 @@ GOTO 32
 LABEL 31 
 LOAD1 1 ProtagUnitGroupMaleSelect
 LABEL 32 
+ASMC SetAvatarClass_ASMC
 ENUN 
 
 
@@ -266,7 +270,7 @@ ENDA
 
 ALIGN 4 
 ProtagUnitGroupMaleSelect:
-UNIT ProtagID  prof_oakID 0x1 Level(LVFACEUP,Ally,0)   [7,13] 0b 0x0 0x0 0x0 [0x0,0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
+UNIT ProtagID  RedID 0x1 Level(LVFACEUP,Ally,0)   [7,13] 0b 0x0 0x0 0x0 [0x0,0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
 UNIT 
 ALIGN 4 
 ProtagUnitGroupFemaleSelect:
@@ -897,6 +901,7 @@ ENDA
 VoidMessage:
 Text(VoidMessageText)
 ForceLunatic
+ENUT WalkSlowlyFlag
 ENUT Route1Tutorial_A
 NoFade
 ENDA

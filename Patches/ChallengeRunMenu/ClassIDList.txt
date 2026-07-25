@@ -244,8 +244,8 @@ HealingTileClassID
 MissingnoID
 RedSurfID
 GreenSurfID
-PoisonGasID
-SurfID
+Unused73ID
+Unused74ID
 Unused75ID
 Unused76ID
 Unused77ID

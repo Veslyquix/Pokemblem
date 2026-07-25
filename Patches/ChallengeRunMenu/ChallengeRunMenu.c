@@ -369,7 +369,8 @@ static bool StringEquals(const char * left, const char * right)
 }
 
 extern u16 TrainerFIDTable[];
-int GetSpecialNamePortraitId(void)
+
+int GetSpecialNameID(void)
 {
     int i;
     char * tacticianName = GetTacticianName();
@@ -378,11 +379,155 @@ int GetSpecialNamePortraitId(void)
     {
         if (StringEquals(tacticianName, SpecialNames[i]))
         {
-            return TrainerFIDTable[i];
+            return i;
         }
     }
 
-    return 0;
+    return (-1); // failed
+}
+
+extern int ProtagID_Link;
+extern int GirlProtagFlag_Link;
+extern int RedID_Link;
+extern int RedSurfID_Link;
+extern int SurfID_Link;
+extern int GreenID_Link;
+extern int GreenSurfID_Link;
+extern int RedMug_Link;
+extern int LeafMug_Link;
+
+extern u8 * AvatarPortraitId_Link;
+extern u8 * AvatarClassId_Link;
+extern u8 AvatarClassIdTable[];
+extern u16 AvatarFIDTable[];
+void SaveAvatarClass(int i)
+{
+    if (i < 0)
+    {
+        if (CheckFlag(GirlProtagFlag_Link))
+        {
+            i = GreenID_Link;
+        }
+        else
+        {
+            i = RedID_Link;
+        }
+        *AvatarClassId_Link = i;
+        return;
+    }
+    *AvatarClassId_Link = AvatarClassIdTable[i];
+}
+void SaveAvatarFID(int i)
+{
+    if (i < 0)
+    {
+        if (CheckFlag(GirlProtagFlag_Link))
+        {
+            i = LeafMug_Link;
+        }
+        else
+        {
+            i = RedMug_Link;
+        }
+        *AvatarPortraitId_Link = (u8)i;
+        return;
+    }
+    *AvatarPortraitId_Link = (u8)AvatarFIDTable[i]; // avatar portraits are below 0x100
+}
+
+int GetAvatarPortraitId(void)
+{
+    int i = *AvatarPortraitId_Link;
+    if (!i)
+    {
+        i = GetSpecialNameID();
+        SaveAvatarFID(i);
+        if (i >= 0)
+        {
+            i = *AvatarPortraitId_Link;
+        }
+    }
+    if (i < 0 || i == 0xFF)
+    {
+        return 0; // hopefully it doesn't hit here?
+    }
+
+    return i;
+}
+
+extern int IsUnitOnWater(struct Unit * unit);
+void GetAvatarSpecialClassId_ASMC(void)
+{
+    gEventSlots[0xC] = *AvatarClassId_Link;
+}
+
+int GetAvatarClassId(struct Unit * unit, int onWater)
+{
+    int i = *AvatarClassId_Link;
+    if (!i)
+    {
+        i = GetSpecialNameID();
+        SaveAvatarClass(i);
+        if (i >= 0)
+        {
+            i = *AvatarClassId_Link;
+        }
+    }
+    if (i < 0 || i == 0xFF)
+    {
+        return 0;
+    }
+    if (UNIT_IS_VALID(unit))
+    {
+        if (onWater < 0)
+        {
+            onWater = IsUnitOnWater(unit);
+        }
+        if (onWater)
+        {
+            if (i == RedID_Link)
+            {
+                return RedSurfID_Link;
+            }
+            if (i == GreenID_Link)
+            {
+                return GreenSurfID_Link;
+            }
+            return SurfID_Link;
+        }
+    }
+
+    return i;
+}
+
+void SetAvatarClass_ASMC(void)
+{
+    struct Unit * unit = GetUnitFromCharId(ProtagID_Link);
+
+    int classID = GetAvatarClassId(unit, -1);
+    // check for validity after GetAvatarClassId so that ram there is initialized
+    if (!UNIT_IS_VALID(unit))
+    {
+        return;
+    }
+    if (classID)
+    {
+        unit->pClassData = GetClassData(classID);
+    }
+}
+
+void SetActiveAvatarClass(void)
+{
+    struct Unit * unit = gActiveUnit;
+    if (!UNIT_IS_VALID(unit))
+    {
+        return;
+    }
+    int classID = GetAvatarClassId(unit, -1);
+    if (classID)
+    {
+        unit->pClassData = GetClassData(classID);
+    }
 }
 
 static int GetCurrentChallengeRunOption(ChallengeRunProc * proc)
@@ -845,15 +990,12 @@ static void ChallengeRunLoop(ChallengeRunProc * proc)
         gEventSlots[0xC] = 0;
 
         int opt = proc->id + proc->offset;
-        if (opt > 1)
+        SetTactNameFromCase(opt);
+        if (opt >= 1)
         {
             gEventSlots[0xC] = 1;
+            SetAvatarClass_ASMC();
         }
-        // if (opt == 1) { SetFlag(CannotEvolveFlag_Link); }
-        // if (opt > 1) { SetFlag(CannotCaptureFlag_Link); }
-        // if (opt >= CR_TotalOptions) { SetFlag(CannotEvolveFlag_Link); }
-        // asm("mov r11, r11");
-        SetTactNameFromCase(opt);
 
         Proc_Break((ProcPtr)proc);
         m4aSongNumStart(0x6B);
