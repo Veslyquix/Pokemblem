@@ -2341,7 +2341,12 @@ doing a job.[A][X]
 
 ## MrFujiText
 [OpenMidLeft][LoadProtag][OpenRight][LoadFuji][OpenRight]Heh?[N]
-You came to save me?[A][N]
+<ifFuji>Am I going crazy?[A][N]
+Are you from the future?[......][N]
+Huh, I need the Pokéflute?[A][N]
+What I really need is[N]
+a nice, long nap...[A][N]<endif>
+<ifnFuji>You came to save me?[A][N]
 [ToggleSmile]Thank you. But, I came here of my[N]
 own free will.[A][N]
 I came to calm the spirit of[N]
@@ -2349,15 +2354,15 @@ CUBONE's mother.[A][N]
 I think MAROWAK's spirit has[N]
 finally left us.[A][N]
 I must thank you for your kind[N]
-concern.[A][N]
+concern.[A][N]<endif>
 Here, take this.[A][X]
 
 ## ObtainedPokefluteText
 Obtained Pokéflute.[A][X]
 
 ## MrFujiText2
-[OpenMidLeft][LoadProtag][OpenRight][LoadFuji][OpenRight]Use it to wake up[N]
-sleeping Pokémon.[A][X]
+[OpenMidLeft][LoadProtag][OpenRight][LoadFuji][OpenRight]Use it to wake<ifFuji> me<endif> up[N]
+<ifFuji>out of this nightmare<endif><ifnFuji>sleeping Pokémon<endif>.[A][X]
 
 ## MrFujiText3
 I come up here to[N]

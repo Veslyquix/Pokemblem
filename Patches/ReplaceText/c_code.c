@@ -6,6 +6,9 @@
 #define ABS(aValue) ((aValue) >= 0 ? (aValue) : -(aValue))
 extern u8 gCh;
 extern int CheckFlag(int flag);
+#ifdef FE8
+extern int GetAvatarPortraitId(void);
+#endif
 struct ReplaceTextStruct
 {
     // conditions
@@ -26,6 +29,51 @@ extern void (*gARM_DecompText)(const char *, char *); // fe8 3004150 fe7 3003940
 extern void CallARM_DecompText(const char * a, char * b);
 extern const u8 *** const ggMsgStringTable; // a2a0 is POIN TextTable
 extern int sActiveMsg;
+
+struct ProtagPortraitConditional
+{
+    const char * name;
+    const int * portraitId;
+};
+
+extern int PikachuMug_Link;
+extern int FujiMug_Link;
+extern int JoyMug_Link;
+extern int JennyMug_Link;
+extern int WardenMug_Link;
+extern int AshMug_Link;
+extern int GaryMug_Link;
+extern int LeafMug_Link;
+extern int OakMug_Link;
+extern int BillMug_Link;
+extern int JamesMug_Link;
+extern int JessieMug_Link;
+extern int BrockMug_Link;
+extern int MistyMug_Link;
+extern int LtSurgeMug_Link;
+extern int ErikaMug_Link;
+extern int KogaMug_Link;
+extern int SabrinaMug_Link;
+extern int BlaineMug_Link;
+extern int GiovanniMug_Link;
+extern int LoreleiMug_Link;
+extern int BrunoMug_Link;
+extern int AgathaMug_Link;
+extern int LanceMug_Link;
+extern int VeslyMug_Link;
+extern int CheaterMug_Link;
+
+static const struct ProtagPortraitConditional ProtagPortraitConditionals[] = {
+    { "Pikachu", &PikachuMug_Link }, { "Fuji", &FujiMug_Link },         { "Joy", &JoyMug_Link },
+    { "Jenny", &JennyMug_Link },     { "Warden", &WardenMug_Link },     { "Ash", &AshMug_Link },
+    { "Gary", &GaryMug_Link },       { "Leaf", &LeafMug_Link },         { "Oak", &OakMug_Link },
+    { "Bill", &BillMug_Link },       { "James", &JamesMug_Link },       { "Jessie", &JessieMug_Link },
+    { "Brock", &BrockMug_Link },     { "Misty", &MistyMug_Link },       { "LtSurge", &LtSurgeMug_Link },
+    { "Erika", &ErikaMug_Link },     { "Koga", &KogaMug_Link },         { "Sabrina", &SabrinaMug_Link },
+    { "Blaine", &BlaineMug_Link },   { "Giovanni", &GiovanniMug_Link }, { "Lorelei", &LoreleiMug_Link },
+    { "Bruno", &BrunoMug_Link },     { "Agatha", &AgathaMug_Link },     { "Lance", &LanceMug_Link },
+    { "Vesly", &VeslyMug_Link },     { "Cheater", &CheaterMug_Link },   { 0, 0 },
+};
 
 /*
 char * GetStringFromIndex(int index) // so we can set sActiveMsg as the index
@@ -234,6 +282,93 @@ static int ParseNumberHex(const char * str, int start, int digits)
 
     return result;
 }
+
+static int ParseNumberHexRange(const char * str, int start, int end)
+{
+    int result = 0;
+    int parsed = 0;
+
+    for (int i = start; i < end; ++i)
+    {
+        char c = str[i];
+        int value;
+
+        if (c >= '0' && c <= '9')
+        {
+            value = c - '0';
+        }
+        else if (c >= 'A' && c <= 'F')
+        {
+            value = 10 + (c - 'A');
+        }
+        else if (c >= 'a' && c <= 'f')
+        {
+            value = 10 + (c - 'a');
+        }
+        else
+        {
+            return -1;
+        }
+
+        result = (result << 4) | value;
+        parsed = 1;
+    }
+
+    return parsed ? result : -1;
+}
+
+static int StringStartsAt(const char * str, int start, const char * match)
+{
+    for (int i = 0; match[i]; ++i)
+    {
+        if (str[start + i] != match[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+static int StringEqualsRange(const char * str, int start, int end, const char * match)
+{
+    for (int i = 0; start + i < end || match[i]; ++i)
+    {
+        if (start + i >= end || !match[i])
+        {
+            return false;
+        }
+
+        if (str[start + i] != match[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+static int GetProtagPortraitConditionalId(const char * tag, int start, int end)
+{
+    for (int i = 0; ProtagPortraitConditionals[i].name; ++i)
+    {
+        if (StringEqualsRange(tag, start, end, ProtagPortraitConditionals[i].name))
+        {
+            return *ProtagPortraitConditionals[i].portraitId;
+        }
+    }
+
+    return -1;
+}
+
+static int IsProtagPortrait(int portraitId)
+{
+#ifdef FE8
+    return GetAvatarPortraitId() == portraitId;
+#else
+    return false;
+#endif
+}
 void RemoveRange(char * buffer, int start, int end, int usedLength[1])
 {
     int length = usedLength[0];
@@ -327,32 +462,8 @@ static int TryHandleConditional(char * b, int i, int usedLength[1])
 
     int condition = 0;
     int tagEnd = i;
-
-    // Determine which IF type
-    if (b[i + 3] == 'F') // ifFlag
-    {
-        int flag = ParseNumberHex(b, i + 7, 3);
-        condition = CheckFlag(flag);
-    }
-    else if (b[i + 3] == 'A') // ifAlive
-    {
-        int charId = ParseNumberHex(b, i + 8, 2);
-        condition = IsUnitAlive(charId);
-    }
-    else if (b[i + 3] == 'D') // ifDead
-    {
-        int charId = ParseNumberHex(b, i + 7, 2);
-        condition = IsUnitDead(charId);
-    }
-    else if (b[i + 3] == 'M') // ifMissing
-    {
-        int charId = ParseNumberHex(b, i + 10, 2);
-        condition = IsUnitMissing(charId);
-    }
-    else
-    {
-        return 0; // unknown tag
-    }
+    int negated = false;
+    int tagType = i + 3;
 
     // find closing bracket of opening tag
     while (b[tagEnd] && b[tagEnd] != '>')
@@ -360,6 +471,58 @@ static int TryHandleConditional(char * b, int i, int usedLength[1])
 
     if (!b[tagEnd])
         return 0;
+
+    if (b[tagType] == 'n')
+    {
+        negated = true;
+        tagType++;
+    }
+
+    // Determine which IF type
+    if (b[tagType] == 'F' && StringStartsAt(b, tagType, "Flag")) // ifFlag / ifnFlag
+    {
+        int flag = ParseNumberHex(b, tagType + 4, 3);
+        condition = CheckFlag(flag);
+    }
+    else if (b[tagType] == 'A' && StringStartsAt(b, tagType, "Alive")) // ifAlive / ifnAlive
+    {
+        int charId = ParseNumberHex(b, tagType + 5, 2);
+        condition = IsUnitAlive(charId);
+    }
+    else if (b[tagType] == 'D' && StringStartsAt(b, tagType, "Dead")) // ifDead / ifnDead
+    {
+        int charId = ParseNumberHex(b, tagType + 4, 2);
+        condition = IsUnitDead(charId);
+    }
+    else if (b[tagType] == 'M' && StringStartsAt(b, tagType, "Missing")) // ifMissing / ifnMissing
+    {
+        int charId = ParseNumberHex(b, tagType + 7, 2);
+        condition = IsUnitMissing(charId);
+    }
+    else if (b[tagType] == 'P' && StringStartsAt(b, tagType, "Protag")) // ifProtagXX / ifnProtagXX
+    {
+        int portraitId = ParseNumberHexRange(b, tagType + 6, tagEnd);
+        if (portraitId < 0)
+        {
+            return 0;
+        }
+        condition = IsProtagPortrait(portraitId);
+    }
+    else
+    {
+        int portraitId = GetProtagPortraitConditionalId(b, tagType, tagEnd);
+        if (portraitId < 0)
+        {
+            return 0; // unknown tag
+        }
+
+        condition = IsProtagPortrait(portraitId);
+    }
+
+    if (negated)
+    {
+        condition = !condition;
+    }
 
     tagEnd++; // include '>'
 

@@ -298,8 +298,58 @@ UNIT
 ALIGN 4 
 RedMug_Link:
 WORD RedAltMug 
+PikachuMug_Link:
+WORD PikachuMug
+FujiMug_Link:
+WORD FujiMug
+JoyMug_Link:
+WORD JoyMug
+JennyMug_Link:
+WORD JennyMug
+WardenMug_Link:
+WORD WardenMug
+AshMug_Link:
+WORD AshMug
+GaryMug_Link:
+WORD GaryMug
 LeafMug_Link:
 WORD LeafMug 
+OakMug_Link:
+WORD OakMug
+BillMug_Link:
+WORD BillMug
+JamesMug_Link:
+WORD JamesMug
+JessieMug_Link:
+WORD JessieMug
+BrockMug_Link:
+WORD BrockMug
+MistyMug_Link:
+WORD MistyMug
+LtSurgeMug_Link:
+WORD LtSurgeMug
+ErikaMug_Link:
+WORD ErikaMug
+KogaMug_Link:
+WORD KogaMug
+SabrinaMug_Link:
+WORD SabrinaMug
+BlaineMug_Link:
+WORD BlaineMug
+GiovanniMug_Link:
+WORD GiovanniMug
+LoreleiMug_Link:
+WORD LoreleiMug
+BrunoMug_Link:
+WORD BrunoMug
+AgathaMug_Link:
+WORD AgathaMug
+LanceMug_Link:
+WORD LanceMug
+VeslyMug_Link:
+WORD VeslyMug
+CheaterMug_Link:
+WORD CheaterMug
 
 AvatarPortraitId_Link:
 WORD AvatarPortraitId

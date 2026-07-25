@@ -11,6 +11,12 @@ WORD 1 // True
 // <ifAliveXX><endif> // replace XX for 01 for Eirika 
 // <ifDeadXX><endif>
 // <ifMissingXX><endif>
+// <ifProtagXX><endif> // replace XX with the avatar portrait ID in hex, e.g. B7 for Fuji
+// Add n after if to invert any conditional: <ifnFlagXXX>, <ifnAliveXX>, <ifnProtagXX>, <ifnFuji>, etc.
+// Avatar portrait shortcuts from ChallengeRunMenu's AvatarFIDTable:
+// <ifPikachu>, <ifFuji>, <ifJoy>, <ifJenny>, <ifWarden>, <ifAsh>, <ifGary>, <ifLeaf>, <ifOak>, <ifBill>,
+// <ifJames>, <ifJessie>, <ifBrock>, <ifMisty>, <ifLtSurge>, <ifErika>, <ifKoga>, <ifSabrina>, <ifBlaine>,
+// <ifGiovanni>, <ifLorelei>, <ifBruno>, <ifAgatha>, <ifLance>, <ifVesly>, <ifCheater>
 
 #ifndef TheyPronounFlag 
     #define TheyPronounFlag 0x114
@@ -23,8 +29,8 @@ WORD 1 // True
 #endif 
 
 
-#inctbl "fe8TR" "fe8_tr.tbl"
-#define tx(string2) STRING string2 "fe8TR"; BYTE 0 0; // fe8 version 
+#inctbl "fe8TR2" "fe8_tr.tbl"
+#define tx(string2) STRING string2 "fe8TR2"; BYTE 0 0; // fe8 version 
 // #define tx(characters) String(characters); BYTE 0 0 
 
 // Feel free to add more pronouns to ReplaceTextList if desired 
