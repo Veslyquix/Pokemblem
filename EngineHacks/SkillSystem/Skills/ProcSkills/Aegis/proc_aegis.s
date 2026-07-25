@@ -48,11 +48,7 @@ cmp r0, #0
 beq End
 @if skill found, check proc
 
-ldrb r0, [r5, #0x15] @skill stat as activation rate
-mov r1, r5 @skill user
-blh d100Result
-cmp r0, #1
-bne End
+
 
 @if we proc, set the defensive skill flag
 ldr     r2,[r6]    
@@ -74,8 +70,8 @@ str     r0,[r6]                @ 0802B43A 6018
 ldrb r0, AegisID
 strb r0, [r6,#4]
 
-@and set damage to 0
-mov r0, #0
+ldrh r0, [r7, #4] 
+lsr r0, #1 @ halve damage 
 strh r0, [r7, #4] @final damage
 
 End:

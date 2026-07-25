@@ -135,6 +135,7 @@ enum
     CR_TEXT_RULE_ENEMY_SKILLS,
     CR_TEXT_RULE_ENEMY_SKILLS_2,
     CR_TEXT_RULE_NUZLOCKE,
+    CR_TEXT_RULE_NUZLOCKE_2,
     CR_TEXT_COUNT,
 };
 
@@ -158,8 +159,8 @@ enum
 #define CR_BADGE_PIXEL_X (CR_BADGE_X * 8)
 #define CR_BADGE_PIXEL_Y ((CR_BADGE_Y * 8) + 2)
 #define CR_UIFRAME_BG 2
-#define CR_UIFRAME_TILE_ABS_BASE 0x200
-#define CR_UIFRAME_TILE_BASE 0
+#define CR_UIFRAME_TILE_ABS_BASE 0x2E0
+#define CR_UIFRAME_TILE_BASE 0xE0
 #define CR_UIFRAME_TILE_WIDTH 30
 #define CR_UIFRAME_TILE_HEIGHT 20
 #define CR_UIFRAME_PAL_SLOT 6
@@ -304,7 +305,7 @@ void DrawCR_Sprites(ChallengeRunProc * proc, int bg)
 void ClearLine(int);
 static const char * const ChallengeRunInfoText[CR_TEXT_COUNT] = {
     "Challenge Runs",
-    "Additional Rules",
+    "",
     "No additional restrictions.",
     "Cannot evolve Pokémon.",
     "Cannot capture certain Pokémon.",
@@ -314,6 +315,7 @@ static const char * const ChallengeRunInfoText[CR_TEXT_COUNT] = {
     "Enemies have random,",
     "powerful skills.",
     "Fainted Pokémon are released.",
+    "Not recommended.",
 };
 
 const char SpecialNames[CR_OPTION_COUNT][10] = {
@@ -699,6 +701,8 @@ void DrawAdditionalRulesText(ChallengeRunProc * proc)
     if (proc->nuzlocke)
     {
         DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_NUZLOCKE, y);
+        y += 2;
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_NUZLOCKE_2, y);
     }
 
     BG_EnableSyncByMask(BG_SYNC_BIT(0));

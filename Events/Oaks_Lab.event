@@ -259,6 +259,9 @@ ASMC 0x8015681 //LoadObjUIGfx
 ASMC 0x8026689 // RefreshUnitSprites 
 CHECK_EVENTID Route1Tutorial_A 
 BNE 100 sC s0 
+CHECK_EVENTID  RandomizeClassesFlag
+BNE 100 sC s0 // if on, skip tutorial 
+
 EVBIT_MODIFY 4 
 TutText(SkipLabTutorial) 
 SVAL s1 1 
@@ -951,7 +954,6 @@ ENDA
 
 NuzlockeMessage:
 Text(NuzlockeMessageText)
-ForceLunatic
 ENUT GrampsFlag
 ENUT NuzlockeFlag
 ENUF CasualModeFlag

@@ -147,8 +147,6 @@ Best of luck...[A][X]
 ## NuzlockeMessageText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. When units [ToggleRed]faint[ToggleRed],[NL]
 they're gone for good in this mode.[A][N]
-Additionally, the difficulty has[N]
-been set to Lunatic.[A][N]
 Best of luck...[A][X]
 
 

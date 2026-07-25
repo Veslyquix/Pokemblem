@@ -9,8 +9,16 @@ WORD CannotCaptureFlag
 
 ALIGN 4 
 PlusModeRandomSkills:
-BYTE CounterID CounterMagicID 
+// No Pass, as that's annoying 
+BYTE PaviseID AegisID LunaID 
+BYTE CounterID CounterMagicID DazzleID VantagePlusID
+BYTE TintedLensID MultiscaleID MiracleID GrislyWoundID 
+BYTE SavageBlowID SilphScopeID 
+BYTE WaryFighterID UnawareID FilterID 
+BYTE HustleID AnalyticID TechnicianID 
+BYTE Intimidate2ID GuardBreakerID DowngradeID 
 BYTE 0 // Terminator 
+//AssaultVestID TacticalVestID HawkeyeID
 
 ALIGN 4
 CR_TotalOptions:

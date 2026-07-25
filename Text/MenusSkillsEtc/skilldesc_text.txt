@@ -117,8 +117,7 @@ Bane: Leave the opponent at[N]
 (Skill/2 % activation)[X]
 
 ## SD_Luna
-Luna: Negates enemy defenses.[N]
-(Skill % activation)[X]
+Luna+: Negates enemy defenses.[X]
 
 ## SD_Sol
 Sol: Restore damage dealt as HP.[N]
@@ -163,12 +162,12 @@ Tomebreaker: +50 Hit/Avo when[N]
 enemy has a tome equipped.[X]
 
 ## SD_Aegis
-Aegis: Nullify a magic attack.[N]
-(Skill % activation)[X]
+Aegis+: Halve damage from[N]
+special attacks.[X]
 
 ## SD_Pavise
-Pavise: Nullify a physical attack.[N]
-(Skill % activation)[X]
+Pavise+: Halve damage from[N]
+physical attacks.[X]
 
 ## SD_DuelistsBlow
 Duelist's Blow: +30 Avo[N]

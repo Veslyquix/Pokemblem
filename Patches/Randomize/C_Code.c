@@ -3,7 +3,7 @@
 #define PUREFUNC __attribute__((pure))
 #define ARMFUNC __attribute__((target("arm")))
 int Div(int a, int b) PUREFUNC;
-int Mod(int a, int b) PUREFUNC;
+int Mod(int a, int b) PUREFUNC; // vanilla mod doesn't guard against div by 0, so be careful
 int DivArm(int b, int a) PUREFUNC;
 
 extern int SkillTester(struct Unit * unit, int SkillID);
@@ -110,6 +110,10 @@ u32 GetNthRN_Simple(int n, u32 seed, u32 currentRN)
 u16 HashByte_Global(int number, int max, int variance)
 {
     // Mix values without large multiplications
+    if (!max)
+    {
+        return 0;
+    }
 
     int offset = *StartTimeSeedRamLabel;
     offset ^= variance * 29;
@@ -126,7 +130,10 @@ u16 HashByte_Global(int number, int max, int variance)
 
 u8 HashByte_Ch(int number, int max, int variance)
 {
-
+    if (!max)
+    {
+        return 0;
+    }
     int offset = gPlaySt.chapterIndex;
     offset ^= variance * 29;
     offset ^= number * 37;
@@ -142,7 +149,10 @@ u8 HashByte_Ch(int number, int max, int variance)
 
 u16 HashShort_Ch(int number, int max, int variance)
 {
-
+    if (!max)
+    {
+        return 0;
+    }
     int offset = gPlaySt.chapterIndex;
     offset ^= variance * 29;
     offset ^= number * 37;

@@ -414,6 +414,7 @@ special effect.[X]
 Save and revive Pokémon by visiting[N]
 home or a Pokecenter.[N]
 [ToggleRed]There is no permadeath.[ToggleRed][N]
+(Tutorials can be turned off in Config.)[A][N]
             -Trainer's Tips[A][X]
 
 ## TrainerTip_Quicksave
@@ -494,12 +495,8 @@ be stat-screwed.[N]
         - Trainer's Tips.[A][X]
 
 ## TrainerTip_Zoning
-Attacks cannot miss in this game.[N]
-But they will sometimes deal a[N]
-glancing blow instead,[A][N]
-which deals half damage.[N]
-//Some enemies will [ToggleRed]ZONE[ToggleRed][N]
-//you out, avoiding combat.[N]
+Attacks can get Same Type Attack Bonus,[N]
+(STAB), which grants 50% more power.[N]
         - Trainer's Tips.[A][X]
 
 ## TrainerTip_Accessory
