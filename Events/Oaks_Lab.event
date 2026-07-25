@@ -139,7 +139,7 @@ LOAD1 1 ProtagUnitGroupMaleSelect
 LABEL 32 
 ASMC SetAvatarClass_ASMC
 ENUN 
-
+ENUT KidFlag // as a default 
 
 //SVAL s1 ProtagID 
 //SVAL s3 3 // up
@@ -571,12 +571,16 @@ CompareTactText(HiroName)BNE 3 rC r7CALL PlaytesterCommonMessageSVAL r2 Units
 CompareTactText(N426Name)BNE 4 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsN426|IsPointerGOTO 200Label 4
 CompareTactText(ZoramineName)BNE 5 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsZoramine|IsPointerGOTO 200Label 5
 CompareTactText(OakName)BNE 6 rC r7CALL OakMessageEventSVAL r2 UnitsOak|IsPointerGOTO 200Label 6
-CompareTactText(BillName)BNE 7 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsBill|IsPointerGOTO 200Label 7
+CompareTactText(BillName)BNE 7 rC r7CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlagSVAL r2 UnitsBill|IsPointerGOTO 200Label 7
 CompareTactText(AshName)BNE 8 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsAsh|IsPointerGOTO 200Label 8
 CompareTactText(RedName)BNE 9 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsRed|IsPointerGOTO 200Label 9
-CompareTactText(LanceName)BNE 10 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsLance|IsPointerGOTO 200Label 10
-CompareTactText(BrockName)BNE 11 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsBrock|IsPointerGOTO 200Label 11
-CompareTactText(MistyName)BNE 12 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsMisty|IsPointerGOTO 200Label 12
+CompareTactText(LanceName)BNE 10 rC r7CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlagSVAL r2 UnitsLance|IsPointerGOTO 200Label 10
+CompareTactText(BrockName)BNE 11 rC r7CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlagSVAL r2 UnitsBrock|IsPointerGOTO 200Label 11
+CompareTactText(MistyName)BNE 12 rC r7CALL ChallengeRunMessageNoCaptureEvent
+// ENUT ChickFlag // more of a kid, I guess SVAL r2 UnitsMisty|IsPointerGOTO 200Label 12
 CompareTactText(GaryName)BNE 13 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsGary|IsPointerGOTO 200Label 13
 CompareTactText(bpatName)BNE 14 rC r7CALL PlaytesterCommonMessageSVAL r2 Unitsbpat|IsPointerGOTO 200Label 14
 GOTO 15 
@@ -614,6 +618,7 @@ Label 21
 CompareTactText(LtSurgeName)
 BNE 22 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsLtSurge|IsPointer
 GOTO 200
 
@@ -621,6 +626,7 @@ Label 22
 CompareTactText(ErikaName)
 BNE 23 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT ChickFlag
 SVAL r2 UnitsErika|IsPointer
 GOTO 200
 
@@ -628,6 +634,7 @@ Label 23
 CompareTactText(KogaName)
 BNE 24 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsKoga|IsPointer
 GOTO 200
 
@@ -635,6 +642,7 @@ Label 24
 CompareTactText(SabrinaName)
 BNE 25 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT ChickFlag
 SVAL r2 UnitsSabrina|IsPointer
 GOTO 200
 
@@ -642,6 +650,7 @@ Label 25
 CompareTactText(BlaineName)
 BNE 26 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT GrampsFlag
 SVAL r2 UnitsBlaine|IsPointer
 GOTO 200
 
@@ -649,6 +658,7 @@ Label 26
 CompareTactText(GiovanniName)
 BNE 27 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsGiovanni|IsPointer
 GOTO 200
 
@@ -656,6 +666,7 @@ Label 27
 CompareTactText(LoreleiName)
 BNE 28 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT ChickFlag
 SVAL r2 UnitsLorelei|IsPointer
 GOTO 200
 
@@ -663,6 +674,7 @@ Label 28
 CompareTactText(BrunoName)
 BNE 29 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsBruno|IsPointer
 GOTO 200
 
@@ -670,6 +682,7 @@ Label 29
 CompareTactText(AgathaName)
 BNE 30 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT HagFlag
 SVAL r2 UnitsAgatha|IsPointer
 GOTO 200
 Label 30
@@ -859,12 +872,14 @@ Label 64
 CompareTactText(JessieName)
 BNE 65 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT ChickFlag
 SVAL r2 UnitsJessie|IsPointer
 
 Label 65
 CompareTactText(JamesName)
 BNE 66 rC r7
 CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsJames|IsPointer
 Label 66
 
@@ -886,6 +901,7 @@ ENDA
 
 OakMessageEvent:
 Text(OakMessageText)
+ENUT GrampsFlag
 ENUT CannotCaptureFlag
 ENUT Route1Tutorial_A
 NoFade
@@ -902,12 +918,14 @@ VoidMessage:
 Text(VoidMessageText)
 ForceLunatic
 ENUT WalkSlowlyFlag
+ENUT GrampsFlag
 ENUT Route1Tutorial_A
 NoFade
 ENDA
 
 ChaosMessage:
 Text(ChaosMessageText)
+ENUT ChickFlag
 ENUT RandomizeWeaponStatsFlag
 ENUT RandomizeClassesFlag
 ENUT RandomizeTrainerClassesFlag
@@ -924,6 +942,7 @@ ENDA
 PlusMessage:
 Text(PlusMessageText)
 ForceLunatic
+ENUT ChickFlag
 ENUT PlusFlag
 ENUT Route1Tutorial_A
 NoFade
@@ -933,6 +952,7 @@ ENDA
 NuzlockeMessage:
 Text(NuzlockeMessageText)
 ForceLunatic
+ENUT GrampsFlag
 ENUT NuzlockeFlag
 ENUF CasualModeFlag
 ENUT Route1Tutorial_A

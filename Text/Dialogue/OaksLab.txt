@@ -57,7 +57,7 @@ Error.[N]
 Please send report.[A][X]
 
 ## WhosTheKidText 
-[OpenFarLeft][LoadProtag][OpenMidRight][LoadOak][OpenLeft][LoadGaryShrug][OpenLeft]So who's the kid?[A][CloseSpeechSlow][OpenMidRight]This is [Tact], your new Neighbour.[A][NL]
+[OpenFarLeft][LoadProtag][OpenMidRight][LoadOak][OpenLeft][LoadGaryShrug][OpenLeft]So who's the <kid>?[A][CloseSpeechSlow][OpenMidRight]This is [Tact], your new Neighbour.[A][NL]
 I mentioned they were coming, [NL]
 remember?[A][NL]
 [OpenLeft]Tcch.[A][NL]

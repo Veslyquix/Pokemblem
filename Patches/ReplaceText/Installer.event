@@ -36,6 +36,11 @@ WORD 1 // True
 // Feel free to add more pronouns to ReplaceTextList if desired 
 ALIGN 4 
 ReplaceTextList:
+SHORT DudeFlag; BYTE 0xFF 0; POIN code_kid text_dude 
+SHORT ChickFlag; BYTE 0xFF 0; POIN code_kid text_chick 
+SHORT GrampsFlag; BYTE 0xFF 0; POIN code_kid text_gramps 
+SHORT HagFlag; BYTE 0xFF 0; POIN code_kid text_hag 
+SHORT KidFlag; BYTE 0xFF 0; POIN code_kid text_kid 
 // required flag, required chapter, pad, text to find, replacement text 
 // SHORT 0; 			BYTE 0xFF 		0; 	POIN TextA 			TextB 
 /* <they> / <They> 
@@ -114,6 +119,18 @@ WORD 0 0 0// terminator
 #include "Patches/FE8.lyn.event" 
 #include "Patches/FE8_asm.lyn.event" 
 
+code_kid: 
+tx("<kid>")
+text_kid:
+tx("kid")
+text_dude:
+tx("dude")
+text_chick:
+tx("chick")
+text_gramps:
+tx("grandpa")
+text_hag:
+tx("hag")
 
 code_they:
 tx("<they>")

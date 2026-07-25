@@ -451,6 +451,13 @@ String("V1.22.04             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define PlusFlag 0xF9 
 #define CheaterFlag 0xFA
 #define WalkSlowlyFlag 0xFB 
+#define KidFlag 0xFC 
+#define DudeFlag 0xFD 
+#define ChickFlag 0xFE 
+#define GrampsFlag 0x100
+#define HagFlag 0x101
+
+ 
 
 // New flags 0x12D - 0x22D or more even 
 #define VisitedViridianPokecenterFlag 0x12D 

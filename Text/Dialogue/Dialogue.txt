@@ -95,7 +95,7 @@ on it that reads:[A][N]
 “Tracking Clefable in Mt. Moon”.[A][X]
 
 ## SurgePowerPlantText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight]Yo! You lost, kid?[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight]Yo! You lost, <kid>?[A][N]
 We're workin' overtime here to[N]
 get the grid back online.[A][N]
 [ToggleSmile]Got a bunch o' Electrode helpin'[N]
@@ -1629,7 +1629,7 @@ It's so big, I may get lost.[A][X]
 ## MMB1_0xE4_BQ
 WHOA![N]
 You shocked me![A][N]
-...Oh, you're just a kid![A][X]
+...Oh, you're just a <kid>![A][X]
 
 ## MMB1_0xE4_BD
 Wow![N]
@@ -1689,14 +1689,14 @@ I blew it![A][X]
 
 ## MMB3_0xE2_BQ
 We're pulling a big job here![N]
-Get lost, kid.[A][X]
+Get lost, <kid>.[A][X]
 
 ## MMB3_0xE2_BD
 So, you are good...[A][X]
 
 
 ## MMB3_0xE3_BQ
-Little kids shouldn't be messing[N]
+Little <kid>s shouldn't be messing[N]
 around with us grown-ups![A][N]
 It could be bad news.[A][X]
 
@@ -1775,7 +1775,7 @@ That'll be 1,000,000[Gold]![A][X]
 ## CeruleanCityNWHouseText
 What? You just want some[N]
 candy from my backyard?[A][N]
-Listen, kid.[.....].[.....].[......][N]
+Listen, <kid>.[.....].[.....].[......][N]
 You seem nice.[A][N]
 But you shouldn't be[N]
 entering people's yards.[A][N]
@@ -1971,7 +1971,7 @@ ravishing...[A][N]
 I've talked far too much![A][N]
 Tell me about yourself![A][N]
 Hmm? You just want a Bike voucher?[A][N]
-Hah, sure, kid. Let me also write up[N]
+Hah, sure, <kid>. Let me also write up[N]
 a cheque for you to buy a car.[A][N]
 Fat chance. Now go away.[A][X]
 
@@ -2165,7 +2165,7 @@ After all my training![A][X]
 	
 
 ## RTB1_0xE0_BQ
-This tunnel goes a long way, kid![A][X]
+This tunnel goes a long way, <kid>![A][X]
 
 ## RTB1_0xE0_BD
 Doh![N]
@@ -2396,7 +2396,7 @@ But GYARADOS is great.[A][X]
 
 ## R12N_0xE3_BQ
 The FISHING FOOL versus[N]
-Pokémon KID![A][X]
+Pokémon <kid>![A][X]
 ## R12N_0xE3_BD
 Touch too much![A][X]
 
@@ -2596,7 +2596,7 @@ catching Pokémon.[A][X]
 ## FuschiaSEHouseAText
 Hmm? Gold Teeth?[N]
 Strength? Rare candy?[A][N]
-Slow down, kid.[A][N]
+Slow down, <kid>.[A][N]
 I ain't got any of that[N]
 stuff for ya, sorry.[A][N]
 What, did you think it[N]
@@ -2654,7 +2654,7 @@ Watch out for Scyther![A][X]
 
 ## WardenAText
 [OpenFarRight][LoadWarden][OpenRight][LoadGun][OpenFarRight]Halt! Who goes there![A][N]
-[OpenMidLeft][LoadProtag][OpenFarRight]Hm? A kid, eh?[A][N]
+[OpenMidLeft][LoadProtag][OpenFarRight]Hm? A <kid>, eh?[A][N]
 //It's my second amendment[N]
 //right, afterall.[A][N]
 What? The Kanto region's in Japan?[N]
@@ -2664,7 +2664,7 @@ On TV, I can't point this at you...[.....][N]
 some crap about being “too intense”.[A][N]
 They cut my whole episode![N]
 Banned outside Asia![A][N]
-But guess what, kid?[N]
+But guess what, <kid>?[N]
 I'm still here.[A][N]
 This ain't no watered-down remake.[N]
 This is the real deal.[A][N]
@@ -2678,7 +2678,7 @@ Just think of the boulder as a threat,[N]
 and your guns as the law.[A][N]
 Boom. Problem solved![A][N]
 There. Now you know Rock Smash.[A][N]
-Good. Now scram, kid.[A][N]
+Good. Now scram, <kid>.[A][N]
 If the cameras catch me again,[N]
 we'll BOTH get pulled off the air.[A][X]
 //A man's gotta enjoy the quiet,[N]
@@ -2750,12 +2750,12 @@ Don't make me mad![A][X]
 	
 ## R17N_0xE1_BQ
 There's no getting rich[N]
-quick in battling kids.[A][X]
+quick in battling <kid>s.[A][X]
 ## R17N_0xE1_BD
 Burned out![A][X]
 ## R17N_0xE2_BQ
 I'm mighty proud of my[N]
-crew, kiddo. Come on![A][X]
+crew, <kid>. Come on![A][X]
 ## R17N_0xE2_BD
 Whoo![A][X]
 ## R17N_0xE3_BQ
@@ -3150,7 +3150,7 @@ You feel drained...[A][X]
 // 11 rockets, 3 scientists 
 
 ## SilphCo_2F_0xE0_BQ
-No kids are allowed in here![A][X]
+No <kid>s are allowed in here![A][X]
 
 ## SilphCo_2F_0xE0_BD
 Tough![A][X]
@@ -3163,7 +3163,7 @@ Go home![A][X]
 You're good.[A][X]
 
 ## SilphCo_2F_0xE2_BQ
-Quit messing with us, kid![A][X]
+Quit messing with us, <kid>![A][X]
 
 ## SilphCo_2F_0xE2_BD
 I give up![A][X]
@@ -3218,7 +3218,7 @@ something more interesting...[A][X]
 
 
 ## SilphCo_3F_0xE3_BQ
-I heard a kid was wandering[N]
+I heard a <kid> was wandering[N]
 around.[A][X]
 
 ## SilphCo_3F_0xE3_BD
@@ -3349,13 +3349,13 @@ Clear the way, or I'll[N]
 run you down![A][X]
 
 ## R8_0xE2_BD
-You for real, kid?[A][X]
+You for real, <kid>?[A][X]
 
 
 
 ## R8_0xE3_BQ
 You think you're special,[N]
-kid?[A][X]
+<kid>?[A][X]
 	
 ## R8_0xE3_BD
 Tcch.[......] I got grass caught[N]
@@ -3656,7 +3656,7 @@ You should take a quick rest.[A][X]
 ## MomViridianText
 [OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]Did you reach Viridian City safely?[N]
 Oh, my little [Tact] is all grown up...[A][N]
-[ToggleSmile]All kids leave home some day.[N]
+[ToggleSmile]All <kid>s leave home some day.[N]
 It said so on TV.[A][N]
 [ToggleSmile]It feels like just yesterday you were playing[N]
 with Poké Dolls in the living room.[A][N]
@@ -3709,7 +3709,7 @@ for me?[A][X]
 ## VRB1_0xE0_BD
 I lost out...[N]
 I never wanted to lose to anybody,[N]
-especially to a younger kid...[A][X]
+especially to a <kid>...[A][X]
 
 
 ## VRB1_0xE1_BQ // bug catcher 
@@ -4130,7 +4130,7 @@ Cadets are to report to the training[N]
 grounds at 0600 hours![A][N]
 Huh? You're here to fight?[N]
 [ToggleSmile]Ha ha ha! Good luck![A][N]
-I tell you, kid, electric Pokémon[N]
+I tell you, <kid>, electric Pokémon[N]
 saved me during the war![A][N]
 They zapped my enemies into[N]
 paralysis![A][N]
@@ -4143,7 +4143,7 @@ It mighta been a fluke,[N]
 but rules are rules...[A][X]
 
 ## LtSurgeWaitText
-[OpenMidRight][LoadLtSurge][OpenMidRight]Hold up, kid.[N]
+[OpenMidRight][LoadLtSurge][OpenMidRight]Hold up, <kid>.[N]
 Take this![A][X]
 
 ## LtSurgeRewardText
