@@ -656,7 +656,6 @@ GOTO 1
 LABEL 0 
 LOAD1 1 ProtagUnitGroupMale 
 LABEL 1 
-ASMC SetAvatarClass_ASMC
 ENUN 
 ASMC GiveRepelsToProtag // breaks supply atm 
 
@@ -679,6 +678,7 @@ MOVENEXTTO 	(-1) ProtagID 0xFD
 ENUN 
 CAM1 0xFD 
 DISA 0xFD 
+ASMC SetAvatarClass_ASMC // needs to happen after coords to not Surf in certain places 
 UNCR(ProtagID, 0x0D)
 SET_ACTIVE ProtagID
 
