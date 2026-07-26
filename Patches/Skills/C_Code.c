@@ -2043,3 +2043,43 @@ int GetUnitsHighestStat(struct Unit * unit)
     }
     return highest;
 }
+
+extern int LunaID_Link;
+void LunaEffect2(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (SkillTester(&bunitA->unit, LunaID_Link))
+    {
+        if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        {
+            bunitB->battleDefense = 0;
+        }
+    }
+}
+extern int PaviseID_Link;
+void PaviseEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (SkillTester(&bunitB->unit, PaviseID_Link))
+    {
+        if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        {
+            if (!(bunitA->weaponAttributes & IA_MAGIC))
+            { // melee
+                AdjustDamageByPercent(bunitA, bunitB, 50);
+            }
+        }
+    }
+}
+extern int AegisID_Link;
+void AegisEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (SkillTester(&bunitB->unit, AegisID_Link))
+    {
+        if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        {
+            if ((bunitA->weaponAttributes & IA_MAGIC))
+            { // melee
+                AdjustDamageByPercent(bunitA, bunitB, 50);
+            }
+        }
+    }
+}

@@ -4,6 +4,12 @@ SwarmID_Link:
 WORD SwarmID
 FlankID_Link:
 WORD FlankID
+LunaID_Link:
+WORD LunaID 
+PaviseID_Link:
+WORD PaviseID 
+AegisID_Link:
+WORD AegisID 
 SwarmBonusDamagePercent:
 WORD 100
 FlankBonusDamagePercent:

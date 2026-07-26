@@ -12,10 +12,10 @@ PlusModeRandomSkills:
 // No Pass, as that's annoying 
 BYTE PaviseID AegisID LunaID 
 BYTE CounterID CounterMagicID DazzleID VantagePlusID
-BYTE TintedLensID MultiscaleID MiracleID GrislyWoundID 
-BYTE SavageBlowID SilphScopeID 
-BYTE WaryFighterID UnawareID FilterID 
-BYTE HustleID AnalyticID TechnicianID 
+BYTE TintedLensID MiracleID GrislyWoundID 
+BYTE WaryFighterID  
+// BYTE HustleID AnalyticID TechnicianID SilphScopeID SavageBlowID
+//MultiscaleID UnawareID FilterID
 BYTE Intimidate2ID GuardBreakerID DowngradeID 
 BYTE 0 // Terminator 
 //AssaultVestID TacticalVestID HawkeyeID
