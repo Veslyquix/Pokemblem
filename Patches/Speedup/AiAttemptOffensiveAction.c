@@ -41,6 +41,7 @@ extern u8 * SelectedSpell_Link;
 // WARNING: Barricade normally sets r11 to 0 despite not pushing / popping r11
 // Please comment out asm("mov r11, r0"); from EngineHacks\Necessary\CalcLoops\CanUnitDoubleCalcLoop and make
 // can break at start and end of 8039858
+extern u32 ProvokeBitflag;
 s8 AiAttemptOffensiveAction(s8 (*isEnemy)(struct Unit * unit))
 {
     // asm("mov r11, r11");
@@ -156,6 +157,10 @@ s8 AiAttemptOffensiveAction(s8 (*isEnemy)(struct Unit * unit))
 #ifdef USE_CLOSEST_TARGET
 
         currDist = abs(unit->xPos - xPos) + abs(unit->yPos - yPos);
+        if (unit->state & ProvokeBitflag) // for taunt
+        {
+            currDist = 0;
+        }
         if (actorUID < 0xA0)
         {
             if (currDist >= bestDist)
@@ -163,6 +168,7 @@ s8 AiAttemptOffensiveAction(s8 (*isEnemy)(struct Unit * unit))
                 continue;
             }
         }
+
 #endif
 
         if (!isEnemy(unit))

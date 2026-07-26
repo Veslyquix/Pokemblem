@@ -12,7 +12,7 @@ PewterGym: RockTomb, RecklessRockSS, DryingPanAccessory
 Route3: 1150g, ParagonSS, DoubleHit
 Route4W: 450g
 MtMoonB1: EscapeRope, OldScopeAccessory, RareCandy, DrySkinSS, WaterGun, 650g
-MtMoonB2: Harden, Iron 
+MtMoonB2: Taunt, Iron 
 MtMoonB3: BronzeShieldAccessory, RockyHelmetAccessory, ShellArmorSS, KarateChop
 Route4E: 450g, SniperSS, BerserkGeneAccessory, PoisonPowder, MoonStone(Cut)
 CeruleanCity: WardingStance

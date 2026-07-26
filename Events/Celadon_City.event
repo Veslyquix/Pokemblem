@@ -163,7 +163,7 @@ BYTE SkillScroll MultiscaleID SkillScroll TintedLensID SkillScroll AdaptabilityI
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
 BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
-BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll WaterGun SpellScroll Taunt SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
 BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
 BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
 BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll Screech SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
@@ -477,12 +477,12 @@ BYTE $00; ALIGN 4
 
 ALIGN 4
 ShopItems_B: // TMs CDs 
-BYTE SpellScroll Screech SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
+BYTE SpellScroll Screech SpellScroll Taunt SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
 BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick
 BYTE SpellScroll BubbleBeam SpellScroll MudBomb SpellScroll DrillPeck
 BYTE SpellScroll HealPulse SpellScroll RockSlide SpellScroll Dragonbreath
 BYTE SpellScroll Psybeam SpellScroll BugBite SpellScroll PoisonJab 
-BYTE SpellScroll LeafBlade
+BYTE SpellScroll LeafBlade 
 BYTE $00; ALIGN 4
 
 ALIGN 4 

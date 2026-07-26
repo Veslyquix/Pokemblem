@@ -1,0 +1,36 @@
+NAME=Menu ＣＣコマンド 上位クラスへ昇格させる(Editor)
+NAME.en=Menu ProvokeCommand Provoke enemies into attacking(Editor)
+NAME.zh=Menu ProvokeCommand Provoke enemies into attacking(Editor)
+TYPE=STRUCT
+TAG=#ENGINE
+
+IF:$FGREP4 ProvokeUsabilityFEBuilder.dmp=0x00 0xB5 0x2D 0x1C 0x24 0x1C 0x07 0x4B 0x9E 0x46 0x00 0xF8 0xC9 0x46 0x08 0xBC
+
+AUTHOR=Vesly https://feuniverse.us/t/veslys-asm-c/12011/373
+
+
+INFO=Units matching all criteria will have the Provoke command.
+INFO.en=Units matching all criteria will have the Provoke command.
+.
+INFO.zh=Units matching all criteria will have the Provoke command.
+.
+
+
+POINTER=$FGREP4END ProvokeUsabilityFEBuilder.dmp
+
+//データサイズ(10進数)
+DATASIZE=8
+
+//データ個数 ff が出てくるまで
+DATACOUNT=$GREP8 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff
+
+LISTNAME=$B0:UNIT
+
+//データを定義します
+B0:UNIT=Unit(00=ANY)
+B1:CLASS=Class(00=ANY)
+W2:FLAG=Flag(00=ANY)
+W4:ITEM=Item(00=ANY)
+B6:DECIMAL=Required LV >=
+B7:MAPID=MAPID(FF=ANY)
+

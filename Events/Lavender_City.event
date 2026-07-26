@@ -139,7 +139,7 @@ BYTE SkillScroll PoisonTouchID SkillScroll ScrappyID SkillScroll TechnicianID
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
 BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
-BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll WaterGun SpellScroll Taunt SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
 BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
 BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
 BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll ShadowPunch SpellScroll MudBomb
@@ -293,7 +293,7 @@ BYTE EscapeRope 1
 BYTE WarpCrystal 1
 BYTE SkillAccShop(PridefulWarriorID)
 BYTE SkillAccShop(ThickClubSkillID)
-BYTE SpellScroll MagicalLeaf SpellScroll Scorch SpellScroll Dig 
+BYTE SpellScroll MagicalLeaf SpellScroll Scorch SpellScroll Dig SpellScroll Taunt
 BYTE SpellScroll SignalBeam SpellScroll MegaPunch SpellScroll BodySlam
 BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick
 BYTE SpellScroll BubbleBeam SpellScroll MudBomb // 20

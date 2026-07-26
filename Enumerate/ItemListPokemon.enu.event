@@ -135,7 +135,7 @@
 #define ThunderPunch 0x87
 #define SacredStone 0x88
 #define MetisTome2 0x89
-#define Dummy17 0x8A
+#define Taunt 0x8A
 #define Thundershock 0x8B
 #define Latona2 0x8C
 #define Thunderbolt 0x8D

@@ -17,6 +17,11 @@ Teleport to your last[N]
 visited Pokécenter[N]
 via the Travel command.[X]
 
+## TauntName
+Taunt[X]
+## TauntDesc
+Aggro nearby enemies.[X]
+
 ## SaddleName
 Saddle[X]
 

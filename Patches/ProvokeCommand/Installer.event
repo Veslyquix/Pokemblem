@@ -1,0 +1,114 @@
+
+// #define OVERWRITE_MAP_EMOTION_PATCH 
+
+#include "EAstdlib.event"
+// Thanks to Mokha for the updated fe-clib! 
+#ifndef callHackNew 
+	#define callHackNew(offset) 		"BYTE $01 $4B $9E $46 $00 $F8 $01 $E0; POIN (offset|0x1); PROTECT CURRENTOFFSET-12 CURRENTOFFSET-1"
+#endif 
+#include "C_Code.lyn.event" 
+
+ALIGN 4 
+ProvokeBitflag: // Unit state bitflag to use 
+WORD 1<<29 
+
+#ifndef FEBUILDER_EXTRA_ORG 
+// MESSAGE "don't use INSERT EA for this, copy into patches folder"
+    // copy this for buildfile 
+    // MenuCommand(UM_ProvokeName, UM_ProvokeDesc, 0, ProvokeUsability, ProvokeEffect) 
+// MESSAGE "don't use INSERT EA for this, copy into patches folder"
+#endif 
+
+
+#define ProvokeEntry(charID, classID, requiredFlag, requiredEquip, requiredLevel, requiredMove) "BYTE charID classID; SHORT requiredFlag requiredEquip; BYTE requiredLevel requiredMove" 
+
+ALIGN 4 
+ProvokeUsabilityList: 
+// char, class, reqFlag, reqEquip, reqLevel
+
+ProvokeEntry(0, 0, 0, 0, 0, Taunt) // Amelia 
+// ProvokeEntry(0, 6, 0, 0, 0) // Cavalier 
+// ProvokeEntry(0, 0, 0x8, 0, 0) // Flag 0x8  
+// ProvokeEntry(0, 0, 0, 1, 0) // IronSword 
+// ProvokeEntry(0, 0, 0, 0x6C, 0) // Vulnerary 
+// ProvokeEntry(0x12, 0, 0, 0, 12) // Amelia at level 12+  
+WORD 0xFFFFFFFF 0xFFFFFFFF // Terminator 
+
+
+
+ALIGN 4 
+ProvokeCommandHook:
+#incbin "ProvokeHook.dmp" 
+POIN ProvokeUsabilityList
+POIN ProvokeTest
+
+ALIGN 4 
+ProvokeUsabilityFEBuilder:
+#incbin "ProvokeUsabilityFEBuilder.dmp" 
+POIN ProvokeUsabilityList
+POIN ProvokeUsability
+
+#define Emoticon(Graphic) "BYTE $4B $0D $00 Graphic;  POIN Show_map_emotion_Install|1"
+ALIGN 4 
+EventScr_ShowProvokeEmoticon: 
+CHECK_COORDS (-1) 
+SADD sB sC s0 
+Emoticon(11)
+NoFade 
+ENDA 
+
+#ifdef FEBUILDER_EXTRA_ORG
+#define setText(textID, offset) "PUSH; ORG (TextTable+4*textID); POIN (offset|0x80000000); POP"
+
+#define UM_ProvokeName 0xfe0
+#define UM_ProvokeDesc 0xfe1
+#define UM_ProvokeHelp 0xfe2
+
+ProvokeNameText:
+String(" Provoke"); BYTE 0 
+ProvokeDescText:
+String("Aggro nearby enemies."); BYTE 0 
+ProvokeHelpText:
+String("Use to attract attacks."); BYTE 0 
+
+setText(UM_ProvokeName, ProvokeNameText) 
+setText(UM_ProvokeDesc, ProvokeDescText) 
+setText(UM_ProvokeHelp, ProvokeHelpText) 
+
+PUSH
+ORG	FEBUILDER_EXTRA_ORG	//FEBuilderGBAで確保したメニュー領域に追加
+POIN	ProvokeNameText
+SHORT	UM_ProvokeName UM_ProvokeDesc		//右がヘルプ指定
+SHORT	$6300 0
+POIN	ProvokeUsability
+POIN	0
+POIN	ProvokeEffect
+WORD	0 0 0
+POP
+#endif 
+
+
+
+
+PUSH 
+
+//Provoke
+ORG $3DF40
+SHORT 0x2132 0xE018 // fix provoke not working when skill holder can die
+
+ORG $3DF78
+callHackNew(ProvokeCommandHook|1)
+SHORT $46c0 
+
+ORG $15412 
+SHORT $46C0 
+callHackNew(ProvokeSwitchPhaseHook) 
+SHORT $46c0 
+
+
+POP 
+
+
+
+
+

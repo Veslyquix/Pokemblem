@@ -154,7 +154,7 @@ BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
 BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
-BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll WaterGun SpellScroll Taunt SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
 BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
 BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
 BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll Screech SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
@@ -339,7 +339,7 @@ BYTE SuperPotion 5
 BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
-BYTE SpellScroll Screech 
+BYTE SpellScroll Screech SpellScroll Taunt
 BYTE SpellScroll SignalBeam SpellScroll RockSlide
 BYTE SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
 BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick

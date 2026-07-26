@@ -1133,9 +1133,10 @@ MeowthLearnset:
 BYTE 1 Scratch 
 BYTE 1 Growl 
 BYTE 6 Bite 
-BYTE 9 PayDay
+BYTE 9 FuryCutter
 BYTE 12 HoneClaws
-BYTE 14 FuryCutter
+BYTE 14 PayDay
+BYTE 15 Taunt 
 BYTE 17 Slash
 BYTE 20 Screech
 BYTE 22 Dig
@@ -2790,6 +2791,7 @@ BYTE 0 0
 ALIGN 4
 MagikarpLearnset:
 BYTE 1 Splash
+BYTE 5 Taunt 
 BYTE 10 Leer
 BYTE 15 Tackle
 BYTE 21 WaterPulse
@@ -2809,6 +2811,7 @@ BYTE 0 0
 ALIGN 4
 GyaradosLearnset:
 BYTE 1 Splash
+BYTE 5 Taunt 
 BYTE 10 Leer
 BYTE 15 Tackle
 BYTE 21 WaterPulse

@@ -143,7 +143,7 @@ BYTE SpellScroll WaterGun
 BYTE ExoticCandy 1
 BYTE StatAccessory EnergyBand_BoostIndex
 BYTE Iron 1
-BYTE SpellScroll Harden
+BYTE SpellScroll Taunt
 BYTE StatAccessory BronzeShield_BoostIndex
 BYTE SkillAcc(RockyHelmetSkillID)
 BYTE SkillScroll ShellArmorID
@@ -433,7 +433,7 @@ BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
 BYTE SpellScroll Leer SpellScroll Bite SpellScroll MudShot SpellScroll IcyWind
-BYTE SpellScroll AttackPulse
+BYTE SpellScroll AttackPulse SpellScroll Taunt
 BYTE SpellScroll DoubleHit SpellScroll SignalBeam SpellScroll MagicalLeaf 
 BYTE SpellScroll LeechLife SpellScroll Magnitude SpellScroll KarateChop // 19
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir

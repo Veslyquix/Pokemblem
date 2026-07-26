@@ -594,24 +594,27 @@ void SoarProjectCoin(SoarProc *CurrentProc) {
   }
 
   int yaw = CurrentProc->sPlayerYaw & 0xF;
-  int rightYaw = (yaw + 4) & 0xF;
   int relX = CurrentProc->coinX - CurrentProc->sPlayerPosX;
   int relY = CurrentProc->coinY - CurrentProc->sPlayerPosY;
-  int forward =
-      ((relX * cam_pivot_dx_Angles[yaw]) + (relY * cam_pivot_dy_Angles[yaw])) >>
-      6;
-  int lateral = ((relX * cam_pivot_dx_Angles[rightYaw]) +
-                 (relY * cam_pivot_dy_Angles[rightYaw])) >>
-                6;
+  int tangent = (yaw + 4) & 0xF;
+  int leftX = pleftmatrix[yaw][256];
+  int leftY = pleftmatrix[(-yaw) & 0xF][256];
+  int rightX = pleftmatrix[tangent][256];
+  int rightY = pleftmatrix[(-tangent) & 0xF][256];
+  int determinant = (leftX * rightY) - (leftY * rightX);
+  int leftWeight = (relX * rightY) - (relY * rightX);
+  int rightWeight = (leftX * relY) - (leftY * relX);
+  int depthWeight = leftWeight + rightWeight;
 
-  if ((forward <= 4) || (forward > 512)) {
+  if ((determinant <= 0) || (depthWeight <= 0)) {
     *CoinScreenX = -1;
     *CoinScreenY = -1;
     return;
   }
 
-  int column = 64 + Div(lateral << 6, forward);
-  int zdist = forward + (forward >> 2) + (forward >> 3) + (forward >> 5);
+  // This is the inverse of the plane interpolation in Render_arm.
+  int column = Div(rightWeight * 128, depthWeight) - 1;
+  int zdist = Div(depthWeight * 256, determinant);
 
   if ((column < -32) || (column > 160) || (zdist <= 0) || (zdist > 510)) {
     *CoinScreenX = -1;
@@ -628,13 +631,37 @@ void SoarProjectCoin(SoarProc *CurrentProc) {
   int screenX = 48 + column;
   int screenY = 136 - hosTables[CurrentProc->sPlayerStepZ][zIndex][coinHeight];
 
+  // Keep the coin's ground contact attached to the Mode 5 world while its
+  // affine transform is tilted during turns or shifted by the flying bob.
+  int anchorX = screenX + 16;
+  int anchorY = screenY + 28;
+  int sourceX = 0x9e40 - (244 * anchorY);
+  int sourceY = 0x180 + (133 * anchorX);
+  int pa = (s16)g_REG_BG2PA;
+  int pb = (s16)g_REG_BG2PB;
+  int pc = (s16)g_REG_BG2PC;
+  int pd = (s16)g_REG_BG2PD;
+  int affineDeterminant = (pa * pd) - (pb * pc);
+
+  if (affineDeterminant != 0) {
+    int sourceDeltaX = sourceX - (int)g_REG_BG2X;
+    int sourceDeltaY = sourceY - (int)g_REG_BG2Y;
+    int transformedX =
+        Div((sourceDeltaX * pd) - (pb * sourceDeltaY), affineDeterminant);
+    int transformedY =
+        Div((pa * sourceDeltaY) - (sourceDeltaX * pc), affineDeterminant);
+
+    screenX = transformedX - 16;
+    screenY = transformedY - 28;
+  }
+
   *CoinScreenX = screenX;
   *CoinScreenY = screenY;
 
 #ifdef COIN_DEBUG
   if (CoinCalibEnabled) {
-    CoinCalibData[15] = forward;
-    CoinCalibData[16] = lateral;
+    CoinCalibData[15] = zdist;
+    CoinCalibData[16] = rightWeight;
     CoinCalibData[17] = column;
     CoinCalibData[18] = zdist;
     CoinCalibData[19] = screenX;
