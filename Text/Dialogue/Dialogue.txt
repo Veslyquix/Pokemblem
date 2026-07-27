@@ -1651,7 +1651,7 @@ It's so big, I may get lost.[A][X]
 ## MMB1_0xE4_BQ
 WHOA![N]
 You shocked me![A][N]
-...Oh, you're just a <kid>![A][X]
+...Oh, you're just <a kid>![A][X]
 
 ## MMB1_0xE4_BD
 Wow![N]
@@ -1718,7 +1718,7 @@ So, you are good...[A][X]
 
 
 ## MMB3_0xE3_BQ
-Little <kid>s shouldn't be messing[N]
+Insignificant <kids> shouldn't be messing[N]
 around with us grown-ups![A][N]
 It could be bad news.[A][X]
 
@@ -2082,7 +2082,7 @@ You insolent pup![N]
 How dare you barge in![A][X]
 
 ## SSA_0xE3_BD
-Humph! You rude child![N]
+Humph! You rude <child>![N]
 You have no sense of courtesy![A][X]
 	
 	
@@ -2694,7 +2694,7 @@ and your guns as the law.[A][N]
 Boom. Problem solved![A][N]
 There. Now you know Rock Smash.[A][N]<endif>
 <ifnWarden>Halt! Who goes there![A][N]
-[OpenMidLeft][LoadProtag][OpenFarRight]Hm? A <kid>, eh?[A][N]
+[OpenMidLeft][LoadProtag][OpenFarRight]Hm? <a kid>, eh?[A][N]
 What? The Kanto region's in Japan?[N]
 With gun laws?[A][N]
 Nonsense, this is 'merica.[A][N]
@@ -2788,7 +2788,7 @@ Don't make me mad![A][X]
 	
 ## R17N_0xE1_BQ
 There's no getting rich[N]
-quick in battling <kid>s.[A][X]
+quick in battling <kids>.[A][X]
 ## R17N_0xE1_BD
 Burned out![A][X]
 ## R17N_0xE2_BQ
@@ -3188,7 +3188,7 @@ You feel drained...[A][X]
 // 11 rockets, 3 scientists 
 
 ## SilphCo_2F_0xE0_BQ
-No <kid>s are allowed in here![A][X]
+No <kids> are allowed in here![A][X]
 
 ## SilphCo_2F_0xE0_BD
 Tough![A][X]
@@ -3220,8 +3220,8 @@ Lock this floor down![A][X]
 Arrgh![A][X]
 
 ## SilphCo_2F_0xE5_BQ
-There shouldn't be any[N]
-children here![A][X]
+There shouldn't be[N]
+<a child> here![A][X]
 
 ## SilphCo_2F_0xE5_BD
 Oh, goodness![A][X]
@@ -3256,7 +3256,7 @@ something more interesting...[A][X]
 
 
 ## SilphCo_3F_0xE3_BQ
-I heard a <kid> was wandering[N]
+I heard <a kid> was wandering[N]
 around.[A][X]
 
 ## SilphCo_3F_0xE3_BD
@@ -3270,7 +3270,7 @@ I smell a little mouse![A][X]
 Lights out![A][X]
 
 ## SilphCo_4F_0xE0_BQ
-A child intruder?[N]
+<a child> intruder?[N]
 That must be you![A][X]
 
 ## SilphCo_4F_0xE0_BD
@@ -3694,7 +3694,7 @@ You should take a quick rest.[A][X]
 ## MomViridianText
 [OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]Did you reach Viridian City safely?[N]
 Oh, my little [Tact] is all grown up...[A][N]
-[ToggleSmile]All <kid>s leave home some day.[N]
+[ToggleSmile]All <kids> leave home some day.[N]
 It said so on TV.[A][N]
 [ToggleSmile]It feels like just yesterday you were playing[N]
 with Poké Dolls in the living room.[A][N]
@@ -3747,7 +3747,7 @@ for me?[A][X]
 ## VRB1_0xE0_BD
 I lost out...[N]
 I never wanted to lose to anybody,[N]
-especially to a <kid>...[A][X]
+especially to <a kid>...[A][X]
 
 
 ## VRB1_0xE1_BQ // bug catcher 
@@ -3820,7 +3820,7 @@ challenge here and go home.[A][X]
 
 
 ## VRB3_0xE1_BQ 
-I heard rumors of a child prodigy.[A][X]
+I heard rumors of <a child> prodigy.[A][X]
 
 ## VRB3_0xE1_BD
 The rumors were true![N]
@@ -3977,7 +3977,7 @@ At least you chose[N]
 someone with standards.[A][N]
 Now prove there's bite[N]
 behind that old glare.[A]<endif><ifnAgatha>I am Agatha of the Elite Four.[A][N]
-[ToggleSmile]I hear Oak's been using you, child.[A][N]
+[ToggleSmile]I hear Oak's been using you, <child>.[A][N]
 Sending you on errands, collecting[N]
 your Pokédex research.[A][N]
 [ToggleSmile]Does he even pay you?[A][N]
@@ -4000,7 +4000,7 @@ duff does not care about you.[A][N]
 He used me, and he's[N]
 using you, too.[A][N]
 I have nothing else to say.[N]
-Run along now, child![A][X]
+Run along now, <child>![A][X]
 
 ## AgathaTalkText
 Hmpf. The old[N]
@@ -4008,7 +4008,7 @@ duff does not care about you.[A][N]
 He used me, and he's[N]
 using you, too.[A][N]
 I have nothing else to say.[N]
-Run along now, child![A][X]
+Run along now, <child>![A][X]
 	
 
 ## LanceChallengeText
@@ -4232,24 +4232,23 @@ you on the force.[A][X]
 
 
 ## KogaChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]<ifKoga>The mask looks back.[N][A]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]<ifKoga>The mask looks back.[A][N]
 My shadow wears my face.[A][N]
 How very curious.[A][N]
 [ToggleSmile]Fwahahaha! Ha![A][N]
-An impostor? A double?[N][A]
+An impostor? A double?[A][N]
 Or poison in human form?[A][N]
-If you are Koga too,[N][A]
+If you are Koga too,[A][N]
 then vanish as I vanish.[A][N]
-Strike before I strike![A]<endif><ifnKoga>The pale moon grows dim.[N][A]
+Strike before I strike![A]<endif><ifnKoga>The pale moon grows dim.[A][N]
 Shadows gather on my stage.[A][N]
-A child enters.[A][N]
+<a child> enters.[A][N]
 [ToggleSmile]Fwahahaha! Ha![A][N]
-I am Koga, shadow lord,[N][A]
+I am Koga, shadow lord,[A][N]
 master of poison![A][N]
-Footsteps make no sound.[N][A]
-Venom blooms beneath your feet.[N][A]
-Bow before the dark![A]
-<endif>[X]
+Footsteps make no sound.[A][N]
+Venom blooms beneath your feet.[A][N]
+Bow before the dark![A]<endif>[X]
     
 ## KogaDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[A][N]
@@ -4268,7 +4267,7 @@ Let none see it come.[A][X]
 
 
 ## KogaRewardText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Silent as the dusk,[N][A]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Silent as the dusk,[A][N]
 the second blow comes unseen...[A][N]
 foes wither away.[A][X]
 
@@ -4312,13 +4311,13 @@ Victory follows.[A][X]
 Fate draws us once more.[A][N]
 My blade bathed in shadow.[N]
 Our paths cross again.[A][N]
-[ToggleSmile]Shadows cloud your mind.[N][A]
+[ToggleSmile]Shadows cloud your mind.[A][N]
 Confusion and dark despair...[N]
 Then my strike ends all![A][X]
 
 ## KogaRematchDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Honed, I am not.[N]
-The shadows still betray me.[N][A]
+The shadows still betray me.[A][N]
 I must hone my skills.[A][X]
 
 
@@ -4347,7 +4346,7 @@ has taken root.[A]<endif><ifnErika>Ah... what lovely weather.[A][N]
 The scent of blossoms always[N]
 puts me at ease.[A][N]
 [ToggleSmile]My name is Erika. I specialize[N]
-in botanical research.[N][A]
+in botanical research.[A][N]
 I sequence plant genomes[N]
 and craft herbal remedies.[A][N]
 [ToggleSmile]My Pokémon help me explore the deeper[N]

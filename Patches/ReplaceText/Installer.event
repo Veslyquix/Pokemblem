@@ -36,11 +36,35 @@ WORD 1 // True
 // Feel free to add more pronouns to ReplaceTextList if desired 
 ALIGN 4 
 ReplaceTextList:
+SHORT DudeFlag; BYTE 0xFF 0; POIN code_achild text_somedude 
+SHORT ChickFlag; BYTE 0xFF 0; POIN code_achild text_somechick 
+SHORT GrampsFlag; BYTE 0xFF 0; POIN code_achild text_anoldman 
+SHORT HagFlag; BYTE 0xFF 0; POIN code_achild text_anoldhag 
+SHORT KidFlag; BYTE 0xFF 0; POIN code_achild text_achild 
+
+SHORT DudeFlag; BYTE 0xFF 0; POIN code_child text_somedude 
+SHORT ChickFlag; BYTE 0xFF 0; POIN code_child text_somechick 
+SHORT GrampsFlag; BYTE 0xFF 0; POIN code_child text_oldman 
+SHORT HagFlag; BYTE 0xFF 0; POIN code_child text_oldhag 
+SHORT KidFlag; BYTE 0xFF 0; POIN code_child text_child 
+
+SHORT DudeFlag; BYTE 0xFF 0; POIN code_akid text_somedude 
+SHORT ChickFlag; BYTE 0xFF 0; POIN code_akid text_somechick 
+SHORT GrampsFlag; BYTE 0xFF 0; POIN code_akid text_anoldman 
+SHORT HagFlag; BYTE 0xFF 0; POIN code_akid text_anoldhag 
+SHORT KidFlag; BYTE 0xFF 0; POIN code_akid text_akid 
+
 SHORT DudeFlag; BYTE 0xFF 0; POIN code_kid text_dude 
 SHORT ChickFlag; BYTE 0xFF 0; POIN code_kid text_chick 
-SHORT GrampsFlag; BYTE 0xFF 0; POIN code_kid text_gramps 
-SHORT HagFlag; BYTE 0xFF 0; POIN code_kid text_hag 
+SHORT GrampsFlag; BYTE 0xFF 0; POIN code_kid text_oldman 
+SHORT HagFlag; BYTE 0xFF 0; POIN code_kid text_oldhag 
 SHORT KidFlag; BYTE 0xFF 0; POIN code_kid text_kid 
+
+SHORT DudeFlag; BYTE 0xFF 0; POIN code_kids text_men 
+SHORT ChickFlag; BYTE 0xFF 0; POIN code_kids text_women 
+SHORT GrampsFlag; BYTE 0xFF 0; POIN code_kids text_oldmen 
+SHORT HagFlag; BYTE 0xFF 0; POIN code_kids text_oldhags 
+SHORT KidFlag; BYTE 0xFF 0; POIN code_kids text_kids 
 // required flag, required chapter, pad, text to find, replacement text 
 // SHORT 0; 			BYTE 0xFF 		0; 	POIN TextA 			TextB 
 /* <they> / <They> 
@@ -119,6 +143,46 @@ WORD 0 0 0// terminator
 #include "Patches/FE8.lyn.event" 
 #include "Patches/FE8_asm.lyn.event" 
 
+code_achild:
+tx("<a child>")
+code_child:
+tx("<child>")
+text_achild:
+tx("a child")
+text_child:
+tx("child") 
+
+
+code_akid: 
+tx("<a kid>")
+text_akid:
+tx("a kid")
+text_somedude:
+tx("some dude")
+text_somechick:
+tx("some chick")
+text_anoldman:
+tx("an old man")
+text_anoldhag:
+tx("an old hag")
+
+
+code_kids: 
+tx("<kids>")
+text_kids:
+tx("kids")
+text_men:
+tx("men")
+text_women:
+tx("women")
+text_oldmen:
+tx("old men")
+text_oldhags:
+tx("old hags")
+
+
+
+
 code_kid: 
 tx("<kid>")
 text_kid:
@@ -127,10 +191,10 @@ text_dude:
 tx("dude")
 text_chick:
 tx("chick")
-text_gramps:
-tx("grandpa")
-text_hag:
-tx("hag")
+text_oldman:
+tx("old man")
+text_oldhag:
+tx("old hag")
 
 code_they:
 tx("<they>")
