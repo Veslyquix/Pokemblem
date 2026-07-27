@@ -186,11 +186,28 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
 
         classID = *classList++;
         isCaught = CheckIfCaught(classID);
-
-        // if (!isCaught || !DebugPrepListHasClass(classID))
-        // {
-        unit = LoadUnit(DefaultUnit);
         uid = FindFreeSlot();
+
+        struct UnitDefinition uDef = { 0 };
+
+        uDef.charIndex = uid;
+        uDef.classIndex = classID;
+        uDef.leaderCharIndex = 0;
+        uDef.autolevel = false;
+
+        uDef.allegiance = 2;
+
+        uDef.level = 0;
+
+        uDef.xPosition = 0;
+        uDef.yPosition = 0;
+
+        uDef.redaCount = 0;
+        uDef.redas = NULL;
+
+        uDef.genMonster = FALSE;
+        uDef.itemDrop = FALSE;
+        unit = LoadUnit(&uDef);
 
         if (unit && uid != 0xFF)
         {

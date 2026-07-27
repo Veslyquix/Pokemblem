@@ -399,7 +399,12 @@ mov r4, r8
 mov r5, r9 
 push {r4-r5} 
 mov r4, r0 @ unit struct 
-
+@ldr r0, [r0, #4] 
+@ldrb r0, [r0, #4] 
+@cmp r0, #0xA9 
+@bne NoBreakHere 
+@mov r11, r11 
+@NoBreakHere: 
 
 mov r5, r1 @ levels 
 mov r6, #0
@@ -587,6 +592,15 @@ bge NoBreak
 mov r11, r11 @ if you hit this break point, then you have negative growths which will break things 
 mov r0, #0 
 NoBreak: 
+
+@mov r1, r4 
+@ldr r1, [r1, #4] 
+@ldrb r1, [r1, #4] 
+@cmp r1, #0xA9 
+@bne NoBreakHere2 
+@mov r11, r11 
+@NoBreakHere2: 
+
 
 pop {r4-r5} 
 mov r8, r4

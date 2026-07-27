@@ -99,6 +99,13 @@ def difference_value(old_value: str, new_value: str) -> str:
     return format(difference.normalize(), "f")
 
 
+def pokemon_name(dest_row: list[str], source_row: list[str]) -> str:
+    name = column_value(dest_row, 0) or column_value(source_row, 0)
+    if name.endswith("ID"):
+        return name[:-2]
+    return name
+
+
 def cell_text(cell: ET.Element) -> str:
     paragraphs = []
     for paragraph in cell.findall("text:p", NS):
@@ -194,7 +201,7 @@ def build_changes(
     for row_index in range(START_ROW_INDEX, rows_to_check):
         source_row = source_rows[row_index]
         dest_row = dest_rows[row_index]
-        pokemon = column_value(dest_row, 0) or column_value(source_row, 0)
+        pokemon = pokemon_name(dest_row, source_row)
 
         for source_column, dest_column in mapping.items():
             source_col_index = column_index(source_column)
@@ -207,6 +214,7 @@ def build_changes(
 
             changes.append(
                 [
+                    str(row_index),
                     pokemon,
                     column_value(dest_rows[0], dest_col_index) if dest_rows else "",
                     old_value,
@@ -219,6 +227,7 @@ def build_changes(
 
 
 def write_changes_csv(path: Path, changes: list[list[str]]) -> None:
+    sorted_changes = sorted(changes, key=lambda change: int(change[0]))
     rows = [
         [
             "Pokemon",
@@ -227,7 +236,7 @@ def write_changes_csv(path: Path, changes: list[list[str]]) -> None:
             "New Value",
             "Difference",
         ],
-        *changes,
+        *[change[1:] for change in sorted_changes],
     ]
     write_csv(path, rows)
 
