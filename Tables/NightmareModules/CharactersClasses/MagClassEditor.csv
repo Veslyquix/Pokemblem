@@ -37,7 +37,7 @@ Nidorina,4,30,30,1
 Nidoqueen,8,50,45,4
 Nidoran-M,3,25,30,0
 Nidorino,5,35,35,2
-Nidoking,10,50,45,5
+Nidoking,9,50,45,4
 Clefairy,6,40,35,0
 Clefable,10,50,45,4
 Vulpix,5,35,35,0
@@ -68,8 +68,8 @@ Poliwag,4,30,30,0
 Poliwhirl,6,40,35,2
 Poliwrath,9,55,45,3
 Abra,7,45,40,0
-Kadabra,11,55,45,4
-Alakazam,17,65,55,6
+Kadabra,11,50,45,4
+Alakazam,16,60,55,5
 Machop,1,15,15,0
 Machoke,3,25,20,2
 Machamp,5,40,30,2
@@ -130,9 +130,9 @@ Pupil,1,5,15,0
 Muk,6,45,35,2
 Shellder,5,35,35,0
 Cloyster,9,50,45,4
-Gastly,7,45,40,0
-Haunter,12,55,45,5
-Gengar,16,65,55,4
+Gastly,6,40,35,0
+Haunter,10,50,45,4
+Gengar,15,65,50,5
 Onix,2,20,15,0
 Drowzee,5,35,35,3
 Hypno,10,50,45,5
@@ -158,8 +158,8 @@ Horsea,7,45,40,5
 Seadra,11,55,45,4
 Goldeen,3,25,30,0
 Seaking,6,45,40,3
-Staryu,6,40,35,0
-Starmie,11,55,50,5
+Staryu,5,35,35,0
+Starmie,11,55,50,6
 Mr. Mime,11,55,45,0
 Scyther,4,35,25,0
 Jynx,13,55,45,9
@@ -242,7 +242,7 @@ MegaPidgeotID,21,90,60,0
 MegaVenusaurID,23,100,60,2
 MegaCharizardXID,22,100,60,0
 MegaBlastoiseID,27,110,60,5
-Unused69ID,0,0,0,0
+Unused69ID,0,0,15,0
 Unused70ID,1,20,15,1
 Unused71ID,0,0,0,0
 Unused72ID,0,0,0,0
@@ -254,4 +254,4 @@ Unused77ID,0,0,0,0
 Unused78ID,0,0,0,0
 Unused79ID,0,0,0,0
 SnagID,0,0,0,0
-0xff,1,15,20,20
+0xff,0,0,0,0
