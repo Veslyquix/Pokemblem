@@ -232,6 +232,17 @@ def write_changes_csv(path: Path, changes: list[list[str]]) -> None:
     write_csv(path, rows)
 
 
+def print_changes_csv(path: Path) -> None:
+    if not path.exists():
+        print(f"{path} does not exist yet.")
+        return
+
+    print(f"\nContents of {path}:")
+    with path.open("r", encoding="utf-8-sig") as handle:
+        print(handle.read(), end="")
+    print()
+
+
 def copy_columns(source_rows: list[list[str]], dest_rows: list[list[str]], mapping: dict[str, str]) -> int:
     source_indexes = {column_index(src): column_index(dst) for src, dst in mapping.items()}
     max_dest_col = max(source_indexes.values())
@@ -283,6 +294,7 @@ def main() -> None:
         print(f"No changed values found; left {args.changes} untouched.")
     print(f"Updated {class_updated} data rows in {args.class_table}")
     print(f"Updated {mag_updated} data rows in {args.mag_class}")
+    print_changes_csv(args.changes)
     if len(source_rows) < max_rows:
         print(f"Warning: source only had {len(source_rows)} rows; later destination rows were unchanged.")
 

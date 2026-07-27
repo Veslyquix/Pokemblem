@@ -533,7 +533,7 @@ BYTE 0 0 0 LeafFlurry // Always usable by anyone
 BYTE 0 FriendlyFireBool|MagBasedBool|HitResBool
 BYTE T1AoE_Mt T1AoE_Var // variance range of 0 - 2 
 BYTE SpeMin 2 // Attack range
-BYTE SmallLine grassAnimationID // Index of RangeMask, AnimationALL,
+BYTE SmallTriangle grassAnimationID // Index of RangeMask, AnimationALL,
 BYTE AoEPercentDmg 0 // DamagePercent, Status
 BYTE 0 0 // DebuffID, EventIndex
 BYTE 0xFF 0 // Weapon Type and WEXP to use this. 
@@ -546,7 +546,7 @@ BYTE 0 0 0 MagicalLeaf // Always usable by anyone
 BYTE 0 FriendlyFireBool|MagBasedBool|HitResBool
 BYTE T1AoE_Mt T1AoE_Var // variance range of 0 - 2 
 BYTE SpeMin 2 // Attack range
-BYTE SmallLine grassAnimationID // Index of RangeMask, AnimationALL,
+BYTE SmallTriangle grassAnimationID // Index of RangeMask, AnimationALL,
 BYTE AoEPercentDmg 0 // DamagePercent, Status
 BYTE 0 0 // DebuffID, EventIndex
 BYTE 0xFF 0 // Weapon Type and WEXP to use this. 
@@ -559,7 +559,7 @@ BYTE 0 0 0 PetalDance // Always usable by anyone
 BYTE 0 FriendlyFireBool|MagBasedBool|HitResBool
 BYTE T1AoE_Mt T1AoE_Var // variance range of 0 - 2 
 BYTE SpeMin 2 // Attack range
-BYTE SmallLine grassAnimationID // Index of RangeMask, AnimationALL,
+BYTE SmallTriangle grassAnimationID // Index of RangeMask, AnimationALL,
 BYTE AoEPercentDmg 0 // DamagePercent, Status
 BYTE 0 0 // DebuffID, EventIndex
 BYTE 0xFF 0 // Weapon Type and WEXP to use this. 
@@ -1870,7 +1870,7 @@ BYTE 0 0 0 GrassKnot // Always usable by anyone
 BYTE 0 FriendlyFireBool|MagBasedBool|HitResBool
 BYTE T1AoE_Mt T1AoE_Var // variance range of 0 - 2 
 BYTE SpeMin 2 // Attack range
-BYTE SmallLine grassAnimationID // Index of RangeMask, AnimationALL,
+BYTE SmallTriangle grassAnimationID // Index of RangeMask, AnimationALL,
 BYTE AoEPercentDmg 0 // DamagePercent, Status
 BYTE 0 0 // DebuffID, EventIndex
 BYTE 0xFF 0 // Weapon Type and WEXP to use this. 
@@ -1896,7 +1896,7 @@ BYTE 0 0 0 MegaDrain // Always usable by anyone
 BYTE 0 FriendlyFireBool|MagBasedBool|HitResBool
 BYTE T1AoE_Mt T1AoE_Var // variance range of 0 - 2 
 BYTE SpeMin 2 // Attack range
-BYTE SmallLine grassAnimationID // Index of RangeMask, AnimationALL,
+BYTE SmallTriangle grassAnimationID // Index of RangeMask, AnimationALL,
 BYTE AoEPercentDmg 0 // DamagePercent, Status
 BYTE 0 0 // DebuffID, EventIndex
 BYTE 0xFF 0 // Weapon Type and WEXP to use this. 
@@ -2305,7 +2305,7 @@ BYTE 0 0 0 Absorb // Always usable by anyone
 BYTE 0 FriendlyFireBool|MagBasedBool|HitResBool
 BYTE T1AoE_Mt T1AoE_Var // variance range of 0 - 2 
 BYTE SpeMin 2 // Attack range
-BYTE SmallLine grassAnimationID // Index of RangeMask, AnimationALL,
+BYTE SmallTriangle grassAnimationID // Index of RangeMask, AnimationALL,
 BYTE AoEPercentDmg 0 // DamagePercent, Status
 BYTE 0 0 // DebuffID, EventIndex
 BYTE 0xFF 0 // Weapon Type and WEXP to use this. 

@@ -291,21 +291,21 @@ BYTE 3 3
 BYTE 1 0 
 BYTE 0 1 0              
 BYTE 1 0 1              
-BYTE 0 0 0      
+BYTE 0 1 0      
 
 ALIGN 4
 RangeTemplateTable_SmallestTriangle2:
 BYTE 3 3 
 BYTE 2 1 
 BYTE 0 1 0              
-BYTE 0 0 1              
+BYTE 1 0 1              
 BYTE 0 1 0    
 
 ALIGN 4
 RangeTemplateTable_SmallestTriangle3:
 BYTE 3 3 
 BYTE 1 2 
-BYTE 0 0 0              
+BYTE 0 1 0              
 BYTE 1 0 1              
 BYTE 0 1 0    
 
@@ -314,7 +314,7 @@ RangeTemplateTable_SmallestTriangle4:
 BYTE 3 3 
 BYTE 0 1 
 BYTE 0 1 0              
-BYTE 1 0 0              
+BYTE 1 0 1              
 BYTE 0 1 0    
 
 
@@ -400,34 +400,34 @@ BYTE 0 1 0
 ALIGN 4
 RangeTemplateTable_SmallCurve1:
 BYTE 3 2 
-BYTE 0 0 
+BYTE 0 1 
 BYTE 1 0 0
-BYTE 0 1 1
+BYTE 1 1 1
 
 ALIGN 4
 RangeTemplateTable_SmallCurve2:
 BYTE 2 3 
-BYTE 1 0 
+BYTE 0 0 
 
-BYTE 0 1 
+BYTE 1 1 
 BYTE 1 0
 BYTE 1 0
 
 ALIGN 4
 RangeTemplateTable_SmallCurve3:
 BYTE 3 2 
-BYTE 2 1 
-BYTE 1 1 0
+BYTE 2 9 
+BYTE 1 1 1
 BYTE 0 0 1
 
 ALIGN 4
 RangeTemplateTable_SmallCurve4:
 BYTE 2 3 
-BYTE 0 2 
+BYTE 1 2 
 
 BYTE 0 1 
 BYTE 0 1
-BYTE 1 0
+BYTE 1 1
 
 
 
@@ -703,21 +703,21 @@ BYTE 3 3
 BYTE 1 1 
 BYTE 0 0 0              
 BYTE 0 1 1              
-BYTE 0 0 1      
+BYTE 0 1 1      
 
 ALIGN 4
 RangeTemplateTable_SmallL2:
 BYTE 3 3 
 BYTE 1 1 
 BYTE 0 0 0              
-BYTE 0 1 0              
+BYTE 1 1 0              
 BYTE 1 1 0    
 
 ALIGN 4
 RangeTemplateTable_SmallL3:
 BYTE 3 3 
 BYTE 1 1 
-BYTE 1 0 0              
+BYTE 1 1 0              
 BYTE 1 1 0              
 BYTE 0 0 0    
 
@@ -726,7 +726,7 @@ RangeTemplateTable_SmallL4:
 BYTE 3 3 
 BYTE 1 1 
 BYTE 0 1 1              
-BYTE 0 1 0              
+BYTE 0 1 1              
 BYTE 0 0 0   
 
 
