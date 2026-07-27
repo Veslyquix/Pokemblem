@@ -304,6 +304,8 @@ UNIT
 
 
 ALIGN 4 
+RedMug_ALink:
+WORD RedMug 
 RedMug_Link:
 WORD RedAltMug 
 PikachuMug_Link:

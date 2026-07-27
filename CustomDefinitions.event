@@ -458,7 +458,7 @@ String("V1.22.05             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define ChickFlag 0xFE 
 #define GrampsFlag 0x100
 #define HagFlag 0x101
-
+#define DoppelgangerFlag 0x102 // see yourself 
  
 
 // New flags 0x12D - 0x22D or more even 

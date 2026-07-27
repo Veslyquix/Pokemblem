@@ -995,6 +995,7 @@ static void ChallengeRunLoop(ChallengeRunProc * proc)
 
         int opt = proc->id + proc->offset;
         SetTactNameFromCase(opt);
+        *AvatarPortraitId_Link = 0;
         if (opt >= 1)
         {
             gEventSlots[0xC] = 1;
@@ -1007,6 +1008,7 @@ static void ChallengeRunLoop(ChallengeRunProc * proc)
 
     if (keys & DPAD_DOWN)
     {
+        *AvatarPortraitId_Link = 0;
         proc->updateSMS = true;
         if (proc->id < CR_MAX_DISPLAYED_INDEX)
         {
@@ -1028,6 +1030,7 @@ static void ChallengeRunLoop(ChallengeRunProc * proc)
     }
     if (keys & DPAD_UP)
     {
+        *AvatarPortraitId_Link = 0;
         proc->updateSMS = true;
         if (proc->id)
         {

@@ -57,7 +57,7 @@ Error.[N]
 Please send report.[A][X]
 
 ## WhosTheKidText 
-[OpenFarLeft][LoadProtag][OpenMidRight][LoadOak][OpenLeft][LoadGaryShrug][OpenLeft]So who's the <kid>?[A][CloseSpeechSlow][OpenMidRight]This is [Tact], your new Neighbour.[A][NL]
+[OpenFarLeft][LoadProtag][OpenMidRight][LoadOak][OpenLeft][LoadGaryPoint][OpenLeft]<ifGary><endif>So who's the <kid>?[A][CloseSpeechSlow][OpenMidRight]This is [Tact], your new Neighbour.[A][NL]
 I mentioned they were coming, [NL]
 remember?[A][NL]
 [OpenLeft]Tcch.[A][NL]
@@ -162,7 +162,7 @@ Yes, I beat Lunatic mode like this.[N]
 So it's possible.[A][X]
 
 ## OakMessageText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, me. I [ToggleRed]cannot capture[NL]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]<ifOak><endif>Hello, me. I [ToggleRed]cannot capture[NL]
 Pokémon[ToggleRed] in this mode.[A][N]
 But I'll be fine.[A][X]
 

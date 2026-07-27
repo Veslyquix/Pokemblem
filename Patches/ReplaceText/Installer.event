@@ -1,5 +1,9 @@
 
 ALIGN 4 
+DoppelgangerFlag_Link:
+WORD DoppelgangerFlag 
+
+ALIGN 4 
 ControlCodesStartWithBracket: // Only replace text starting with < 
 // there will be lag if you make this false 
 // but then you could replace vanilla text

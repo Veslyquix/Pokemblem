@@ -1,4 +1,5 @@
 #include "C_Code.h"
+// extern int RedMugA_Link;
 extern int RedMug_Link;
 extern int LeafMug_Link;
 extern int GetAvatarPortraitId(void);

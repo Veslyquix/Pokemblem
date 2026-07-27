@@ -446,7 +446,8 @@ static int IsUnitMissing(int id)
     }
     return false;
 }
-
+extern int SetFlag(int id);
+extern int DoppelgangerFlag_Link;
 static int TryHandleConditional(char * b, int i, int usedLength[1])
 {
     if (!IsIfTag(b, i))
@@ -507,6 +508,10 @@ static int TryHandleConditional(char * b, int i, int usedLength[1])
             return 0;
         }
         condition = IsProtagPortrait(portraitId);
+        if (condition)
+        {
+            SetFlag(DoppelgangerFlag_Link);
+        }
     }
     else
     {
@@ -517,6 +522,10 @@ static int TryHandleConditional(char * b, int i, int usedLength[1])
         }
 
         condition = IsProtagPortrait(portraitId);
+        if (condition)
+        {
+            SetFlag(DoppelgangerFlag_Link);
+        }
     }
 
     if (negated)
