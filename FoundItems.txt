@@ -47,7 +47,7 @@ Fuschia: Detonator, DazzleSS, FireStone
 store: ChlorophyllSS, HarvestSS, SolarPowerSS
 SafariS: FocusBandAcc(Miracle), ExoticCandy, MultiscaleSS
 SafariE: Psybeam, Protein
-SafariN: EnergyBandT2, TintedLensSS 
+SafariN: EnergyBandT2 
 SafariW: BugBite, HPUp, VantageSkillScroll
 FuschiaGym: PoisonJab, SavageBlowAcc
 Route18: DrillPeck, QuickBoots, 
@@ -79,7 +79,7 @@ ViridianGym: HyperBeam, Earthquake, Fury
 Route22: GaleforceAcc, BlossomAcc
 Route 23S: VoiceOfPeaceAcc, DoubleEdge 
 Route 23M: MaxPotion, Megahorn 
-VictoryRoadB1: RareCandy, Iron, 2000g
+VictoryRoadB1: TintedLensSS, RareCandy, Iron, 2000g
 VictoryRoadB2: Outrage, Protein, SavageBlowSS
 VictoryRoadB3: DarkPulse, MaxPotion 
 Route 23N: EnergyBandT4

@@ -190,7 +190,7 @@ BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillI
 BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
 BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(LifeAndDeathID) SkillAcc(Intimidate2ID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
-BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID) SkillAcc(SilphScopeID) SkillAcc(AssaultVestID) SkillAcc(TacticalVestID)
+BYTE SkillAcc(MiracleID) SkillAcc(GrislyWoundID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID) SkillAcc(SilphScopeID) SkillAcc(AssaultVestID) SkillAcc(TacticalVestID)
 BYTE SkillAcc(AmaterasuID) SkillAcc(HoverBoardID)
 BYTE JellyDonut 5
 BYTE SuperPotion 5
@@ -226,7 +226,7 @@ BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillS
 BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
 BYTE SkillScroll ScrappyID SkillScroll TechnicianID SkillScroll LifetakerID SkillScroll RenewalID
 BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID 
-BYTE SkillScroll MultiscaleID SkillScroll TintedLensID SkillScroll AdaptabilityID SkillScroll RecklessFighterID SkillScroll DowngradeID
+BYTE SkillScroll MultiscaleID SkillScroll AdaptabilityID SkillScroll RecklessFighterID SkillScroll DowngradeID
 BYTE SkillScroll Intimidate2ID 
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife

@@ -123,7 +123,7 @@ ALIGN 4
 RandomItemTier3List: // if durability is 0, give as full durability 
 SHORT Tm(DoubleEdge) Tm(FireBlast) Tm(Blizzard) Tm(SolarBeam) Tm(ThunderMove) Tm(Psychic) Tm(HiJumpKick)
 SHORT Tm(HyperBeam) Tm(HydroPump) Tm(Megahorn) Tm(Outrage) Tm(MeteorMash) Tm(SwordsDance) Tm(SkyAttack)
-SHORT Skl(SavageBlowID) Skl(GrislyWoundID) Skl(FuryID) Skl(PoisonStrikeID) Skl(MiracleID)
+SHORT Skl(SavageBlowID) Skl(GrislyWoundID) Skl(FuryID) Skl(PoisonStrikeID) Skl(MiracleID) Skl(TintedLensID)
 SHORT Acc(GaleforceID) Acc(BlossomID) ExoticCandy 
 SHORT StatAcc(MuscleBandT3_BoostIndex) StatAcc(WiseGlassesT3_BoostIndex) StatAcc(VintageBoots_BoostIndex) StatAcc(EnergyBandT3_BoostIndex) StatAcc(EnergyBandT4_BoostIndex) 
 SHORT 0 // Terminator 
