@@ -95,11 +95,11 @@ ldrb r0, [r3, r0] @ max level
 cmp r1, r0 
 bge ReturnZero
 sub r0, r1 
-cmp r0, #5 
+cmp r0, #2 
 bgt Return 
-mov r1, #20 
+mov r1, #33 
 mul r0, r1 
-mul r0, r4 @ exp * (20 / 40 / 60 / 80%) 
+mul r0, r4 @ exp * (33%, 66%, full) 
 mov r1, #100 
 swi 6 
 mov r4, r0 

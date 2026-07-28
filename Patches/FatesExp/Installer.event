@@ -21,15 +21,18 @@ expRoutine:
 
 ALIGN 4 
 maxLevelTableHard:
-BYTE 14 // Boulderbadge 
-BYTE 20
-BYTE 28
-BYTE 35 
-BYTE 40
-BYTE 45 
-BYTE 50 
-BYTE 55  
+BYTE PewterGymLevel // Boulderbadge 
+BYTE CeruleanGymLevel
+BYTE VermilionGymLevel
+BYTE FuschiaGymLevel 
+BYTE CeladonGymLevel
+BYTE SaffronGymLevel 
+BYTE CinnabarGymLevel 
+BYTE ViridianGymLevel  
 BYTE 100 
+
+
+
 
 
 ALIGN 4 
