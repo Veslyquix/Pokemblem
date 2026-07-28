@@ -411,13 +411,13 @@ Savage Club[X]
 ## SavageClubDesc
 After attacking, enemies[N]
 within 2 tiles lose[N]
-25% of their current HP.[X]
+20% of their current HP.[X]
 
 ## MetronomeItemName 
 Metronome[X]
 
 ## MetronomeItemDesc
-Deals damage equal to 25% of[N]
+Deals damage equal to 20% of[N]
 the enemy's current HP after[N]
 battle this unit initiates.[X]
 
@@ -425,9 +425,16 @@ battle this unit initiates.[X]
 Detonator[X]
 
 ## DetonatorDesc
-Deals damage equal to 25% of[N]
+Deals damage equal to 20% of[N]
 the enemy's current HP[N]
 after every battle.[X]
+
+## RockyHelmetNameText ^
+Rocky Helmet[X]
+
+## RockyHelmetDescText
+Opponents take 20% of their current[NL]
+HP after attacking the holder.[X]
 
 ## LuckyEggName
 Lucky Egg[X]
@@ -468,13 +475,6 @@ Guard Breaker[X]
 Battle debuffs enemy[N]
 Def/Res by 25%.[X]
 
-
-## RockyHelmetNameText ^
-Rocky Helmet[X]
-
-## RockyHelmetDescText
-Opponents take 25% of their current[NL]
-HP after attacking the holder.[X]
 
 ## SurgesSigilNameText
 Surge's Sigil[X]

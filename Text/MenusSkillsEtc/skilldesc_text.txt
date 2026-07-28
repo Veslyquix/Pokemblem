@@ -2034,10 +2034,6 @@ Swift Swim: Speed is doubled[N]
 in water or in Damp Aura's range.[N]
 [lock][Water][X]
 
-## SD_RockyHelmet
-Rough Skin: Opponent takes[N]
-25% of current HP after attacking.[N]
-[lock][Rock], [Ground], or 45+ Def cap.[X]
 
 
 
@@ -2120,22 +2116,27 @@ Renewal: Restore 30% of max HP[N]
 at the start of each turn.[N]
 [lock][Psychic], or 50+ Res cap.[X]
 
+## SD_RockyHelmet
+Rough Skin: Opponent takes[N]
+20% of current HP after attacking.[N]
+[lock][Rock], [Ground], or 45+ Def cap.[X]
+
 ## SD_Poison_Strike
 Poison Strike: Deals damage equal to[N]
-25% of the enemy's current HP after[N]
+20% of the enemy's current HP after[N]
 battle this unit initiates.[N]
 [lock][Poison], or 50+ Def or Res cap.[X]
 
 ## SD_Grisly_Wound
 Aftermath: Deals damage equal[N]
-to 25% of the enemy's current[N]
+to 20% of the enemy's current[N]
 HP after every battle.[N]
 [lock] 55+ Spd cap.[X]
 
 ## SD_SavageBlow
 Savage Blow: After attacking,[N]
 enemies within 2 tiles lose[N]
-25% of their current HP.[N]
+20% of their current HP.[N]
 [lock] 55+ Str or Mag cap.[X]
 
 

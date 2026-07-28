@@ -371,7 +371,7 @@ WORD SurfID
 ALIGN 4 
 AvatarClassIdTable:
 BYTE 0 // New Name
-BYTE PikachuID // Little Cup
+BYTE RedID // Little Cup
 BYTE mrfujiID // Void
 BYTE NurseID // Chaos / Joy
 BYTE policemanID // Plus / Jenny
@@ -395,8 +395,8 @@ BYTE LoreleiID
 BYTE BrunoID
 BYTE AgathaID
 BYTE LanceID
-BYTE MagikarpID // Vesly
-BYTE MewtwoID // Cheater
+BYTE RedID // Vesly
+BYTE RedID // Cheater
 
 
 ALIGN 4 

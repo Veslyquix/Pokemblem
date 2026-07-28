@@ -83,7 +83,9 @@ mov	lr, r2
 @r0 is ram data
 mov	r7, r0
 ldrb	r0, [r7,#0x13]	@curr  hp
-lsr r0, #2 @ 1/4 
+ldr r1, =0x3334 @ div by 5 constant 
+mul r0, r1
+asr r0, #0x10
 ldrb	r1, [r7,#0x13]	@r1 = current hp
 cmp	r1, #0x00	@checking if the unit is already dead, it was setting the killed enemy's hp to 1 which made other skills not work
 beq	NextLoop
