@@ -181,7 +181,7 @@ int ReorderMovesEffect(struct MenuProc * menu, struct MenuCommandProc * command)
     proc->hover_move_Updated = FALSE;
     proc->move_hovering = 0;
     StartMenuChild(&Menu_SkillDebug, (void *)proc);
-    StartFace(0, GetUnitPortraitId(proc->unit), 72, 16, 3);
+    // StartFace(0, GetUnitPortraitId(proc->unit), 72, 16, 3);
     return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
 }
 
@@ -306,5 +306,5 @@ static void ReplaceMoveCommandDraw(struct MenuProc * menu, struct MenuCommandPro
 
 static void SkillDebugMenuEnd(struct MenuProc * menu)
 {
-    EndFaceById(0);
+    // EndFaceById(0);
 }

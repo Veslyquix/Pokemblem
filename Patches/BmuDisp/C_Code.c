@@ -50,6 +50,42 @@ extern u16 SmsObjVramUpperChr;
 #define MMS_RESERVED_OBJ_CHR 0x39C
 #define MMS_RESERVED_GFX_SLOT_START (SMS_16X16_GFX_SLOT_COUNT - SMS_32X32_GFX_SLOT_STRIDE)
 
+struct BanimUnkStructComm
+{
+    /* 00 */ s16 terrain_l; // terrain L
+    /* 02 */ s16 pal_l;     // pal ID L
+    /* 04 */ s16 chr_l;     // chr L
+    /* 06 */ s16 terrain_r;
+    /* 08 */ s16 pal_r;
+    /* 0A */ s16 chr_r; // chr R
+    /* 0C */ s16 distance;
+    /* 0E */ s16 unk0E;
+    /* 10 */ u16 unk10;
+    /* 14 */ ProcPtr proc14; // sub emulator proc a
+    /* 18 */ ProcPtr proc18; // sub emulator proc b
+    /* 1C */ void * unk1C;
+    /* 20 */ void * unk20;
+    /* 24 */ void * unk24;
+};
+extern void sub_805AA68(struct BanimUnkStructComm * buf);
+extern void sub_805AE40(struct BanimUnkStructComm * buf, s16 a, s16 b, s16 c, s16 d);
+void NewStartMovingPlatform(u32 a, s16 b, s16 c)
+{
+    gUnknown_0201FADC.terrain_l = a;
+    gUnknown_0201FADC.pal_l = 0xe;
+    gUnknown_0201FADC.chr_l = 0x180;
+    gUnknown_0201FADC.terrain_r = a;
+    gUnknown_0201FADC.pal_r = 0xf;
+    gUnknown_0201FADC.chr_r = 0xf0 << 2;
+    gUnknown_0201FADC.distance = 0;
+    gUnknown_0201FADC.unk0E = -1;
+    gUnknown_0201FADC.unk1C = (void *)0x06010000;
+    gUnknown_0201FADC.unk20 = gUnk_Banim_020145C8;
+    sub_805AA68(&gUnknown_0201FADC);
+
+    sub_805AE40(&gUnknown_0201FADC, b, c, b + 0x60, c);
+}
+
 // static u8 CONST_DATA sMuImgBufOffLut[MU_MAX_COUNT + 1] = {
 // 0, // dummy because active ids start at 1
 // 0, 2, 1, 3
