@@ -66,7 +66,9 @@ SHORT $4770 // bx lr
 // ORG $35728 // Kill Prepare Blank Tile by 7743  
 // WORD 0 
 // Now handled in BmuDisp
-
+ORG $1C38 
+WORD 0x1000008 // in SetupBackgrounds, only make one 8x8 tile blank instead of two 
+// this fixes black squares from appearing for a frame on maps 
 
 
 ORG $A42BC // Kill GetNextChapterWinDataEntryIndex
