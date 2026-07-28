@@ -38,7 +38,7 @@ Do you need anything else?[NL]
 
 # 0x089E
   [NL]// this fixes a bug, don't get rid of it 
-[Clear]You should really stock up.[NL]
+[Clear]You should really stock up.       [NL]// spaces are needed in a bunch of these to work properly
 [Buy/Sell][X]
 
 # 0x089F
@@ -61,13 +61,13 @@ Is there anything else you need?[NL]
 What would you like?[X]
 
 # 0x08A4
-[Clear]You'll need these.[X]
+[Clear]You'll need these.               [X]
 
 # 0x08A5
 What do you need?[X]
 
 # 0x08A6
-How about another?[X]
+How about another?             [X]
 
 # 0x08A7
 How about another?[X]
