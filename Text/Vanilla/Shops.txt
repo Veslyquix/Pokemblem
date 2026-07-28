@@ -50,9 +50,7 @@ Do you need anything else?[NL]
 [0x1B][X]
 
 # 0x08A1
-//  [NL]// this fixes a bug, don't get rid of it 
-//[Clear]Don't leave unprepared![NL]// spaces are needed to avoid a gfx glitch 
-Don't leave unprepared![NL]// spaces are needed to avoid a gfx glitch 
+Don't leave unprepared![.][.][.][.][.][.][.][.][.][.][.][.][.][.][.][.][.][.][NL]// spaces are needed to avoid a gfx glitch 
 [0x1B][X]
 
 # 0x08A2
