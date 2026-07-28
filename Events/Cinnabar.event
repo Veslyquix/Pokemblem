@@ -137,6 +137,7 @@ SADD sB sA s0
 UNCM(TempAlly, 0x10009) // Undeploy + escape the mon
 SVAL s1 TempAlly 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 LABEL 63 
 NoFade
@@ -174,6 +175,7 @@ SADD sB sA s0
 UNCM(TempAlly, 0x10009) // Undeploy + escape the mon
 SVAL s1 TempAlly 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 LABEL 63 
 NoFade
@@ -217,6 +219,7 @@ SADD sB sA s0
 UNCM(TempAlly, 0x10009) // Undeploy + escape the mon
 SVAL s1 TempAlly 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 LABEL 63 
 NoFade

@@ -13,15 +13,17 @@ void SelectCharacter_StartMenu(struct Struct_SelectCharacterProc * proc);
 static int SelectClass(struct MenuProc * menu, struct MenuCommandProc * command);
 static int SelectYes(struct MenuProc * menu, struct MenuCommandProc * command);
 static int SelectNo(struct MenuProc * menu, struct MenuCommandProc * command);
+static u8 SelectNoOnBPress(struct MenuProc * menu, struct MenuCommandProc * command);
+static u8 SelectCharacterMenuEnd_ReturnFalseOnBPress(struct MenuProc * menu, struct MenuCommandProc * command);
 void SelectCharacterMenuEnd_ReturnTrue(void);  // Exited menu selecting "yes" - write 1 to memory slot C
 void SelectCharacterMenuEnd_ReturnFalse(void); // Exited menu by pressing B - write 0 to memory slot C
 void SelectCharacterMenuEnd(void);
 static void DrawSelectCharacterCommands(struct MenuProc * menu, struct MenuCommandProc * command);
 static void CallSwitchInCharacter(MenuProc * proc);
 static void SwitchInCharacter(void);
-static void SwitchOutCharacter(MenuProc * proc, MenuCommandProc * commandProc);
 static void StartPlatform(CreatorClassProcStruct * proc);
 static void CreatorClassEndProc(CreatorClassProcStruct * proc);
+void NewStartMovingPlatform(u32 a, s16 b, s16 c);
 static const struct MenuDefinition MenuDef_SelectCharacter1;
 static const struct MenuDefinition MenuDef_SelectCharacter2;
 static const struct MenuDefinition MenuDef_SelectCharacter3;
@@ -29,6 +31,7 @@ static const struct MenuDefinition MenuDef_SelectCharacter4;
 static const struct MenuDefinition MenuDef_SelectCharacter5;
 static void DrawYes(struct MenuProc * menu, struct MenuCommandProc * command);
 static void DrawNo(struct MenuProc * menu, struct MenuCommandProc * command);
+int CanWeSelectCharacter(int i);
 
 typedef struct Tile Tile;
 typedef struct TSA TSA;
@@ -75,6 +78,24 @@ struct SomeAISStruct
 {
 };
 
+struct BanimUnkStructComm
+{
+    /* 00 */ s16 terrain_l;
+    /* 02 */ s16 pal_l;
+    /* 04 */ s16 chr_l;
+    /* 06 */ s16 terrain_r;
+    /* 08 */ s16 pal_r;
+    /* 0A */ s16 chr_r;
+    /* 0C */ s16 distance;
+    /* 0E */ s16 unk0E;
+    /* 10 */ u16 unk10;
+    /* 14 */ Proc * proc14;
+    /* 18 */ Proc * proc18;
+    /* 1C */ void * unk1C;
+    /* 20 */ void * unk20;
+    /* 24 */ void * unk24;
+};
+
 #define DrawSkillIcon(map, id, oam2base) DrawIcon(map, id | 0x100, oam2base)
 
 extern u16 gBG2MapBuffer[32][32];           // 0x02023CA8.
@@ -92,7 +113,6 @@ extern TSA gSkillsRanksUIBoxTSA;
 extern u16 gBG0MapBuffer[32][32]; // 0x02022CA8. Snek: Ew why does FE-CLib-master not do it like this?
 extern u16 gBG1MapBuffer[32][32]; // 0x020234A8.
 
-extern void NewStartMovingPlatform(u32 a, s16 b, s16 c);                     // based on // 0x080CD408.
 extern void StartMovingPlatform(int always0x9, int always0x118, int height); // 0x080CD408.
 extern void
 SetupMovingPlatform(int always0x0, int alwaysNeg1, int always0x1F6, int always0x58, int always0x6); // 0x080CD47C.
@@ -105,10 +125,16 @@ extern void LockGameGraphicsLogic(void);   // Hide map sprites? ! FE8U = 0x80301
 extern void UnlockGameGraphicsLogic(void); //! FE8U = 0x80301B9
 extern void MU_AllDisable(void);
 extern void MU_AllEnable(void);
+extern void Font_ResetAllocation(void);
+extern void LoadMapSpritePalettes(void);
 
 extern unsigned gEventSlot[];
 
 extern MenuCommandDefinition gRAMMenuCommands[]; // 0x0203EFB8.
+extern struct BanimUnkStructComm gUnknown_0201FADC;
+extern u8 gUnk_Banim_020145C8[];
+extern void sub_805AA68(struct BanimUnkStructComm * buf);
+extern void sub_805AE40(struct BanimUnkStructComm * buf, s16 a, s16 b, s16 c, s16 d);
 
 static void DrawStatNames(TextHandle handle, char * string, int x, int y);
 
@@ -192,20 +218,15 @@ static const struct ProcInstruction ProcInstruction_CreatorClassProc[] = {
     PROC_END,
 };
 
-static const struct ProcInstruction ProcInstruction_Confirmation[] = {
-    PROC_YIELD,
-    PROC_END,
-};
-
 static const struct MenuCommandDefinition MenuCommands_ConfirmationProc[] = {
     {
-        .isAvailable = MenuCommandAlwaysUsable,
+        .isAvailable = (void *)MenuCommandAlwaysUsable,
         .onDraw = DrawYes,
         .onEffect = SelectYes,
     },
 
     {
-        .isAvailable = MenuCommandAlwaysUsable,
+        .isAvailable = (void *)MenuCommandAlwaysUsable,
 
         .onDraw = DrawNo,
         .onEffect = SelectNo,
@@ -218,13 +239,13 @@ static const struct MenuDefinition MenuDef_ConfirmCharacter = {
     .commandList = MenuCommands_ConfirmationProc,
 
     //.onEnd = SelectCharacterMenuEnd,
-    .onBPress = (SelectNo),
+    .onBPress = SelectNoOnBPress,
 };
 
 void SelectCharacter_ASMC(Proc * proc) // ASMC
 {
     gEventSlot[0xC] = 0x100; // Default unit id as 0x100 / no unit was selected
-    Struct_SelectCharacterProc * charProc = ProcStartBlocking(ProcInstruction_SelectCharacter, proc);
+    ProcStartBlocking(ProcInstruction_SelectCharacter, proc);
 }
 
 void SelectCharacter_StartMenu(struct Struct_SelectCharacterProc * proc)
@@ -294,7 +315,7 @@ static void DrawSelectCharacterCommands(struct MenuProc * menu, struct MenuComma
 void StartPlatform(CreatorClassProcStruct * proc)
 {
 
-    Struct_SelectCharacterProc * parent_proc = (Struct_SelectCharacterProc *)ProcFind(&ProcInstruction_SelectCharacter);
+    Struct_SelectCharacterProc * parent_proc = (Struct_SelectCharacterProc *)ProcFind(ProcInstruction_SelectCharacter);
     proc->platformType = 0x3F; // Temple ?
     for (int i = 0; i < 5; i++)
     {
@@ -341,6 +362,23 @@ void StartPlatform(CreatorClassProcStruct * proc)
     NewStartMovingPlatform(proc->platformType, 0x118, gCharacterSelectorPlatformHeight);
 }
 
+void NewStartMovingPlatform(u32 a, s16 b, s16 c)
+{
+    gUnknown_0201FADC.terrain_l = a;
+    gUnknown_0201FADC.pal_l = 0xE;
+    gUnknown_0201FADC.chr_l = 0x180;
+    gUnknown_0201FADC.terrain_r = a;
+    gUnknown_0201FADC.pal_r = 0xF;
+    gUnknown_0201FADC.chr_r = 0x1C0;
+    gUnknown_0201FADC.distance = 0;
+    gUnknown_0201FADC.unk0E = -1;
+    gUnknown_0201FADC.unk1C = (void *)0x06010000;
+    gUnknown_0201FADC.unk20 = gUnk_Banim_020145C8;
+    sub_805AA68(&gUnknown_0201FADC);
+
+    sub_805AE40(&gUnknown_0201FADC, b, c, b + 0x60, c);
+}
+
 static void DrawStatNames(TextHandle handle, char * string, int x, int y)
 {
     Text_Clear(&handle);
@@ -361,8 +399,8 @@ void CallSwitchInCharacter(MenuProc * proc)
 {
     u8 i = proc->commandIndex;
 
-    Struct_SelectCharacterProc * parent_proc = (Struct_SelectCharacterProc *)ProcFind(&ProcInstruction_SelectCharacter);
-    parent_proc->menu_proc = proc;
+    Struct_SelectCharacterProc * parent_proc = (Struct_SelectCharacterProc *)ProcFind(ProcInstruction_SelectCharacter);
+    parent_proc->menu_proc = (Proc *)proc;
 
     // struct Struct_SelectCharacterProc* parent_proc = (void*) proc->parent;
     parent_proc->currOptionIndex = i;
@@ -372,7 +410,7 @@ void CallSwitchInCharacter(MenuProc * proc)
 
 void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the character menu
 {
-    Struct_SelectCharacterProc * parent_proc = (Struct_SelectCharacterProc *)ProcFind(&ProcInstruction_SelectCharacter);
+    Struct_SelectCharacterProc * parent_proc = (Struct_SelectCharacterProc *)ProcFind(ProcInstruction_SelectCharacter);
 
     u8 i = parent_proc->currOptionIndex;
 
@@ -511,7 +549,7 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
     DrawUiNumber(&gBG0MapBuffer[15][6], TEXT_COLOR_GOLD, (unit->def));
     DrawUiNumber(&gBG0MapBuffer[17][6], TEXT_COLOR_GOLD, (unit->res));
 
-    extern int MakeThumb(int * inte, Unit * unit);
+    extern int MakeThumb(int (*inte)(Unit *), Unit * unit);
     extern int Get_Hp_Growth(Unit * unit);
     extern int Get_Str_Growth(Unit * unit);
     extern int Get_Mag_Growth(Unit * unit);
@@ -541,7 +579,7 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
         Text_SetColorId(&GoldSymbolHandle, TEXT_COLOR_GOLD);
         // void DrawTextInline(struct TextHandle*, u16* bg, int color, int xStart, int tileWidth, const char* cstring);
         // //! FE8U = 0x800443D
-        DrawTextInline(&GoldSymbolHandle, gBG0MapBuffer[11][29], TEXT_COLOR_GOLD, 0, 1, "G");
+        DrawTextInline(&GoldSymbolHandle, &gBG0MapBuffer[11][29], TEXT_COLOR_GOLD, 0, 1, "G");
         Text_Display(&GoldSymbolHandle, &gBG0MapBuffer[11][29]);
     }
 
@@ -583,7 +621,7 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
         Text_SetColorId(&GoldNameHandle, TEXT_COLOR_GOLD);
         // void DrawTextInline(struct TextHandle*, u16* bg, int color, int xStart, int tileWidth, const char* cstring);
         // //! FE8U = 0x800443D
-        DrawTextInline(&GoldNameHandle, gBG0MapBuffer[11][20], TEXT_COLOR_GOLD, 4, 4, "Cost:");
+        DrawTextInline(&GoldNameHandle, &gBG0MapBuffer[11][20], TEXT_COLOR_GOLD, 4, 4, "Cost:");
         Text_Display(&GoldNameHandle, &gBG0MapBuffer[11][20]);
     }
 
@@ -593,8 +631,6 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
     // Text_InitClear(someTextHandleArray, 5);
     // Text_Clear(someTextHandleArray);
     // Text_InsertString(someTextHandleArray, 0, 0, GetStringFromIndex(0x5AA));
-
-    u8 charName0 = GetStringTextWidthAscii(GetStringFromIndex(parent_proc->unitRam[0]->pClassData->nameTextId));
 
     TextHandle char0NameHandle = {
         .tileIndexOffset = gpCurrentFont->tileNext + tile,
@@ -764,7 +800,8 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
     if (!classProc)
     {
 
-        struct CreatorClassProcStruct * newProc = ProcStart(ProcInstruction_CreatorClassProc, (Proc *)parent_proc);
+        struct CreatorClassProcStruct * newProc =
+            (struct CreatorClassProcStruct *)ProcStart(ProcInstruction_CreatorClassProc, (Proc *)parent_proc);
         newProc->menu_proc = parent_proc->menu_proc;
     } // If the creator class proc doesn't exist yet, make one.
     else
@@ -815,7 +852,6 @@ static int SelectClass(struct MenuProc * menu, struct MenuCommandProc * command)
     if (CanWeSelectCharacter(menu->commandIndex) == 2)
         return ME_NONE; // do nothing
 
-    Struct_SelectCharacterProc * parent_proc = (Struct_SelectCharacterProc *)ProcFind(&ProcInstruction_SelectCharacter);
     // struct Struct_ConfirmationProc* proc = (void*) ProcStartBlocking(ProcInstruction_Confirmation, menu);
 
     // Hide inventory to display Yes/No there.
@@ -869,14 +905,14 @@ static int SelectYes(struct MenuProc * menu, struct MenuCommandProc * command)
     // ProcGoto(proc, 1); // Destructor label
 
     Struct_SelectCharacterProc * selectCharProc =
-        (Struct_SelectCharacterProc *)ProcFind(&ProcInstruction_SelectCharacter);
+        (Struct_SelectCharacterProc *)ProcFind(ProcInstruction_SelectCharacter);
     gEventSlot[0xC] = selectCharProc->unitRam[selectCharProc->currOptionIndex]->pCharacterData->number;
 
     int playerGold = gPlayerGold;
     int goldCost = gEventSlot[selectCharProc->currOptionIndex + 6];
     gPlayerGold = playerGold - goldCost;
 
-    EndAllMenus(menu);
+    EndAllMenus();
 
     return ME_END | ME_PLAY_BEEP;
     // return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
@@ -885,8 +921,6 @@ static int SelectYes(struct MenuProc * menu, struct MenuCommandProc * command)
 static int SelectNo(struct MenuProc * menu, struct MenuCommandProc * command)
 {
     //(void*) (SelectCharacter_ASMC);
-    Struct_SelectCharacterProc * proc = (Struct_SelectCharacterProc *)ProcFind(&ProcInstruction_SelectCharacter);
-
     // Struct_SelectCharacterProc* confirmation_proc =
     // (Struct_SelectCharacterProc*)ProcFind(&ProcInstruction_SelectCharacter); EndProc(confirmation_proc);
 
@@ -898,6 +932,17 @@ static int SelectNo(struct MenuProc * menu, struct MenuCommandProc * command)
     // return ME_NONE | ME_PLAY_BEEP;
     return ME_END | ME_PLAY_BEEP;
     // return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
+}
+
+static u8 SelectNoOnBPress(struct MenuProc * menu, struct MenuCommandProc * command)
+{
+    return SelectNo(menu, command);
+}
+
+static u8 SelectCharacterMenuEnd_ReturnFalseOnBPress(struct MenuProc * menu, struct MenuCommandProc * command)
+{
+    SelectCharacterMenuEnd_ReturnFalse();
+    return ME_END | ME_PLAY_BEEP;
 }
 
 void SelectCharacterMenuEnd_ReturnTrue(void)
@@ -914,10 +959,10 @@ void SelectCharacterMenuEnd_ReturnFalse(void)
 void SelectCharacterMenuEnd(void)
 {
 
-    CreatorClassProcStruct * creatorClass = (CreatorClassProcStruct *)ProcFind(&ProcInstruction_CreatorClassProc);
+    CreatorClassProcStruct * creatorClass = (CreatorClassProcStruct *)ProcFind(ProcInstruction_CreatorClassProc);
     CreatorClassEndProc(creatorClass);
 
-    Struct_SelectCharacterProc * proc = (Struct_SelectCharacterProc *)ProcFind(&ProcInstruction_SelectCharacter);
+    Struct_SelectCharacterProc * proc = (Struct_SelectCharacterProc *)ProcFind(ProcInstruction_SelectCharacter);
     // EndProc(proc);
     // EndEachProc(&ProcInstruction_CreatorClassProc); //! FE8U = (0x08003078+1)
     // EndEachProc(&ProcInstruction_CreatorClassProc); //! FE8U = (0x08003078+1)
@@ -1006,10 +1051,10 @@ int CanWeSelectCharacter_4(void)
 
 static const struct MenuCommandDefinition MenuCommands_CharacterProc1[] = {
     {
-        .isAvailable = CanWeSelectCharacter_0,
+        .isAvailable = (void *)CanWeSelectCharacter_0,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)(void *)CallSwitchInCharacter,
 
     },
     {} // END
@@ -1017,114 +1062,114 @@ static const struct MenuCommandDefinition MenuCommands_CharacterProc1[] = {
 
 static const struct MenuCommandDefinition MenuCommands_CharacterProc2[] = {
     {
-        .isAvailable = CanWeSelectCharacter_0,
+        .isAvailable = (void *)CanWeSelectCharacter_0,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
 
     {
-        .isAvailable = CanWeSelectCharacter_1,
+        .isAvailable = (void *)CanWeSelectCharacter_1,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {} // END
 };
 static const struct MenuCommandDefinition MenuCommands_CharacterProc3[] = {
     {
-        .isAvailable = CanWeSelectCharacter_0,
+        .isAvailable = (void *)CanWeSelectCharacter_0,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
 
     {
-        .isAvailable = CanWeSelectCharacter_1,
+        .isAvailable = (void *)CanWeSelectCharacter_1,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {
-        .isAvailable = CanWeSelectCharacter_2,
+        .isAvailable = (void *)CanWeSelectCharacter_2,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {} // END
 };
 static const struct MenuCommandDefinition MenuCommands_CharacterProc4[] = {
     {
-        .isAvailable = CanWeSelectCharacter_0,
+        .isAvailable = (void *)CanWeSelectCharacter_0,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
 
     {
-        .isAvailable = CanWeSelectCharacter_1,
+        .isAvailable = (void *)CanWeSelectCharacter_1,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {
-        .isAvailable = CanWeSelectCharacter_2,
+        .isAvailable = (void *)CanWeSelectCharacter_2,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {
-        .isAvailable = CanWeSelectCharacter_3,
+        .isAvailable = (void *)CanWeSelectCharacter_3,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {} // END
 };
 static const struct MenuCommandDefinition MenuCommands_CharacterProc5[] = {
     {
-        .isAvailable = CanWeSelectCharacter_0,
+        .isAvailable = (void *)CanWeSelectCharacter_0,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
 
     {
-        .isAvailable = CanWeSelectCharacter_1,
+        .isAvailable = (void *)CanWeSelectCharacter_1,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {
-        .isAvailable = CanWeSelectCharacter_2,
+        .isAvailable = (void *)CanWeSelectCharacter_2,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {
-        .isAvailable = CanWeSelectCharacter_3,
+        .isAvailable = (void *)CanWeSelectCharacter_3,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {
-        .isAvailable = CanWeSelectCharacter_4,
+        .isAvailable = (void *)CanWeSelectCharacter_4,
         .onEffect = SelectClass,
         .onDraw = DrawSelectCharacterCommands,
-        .onSwitchIn = CallSwitchInCharacter,
+        .onSwitchIn = (void *)CallSwitchInCharacter,
 
     },
     {} // END
@@ -1137,7 +1182,7 @@ static const struct MenuDefinition MenuDef_SelectCharacter1 = {
     ._u14 = 0,
     //.onEnd = SelectCharacterMenuEnd_ReturnFalse,
     .onInit = 0,
-    .onBPress = SelectCharacterMenuEnd_ReturnFalse,
+    .onBPress = SelectCharacterMenuEnd_ReturnFalseOnBPress,
     .onRPress = 0,
     .onHelpBox = 0,
 };
@@ -1148,7 +1193,7 @@ static const struct MenuDefinition MenuDef_SelectCharacter2 = {
     ._u14 = 0,
     //.onEnd = SelectCharacterMenuEnd_ReturnFalse,
     .onInit = 0,
-    .onBPress = SelectCharacterMenuEnd_ReturnFalse,
+    .onBPress = SelectCharacterMenuEnd_ReturnFalseOnBPress,
     .onRPress = 0,
     .onHelpBox = 0,
 };
@@ -1159,7 +1204,7 @@ static const struct MenuDefinition MenuDef_SelectCharacter3 = {
     ._u14 = 0,
     //.onEnd = SelectCharacterMenuEnd_ReturnFalse,
     .onInit = 0,
-    .onBPress = SelectCharacterMenuEnd_ReturnFalse,
+    .onBPress = SelectCharacterMenuEnd_ReturnFalseOnBPress,
     .onRPress = 0,
     .onHelpBox = 0,
 };
@@ -1170,7 +1215,7 @@ static const struct MenuDefinition MenuDef_SelectCharacter4 = {
     ._u14 = 0,
     //.onEnd = SelectCharacterMenuEnd_ReturnFalse,
     .onInit = 0,
-    .onBPress = SelectCharacterMenuEnd_ReturnFalse,
+    .onBPress = SelectCharacterMenuEnd_ReturnFalseOnBPress,
     .onRPress = 0,
     .onHelpBox = 0,
 };
@@ -1181,7 +1226,7 @@ static const struct MenuDefinition MenuDef_SelectCharacter5 = {
     ._u14 = 0,
     //.onEnd = SelectCharacterMenuEnd_ReturnFalse,
     .onInit = 0,
-    .onBPress = SelectCharacterMenuEnd_ReturnFalse,
+    .onBPress = SelectCharacterMenuEnd_ReturnFalseOnBPress,
     .onRPress = 0,
     .onHelpBox = 0,
 };

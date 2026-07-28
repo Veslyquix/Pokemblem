@@ -62,9 +62,12 @@ ORG $3798C // kill GetBallistaItemAt
 SHORT $2000 // mov r0, #0 
 SHORT $4770 // bx lr 
 
+// 35708
+// ORG $35728 // Kill Prepare Blank Tile by 7743  
+// WORD 0 
+// Now handled in BmuDisp
 
-ORG $35728 // Kill Prepare Blank Tile by 7743  
-WORD 0 
+
 
 ORG $A42BC // Kill GetNextChapterWinDataEntryIndex
 SHORT $2001 $4770 // mov r0, #1 - bx lr 

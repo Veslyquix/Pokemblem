@@ -118,7 +118,6 @@ void NewLoadBattleSpritesForBranchScreen(struct ProcPromoSel * proc)
     struct Anim * anim2;
     struct Unit copied_unit;
     struct Unknown_030053A0 * tmp;
-    struct Unknown_030053A0 * tmp2;
     u16 sp58;
     anim1 = (void *)gUnknown_030053A0.anim1;
     anim2 = (void *)gUnknown_030053A0.anim2;

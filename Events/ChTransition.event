@@ -44,6 +44,18 @@
 08039d10 .thumb
 */
 ALIGN 4 
+WarpDisaUnit: 
+CAM1 0x7FFD 
+CHECK_COORDS 0x7FFD 
+SADD sB sC s0 
+WARP_OUT 
+STAL 30 
+DISA 0x7FFD 
+ENDWARP 
+NoFade 
+ENDA 
+
+ALIGN 4 
 FadeToBlackEvent:
 CHECK_EVBIT 8 
 BNE 99 sC s0 

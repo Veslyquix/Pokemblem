@@ -42,6 +42,10 @@ TrainerPostBattleTalk(0xE0) // NPC talk again
 TrainerPostBattleTalk(OaksAide) // NPC talk again 
 END_MAIN
 
+
+
+
+
 PurchaseMagmarevent:
 EVBIT_MODIFY 4 
 WallText(CatchBeforePurchaseMagmarText)
@@ -76,22 +80,22 @@ LABEL 20
 CHECK_COORDS 0x7fff
 SADD sA sC s0  
 SET_ACTIVE 0
-WallText(Yes_PurchasedMagmarText)
-SADD sB sA s0  
+WallText(Yes_PurchasedMagmarText) 
 ASMC Get7thUnitASMC
 BEQ 21 sC s0 
-WARP_OUT
-STAL 30
-UNCM(TempAlly, 0x10009) // Undeploy + escape the Magmar
-DISA OaksAidePkmn 
+SVAL s2 OaksAidePkmn 
+CALL WarpDisaUnit 
+UNCM(TempAlly, 0x10009) // Undeploy + escape the pkmn
 GOTO 22 
 LABEL 21
 DISA OaksAidePkmn  
+SADD sB sA s0 
 MOVENEXTTO (-1) TempAlly 0x7FFe 
 ENUN 
 LABEL 22 
 SVAL s1 TempAlly // Magmar's UnitID 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 GOTO 63 
 LABEL 44 

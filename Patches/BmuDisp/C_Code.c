@@ -50,42 +50,6 @@ extern u16 SmsObjVramUpperChr;
 #define MMS_RESERVED_OBJ_CHR 0x39C
 #define MMS_RESERVED_GFX_SLOT_START (SMS_16X16_GFX_SLOT_COUNT - SMS_32X32_GFX_SLOT_STRIDE)
 
-struct BanimUnkStructComm
-{
-    /* 00 */ s16 terrain_l; // terrain L
-    /* 02 */ s16 pal_l;     // pal ID L
-    /* 04 */ s16 chr_l;     // chr L
-    /* 06 */ s16 terrain_r;
-    /* 08 */ s16 pal_r;
-    /* 0A */ s16 chr_r; // chr R
-    /* 0C */ s16 distance;
-    /* 0E */ s16 unk0E;
-    /* 10 */ u16 unk10;
-    /* 14 */ ProcPtr proc14; // sub emulator proc a
-    /* 18 */ ProcPtr proc18; // sub emulator proc b
-    /* 1C */ void * unk1C;
-    /* 20 */ void * unk20;
-    /* 24 */ void * unk24;
-};
-extern void sub_805AA68(struct BanimUnkStructComm * buf);
-extern void sub_805AE40(struct BanimUnkStructComm * buf, s16 a, s16 b, s16 c, s16 d);
-void NewStartMovingPlatform(u32 a, s16 b, s16 c)
-{
-    gUnknown_0201FADC.terrain_l = a;
-    gUnknown_0201FADC.pal_l = 0xe;
-    gUnknown_0201FADC.chr_l = 0x180;
-    gUnknown_0201FADC.terrain_r = a;
-    gUnknown_0201FADC.pal_r = 0xf;
-    gUnknown_0201FADC.chr_r = 0xf0 << 2;
-    gUnknown_0201FADC.distance = 0;
-    gUnknown_0201FADC.unk0E = -1;
-    gUnknown_0201FADC.unk1C = (void *)0x06010000;
-    gUnknown_0201FADC.unk20 = gUnk_Banim_020145C8;
-    sub_805AA68(&gUnknown_0201FADC);
-
-    sub_805AE40(&gUnknown_0201FADC, b, c, b + 0x60, c);
-}
-
 // static u8 CONST_DATA sMuImgBufOffLut[MU_MAX_COUNT + 1] = {
 // 0, // dummy because active ids start at 1
 // 0, 2, 1, 3
@@ -97,6 +61,73 @@ void NewStartMovingPlatform(u32 a, s16 b, s16 c)
 // return gMUGfxBuffer + (sMuImgBufOffLut[slot] * MU_GFX_MAX_SIZE);
 // }
 // sub_809A114 809872A 809a174
+#define MapBlankTile 0x400 // 0x400 // vanilla
+#define BlankTileX 31      // start at 0
+#define BlankTileY 31
+#define BlankTileOffset (((BlankTileY * 32) + BlankTileX) * 4)
+// bottom right tile of the tileset is now the blank tile instead of the top left (jeez this was annoying to do)
+extern u16 sTilesetConfig[0x1000 + 0x200];
+void sub_801A278(void)
+{
+    // const u16 * tile = sTilesetConfig;
+    const u16 * tile = &sTilesetConfig[BlankTileOffset];
+    // TODO: game state bits constants
+    if (!sub_800D208() || (gBmSt.gameStateBits & 0x10))
+    {
+        // TODO: macros?
+        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+    }
+
+    // TODO: macro?
+    gPaletteBuffer[PAL_BACKDROP_OFFSET] = 0;
+    EnablePaletteSync();
+}
+
+void InitBaseTilesBmMap(void)
+{
+    int ix, iy;
+
+    u16 ** rows;
+    u16 * tiles;
+    u16 * itBuffer;
+
+    rows = gBmMapBaseTiles;
+    tiles = gBmMapBuffer;
+
+    gBmMapSize.y++; // ?
+
+    // Ignore first short (x, y byte pair)
+    tiles++;
+
+    // Tile buffer starts after the rows
+    itBuffer = (u16 *)(gBmMapBaseTiles + gBmMapSize.y);
+
+    for (iy = 0; iy < gBmMapSize.y; ++iy)
+    {
+        // Set row buffer
+        rows[iy] = itBuffer;
+        itBuffer += gBmMapSize.x;
+
+        // Set tiles
+        for (ix = 0; ix < gBmMapSize.x; ++ix)
+            gBmMapBaseTiles[iy][ix] = *tiles++;
+    }
+
+    // this is for StartSubtitleHelp. If you are against the edge of the screen, it shifts the map up and draws a black
+    // line under the text
+
+    tiles = gBmMapBaseTiles[iy - 1];
+
+    for (ix = 0; ix < gBmMapSize.x; ++ix)
+        *tiles++ = BlankTileOffset;
+
+    gBmMapSize.y--; // ?
+}
+
+// RenderBmMapLine
 
 extern u16 * FaintCounter_Link;
 extern u8 * GlobalFaintCounter_Link;
