@@ -19,7 +19,7 @@ push {r4,r14}
 blh 0x804F455
 mov r4,r0
 @now clear graphics
-blh 0x80311A9
+@blh 0x80311A9 @ I don't think this is necessary, and it resets map animations which looks janky 
 mov r0,r4
 pop {r4}
 pop {r1}

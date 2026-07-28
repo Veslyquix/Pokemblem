@@ -83,7 +83,7 @@ void pFMU_InputLoop(struct Proc * inputProc)
     } */
     // u16 iKeyOld = proc->lastInput;
 }
-
+extern void ReloadGameCoreGraphics(void);
 int IsFMUPaused(void)
 {
     return FreeMoveRam->pause;
@@ -194,7 +194,7 @@ void pFMU_MainLoop(struct FMUProc * proc)
 
         // StartFadeOutBlackMedium();
         // RenderBmMap();
-        extern void ReloadGameCoreGraphics(void);
+
         ReloadGameCoreGraphics();
         gLCDIOBuffer.dispControl.enableBg0 = true;
         gLCDIOBuffer.dispControl.enableBg1 = true;
