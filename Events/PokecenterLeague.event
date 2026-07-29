@@ -152,6 +152,7 @@ BYTE SkillAccShop(WaryFighterID)
 BYTE SkillAccShop(EvioliteID)
 BYTE SkillAccShop(RenewalID)
 //SealSpdAccessory 
+BYTE SkillAccShop(CantoPlusID)
 BYTE SkillAccShop(PoisonStrikeID)
 BYTE SkillAccShop(GrislyWoundID)
 BYTE SkillAccShop(SavageBlowID)

@@ -291,6 +291,7 @@ BYTE SuperPotion 5
 BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
+BYTE SkillAccShop(CantoPlusID)
 BYTE SkillAccShop(PridefulWarriorID)
 BYTE SkillAccShop(ThickClubSkillID)
 BYTE SpellScroll MagicalLeaf SpellScroll Scorch SpellScroll Dig SpellScroll Taunt

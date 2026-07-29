@@ -465,6 +465,7 @@ BYTE StatAccessory WiseGlassesT2_BoostIndex
 BYTE StatAccessory EnergyBandT2_BoostIndex
 BYTE SkillAccShop(EvioliteID)
 BYTE SkillAccShop(RenewalID)
+BYTE SkillAccShop(CantoPlusID)
 BYTE Revive 1 
 BYTE SuperPotion 5 
 BYTE JellyDonut 5
