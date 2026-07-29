@@ -210,6 +210,7 @@ ASMC 0x80790a5 //MU_EndAll //deselect unit
 SOUN ObtainBadge 
 // STAL_FAST 90 //290 is full 
 EVBIT_MODIFY 4 
+ENUT BoulderbadgeObtained 
 TEXTSTART 
 TEXTSHOW BrockDefeatText
 TEXTEND 
@@ -220,7 +221,7 @@ REMA
 GiveItemWithDurability_Rand(0, SpellScroll, RockTomb)
 GiveItemWithDurability_Rand(0, SkillScroll, RecklessRockID)
 //GiveItemWithDurability(0, SpellScroll, RockTomb)
-ENUT BoulderbadgeObtained 
+
 ENUT PewterGymClosedFlag
 SVAL r3 3000 
 GIVETOMAIN 0 
@@ -247,9 +248,10 @@ UNCR(0x7FFF, 0x43) // Show SMS & Refresh
 ASMC 0x80790a5 //MU_EndAll //deselect unit
 MUSCSLOW GymBGM
 EVBIT_MODIFY 4 
+ENUT PewterGymRematchedFlag 
 Text(BrockRematchDefeatText)
 GiveItemWithDurability_Rand(0, SpellScroll, BulkUp)
-ENUT PewterGymRematchedFlag 
+
 //GiveItemWithDurability(0, SpellScroll, RockTomb)
 SVAL r3 5000 
 GIVETOMAIN 0 

@@ -166,6 +166,9 @@ EVBIT_MODIFY 4
 SOUN ObtainBadge 
 // STAL_FAST 90 //290 is full 
 EVBIT_MODIFY 4 
+ENUT EarthbadgeObtained 
+ENUT ViridianGymClosedFlag
+ENUT StrengthBoulderFlag
 TEXTSTART 
 TEXTSHOW Giovanni_GymDefeatText
 TEXTEND 
@@ -174,9 +177,7 @@ TEXTCONT
 TEXTEND 
 REMA 
 GiveItemWithDurability_Rand(0, SpellScroll, Fissure)
-ENUT EarthbadgeObtained 
-ENUT ViridianGymClosedFlag
-ENUT StrengthBoulderFlag
+
 SVAL r3 10000 
 GIVETOMAIN 0 
 TEXTSHOW Giovanni_GymWaitText

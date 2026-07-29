@@ -1309,7 +1309,7 @@ Good luck, [Tact]![A][LoadOverworldFaces][X]
 
 
 ## PokemonCapturedText
-[OpenLeft][LoadDex][OpenLeft][FastPrint]Pokémon captured.[N]
+[OpenLeft][LoadDex][OpenLeft][FastPrint]Pokémon captured.[N]// don't edit this (retroachievements missingno capture)
 [ToggleRed]300[Gold][ToggleRed] consumed.[A][X]
 
 ## CannotCaptureText
@@ -3349,7 +3349,7 @@ I must go, but I shall return![A][X]
 
 
 ## KoichiChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoichi][OpenMidRight]I am the KARATE MASTER![N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoichi][OpenMidRight]I am the KARATE MASTER![N]// don't edit this dialogue (Retroachievements) 
 I am always ready to spar![A][N]
 You wish to challenge me?[N]
 Expect no mercy![A][N]
@@ -4251,17 +4251,13 @@ Venom blooms beneath your feet.[A][N]
 Bow before the dark![A]<endif>[X]
     
 ## KogaDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[N]
-The shadow yields to the rising sun.[A][N]
-Take the Soul Badge![N]
-You have earned it.[A][X]
-//[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[A][N]
-//The morning sun climbs.[LoadOverworldFaces][A][N]
-//The shadows yield to sunrise.[A][N]
-//You have bested me.[A][N]
-//Now take the Soul Badge.[A][N]
-//Infuse it with your essence.[A][N]
-//Walk proudly, young one.[A][X]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[A][N]
+The morning sun climbs.[LoadOverworldFaces][A][N]
+The shadows yield to sunrise.[A][N]
+You have bested me.[A][N]
+Now take the Soul Badge.[A][N]
+Infuse it with your essence.[A][N]
+Walk proudly, young one.[A][X]
 
 ## KogaWaitText
 [OpenMidRight][LoadKoga][OpenMidRight]One gift yet remains.[A][N]

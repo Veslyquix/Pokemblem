@@ -138,7 +138,11 @@ void IncrementDeathCounter(struct Unit * unit)
     if (UNIT_FACTION(unit) == FACTION_BLUE)
     {
         *FaintCounter_Link += 1;
-        int globalCounter = (GlobalFaintCounter_Link[0] | (GlobalFaintCounter_Link[1] << 8)) + 1;
+        int globalCounter = ((GlobalFaintCounter_Link[0] | (GlobalFaintCounter_Link[1] << 8)) + 1) & 0xFFFF;
+        if (globalCounter > 64999)
+        {
+            globalCounter = 64999; // it'll appear as this +1 on retroachievements
+        }
         GlobalFaintCounter_Link[0] = globalCounter & 0xFF;
         GlobalFaintCounter_Link[1] = (globalCounter & 0xFF00) >> 8;
     }

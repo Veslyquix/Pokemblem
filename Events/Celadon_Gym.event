@@ -205,6 +205,7 @@ EVBIT_MODIFY 4
 SOUN ObtainBadge 
 // STAL_FAST 90 //290 is full 
 EVBIT_MODIFY 4 
+ENUT RainbowbadgeObtained 
 TEXTSTART 
 TEXTSHOW ErikaDefeatText
 TEXTEND 
@@ -213,7 +214,7 @@ TEXTCONT
 TEXTEND 
 REMA 
 GiveItemWithDurability_Rand(0, SpellScroll, PetalDance)
-ENUT RainbowbadgeObtained 
+
 SVAL r3 6000 
 GIVETOMAIN 0 
 TEXTSHOW ErikaWaitText
@@ -238,9 +239,10 @@ UNCR(0x7FFF, 0x43) // Show SMS & Refresh
 ASMC 0x80790a5 //MU_EndAll //deselect unit
 MUSCSLOW GymBGM
 EVBIT_MODIFY 4 
+ENUT CeladonGymRematchedFlag
 Text(ErikaRematchDefeatText)
 GiveItemWithDurability_Rand(0, SpellScroll, SolarBeam)
-ENUT CeladonGymRematchedFlag
+
 SVAL r3 5000 
 GIVETOMAIN 0 
 
