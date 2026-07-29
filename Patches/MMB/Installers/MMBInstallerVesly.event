@@ -168,7 +168,7 @@ After each set of module options are definitions that you can use to adjust the 
 
 	#define MMBItem1
 	#define MMBItem2
-	#define MMBItem3
+	// #define MMBItem3
 	//#define MMBItem4
 	//#define MMBItem5
 		/*
@@ -411,10 +411,10 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBInventoryX 40
 	#define MMBInventoryY 8
 
-	#define MMBItem1X 40
+	#define MMBItem1X 56 // 40 
 	#define MMBItem1Y 8
 
-	#define MMBItem2X 56
+	#define MMBItem2X 72
 	#define MMBItem2Y 8
 
 	#define MMBItem3X 72
@@ -543,7 +543,7 @@ After each set of module options are definitions that you can use to adjust the 
 		 * Overrides the MMBSkill# modules.
 		 */
 
-	//#define MMBSkill1
+	#define MMBSkill1
 	//#define MMBSkill2
 	//#define MMBSkill3
 	//#define MMBSkill4
@@ -580,11 +580,12 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBSkillObjectPaletteIndex 4
 	#define MMBSkillTile 0x1AC
 
-	#define MMBSkillsX 120
+	#define MMBSkillsX 120 
 	#define MMBSkillsY 8
 
-	#define MMBSkill1X 8
-	#define MMBSkill1Y 40
+	#define MMBSkill1X 40 // 8 
+	#define MMBSkill1Y 8 // 40 
+    
 
 	#define MMBSkill2X 24
 	#define MMBSkill2Y 40

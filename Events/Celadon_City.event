@@ -38,51 +38,11 @@ END_MAIN
 CharacterBasedEvents:
 CharacterEventBothWays(0,GlobalTalkEvent, 0xFF, Ephraim)
 CHAR PurchasedJynxFlag PurchaseJynxevent [0x0, OaksAide] 0 // NPC
-CHAR 0 MoveRelearnerEvent [0x0, 0xE0] 0 // NPC
 //TrainerPostBattleTalk(0xE0) // NPC talk again 
 TrainerPostBattleTalk(OaksAide) // NPC talk again 
 END_MAIN
 
-MoveRelearnerEvent:
-PauseFreeMovement
-SVAL 0xB 0xFFFFFFFF; 
-SOLOTEXTBOXSTART; 
-TEXTSHOW MoveRelearnerIntro; 
-TEXTEND; 
-//EVBIT_F 7 
-EVBIT_MODIFY 1 // no text skip 
-TEXTSHOW MoveRelearnerYes
-TEXTEND; REMA
-SVAL s1 1 
-BNE 99 sC s1 
-CHECK_ACTIVE 
-SVAL s1 ProtagID 
-BEQ 0 sC s1 
 
-// check if we have heart scale here 
-// if not, goto 1 
-ASMC ClearSpellLearnedRam 
-ASMC ViewRelearnCommand_OnSelect
-BEQ 99 sC s0 
-CLEAN 
-STAL 2 
-ASMC prLearnNewSpell_ASMC 
-//prLearnNewSpell(proc->unit, proc->move_hovering, proc->parent);
-STAL 2
-//STAL 1 
-//TutText(DebugText) 
-GOTO 99 
-
-LABEL 0 // have pkmn 
-WallText(MoveRelearnerPokemonTalk)
-GOTO 99 
-LABEL 1 
-WallText(MoveRelearnerHeartScale)
-GOTO 99 
-
-LABEL 99 
-NoFade 
-ENDA 
 
 PurchaseJynxevent:
 EVBIT_MODIFY 4 
@@ -118,21 +78,21 @@ CHECK_COORDS 0x7fff
 SADD sA sC s0  
 SET_ACTIVE 0
 WallText(Yes_PurchasedJynxText)
-SADD sB sA s0  
 ASMC Get7thUnitASMC
 BEQ 21 sC s0 
-WARP_OUT
-STAL 30
-UNCM(TempAlly, 0x10009) // Undeploy + escape the Jynx
-DISA OaksAidePkmn 
+SVAL s2 OaksAidePkmn 
+CALL WarpDisaUnit 
+UNCM(TempAlly, 0x10009) // Undeploy + escape the pkmn
 GOTO 22 
 LABEL 21
 DISA OaksAidePkmn  
+SADD sB sA s0 
 MOVENEXTTO (-1) TempAlly 0x7FFe 
 ENUN 
 LABEL 22 
 SVAL s1 TempAlly // Jynx's UnitID 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 GOTO 63 
 LABEL 44 
@@ -164,10 +124,10 @@ END_MAIN
 DebugStuffEntry(TrainerL, 130000)
 DebugItems SuperRepel 5
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
-BYTE SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
-BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
+BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(LifeAndDeathID) SkillAcc(Intimidate2ID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
-BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID)
+BYTE SkillAcc(MiracleID) SkillAcc(GrislyWoundID) SkillAcc(ExpShareID) SkillAcc(SavageBlowID) SkillAcc(CounterMagicID) SkillAcc(SilphScopeID) SkillAcc(AssaultVestID) SkillAcc(TacticalVestID)
 BYTE JellyDonut 5
 BYTE SuperPotion 5
 BYTE Revive 3
@@ -197,16 +157,16 @@ BYTE StatAccessory QuickBoots_BoostIndex StatAccessory LuckyBracerT3_BoostIndex
 BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
 BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
 BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
-BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll FierceStanceID SkillScroll OpportunistID
-BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
-BYTE SkillScroll ChargeID SkillScroll AdaptabilityID
+BYTE SkillScroll ScrappyID SkillScroll TechnicianID SkillScroll LifetakerID SkillScroll RenewalID
+BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID 
+BYTE SkillScroll MultiscaleID SkillScroll AdaptabilityID
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
 BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
-BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll WaterGun SpellScroll Taunt SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
 BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
 BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
-BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
+BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll Screech SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
 BYTE SpellScroll LeafBlade SpellScroll AuroraBeam SpellScroll Psybeam SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch
 BYTE SpellScroll BugBite SpellScroll PoisonJab SpellScroll DrillPeck SpellScroll Flamethrower SpellScroll Fly
 BYTE SpellScroll IceBeam SpellScroll TriAttack
@@ -273,6 +233,7 @@ SADD sB sA s0
 UNCM(TempAlly, 0x10009) // Undeploy + escape the mon
 SVAL s1 TempAlly 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 LABEL 63 
 NoFade
@@ -326,6 +287,7 @@ DISA TempAlly_B
 DISA TempAlly_C
 DISA TempAlly_D
 DISA TempAlly_E
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 LABEL 63 
 
@@ -414,7 +376,7 @@ StatAccessoryTrap(23,18, ChapterID*2, LuckyBracerT3_BoostIndex)
 SignBTrap(41,11, ChapterID, 0x0) //no extra text 
 SignATrap(4,16, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
 
-//SkillScrollTrap(15,11, ChapterID*2, AcrobatID)
+SkillScrollTrap(33,21, ChapterID*2, GuardBreakerID)
 //SpellScrollTrap(17,11, (ChapterID*2)+1, Ember)
 //OpenPokeball(8,3)
 
@@ -481,7 +443,6 @@ CALL CityBeginningScene
 LOAD1 1 OaksAideUnitGroup
 ENUN 
 MarkTrainerAsDefeated(OaksAide) 
-MarkTrainerAsDefeated(0xE0) 
 MarkTrainerAsDefeated(OaksAidePkmn) 
 CHECK_EVENTID PurchasedJynxFlag 
 BEQ 34 sC s0 
@@ -502,6 +463,7 @@ ShopItems_A: // Supplies + Evo stones / Stones
 BYTE StatAccessory MuscleBandT2_BoostIndex 
 BYTE StatAccessory WiseGlassesT2_BoostIndex
 BYTE StatAccessory EnergyBandT2_BoostIndex
+BYTE SkillAccShop(EvioliteID)
 BYTE SkillAccShop(RenewalID)
 BYTE Revive 1 
 BYTE SuperPotion 5 
@@ -517,12 +479,12 @@ BYTE $00; ALIGN 4
 
 ALIGN 4
 ShopItems_B: // TMs CDs 
-BYTE SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
+BYTE SpellScroll Screech SpellScroll Taunt SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
 BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick
 BYTE SpellScroll BubbleBeam SpellScroll MudBomb SpellScroll DrillPeck
 BYTE SpellScroll HealPulse SpellScroll RockSlide SpellScroll Dragonbreath
 BYTE SpellScroll Psybeam SpellScroll BugBite SpellScroll PoisonJab 
-BYTE SpellScroll LeafBlade
+BYTE SpellScroll LeafBlade 
 BYTE $00; ALIGN 4
 
 ALIGN 4 
@@ -542,11 +504,10 @@ BYTE $00; ALIGN 4
 
 ALIGN 4
 ShopItems_C: // Skill Scrolls 
-BYTE SkillScroll ParagonID SkillScroll OpportunistID
-BYTE SkillScroll FierceStanceID SkillScroll ChargeID 
+BYTE SkillScroll ParagonID SkillScroll TechnicianID
 BYTE SkillScroll LifetakerID SkillScroll DazzleID 
-BYTE SkillScroll RenewalID SkillScroll MultiscaleID 
-BYTE SkillScroll AdaptabilityID SkillScroll TintedLensID 
+BYTE SkillScroll RenewalID SkillScroll MultiscaleID
+BYTE SkillScroll AdaptabilityID
 BYTE SkillScroll SolarPowerID SkillScroll HarvestID 
 BYTE SkillScroll ChlorophyllID SkillScroll ScrappyID 
 BYTE SkillScroll PoisonTouchID SkillScroll ForewarnID 
@@ -559,13 +520,7 @@ BYTE SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll PoisonStrikeID
 BYTE $00; ALIGN 4
 
 
-ALIGN 4
-ShopItems_Unused: // Skill Scrolls 
-// 2nd store in Viridian? Or at league? 
-BYTE SkillScroll DartingStanceID SkillScroll ChargeID SkillScroll PursuitID
-BYTE SkillScroll WrathID SkillScroll SilentPrideID SkillScroll CharmID 
-BYTE SkillScroll GrislyWoundID SkillScroll FieryBloodID 
-BYTE $00; ALIGN 4
+
 
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir
 //SHLI SuperPotion
@@ -610,7 +565,6 @@ UNIT
 OaksAideUnitGroup:
 UNIT OaksAide OaksAideClass 0x0 Level(LVFACEDOWN, Enemy, 1) [10,16]  0b 0x0	0 0 [0x0,0x0,0x0,0x0] DoNothing
 UNIT OaksAidePkmn JynxID 0x0 Level(0, Enemy, 1) [9,16]  0b 0x0	0 0 [0x0,0x0,0x0,0x0] DoNothing
-UNIT 0xE0 balding_manID 0x0 Level(LVFACEDOWN, Enemy, 1) [14,16]  0b 0x0	0 0 [0x0,0x0,0x0,0x0] DoNothing
 UNIT
 
 EeveeUnitGroup:

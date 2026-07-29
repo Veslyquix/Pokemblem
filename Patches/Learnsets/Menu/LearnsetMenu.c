@@ -12,7 +12,9 @@ struct StatScreenSt
     /* 0C */ struct Unit * unit;
     /* 10 */ struct MUProc * mu;
     /* 14 */ const struct HelpBoxInfo * help;
+    /* 18 */ struct TextHandle text[34];
 };
+extern struct FontData gItemSelectMenuFont;
 extern struct StatScreenSt gStatScreen; // statscreen state
 enum
 {
@@ -378,24 +380,9 @@ void UpdateItemInfo_Learnset(struct MenuProc * menu, struct MenuCommandProc * co
             gBG0MapBuffer[y][x] = 0;
         }
     }
+    Text_SetFont(0);
     Text_ResetTileAllocation();
-
-    // for (int x = 11; x < 30; x++) { // clear out most of bg0
-    //	for (int y = 0; y < 8; y++) {
-    //		gBG0MapBuffer[y][x] = 0;
-    //	}
-    // }
-    TextHandle handles[12] = {};
-    for (int i = 0; i < 8; i++)
-    {
-        // handles[i].tileIndexOffset = tile; // offset to start at
-        handles[i].xCursor = 0;
-        // handles[i].tileIndexOffset = 0x180;
-        handles[i].colorId = TEXT_COLOR_NORMAL;
-        handles[i].useDoubleBuffer = 0;
-        handles[i].currentBufferId = 0;
-        handles[i].unk07 = 0;
-    }
+    Text_SetFontStandardGlyphSet(0); // tile text numbers
 
     MoveListCommandDraw(menu, menu->pCommandProc[0]);
     MoveListCommandDraw(menu, menu->pCommandProc[1]);
@@ -404,32 +391,9 @@ void UpdateItemInfo_Learnset(struct MenuProc * menu, struct MenuCommandProc * co
     MoveListCommandDraw(menu, menu->pCommandProc[4]);
     MoveListCommandDraw(menu, menu->pCommandProc[5]);
 
-    // u16 tileNext starts at 0 when ResetTileAllocation is used (vram 0x6001000)
-    //
+    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
 
-    // menu->pCommandProc[0]->text.tileIndexOffset = gpCurrentFont->tileNext;
-
-    // menu->pCommandProc[0]->text.tileWidth = 0; //92;
-
-    // update tileNext to be whatever we offset it to
-    // in this case it's 0, but it would be important if it wasn't
-    // menu starts at tileNext as 0 (and draws spaces as needed)
-    for (u8 c = 1; c <= menu->commandCount; c++) // unsure if this change was helpful
-    {
-        gpCurrentFont->tileNext =
-            menu->pCommandProc[c - 1]->text.tileIndexOffset + menu->pCommandProc[c - 1]->text.tileWidth;
-        if (c < menu->commandCount)
-        {
-            menu->pCommandProc[c]->text.tileIndexOffset = gpCurrentFont->tileNext;
-        }
-    }
-
-    // here
-
-    // menu->pCommandProc[1]->text.currentBufferId = 0; //handles[i].currentBufferId;
-
-    // proc->tileNext = gpCurrentFont->tileNext;
-    // gpCurrentFont->tileNext = 40; //proc->tileNext;
+    TextHandle * handles = gStatScreen.text;
 
     u8 i = 0;
 
@@ -500,29 +464,6 @@ void UpdateItemInfo_Learnset(struct MenuProc * menu, struct MenuCommandProc * co
 
     if (item)
     {
-        char * string = GetStringFromIndex(GetItemDescId(item));
-        int lines = GetNumLines(string);
-        DrawMultiline(&handles[i], string, lines);
-
-        /*
-                PrepareText(&handles[i], );
-                Text_Display(&handles[i], &gBG0MapBuffer[2][12]); i++;
-                char* strcpy(char* dest, const char* src);
-                unsigned strlen(const char* cstr);
-                PrepareText(&handles[i], Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item))));
-                Text_Display(&handles[i], &gBG0MapBuffer[4][12]); i++;
-                PrepareText(&handles[i],
-           Text_GetStringNextLine(Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item)))));
-                Text_Display(&handles[i], &gBG0MapBuffer[6][12]); i++;
-        */
-
-        for (int c = 0; c < lines; c++)
-        {
-            Text_Display(&handles[c + i], &gBG0MapBuffer[2 + c * 2][11]);
-        }
-        i++;
-        i++;
-        i++;
 
         PrepareText(&proc->handle[0], GetItemDisplayRankString(item));
         Text_Display(&proc->handle[0], &gBG0MapBuffer[15][5 + x]);
@@ -535,11 +476,16 @@ void UpdateItemInfo_Learnset(struct MenuProc * menu, struct MenuCommandProc * co
         i++;
         // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
 
-        PrepareText(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
+        Text_InitClear(&proc->handle[2], 6);
+        proc->handle[2].tileWidth = 6;
+
+        Text_SetColorId(&proc->handle[2], TEXT_COLOR_GOLD);
+        Text_DrawString(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
+
         Text_Display(&proc->handle[2], &gBG0MapBuffer[15][0 + x]);
         i++;
 
-        gSpecialUiCharAllocationTable[0] = 0xFF; // no clue but it made DrawUiNumber work properly
+        Text_SetFont(0);
 
         DrawUiNumber(&gBG0MapBuffer[15][18 + x], TEXT_COLOR_GOLD, GetItemWeight(item));
         DrawUiNumber(&gBG0MapBuffer[17][5 + x], TEXT_COLOR_GOLD, GetItemMight(item));
@@ -551,8 +497,21 @@ void UpdateItemInfo_Learnset(struct MenuProc * menu, struct MenuCommandProc * co
         DrawUiNumber(
             &gBG0MapBuffer[9][22], TEXT_COLOR_GOLD,
             (UnitGetMoveList(proc->unit, proc->offset)[(hover * 2)])); // level it's learned at
-    }
 
+        Text_SetFont(&gItemSelectMenuFont);
+        char * string = GetStringFromIndex(GetItemDescId(item));
+        int lines = GetNumLines(string);
+        DrawMultiline(&handles[i], string, lines);
+
+        for (int c = 0; c < lines; c++)
+        {
+            Text_Display(&handles[c + i], &gBG0MapBuffer[2 + c * 2][11]);
+        }
+        i++;
+        i++;
+        i++;
+    }
+    Text_SetFont(0);
     EnableBgSyncByMask(BG0_SYNC_BIT);
 }
 
@@ -673,15 +632,7 @@ static void MoveListCommandDraw(struct MenuProc * menu, struct MenuCommandProc *
     int i = (command->commandDefinitionIndex);
 
     u16 * const out = gBg0MapBuffer + TILEMAP_INDEX(command->xDrawTile, command->yDrawTile);
-    u32 width;
-    if (IsMove(moves[(i * 2) + 1]))
-    {
-        width = (Text_GetStringTextWidth(GetItemName(moves[(i * 2) + 1])) + 32) / 8;
-    }
-    else
-    {
-        width = (Text_GetStringTextWidth("No Move") + 32) / 8;
-    }
+    u32 width = 8;
     Text_InitClear(&command->text, width);
     /*
     Text_SetXCursor(&command->text, new_item_desc_offset);

@@ -47,6 +47,11 @@ int GetBestDirection(struct Unit * unit, int direction)
     int bestDirection = direction;
     int bestScore = 0x7fffffff;
 
+    if (UNIT_FACTION(unit) != FACTION_RED)
+    {
+        return direction;
+    }
+
     if (!UNIT_IS_VALID(unit))
     {
         return direction;

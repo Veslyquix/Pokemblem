@@ -1,4 +1,4 @@
-#include "gbafe.h" // headers 
+#include "gbafe.h" // headers
 
 #define PUREFUNC __attribute__((pure))
 #define ARMFUNC __attribute__((target("arm")))
@@ -6,507 +6,1140 @@ int Div(int a, int b) PUREFUNC;
 int Mod(int a, int b) PUREFUNC;
 int DivArm(int b, int a) PUREFUNC;
 
-extern int CR_MaxDisplayed;
 extern int CR_TotalOptions;
-extern const u8 CR_NumberOfOptionsPerEntryTable[]; 
-extern char* TacticianName; //8 bytes long
-extern int CannotCaptureFlag_Link; 
-extern int CannotEvolveFlag_Link; 
+extern const u8 CR_NumberOfOptionsPerEntryTable[];
+extern char * TacticianName; // 8 bytes long
+extern int CannotCaptureFlag_Link;
+extern int CannotEvolveFlag_Link;
+extern char * GetTacticianName(void);
 
-typedef struct {
+#define CR_BADGE_PALETTE_COLOR_COUNT 16
+#define RGB5(r, g, b) ((r) | ((g) << 5) | ((b) << 10))
+
+#define COLOR_WHITE RGB5(31, 31, 31)
+#define COLOR_BLACK RGB5(0, 0, 0)
+#define COLOR_GRAY RGB5(16, 16, 16)
+
+#define COLOR_RED RGB5(31, 0, 0)
+#define COLOR_GREEN RGB5(0, 31, 0)
+#define COLOR_BLUE RGB5(0, 0, 31)
+
+#define COLOR_YELLOW RGB5(31, 31, 0)
+#define COLOR_ORANGE RGB5(31, 18, 0)
+#define COLOR_GOLD RGB5(31, 24, 4)
+
+#define COLOR_CREAM RGB5(31, 29, 18)
+#define COLOR_AMBER RGB5(31, 21, 0)
+#define COLOR_PEACH RGB5(31, 22, 12)
+
+#define CR_BADGE_TARGET_COLOR COLOR_WHITE
+#define CR_BADGE_LIGHTEN_PERCENT 60
+#define CR_BADGE_DARKEN_PERCENT 30
+
+#define CR_RULE_STATE_INVALID 0xFF
+#define CR_RULE_STATE_CANNOT_EVOLVE (1 << 0)
+#define CR_RULE_STATE_CANNOT_CAPTURE_CERTAIN (1 << 1)
+#define CR_RULE_STATE_CANNOT_CAPTURE (1 << 2)
+#define CR_RULE_STATE_CANNOT_GAIN_EXP (1 << 3)
+#define CR_RULE_STATE_RANDOMIZER (1 << 4)
+#define CR_RULE_STATE_ENEMY_SKILLS (1 << 5)
+#define CR_RULE_STATE_NUZLOCKE (1 << 6)
+typedef struct
+{
     /* 00 */ PROC_HEADER;
-	/* 2c */ u8 id; // menu id 
-	u8 offset; 
-	u8 handleID; 
-	u8 redraw; 
-	u8 updateSMS; 
-	u8 cannotCatch; 
-	u8 cannotEvolve; 
-	u8 pkmn[7];
-	//s8 Option[15];
+    /* 2c */ u8 id; // menu id
+    u8 offset;
+    u8 handleID;
+    u8 redraw;
+    u8 updateSMS;
+    u8 cannotCatch;
+    u8 cannotEvolve;
+    u8 cannotGainExp;
+    u8 allRandomizerOptions;
+    u8 enemySkills;
+    u8 nuzlocke;
+    u8 displayedBadgeOption;
+    u8 displayedRulesState;
+    u8 pkmn[7];
+    u16 badgePalBase[CR_BADGE_PALETTE_COLOR_COUNT];
+    // s8 Option[15];
 } ChallengeRunProc;
 
-
-static void ChallengeRunLoop(ChallengeRunProc* proc); 
-const struct ProcCmd ChallengeRunProcCmd[] =
-{
+static void ChallengeRunLoop(ChallengeRunProc * proc);
+const struct ProcCmd ChallengeRunProcCmd[] = {
     PROC_CALL(LockGame),
     PROC_CALL(BMapDispSuspend),
-	PROC_CALL(StartFastFadeFromBlack), 
-	PROC_REPEAT(WaitForFade), 
+    PROC_CALL(StartFastFadeFromBlack),
+    PROC_REPEAT(WaitForFade),
     PROC_YIELD,
-	PROC_REPEAT(ChallengeRunLoop), 
-	PROC_CALL(StartFastFadeToBlack), 
-	PROC_REPEAT(WaitForFade), 
+    PROC_REPEAT(ChallengeRunLoop),
+    PROC_CALL(StartFastFadeToBlack),
+    PROC_REPEAT(WaitForFade),
     PROC_CALL(UnlockGame),
     PROC_CALL(BMapDispResume),
     PROC_END,
 };
 
 #define MENU_X 18
-#define MENU_Y 16
-typedef const struct {
-  u32 x;
-  u32 y;
-} LocationTable;
+#define MENU_Y 8
+#define CR_VISIBLE_OPTIONS 6
+#define CR_MAX_DISPLAYED_INDEX (CR_VISIBLE_OPTIONS - 1)
+#define RULES_X 1
+#define RULES_Y 13
+#define RULES_TEXT_CURSOR_X 3
+#define RULES_CLEAR_WIDTH 18
+#define RULES_CLEAR_HEIGHT 4
 
-
-static const LocationTable CR_CursorLocationTable[] = {
-  {MENU_X, MENU_Y + (16*0)},
-  {MENU_X, MENU_Y + (16*1)},
-  {MENU_X, MENU_Y + (16*2)},
-  {MENU_X, MENU_Y + (16*3)},
-  {MENU_X, MENU_Y + (16*4)},
-  {MENU_X, MENU_Y + (16*5)},
-  {MENU_X, MENU_Y + (16*6)}, //,
-  {MENU_X, MENU_Y + (16*7)} //,
-  // {10, 0x88} //leave room for a description?
+enum
+{
+    CR_OPTION_NEW_NAME,
+    CR_OPTION_LITTLE_CUP,
+    CR_OPTION_VOID,
+    CR_OPTION_CHAOS,
+    CR_OPTION_PLUS,
+    CR_OPTION_NUZLOCKE,
+    CR_OPTION_ASH,
+    CR_OPTION_GARY,
+    CR_OPTION_LEAF,
+    CR_OPTION_OAK,
+    CR_OPTION_BILL,
+    CR_OPTION_JAMES,
+    CR_OPTION_JESSIE,
+    CR_OPTION_BROCK,
+    CR_OPTION_MISTY,
+    CR_OPTION_LT_SURGE,
+    CR_OPTION_ERIKA,
+    CR_OPTION_KOGA,
+    CR_OPTION_SABRINA,
+    CR_OPTION_BLAINE,
+    CR_OPTION_GIOVANNI,
+    CR_OPTION_LORELEI,
+    CR_OPTION_BRUNO,
+    CR_OPTION_AGATHA,
+    CR_OPTION_LANCE,
+    CR_OPTION_VESLY,
+    CR_OPTION_CHEATER,
+    CR_OPTION_COUNT,
 };
 
+enum
+{
+    CR_TEXT_TITLE,
+    CR_TEXT_RULE_HEADER,
+    CR_TEXT_RULE_NONE,
+    CR_TEXT_RULE_CANNOT_EVOLVE,
+    CR_TEXT_RULE_CANNOT_CAPTURE_CERTAIN,
+    CR_TEXT_RULE_CANNOT_CAPTURE,
+    CR_TEXT_RULE_CANNOT_GAIN_EXP,
+    CR_TEXT_RULE_RANDOMIZER,
+    CR_TEXT_RULE_ENEMY_SKILLS,
+    CR_TEXT_RULE_ENEMY_SKILLS_2,
+    CR_TEXT_RULE_NUZLOCKE,
+    CR_TEXT_RULE_NUZLOCKE_2,
+    CR_TEXT_COUNT,
+};
 
-extern u16* bg_table[4]; // = {gBG0TilemapBuffer, gBG1TilemapBuffer, gBG2TilemapBuffer, gBG3TilemapBuffer}; 
-//#define BG_SYNC_BIT(aBg) (1 << (aBg))
-//static void InitMultiline(struct Text th[], int lines, int x, int y, int bg, int color, int textID); 
-//static void PrepareMultiline(struct Text th[], int textID); 
-//static void DrawMultiline(struct Text th[], int lines, int x, int y, int bg);
-//static int CountTextIDLines(int textID); 
-//static char *GetStrNextLine(char *str); 
+#define CR_BADGE_BG 3
+#define CR_BADGE_TILE_BASE 0x440
+#define CR_BADGE_TILE_WIDTH 17
+#define CR_BADGE_TILE_HEIGHT 17
+#define CR_BADGE_PAL_SLOT 7
+#define CR_BADGE_X 8
+#define CR_BADGE_Y (-1)
+#define CR_BADGE_ICON_FIRST_COLOR 3
+#define CR_BADGE_ICON_COLOR_COUNT 4
+#define CR_BADGE_RING_HIGHLIGHT_FIRST_COLOR 7
+#define CR_BADGE_RING_HIGHLIGHT_COLOR_COUNT 3
+#define CR_BADGE_INNER_RING_FIRST_COLOR 10
+#define CR_BADGE_INNER_RING_COLOR_COUNT 3
+#define CR_BADGE_ICON_EXTRA_FIRST_COLOR 13
+#define CR_BADGE_ICON_EXTRA_COLOR_COUNT 3
+#define CR_BADGE_CYCLE_HALF_LENGTH 16
+#define CR_BADGE_CYCLE_LENGTH (CR_BADGE_CYCLE_HALF_LENGTH * 2)
+#define CR_BADGE_PIXEL_X (CR_BADGE_X * 8)
+#define CR_BADGE_PIXEL_Y ((CR_BADGE_Y * 8) + 2)
+#define CR_UIFRAME_BG 2
+#define CR_UIFRAME_TILE_ABS_BASE 0x2E0
+#define CR_UIFRAME_TILE_BASE 0xE0
+#define CR_UIFRAME_TILE_WIDTH 30
+#define CR_UIFRAME_TILE_HEIGHT 20
+#define CR_UIFRAME_PAL_SLOT 6
+#define CR_UIFRAME_TILE_DATA_OFFSET 0x4000
 
-void InitLine(int handleID, int x, int y, int color, int width, const char* str);
-void PrepareLine(int handleID, const char* str);
+typedef const struct
+{
+    u32 x;
+    u32 y;
+} LocationTable;
+
+static const LocationTable CR_CursorLocationTable[] = {
+    { MENU_X, MENU_Y + (16 * 0) }, { MENU_X, MENU_Y + (16 * 1) }, { MENU_X, MENU_Y + (16 * 2) },
+    { MENU_X, MENU_Y + (16 * 3) }, { MENU_X, MENU_Y + (16 * 4) }, { MENU_X, MENU_Y + (16 * 5) },
+};
+
+static const LocationTable CR_PokemonSpriteLocationTable[] = {
+    { CR_BADGE_PIXEL_X + 38, CR_BADGE_PIXEL_Y + 32 },  // 11 o'clock
+    { CR_BADGE_PIXEL_X + 82, CR_BADGE_PIXEL_Y + 32 },  // 1 o'clock
+    { CR_BADGE_PIXEL_X + 20, CR_BADGE_PIXEL_Y + 70 },  // 9 o'clock
+    { CR_BADGE_PIXEL_X + 100, CR_BADGE_PIXEL_Y + 70 }, // 3 o'clock
+    { CR_BADGE_PIXEL_X + 38, CR_BADGE_PIXEL_Y + 104 }, // 7 o'clock
+    { CR_BADGE_PIXEL_X + 82, CR_BADGE_PIXEL_Y + 104 }, // 5 o'clock
+};
+
+extern u16 * bg_table[4]; // = {gBG0TilemapBuffer, gBG1TilemapBuffer, gBG2TilemapBuffer, gBG3TilemapBuffer};
+// #define BG_SYNC_BIT(aBg) (1 << (aBg))
+// static void InitMultiline(struct Text th[], int lines, int x, int y, int bg, int color, int textID);
+// static void PrepareMultiline(struct Text th[], int textID);
+// static void DrawMultiline(struct Text th[], int lines, int x, int y, int bg);
+// static int CountTextIDLines(int textID);
+// static char *GetStrNextLine(char *str);
+
+void InitLine(int handleID, int x, int y, int color, int width, const char * str);
+void PrepareLine(int handleID, const char * str, int x);
 void DrawLine(int handleID, int x, int y, int bg);
-void DrawChallengeRun(ChallengeRunProc* proc);
-void DrawAdditionalRulesText(ChallengeRunProc* proc);
+void DrawChallengeRun(ChallengeRunProc * proc);
+void DrawAdditionalRulesText(ChallengeRunProc * proc);
+void DrawChallengeRunBadge(ChallengeRunProc * proc);
+void DrawChallengeRunUiFrameBg(void);
+
+extern const u8 * const CR_BadgeBGTable[];
+extern const u8 * const CR_BadgePalTable[];
+extern const u8 CR_FRLGUiFrameBG[];
+extern const u8 CR_FRLGUiFrameBG_pal[];
+extern const u16 CR_FRLGUiFrameBG_map[];
 
 #define white TEXT_COLOR_SYSTEM_WHITE
 #define gray TEXT_COLOR_SYSTEM_GRAY
 #define grey TEXT_COLOR_SYSTEM_GRAY
-#define blue TEXT_COLOR_SYSTEM_BLUE 
+#define blue TEXT_COLOR_SYSTEM_BLUE
 #define gold TEXT_COLOR_SYSTEM_GOLD
 #define green TEXT_COLOR_SYSTEM_GREEN
-#define black TEXT_COLOR_SYSTEM_BLACK 
+#define black TEXT_COLOR_SYSTEM_BLACK
 
-void CR_EraseText(ChallengeRunProc* proc) { 
-	//BG_Fill(gBG0TilemapBuffer, 0);
-	//BG_EnableSyncByMask(BG0_SYNC_BIT);
-	//ResetTextFont();
-	DrawChallengeRun(proc);
-	//DrawAdditionalRulesText(proc);
+void CR_EraseText(ChallengeRunProc * proc)
+{
+    // BG_Fill(gBG0TilemapBuffer, 0);
+    // BG_EnableSyncByMask(BG0_SYNC_BIT);
+    // ResetTextFont();
+    DrawChallengeRun(proc);
+    // DrawAdditionalRulesText(proc);
 }
-extern int RandomizeClassNow(int classID); 
+extern int RandomizeClassNow(int classID);
 extern int RandomizeClassesFlag_Link;
-extern const struct UnitDefinition* ChallengeRunUnitsTable[]; 
-void SetPkmn(ChallengeRunProc* proc) { 
-	const struct UnitDefinition* uDef = ChallengeRunUnitsTable[proc->id+proc->offset]; 
+extern const struct UnitDefinition * ChallengeRunUnitsTable[];
+void SetPkmn(ChallengeRunProc * proc)
+{
+    const struct UnitDefinition * uDef = ChallengeRunUnitsTable[proc->id + proc->offset];
     int count;
-	for (count = 0; count <= 6; count++) { 
-		proc->pkmn[count] = 0; 
-	} 
-	
-	count = 0; 
-	int rand = CheckFlag(RandomizeClassesFlag_Link); 
-	
-    while ((uDef->classIndex) && (count < 6)) {
-		if (rand) { proc->pkmn[count] = RandomizeClassNow(uDef->classIndex); } 
-		else { proc->pkmn[count] = uDef->classIndex; } 
+    for (count = 0; count <= 6; count++)
+    {
+        proc->pkmn[count] = 0;
+    }
+
+    count = 0;
+    int rand = CheckFlag(RandomizeClassesFlag_Link);
+
+    while ((uDef->classIndex) && (count < 6))
+    {
+        if (rand)
+        {
+            proc->pkmn[count] = RandomizeClassNow(uDef->classIndex);
+        }
+        else
+        {
+            proc->pkmn[count] = uDef->classIndex;
+        }
         uDef++;
         count++;
     }
 }
 
-void DrawCR_Sprites(ChallengeRunProc* proc, int bg) { 
-	int i; 
-	//SetPkmn(proc); 
-	if (proc->offset) {
-        DisplayUiVArrow(MENU_X+8, MENU_Y-8, 0x3240, 1); // up arrow 
-    }
-	// should display down arrow? 
-	if ((CR_TotalOptions > 7) && (proc->offset < (CR_TotalOptions - CR_MaxDisplayed))) {
-		DisplayUiVArrow(MENU_X+8, MENU_Y+(16*8), 0x3240, 0);
-	}
-	DisplayUiHand(CR_CursorLocationTable[proc->id].x, CR_CursorLocationTable[proc->id].y); 	
-	
-	if (proc->updateSMS) { 
-	SetPkmn(proc); 
-	if (!proc->pkmn[0]) { return; } 
-		ResetUnitSprites();
-		
-	} 
-    for (i = 0; i < 6; i++) {
-        u32 yOff = ((i >> 1) << 4) + 16;///proc->yDiff_cur;
-        //if((yOff + 0xF) < 0x60 )
-            //PutUnitSprite(0, (i & 1) * 56 + 0x70, yOff + 0x18,
-                        //GetUnit(1));
-			if (!proc->pkmn[i]) { break; } 
-			u32 xOff = (i & 1) * 56 + 0x70;
-			if ((i == 2) || (i == 3)) xOff += 28; 
-			PutUnitSpriteForClassId(bg, xOff, yOff + 0x18, 0xc800, proc->pkmn[i]);
-    }
-	if (proc->updateSMS) { 
-		proc->updateSMS = false; 
-		if (!proc->pkmn[0]) { return; } 
-		ForceSyncUnitSpriteSheet(); 
-		return; 
-	}
-	SyncUnitSpriteSheet();
-} 
-void ClearLine(int); 
-void DrawAdditionalRulesText(ChallengeRunProc* proc) { 
-	//char* str2[4];
-	int i = 0; 
-	//ResetUnitSprites();
-	proc->cannotCatch = false; 
-	proc->cannotEvolve = false; 
-	int redraw = false; 
-	int opt = proc->id+proc->offset;
-	if (opt == 1) { proc->cannotEvolve = true; redraw = true; } 
-	if ((opt >= (CR_TotalOptions))) { proc->cannotCatch = true; proc->cannotEvolve = true; redraw = true; } // Vesly 
-	if ((opt == 2) || (opt == (CR_TotalOptions - 1)) || (!opt)) { redraw = true; } 
-	if (!redraw) { return; } 
-	if (opt > 1) { proc->cannotCatch = true; } 
-
-    TileMap_FillRect(
-        TILEMAP_LOCATED(bg_table[0], 0xC, 0xC),
-        18, 6, 0);
-    BG_EnableSyncByMask(BG_SYNC_BIT(0));
-	
-	i = 1; 
-	for (i = 1; i<6; i++) { 
-		//ClearLine(i+proc->handleID); 
-	} 
-	i = 1; 
-	DrawLine(i+proc->handleID, 12,   12, 0); i++; 
-	
-
-	if ((!proc->cannotEvolve) && (!proc->cannotCatch)) { 
-	DrawLine(i+proc->handleID, 12,   12+2, 0); } i++; // None 
-	if ((proc->cannotCatch) && (proc->cannotEvolve)) { 
-		DrawLine(i+proc->handleID, 12,   12+2, 0); i++; i++;  // Cannot evolve 
-		DrawLine(i+proc->handleID, 12,   12+4, 0); i++; // Cannot catch pokemon 
-		BG_EnableSyncByMask(BG_SYNC_BIT(0));
-		return; 
-	} 
-	if (proc->cannotEvolve) { 
-	DrawLine(i+proc->handleID, 12,   12+2, 0); i++; // Cannot evolve 
-	DrawLine(i+proc->handleID, 12,   12+4, 0); // Cannot catch certain pokemon 
-	} i++; i++; 
-	if (proc->cannotCatch) { 
-		DrawLine(i+proc->handleID, 12,   12+2, 0); // Cannot catch 
-	} i++; 
-	
-
-
-	BG_EnableSyncByMask(BG_SYNC_BIT(0));
-	
-	
-} 
-
-
-const char SpecialNames[25][10] = { 
-"New Name",
-"LittleCup",
-"Ash",
-"Gary",
-//"UnderUsed",
-//"OverUsed",
-//"Red",
-//"Blue",
-//"Green",
-//"Yellow",
-"Oak",
-"Bill",
-"Brock",
-"Misty",
-"Lt. Surge",
-"Erika",
-"Koga",
-"Sabrina",
-"Blaine",
-"Giovanni",
-"Lorelei",
-"Bruno",
-"Agatha",
-"Lance",
-"Vesly",
-}; 
-
-void DrawChallengeRun(ChallengeRunProc* proc) { 
-
-
-	int i, x, y, bg; 
-	const char* str[25]; 
-	
-	x = (MENU_X/8)+1; 
-	y = (MENU_Y / 8); 
-	bg = 0; 
-	
-	i = 0; 
-	str[i] = SpecialNames[i]; i++; 
-	str[i] = SpecialNames[i]; i++; 
-	//str[i] = "UnderUsed"; i++; 
-	//str[i] = "OverUsed"; i++; 
-	str[i] = "Ash"; i++; 
-	str[i] = "Gary"; i++; 
-	//str[i] = "Red"; i++; 
-	//str[i] = "Blue"; i++; 
-	//str[i] = "Green"; i++; 
-	//str[i] = "Yellow"; i++; 
-	str[i] = "Oak"; i++; 
-	str[i] = "Bill"; i++; 
-	str[i] = "Brock"; i++; 
-	str[i] = "Misty"; i++; 
-	str[i] = "Lt. Surge"; i++; 
-	str[i] = "Erika"; i++; 
-	str[i] = "Koga"; i++; 
-	str[i] = "Sabrina"; i++; 
-	str[i] = "Blaine"; i++; 
-	str[i] = "Giovanni"; i++; 
-	str[i] = "Lorelei"; i++; 
-	str[i] = "Bruno"; i++; 
-	str[i] = "Agatha"; i++; 
-	str[i] = "Lance"; i++; 
-	str[i] = "Vesly"; i++; 
-	
-	char* str2[6];
-	i = 0; 
-	str2[i] = "Challenge Runs"; i++; 
-	str2[i] = "Additional Rules"; i++; 
-	str2[i] = "None"; i++;
-	str2[i] = "Cannot evolve Pokémon"; i++; 
-	str2[i] = "Cannot capture certain Pokémon"; i++; // extra rules 
-	str2[i] = "Cannot capture Pokémon"; i++; // extra rules 
-
-
-	
-	ResetText();
-	i = 0; 
-	// InitLine(int handleID, int x, int y, int bg, int color, int width, char* str) 
-	InitLine(i, x, y+00, white, 0, str[i+proc->offset]); i++; 
-	InitLine(i, x, y+02, white, 0, str[i+proc->offset]); i++; 
-	InitLine(i, x, y+04, white, 0, str[i+proc->offset]); i++; 
-	InitLine(i, x, y+06, white, 0, str[i+proc->offset]); i++; 
-	InitLine(i, x, y+ 8, white, 0, str[i+proc->offset]); i++; 
-	InitLine(i, x, y+10, white, 0, str[i+proc->offset]); i++; 
-	InitLine(i, x, y+12, white, 0, str[i+proc->offset]); i++; 
-	InitLine(i, x, y+14, white, 0, str[i+proc->offset]); i++; 
-	proc->handleID = i; 
-	i = 0; 
-	InitLine(i+proc->handleID, 12, 1,    green, (GetStringTextLen(str2[i])+8)/8, str2[i]); i++; 
-	InitLine(i+proc->handleID, 12, 12,   white, (GetStringTextLen(str2[i])+8)/8, str2[i]); i++;
-	InitLine(i+proc->handleID, 12, 12+2, white, 0, str2[i]); i++; // None 
-	InitLine(i+proc->handleID, 12, 12+2, white, (GetStringTextLen(str2[i])+8)/8, str2[i]); i++; // Cannot evolve Pkmn 
-	InitLine(i+proc->handleID, 12, 12+4, white, (GetStringTextLen(str2[i])+8)/8, str2[i]); i++; // Cannot capture certain 
-	InitLine(i+proc->handleID, 12, 12+2, white, (GetStringTextLen(str2[i])+8)/8, str2[i]); i++; // Cannot capture 
-	
-	
-	i = 0; 
-	PrepareLine(i, str[i+proc->offset]); i++;
-	PrepareLine(i, str[i+proc->offset]); i++;
-	PrepareLine(i, str[i+proc->offset]); i++;
-	PrepareLine(i, str[i+proc->offset]); i++;
-	PrepareLine(i, str[i+proc->offset]); i++;
-	PrepareLine(i, str[i+proc->offset]); i++;
-	PrepareLine(i, str[i+proc->offset]); i++;
-	PrepareLine(i, str[i+proc->offset]); i++;
-	
-	i = 0; 
-	PrepareLine(i+proc->handleID, str2[i]); i++;
-	PrepareLine(i+proc->handleID, str2[i]); i++;
-	PrepareLine(i+proc->handleID, str2[i]); i++;
-	PrepareLine(i+proc->handleID, str2[i]); i++;
-	PrepareLine(i+proc->handleID, str2[i]); i++;
-	PrepareLine(i+proc->handleID, str2[i]); i++;
-	
-	i = 0; 
-	DrawLine(i, x, y+00, bg); i++; 
-	DrawLine(i, x, y+02, bg); i++; 
-	DrawLine(i, x, y+04, bg); i++; 
-	DrawLine(i, x, y+06, bg); i++; 
-	DrawLine(i, x, y+ 8, bg); i++; 
-	DrawLine(i, x, y+10, bg); i++; 
-	DrawLine(i, x, y+12, bg); i++; 
-	DrawLine(i, x, y+14, bg); i++; 
-	DrawLine(i, 12,   1, bg); i++; 
-	DrawAdditionalRulesText(proc); 
-	BG_EnableSyncByMask(BG_SYNC_BIT(bg));
-
-
-
-	
-
-} 
-
-
-void StartChallengeRun(ProcPtr parent) { 
-	ClearBg0Bg1();
-	//EnableBgSyncByIndex(0);
-	ChallengeRunProc* proc; 
-	if (parent) { proc = (ChallengeRunProc*)Proc_StartBlocking((ProcPtr)&ChallengeRunProcCmd, parent); } 
-	else { proc = (ChallengeRunProc*)Proc_Start((ProcPtr)&ChallengeRunProcCmd, PROC_TREE_3); } 
-	if (proc) { 
-		proc->id = 0; 
-		proc->offset = 0; 
-		proc->redraw = false; 
-		proc->cannotCatch = false; 
-		proc->cannotEvolve = false; 
-		proc->updateSMS = true; 
-		proc->handleID = 0; 
-		proc->pkmn[0] = 0; 
-		//ResetText();
-		BG_Fill(gBG3TilemapBuffer, 0);
-		BG_Fill(gBG2TilemapBuffer, 0);
-
-		UnpackUiVArrowGfx(0x240, 3);
-		//SetTextFontGlyphs(0);
-		//SetTextFont(0);
-		//ResetTextFont();
-		SetupMapSpritesPalettes();
-		//CR_EraseText(proc);
-		DrawChallengeRun(proc);
-		//DrawChallengeRun(proc);
-		//BG_EnableSyncByMask(BG0_SYNC_BIT);
-		StartGreenText(proc); 
-		BG_EnableSyncByMask(BG3_SYNC_BIT);
-		BG_EnableSyncByMask(BG2_SYNC_BIT);
-	} 
-} 
-
-
-
-
-void SetTactNameFromCase(int id) { 
-	if (id > 1) { 
-		SetTacticianName(SpecialNames[id]); 
-	} 
-} 
-
-extern struct KeyStatusBuffer sKeyStatusBuffer;
-static void ChallengeRunLoop(ChallengeRunProc* proc) { 
-
-	
-	DrawCR_Sprites(proc, 0); 
-	
-	if (proc->redraw) { 
-		proc->redraw = false; 
-		DrawChallengeRun(proc);
-	
-	} 
-	
-	
-	u16 keys = sKeyStatusBuffer.newKeys; 
-	if (!keys) { keys = sKeyStatusBuffer.repeatedKeys; } 
-	if ((keys & START_BUTTON)||(keys & A_BUTTON)) { //press A or Start to continue
-		gEventSlots[0xC] = 0; 
-		
-		int opt = proc->id+proc->offset;
-		if (opt > 1) { gEventSlots[0xC] = 1; } 
-		if (opt == 1) { SetFlag(CannotEvolveFlag_Link); } 
-		if (opt > 1) { SetFlag(CannotCaptureFlag_Link); } 
-		if (opt >= CR_TotalOptions) { SetFlag(CannotEvolveFlag_Link); } 
-		//asm("mov r11, r11"); 
-		SetTactNameFromCase(opt); 
-		
-		
-		Proc_Break((ProcPtr)proc);
-		m4aSongNumStart(0x6B); 
-	};
-
-	
-    if (keys & DPAD_DOWN) {
-		proc->updateSMS = true; 
-		if (proc->id < CR_MaxDisplayed) { proc->id++; DrawAdditionalRulesText(proc); return; } // no need to redraw  
-		else if ((proc->offset + proc->id) < CR_TotalOptions) { proc->offset++; } 
-		else if (proc->id >= CR_MaxDisplayed) { proc->id = 0; proc->offset = 0;  } 
-		CR_EraseText(proc);
-		proc->redraw = true; 
-	}
-    if (keys & DPAD_UP) {
-		proc->updateSMS = true; 
-		if (proc->id) { proc->id--; DrawAdditionalRulesText(proc); return; } // no need to redraw  
-		else if (proc->offset) { proc->offset--; } 
-		
-		else if (!proc->id) { proc->id = CR_MaxDisplayed; proc->offset = (CR_TotalOptions - CR_MaxDisplayed); } 
-		CR_EraseText(proc);
-		proc->redraw = true; 
-	}
-
-    //if (keys & DPAD_LEFT) {
-	//	proc->Option[proc->id]--;
-	//	if (proc->Option[proc->id] < 0) { 
-	//		proc->Option[proc->id] = CR_NumberOfOptionsPerEntryTable[proc->id] - 1;
-	//	} 
-	//	DrawChallengeRun(proc);
-	//} 
-    //if (keys & DPAD_RIGHT) {
-	//	proc->Option[proc->id]++;
-	//	if (proc->Option[proc->id] >= CR_NumberOfOptionsPerEntryTable[proc->id]) { 
-	//		proc->Option[proc->id] = 0;
-	//	} 
-	//	DrawChallengeRun(proc);
-	//}
-} 
-
-extern struct Font *gActiveFont;
-
-void ClearLine(int handleID) { 
-
-	struct Text* th = &gStatScreen.text[handleID]; // max 34 
-	ClearText(th);
-
-} 
-
-//extern u8* gPromoJidLutPoin[][2];
-extern u32 AutolevelTable[256]; 
-extern u16* gPromoJidLutPoin[];  
-
-int IsTargetEvolved(struct Unit* unit) { 
-	int classID = unit->pClassData->number; 
-	// if no possible promotions, they are evolved or single stage 
-	if (!(*gPromoJidLutPoin)[classID]) { return true; } 
-	if (AutolevelTable[classID]) { return true; } // evolves from something 
-	
-	return false; 
-
-
-} 
-
-void InitLine(int handleID, int x, int y, int color, int width, const char* str)
+void DrawCR_Sprites(ChallengeRunProc * proc, int bg)
 {
-	if (handleID > 34) return;
-	//struct Text* th = &gPrepMainMenuTexts[handleID]; // max 10 
-	struct Text* th = &gStatScreen.text[handleID]; // max 34 
-	ClearText(th);
-	if (!width) { width = 6; } //(GetStringTextLen(str)+8)/8;  
-	// cleartext goes before and after to definitively erase the text ? 
-    //th->chr_position = gActiveFont->chr_counter;
-    //th->tile_width = width;
-    //th->db_id = 0;
-    //th->db_enabled = false;
-    //th->is_printing = false;
-    //gActiveFont->chr_counter += width;
-	InitText(th, width); // calls ClearText(th);
-	Text_SetColor(th, color);
+    int i;
+    // SetPkmn(proc);
+    if (proc->offset)
+    {
+        DisplayUiVArrow(MENU_X + 14, MENU_Y - 8, 0x3240, 1); // up arrow
+    }
+    // should display down arrow?
+    if ((CR_TotalOptions > CR_MAX_DISPLAYED_INDEX) && (proc->offset < (CR_TotalOptions - CR_MAX_DISPLAYED_INDEX)))
+    {
+        DisplayUiVArrow(MENU_X + 14, MENU_Y + (16 * CR_VISIBLE_OPTIONS), 0x3240, 0);
+    }
+    DisplayUiHand(CR_CursorLocationTable[proc->id].x, CR_CursorLocationTable[proc->id].y);
 
-    //TileMap_FillRect(
-    //    TILEMAP_LOCATED(bg_table[bg], x, y),
-    //    width+x, height+y, 0);
-    //BG_EnableSyncByMask(BG_SYNC_BIT(bg));
+    if (proc->updateSMS)
+    {
+        SetPkmn(proc);
+        if (!proc->pkmn[0])
+        {
+            return;
+        }
+        ResetUnitSprites();
+    }
+    for (i = 0; i < 6; i++)
+    {
+        // if((yOff + 0xF) < 0x60 )
+        // PutUnitSprite(0, (i & 1) * 56 + 0x70, yOff + 0x18,
+        // GetUnit(1));
+        if (!proc->pkmn[i])
+        {
+            break;
+        }
+        PutUnitSpriteForClassId(
+            bg, CR_PokemonSpriteLocationTable[i].x, CR_PokemonSpriteLocationTable[i].y, 0xc800, proc->pkmn[i]);
+    }
+    if (proc->updateSMS)
+    {
+        proc->updateSMS = false;
+        if (!proc->pkmn[0])
+        {
+            return;
+        }
+        ForceSyncUnitSpriteSheet();
+        return;
+    }
+    SyncUnitSpriteSheet();
+}
+void ClearLine(int);
+static const char * const ChallengeRunInfoText[CR_TEXT_COUNT] = {
+    "Challenge Runs",
+    "",
+    "No additional restrictions.",
+    "Cannot evolve Pokémon.",
+    "Cannot capture certain Pokémon.",
+    "Cannot capture Pokémon.",
+    "Cannot gain EXP.",
+    "All randomizer options enabled.",
+    "Enemies take half damage and",
+    "have random, powerful skills.",
+    "Fainted Pokémon are released.",
+    "Not recommended.",
+};
+
+const char SpecialNames[CR_OPTION_COUNT][10] = {
+    "New Name",
+    "LittleCup",
+    "Void",
+    "Chaos",
+    "Plus",
+    "Nuzlocke",
+    "Ash",
+    "Gary",
+    "Leaf",
+    //"UnderUsed",
+    //"OverUsed",
+    //"Red",
+    //"Blue",
+    //"Green",
+    //"Yellow",
+    "Oak",
+    "Bill",
+    "James",
+    "Jessie",
+    "Brock",
+    "Misty",
+    "Lt. Surge",
+    "Erika",
+    "Koga",
+    "Sabrina",
+    "Blaine",
+    "Giovanni",
+    "Lorelei",
+    "Bruno",
+    "Agatha",
+    "Lance",
+    "Vesly",
+    "Cheater",
+};
+
+static bool StringEquals(const char * left, const char * right)
+{
+    while (*left && *right)
+    {
+        if (*left != *right)
+        {
+            return false;
+        }
+
+        left++;
+        right++;
+    }
+
+    return *left == *right;
 }
 
+extern u16 TrainerFIDTable[];
 
-
-void PrepareLine(int handleID, const char* str)
+int GetSpecialNameID(void)
 {
-	if (handleID > 34) return;
-	//struct Text* th = &gPrepMainMenuTexts[handleID]; // max 10 
-	struct Text* th = &gStatScreen.text[handleID]; // max 34 
+    int i;
+    char * tacticianName = GetTacticianName();
 
-    while (1) {
-        if ('\0' == *str)        /* End for fetext */
+    for (i = 1; i < CR_OPTION_COUNT; i++)
+    {
+        if (StringEquals(tacticianName, SpecialNames[i]))
+        {
+            return i;
+        }
+    }
+
+    return (-1); // failed
+}
+
+extern int ProtagID_Link;
+extern int GirlProtagFlag_Link;
+extern int RedID_Link;
+extern int RedSurfID_Link;
+extern int SurfID_Link;
+extern int GreenID_Link;
+extern int GreenSurfID_Link;
+extern int RedMug_Link;
+extern int LeafMug_Link;
+
+extern u8 * AvatarPortraitId_Link;
+extern u8 * AvatarClassId_Link;
+extern u8 AvatarClassIdTable[];
+extern u16 AvatarFIDTable[];
+void SaveAvatarClass(int i)
+{
+    if (i < 0)
+    {
+        if (CheckFlag(GirlProtagFlag_Link))
+        {
+            i = GreenID_Link;
+        }
+        else
+        {
+            i = RedID_Link;
+        }
+        *AvatarClassId_Link = i;
+        return;
+    }
+    *AvatarClassId_Link = AvatarClassIdTable[i];
+}
+void SaveAvatarFID(int i)
+{
+    if (i < 0)
+    {
+        if (CheckFlag(GirlProtagFlag_Link))
+        {
+            i = LeafMug_Link;
+        }
+        else
+        {
+            i = RedMug_Link;
+        }
+        *AvatarPortraitId_Link = (u8)i;
+        return;
+    }
+    *AvatarPortraitId_Link = (u8)AvatarFIDTable[i]; // avatar portraits are below 0x100
+}
+
+int GetAvatarPortraitId(void)
+{
+    int i = *AvatarPortraitId_Link;
+    if (!i)
+    {
+        i = GetSpecialNameID();
+        SaveAvatarFID(i);
+        if (i >= 0)
+        {
+            i = *AvatarPortraitId_Link;
+        }
+    }
+    if (i < 0 || i == 0xFF)
+    {
+        return 0; // hopefully it doesn't hit here?
+    }
+
+    return i;
+}
+
+extern int IsUnitOnWater(struct Unit * unit);
+void GetAvatarSpecialClassId_ASMC(void)
+{
+    gEventSlots[0xC] = *AvatarClassId_Link;
+}
+
+int GetAvatarClassId(struct Unit * unit, int onWater)
+{
+    int i = *AvatarClassId_Link;
+    if (!i)
+    {
+        i = GetSpecialNameID();
+        SaveAvatarClass(i);
+        if (i >= 0)
+        {
+            i = *AvatarClassId_Link;
+        }
+    }
+    if (i < 0 || i == 0xFF)
+    {
+        return 0;
+    }
+    if (UNIT_IS_VALID(unit))
+    {
+        if (onWater < 0)
+        {
+            onWater = IsUnitOnWater(unit);
+        }
+        if (onWater)
+        {
+            if (i == RedID_Link)
+            {
+                return RedSurfID_Link;
+            }
+            if (i == GreenID_Link)
+            {
+                return GreenSurfID_Link;
+            }
+            return SurfID_Link;
+        }
+    }
+
+    return i;
+}
+
+void SetAvatarClass_ASMC(void)
+{
+    struct Unit * unit = GetUnitFromCharId(ProtagID_Link);
+
+    int classID = GetAvatarClassId(unit, -1);
+    // check for validity after GetAvatarClassId so that ram there is initialized
+    if (!UNIT_IS_VALID(unit))
+    {
+        return;
+    }
+    if (classID)
+    {
+        unit->pClassData = GetClassData(classID);
+    }
+}
+
+void SetActiveAvatarClass(void)
+{
+    struct Unit * unit = gActiveUnit;
+    if (!UNIT_IS_VALID(unit))
+    {
+        return;
+    }
+    int classID = GetAvatarClassId(unit, -1);
+    if (classID)
+    {
+        unit->pClassData = GetClassData(classID);
+    }
+}
+
+static int GetCurrentChallengeRunOption(ChallengeRunProc * proc)
+{
+    return proc->id + proc->offset;
+}
+
+static u8 UpdateChallengeRunRules(ChallengeRunProc * proc)
+{
+    int opt = GetCurrentChallengeRunOption(proc);
+    u8 rulesState = 0;
+
+    proc->cannotCatch = false;
+    proc->cannotEvolve = false;
+    proc->cannotGainExp = false;
+    proc->allRandomizerOptions = false;
+    proc->enemySkills = false;
+    proc->nuzlocke = false;
+
+    if (opt == CR_OPTION_LITTLE_CUP)
+    {
+        proc->cannotEvolve = true;
+    }
+    else if (opt == CR_OPTION_VOID)
+    {
+        proc->cannotGainExp = true;
+    }
+    else if (opt == CR_OPTION_CHAOS)
+    {
+        proc->allRandomizerOptions = true;
+    }
+    else if (opt == CR_OPTION_PLUS)
+    {
+        proc->enemySkills = true;
+    }
+    else if (opt == CR_OPTION_NUZLOCKE)
+    {
+        proc->nuzlocke = true;
+    }
+    else if (opt == CR_OPTION_VESLY)
+    {
+        proc->cannotCatch = true;
+        proc->cannotEvolve = true;
+    }
+    else if (opt >= CR_OPTION_ASH)
+    {
+        proc->cannotCatch = true;
+    }
+    if (opt == CR_OPTION_CHEATER)
+    {
+        proc->cannotCatch = false;
+        proc->cannotEvolve = false;
+    }
+
+    if (proc->cannotEvolve)
+    {
+        rulesState |= CR_RULE_STATE_CANNOT_EVOLVE;
+    }
+
+    if (opt == CR_OPTION_LITTLE_CUP)
+    {
+        rulesState |= CR_RULE_STATE_CANNOT_CAPTURE_CERTAIN;
+    }
+
+    if (proc->cannotCatch)
+    {
+        rulesState |= CR_RULE_STATE_CANNOT_CAPTURE;
+    }
+
+    if (proc->cannotGainExp)
+    {
+        rulesState |= CR_RULE_STATE_CANNOT_GAIN_EXP;
+    }
+
+    if (proc->allRandomizerOptions)
+    {
+        rulesState |= CR_RULE_STATE_RANDOMIZER;
+    }
+
+    if (proc->enemySkills)
+    {
+        rulesState |= CR_RULE_STATE_ENEMY_SKILLS;
+    }
+
+    if (proc->nuzlocke)
+    {
+        rulesState |= CR_RULE_STATE_NUZLOCKE;
+    }
+
+    return rulesState;
+}
+
+int GetTrainerFID(int opt)
+{
+
+    return TrainerFIDTable[opt];
+}
+
+static void DrawChallengeRunRuleLine(ChallengeRunProc * proc, int textId, int y)
+{
+    DrawLine(proc->handleID + textId, RULES_X, y, 0);
+}
+
+void DrawAdditionalRulesText(ChallengeRunProc * proc)
+{
+    int y = RULES_Y;
+    u8 rulesState = UpdateChallengeRunRules(proc);
+
+    EndFaceById(0);
+    StartFace(0, GetTrainerFID(proc->id + proc->offset), 206, 80, FACE_DISP_KIND(FACE_96x80));
+
+    if (proc->displayedRulesState == rulesState)
+    {
+        return;
+    }
+
+    proc->displayedRulesState = rulesState;
+
+    // DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_HEADER, y);
+    y += 2;
+    TileMap_FillRect(TILEMAP_LOCATED(bg_table[0], RULES_X, y), RULES_CLEAR_WIDTH, RULES_CLEAR_HEIGHT, 0);
+
+    if (!proc->cannotCatch && !proc->cannotEvolve && !proc->cannotGainExp && !proc->allRandomizerOptions &&
+        !proc->enemySkills && !proc->nuzlocke)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_NONE, y);
+        BG_EnableSyncByMask(BG_SYNC_BIT(0));
+        return;
+    }
+
+    if (proc->cannotEvolve)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_CANNOT_EVOLVE, y);
+        y += 2;
+    }
+
+    if (GetCurrentChallengeRunOption(proc) == CR_OPTION_LITTLE_CUP)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_CANNOT_CAPTURE_CERTAIN, y);
+        y += 2;
+    }
+
+    if (proc->cannotCatch)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_CANNOT_CAPTURE, y);
+        y += 2;
+    }
+
+    if (proc->cannotGainExp)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_CANNOT_GAIN_EXP, y);
+        y += 2;
+    }
+
+    if (proc->allRandomizerOptions)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_RANDOMIZER, y);
+        y += 2;
+    }
+
+    if (proc->enemySkills)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_ENEMY_SKILLS, y);
+        y += 2;
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_ENEMY_SKILLS_2, y);
+        y += 2;
+    }
+
+    if (proc->nuzlocke)
+    {
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_NUZLOCKE, y);
+        y += 2;
+        DrawChallengeRunRuleLine(proc, CR_TEXT_RULE_NUZLOCKE_2, y);
+    }
+
+    BG_EnableSyncByMask(BG_SYNC_BIT(0));
+}
+
+static u16 BlendColorToward(u16 color, u16 target, int amount, int percent)
+{
+    int red = color & 0x1F;
+    int green = (color >> 5) & 0x1F;
+    int blue = (color >> 10) & 0x1F;
+
+    int targetRed = target & 0x1F;
+    int targetGreen = (target >> 5) & 0x1F;
+    int targetBlue = (target >> 10) & 0x1F;
+
+    int blendAmount = (amount * percent) / 100;
+
+    red = ((red * (CR_BADGE_CYCLE_HALF_LENGTH - blendAmount)) + (targetRed * blendAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
+    green = ((green * (CR_BADGE_CYCLE_HALF_LENGTH - blendAmount)) + (targetGreen * blendAmount)) /
+        CR_BADGE_CYCLE_HALF_LENGTH;
+    blue =
+        ((blue * (CR_BADGE_CYCLE_HALF_LENGTH - blendAmount)) + (targetBlue * blendAmount)) / CR_BADGE_CYCLE_HALF_LENGTH;
+
+    return red | (green << 5) | (blue << 10);
+}
+
+static void StoreBadgePaletteBase(ChallengeRunProc * proc)
+{
+    int i;
+
+    for (i = 0; i < CR_BADGE_PALETTE_COLOR_COUNT; i++)
+    {
+        proc->badgePalBase[i] = PAL_BG_COLOR(CR_BADGE_PAL_SLOT, i);
+    }
+}
+
+static void
+ApplyBadgePaletteRange(ChallengeRunProc * proc, int firstColor, int colorCount, u16 target, int percent, int amount)
+{
+    int i;
+
+    for (i = 0; i < colorCount; i++)
+    {
+        int color = firstColor + i;
+        PAL_BG_COLOR(CR_BADGE_PAL_SLOT, color) = BlendColorToward(proc->badgePalBase[color], target, amount, percent);
+    }
+}
+
+static void ApplyBadgePaletteCycle(ChallengeRunProc * proc)
+{
+    u32 amountLighten = (GetGameClock() / 2) % CR_BADGE_CYCLE_LENGTH;
+    u32 amountDarken = (GetGameClock() / 2) % CR_BADGE_CYCLE_LENGTH;
+
+    if (amountLighten > CR_BADGE_CYCLE_HALF_LENGTH)
+        amountLighten = CR_BADGE_CYCLE_LENGTH - amountLighten;
+
+    if (amountDarken > CR_BADGE_CYCLE_HALF_LENGTH)
+        amountDarken = CR_BADGE_CYCLE_LENGTH - amountDarken;
+
+    ApplyBadgePaletteRange(
+        proc, CR_BADGE_RING_HIGHLIGHT_FIRST_COLOR, CR_BADGE_RING_HIGHLIGHT_COLOR_COUNT, CR_BADGE_TARGET_COLOR,
+        CR_BADGE_LIGHTEN_PERCENT, amountLighten);
+    ApplyBadgePaletteRange(
+        proc, CR_BADGE_ICON_FIRST_COLOR, CR_BADGE_ICON_COLOR_COUNT, COLOR_BLACK, CR_BADGE_DARKEN_PERCENT, amountDarken);
+    ApplyBadgePaletteRange(
+        proc, CR_BADGE_INNER_RING_FIRST_COLOR, CR_BADGE_INNER_RING_COLOR_COUNT, CR_BADGE_TARGET_COLOR,
+        CR_BADGE_LIGHTEN_PERCENT, amountLighten);
+    ApplyBadgePaletteRange(
+        proc, CR_BADGE_ICON_EXTRA_FIRST_COLOR, CR_BADGE_ICON_EXTRA_COLOR_COUNT, COLOR_BLACK, CR_BADGE_DARKEN_PERCENT,
+        amountDarken);
+
+    EnablePaletteSync();
+}
+
+static void EnableChallengeRunBadgeBg(void)
+{
+    switch (CR_BADGE_BG)
+    {
+        case 1:
+            gLCDControlBuffer.dispcnt.bg1_on = true;
+            break;
+
+        case 2:
+            gLCDControlBuffer.dispcnt.bg2_on = true;
+            break;
+
+        case 3:
+            gLCDControlBuffer.dispcnt.bg3_on = true;
+            break;
+    }
+}
+
+void DrawChallengeRunUiFrameBg(void)
+{
+    int x, y;
+
+    gLCDControlBuffer.dispcnt.bg2_on = true;
+    BG_SetPriority(0, 0);
+    BG_SetPriority(1, 1);
+    BG_SetPriority(CR_BADGE_BG, 2);
+    BG_SetPriority(CR_UIFRAME_BG, 3);
+    SetBackgroundTileDataOffset(CR_UIFRAME_BG, CR_UIFRAME_TILE_DATA_OFFSET);
+    BG_SetColorBpp(CR_UIFRAME_BG, 4);
+
+    Decompress(CR_FRLGUiFrameBG, BG_CHR_ADDR(CR_UIFRAME_TILE_ABS_BASE));
+    CopyToPaletteBuffer(CR_FRLGUiFrameBG_pal, 0x20 * CR_UIFRAME_PAL_SLOT, 0x20);
+
+    for (y = 0; y < CR_UIFRAME_TILE_HEIGHT; y++)
+    {
+        for (x = 0; x < CR_UIFRAME_TILE_WIDTH; x++)
+        {
+            TILEMAP_LOCATED(bg_table[CR_UIFRAME_BG], x, y)
+            [0] = (CR_UIFRAME_TILE_BASE + CR_FRLGUiFrameBG_map[(y * CR_UIFRAME_TILE_WIDTH) + x]) |
+                (CR_UIFRAME_PAL_SLOT << 12);
+        }
+    }
+
+    BG_EnableSyncByMask(BG_SYNC_BIT(CR_UIFRAME_BG));
+}
+
+void DrawChallengeRunBadge(ChallengeRunProc * proc)
+{
+    int x, y;
+    int opt = GetCurrentChallengeRunOption(proc);
+    const u8 * img = CR_BadgeBGTable[opt];
+    const u8 * pal = CR_BadgePalTable[opt];
+
+    if (proc->displayedBadgeOption == opt)
+    {
+        return;
+    }
+
+    proc->displayedBadgeOption = opt;
+
+    Decompress(img, BG_CHR_ADDR(CR_BADGE_TILE_BASE));
+    CopyToPaletteBuffer(pal, 0x20 * CR_BADGE_PAL_SLOT, 0x20);
+    StoreBadgePaletteBase(proc);
+    ApplyBadgePaletteCycle(proc);
+
+    TileMap_FillRect(
+        TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X, CR_BADGE_Y), CR_BADGE_TILE_WIDTH, CR_BADGE_TILE_HEIGHT, 0);
+
+    for (y = 0; y < CR_BADGE_TILE_HEIGHT; y++)
+    {
+        for (x = 0; x < CR_BADGE_TILE_WIDTH; x++)
+        {
+            TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X + x, CR_BADGE_Y + y)
+            [0] = ((CR_BADGE_TILE_BASE & 0x3FF) + (y * CR_BADGE_TILE_WIDTH) + x) | (CR_BADGE_PAL_SLOT << 12);
+        }
+    }
+
+    BG_EnableSyncByMask(BG_SYNC_BIT(CR_BADGE_BG));
+}
+
+void DrawChallengeRun(ChallengeRunProc * proc)
+{
+    int i, x, y, bg;
+
+    ResetText();
+
+    x = (MENU_X / 8);
+    y = (MENU_Y / 8);
+    bg = 0;
+
+    for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
+    {
+        InitLine(i, x, y + (2 * i), white, 0, SpecialNames[i + proc->offset]);
+    }
+
+    proc->handleID = CR_VISIBLE_OPTIONS;
+
+    for (i = 0; i < CR_TEXT_COUNT; i++)
+    {
+        int color = (i == CR_TEXT_TITLE) ? green : white;
+        int width = 1 + ((GetStringTextLen(ChallengeRunInfoText[i]) + 8) / 8);
+        InitLine(i + proc->handleID, 12, 1, color, width, ChallengeRunInfoText[i]);
+    }
+
+    for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
+    {
+        PrepareLine(i, SpecialNames[i + proc->offset], 6);
+        DrawLine(i, x, y + (2 * i), bg);
+    }
+
+    for (i = 0; i < CR_TEXT_COUNT; i++)
+    {
+        int cursor = (i == CR_TEXT_TITLE) ? 0 : RULES_TEXT_CURSOR_X;
+        PrepareLine(i + proc->handleID, ChallengeRunInfoText[i], cursor);
+    }
+
+    DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 0, bg); // "Challenge Runs" // 22 1
+    DrawAdditionalRulesText(proc);
+    BG_EnableSyncByMask(BG_SYNC_BIT(bg));
+}
+
+void StartChallengeRun(ProcPtr parent)
+{
+    ClearBg0Bg1();
+    // EnableBgSyncByIndex(0);
+    ChallengeRunProc * proc;
+    if (parent)
+    {
+        proc = (ChallengeRunProc *)Proc_StartBlocking((ProcPtr)&ChallengeRunProcCmd, parent);
+    }
+    else
+    {
+        proc = (ChallengeRunProc *)Proc_Start((ProcPtr)&ChallengeRunProcCmd, PROC_TREE_3);
+    }
+    if (proc)
+    {
+        proc->id = 0;
+        proc->offset = 0;
+        proc->redraw = false;
+        proc->cannotCatch = false;
+        proc->cannotEvolve = false;
+        proc->cannotGainExp = false;
+        proc->allRandomizerOptions = false;
+        proc->enemySkills = false;
+        proc->nuzlocke = false;
+        proc->displayedBadgeOption = CR_OPTION_COUNT;
+        proc->displayedRulesState = CR_RULE_STATE_INVALID;
+        proc->updateSMS = true;
+        proc->handleID = 0;
+        proc->pkmn[0] = 0;
+        // ResetText();
+        EnableChallengeRunBadgeBg();
+        BG_Fill(gBG3TilemapBuffer, 0);
+        BG_Fill(gBG2TilemapBuffer, 0);
+        DrawChallengeRunUiFrameBg();
+
+        UnpackUiVArrowGfx(0x240, 3);
+
+        // DrawUiFrame2(1, 8, 14, 12, 0);
+        DrawUiFrame(                          // menu
+            gBG1TilemapBuffer,                // back BG
+            1, 0, 8, 14, TILEREF(0, 0), 0);   // style as 0 ?
+        DrawUiFrame(                          // rules text
+            gBG1TilemapBuffer,                // back BG
+            0, 0xE, 20, 6, TILEREF(0, 0), 2); // style as 0 ?
+        SetBlendTargetA(0, 1, 0, 1, 0);       // transparent ui
+        SetBlendBackdropA(1);
+        SetBlendAlpha(11, 5);
+        // SetBlendTargetB(0, 1, 1, 1, 0);
+        // SetTextFontGlyphs(0);
+        // SetTextFont(0);
+        // ResetTextFont();
+        SetupMapSpritesPalettes();
+        // CR_EraseText(proc);
+        DrawChallengeRun(proc);
+        // DrawAdditionalRulesText(proc);
+        DrawChallengeRunBadge(proc);
+        // DrawChallengeRun(proc);
+        // BG_EnableSyncByMask(BG0_SYNC_BIT);
+        StartGreenText(proc);
+        BG_EnableSyncByMask(BG3_SYNC_BIT);
+        BG_EnableSyncByMask(BG2_SYNC_BIT);
+    }
+}
+
+void SetTactNameFromCase(int id)
+{
+    if (id >= 1)
+    {
+        SetTacticianName(SpecialNames[id]);
+    }
+}
+
+extern struct KeyStatusBuffer sKeyStatusBuffer;
+static void ChallengeRunLoop(ChallengeRunProc * proc)
+{
+
+    DrawChallengeRunBadge(proc);
+    ApplyBadgePaletteCycle(proc);
+    DrawCR_Sprites(proc, 0);
+
+    if (proc->redraw)
+    {
+        proc->redraw = false;
+        DrawChallengeRun(proc);
+    }
+
+    u16 keys = sKeyStatusBuffer.newKeys;
+    if (!keys)
+    {
+        keys = sKeyStatusBuffer.repeatedKeys;
+    }
+    if ((keys & START_BUTTON) || (keys & A_BUTTON))
+    { // press A or Start to continue
+        gEventSlots[0xC] = 0;
+
+        int opt = proc->id + proc->offset;
+        SetTactNameFromCase(opt);
+        *AvatarPortraitId_Link = 0;
+        if (opt >= 1)
+        {
+            gEventSlots[0xC] = 1;
+            SetAvatarClass_ASMC();
+        }
+
+        Proc_Break((ProcPtr)proc);
+        m4aSongNumStart(0x6B);
+    };
+
+    if (keys & DPAD_DOWN)
+    {
+        *AvatarPortraitId_Link = 0;
+        proc->updateSMS = true;
+        if (proc->id < CR_MAX_DISPLAYED_INDEX)
+        {
+            proc->id++;
+            DrawAdditionalRulesText(proc);
+            return;
+        } // no need to redraw
+        else if ((proc->offset + proc->id) < CR_TotalOptions)
+        {
+            proc->offset++;
+        }
+        else if (proc->id >= CR_MAX_DISPLAYED_INDEX)
+        {
+            proc->id = 0;
+            proc->offset = 0;
+        }
+        // CR_EraseText(proc);
+        proc->redraw = true;
+    }
+    if (keys & DPAD_UP)
+    {
+        *AvatarPortraitId_Link = 0;
+        proc->updateSMS = true;
+        if (proc->id)
+        {
+            proc->id--;
+            DrawAdditionalRulesText(proc);
+            return;
+        } // no need to redraw
+        else if (proc->offset)
+        {
+            proc->offset--;
+        }
+
+        else if (!proc->id)
+        {
+            proc->id = CR_MAX_DISPLAYED_INDEX;
+            proc->offset = (CR_TotalOptions - CR_MAX_DISPLAYED_INDEX);
+        }
+        // CR_EraseText(proc);
+        proc->redraw = true;
+    }
+
+    // if (keys & DPAD_LEFT) {
+    //	proc->Option[proc->id]--;
+    //	if (proc->Option[proc->id] < 0) {
+    //		proc->Option[proc->id] = CR_NumberOfOptionsPerEntryTable[proc->id] - 1;
+    //	}
+    //	DrawChallengeRun(proc);
+    // }
+    // if (keys & DPAD_RIGHT) {
+    //	proc->Option[proc->id]++;
+    //	if (proc->Option[proc->id] >= CR_NumberOfOptionsPerEntryTable[proc->id]) {
+    //		proc->Option[proc->id] = 0;
+    //	}
+    //	DrawChallengeRun(proc);
+    // }
+}
+
+extern struct Font * gActiveFont;
+
+void ClearLine(int handleID)
+{
+
+    struct Text * th = &gStatScreen.text[handleID]; // max 34
+    ClearText(th);
+}
+
+// extern u8* gPromoJidLutPoin[][2];
+extern u32 AutolevelTable[256];
+extern u16 * gPromoJidLutPoin[];
+
+int IsTargetEvolved(struct Unit * unit)
+{
+    int classID = unit->pClassData->number;
+    // if no possible promotions, they are evolved or single stage
+    if (!(*gPromoJidLutPoin)[classID])
+    {
+        return true;
+    }
+    if (AutolevelTable[classID])
+    {
+        return true;
+    } // evolves from something
+
+    return false;
+}
+
+void InitLine(int handleID, int x, int y, int color, int width, const char * str)
+{
+    if (handleID > 34)
+        return;
+    // struct Text* th = &gPrepMainMenuTexts[handleID]; // max 10
+    struct Text * th = &gStatScreen.text[handleID]; // max 34
+    ClearText(th);
+    if (!width)
+    {
+        width = 6;
+    } //(GetStringTextLen(str)+8)/8;
+    // cleartext goes before and after to definitively erase the text ?
+    // th->chr_position = gActiveFont->chr_counter;
+    // th->tile_width = width;
+    // th->db_id = 0;
+    // th->db_enabled = false;
+    // th->is_printing = false;
+    // gActiveFont->chr_counter += width;
+    InitText(th, width); // calls ClearText(th);
+    Text_SetColor(th, color);
+
+    // TileMap_FillRect(
+    //     TILEMAP_LOCATED(bg_table[bg], x, y),
+    //     width+x, height+y, 0);
+    // BG_EnableSyncByMask(BG_SYNC_BIT(bg));
+}
+
+void PrepareLine(int handleID, const char * str, int x)
+{
+    if (handleID > 34)
+        return;
+    // struct Text* th = &gPrepMainMenuTexts[handleID]; // max 10
+    struct Text * th = &gStatScreen.text[handleID]; // max 34
+    Text_SetCursor(th, x);
+
+    while (1)
+    {
+        if ('\0' == *str) /* End for fetext */
             return;
 
-        if ('\1' == *str) {      /* '\n' for fetext */
-			return; // only draw 1 line 
+        if ('\1' == *str)
+        {           /* '\n' for fetext */
+            return; // only draw 1 line
         }
 
         str = Text_DrawCharacter(th, str);
@@ -515,65 +1148,66 @@ void PrepareLine(int handleID, const char* str)
 
 void DrawLine(int handleID, int x, int y, int bg)
 {
-	if (handleID > 34) return;
-	//struct Text* th = &gPrepMainMenuTexts[handleID]; // max 10 
-	struct Text* th = &gStatScreen.text[handleID]; // max 34 
-	bg &= 0x3; 
+    if (handleID > 34)
+        return;
+    // struct Text* th = &gPrepMainMenuTexts[handleID]; // max 10
+    struct Text * th = &gStatScreen.text[handleID]; // max 34
+    bg &= 0x3;
     PutText(th, TILEMAP_LOCATED(bg_table[bg], x, y));
 
-    //BG_EnableSyncByMask(BG_SYNC_BIT(bg));
+    // BG_EnableSyncByMask(BG_SYNC_BIT(bg));
 }
 
 /*
 static void InitMultiline(struct Text th[], int lines, int x, int y, int bg, int color, int textID)
 {
-	if (!textID) return; 
-	bg &= 0x3; 
-	if ((int)th < 10) { th = &gPrepMainMenuTexts[(int)th]; } 
-	if (!lines) { return; } 
+        if (!textID) return;
+        bg &= 0x3;
+        if ((int)th < 10) { th = &gPrepMainMenuTexts[(int)th]; }
+        if (!lines) { return; }
     int i;
-    for (i = 0; i < lines; i++) { 
+    for (i = 0; i < lines; i++) {
         ClearText(&gPrepMainMenuTexts[i]);
-	} 
-	
-	char *str = GetStringFromIndex(textID);
-	
-	int width = 0; 
-	int max_width = 0; 
-	int height = 2 * (lines - 1) + y; 
+        }
+
+        char *str = GetStringFromIndex(textID);
+
+        int width = 0;
+        int max_width = 0;
+        int height = 2 * (lines - 1) + y;
 
 
 
     BG_EnableSyncByMask(BG_SYNC_BIT(bg));
-	for (i = 0; i < lines; i++) { 
-		width = (GetStringTextLen(str)+8)/8; 
+        for (i = 0; i < lines; i++) {
+                width = (GetStringTextLen(str)+8)/8;
         InitText(&th[i], width);
-		Text_SetColor(&th[i], color);
-		if (width > max_width) { max_width = width; } 
-		str = GetStrNextLine(str); 
-		if (!str) break; 
-		
-	}
-	
-	
-	//asm("mov r11, r11"); 
+                Text_SetColor(&th[i], color);
+                if (width > max_width) { max_width = width; }
+                str = GetStrNextLine(str);
+                if (!str) break;
+
+        }
+
+
+        //asm("mov r11, r11");
     TileMap_FillRect(
         TILEMAP_LOCATED(bg_table[bg], x, y),
         max_width+x, height+y, 0);
-	
+
 }
 
 static int CountStrLines(char *str) {
-	int i = 0;
-	while (*str) { 
-	i++;
-	str = GetStrNextLine(str); }
-	return i; 
+        int i = 0;
+        while (*str) {
+        i++;
+        str = GetStrNextLine(str); }
+        return i;
 }
 static int CountTextIDLines(int textID) {
-	if (!textID) return 0; 
-	char *str = GetStringFromIndex(textID);
-	return CountStrLines(str); 
+        if (!textID) return 0;
+        char *str = GetStringFromIndex(textID);
+        return CountStrLines(str);
 }
 static char *GetStrNextLine(char *str) // char *GetStringLineEnd(char *str);
 {
@@ -582,25 +1216,25 @@ static char *GetStrNextLine(char *str) // char *GetStringLineEnd(char *str);
         str++;
         c = *str;
     }
-	if (str) { 
-		str++; 
-		return str;
-	} 
-	return NULL; 
+        if (str) {
+                str++;
+                return str;
+        }
+        return NULL;
 }
 
 static void PrepareMultiline(struct Text th[], int textID)
 {
-	if (!textID) return; 
-	if ((int)th < 10) { th = &gPrepMainMenuTexts[(int)th]; } 
-	
+        if (!textID) return;
+        if ((int)th < 10) { th = &gPrepMainMenuTexts[(int)th]; }
+
     const char *str = GetStringFromIndex(textID);
 
     while (1) {
-        if ('\0' == *str)        // End for fetext 
+        if ('\0' == *str)        // End for fetext
             return;
 
-        if ('\1' == *str) {      // '\n' for fetext 
+        if ('\1' == *str) {      // '\n' for fetext
             th++;
             str++;
             continue;
@@ -612,9 +1246,9 @@ static void PrepareMultiline(struct Text th[], int textID)
 
 static void DrawMultiline(struct Text th[], int lines, int x, int y, int bg)
 {
-	if (!lines) { return; } 
-	bg &= 0x3; 
-	if ((int)th < 10) { th = &gPrepMainMenuTexts[(int)th]; } 
+        if (!lines) { return; }
+        bg &= 0x3;
+        if ((int)th < 10) { th = &gPrepMainMenuTexts[(int)th]; }
     for (int i = 0; i < lines; i++) {
         PutText(
             &th[i],
@@ -625,7 +1259,3 @@ static void DrawMultiline(struct Text th[], int lines, int x, int y, int bg)
 }
 
 */
-
-
-
-

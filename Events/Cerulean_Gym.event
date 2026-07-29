@@ -87,11 +87,13 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 
 
 SilentGiveSkillAccessory(ForewarnUnitID, RenewalID)
+SilentGiveSkillAccessory(GymPkmn_5, EvioliteID)
 SilentGiveItemWithDurability(ForewarnUnitID, JellyDonut,0x1)
-SilentGiveItemWithDurability(GymPkmn_1, Berry,0x81)
-SilentGiveItemWithDurability(GymPkmn_2, Berry,0x81)
-SilentGiveItemWithDurability(GymPkmn_3, Berry,0x81)
-SilentGiveItemWithDurability(GymPkmn_4, Berry,0x81)
+SilentGiveItemWithDurability(GymPkmn_1, JellyDonut,0x1)
+SilentGiveItemWithDurability(GymPkmn_2, JellyDonut,0x1)
+SilentGiveItemWithDurability(GymPkmn_3, JellyDonut,0x1)
+SilentGiveItemWithDurability(GymPkmn_4, JellyDonut,0x1)
+SilentGiveItemWithDurability(GymPkmn_5, JellyDonut,0x1)
 
 
 MUSCFAST IntroBGM 
@@ -124,10 +126,11 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 SilentGiveSkillAccessory(RenewalUnitID, CounterMagicID) // Starmie 
 SilentGiveSkillAccessory(GymPkmn_2, DazzleID) // Golduck 
 SilentGiveSkillAccessory(GymPkmn_1, WaryFighterID) // Dewgong 
+SilentGiveSkillAccessory(GymPkmn_5, EvioliteID) // Dragonair 
 //SilentGiveItemWithDurability(RenewalUnitID, SteelShield_BoostIndex|0x80)
 SilentGiveItemWithDurability(GymPkmn_4, StatAccessory, MuscleBandT3_BoostIndex|0x80) // Seaking 
 SilentGiveItemWithDurability(GymPkmn_3, StatAccessory, StuddedShield_BoostIndex|0x80) // Seadra  
-SilentGiveItemWithDurability(GymPkmn_5, StatAccessory, EnergyBandT3_BoostIndex|0x80) // Dragonair 
+
 
 
 MUSCFAST IntroBGM 
@@ -158,10 +161,19 @@ UnsetAllDangerRadius
 #endif 
 UNCR(0x7FFF, 0x43) // Show SMS & Refresh 
 ASMC 0x80790a5 //MU_EndAll //deselect unit
-MUSCSLOW GymBGM
 EVBIT_MODIFY 4 
-Text(MistyDefeatText)
+SOUN ObtainBadge 
+// STAL_FAST 90 //290 is full 
+EVBIT_MODIFY 4 
+TEXTSTART 
+TEXTSHOW MistyDefeatText
+TEXTEND 
+MUSCSLOW GymBGM 
+TEXTCONT 
+TEXTEND 
+REMA 
 GiveItemWithDurability_Rand(0, SpellScroll, BubbleBeam)
+GiveSkillAccessory_Rand(0, EvioliteID)
 ENUT CascadebadgeObtained 
 ENUT CeruleanGymClosedFlag
 SVAL r3 4500 
@@ -227,12 +239,12 @@ UNIT GymPkmn_5 DratiniID ForewarnUnitID Level(0, Enemy, 1) [7,10]  0b 0x0	0x1 RE
 UNIT 
 
 EnemyTrainersB:
-UNIT RenewalUnitID StarmieID 0x0 Level(0, Enemy, 1) [10,6]  0b 0x0	0x1 REDA10R6 		[HydroPump, Psychic, Thunderbolt,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_1 DewgongID RenewalUnitID Level(0, Enemy, 1) [5,7]  0b 0x0	0x1 REDA5R7 	[IceBeam,Surf,0x0,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_2 GolduckID RenewalUnitID Level(0, Enemy, 1) [14,4]  0b 0x0	0x1 REDA14R4 	[Waterfall,BodySlam,0x0,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_3 SeadraID RenewalUnitID Level(0, Enemy, 1) [15,8]  0b 0x0 0x1 REDA15R8 [Surf,Outrage,0x0,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_4 SeakingID RenewalUnitID Level(0, Enemy, 1) [12,10]  0b 0x0	0x1 REDA12R10 	[HornDrill,Waterfall,0x0,0x0] PursueWithoutHeedAI
-UNIT GymPkmn_5 DragonairID RenewalUnitID Level(0, Enemy, 1) [7,10]  0b 0x0	0x1 REDA7R10 	[ThunderWave,Screech,0x0,0x0] PursueWithoutHeedAI
+UNIT RenewalUnitID StarmieID 0x0 Level(0, Enemy, 1) [10,6]  0b 0x0	0x1 REDA10R6 		[HydroPump, Psychic, Thunderbolt,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_1 DewgongID RenewalUnitID Level(0, Enemy, 1) [5,7]  0b 0x0	0x1 REDA5R7 	[IceBeam,Surf,0x0,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_2 GolduckID RenewalUnitID Level(0, Enemy, 1) [14,4]  0b 0x0	0x1 REDA14R4 	[Waterfall,BodySlam,0x0,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_3 SeadraID RenewalUnitID Level(0, Enemy, 1) [15,8]  0b 0x0 0x1 REDA15R8 [Surf,Outrage,0x0,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_4 SeakingID RenewalUnitID Level(0, Enemy, 1) [12,10]  0b 0x0	0x1 REDA12R10 	[HornDrill,Waterfall,0x0,0x0] SafestZoningGroupOneAI
+UNIT GymPkmn_5 DragonairID RenewalUnitID Level(0, Enemy, 1) [7,10]  0b 0x0	0x1 REDA7R10 	[ThunderWave,Screech,0x0,0x0] SafestZoningGroupOneAI
 UNIT
 
 

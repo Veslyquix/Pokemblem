@@ -123,17 +123,17 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
 SilentGiveSkillAccessory(TintedLensUnitID, AmaterasuID)
-SilentGiveItemWithDurability(TintedLensUnitID, MaxPotion,0x1)
+SilentGiveItemWithDurability(TintedLensUnitID, HyperPotion,0x3)
 SilentGiveItemWithDurability(GymPkmn_1, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_1, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_1, SuperPotion,0x3)
 SilentGiveItemWithDurability(GymPkmn_2, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_2, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_2, SuperPotion,0x3)
 SilentGiveItemWithDurability(GymPkmn_3, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_3, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_3, SuperPotion,0x3)
 SilentGiveItemWithDurability(GymPkmn_4, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_4, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_4, SuperPotion,0x3)
 SilentGiveItemWithDurability(GymPkmn_5, Berry,0x8A)
-SilentGiveItemWithDurability(GymPkmn_5, SuperPotion,0x2)
+SilentGiveItemWithDurability(GymPkmn_5, SuperPotion,0x3)
 
 
 MUSCFAST IntroBGM 
@@ -201,9 +201,17 @@ UnsetAllDangerRadius
 #endif 
 UNCR(0x7FFF, 0x43) // Show SMS & Refresh 
 ASMC 0x80790a5 //MU_EndAll //deselect unit
-MUSCSLOW GymBGM
 EVBIT_MODIFY 4 
-Text(ErikaDefeatText)
+SOUN ObtainBadge 
+// STAL_FAST 90 //290 is full 
+EVBIT_MODIFY 4 
+TEXTSTART 
+TEXTSHOW ErikaDefeatText
+TEXTEND 
+MUSCSLOW GymBGM 
+TEXTCONT 
+TEXTEND 
+REMA 
 GiveItemWithDurability_Rand(0, SpellScroll, PetalDance)
 ENUT RainbowbadgeObtained 
 SVAL r3 6000 
@@ -270,12 +278,12 @@ UNIT GymPkmn_5 OmastarID TintedLensUnitID Level(0, Enemy, 1) [8,4]  0b 0x0	0x1 R
 UNIT
 
 EnemyTrainersB: // rematch 
-UNIT TintedLensUnitID ParasectID 0x0 Level(0, Enemy, 1) [6,4]  0b 0x0	0x1 REDA6R4 	[PetalDance,Sludge,0x0,0x0] 			PursueWithoutHeedAI
-UNIT GymPkmn_1 TangelaID TintedLensUnitID Level(0, Enemy, 1) [10,4]  0b 0x0	0x1 REDA10R6 	[MegaDrain,Constrict,0x0,0x0] 		PursueWithoutHeedAI
-UNIT GymPkmn_2 VictreebelID TintedLensUnitID Level(0, Enemy, 1) [4,4]  0b 0x0	0x1 REDA4R4 	[RazorLeaf,Sludge,0x0,0x0] 			PursueWithoutHeedAI
-UNIT GymPkmn_3 ExeggutorID TintedLensUnitID Level(0, Enemy, 1) [5,5]  0b 0x0 0x1 REDA5R5 	[Psychic,MagicalLeaf,BodySlam,0x0] 	PursueWithoutHeedAI
-UNIT GymPkmn_4 VileplumeID TintedLensUnitID Level(0, Enemy, 1) [9,5]  0b 0x0	0x1 REDA9R5 	[XScissor, LeafBlade, 0x0 ,0x0] 			PursueWithoutHeedAI
-UNIT GymPkmn_5 OmastarID TintedLensUnitID Level(0, Enemy, 1) [8,4]  0b 0x0	0x1 REDA8R4 	[Ancientpower,Surf,0x0,0x0] 			PursueWithoutHeedAI
+UNIT TintedLensUnitID ParasectID 0x0 Level(0, Enemy, 1) [6,4]  0b 0x0	0x1 REDA6R4 	[PetalDance,Sludge,0x0,0x0] 			SafestZoningGroupOneAI
+UNIT GymPkmn_1 TangelaID TintedLensUnitID Level(0, Enemy, 1) [10,4]  0b 0x0	0x1 REDA10R6 	[MegaDrain,Constrict,0x0,0x0] 		SafestZoningGroupOneAI
+UNIT GymPkmn_2 VictreebelID TintedLensUnitID Level(0, Enemy, 1) [4,4]  0b 0x0	0x1 REDA4R4 	[RazorLeaf,Sludge,0x0,0x0] 			SafestZoningGroupOneAI
+UNIT GymPkmn_3 ExeggutorID TintedLensUnitID Level(0, Enemy, 1) [5,5]  0b 0x0 0x1 REDA5R5 	[Psychic,MagicalLeaf,BodySlam,0x0] 	SafestZoningGroupOneAI
+UNIT GymPkmn_4 VileplumeID TintedLensUnitID Level(0, Enemy, 1) [9,5]  0b 0x0	0x1 REDA9R5 	[XScissor, LeafBlade, 0x0 ,0x0] 			SafestZoningGroupOneAI
+UNIT GymPkmn_5 OmastarID TintedLensUnitID Level(0, Enemy, 1) [8,4]  0b 0x0	0x1 REDA8R4 	[Ancientpower,Surf,0x0,0x0] 			SafestZoningGroupOneAI
 UNIT
 	
 

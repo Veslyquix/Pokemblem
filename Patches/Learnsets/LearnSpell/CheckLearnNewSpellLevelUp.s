@@ -30,6 +30,9 @@ mov r4, r0
 
 check_acting:
 	ldr r0, =pBattleUnitInstiagator
+    ldr r1, [r0] 
+    cmp r1, #0 @ invalid unit 
+    beq check_target 
 	ldrb r1, [r0, #0x13] @ Current HP
 	cmp r1, #0
 	beq check_target @ Unit is ded
@@ -47,6 +50,9 @@ check_acting:
 check_target:
 
 	ldr r0, =pBattleUnitTarget
+    ldr r1, [r0] 
+    cmp r1, #0 
+    beq Exit @ invalid unit 
 	ldrb r1, [r0, #0x13] @ Current HP
 	cmp r1, #0
 	beq Exit @ Unit is ded
@@ -78,19 +84,18 @@ check_target:
 AlivePlayer:
 	blh prUnit_GetStruct
 	mov r5, r0 
-
+    cmp r0, #0 
+    beq Exit @ invalid unit 
 	ldr r1, [r5] @ unit pointer 
+    cmp r1, #0 
+    beq Exit @ invalid unit 
 	ldrb r1, [r1, #4] @ unit ID 
 	mov r2, #0x46 
 	cmp r1, r2 
 	bge Exit @ unit ID is 0x46 or greater, so they cannot learn spells by level up 
-	
-	
-	ldr r3, =ReturnTMRam
-	mov r1, #0 
-	strb r1, [r3] @ Do not return TM when 'no' is selected 
-	
 	ldr r1, [r5, #4] @ Class pointer 
+    cmp r1, #0 
+    beq Exit @ invalid class 
 	ldrb r1, [r1, #4] @ Class ID 
 	lsl r1, #2 @ 4 bytes per entry in table as it's a bunch of POINs
 	
@@ -127,11 +132,6 @@ blh prLearnNewSpell
 
 
 Exit:
-	@mov r1, #0
-	@ldr r0, =pExtraItemOrSkill
-	@strh r1, [r0] @ Set to 0 
-	
-@mov r0, r4 @ Parent proc 
 mov r0, #0 @ yield 
 pop {r4-r5}
 

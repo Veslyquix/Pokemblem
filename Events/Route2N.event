@@ -138,8 +138,8 @@ CoinsTrap(16,35, ChapterID*2, 900)
 SignBTrap(20,38, ChapterID, 0x0) //no extra text 
 SignATrap(14,12, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
 
-//SkillScrollTrap(15,11, ChapterID*2, AcrobatID)
-SpellScrollTrap(14,3, (ChapterID*2)+1, MegaPunch)
+SkillScrollTrap(14,3, ChapterID*2, TechnicianID)
+// SpellScrollTrap(14,3, (ChapterID*2)+1, MegaPunch)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)
 

@@ -445,7 +445,7 @@ void UnawareEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 extern int RivalryID_Link;
 int GetUnitsHighestStat(struct Unit * unit);
 
-// Rivalry: Deal 25% more damage if the opponent's highest stat is higher than yours.
+// Rivalry: Deal 33% more damage if the opponent's highest stat is higher than yours.
 // Nidoqueen line
 void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 {
@@ -464,7 +464,7 @@ void RivalryEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
 }
 extern int GetDifficulty(void);
 extern int EasyModeDmgReductionAmount;
-
+extern int PlusFlag_Link;
 int AoeDamageReduction(int dmg, struct Unit * target, int defOrRes)
 {
 
@@ -477,6 +477,10 @@ int AoeDamageReduction(int dmg, struct Unit * target, int defOrRes)
     int adjustedDamage = (dmg * (100 - defOrRes) + 50) / 100;
     defOrRes >>= 1;
     adjustedDamage = (adjustedDamage * (100 - defOrRes) + 50) / 100;
+    if (CheckFlag(PlusFlag_Link))
+    {
+        adjustedDamage = adjustedDamage >> 1;
+    }
     return adjustedDamage;
 }
 
@@ -491,9 +495,13 @@ void DefResDmgReduction(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
         {
             battleDef = 50;
         }
-        if (UNIT_FACTION(&bunitB->unit) == 0)
+        if (UNIT_FACTION(&bunitB->unit) == 0) // player's attack
         {
             AdjustDamageByPercent(bunitB, bunitA, 100 - battleDef);
+            if (CheckFlag(PlusFlag_Link))
+            {
+                AdjustDamageByPercent(bunitB, bunitA, 50);
+            }
         }
         AdjustDamageByPercent(bunitB, bunitA, 100 - (battleDef >> 1));
     }
@@ -640,7 +648,7 @@ void HustleEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     {
         if (SkillTester(&bunitA->unit, HustleID_Link))
         {
-            AdjustDamageByPercent(bunitA, bunitB, 125);
+            AdjustDamageByPercent(bunitA, bunitB, 120);
             if (bunitA->battleEffectiveHitRate > 80)
             {
                 bunitA->battleEffectiveHitRate = 80;
@@ -937,7 +945,8 @@ extern const int NinetalesID_Link;
 extern const int PoliwagID_Link;
 extern const int PoliwhirlID_Link;
 extern const int PoliwrathID_Link;
-
+extern int FlashFireBuffID_Link;
+extern int MotorDriveBuffID_Link;
 // These are hard-coded to pkmn to avoid lag
 const int * const LightningRodPkmn[] = {
     &PikachuID_Link, &RaichuID_Link, &GoldeenID_Link, &SeakingID_Link, &CuboneID_Link, &MarowakID_Link, NULL
@@ -1137,10 +1146,19 @@ struct EffectivenessExceptions CheckEffectivenessExceptions(struct BattleUnit * 
     if (wepType == FireTypeWep_Link && SkillTester(&bunitB->unit, FlashFireID_Link))
     {
         result.flashFire = true;
+        if (gBattleStats.config & BATTLE_CONFIG_REAL)
+        {
+            ApplyDebuffUnit(FlashFireBuffID_Link, GetUnitDebuffEntry(&bunitB->unit), GetUnitDebuffEntry(&bunitB->unit));
+        }
     }
     if (wepType == ElectricTypeWep_Link && SkillTester(&bunitB->unit, MotorDriveID_Link))
     {
         result.motorDrive = true;
+        if (gBattleStats.config & BATTLE_CONFIG_REAL)
+        {
+            ApplyDebuffUnit(
+                MotorDriveBuffID_Link, GetUnitDebuffEntry(&bunitB->unit), GetUnitDebuffEntry(&bunitB->unit));
+        }
     }
     if (SkillTester(&bunitB->unit, LevitateID_Link))
     {
@@ -1194,7 +1212,7 @@ void ComputeBattleUnitAttack(struct BattleUnit * attacker, struct BattleUnit * d
     attacker->battleAttack = GetItemMight(attacker->weaponBefore);
     if (ShouldWeaponHaveStabBonus(attacker->weaponBefore, attacker->unit.pClassData->number))
     { // stab bonus hook
-        attacker->battleAttack += attacker->battleAttack;
+        attacker->battleAttack += (attacker->battleAttack + 1) >> 1;
     }
     attack = attacker->battleAttack;
 
@@ -1425,7 +1443,7 @@ void TechnicianEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     if (SkillTester(&bunitA->unit, TechnicianID_Link))
     {
         int mt = GetItemMight(bunitA->weaponBefore);
-        if (mt <= 6)
+        if (mt <= 9)
         {
             bunitA->battleAttack += mt;
         }
@@ -1457,7 +1475,7 @@ void AdaptabilityEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
         if (SkillTester(&bunitA->unit, AdaptabilityID_Link))
         {
             int mt = GetItemMight(bunitA->weaponBefore);
-            bunitA->battleAttack += mt;
+            bunitA->battleAttack += (mt + 1) >> 1;
         }
     }
     // }
@@ -2024,4 +2042,44 @@ int GetUnitsHighestStat(struct Unit * unit)
         highest = tmp;
     }
     return highest;
+}
+
+extern int LunaID_Link;
+void LunaEffect2(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (SkillTester(&bunitA->unit, LunaID_Link))
+    {
+        if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        {
+            bunitB->battleDefense = 0;
+        }
+    }
+}
+extern int PaviseID_Link;
+void PaviseEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (SkillTester(&bunitB->unit, PaviseID_Link))
+    {
+        if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        {
+            if (!(bunitA->weaponAttributes & IA_MAGIC))
+            { // melee
+                AdjustDamageByPercent(bunitA, bunitB, 50);
+            }
+        }
+    }
+}
+extern int AegisID_Link;
+void AegisEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
+{
+    if (SkillTester(&bunitB->unit, AegisID_Link))
+    {
+        if (gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE))
+        {
+            if ((bunitA->weaponAttributes & IA_MAGIC))
+            { // melee
+                AdjustDamageByPercent(bunitA, bunitB, 50);
+            }
+        }
+    }
 }

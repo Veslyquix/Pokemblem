@@ -1,3 +1,10 @@
+
+
+ORG $224494 // make obtain badge sfx instead of bgm 
+WORD $60006
+ORG $10002DC
+BYTE $D0 $56 $00 $09
+
 ORG $01079BD4
 BYTE  $80 $00 $00 $00 $F0 $31 $22 $08 $00 $00 $00 $00;
 ORG $0107E76C

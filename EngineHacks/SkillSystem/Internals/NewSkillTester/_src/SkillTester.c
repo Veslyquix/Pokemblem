@@ -5,9 +5,11 @@ static int absolute(int value) { return value < 0 ? -value : value; }
 static bool IsSkillIDValid(u8 skillID) {
   return skillID != 0 && skillID != 255;
 }
+extern int GetPlusModeRandomSkill(struct Unit *unit);
 static bool IsBattleReal() {
   return gBattleStats.config & (BATTLE_CONFIG_REAL | BATTLE_CONFIG_SIMULATE);
 }
+extern int RandomizeSkill(int id, int classID);
 
 extern int AccessorySkillGetter(struct Unit *unit);
 // Checks if given unit is on the field
@@ -55,7 +57,7 @@ bool NihilTester(Unit *unit, u8 skillID) {
 /*Main functions*/
 
 // Makes skill buffer at a given location.
-extern int RandomizeSkill(int id, int classID);
+
 SkillBuffer *MakeSkillBuffer(Unit *unit, SkillBuffer *buffer) {
 
   if (!unit) {
@@ -68,6 +70,16 @@ SkillBuffer *MakeSkillBuffer(Unit *unit, SkillBuffer *buffer) {
 
   int count = 0, temp = 0;
   buffer->lastUnitChecked = unit->index;
+
+  if (!unit || !unitNum) {
+    buffer->skills[count++] = 0;
+    return buffer;
+  }
+
+  temp = GetPlusModeRandomSkill(unit);
+  if (IsSkillIDValid(temp)) {
+    buffer->skills[count++] = temp;
+  }
 
   // Personal skill
   temp = PersonalSkillTable[unitNum];

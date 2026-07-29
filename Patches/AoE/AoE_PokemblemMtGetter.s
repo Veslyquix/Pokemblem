@@ -26,7 +26,10 @@ ldrb r1, [r1, #4] @ Class ID
 bl ShouldWeaponHaveStabBonus
 cmp r0, #0 
 beq Exit 
-lsl r7, #1 @ 2x mt 
+mov r0, r7 
+add r0, #1 
+lsr r0, #1 @ half mt 
+add r7, r0 @ 1.5x mt 
 @mov r0, r7 
 @add r0, r7 @ 2x 
 @add r7, r0 @ 3x 
@@ -54,7 +57,7 @@ Pokemblem_Usability_Ram:
 ldr r0, =DisableMenuOptionsRamLink
 ldr r0, [r0] 
 ldrb r0, [r0] 
-mov r1, #0x1 @ AoE bitflag 
+mov r1, #0x40 @ AoE bitflag 
 and r0, r1
 cmp r0, #0 
 beq Usable_True 

@@ -57,7 +57,7 @@ Error.[N]
 Please send report.[A][X]
 
 ## WhosTheKidText 
-[OpenFarLeft][LoadProtag][OpenMidRight][LoadOak][OpenLeft][LoadGaryShrug][OpenLeft]So who's the kid?[A][CloseSpeechSlow][OpenMidRight]This is [Tact], your new Neighbour.[A][NL]
+[OpenFarLeft][LoadProtag][OpenMidRight][LoadOak][OpenLeft][LoadGaryPoint][OpenLeft]<ifGary><endif>So who's the <kid>?[A][CloseSpeechSlow][OpenMidRight]This is [Tact], your new Neighbour.[A][NL]
 I mentioned they were coming, [NL]
 remember?[A][NL]
 [OpenLeft]Tcch.[A][NL]
@@ -70,7 +70,7 @@ What're you saying, old man?[A][NL]
 [OpenLeft][ClearFace][OpenRight][ToggleSmile]Your very own Pokémblem legend[NL]
 is about to unfold! [A][NL]
 A world of dreams and adventures-[A][ToggleSmile][NL]
-[OpenLeft][LoadGaryShrug][OpenLeft]Get on with it already![A][NL]
+[OpenLeft][LoadGaryPoint][OpenLeft]Get on with it already![A][NL]
 [OpenLeft][ClearFace][OpenRight]Fine. [Tact], you've been patient.[NL]
 Go ahead and pick your starter.[A][NL]
 [OpenLeft][LoadGaryPoint][OpenLeft]Hey! Gramps! What about me?[A][CloseSpeechSlow][NL]
@@ -125,6 +125,36 @@ You cannot catch single-[N]
 stage Pokémon either.[A][N]
 But you may still struggle through...[A][X]
 
+## VoidMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. You [ToggleRed]cannot[NL]
+gain exp[ToggleRed] in this mode.[A][N]
+Additionally, the difficulty has[N]
+been set to Lunatic.[A][N]
+But you may still struggle through...[A][X]
+
+## ChaosMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. All [ToggleRed]randomizer options[ToggleRed][NL]
+have been enabled for this mode.[A][N]
+Best of luck...[A][X]
+
+## PlusMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. All enemies have[NL]
+[ToggleRed]randomized skills[ToggleRed] in this mode.[A][N]
+Additionally, the difficulty has[N]
+been set to Lunatic.[A][N]
+Best of luck...[A][X]
+
+## NuzlockeMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [Tact]. When units [ToggleRed]faint[ToggleRed],[NL]
+they're gone for good in this mode.[A][N]
+Best of luck...[A][X]
+
+
+## CheaterMessageText
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, [ToggleRed][Tact][ToggleRed].[NL]
+Enjoy your overpowered team.[A][X]
+
+
 ## VeslyMessageText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]Hello, almighty [Tact]. You [ToggleRed]cannot capture/[NL]
 evolve Pokémon[ToggleRed] in this mode.[A][N]
@@ -132,8 +162,8 @@ Yes, I beat Lunatic mode like this.[N]
 So it's possible.[A][X]
 
 ## OakMessageText
-[OpenMidRight][LoadOak][OpenMidRight]Hello, me. I [ToggleRed]cannot capture/[NL]
-evolve Pokémon[ToggleRed] in this mode.[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadOak][OpenMidRight]<ifOak><endif>Hello, me. I [ToggleRed]cannot capture[NL]
+Pokémon[ToggleRed] in this mode.[A][N]
 But I'll be fine.[A][X]
 
 ## NiceTryText
@@ -141,7 +171,16 @@ But I'll be fine.[A][X]
 [Tact]?[A][NL]
 Nice try.[A][X]
 
-
+## VoidName
+Void[X]
+## ChaosName
+Chaos[X]
+## NuzlockeName
+Nuzlocke[X]
+## PlusName
+Plus[X]
+## CheaterName
+Cheater[X]
 
 
 ## JesterName
@@ -167,6 +206,17 @@ Oak[X]
 
 ## BillName
 Bill[X]
+
+## LeafName
+Leaf[X]
+
+## JamesName
+James[X]
+
+## JessieName
+Jessie[X]
+
+
 
 
 ## bpatName

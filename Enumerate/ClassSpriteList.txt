@@ -246,7 +246,7 @@ MissingnoSMS
 RedSurfSMS
 GreenSurfSMS
 PoisonGasSMS
-Unused74SMS
+SurfSMS
 Unused75SMS
 Unused76SMS
 Unused77SMS
@@ -510,8 +510,8 @@ HealingTileMMS
 MissingnoMMS
 RedSurfMMS
 GreenSurfMMS
-Unused73MMS
-Unused74MMS
+PoisonGasMMS
+SurfMMS
 Unused75MMS
 Unused76MMS
 Unused77MMS

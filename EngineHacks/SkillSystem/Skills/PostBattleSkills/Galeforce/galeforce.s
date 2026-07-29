@@ -28,12 +28,26 @@ ldrb	r1, [r4,#0x0B]	@allegiance byte of the character we are checking
 cmp	r0, r1		@check if same character
 bne	End
 
-@check if already galeforced this turn
+mov r0, r4 
+bl EquippedAccessoryGetItemAndDurability
+ldr r1, =GaleforceAccessory_Link
+ldr r1, [r1] 
+cmp r0, r1 
+bne SkipItemEquippedCheck
+
+@check if already galeforced or equipped an item this turn
 ldr	r0, [r4,#0x0C]	@status bitfield
 mov	r1, #0x04
 lsl	r1, #0x08
-and	r0, r1
-cmp	r0, #0x00
+tst r0, r1 
+bne	End
+
+SkipItemEquippedCheck:
+@check if galeforced only 
+ldr	r0, [r4,#0x0C]	@status bitfield
+mov r1, #1 
+lsl r1, #31
+tst r0, r1 
 bne	End
 
 @check for skill

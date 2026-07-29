@@ -1,0 +1,49 @@
+#define BlankMug 1
+#define NoPortraitMug 1
+
+// Trainer / NPC portraits installed by _Master Mug Installer.event.
+#define OakMug 153
+#define GaryPointMug 154
+#define GaryShrugMug 155
+#define GaryBattleMug 156
+#define GaryMug 156
+#define BirdkeeperMug 157
+#define BrockMug 158
+#define MistyMug 159
+#define LtSurgeMug 165
+#define KogaMug 166
+#define ErikaMug 167
+#define SabrinaMug 168
+#define BlaineMug 169
+#define GiovanniMug 170
+#define SupplyMug 171
+#define BrunoMug 172
+#define AgathaMug 173
+#define LanceMug 174
+#define LoreleiMug 175
+#define RedMug 178
+#define RedAltMug 179
+#define AshMug 178
+#define LeafMug 180
+#define BillMug 181
+#define KoichiMug 182
+#define FujiMug 183
+#define MomMug 184
+#define JennyMug 185
+#define JoyMug 186
+#define DaisyMug 187
+#define WardenMug 188
+#define GunMug 189
+#define JamesMug 190
+#define JessieMug 191
+
+// Pokemon portraits used as challenge placeholders.
+#define PikachuMug 25
+#define MagikarpMug 129
+#define ArticunoMug 144
+#define ZapdosMug 145
+#define MoltresMug 146
+#define MewtwoMug 150
+#define MewMug 151
+#define CheaterMug 150
+#define VeslyMug 129

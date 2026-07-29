@@ -106,6 +106,8 @@ struct LocEventDef {
 struct speedToggleStruct { 
 	u8 speedA; 
 	u8 speedB; 
+    u8 speedC;
+    u8 speedD; 
 }; 
 extern struct speedToggleStruct FreeMU_MovingSpeed; 
 extern struct LocEventDef HookListFMU_LocationBasedEvent[];

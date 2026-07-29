@@ -155,7 +155,7 @@ SkillAccessoryTrap(19,4, (ChapterID*2), SilphScopeID) // "silph scope"
 
 //BerryTree(2,28,5)
 
-//SkillScrollTrap(42,16, ChapterID*2, PatienceID)
+//SkillScrollTrap(42,16, ChapterID*2, SkillID)
 //SpellScrollTrap(18,9, (ChapterID*2)+1, DoubleHit)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)

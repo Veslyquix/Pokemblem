@@ -53,6 +53,8 @@ ORG FreeSpaceBLRange //defined in custom definitions
   ALIGN 4 
   CoinsEnabled:
   WORD True 
+  SoaringCoinGold:
+  WORD 300
   #define RefreshWMSprite 0x80bf555
   #define RefreshWMProc 0x80b9155
   #define gObj_8x8 0x8590F44

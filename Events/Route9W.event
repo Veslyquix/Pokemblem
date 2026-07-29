@@ -125,7 +125,7 @@ SignATrap(2,4, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 
 
 BerryTree(35,3,5)
 BerryTree(38,3,5)
-//SkillScrollTrap(42,16, ChapterID*2, PatienceID)
+//SkillScrollTrap(42,16, ChapterID*2, SkillID)
 //SpellScrollTrap(18,9, (ChapterID*2)+1, DoubleHit)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)
@@ -155,7 +155,7 @@ AutoLevelUnits(WildLvl, True, 0x50FF) // Wilds
 LOAD1 0x1 HumanTrainers
 ENUN 
 MarkTrainerAsDefeated(0xE2)
-CHECK_EVENTID ThunderbadgeObtained
+CHECK_EVENTID ObtainedCutFlag
 BEQ 0 sC s0 
 DISA 0xE2 
 LABEL 0 

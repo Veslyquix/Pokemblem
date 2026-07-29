@@ -135,7 +135,7 @@ ThunderMove
 ThunderPunch
 SacredStone
 MetisTome2
-Dummy17
+Taunt
 Thundershock
 Latona2
 Thunderbolt

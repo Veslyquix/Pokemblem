@@ -20,7 +20,7 @@ pMovModifiers: // Movement
 	POIN TrappedStatus
 	POIN TrainerMovementBane
 	POIN DebuffIfRepel
-	POIN DebuffIfRematch
+	// POIN DebuffIfRematch // no longer necessary 2026 
 	POIN prNullifyIfGuardAI
 	#ifdef DEBUFFS_MIN_ZERO
 	POIN prMinZero

@@ -11,7 +11,7 @@
   .short 0xf800
 .endm
 
-
+	.equ SetEventId, 0x8083d80 
 	.equ NewFlagsRam, 0x203F548
 	.equ GetUnit, 0x8019430
 	.equ EventEngine, 0x800D07C
@@ -310,8 +310,9 @@ bx r1
 AreAnyTrainerBattlesActive:
 
 push {r4-r7, lr}
-
-
+mov r4, r8 
+push {r4} 
+mov r0, #0 @ false 
 
 mov r4, #0xDF 
 mov r5, #0x2D @ number of summoned units 
@@ -339,24 +340,24 @@ cmp r1, #50
 beq AreAnyTrainerBattlesActive_Loop
 
 @ if we got here, at least one battle is active, so ret true 
-mov r0, #1 
+mov r0, #1 @ trainer battle active 
+mov r8, r0 
 b AreAnyTrainerBattlesActive_Exit
 
 CheckAi: 
 ldrb r1, [r0, r6] @ They still have a weapon, but are they also charging at the player? 
 cmp r1, #0x1C 
 bne AreAnyTrainerBattlesActive_Loop
-mov r0, #1 
-b AreAnyTrainerBattlesActive_Exit
+mov r0, #2 
+mov r8, r0 
+b AreAnyTrainerBattlesActive_Loop @ continue the loop 
 
 BreakLoop:
 
-
-
-mov r0, #0 @ False 
-
 AreAnyTrainerBattlesActive_Exit:
-
+mov r0, r8 
+pop {r4} 
+mov r8, r4 
 pop {r4-r7}
 pop {r1}
 bx r1 
@@ -635,13 +636,23 @@ strb r0, [r4, r1] @ to not trigger the battle again
 bl AreAnyTrainerBattlesActive 
 cmp r0, #1
 beq DontTurnOffFlag
+cmp r0, #2 
+beq OnlyTurnOnCall 
+b TurnFlagsOff 
 
+OnlyTurnOnCall: 
 
+ldr r0, =RefreshEvenInTrainerBattleFlag_Link 
+ldrh r0, [r0] 
+blh SetEventId 
+b DontTurnOffFlag 
 
+TurnFlagsOff: 
 ldr r0, =TrainerBattleActiveFlag 
 lsl r0, #24 
 lsr r0, #24 
 blh 0x8083cd8 @UnsetGlobalEventId
+
 
 ldr r0, =CallCountdownFlag_2
 lsl r0, #24 

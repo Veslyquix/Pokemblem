@@ -100,9 +100,9 @@ AccessoryIcon(EnergyBandT4_BoostIndex) // Def
 SkillAccessoryIcons(EvioliteID)
 #incbin "dmp/Eviolite.dmp"
 SkillAccessoryIcons(AssaultVestID)
-#incbin "dmp/Dracoshield.dmp"
+#incbin "dmp/AssaultVest.dmp"
 SkillAccessoryIcons(TacticalVestID)
-#incbin "dmp/Dracoshield2.dmp"
+#incbin "dmp/AssaultVest2.dmp"
 SkillAccessoryIcons(CleatsID) // Speed 
 #incbin "dmp/SpeedyBoots.dmp"
 SkillAccessoryIcons(RenewalID)

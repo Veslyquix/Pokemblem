@@ -2,6 +2,25 @@
 
 	#include "Extensions/Hack Installation.txt" 
 
+
+#ifdef CLEAN_TITLE_SCREEN 
+	ALIGN 4
+	titlebackgroundimage:
+    // #incext compress "pokeemblem_clean.img.bin"
+    #incbin "pokeemblem_clean.img_comp.dmp"
+	
+	ALIGN 4
+	titlebackgroundpalette:
+	#incbin "pokeemblem_clean.pal.bin"
+	
+	ALIGN 4
+	titlebackgroundtsa:
+	#incbin "titlebackgroundtsa.bin"
+
+
+
+#else
+
 #ifndef ALT_TITLESCREEN
 	ALIGN 4
 	titlebackgroundimage:
@@ -35,7 +54,7 @@
 
 
 #endif 
-
+#endif 
 	
 	ALIGN 4
 	

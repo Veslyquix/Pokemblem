@@ -115,8 +115,8 @@ RedPokeballTrap(13,12, ChapterID*2, ExoticCandy)
 
 //BerryTree(2,28,5)
 
-//SkillScrollTrap(42,16, ChapterID*2, PatienceID)
-SpellScrollTrap(6,16, (ChapterID*2)+1, ShadowPunch)
+//SkillScrollTrap(42,16, ChapterID*2, SkillID)
+SkillScrollTrap(11,9, (ChapterID*2)+1, RenewalID)
 //OpenPokeball(8,3)
 //Sign(8,4, 2)
 

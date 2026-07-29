@@ -389,7 +389,7 @@ MenuCommand(UM_FocusEnergyName, UM_FocusEnergyDesc, BlueText, FocusEnergyCommand
   UM_Trade
   
 
-  
+  MenuCommand(UM_ProvokeName, UM_ProvokeDesc, 0, ProvokeUsability, ProvokeEffect) 
   //UM_Supply
   MenuCommand(0x68F,0x6D5,GreenText,NewSupplyUsability,NewSupplyEffect)
   MenuCommand(0x68F,0x6D5,NormalText,NewSupplyUsability2,NewSupplyEffect)

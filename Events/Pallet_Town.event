@@ -63,21 +63,21 @@ CHECK_COORDS 0x7fff
 SADD sA sC s0  
 SET_ACTIVE 0
 WallText(Yes_PurchasedLaprasText)
-SADD sB sA s0  
 ASMC Get7thUnitASMC
 BEQ 21 sC s0 
-WARP_OUT
-STAL 30
-UNCM(TempAlly, 0x10009) // Undeploy + escape the Lapras
-DISA OaksAidePkmn 
+SVAL s2 OaksAidePkmn 
+CALL WarpDisaUnit 
+UNCM(TempAlly, 0x10009) // Undeploy + escape the pkmn
 GOTO 22 
 LABEL 21
 DISA OaksAidePkmn  
+SADD sB sA s0 
 MOVENEXTTO (-1) TempAlly 0x7FFe 
 ENUN 
 LABEL 22 
 SVAL s1 TempAlly // Lapras's UnitID 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 GOTO 63 
 
@@ -290,17 +290,24 @@ ENDA
 
 
 VisitHome:
-SetBG(Pallet_Ash_house_BG)
+
 CHECK_EVENTID CinnabarMomCallFlag
 BEQ 0 sC s0 
 CHECK_EVENTID MomGaveItemFlag 
 BNE 0 sC s0 
-Text(MomGiveItemText)
-ENUT MomGaveItemFlag 
+
 SVAL r3 20000 
 GIVETOMAIN 0 
 GiveItemWithDurability_Rand(0, SpellScroll, Rest)
+SetBG(Pallet_Ash_house_BG)
+Text(MomGiveItemText)
+ENUT MomGaveItemFlag 
+
+
+GOTO 5 
 LABEL 0 
+SetBG(Pallet_Ash_house_BG)
+LABEL 5 
 
 CHECK_EVENTID CompletedPokemonLeague
 BEQ 1 sC s0 

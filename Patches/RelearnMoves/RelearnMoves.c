@@ -6,12 +6,14 @@ struct StatScreenSt
     /* 00 */ u8 page;
     /* 01 */ u8 pageAmt;
     /* 02 */ u16 pageSlideKey; // 0, DPAD_RIGHT or DPAD_LEFT
-    /* 04 */ short xDispOff;   // Note: Always 0, not properly taked into account by most things
+    /* 04 */ short xDispOff;   // Note: Always 0, not properly taked into account by
+                               // most things
     /* 06 */ short yDispOff;
     /* 08 */ s8 inTransition;
     /* 0C */ struct Unit * unit;
     /* 10 */ struct MUProc * mu;
     /* 14 */ const struct HelpBoxInfo * help;
+    /* 18 */ struct TextHandle text[34];
 };
 extern struct StatScreenSt gStatScreen; // statscreen state
 enum
@@ -30,7 +32,7 @@ extern u16 gBG1MapBuffer[32][32]; // 0x020234A8.
 #define menu_tile_X 1
 #define menu_tile_Y 0
 #define menu_Length 10 // 29
-
+extern struct FontData gItemSelectMenuFont;
 extern u8 * MoveListTable[256 * 4];
 
 /*extern const ItemData gItemData[]; */
@@ -81,17 +83,18 @@ static int MoveCommandSelect(struct MenuProc * menu, struct MenuCommandProc * co
 // static int MoveCommandDecline(struct MenuProc* menu, struct MenuCommandProc* command);
 static int List_Idle(struct MenuProc * menu, struct MenuCommandProc * command);
 static void ViewRelearnCommandDraw(struct MenuProc * menu, struct MenuCommandProc * command);
-static void ViewRelearnMenuEnd(struct MenuProc * menu);
+static u8 ViewRelearnMenuEnd(struct MenuProc * menu, struct MenuCommandProc * command);
 
 struct ViewRelearnProc
 {
     /* 00 */ PROC_HEADER; // this ends at +29
     /* 2C */ struct Unit * unit;
     /* 30 */ u8 movesUpdated;
-    u8 ListSize;
+    s8 ListSize;
     u8 hover_move_Updated;
-    u8 move_hovering; //
-    u16 offset;       // 0x34
+    s8 move_hovering; //
+    s8 offset;        // 0x34
+    s8 id;
     u16 tileNext;
     struct TextHandle handle[3]; // 0x38 - 0x4F
 };
@@ -168,7 +171,7 @@ static const struct MenuDefinition Menu_ViewRelearnDef = {
     .geometry = { menu_tile_X, menu_tile_Y, menu_Length },
     .commandList = MenuCommands_ViewRelearn,
 
-    .onEnd = ViewRelearnMenuEnd,
+    .onEnd = (void *)ViewRelearnMenuEnd,
     .onBPress = ViewRelearnMenuEnd,
 
     //.onBPress = (void*) (0x08022860+1), // FIXME
@@ -192,24 +195,11 @@ int ViewRelearnCommand_OnSelect(struct Proc * event_proc)
     proc->move_hovering = 0;
     proc->offset = 0;
     proc->tileNext = 0;
+    proc->id = 0;
 
-    // struct TextHandle handle[3]; // 0x38 - 0x4F
-
-    // Text_Clear(&command->text);
-    // Text_Clear(&menu->pCommandProc[1]->text);
-    // Text_Clear(&menu->pCommandProc[2]->text);
-    // Text_Clear(&menu->pCommandProc[3]->text);
-    // Text_Clear(&menu->pCommandProc[4]->text);
-    // Text_Clear(&menu->pCommandProc[5]->text);
-    // Text_Clear(&menu->pCommandProc[6]->text);
-    // Text_Clear(&menu->pCommandProc[7]->text);
-    // Text_Clear(&menu->pCommandProc[8]->text);
-    // Text_Clear(&menu->pCommandProc[9]->text);
-    // Text_Clear(&menu->pCommandProc[10]->text);
-    // Text_Clear(&menu->pCommandProc[11]->text);
-    // gpCurrentFont->tileNext = 0;
-
+    Text_SetFont(0);
     Text_ResetTileAllocation();
+    Text_SetFontStandardGlyphSet(0); // tile text numbers
 
     StartMenuChild(&Menu_ViewRelearnDef, (void *)proc);
     return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
@@ -275,24 +265,6 @@ void DrawItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * comma
     // [2028E6a..2028E6b]!!
     // 0x8004a9e
 
-    u16 tile = gpCurrentFont->tileNext;
-
-    // u16 tile = menu->tileBase+20;
-
-    // TextHandle handles[4] = {};
-    // for ( int i = 0 ; i < 4 ; i++ )
-    //{
-    //	//handles[i].tileIndexOffset = tile; // offset to start at
-    //	handles[i].xCursor = 0;
-    //	//handles[i].tileIndexOffset = 0x180;
-    //	handles[i].colorId = TEXT_COLOR_NORMAL;
-    //	handles[i].useDoubleBuffer = 0;
-    //	handles[i].currentBufferId = 0;
-    //	handles[i].unk07 = 0;
-    // }
-    //
-    // u8 i = 0;
-
     // PrepareText(&handles[i], " Rng");
     // Text_Display(&handles[i], &gBG0MapBuffer[15][7+x]); i++;
     //
@@ -335,6 +307,7 @@ DrawMultiline(TextHandle * handles, char * string, int lines) // There's a TextH
         gGenericBuffer[k] = 0;
 
         u32 width = ((Text_GetStringTextWidth((char *)gGenericBuffer)) + 8) / 8;
+        // u32 width = 15;
 
         Text_InitClear(&handles[i], width);
         handles[i].tileWidth = width;
@@ -373,24 +346,15 @@ void UpdateItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * com
             gBG0MapBuffer[y][x] = 0;
         }
     }
+    Text_SetFont(0);
     Text_ResetTileAllocation();
+    Text_SetFontStandardGlyphSet(0); // tile text numbers
 
     // for (int x = 11; x < 30; x++) { // clear out most of bg0
     //	for (int y = 0; y < 8; y++) {
     //		gBG0MapBuffer[y][x] = 0;
     //	}
     // }
-    TextHandle handles[12] = {};
-    for (int i = 0; i < 8; i++)
-    {
-        // handles[i].tileIndexOffset = tile; // offset to start at
-        handles[i].xCursor = 0;
-        // handles[i].tileIndexOffset = 0x180;
-        handles[i].colorId = TEXT_COLOR_NORMAL;
-        handles[i].useDoubleBuffer = 0;
-        handles[i].currentBufferId = 0;
-        handles[i].unk07 = 0;
-    }
 
     MoveListCommandDraw(menu, menu->pCommandProc[0]);
     MoveListCommandDraw(menu, menu->pCommandProc[1]);
@@ -399,26 +363,9 @@ void UpdateItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * com
     MoveListCommandDraw(menu, menu->pCommandProc[4]);
     MoveListCommandDraw(menu, menu->pCommandProc[5]);
 
-    // u16 tileNext starts at 0 when ResetTileAllocation is used (vram 0x6001000)
-    //
+    Text_InitFontExt(&gItemSelectMenuFont, (void *)VRAM + 0x4000, 0x200, 0);
 
-    // menu->pCommandProc[0]->text.tileIndexOffset = gpCurrentFont->tileNext;
-
-    // menu->pCommandProc[0]->text.tileWidth = 0; //92;
-
-    // update tileNext to be whatever we offset it to
-    // in this case it's 0, but it would be important if it wasn't
-    // menu starts at tileNext as 0 (and draws spaces as needed)
-    for (u8 c = 0; c < menu->commandCount; c++)
-    {
-        gpCurrentFont->tileNext = menu->pCommandProc[c]->text.tileIndexOffset + menu->pCommandProc[c]->text.tileWidth;
-        menu->pCommandProc[c]->text.tileIndexOffset = gpCurrentFont->tileNext;
-    }
-    // menu->pCommandProc[1]->text.currentBufferId = 0; //handles[i].currentBufferId;
-
-    // proc->tileNext = gpCurrentFont->tileNext;
-    // gpCurrentFont->tileNext = 40; //proc->tileNext;
-
+    TextHandle * handles = gStatScreen.text;
     u8 i = 0;
 
     char * className = GetStringFromIndex(proc->unit->pClassData->nameTextId);
@@ -486,49 +433,26 @@ void UpdateItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * com
     Text_Display(&handles[i], &gBG0MapBuffer[17][14 + x]);
     i++;
 
-    char * string = GetStringFromIndex(GetItemDescId(item));
-    int lines = GetNumLines(string);
-    DrawMultiline(&handles[i], string, lines);
-
-    /*
-            PrepareText(&handles[i], );
-            Text_Display(&handles[i], &gBG0MapBuffer[2][12]); i++;
-            char* strcpy(char* dest, const char* src);
-            unsigned strlen(const char* cstr);
-            PrepareText(&handles[i], Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item))));
-            Text_Display(&handles[i], &gBG0MapBuffer[4][12]); i++;
-            PrepareText(&handles[i],
-       Text_GetStringNextLine(Text_GetStringNextLine(GetStringFromIndex(GetItemDescId(item)))));
-            Text_Display(&handles[i], &gBG0MapBuffer[6][12]); i++;
-    */
-
-    for (int c = 0; c < lines; c++)
-    {
-        Text_Display(&handles[c + i], &gBG0MapBuffer[2 + c * 2][11]);
-    }
-    i++;
-    i++;
-    i++;
-
     PrepareText(&proc->handle[0], GetItemDisplayRankString(item));
     Text_Display(&proc->handle[0], &gBG0MapBuffer[15][5 + x]);
     i++;
-    // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
-    //  0x8004AE8 = POIN gSpecialUiCharAllocationTable
 
     gStatScreen.unit = proc->unit;
 
     PrepareText(&proc->handle[1], GetItemDisplayRangeString(item));
     Text_Display(&proc->handle[1], &gBG0MapBuffer[15][10 + x]);
     i++;
-    // gpCurrentFont->tileNext = gpCurrentFont->tileNext + 3;
 
-    PrepareText(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
+    Text_InitClear(&proc->handle[2], 6);
+    proc->handle[2].tileWidth = 6;
+
+    Text_SetColorId(&proc->handle[2], TEXT_COLOR_GOLD);
+    Text_DrawString(&proc->handle[2], GetWeaponTypeDisplayString(GetItemType(item)));
+
     Text_Display(&proc->handle[2], &gBG0MapBuffer[15][0 + x]);
     i++;
 
-    gSpecialUiCharAllocationTable[0] = 0xFF; // no clue but it made DrawUiNumber work properly
-
+    Text_SetFont(0);
     DrawUiNumber(&gBG0MapBuffer[15][18 + x], TEXT_COLOR_GOLD, GetItemWeight(item));
     DrawUiNumber(&gBG0MapBuffer[17][5 + x], TEXT_COLOR_GOLD, GetItemMight(item));
     DrawUiNumber(&gBG0MapBuffer[17][12 + x], TEXT_COLOR_GOLD, GetItemHit(item));
@@ -540,59 +464,79 @@ void UpdateItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * com
         &gBG0MapBuffer[9][22], TEXT_COLOR_GOLD,
         (UnitGetMoveList(proc->unit, proc->offset)[(hover * 2)])); // level it's learned at
 
+    Text_SetFont(&gItemSelectMenuFont);
+    if (item)
+    {
+        char * string = GetStringFromIndex(GetItemDescId(item));
+        int lines = GetNumLines(string);
+        DrawMultiline(&handles[i], string, lines);
+        for (int c = 0; c < lines; c++)
+        {
+            Text_Display(&handles[c + i], &gBG0MapBuffer[2 + c * 2][11]);
+        }
+    }
+    i++;
+    i++;
+    i++;
+
+    Text_SetFont(0);
     EnableBgSyncByMask(BG0_SYNC_BIT);
 }
 
 static int List_Idle(struct MenuProc * menu, struct MenuCommandProc * command)
 {
-    struct ViewRelearnProc * const proc = (void *)menu->parent;
-    u8 * const moves = UnitGetMoveList(proc->unit, 0);
-    if (proc->move_hovering != menu->commandIndex)
+    struct ViewRelearnProc * proc = (void *)menu->parent;
+    u16 keys = gKeyState.pressedKeys;
+    if (!keys)
     {
-        if (gKeyState.repeatedKeys & KEY_DPAD_DOWN)
+        keys = gKeyState.repeatedKeys;
+    }
+    if (keys & KEY_DPAD_DOWN)
+    {
+        proc->id++;
+        proc->move_hovering++;
+        if (proc->move_hovering > 5)
         {
-            if (menu->commandIndex == 0)
-            { // we looped back to the start
-                menu->commandIndex = 5;
-                menu->prevCommandIndex = 4;
-                if (proc->offset < proc->ListSize)
-                {
-                    proc->offset = proc->offset + 1;
-                    proc->hover_move_Updated = TRUE;
-                    proc->move_hovering = menu->commandIndex;
-                    UpdateItemInfo_Relearn(menu, command, proc);
-                }
-            }
-            else
-            {
-                proc->hover_move_Updated = TRUE;
-                proc->move_hovering = menu->commandIndex;
-                UpdateItemInfo_Relearn(menu, command, proc);
-            }
+            proc->move_hovering = 5;
+            proc->offset++;
         }
-        if (gKeyState.repeatedKeys & KEY_DPAD_UP)
+        menu->commandIndex = proc->move_hovering;
+
+        if (proc->offset > proc->ListSize)
         {
-            if (menu->commandIndex == 5)
-            { // we looped back to the start
-                menu->commandIndex = 0;
-                menu->prevCommandIndex = 1;
-                if (proc->offset > 0)
-                {
-                    proc->offset = proc->offset - 1;
-                    proc->hover_move_Updated = TRUE;
-                    proc->move_hovering = menu->commandIndex;
-                    UpdateItemInfo_Relearn(menu, command, proc);
-                }
-            }
-            else
-            {
-                proc->hover_move_Updated = TRUE;
-                proc->move_hovering = menu->commandIndex;
-                UpdateItemInfo_Relearn(menu, command, proc);
-            }
+            proc->offset = 0;
+            menu->commandIndex = 0;
+            proc->id = 0;
+            proc->move_hovering = 0;
         }
 
-        /*         proc->movesUpdated = TRUE; */
+        proc->hover_move_Updated = TRUE;
+        proc->move_hovering = menu->commandIndex;
+        UpdateItemInfo_Relearn(menu, command, proc);
+        return ME_NONE;
+    }
+    if (keys & KEY_DPAD_UP)
+    {
+        proc->id--;
+        proc->move_hovering--;
+        if (proc->move_hovering < 0)
+        {
+            proc->move_hovering = 0;
+            proc->offset--;
+        }
+        menu->commandIndex = proc->move_hovering;
+        if ((proc->offset < 0))
+        {
+            proc->id = proc->ListSize;
+            proc->offset = proc->ListSize;
+            menu->commandIndex = 5;
+            proc->move_hovering = 5;
+        }
+
+        proc->hover_move_Updated = TRUE;
+        proc->move_hovering = menu->commandIndex;
+        UpdateItemInfo_Relearn(menu, command, proc);
+        return ME_NONE;
     }
     if (gKeyState.repeatedKeys & KEY_BUTTON_R)
     {
@@ -617,15 +561,7 @@ static void MoveListCommandDraw(struct MenuProc * menu, struct MenuCommandProc *
     int i = (command->commandDefinitionIndex);
 
     u16 * const out = gBg0MapBuffer + TILEMAP_INDEX(command->xDrawTile, command->yDrawTile);
-    u32 width;
-    if (IsMove(moves[(i * 2) + 1]))
-    {
-        width = (Text_GetStringTextWidth(GetItemName(moves[(i * 2) + 1])) + 32) / 8;
-    }
-    else
-    {
-        width = (Text_GetStringTextWidth("No Move") + 32) / 8;
-    }
+    u32 width = 8; // to avoid text jumping
     Text_InitClear(&command->text, width);
     /*
     Text_SetXCursor(&command->text, new_item_desc_offset);
@@ -667,17 +603,36 @@ void prLearnNewSpell_ASMC(struct Proc * proc)
     prLearnNewSpell((struct Unit *)gEventSlot[1], (int)gEventSlot[2], proc);
 }
 
+void RelearnClearSomeGfx(void)
+{
+    Text_SetFont(0);
+    Text_ResetTileAllocation();
+    Text_SetFontStandardGlyphSet(0); // tile text numbers
+    for (int x = 0; x < 30; x++)
+    {
+        for (int y = 0; y < 20; y++)
+        {
+            gBG0MapBuffer[y][x] = 0;
+        }
+    }
+    EnableBgSyncByMask(BG0_SYNC_BIT | BG1_SYNC_BIT);
+}
+
 static int MoveCommandSelect(struct MenuProc * menu, struct MenuCommandProc * command)
 {
     struct ViewRelearnProc * const proc = (void *)menu->parent;
     gEventSlot[0xC] = 1;
     gEventSlot[1] = (u32)proc->unit;
     gEventSlot[2] = UnitGetMoveList(proc->unit, proc->offset)[(proc->move_hovering * 2) + 1];
+    RelearnClearSomeGfx();
+
     // prLearnNewSpell(proc->unit, proc->move_hovering, proc->parent);
     return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
 }
 
-static void ViewRelearnMenuEnd(struct MenuProc * menu)
+static u8 ViewRelearnMenuEnd(struct MenuProc * menu, struct MenuCommandProc * command)
 {
     EndFaceById(0);
+
+    return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
 }

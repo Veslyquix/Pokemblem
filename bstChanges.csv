@@ -1,0 +1,197 @@
+Pokemon,Destination Column,Old Value,New Value,Difference
+Bulbasaur,Res Cap,30,35,5
+Bulbasaur,Base Magic,5,7,2
+Bulbasaur,Magic Growth,35,45,10
+Bulbasaur,Magic Promotion Bonus,5,7,2
+Ivysaur,Magic Promotion Bonus,4,2,-2
+Charmander,Atk,4,5,1
+Charmander,Skl,3,4,1
+Charmander,Spd,3,4,1
+Charmander,Atk Growth,30,35,5
+Charmander,Skl Growth,35,40,5
+Charmander,Spd Growth,35,40,5
+Charmeleon,Atk Promo Gain,2,1,-1
+Charmeleon,Skl Promo Gain,3,2,-1
+Charmeleon,Spd Promo Gain,3,2,-1
+Squirtle,Skl,3,4,1
+Squirtle,Def,2,3,1
+Squirtle,Def Growth,30,35,5
+Squirtle,Def Cap,30,35,5
+Squirtle,Base Magic,5,6,1
+Squirtle,Magic Growth,35,40,5
+Wartortle,Skl Promo Gain,3,2,-1
+Wartortle,Def Promo Gain,3,2,-1
+Wartortle,Magic Promotion Bonus,3,2,-1
+Caterpie,Magic Cap,20,25,5
+Caterpie,Magic Growth,15,20,5
+Metapod,Base Magic,2,3,1
+Metapod,Magic Cap,25,30,5
+Metapod,Magic Growth,20,25,5
+Metapod,Magic Promotion Bonus,0,1,1
+Butterfree,Magic Promotion Bonus,6,5,-1
+Weedle,Skl Growth,25,30,5
+Kakuna,Def Growth,25,30,5
+Raticate,Atk,7,8,1
+Raticate,Atk Promo Gain,4,5,1
+Spearow,Atk,4,5,1
+Spearow,Skl,2,3,1
+Spearow,Atk Growth,30,35,5
+Spearow,Atk Cap,30,35,5
+Fearow,Atk,8,9,1
+Fearow,Atk Growth,45,50,5
+Fearow,Atk Cap,40,45,5
+Fearow,Skl Promo Gain,4,3,-1
+Clefairy,Atk,2,3,1
+Clefairy,Atk Growth,20,25,5
+Clefairy,Skl Growth,35,40,5
+Clefairy,Spd Growth,20,25,5
+Clefairy,Atk Cap,20,25,5
+Clefairy,Spd Cap,25,30,5
+Clefable,Atk Promo Gain,3,2,-1
+Vulpix,Spd,3,4,1
+Vulpix,HP Growth,45,40,-5
+Vulpix,Res Growth,25,30,5
+Vulpix,Skl Cap,30,35,5
+Vulpix,Res Cap,25,30,5
+Vulpix,Base Magic,5,6,1
+Vulpix,Magic Growth,35,40,5
+Ninetales,Spd Promo Gain,5,4,-1
+Ninetales,Base Magic,11,13,2
+Ninetales,Magic Promotion Bonus,6,7,1
+Jigglypuff,Spd Growth,25,20,-5
+Jigglypuff,Skl Cap,30,35,5
+Jigglypuff,Base Magic,5,6,1
+Jigglypuff,Magic Growth,35,40,5
+Wigglytuff,Magic Promotion Bonus,4,3,-1
+Zubat,HP,15,18,3
+Zubat,Atk,4,5,1
+Zubat,Spd,4,5,1
+Zubat,HP Growth,35,55,20
+Zubat,Atk Growth,30,35,5
+Zubat,HP Cap,35,50,15
+Zubat,Atk Cap,30,35,5
+Zubat,Skl Cap,30,35,5
+Zubat,Spd Cap,35,40,5
+Zubat,Spd Promo Gain,2,3,1
+Zubat,Magic Cap,30,35,5
+Golbat,HP Promo Gain,5,2,-3
+Golbat,Atk Promo Gain,3,2,-1
+Golbat,Spd Promo Gain,3,2,-1
+Oddish,HP,18,19,1
+Oddish,HP Growth,55,60,5
+Oddish,Base Magic,6,7,1
+Oddish,Magic Growth,40,45,5
+Gloom,Spd Cap,20,15,-5
+Gloom,HP Promo Gain,3,2,-1
+Gloom,Base Magic,8,9,1
+Gloom,Magic Growth,45,50,5
+Vileplume,Magic Promotion Bonus,6,5,-1
+Venonat,Atk,6,5,-1
+Venonat,Atk Growth,40,35,-5
+Venonat,Def Cap,25,20,-5
+Venonat,Atk Promo Gain,6,5,-1
+Venonat,Base Magic,5,6,1
+Venonat,Magic Growth,35,40,5
+Venonat,Magic Promotion Bonus,5,6,1
+Venomoth,Atk Promo Gain,0,1,1
+Venomoth,Magic Promotion Bonus,4,3,-1
+Diglett,HP,15,16,1
+Diglett,Atk,5,6,1
+Diglett,Spd,4,5,1
+Diglett,HP Growth,35,45,10
+Diglett,Atk Growth,35,40,5
+Diglett,Res Growth,25,20,-5
+Diglett,HP Cap,35,40,5
+Diglett,Skl Cap,30,35,5
+Dugtrio,HP,17,19,2
+Dugtrio,Skl,6,7,1
+Dugtrio,Spd,8,9,1
+Dugtrio,HP Growth,45,55,10
+Dugtrio,HP Cap,45,50,5
+Dugtrio,Skl Cap,40,45,5
+Dugtrio,HP Promo Gain,2,3,1
+Dugtrio,Atk Promo Gain,5,4,-1
+Dugtrio,Skl Promo Gain,3,4,1
+Meowth,Atk,6,7,1
+Meowth,Skl,3,4,1
+Meowth,Skl Growth,35,40,5
+Persian,Atk,8,9,1
+Persian,Skl,6,7,1
+Persian,Atk Growth,45,50,5
+Persian,Atk Cap,40,45,5
+Poliwag,Atk,4,6,2
+Poliwag,Atk Growth,30,40,10
+Poliwag,Atk Cap,30,35,5
+Poliwhirl,Atk Promo Gain,3,1,-2
+Alakazam,Def Growth,25,20,-5
+Alakazam,Skl Cap,50,45,-5
+Alakazam,Base Magic,16,15,-1
+Alakazam,Magic Cap,55,50,-5
+Alakazam,Magic Promotion Bonus,5,4,-1
+Machop,Skl,3,4,1
+Machop,Atk Growth,40,45,5
+Machop,Skl Growth,35,40,5
+Machop,HP Cap,55,60,5
+Machop,Atk Cap,35,40,5
+Machoke,Skl Promo Gain,3,2,-1
+Bellsprout,HP,16,17,1
+Bellsprout,HP Growth,45,50,5
+Bellsprout,Atk Growth,40,45,5
+Bellsprout,Def Growth,15,20,5
+Bellsprout,HP Cap,40,45,5
+Bellsprout,Skl Cap,30,35,5
+Bellsprout,Spd Cap,30,35,5
+Bellsprout,Def Cap,15,20,5
+Weepinbell,HP Promo Gain,3,2,-1
+Drowzee,HP,19,21,2
+Drowzee,HP Growth,60,70,10
+Drowzee,HP Cap,55,60,5
+Drowzee,Spd Cap,30,35,5
+Hypno,HP,25,28,3
+Hypno,HP Growth,80,90,10
+Hypno,Skl Growth,50,55,5
+Hypno,Res Growth,55,60,5
+Hypno,HP Cap,70,75,5
+Hypno,Spd Cap,40,45,5
+Hypno,HP Promo Gain,6,7,1
+Voltorb,HP,17,19,2
+Voltorb,Skl,4,5,1
+Voltorb,Spd,6,8,2
+Voltorb,HP Growth,50,55,5
+Voltorb,Skl Growth,35,40,5
+Voltorb,Spd Growth,50,55,5
+Voltorb,HP Cap,45,50,5
+Voltorb,Atk Cap,20,15,-5
+Voltorb,Skl Cap,35,40,5
+Voltorb,Spd Cap,45,55,10
+Voltorb,Res Cap,30,25,-5
+Voltorb,Spd Promo Gain,1,3,2
+Electrode,HP Promo Gain,4,2,-2
+Electrode,Skl Promo Gain,3,2,-1
+Electrode,Spd Promo Gain,6,4,-2
+Rhyhorn,Atk,8,9,1
+Rhyhorn,Skl,4,5,1
+Rhyhorn,HP Growth,80,75,-5
+Rhyhorn,Atk Growth,45,50,5
+Rhyhorn,Def Growth,45,50,5
+Rhyhorn,Atk Cap,40,45,5
+Rhyhorn,Skl Cap,35,40,5
+Rhyhorn,Def Cap,40,45,5
+Rhydon,Atk Promo Gain,7,6,-1
+Rhydon,Skl Promo Gain,4,3,-1
+Horsea,Spd,4,5,1
+Horsea,Spd Growth,40,45,5
+Seadra,Spd Promo Gain,3,2,-1
+Porygon,Res,5,4,-1
+Porygon,Base Magic,9,10,1
+Omanyte,Spd,3,4,1
+Omanyte,Spd Growth,30,35,5
+Omanyte,Base Magic,8,9,1
+Omanyte,Magic Growth,45,50,5
+Omastar,Spd Promo Gain,2,1,-1
+Omastar,Magic Promotion Bonus,7,6,-1
+Kabuto,Spd,4,5,1
+Kabuto,Spd Growth,35,45,10
+Kabuto,Spd Cap,35,40,5
+Kabuto,Res Cap,20,15,-5
+Kabutops,Spd Promo Gain,2,1,-1

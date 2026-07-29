@@ -58,7 +58,8 @@ SHORT $7891 $78D2 $0608
   ORG $30d8a  //animations type 2
   SHORT $3306
   ORG $30da6  //Game/text speed Fast, Autocursor off
-  SHORT $22d0
+  SHORT $22b0 // game speed fast, text speed normal 
+  // golden sun talk beeps changes normal to 2 frame delay and slow to 4 frame delay (vanilla is 4/8) 
 
 //Allow Visit from any tile
   PUSH

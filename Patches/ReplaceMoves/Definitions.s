@@ -7,7 +7,6 @@ SET_DATA gStatScreen, 0x2003BFC
 SET_DATA gHelpBox_RMenu, 0x203E784
 SET_DATA gText_HelpBox, 0x203E794
 SET_DATA gText_HelpBoxTextOffset, 0x203E7AC
-
 SET_FUNC UnitRemoveInvalidItems, (0x8017984+1)
 SET_FUNC EndHelpBox, (0x808903c+1)
 SET_FUNC LoadHelpBoxGfx, (0x8089804+1)

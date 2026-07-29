@@ -42,6 +42,10 @@ TrainerPostBattleTalk(0xE0) // NPC talk again
 TrainerPostBattleTalk(OaksAide) // NPC talk again 
 END_MAIN
 
+
+
+
+
 PurchaseMagmarevent:
 EVBIT_MODIFY 4 
 WallText(CatchBeforePurchaseMagmarText)
@@ -76,22 +80,22 @@ LABEL 20
 CHECK_COORDS 0x7fff
 SADD sA sC s0  
 SET_ACTIVE 0
-WallText(Yes_PurchasedMagmarText)
-SADD sB sA s0  
+WallText(Yes_PurchasedMagmarText) 
 ASMC Get7thUnitASMC
 BEQ 21 sC s0 
-WARP_OUT
-STAL 30
-UNCM(TempAlly, 0x10009) // Undeploy + escape the Magmar
-DISA OaksAidePkmn 
+SVAL s2 OaksAidePkmn 
+CALL WarpDisaUnit 
+UNCM(TempAlly, 0x10009) // Undeploy + escape the pkmn
 GOTO 22 
 LABEL 21
 DISA OaksAidePkmn  
+SADD sB sA s0 
 MOVENEXTTO (-1) TempAlly 0x7FFe 
 ENUN 
 LABEL 22 
 SVAL s1 TempAlly // Magmar's UnitID 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 GOTO 63 
 LABEL 44 
@@ -118,10 +122,10 @@ END_MAIN
 DebugStuffEntry(TrainerL, 110000)
 DebugItems SuperRepel 5
 BYTE SkillAcc(VantagePlusID) SkillAcc(SteadyStanceID) SkillAcc(RockyHelmetSkillID) SkillAcc(WardingStanceID)
-BYTE SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
-BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
+BYTE SkillAcc(EvioliteID) SkillAcc(RenewalID) SkillAcc(CertainBlowID) SkillAcc(GuardBreakerID) SkillAcc(PoisonStrikeID) SkillAcc(DowngradeID) SkillAcc(CantoPlusID)
+BYTE SkillAcc(WaryFighterID) SkillAcc(PridefulWarriorID) SkillAcc(LifeAndDeathID) SkillAcc(Intimidate2ID) SkillAcc(DazzleID) SkillAcc(ThickClubSkillID)
 BYTE SkillAcc(BreathOfLifeID) SkillAcc(SurfBoardID) SkillAcc(CounterID)
-BYTE SkillAcc(MiracleID) SkillAcc(ExpShareID)
+BYTE SkillAcc(MiracleID) SkillAcc(GrislyWoundID) SkillAcc(ExpShareID)
 BYTE JellyDonut 5
 BYTE SuperPotion 5
 BYTE Revive 3
@@ -148,16 +152,16 @@ BYTE StatAccessory WiseGlassesT2_BoostIndex StatAccessory MuscleBandT2_BoostInde
 BYTE StatAccessory MagicWard_BoostIndex
 BYTE SkillScroll PoisonStrikeID SkillScroll SwarmID SkillScroll ShedSkinID SkillScroll RecklessRockID
 BYTE SkillScroll ParagonID SkillScroll DrySkinID SkillScroll ShellArmorID SkillScroll SniperID
-BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll GuardBreakerID SkillScroll PoisonTouchID
-BYTE SkillScroll ScrappyID SkillScroll PatienceID SkillScroll LifetakerID SkillScroll FierceStanceID SkillScroll OpportunistID
-BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID SkillScroll PrescienceID
+BYTE SkillScroll VantagePlusID SkillScroll ForewarnID SkillScroll PoisonTouchID
+BYTE SkillScroll ScrappyID SkillScroll TechnicianID SkillScroll LifetakerID SkillScroll RenewalID
+BYTE SkillScroll ChlorophyllID SkillScroll HarvestID SkillScroll SolarPowerID 
 BYTE SpellScroll Tackle SpellScroll Scratch SpellScroll Leer SpellScroll Bite SpellScroll Ember SpellScroll Bubble
 BYTE SpellScroll LeafFlurry SpellScroll Confusion SpellScroll IcyWind SpellScroll AttackPulse SpellScroll LeechLife
 BYTE SpellScroll MegaPunch SpellScroll MudShot SpellScroll Gust SpellScroll RockTomb SpellScroll DoubleHit
-BYTE SpellScroll WaterGun SpellScroll Harden SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
+BYTE SpellScroll WaterGun SpellScroll Taunt SpellScroll KarateChop SpellScroll PoisonPowder SpellScroll SignalBeam
 BYTE SpellScroll MagicalLeaf SpellScroll BubbleBeam SpellScroll WingAttack SpellScroll ThunderWave SpellScroll Scorch
 BYTE SpellScroll Dig SpellScroll Headbutt SpellScroll PinMissile SpellScroll Thunderbolt SpellScroll HealPulse
-BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
+BYTE SpellScroll RockSlide SpellScroll BodySlam SpellScroll Screech SpellScroll ShadowPunch SpellScroll MudBomb SpellScroll Clamp
 BYTE SpellScroll LeafBlade SpellScroll AuroraBeam SpellScroll Psybeam SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch
 
 SHORT 0
@@ -264,7 +268,7 @@ SkillAccessoryTrap(8,20, ChapterID*2, GrislyWoundID)
 SignBTrap(4,15, ChapterID, 0x0) //no extra text 
 SignATrap(38,17, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
 
-//SkillScrollTrap(15,11, ChapterID*2, AcrobatID)
+SkillScrollTrap(18,3, ChapterID*2, DazzleID)
 //SpellScrollTrap(17,11, (ChapterID*2)+1, Ember)
 //OpenPokeball(8,3)
 
@@ -339,7 +343,7 @@ BYTE SuperPotion 5
 BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
-BYTE SkillScroll PrescienceID 
+BYTE SpellScroll Screech SpellScroll Taunt
 BYTE SpellScroll SignalBeam SpellScroll RockSlide
 BYTE SpellScroll FirePunch SpellScroll ThunderPunch SpellScroll IcePunch 
 BYTE SpellScroll ShadowPunch SpellScroll RockTomb SpellScroll JumpKick

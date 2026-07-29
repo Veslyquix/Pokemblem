@@ -969,6 +969,10 @@ int CountUnusableStoredUnitsUpToIndex(int index)
                 }
             }
         }
+        else
+        {
+            cur++;
+        }
     }
     return cur;
 }

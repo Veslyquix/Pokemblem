@@ -117,8 +117,7 @@ Bane: Leave the opponent at[N]
 (Skill/2 % activation)[X]
 
 ## SD_Luna
-Luna: Negates enemy defenses.[N]
-(Skill % activation)[X]
+Luna+: Negates enemy defenses.[X]
 
 ## SD_Sol
 Sol: Restore damage dealt as HP.[N]
@@ -163,12 +162,12 @@ Tomebreaker: +50 Hit/Avo when[N]
 enemy has a tome equipped.[X]
 
 ## SD_Aegis
-Aegis: Nullify a magic attack.[N]
-(Skill % activation)[X]
+Aegis+: Halve damage from[N]
+special attacks.[X]
 
 ## SD_Pavise
-Pavise: Nullify a physical attack.[N]
-(Skill % activation)[X]
+Pavise+: Halve damage from[N]
+physical attacks.[X]
 
 ## SD_DuelistsBlow
 Duelist's Blow: +30 Avo[N]
@@ -1771,11 +1770,11 @@ also doubles.[X]
 
 ## SD_BoldFighter
 Bold Fighter: When attacking,[N]
-this unit always doubles.[X]
+this unit can always double.[X]
 
 ## SD_VengefulFighter
 Vengeful Fighter: When defending,[N]
-this unit always doubles.[X]
+this unit can always double.[X]
 
 
 ## SD_SteadyBrawler
@@ -1865,7 +1864,7 @@ if the opponent's highest stat is[N]
 greater than yours.[X]
 
 ## SD_Hustle
-Hustle: Deal 25% more damage, but[N]
+Hustle: Deal 20% more damage, but[N]
 moves are 20% less accurate.[X]
 
 ## SD_ArenaTrap
@@ -1886,8 +1885,8 @@ Magic Guard: [N]
 [X]
 
 ## SD_ClearBody
-Clear Body: Stats cannot[N]
-be lowered.[X]
+Clear Body: This unit's[N]
+stats cannot be lowered.[X]
 
 ## SD_Regenerator
 Regenerator: Restore 30% HP[N]
@@ -1905,7 +1904,7 @@ or in range of Damp Aura.[X]
 ## SD_ShellArmor
 Shell Armor: Grants an immunity[N]
 to critical hits.[N]
-[lock][Water], or 50+ Def cap.[X]
+[lock][Rock], [Water], or 50+ Def cap.[X]
 
 ## SD_Grudge
 Grudge: After fainting, the opponent's[N]
@@ -1913,7 +1912,7 @@ def/res are debuffed by 30.[X]
 
 ## SD_Aftermath
 Aftermath: After fainting, the opponent[N]
-loses 25% HP.[X]
+loses 25% of their current HP.[X]
 
 ## SD_SheerForce
 Sheer Force: Moves with secondary[N]
@@ -1926,7 +1925,8 @@ Forewarn: Adjacent units take[N]
 [lock][Psychic][X]
 
 ## SD_HyperCutter
-Hyper Cutter: Immune to debuffs.[X]
+Hyper Cutter: User is[N]
+Immune to debuffs.[X]
 
 ## SD_Harvest
 Harvest: Restore 50% HP each[N]
@@ -1953,8 +1953,9 @@ Filter: Super Effective moves[N]
 deal 25% less damage.[X]
 
 ## SD_Technician
-Technician: Moves with 6 or less[N]
-power have doubled power.[X]
+Technician: Moves with 9 or less[N]
+power have doubled power.[N]
+[lock][Normal], [Bug][X]
 
 ## SD_DrySkin
 Dry Skin: Fully heal when hit[N]
@@ -1962,11 +1963,11 @@ by water. Weak to fire.[N]
 [lock][Bug], [Rock][X]
 
 ## SD_MotorDrive
-Motor Drive: Raise Spd by +10[N]
+Motor Drive: Raise Spd by +15[N]
 when hit by an electric move.[X]
 
 ## SD_FlashFire
-Flash Fire: Raise Mag by +10[N]
+Flash Fire: Raise Str/Mag by +15[N]
 when hit by a fire move.[X]
 
 ## SD_AngerPoint
@@ -1980,7 +1981,7 @@ of the opponent in battle.[X]
 ## SD_Adaptability
 Adaptability: Same type[N]
 attack bonus is doubled.[N]
-[lock][Normal], [Water], [Fire], [Grass], [Electric][X]
+[lock][Normal], [Water], [Fire], [Grass], [Electric], [Ice][X]
 
 ## SD_AcidArmor
 Acid Armor: Boost Def/Res by 25%[N]
@@ -2033,20 +2034,16 @@ Swift Swim: Speed is doubled[N]
 in water or in Damp Aura's range.[N]
 [lock][Water][X]
 
-## SD_RockyHelmet
-Rough Skin: Opponent takes[N]
-25% of current HP after attacking.[N]
-[lock][Rock], [Ground], or 45+ Def cap.[X]
 
 
 
 ## SD_Counter
-Counter: Reflect physical damage[N]
+Counter: Reflect half physical damage[N]
 when attacked at 1-2 range.[N]
 [lock][Fighting], or 50+ Str cap.[X]
 
 ## SD_CounterMagic
-Countermagic: Reflect magic damage[N]
+Countermagic: Reflect half magic damage[N]
 when attacked at 1-2 range.[N]
 [lock][Psychic], or 50+ Mag cap.[X]
 
@@ -2056,8 +2053,8 @@ attack if HP > 75%.[N]
 [lock][Rock], [Ground], [Steel], or 55+ Def cap.[X]
 
 ## SD_Vantage_Plus
-Vantage: User always attacks first,[N]
-even if attacked.[N]
+Vantage: User attacks[N]
+first when attacked.[N]
 [lock][Normal], [Flying], or 50+ Spd cap.[X]
 
 
@@ -2075,12 +2072,12 @@ surrounded, deal 100% more damage.[N]
 ## SD_Intimidate2
 Intimidate: Battle debuffs[N]
 enemy Str/Mag by 20%.[N]
-[lock][Fighting], [Ghost][X]
+[lock][Poison], [Flying][X]
 
 ## SD_GuardBreaker
 Guard Breaker: Battle debuffs[N]
 enemy Def/Res by 25%.[N]
-[lock][Poison], [Ice][X]
+[lock][Dragon], [Ice][X]
 
 ## SD_Downgrade
 Downgrade: Battle debuffs[N]
@@ -2100,14 +2097,13 @@ counterattack this unit.[N]
 [lock][Ghost][X]
 
 ## SD_Lifetaker
-Lifetaker: Restore up to 25% HP after[N]
+Lifetaker: Restore up to 50% HP after[N]
 attacking and defeating an enemy.[N]
 [lock][Ghost][X]
 
 ## SD_Galeforce
 Galeforce: Move again with half power[N]
-after defeating an enemy on your phase[N]
-if this was equipped start of turn.[N]
+after defeating an enemy on your phase.[N]
 [lock][Flying], or 60+ Spd cap.[X]
 
 ## Acc_Galeforce
@@ -2120,22 +2116,27 @@ Renewal: Restore 30% of max HP[N]
 at the start of each turn.[N]
 [lock][Psychic], or 50+ Res cap.[X]
 
+## SD_RockyHelmet
+Rough Skin: Opponent takes[N]
+20% of current HP after attacking.[N]
+[lock][Rock], [Ground], or 45+ Def cap.[X]
+
 ## SD_Poison_Strike
 Poison Strike: Deals damage equal to[N]
-25% of the enemy's current HP after[N]
+20% of the enemy's current HP after[N]
 battle this unit initiates.[N]
 [lock][Poison], or 50+ Def or Res cap.[X]
 
 ## SD_Grisly_Wound
 Aftermath: Deals damage equal[N]
-to 25% of the enemy's current[N]
+to 20% of the enemy's current[N]
 HP after every battle.[N]
 [lock] 55+ Spd cap.[X]
 
 ## SD_SavageBlow
 Savage Blow: After attacking,[N]
 enemies within 2 tiles lose[N]
-25% of their current HP.[N]
+20% of their current HP.[N]
 [lock] 55+ Str or Mag cap.[X]
 
 

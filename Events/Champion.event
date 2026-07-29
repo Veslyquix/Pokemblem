@@ -436,6 +436,8 @@ UNCR(0x7FFF, 0x43) // Show SMS & Refresh
 ASMC 0x80790a5 //MU_EndAll //deselect unit
 CAM1 [12,8] 
 EVBIT_MODIFY 4 
+// MUSCFAST ObtainBadge 
+MUSCFAST 0x7FFF 
 Text(GaryDefeatText)
 TILECHANGE 0
 SVAL r3 25000 
@@ -445,6 +447,7 @@ AddTrapExt(SaveCostID, 12, 6, 0, SavePointSMS, 2)
 ENUT 0xA // prevent repeated ending scenes (but we just cutscene the rest so redundant) 
 ENUT ChampionDefeatedTemp
 ENUT CompletedPokemonLeague
+MUSCFAST OaksThemeBGM 
 Text(OakLeagueText)
 Text(OakLeagueText2)
 Text(OakLeagueText3)
@@ -476,73 +479,73 @@ UNIT 0xE1 blueID 		0x0  Level(0, Enemy, 1) [13,7]  0b 0x0	1 REDA13R7	[0,0,0x0,0x
 UNIT 
 
 GaryUnitsA:
-UNIT GaryStarterAdaptabilityUnitID	VenusaurID 0xE1 Level(0, Enemy, 1)   [14,11] 0b	0x0 	0x0  0x0 [PetalDance,Sludge,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_1 	PidgeotID 	0xE1 Level(0, Enemy, 1)   [12,11] 0b	0x0 0x0  0x0 [SkyAttack,DoubleEdge,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_2 	ArcanineID 0xE1 Level(0, Enemy, 1)   [15,14]  0b	0x0 0x0  0x0 [FireBlast,TakeDown,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_3 	AlakazamID 0xE1 Level(0, Enemy, 1)   [11,14]  0b	0x0 0x0  0x0 [Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_4 	RhydonID 	0xE1 Level(0, Enemy, 1)   [10,12] 0b	0x0 0x0  0x0 [Earthquake, RockSlide,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_5 	GyaradosID 0xE1 Level(0, Enemy, 1)   [16,12] 0b	0x0 0x0  0x0 [Waterfall, HyperBeam,0x0,0x0] PursueWithoutHeedAI 
+UNIT GaryStarterAdaptabilityUnitID	VenusaurID 0xE1 Level(0, Enemy, 1)   [14,11] 0b	0x0 	0x0  0x0 [PetalDance,Sludge,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_1 	PidgeotID 	0xE1 Level(0, Enemy, 1)   [12,11] 0b	0x0 0x0  0x0 [SkyAttack,DoubleEdge,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_2 	ArcanineID 0xE1 Level(0, Enemy, 1)   [15,14]  0b	0x0 0x0  0x0 [FireBlast,TakeDown,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_3 	AlakazamID 0xE1 Level(0, Enemy, 1)   [11,14]  0b	0x0 0x0  0x0 [Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_4 	RhydonID 	0xE1 Level(0, Enemy, 1)   [10,12] 0b	0x0 0x0  0x0 [Earthquake, RockSlide,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_5 	GyaradosID 0xE1 Level(0, Enemy, 1)   [16,12] 0b	0x0 0x0  0x0 [Waterfall, HyperBeam,0x0,0x0] SafestZoningGroupOneAI 
 UNIT
 
 GaryUnitsB:
-UNIT GaryStarterAdaptabilityUnitID	CharizardID 	0xE1 Level(0, Enemy, 1)   [14,11] 0b	0x0 0x0  0x0 [FireBlast,SkyAttack,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_1 	PidgeotID 		0xE1 Level(0, Enemy, 1)   [12,11] 0b	0x0 0x0  0x0 [SkyAttack,DoubleEdge,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_2 	GyaradosID 	0xE1 Level(0, Enemy, 1)   [15,14] 0b	0x0 0x0  0x0 [Waterfall, HyperBeam,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_3 	AlakazamID 	0xE1 Level(0, Enemy, 1)   [11,14]  0b	0x0 0x0  0x0 [Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_4 	RhydonID 		0xE1 Level(0, Enemy, 1)   [10,12] 0b	0x0 0x0  0x0 [Earthquake, RockSlide,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_5 	ExeggutorID 	0xE1 Level(0, Enemy, 1)   [16,12] 0b	0x0 0x0  0x0 [MegaDrain, BodySlam,0x0,0x0] PursueWithoutHeedAI 
+UNIT GaryStarterAdaptabilityUnitID	CharizardID 	0xE1 Level(0, Enemy, 1)   [14,11] 0b	0x0 0x0  0x0 [FireBlast,SkyAttack,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_1 	PidgeotID 		0xE1 Level(0, Enemy, 1)   [12,11] 0b	0x0 0x0  0x0 [SkyAttack,DoubleEdge,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_2 	GyaradosID 	0xE1 Level(0, Enemy, 1)   [15,14] 0b	0x0 0x0  0x0 [Waterfall, HyperBeam,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_3 	AlakazamID 	0xE1 Level(0, Enemy, 1)   [11,14]  0b	0x0 0x0  0x0 [Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_4 	RhydonID 		0xE1 Level(0, Enemy, 1)   [10,12] 0b	0x0 0x0  0x0 [Earthquake, RockSlide,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_5 	ExeggutorID 	0xE1 Level(0, Enemy, 1)   [16,12] 0b	0x0 0x0  0x0 [MegaDrain, BodySlam,0x0,0x0] SafestZoningGroupOneAI 
 UNIT
 
 GaryUnitsC:
-UNIT GaryStarterAdaptabilityUnitID	BlastoiseID 	0xE1 Level(0, Enemy, 1)   [14,11]	0b	0x0 0x0  0x0 [HydroPump,BodySlam,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_1 	PidgeotID 		0xE1 Level(0, Enemy, 1)   [12,11] 0b	0x0 0x0  0x0 [SkyAttack,DoubleEdge,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_2 	ArcanineID 	0xE1 Level(0, Enemy, 1)   [15,14] 0b	0x0 0x0  0x0 [FireBlast,TakeDown,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_3 	AlakazamID 	0xE1 Level(0, Enemy, 1)   [11,14]  0b	0x0 0x0  0x0 [Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_4 	RhydonID 		0xE1 Level(0, Enemy, 1)   [10,12] 0b	0x0 0x0  0x0 [Earthquake, RockSlide,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_5 	ExeggutorID 	0xE1 Level(0, Enemy, 1)   [16,12] 0b	0x0 0x0  0x0 [MegaDrain, BodySlam,0x0,0x0] PursueWithoutHeedAI 
+UNIT GaryStarterAdaptabilityUnitID	BlastoiseID 	0xE1 Level(0, Enemy, 1)   [14,11]	0b	0x0 0x0  0x0 [HydroPump,BodySlam,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_1 	PidgeotID 		0xE1 Level(0, Enemy, 1)   [12,11] 0b	0x0 0x0  0x0 [SkyAttack,DoubleEdge,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_2 	ArcanineID 	0xE1 Level(0, Enemy, 1)   [15,14] 0b	0x0 0x0  0x0 [FireBlast,TakeDown,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_3 	AlakazamID 	0xE1 Level(0, Enemy, 1)   [11,14]  0b	0x0 0x0  0x0 [Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_4 	RhydonID 		0xE1 Level(0, Enemy, 1)   [10,12] 0b	0x0 0x0  0x0 [Earthquake, RockSlide,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_5 	ExeggutorID 	0xE1 Level(0, Enemy, 1)   [16,12] 0b	0x0 0x0  0x0 [MegaDrain, BodySlam,0x0,0x0] SafestZoningGroupOneAI 
 UNIT
 
 
 GaryUnitsD:
-UNIT GaryStarterAdaptabilityUnitID	JolteonID 		0xE1 Level(0, Enemy, 1)   [14,11] 0b	0x0 0x0  0x0 [ThunderMove, TakeDown,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_1 	PidgeotID 		0xE1 Level(0, Enemy, 1)   [12,11] 0b	0x0 0x0  0x0 [SkyAttack,DoubleEdge,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_2 	ArcanineID 	0xE1 Level(0, Enemy, 1)   [15,14] 0b	0x0 0x0  0x0 [FireBlast,TakeDown,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_3 	AlakazamID 	0xE1 Level(0, Enemy, 1)   [11,14]  0b	0x0 0x0  0x0 [Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_4 	RhydonID 		0xE1 Level(0, Enemy, 1)   [10,12] 0b	0x0 0x0  0x0 [Earthquake, RockSlide,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_5 	ExeggutorID 	0xE1 Level(0, Enemy, 1)   [16,12] 0b	0x0 0x0  0x0 [MegaDrain, BodySlam,0x0,0x0] PursueWithoutHeedAI 
+UNIT GaryStarterAdaptabilityUnitID	JolteonID 		0xE1 Level(0, Enemy, 1)   [14,11] 0b	0x0 0x0  0x0 [ThunderMove, TakeDown,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_1 	PidgeotID 		0xE1 Level(0, Enemy, 1)   [12,11] 0b	0x0 0x0  0x0 [SkyAttack,DoubleEdge,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_2 	ArcanineID 	0xE1 Level(0, Enemy, 1)   [15,14] 0b	0x0 0x0  0x0 [FireBlast,TakeDown,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_3 	AlakazamID 	0xE1 Level(0, Enemy, 1)   [11,14]  0b	0x0 0x0  0x0 [Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_4 	RhydonID 		0xE1 Level(0, Enemy, 1)   [10,12] 0b	0x0 0x0  0x0 [Earthquake, RockSlide,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_5 	ExeggutorID 	0xE1 Level(0, Enemy, 1)   [16,12] 0b	0x0 0x0  0x0 [MegaDrain, BodySlam,0x0,0x0] SafestZoningGroupOneAI 
 UNIT
 
 // sturdy Shedinja 
 // wonder guard Sableye 
 GaryUnitsTwoA:
-UNIT GymPkmn_6	MegaVenusaurID 		0xE1 Level(0, Enemy, 1)   [13,10]	0b	0x0 0x1  REDA13R10 [PetalDance,Sludge,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_7 	MegaPidgeotID 		0xE1 Level(0, Enemy, 1)   [11,11] 0b	0x0 0x1  REDA11R11 [SkyAttack,HyperBeam,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_8 	MegaAlakazamID 		0xE1 Level(0, Enemy, 1)   [15,11]  0b	0x0 0x1  REDA15R11 [Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI 
-UNIT ShedinjaUnitID 	ShedinjaID 			0xE1 Level(0, Enemy, 1)   [10,13] 0b	0x0 0x1  REDA10R13 [Slash, BugBite,0x0,0x0] PursueWithoutHeedAI 
-UNIT SableyeUnitID 	SableyeID 			0xE1 Level(0, Enemy, 1)   [16,13] 0b	0x0 0x1  REDA16R13 [ShadowBall, DarkPulse,0x0,0x0] PursueWithoutHeedAI 
+UNIT GymPkmn_6	MegaVenusaurID 		0xE1 Level(0, Enemy, 1)   [13,10]	0b	0x0 0x1  REDA13R10 [PetalDance,Sludge,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_7 	MegaPidgeotID 		0xE1 Level(0, Enemy, 1)   [11,11] 0b	0x0 0x1  REDA11R11 [SkyAttack,HyperBeam,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_8 	MegaAlakazamID 		0xE1 Level(0, Enemy, 1)   [15,11]  0b	0x0 0x1  REDA15R11 [Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI 
+UNIT ShedinjaUnitID 	ShedinjaID 			0xE1 Level(0, Enemy, 1)   [10,13] 0b	0x0 0x1  REDA10R13 [Slash, BugBite,0x0,0x0] SafestZoningGroupOneAI 
+UNIT SableyeUnitID 	SableyeID 			0xE1 Level(0, Enemy, 1)   [16,13] 0b	0x0 0x1  REDA16R13 [ShadowBall, DarkPulse,0x0,0x0] SafestZoningGroupOneAI 
 UNIT
 GaryUnitsTwoB:
-UNIT GymPkmn_6	MegaCharizardXID 	0xE1 Level(0, Enemy, 1)   [13,10]	0b	0x0 0x1  REDA13R10 [SacredFire,SkyAttack,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_7 	MegaPidgeotID 		0xE1 Level(0, Enemy, 1)   [11,11] 0b	0x0 0x1  REDA11R11 [SkyAttack,HyperBeam,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_8 	MegaAlakazamID 		0xE1 Level(0, Enemy, 1)   [15,11]  0b	0x0 0x1  REDA15R11 [Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI 
-UNIT ShedinjaUnitID 	ShedinjaID 			0xE1 Level(0, Enemy, 1)   [10,13] 0b	0x0 0x1  REDA10R13 [Slash, BugBite,0x0,0x0] PursueWithoutHeedAI 
-UNIT SableyeUnitID 	SableyeID 			0xE1 Level(0, Enemy, 1)   [16,13] 0b	0x0 0x1  REDA16R13 [ShadowBall, DarkPulse,0x0,0x0] PursueWithoutHeedAI 
+UNIT GymPkmn_6	MegaCharizardXID 	0xE1 Level(0, Enemy, 1)   [13,10]	0b	0x0 0x1  REDA13R10 [SacredFire,SkyAttack,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_7 	MegaPidgeotID 		0xE1 Level(0, Enemy, 1)   [11,11] 0b	0x0 0x1  REDA11R11 [SkyAttack,HyperBeam,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_8 	MegaAlakazamID 		0xE1 Level(0, Enemy, 1)   [15,11]  0b	0x0 0x1  REDA15R11 [Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI 
+UNIT ShedinjaUnitID 	ShedinjaID 			0xE1 Level(0, Enemy, 1)   [10,13] 0b	0x0 0x1  REDA10R13 [Slash, BugBite,0x0,0x0] SafestZoningGroupOneAI 
+UNIT SableyeUnitID 	SableyeID 			0xE1 Level(0, Enemy, 1)   [16,13] 0b	0x0 0x1  REDA16R13 [ShadowBall, DarkPulse,0x0,0x0] SafestZoningGroupOneAI 
 UNIT
 GaryUnitsTwoC:
-UNIT GymPkmn_6	MegaBlastoiseID 	0xE1 Level(0, Enemy, 1)   [13,10]	0b	0x0 0x1  REDA13R10 [HydroPump,BodySlam,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_7 	MegaPidgeotID 		0xE1 Level(0, Enemy, 1)   [11,11] 0b	0x0 0x1  REDA11R11 [SkyAttack,HyperBeam,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_8 	MegaAlakazamID 		0xE1 Level(0, Enemy, 1)   [15,11]  0b	0x0 0x1  REDA15R11 [Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI 
-UNIT ShedinjaUnitID 	ShedinjaID 			0xE1 Level(0, Enemy, 1)   [10,13] 0b	0x0 0x1  REDA10R13 [Slash, BugBite,0x0,0x0] PursueWithoutHeedAI 
-UNIT SableyeUnitID 	SableyeID 			0xE1 Level(0, Enemy, 1)   [16,13] 0b	0x0 0x1  REDA16R13 [ShadowBall, DarkPulse,0x0,0x0] PursueWithoutHeedAI 
+UNIT GymPkmn_6	MegaBlastoiseID 	0xE1 Level(0, Enemy, 1)   [13,10]	0b	0x0 0x1  REDA13R10 [HydroPump,BodySlam,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_7 	MegaPidgeotID 		0xE1 Level(0, Enemy, 1)   [11,11] 0b	0x0 0x1  REDA11R11 [SkyAttack,HyperBeam,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_8 	MegaAlakazamID 		0xE1 Level(0, Enemy, 1)   [15,11]  0b	0x0 0x1  REDA15R11 [Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI 
+UNIT ShedinjaUnitID 	ShedinjaID 			0xE1 Level(0, Enemy, 1)   [10,13] 0b	0x0 0x1  REDA10R13 [Slash, BugBite,0x0,0x0] SafestZoningGroupOneAI 
+UNIT SableyeUnitID 	SableyeID 			0xE1 Level(0, Enemy, 1)   [16,13] 0b	0x0 0x1  REDA16R13 [ShadowBall, DarkPulse,0x0,0x0] SafestZoningGroupOneAI 
 UNIT
 
 
 GaryUnitsTwoD:
-UNIT GymPkmn_6	MegaBlastoiseID 	0xE1 Level(0, Enemy, 1)   [13,10]	0b	0x0 0x1  REDA13R10 [HydroPump,BodySlam,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_7 	MegaPidgeotID 		0xE1 Level(0, Enemy, 1)   [11,11] 0b	0x0 0x1  REDA11R11 [SkyAttack,HyperBeam,0x0,0x0] PursueWithoutHeedAI 
-UNIT GymPkmn_8 	MegaAlakazamID 		0xE1 Level(0, Enemy, 1)   [15,11]  0b	0x0 0x1  REDA15R11 [Psychic,ShadowBall,0x0,0x0] PursueWithoutHeedAI 
-UNIT ShedinjaUnitID 	ShedinjaID 			0xE1 Level(0, Enemy, 1)   [10,13] 0b	0x0 0x1  REDA10R13 [Slash, BugBite,0x0,0x0] PursueWithoutHeedAI 
-UNIT SableyeUnitID 	SableyeID 			0xE1 Level(0, Enemy, 1)   [16,13] 0b	0x0 0x1  REDA16R13 [ShadowBall, DarkPulse,0x0,0x0] PursueWithoutHeedAI 
+UNIT GymPkmn_6	MegaBlastoiseID 	0xE1 Level(0, Enemy, 1)   [13,10]	0b	0x0 0x1  REDA13R10 [HydroPump,BodySlam,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_7 	MegaPidgeotID 		0xE1 Level(0, Enemy, 1)   [11,11] 0b	0x0 0x1  REDA11R11 [SkyAttack,HyperBeam,0x0,0x0] SafestZoningGroupOneAI 
+UNIT GymPkmn_8 	MegaAlakazamID 		0xE1 Level(0, Enemy, 1)   [15,11]  0b	0x0 0x1  REDA15R11 [Psychic,ShadowBall,0x0,0x0] SafestZoningGroupOneAI 
+UNIT ShedinjaUnitID 	ShedinjaID 			0xE1 Level(0, Enemy, 1)   [10,13] 0b	0x0 0x1  REDA10R13 [Slash, BugBite,0x0,0x0] SafestZoningGroupOneAI 
+UNIT SableyeUnitID 	SableyeID 			0xE1 Level(0, Enemy, 1)   [16,13] 0b	0x0 0x1  REDA16R13 [ShadowBall, DarkPulse,0x0,0x0] SafestZoningGroupOneAI 
 UNIT
 
 // ChapterID is defined in each chapter.event. The { } brackets are necessary here. 

@@ -83,7 +83,7 @@ str     r0,[r6]                @ 0802B43A 6018
 
 @grab damage dealt
 ldrh r2, [r7, #4] @final damage
-@ lsr r2, #1 @optionally halve
+lsr r2, #1 @optionally halve
 neg r2, r2 @r2 contains the damage from counter.
 mov r0, #5
 ldsb r0, [r6, r0] @current hp change

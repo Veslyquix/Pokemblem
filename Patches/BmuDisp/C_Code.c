@@ -60,12 +60,250 @@ extern u16 SmsObjVramUpperChr;
 // {
 // return gMUGfxBuffer + (sMuImgBufOffLut[slot] * MU_GFX_MAX_SIZE);
 // }
+// sub_809A114 809872A 809a174
+#define MapBlankTile 0x400 // 0x400 // vanilla
+#define BlankTileX 31      // start at 0
+#define BlankTileY 31
+#define BlankTileOffset (((BlankTileY * 32) + BlankTileX) * 4)
+// bottom right tile of the tileset is now the blank tile instead of the top left (jeez this was annoying to do)
+extern u16 sTilesetConfig[0x1000 + 0x200];
+void sub_801A278(void)
+{
+    // const u16 * tile = sTilesetConfig;
+    const u16 * tile = &sTilesetConfig[BlankTileOffset];
+    // TODO: game state bits constants
+    if (!sub_800D208() || (gBmSt.gameStateBits & 0x10))
+    {
+        // TODO: macros?
+        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+    }
+
+    // TODO: macro?
+    gPaletteBuffer[PAL_BACKDROP_OFFSET] = 0;
+    EnablePaletteSync();
+}
+
+void InitBaseTilesBmMap(void)
+{
+    int ix, iy;
+
+    u16 ** rows;
+    u16 * tiles;
+    u16 * itBuffer;
+
+    rows = gBmMapBaseTiles;
+    tiles = gBmMapBuffer;
+
+    gBmMapSize.y++; // ?
+
+    // Ignore first short (x, y byte pair)
+    tiles++;
+
+    // Tile buffer starts after the rows
+    itBuffer = (u16 *)(gBmMapBaseTiles + gBmMapSize.y);
+
+    for (iy = 0; iy < gBmMapSize.y; ++iy)
+    {
+        // Set row buffer
+        rows[iy] = itBuffer;
+        itBuffer += gBmMapSize.x;
+
+        // Set tiles
+        for (ix = 0; ix < gBmMapSize.x; ++ix)
+            gBmMapBaseTiles[iy][ix] = *tiles++;
+    }
+
+    // this is for StartSubtitleHelp. If you are against the edge of the screen, it shifts the map up and draws a black
+    // line under the text
+
+    tiles = gBmMapBaseTiles[iy - 1];
+
+    for (ix = 0; ix < gBmMapSize.x; ++ix)
+        *tiles++ = BlankTileOffset;
+
+    gBmMapSize.y--; // ?
+}
+
+// RenderBmMapLine
+
+extern u16 * FaintCounter_Link;
+extern u8 * GlobalFaintCounter_Link;
+void IncrementDeathCounter(struct Unit * unit)
+{
+    // struct GlobalSaveInfo local_info;
+    // ReadSramFast(&gSram->globalSaveInfo, local_info, sizeof(struct GlobalSaveInfo));
+    if (UNIT_FACTION(unit) == FACTION_BLUE)
+    {
+        *FaintCounter_Link += 1;
+        int globalCounter = (GlobalFaintCounter_Link[0] | (GlobalFaintCounter_Link[1] << 8)) + 1;
+        GlobalFaintCounter_Link[0] = globalCounter & 0xFF;
+        GlobalFaintCounter_Link[1] = (globalCounter & 0xFF00) >> 8;
+    }
+    // WriteGlobalSaveInfo(&local_info);
+}
+
+int GetDifficulty()
+{
+    int result = gPlaySt.config.rankDisplay ? 1 : 0;
+    if (gPlaySt.chapterStateBits & PLAY_FLAG_HARD)
+    {
+        return 2;
+    }
+    return result;
+}
+
+// 8026F94 ForceSyncUnitSpriteSheet
+// okay, so when lots of SMS get loaded at once, it can overflow gFrameTmRegister[32+] into sProcArray
+// this crashes the game
+// now, we safely flush the toilet away whenever it overflows
+
+// Event2C_LoadUnits 800fb84 2024cd4
+// EventLoadUnitSliently has a for loop
+// sub_800F8A8 -> if no REDAs, MoveUnit_ -> MoveUnitExt -> RefreshUnitSprites
+// each time a unit is loaded while faded to black, it refreshes the unit sprites, which takes up a transfer
+void RegisterDataMove(const void * src, void * dst, int size)
+{
+    struct TileDataTransfer * ptr = &gFrameTmRegister[gFrameTmRegisterConfig.count];
+
+    ptr->src = src;
+    ptr->dest = dst;
+    ptr->size = size;
+    ptr->mode = (size & 0x1F) ? 0 : 1;
+    gFrameTmRegisterConfig.size += size;
+    gFrameTmRegisterConfig.count++;
+    if (gFrameTmRegisterConfig.count > 31)
+    {
+        FlushTiles();
+    }
+}
+
+void RegisterFillTile(const void * src, void * dst, int size)
+{
+    struct TileDataTransfer * ptr = &gFrameTmRegister[gFrameTmRegisterConfig.count];
+
+    ptr->src = src;
+    ptr->dest = dst;
+    ptr->size = size;
+    ptr->mode = 2;
+    gFrameTmRegisterConfig.size += size;
+    gFrameTmRegisterConfig.count++;
+    if (gFrameTmRegisterConfig.count > 31)
+    {
+        FlushTiles();
+    }
+} // 801300d
+
+// [2024cd4]!
+// 8002014
+// [0x20250f0]!!
+// [2024e68]!!
+// [2037c10]!!
+
+void sub_809A114(
+    struct PrepItemScreenProc * proc, u8 row, s8 flag) // fix the last row in prep item menu from showing an extra name
+{
+    int i;
+    int idx;
+    struct Text * text;
+    bool isWmSecretShop;
+
+    idx = row * 3;
+    text = &gPrepItemTexts[idx % 15];
+
+    if (gGMData.state.bits.state_0 && GetGMapBaseMenuKind() == SHOP_TYPE_SECRET_SHOP)
+    {
+        isWmSecretShop = true;
+    }
+    else
+    {
+        isWmSecretShop = false;
+    }
+
+    for (i = 0; i < 3; text++, i++)
+    {
+        int x;
+        int y;
+
+        if (flag == 0)
+        {
+            ClearText(text);
+        }
+        x = (i % 3) * 8;
+        y = (row * 2) & 31;
+        if (idx + i >= PrepGetUnitAmount())
+        {
+            // fix the last row in prep item menu from showing an extra name
+            // I dunno why this is necessary, but it fixes the issue.
+            PutBlankText(text, TILEMAP_LOCATED(gBG2TilemapBuffer, x, y));
+            continue;
+        }
+
+        if (flag == 0)
+        {
+            struct Unit * unit = GetUnitFromPrepList(idx + i);
+
+            Text_SetCursor(text, 0);
+
+            if (isWmSecretShop)
+            {
+                if (UnitHasItem(unit, ITEM_MEMBERCARD))
+                {
+                    Text_SetColor(text, TEXT_COLOR_SYSTEM_WHITE);
+                }
+                else
+                {
+                    Text_SetColor(text, TEXT_COLOR_SYSTEM_GRAY);
+                }
+            }
+            else
+            {
+                Text_SetColor(text, TEXT_COLOR_SYSTEM_WHITE);
+            }
+
+            Text_DrawString(text, GetStringFromIndex(unit->pClassData->nameTextId));
+        }
+
+        PutText(text, TILEMAP_LOCATED(gBG2TilemapBuffer, x, y));
+    }
+
+    BG_EnableSyncByMask(BG2_SYNC_BIT);
+
+    return;
+}
 
 extern struct TalkState * sTalkState;
 void HookFace_Shop_Init(int fid)
 {
     int slot = 2;
     sTalkState->faces[1] = StartFace(slot, fid, 32, 8, 3);
+}
+
+void AreUnitsInDangerFogASMC(void)
+{
+
+    int result = 0;
+    int x;
+    int y;
+    struct Unit * unit;
+    for (int i = 1; i < 0x40; ++i)
+    {
+        unit = GetUnit(i);
+        if (!UNIT_IS_VALID(unit))
+        {
+            continue;
+        }
+        x = unit->xPos;
+        y = unit->yPos;
+        if (gBmMapFog[y][x])
+        {
+            result = true;
+            break;
+        }
+    }
+    gEventSlots[0xC] = result;
 }
 
 extern struct MuConfig sMuConfig[MU_MAX_COUNT];
@@ -131,6 +369,14 @@ void HookFace_ItemCommandEffect(int fid, ProcPtr proc)
     // StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
     StartFaceChibiSpr(48, GetActiveUnitMenuBottomY(-1), fid, ItemMenuFaceChr, GetFaceSlotPalID(0), 0, (void *)proc);
 }
+
+void Hook_HandleNewItemGetFromDrop(int fid, ProcPtr proc)
+{
+    // StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
+    StartFaceChibiSpr(
+        48, GetActiveUnitMenuBottomY(-1) + 16, fid, ItemMenuFaceChr, GetFaceSlotPalID(0), 0, (void *)proc);
+}
+
 #define BF_ChibiDist 31
 void BattleForecastChibi(ProcPtr proc, int side)
 {

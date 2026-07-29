@@ -72,7 +72,7 @@ NoFade
 ENDA 
 
 EnterGateNE:
-SetMaxMove
+SetUnitStatusAll(Any, MovBonus, 5, AnyDeployed, PlayerArmy, AnyClass, AnyRange, AnyItem) 
 CHECK_COORDS 0x7FFF 
 SADD sB sC s0 
 PauseFreeMovement
@@ -97,7 +97,7 @@ NoFade
 ENDA 
 
 EnterGateSE:
-SetMaxMove
+SetUnitStatusAll(Any, MovBonus, 5, AnyDeployed, PlayerArmy, AnyClass, AnyRange, AnyItem) 
 CHECK_COORDS 0x7FFF 
 SADD sB sC s0 
 PauseFreeMovement

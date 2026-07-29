@@ -13,11 +13,20 @@
       jumpToHack(CasualMode)
   POP
 
-  ALIGN 4
-  CasualMode:
-    #incbin "asm/CasualModeFE8.dmp"
+#include "CasualMode.lyn.event" 
 
   }
+  
+  ALIGN 4 
+  PUSH; ORG CURRENTOFFSET+1; 
+  SetDifficultyASMC:
+  POP 
+  #incbin "fe8difficultyswitching.dmp" 
+
+
+// #define SetDiff(value) "SVAL s1 value; ASMC SetDifficultyASMC" 
+#define ForceLunatic "SVAL s1 2; ASMC SetDifficultyASMC" 
+
 
 #else // _FE8_
   ERROR Casual mode hack is for FE8

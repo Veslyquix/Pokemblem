@@ -137,7 +137,7 @@ ALIGN 4
 BeginningScene:
 CALL GlobalBeginningScene
 CALL LoadAndPlacePlayers 
-SetMaxMove
+SetUnitStatusAll(Any, MovBonus, 5, AnyDeployed, PlayerArmy, AnyClass, AnyRange, AnyItem) 
 
 
 //LOAD1 0x1 EnemyUnitsA

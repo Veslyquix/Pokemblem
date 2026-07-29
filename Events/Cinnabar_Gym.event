@@ -247,17 +247,11 @@ SetUnitStatusAll(0xA0DF, 0x24, 0x5, 0, AnyDeployed, AnyArmy, AnyClass, AnyRange,
 // 0x24 is Item 4 and 0x5 is type WORD, so deleting items 4-5 and their durability 
 
 SilentGiveItemWithDurability(FuryUnitID, StatAccessory, 0x80|EnergyBandT3_BoostIndex)
-//SilentGiveSkillAccessory(FuryUnitID, AmaterasuID)
 SilentGiveItemWithDurability(FuryUnitID, MaxPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_1, Berry,0x8A)
 SilentGiveItemWithDurability(GymPkmn_1, HyperPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_2, Berry,0x8A)
 SilentGiveItemWithDurability(GymPkmn_2, HyperPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_3, Berry,0x8A)
 SilentGiveItemWithDurability(GymPkmn_3, HyperPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_4, Berry,0x8A)
 SilentGiveItemWithDurability(GymPkmn_4, HyperPotion,0x1)
-//SilentGiveItemWithDurability(GymPkmn_5, Berry,0x8A)
 SilentGiveItemWithDurability(GymPkmn_5, HyperPotion,0x1)
 
 
@@ -367,9 +361,17 @@ UnsetAllDangerRadius
 #endif 
 UNCR(0x7FFF, 0x43) // Show SMS & Refresh 
 ASMC 0x80790a5 //MU_EndAll //deselect unit
-MUSCSLOW GymBGM
 EVBIT_MODIFY 4 
-Text(BlaineDefeatText)
+SOUN ObtainBadge 
+// STAL_FAST 90 //290 is full 
+EVBIT_MODIFY 4 
+TEXTSTART 
+TEXTSHOW BlaineDefeatText
+TEXTEND 
+MUSCSLOW GymBGM 
+TEXTCONT 
+TEXTEND 
+REMA 
 GiveItemWithDurability_Rand(0, SpellScroll, FireBlast)
 ENUT VolcanobadgeObtained
 SVAL r3 9000 
@@ -440,12 +442,12 @@ UNIT GymPkmn_4 FlareonID FuryUnitID Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[Flame
 UNIT
 
 EnemyTrainersB: // rematch 
-UNIT FuryUnitID ArcanineID 0x0 Level(0, Enemy, 1) 	[2,4]  0b 0x0	0 0	[SacredFire,FireBlast,Outrage,0x0] 		PursueWithoutHeedAI
-UNIT GymPkmn_1 NinetalesID FuryUnitID Level(0, Enemy, 1) [5,5]  0b 0x0	0 0 [Psychic, Flamethrower,SolarBeam,0x0] 	PursueWithoutHeedAI
-UNIT GymPkmn_2 RapidashID FuryUnitID Level(0, Enemy, 1) 	[8,4]  0b 0x0	0 0	[TakeDown, SacredFire,SolarBeam,0x0] 		PursueWithoutHeedAI
-UNIT GymPkmn_3 MagmarID FuryUnitID Level(0, Enemy, 1) 	[3,6]  0b 0x0 	0 0	[Flamethrower, Psychic, ThunderPunch,0x0] 	PursueWithoutHeedAI
-UNIT GymPkmn_4 FlareonID FuryUnitID Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[SacredFire, DoubleEdge, DoubleKick ,0x0] 		PursueWithoutHeedAI
-UNIT GymPkmn_5 VenusaurID FuryUnitID Level(0, Enemy, 1) 	[5,7]  0b 0x0	0 0	[PetalDance, Sludge,Earthquake,0x0] 		PursueWithoutHeedAI
+UNIT FuryUnitID ArcanineID 0x0 Level(0, Enemy, 1) 	[2,4]  0b 0x0	0 0	[SacredFire,FireBlast,Outrage,0x0] 		SafestZoningGroupOneAI
+UNIT GymPkmn_1 NinetalesID FuryUnitID Level(0, Enemy, 1) [5,5]  0b 0x0	0 0 [Psychic, Flamethrower,SolarBeam,0x0] 	SafestZoningGroupOneAI
+UNIT GymPkmn_2 RapidashID FuryUnitID Level(0, Enemy, 1) 	[8,4]  0b 0x0	0 0	[TakeDown, SacredFire,SolarBeam,0x0] 		SafestZoningGroupOneAI
+UNIT GymPkmn_3 MagmarID FuryUnitID Level(0, Enemy, 1) 	[3,6]  0b 0x0 	0 0	[Flamethrower, Psychic, ThunderPunch,0x0] 	SafestZoningGroupOneAI
+UNIT GymPkmn_4 FlareonID FuryUnitID Level(0, Enemy, 1) 	[7,6]  0b 0x0	0 0	[SacredFire, DoubleEdge, DoubleKick ,0x0] 		SafestZoningGroupOneAI
+UNIT GymPkmn_5 VenusaurID FuryUnitID Level(0, Enemy, 1) 	[5,7]  0b 0x0	0 0	[PetalDance, Sludge,Earthquake,0x0] 		SafestZoningGroupOneAI
 UNIT
 	
 

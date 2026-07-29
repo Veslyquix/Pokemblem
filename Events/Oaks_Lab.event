@@ -125,7 +125,10 @@ LABEL 79
 //LABEL 73 
 #endif 
 CALL NameInputEvent
+ASMC GetAvatarSpecialClassId_ASMC 
+BNE 29 sC s0 
 SelectAvatar
+LABEL 29 
 
 CHECK_EVENTID GirlProtagFlag 
 BEQ 31 sC s0 
@@ -134,8 +137,9 @@ GOTO 32
 LABEL 31 
 LOAD1 1 ProtagUnitGroupMaleSelect
 LABEL 32 
+ASMC SetAvatarClass_ASMC
 ENUN 
-
+ENUT KidFlag // as a default 
 
 //SVAL s1 ProtagID 
 //SVAL s3 3 // up
@@ -153,6 +157,9 @@ Text(WhosTheKidText)
 
 LOAD1 1 Units1 
 ENUN 
+
+
+
 LABEL 10 
 SelectCharacter(3, 4, 5, 0, 0, 0, 0, 0, 0, 0) 
 SVAL sB 0x100 
@@ -217,7 +224,7 @@ BNE 2 rC r7
 Label 2 
 
 SADD rA rB r0 
-STAL 25
+STAL_SKIP_FAST 25
 TutText(UhOhText)
 SADD rB rA r0 
 CALL SendOutPkmnSlotB
@@ -236,12 +243,31 @@ SupplyItemWithDurability(SuperPotion, 5)
 ENUT FIXED_GROWTHS_FLAG_ID
 AutoLevelUnits(1, True, 0x1FF) // all units to gain moves they should've learned 
 
+SVAL s7 1 
+CompareTactText(VoidName) 
+BNE 0x63 rC r7
+ENUT NoExpFlag // set this flag AFTER loading the units, so they get leveled to 4 
+
+GOTO 0x63 
+
 
 
 
 LABEL 0x63
 ASMC RegisterAllOwnedPokemon
+ASMC 0x8015681 //LoadObjUIGfx 
+ASMC 0x8026689 // RefreshUnitSprites 
+CHECK_EVENTID Route1Tutorial_A 
+BNE 100 sC s0 
+CHECK_EVENTID  RandomizeClassesFlag
+BNE 100 sC s0 // if on, skip tutorial 
 
+EVBIT_MODIFY 4 
+TutText(SkipLabTutorial) 
+SVAL s1 1 
+BEQ 100 sC s1 
+EnqueneTutorialEvent_6_PlayerPhaseStart(MyTutorial1)
+LABEL 100 
 NoFade
 ENDA
 
@@ -290,10 +316,191 @@ END_MAIN
 Dunno3:
 END_MAIN
 Tutorial:
+POIN MyTutorial1 MyTutorial2 MyTutorial3 MyTutorial4 MyTutorial5 MyTutorial6 MyTutorial7
+POIN MyTutorial_Cleanup 
+WORD 0 
 END_MAIN
 Traps2:
 ENDTRAP
 ALIGN 4
+
+
+ALIGN 4
+MyTutorial1:
+CHECK_EXISTS 0x102 
+BNE 63 sC s0 // If more than 1 unit, don't do the tutorial. 
+ENUT PlayableCutsceneFlag
+// SetUnitStatus(GenericA+1, LuckStat, 2)
+DISABLEOPTIONS EndOption 
+SCOORD sB [7,12] 
+CAMERA_SB 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30
+TutText_T(OaksLabTut_1)
+CURE 
+SCOORD sB [6,9] 
+CURSOR_FLASHING_SB
+SCOORD sB [8,9] 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_T(OaksLabTut_2)
+CURE 
+SCOORD sB [7,12] 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_T(OaksLabTut_3)
+// LoadOverworldFaces does not work in TutorialTextBox / Solo 
+
+STAL_SKIP_FAST 30
+CURE
+SCOORD sB [7,12] 
+SET_CURSOR_SB
+EnqueneTutorialEvent_2_OnSelect(MyTutorial2)
+LABEL 63 
+SVAL 0xC 0x1
+NoFade 
+ENDA
+
+
+MyTutorial2:
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 98 sC s0 
+SHOW_MOVERANGE 0x7FFF
+SCOORD sB [7,10] // adjacent
+CURSOR_FLASHING_SB
+STAL 35
+DISABLEOPTIONS 0xFFFF // Disables all vanilla options, leaving only Guard and Capture. 
+IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
+Write_Byte(Guard_Off|AoE_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+// Write_Byte(Guard_Off|Attack_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+CURE
+// CHECK_COORDS 0x7FFF 
+// SADD sB sC s0 
+// ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
+EnqueneTutorialEvent_3_PreMove(MyTutorial3)
+GOTO 99 
+LABEL 98 
+CALL MyTutorial_Cleanup 
+LABEL 99 
+SVAL 0xC 0x1
+NoFade 
+ENDA
+
+ALIGN 4
+MyTutorial3:	// Move to Target postion
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 98 sC s0 
+HIDE_MOVERANGE
+EVBIT_T 0x7
+SVAL 0xD 0x0 // empty queue 
+
+CHECK_CURSOR
+SCOORD sB [7,10] 
+BNE 1 sC sB 
+LABEL 0
+CURE
+ASMC 0x1D7E9	// Skip selecting tile twice 
+EnqueneTutorialEvent_4_PostMove(MyTutorial4)
+SVAL 0xC 0x1
+GOTO 99
+
+LABEL 0x1	// if Not move to target
+SET_CURSOR_SB
+ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
+SCOORD sB [7,10] 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30
+TutText_B(OaksLabTut_4)
+// TutText_B 
+CURE
+ASMC 0x8032EB5 //UpdatePathArrowWithCursor
+ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
+SHOW_MOVERANGE 0x7FFF
+EnqueneTutorialEvent_3_PreMove(MyTutorial3) // Repeat if failed to move as told 
+SVAL 0xC 0x0
+GOTO 99 
+LABEL 98 
+CALL MyTutorial_Cleanup 
+SVAL 0xC 0x1
+LABEL 99 
+
+NoFade 
+ENDA
+
+
+MyTutorial4:
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 98 sC s0 
+TutText_B(OaksLabTut_5)
+EnqueneTutorialEvent_5_BattleForecast(MyTutorial5)
+GOTO 99 
+LABEL 98 
+CALL MyTutorial_Cleanup 
+LABEL 99 
+NoFade 
+ENDA
+
+
+
+MyTutorial5:
+IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key|Right_Key|Left_Key|Up_Key|Down_Key
+Write_Byte(Guard_Off|AoE_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+CleanTutText_B(OaksLabTut_6)
+// ASMC 0x8003d21 // ResetTextFont
+EnqueneTutorialEvent_0_PhaseSwitch(MyTutorial6)
+IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
+Write_Byte(Guard_Off|AoE_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+ASMC SilenceEventEngineExecType
+SVAL 0xC 0x1
+NoFade 
+ENDA
+
+MyTutorial6:
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 98 sC s0 
+CALL MyTutorial_Cleanup // If they don't select the unit right away, they need to be able to press B 
+CHECK_COORDS 0x7FFF
+SADD sB sC s0 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_T(OaksLabTut_8)
+CURE
+DISABLEOPTIONS EndOption 
+SCOORD sB [6,9] 
+CURSOR_FLASHING_SB
+SCOORD sB [8,9] 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_B(OaksLabTut_7)
+CURE 
+EnqueneTutorialEvent_6_PlayerPhaseStart(MyTutorial7)
+GOTO 99 
+LABEL 98 
+CALL MyTutorial_Cleanup 
+LABEL 99 
+SVAL 0xC 0x1
+NoFade 
+ENDA
+
+MyTutorial7:
+CHECK_COORDS 0x101
+SADD sB sC s0 
+CURSOR_FLASHING_SB
+STAL_SKIP_FAST 30 
+TutText_T(OaksLabTut_9)
+CURE
+CALL MyTutorial_Cleanup 
+NoFade 
+ENDA 
+
+
+MyTutorial_Cleanup:
+DISABLEOPTIONS 0 // Re-enable options 
+IGNORE_KEYS 0
+Write_Byte(0, DisableMenuOptionsRam) 
+NoFade 
+ENDA
+
 
 Units1:
 //UNIT Eirika  BulbasaurID 0x1 Level(5,Ally,True)   [5,5] 0b 0x0 0x0 0x0 [0x1,0x98,0x88,0x0] [0x0,0x0,0x0,0x0]
@@ -367,16 +574,20 @@ CompareTactText(HiroName)BNE 3 rC r7CALL PlaytesterCommonMessageSVAL r2 Units
 CompareTactText(N426Name)BNE 4 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsN426|IsPointerGOTO 200Label 4
 CompareTactText(ZoramineName)BNE 5 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsZoramine|IsPointerGOTO 200Label 5
 CompareTactText(OakName)BNE 6 rC r7CALL OakMessageEventSVAL r2 UnitsOak|IsPointerGOTO 200Label 6
-CompareTactText(BillName)BNE 7 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsBill|IsPointerGOTO 200Label 7
-CompareTactText(AshName)BNE 8 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsAsh|IsPointerGOTO 200Label 8
+CompareTactText(BillName)BNE 7 rC r7CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlagSVAL r2 UnitsBill|IsPointerGOTO 200Label 7
+CompareTactText(AshName)BNE 8 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsAsh|IsPointerGOTO 200Label 8
 CompareTactText(RedName)BNE 9 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsRed|IsPointerGOTO 200Label 9
-CompareTactText(LanceName)BNE 10 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsLance|IsPointerGOTO 200Label 10
-CompareTactText(BrockName)BNE 11 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsBrock|IsPointerGOTO 200Label 11
-CompareTactText(MistyName)BNE 12 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsMisty|IsPointerGOTO 200Label 12
-CompareTactText(GaryName)BNE 13 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsGary|IsPointerGOTO 200Label 13
+CompareTactText(LanceName)BNE 10 rC r7CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlagSVAL r2 UnitsLance|IsPointerGOTO 200Label 10
+CompareTactText(BrockName)BNE 11 rC r7CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlagSVAL r2 UnitsBrock|IsPointerGOTO 200Label 11
+CompareTactText(MistyName)BNE 12 rC r7CALL ChallengeRunMessageNoCaptureEvent
+// ENUT ChickFlag // more of a kid, I guess SVAL r2 UnitsMisty|IsPointerGOTO 200Label 12
+CompareTactText(GaryName)BNE 13 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsGary|IsPointerGOTO 200Label 13
 CompareTactText(bpatName)BNE 14 rC r7CALL PlaytesterCommonMessageSVAL r2 Unitsbpat|IsPointerGOTO 200Label 14
 GOTO 15 
-CompareTactText(VeslyName)BNE 15 rC r7CALL ChallengeRunMessageEventSVAL r2 UnitsVesly|IsPointerGOTO 200Label 15
+CompareTactText(VeslyName)BNE 15 rC r7CALL ChallengeRunMessageNoCaptureEventSVAL r2 UnitsVesly|IsPointerGOTO 200Label 15
 CompareTactText(ZaimName)BNE 16 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsZaim|IsPointerGOTO 200Label 16
 CompareTactText(AriadnaName)BNE 17 rC r7CALL PlaytesterCommonMessageSVAL r2 UnitsAriadna|IsPointerGOTO 200Label 17
 CompareTactText(ScubName)
@@ -409,63 +620,72 @@ GOTO 200
 Label 21
 CompareTactText(LtSurgeName)
 BNE 22 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsLtSurge|IsPointer
 GOTO 200
 
 Label 22
 CompareTactText(ErikaName)
 BNE 23 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT ChickFlag
 SVAL r2 UnitsErika|IsPointer
 GOTO 200
 
 Label 23
 CompareTactText(KogaName)
 BNE 24 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsKoga|IsPointer
 GOTO 200
 
 Label 24
 CompareTactText(SabrinaName)
 BNE 25 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT ChickFlag
 SVAL r2 UnitsSabrina|IsPointer
 GOTO 200
 
 Label 25
 CompareTactText(BlaineName)
 BNE 26 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT GrampsFlag
 SVAL r2 UnitsBlaine|IsPointer
 GOTO 200
 
 Label 26
 CompareTactText(GiovanniName)
 BNE 27 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsGiovanni|IsPointer
 GOTO 200
 
 Label 27
 CompareTactText(LoreleiName)
 BNE 28 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT ChickFlag
 SVAL r2 UnitsLorelei|IsPointer
 GOTO 200
 
 Label 28
 CompareTactText(BrunoName)
 BNE 29 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
 SVAL r2 UnitsBruno|IsPointer
 GOTO 200
 
 Label 29
 CompareTactText(AgathaName)
 BNE 30 rC r7
-CALL ChallengeRunMessageEvent
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT HagFlag
 SVAL r2 UnitsAgatha|IsPointer
 GOTO 200
 Label 30
@@ -475,10 +695,10 @@ CALL NiceTryMessage
 GOTO 0x63
 
 Label 31
-CompareTactText(MewtwoStarterName)
-BNE 32 rC r7
-CALL NiceTryMessage
-GOTO 0x63
+// CompareTactText(MewtwoStarterName)
+// BNE 32 rC r7
+// CALL NiceTryMessage
+// GOTO 0x63
 
 Label 32
 CompareTactText(ChilanName)
@@ -600,26 +820,72 @@ CALL PlaytesterCommonMessage
 SVAL r2 UnitsFabula|IsPointer
 GOTO 200
 
-Label 48
-
-
-
-
-LABEL 60 
-CompareTactText(LittleCupName)
-BNE 61 sC s7 
-CALL LittleCupMessage 
+LABEL 48
+CompareTactText(VoidName) 
+BNE 49 rC r7
+CALL VoidMessage
+GOTO 99 // No extra units
+LABEL 49
+CompareTactText(ChaosName)
+BNE 50 rC r7
+CALL ChaosMessage
+GOTO 99
+LABEL 50
+CompareTactText(PlusName)
+BNE 51 rC r7
+CALL PlusMessage
+GOTO 99
+LABEL 51
+CompareTactText(NuzlockeName)
+BNE 52 rC r7
+CALL NuzlockeMessage
 GOTO 99
 
-LABEL 61 
+
+LABEL 52
+
+
+LABEL 60
+CompareTactText(LittleCupName)
+BNE 61 sC s7
+CALL LittleCupMessage
+GOTO 99 // No extra units
+
+LABEL 61
 CompareTactText(VeslyName)
-BNE 62 sC s7 
-CALL VeslyMessage 
+BNE 62 sC s7
+CALL VeslyMessage
 SVAL r2 UnitsVesly|IsPointer
 GOTO 200
 
-
 Label 62
+CompareTactText(CheaterName)
+BNE 63 sC s7
+CALL CheaterMessage
+SVAL r2 UnitsCheater|IsPointer
+GOTO 200
+
+Label 63
+CompareTactText(LeafName)
+BNE 64 rC r7
+CALL ChallengeRunMessageNoCaptureEvent
+SVAL r2 UnitsLeaf|IsPointer
+
+Label 64
+CompareTactText(JessieName)
+BNE 65 rC r7
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT ChickFlag
+SVAL r2 UnitsJessie|IsPointer
+
+Label 65
+CompareTactText(JamesName)
+BNE 66 rC r7
+CALL ChallengeRunMessageNoCaptureEvent
+ENUT DudeFlag
+SVAL r2 UnitsJames|IsPointer
+Label 66
+
 Label 199
 
 
@@ -636,23 +902,80 @@ Label 0x63
 NoFade 
 ENDA 
 
-OakMessageEvent: 
+OakMessageEvent:
 Text(OakMessageText)
+ENUT GrampsFlag
+ENUT CannotCaptureFlag
 ENUT Route1Tutorial_A
-NoFade 
-ENDA 
+NoFade
+ENDA
 
 LittleCupMessage:
 Text(LittleCupMessageText)
+ENUT CannotEvolveFlag
 ENUT Route1Tutorial_A
-NoFade 
-ENDA 
+NoFade
+ENDA
+
+VoidMessage:
+Text(VoidMessageText)
+ForceLunatic
+ENUT WalkSlowlyFlag
+ENUT GrampsFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
+
+ChaosMessage:
+Text(ChaosMessageText)
+ENUT ChickFlag
+ENUT RandomizeWeaponStatsFlag
+ENUT RandomizeClassesFlag
+ENUT RandomizeTrainerClassesFlag
+ENUT RandomizeBossClassesFlag
+ENUT RandomizeGrowthsFlag
+ENUT RandomizeFoundItemsFlag
+ENUT RandomizeBaseStatsFlag
+ENUT RandomizeSkillsFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
+
+
+PlusMessage:
+Text(PlusMessageText)
+ForceLunatic
+ENUT ChickFlag
+ENUT PlusFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
+
+
+NuzlockeMessage:
+Text(NuzlockeMessageText)
+ENUT GrampsFlag
+ENUT NuzlockeFlag
+ENUF CasualModeFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
+
+CheaterMessage:
+Text(CheaterMessageText)
+ENUT CheaterFlag
+ENUT Route1Tutorial_A
+NoFade
+ENDA
 
 VeslyMessage:
 Text(VeslyMessageText)
+ForceLunatic
+ENUT CannotCaptureFlag
+ENUT CannotEvolveFlag
 ENUT Route1Tutorial_A
-NoFade 
-ENDA 
+NoFade
+ENDA
 
 PlaytesterCommonMessage:
 Text(PlaytesterMessage)
@@ -660,12 +983,18 @@ ENUT Route1Tutorial_A
 NoFade 
 ENDA 
 
-ChallengeRunMessageEvent:
+ChallengeRunMessageNoCaptureEvent:
 Text(ChallengeRunMessage)
 ENUT Route1Tutorial_A
 ENUT CannotCaptureFlag
-NoFade 
-ENDA 
+NoFade
+ENDA
+
+ChallengeRunMessageEvent:
+Text(ChallengeRunMessage)
+ENUT Route1Tutorial_A
+NoFade
+ENDA
 
 
 NiceTryMessage:
@@ -1097,6 +1426,14 @@ UNIT 0x07 WeedleID BonusUnitParameters
 UNIT 0x08 RattataID BonusUnitParameters 
 UNIT 0x09 PidgeyID BonusUnitParameters 
 UNIT 0x0A ZubatID BonusUnitParameters 
+UNIT
+
+ALIGN 4 ; UnitsCheater:
+UNIT 0x02 MewtwoID BonusUnitParameters
+UNIT 0x06 MewID BonusUnitParameters
+UNIT 0x07 ArticunoID BonusUnitParameters
+UNIT 0x08 ZapdosID BonusUnitParameters
+UNIT 0x09 MoltresID BonusUnitParameters
 UNIT
 
 

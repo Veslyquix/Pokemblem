@@ -77,21 +77,21 @@ CHECK_COORDS 0x7fff
 SADD sA sC s0  
 SET_ACTIVE 0
 WallText(Yes_PurchasedGrowlitheText)
-SADD sB sA s0  
 ASMC Get7thUnitASMC
 BEQ 21 sC s0 
-WARP_OUT
-STAL 30
-UNCM(TempAlly, 0x10009) // Undeploy + escape the Growlithe
-DISA OaksAidePkmn 
+SVAL s2 OaksAidePkmn 
+CALL WarpDisaUnit 
+UNCM(TempAlly, 0x10009) // Undeploy + escape the pkmn
 GOTO 22 
 LABEL 21
 DISA OaksAidePkmn  
+SADD sB sA s0 
 MOVENEXTTO (-1) TempAlly 0x7FFe 
 ENUN 
 LABEL 22 
 SVAL s1 TempAlly // Growlithe's UnitID 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 GOTO 63 
 
@@ -143,7 +143,7 @@ BYTE SpellScroll WaterGun
 BYTE ExoticCandy 1
 BYTE StatAccessory EnergyBand_BoostIndex
 BYTE Iron 1
-BYTE SpellScroll Harden
+BYTE SpellScroll Taunt
 BYTE StatAccessory BronzeShield_BoostIndex
 BYTE SkillAcc(RockyHelmetSkillID)
 BYTE SkillScroll ShellArmorID
@@ -389,13 +389,14 @@ ENUN
 MarkTrainerAsDefeated(0xE1) 
 LABEL 1
 
-
+CHECK_EVENTID ObtainedCutFlag 
+BNE 10 sC s0 
 CheckTrainerFlag(0xEF) // based on unit IDs 0xE0-0xEF per chapter 
 BNE 10 rC r0 
 LOAD1 0x1 GaryBattleUnitGroup 
 ENUN 
-
-GOTO 0x63 
+GOTO 0x63
+ 
 LABEL 10 
 CALL CityBeginningScene // Move bonus only when Gary is defeated 
 LABEL 0x63
@@ -432,7 +433,7 @@ BYTE SuperRepel 1
 BYTE EscapeRope 1
 BYTE WarpCrystal 1
 BYTE SpellScroll Leer SpellScroll Bite SpellScroll MudShot SpellScroll IcyWind
-BYTE SpellScroll AttackPulse
+BYTE SpellScroll AttackPulse SpellScroll Taunt
 BYTE SpellScroll DoubleHit SpellScroll SignalBeam SpellScroll MagicalLeaf 
 BYTE SpellScroll LeechLife SpellScroll Magnitude SpellScroll KarateChop // 19
 //SHLI Elfire Nosferatu Divine Mend Physic PureWater Elixir

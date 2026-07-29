@@ -177,7 +177,7 @@ SignATrap(5,13, ChapterID, 0x0) // Can use ChapterID as the flagID if only using
 //BerryTree(32,11,5)
 //BerryTree(36,11,5)
 
-SkillScrollTrap(6,18, ChapterID*2, RenewalID)
+SkillScrollTrap(6,18, ChapterID*2, SavageBlowID)
 SpellScrollTrap(19,7, (ChapterID*2)+1, Outrage)
 //SpellScrollTrap(6,18, (ChapterID*2), Megahorn)
 //OpenPokeball(8,3)

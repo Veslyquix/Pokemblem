@@ -74,21 +74,21 @@ CHECK_COORDS 0x7fff
 SADD sA sC s0  
 SET_ACTIVE 0
 WallText(Yes_PurchasedOddishText)
-SADD sB sA s0  
 ASMC Get7thUnitASMC
 BEQ 21 sC s0 
-WARP_OUT
-STAL 30
-UNCM(TempAlly, 0x10009) // Undeploy + escape the Oddish
-DISA OaksAidePkmn 
+SVAL s2 OaksAidePkmn 
+CALL WarpDisaUnit 
+UNCM(TempAlly, 0x10009) // Undeploy + escape the pkmn
 GOTO 22 
 LABEL 21
 DISA OaksAidePkmn  
+SADD sB sA s0 
 MOVENEXTTO (-1) TempAlly 0x7FFe 
 ENUN 
 LABEL 22 
 SVAL s1 TempAlly // Oddish's UnitID 
 ASMC ChangeS1UnitIntoLowestUnitID
+SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 GOTO 63 
 
@@ -393,7 +393,6 @@ ShopItems:
 BYTE StatAccessory MuscleBand_BoostIndex 
 BYTE StatAccessory WiseGlasses_BoostIndex
 BYTE JellyDonut 4
-// BYTE SkillScroll PatienceID
 BYTE SkillScroll SwarmID
 BYTE SkillScroll ShedSkinID
 BYTE SuperRepel 1

@@ -1,4 +1,4 @@
-// PROTECT $37748
+// PROTECT $35728
 // PROTECT $267fc $2713c
 // PROTECT $27330 $2734c
 //PROTECT $144F944
@@ -52,9 +52,16 @@
 #define USE_HGSS_SPRITES
 //#define USE_PMD_SPRITES
 
+// #define CLEAN_TITLE_SCREEN // note: rebuild baserom 
+
 PUSH; ORG $D74D0	//{U}
-String("V1.22.00             Jul 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
-//String("V1.14.07 DEBUG BUILD  Mar 2024") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+
+#ifdef CLEAN_TITLE_SCREEN 
+String("                        ") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+#else 
+String("V1.23.01             Jul 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+#endif 
+
 
 #define ProtagID 0x45 
 
@@ -219,15 +226,17 @@ String("V1.22.00             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define BuffTableSize 0x1D8 // Pokemblem - 50 players/enemies, 15 NPCs - regular would be $21C i think 
 #define BuffTableEntrySize 4 
 
-#define FreeRamByte1 0x30017A0 // - 0x30017A6 
+#define FaintCounter 0x30017a0 // SHORT 
+#define GlobalFaintCounter 0xE000050 // SHORT, but sram packing is byte  
+#define FreeRamByte1 0x30017A2 // - 0x30017A6 
 #define FreeMoveRamByte 0x30017A7 
 
 #define TempRamWhileExpShare 0x2026E30 // used in pc boxes too 
 #define TempRamWhileExpShare2 0x2026E34 // used in pc boxes too 
 #define TempRamWhileExpShare3 0x2026E38 // used in pc boxes too 
 
-#define ExpShareUnitID 0x30017A8 
-#define ExpShareAmount 0x30017A9 
+#define AvatarPortraitId 0x30017A8 
+#define AvatarClassId 0x30017A9 
 #define XCoordTeleport 0x30017AA
 #define YCoordTeleport 0x30017AB
 
@@ -384,6 +393,8 @@ String("V1.22.00             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define DisableTutMsgsFlag 0xBD 
 #define DisableTutFlag_A 0xBE 
 #define DisableTutFlag_B 0xBF
+#define DisableTutFlag_C 0xC0 
+#define DisableTutFlag_D 0xC1 
 
 #define CinnabarArrived 0xC9  
 #define VolcanobadgeObtained 0xCA 
@@ -438,6 +449,17 @@ String("V1.22.00             Jul 2026") ; BYTE 0; POP // this overflows into the
 
 #define SkippableCutscenesFlag 0xFF
 // 0xF7 - 0x10B free 
+#define NuzlockeFlag 0xF8 
+#define PlusFlag 0xF9 
+#define CheaterFlag 0xFA
+#define WalkSlowlyFlag 0xFB 
+#define KidFlag 0xFC 
+#define DudeFlag 0xFD 
+#define ChickFlag 0xFE 
+#define GrampsFlag 0x100
+#define HagFlag 0x101
+#define DoppelgangerFlag 0x102 // see yourself 
+ 
 
 // New flags 0x12D - 0x22D or more even 
 #define VisitedViridianPokecenterFlag 0x12D 

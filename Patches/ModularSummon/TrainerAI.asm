@@ -395,7 +395,12 @@ mov r0, #0x44
 add r0, r5 @ unit AI2 byte 
 ldrb r0, [r0] 
 cmp r0, #0x23 
-bne ContinueStuff
+beq NullifyMov 
+cmp r0, #0x1C 
+beq Exit @ aggro trainer AI 
+b ContinueStuff 
+
+NullifyMov: 
 
 mov r4, #0 
 b Exit 

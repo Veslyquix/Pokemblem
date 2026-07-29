@@ -50,7 +50,11 @@ Come find me when you're[N]
 up for a challenge.[A][X]
 
 ## BillMtMoonText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadBill][OpenMidRight][ToggleSmile]Oh! A fellow trainer![A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadBill][OpenMidRight][ToggleSmile]<ifBill>Whoa. You look like me.[A][N]
+Either I hit my head,[N]
+or this is great research.[A][N]
+Help me get home, and[N]
+we'll compare notes.[A]<endif><ifnBill>Oh! A fellow trainer![A][N]
 [ToggleSmile]Wait - don't move! You might scare[N]
 off the Clefable I was tracking...[A][N]
 Actually, never mind. At this point,[N]
@@ -61,7 +65,7 @@ I've been trying to leave for hours,[N]
 but it's... not going well.[A][N]
 If only I hadn't dropped my escape rope.[N]
 [ToggleSmile]Think you could help me retrieve it?[A][N]
-I'd seriously appreciate it.[A][X]
+I'd seriously appreciate it.[A]<endif>[X]
 
 ## BillMtMoonText2
 [OpenMidRight][ToggleSmile]You found it! Thank you![A][N]
@@ -95,7 +99,7 @@ on it that reads:[A][N]
 “Tracking Clefable in Mt. Moon”.[A][X]
 
 ## SurgePowerPlantText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight]Yo! You lost, kid?[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight]Yo! You lost, <kid>?[A][N]
 We're workin' overtime here to[N]
 get the grid back online.[A][N]
 [ToggleSmile]Got a bunch o' Electrode helpin'[N]
@@ -410,6 +414,7 @@ special effect.[X]
 Save and revive Pokémon by visiting[N]
 home or a Pokecenter.[N]
 [ToggleRed]There is no permadeath.[ToggleRed][N]
+(Tutorials can be turned off in Config.)[A][N]
             -Trainer's Tips[A][X]
 
 ## TrainerTip_Quicksave
@@ -424,6 +429,19 @@ to manually [Red]Quicksave[Red].[N]
 Berries may be equipped[N]
 and eaten during battle.[A][N]
 They're tasty, too![N]
+            -Trainer's Tips[A][X]
+            
+## TrainerTip_Bushes
+When certain bushes reach full health,[N]
+they'll spawn a Pokémon.[N]
+            -Trainer's Tips[A][X]
+            
+## TrainerTip_Trainers
+When you enter a trainer's range,[N]
+they'll send their team out on[N]
+enemy phase.[A][N]
+Press [ToggleRed]A[ToggleRed] on an empty tile and[N]
+select [ToggleRed]End[ToggleRed] to begin Enemy Phase.[N]
             -Trainer's Tips[A][X]
 
 ## TrainerTip_Catch
@@ -477,12 +495,8 @@ be stat-screwed.[N]
         - Trainer's Tips.[A][X]
 
 ## TrainerTip_Zoning
-Attacks cannot miss in this game.[N]
-But they will sometimes deal a[N]
-glancing blow instead,[A][N]
-which deals half damage.[N]
-//Some enemies will [ToggleRed]ZONE[ToggleRed][N]
-//you out, avoiding combat.[N]
+Attacks can get Same Type Attack Bonus,[N]
+(STAB), which grants 50% more power.[N]
         - Trainer's Tips.[A][X]
 
 ## TrainerTip_Accessory
@@ -615,6 +629,56 @@ Mewtwo[N]
 Placeholder text[N]
 is being used.[A][X]
 
+## SkipLabTutorial
+Skip tutorial?[N]
+[No][X]
+
+## OaksLabTut_1
+Control your units on the[N]
+map during Player Phase.[A][X]
+
+## OaksLabTut_2
+Opponents will then[N]
+act on Enemy Phase.[A][X]
+
+## OaksLabTut_3
+Place your cursor on your[N]
+starter and press [ToggleRed]A[ToggleRed].[A][X]
+
+## OaksLabTut_4
+Select the flashing tile.[A][X]
+
+## OaksLabTut_5
+//AoEs can hit multiple targets[N]
+//and debuff them.[A][N]
+Debuffs deal chip damage and[N]
+can attack at 1-2 range.[.....][N]
+Try debuffing an enemy.[A][X]
+
+
+## OaksLabTut_6
+The Battle Forecast shows the power of[N]
+your attack on the blue side.[A][N]
+The enemy cannot counter, so the red side[N]
+shows only the enemy's HP right now.[A][X]
+
+## OaksLabTut_7
+Now it's their turn.[A][X]
+
+## OaksLabTut_8
+During each combat, Pokémon[N]
+counter attack if their equipped[N]
+move has the attack range to do so.[A][N]
+Additionally, some moves will[N]
+knock back other Pokémon.[A][X]
+
+## OaksLabTut_9 
+At the start of their phase,[N]
+Pokémon eat their berries[N]
+if equipped and they need it.[A][N]
+Select your unit and[N]
+finish the battle![A][X]
+
 
 ## CatchPokemonTutorial_1
 Let's catch a Pokémon.[A][X]
@@ -633,11 +697,9 @@ Great! It's weakened![A][N]
 Now we'll capture it.[A][X]
 
 ## CatchPokemonTutorial_6
-The Battle Forecast shows the[N]
-damage you'll deal in blue.[A][N]
-The red side shows the enemy's HP[N]
-dmg, hit rate, and crit chance.[A][N]
-You cannot miss; glancing[N]
+The Battle Forecast shows HP,[N]
+power, hit rate, and crit chance.[A][N]
+Attacks cannot miss: glancing[N]
 blows instead deal half damage.[A][N]
 Knock out an enemy while[N]
 capturing to catch 'em all![A][X]
@@ -1181,14 +1243,25 @@ Pewter Gym.[N]
 Rock-type Pokémon.[A][X]
 
 ## BrockIntroText
-[OpenMidRight][LoadBrock][OpenMidRight]I believe in rock hard[N]// no protag loaded because Brock moves to Vulpix
+[OpenMidRight][LoadBrock][OpenMidRight]<ifBrock>Hm? Same stance.[N]// no protag loaded because Brock moves to Vulpix
+Same eyes.[A][N]
+You look like me after a[N]
+long day at the Gym.[A][N]
+[ToggleSmile]If you're trying to learn[N]
+rock-hard determination...[A][N]
+then show me you can[N]
+stand your ground.[A][N]
+No shortcuts. No disguises.[N]
+Just defense and heart.[A][CloseSpeechSlow][LoadOverworldFaces][OpenMidRight][ToggleSmile][MoveLeft][OpenLeft]There there, sweetie.[N]
+Daddy's not being replaced.[A][CloseSpeechSlow][LoadOverworldFaces][OpenLeft][ToggleSmile][MoveMidRight][OpenMidRight]Ahem. Let's battle![A]<endif><ifnBrock>I believe in rock hard[N]
 defense and determination![A][N]
 That's why my Pokémon are[N]
 all the rock-type.[A][CloseSpeechSlow][LoadOverworldFaces][N]
 [ToggleSmile]Hmm? What about my Diglett,[N]
 Sandshrew, and Vulpix?[A][N]
 [ToggleSmile]Those don't count.[A][CloseSpeechSlow][LoadOverworldFaces][OpenMidRight][ToggleSmile][MoveLeft][OpenLeft]There there, sweetie.[N]
-Daddy loves you.[A][CloseSpeechSlow][LoadOverworldFaces][OpenLeft][ToggleSmile][MoveMidRight][OpenMidRight]Ahem. Let's battle![A][X]
+Daddy loves you.[A][CloseSpeechSlow][LoadOverworldFaces][OpenLeft][ToggleSmile][MoveMidRight][OpenMidRight]Ahem. Let's battle![A]
+<endif>[X]
 ## PewterCityText
 The city of Boulders.[A][X]
 
@@ -1217,7 +1290,7 @@ This area is closed.[A][X]
 
 ## BrockDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadBrock][OpenMidRight][ToggleSmile]As proof of your victory, [N]
-here's the Boulder Badge![A][N]
+here's the Boulder Badge![LoadOverworldFaces][A][N]
 Wear it proud, knowing[N]
 you've completed my gym.[A][N]
 [ToggleSmile]The others won't be[N]
@@ -1278,7 +1351,16 @@ what he gets up to?[A][X]
 
 
 ## MistyChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight][ToggleSmile]My policy is an all-out offensive[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight][ToggleSmile]<ifMisty>Whoa. Okay.[N]
+That's my face.[A][N]
+Did Daisy put you up to this?[N]
+Because it is not funny.[A][N]
+Still... if you're copying me,[N]
+you'd better copy the best part.[A][N]
+All-out offense. No drifting.[N]
+No hiding in the shallow end.[A][N]
+Let's see which Misty[N]
+makes the bigger splash![A]<endif><ifnMisty>My policy is an all-out offensive[N]
 with water-type Pokémon![A][N]
 If you want to turn pro, you should [N]
 come up with your own strategy.[A][N]
@@ -1289,10 +1371,11 @@ What'll happen when some loser[N]
 decides to catch 6 Pikachu?[A][N]
 Still can't believe I lost...[A][2NL]
 Enough chatter! My Pokémon[N]
-will scrub the floor with you![A][X]
+will scrub the floor with you![A]
+<endif>[X]
 
 ## MistyDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight]Ack! Washed away![A] Welp,[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadMisty][OpenMidRight]Ack! Washed away![LoadOverworldFaces][A] Welp,[N]
 I guess you've earned this.[A][N]
 [ToggleSmile]The Cascade Badge is a[N]
 symbol of your victory.[A][N]
@@ -1568,7 +1651,7 @@ It's so big, I may get lost.[A][X]
 ## MMB1_0xE4_BQ
 WHOA![N]
 You shocked me![A][N]
-...Oh, you're just a kid![A][X]
+...Oh, you're just <a kid>![A][X]
 
 ## MMB1_0xE4_BD
 Wow![N]
@@ -1628,14 +1711,14 @@ I blew it![A][X]
 
 ## MMB3_0xE2_BQ
 We're pulling a big job here![N]
-Get lost, kid.[A][X]
+Get lost, <kid>.[A][X]
 
 ## MMB3_0xE2_BD
 So, you are good...[A][X]
 
 
 ## MMB3_0xE3_BQ
-Little kids shouldn't be messing[N]
+Insignificant <kids> shouldn't be messing[N]
 around with us grown-ups![A][N]
 It could be bad news.[A][X]
 
@@ -1714,7 +1797,7 @@ That'll be 1,000,000[Gold]![A][X]
 ## CeruleanCityNWHouseText
 What? You just want some[N]
 candy from my backyard?[A][N]
-Listen, kid.[.....].[.....].[......][N]
+Listen, <kid>.[.....].[.....].[......][N]
 You seem nice.[A][N]
 But you shouldn't be[N]
 entering people's yards.[A][N]
@@ -1910,7 +1993,7 @@ ravishing...[A][N]
 I've talked far too much![A][N]
 Tell me about yourself![A][N]
 Hmm? You just want a Bike voucher?[A][N]
-Hah, sure, kid. Let me also write up[N]
+Hah, sure, <kid>. Let me also write up[N]
 a cheque for you to buy a car.[A][N]
 Fat chance. Now go away.[A][X]
 
@@ -1999,7 +2082,7 @@ You insolent pup![N]
 How dare you barge in![A][X]
 
 ## SSA_0xE3_BD
-Humph! You rude child![N]
+Humph! You rude <child>![N]
 You have no sense of courtesy![A][X]
 	
 	
@@ -2104,7 +2187,7 @@ After all my training![A][X]
 	
 
 ## RTB1_0xE0_BQ
-This tunnel goes a long way, kid![A][X]
+This tunnel goes a long way, <kid>![A][X]
 
 ## RTB1_0xE0_BD
 Doh![N]
@@ -2267,9 +2350,13 @@ Aura is dissipating![A][X]
 You can't escape![A][X]
 
 ## PTF5_0xE0_BQ
-What do you want?[A][X]
+<ifJames>Hey, that's my face.[A][N]
+I don't like this job[N]
+nearly enough for clones.[A]<endif><ifnJames>What do you want?[A]<endif>[X]
 ## PTF5_0xE1_BQ
-Why are you here?[A][X]
+<ifJessie>Excuse me?[A][N]
+Only one of us gets[N]
+to look this good.[A]<endif><ifnJessie>Why are you here?[A]<endif>[X]
 
 ## PTF5_0xE0_BD
 What? I just[N]
@@ -2280,7 +2367,12 @@ doing a job.[A][X]
 
 ## MrFujiText
 [OpenMidLeft][LoadProtag][OpenRight][LoadFuji][OpenRight]Heh?[N]
-You came to save me?[A][N]
+<ifFuji>Am I going crazy?[A][N]
+Are you from the future?[......][N]
+Huh, I need the Pokéflute?[A][N]
+What I really need is[N]
+a nice, long nap...[A][N]<endif>
+<ifnFuji>You came to save me?[A][N]
 [ToggleSmile]Thank you. But, I came here of my[N]
 own free will.[A][N]
 I came to calm the spirit of[N]
@@ -2288,15 +2380,15 @@ CUBONE's mother.[A][N]
 I think MAROWAK's spirit has[N]
 finally left us.[A][N]
 I must thank you for your kind[N]
-concern.[A][N]
+concern.[A][N]<endif>
 Here, take this.[A][X]
 
 ## ObtainedPokefluteText
 Obtained Pokéflute.[A][X]
 
 ## MrFujiText2
-[OpenMidLeft][LoadProtag][OpenRight][LoadFuji][OpenRight]Use it to wake up[N]
-sleeping Pokémon.[A][X]
+[OpenMidLeft][LoadProtag][OpenRight][LoadFuji][OpenRight]Use it to wake<ifFuji> me<endif> up[N]
+<ifFuji>out of this nightmare<endif><ifnFuji>sleeping Pokémon<endif>.[A][X]
 
 ## MrFujiText3
 I come up here to[N]
@@ -2330,7 +2422,7 @@ But GYARADOS is great.[A][X]
 
 ## R12N_0xE3_BQ
 The FISHING FOOL versus[N]
-Pokémon KID![A][X]
+Pokémon <kid>![A][X]
 ## R12N_0xE3_BD
 Touch too much![A][X]
 
@@ -2530,7 +2622,7 @@ catching Pokémon.[A][X]
 ## FuschiaSEHouseAText
 Hmm? Gold Teeth?[N]
 Strength? Rare candy?[A][N]
-Slow down, kid.[A][N]
+Slow down, <kid>.[A][N]
 I ain't got any of that[N]
 stuff for ya, sorry.[A][N]
 What, did you think it[N]
@@ -2587,10 +2679,22 @@ Pokémon roaming about![A][X]
 Watch out for Scyther![A][X]
 
 ## WardenAText
-[OpenFarRight][LoadWarden][OpenRight][LoadGun][OpenFarRight]Halt! Who goes there![A][N]
-[OpenMidLeft][LoadProtag][OpenFarRight]Hm? A kid, eh?[A][N]
-//It's my second amendment[N]
-//right, afterall.[A][N]
+[OpenFarRight][LoadWarden][OpenRight][LoadGun][OpenFarRight]<ifWarden>Halt! Who- whuh?![N]
+Hold it right there![A][N]
+[OpenMidLeft][LoadProtag][OpenFarRight]You look just like me.[N]
+That ain't right.[A][N]
+Keep your hands where I can see 'em.[N]
+No sudden moves.[A][N]
+Are you some mirror trick,[N]
+or my conscience with shoes?[A][N]
+Huh? You forgot how to smash rocks?[N]
+No way I'd ever forget.[A][N]
+Just think of the boulder as a threat,[N]
+and your guns as the law.[A][N]
+Boom. Problem solved![A][N]
+There. Now you know Rock Smash.[A][N]<endif>
+<ifnWarden>Halt! Who goes there![A][N]
+[OpenMidLeft][LoadProtag][OpenFarRight]Hm? <a kid>, eh?[A][N]
 What? The Kanto region's in Japan?[N]
 With gun laws?[A][N]
 Nonsense, this is 'merica.[A][N]
@@ -2598,7 +2702,7 @@ On TV, I can't point this at you...[.....][N]
 some crap about being “too intense”.[A][N]
 They cut my whole episode![N]
 Banned outside Asia![A][N]
-But guess what, kid?[N]
+But guess what, <kid>?[N]
 I'm still here.[A][N]
 This ain't no watered-down remake.[N]
 This is the real deal.[A][N]
@@ -2612,9 +2716,9 @@ Just think of the boulder as a threat,[N]
 and your guns as the law.[A][N]
 Boom. Problem solved![A][N]
 There. Now you know Rock Smash.[A][N]
-Good. Now scram, kid.[A][N]
+Good. Now scram, <kid>.[A][N]
 If the cameras catch me again,[N]
-we'll BOTH get pulled off the air.[A][X]
+we'll BOTH get pulled off the air.[A]<endif>[X]
 //A man's gotta enjoy the quiet,[N]
 //before the next fool wanders in.[A][X]
 
@@ -2684,12 +2788,12 @@ Don't make me mad![A][X]
 	
 ## R17N_0xE1_BQ
 There's no getting rich[N]
-quick in battling kids.[A][X]
+quick in battling <kids>.[A][X]
 ## R17N_0xE1_BD
 Burned out![A][X]
 ## R17N_0xE2_BQ
 I'm mighty proud of my[N]
-crew, kiddo. Come on![A][X]
+crew, <kid>. Come on![A][X]
 ## R17N_0xE2_BD
 Whoo![A][X]
 ## R17N_0xE3_BQ
@@ -3084,7 +3188,7 @@ You feel drained...[A][X]
 // 11 rockets, 3 scientists 
 
 ## SilphCo_2F_0xE0_BQ
-No kids are allowed in here![A][X]
+No <kids> are allowed in here![A][X]
 
 ## SilphCo_2F_0xE0_BD
 Tough![A][X]
@@ -3097,7 +3201,7 @@ Go home![A][X]
 You're good.[A][X]
 
 ## SilphCo_2F_0xE2_BQ
-Quit messing with us, kid![A][X]
+Quit messing with us, <kid>![A][X]
 
 ## SilphCo_2F_0xE2_BD
 I give up![A][X]
@@ -3116,8 +3220,8 @@ Lock this floor down![A][X]
 Arrgh![A][X]
 
 ## SilphCo_2F_0xE5_BQ
-There shouldn't be any[N]
-children here![A][X]
+There shouldn't be[N]
+<a child> here![A][X]
 
 ## SilphCo_2F_0xE5_BD
 Oh, goodness![A][X]
@@ -3152,7 +3256,7 @@ something more interesting...[A][X]
 
 
 ## SilphCo_3F_0xE3_BQ
-I heard a kid was wandering[N]
+I heard <a kid> was wandering[N]
 around.[A][X]
 
 ## SilphCo_3F_0xE3_BD
@@ -3166,7 +3270,7 @@ I smell a little mouse![A][X]
 Lights out![A][X]
 
 ## SilphCo_4F_0xE0_BQ
-A child intruder?[N]
+<a child> intruder?[N]
 That must be you![A][X]
 
 ## SilphCo_4F_0xE0_BD
@@ -3283,13 +3387,13 @@ Clear the way, or I'll[N]
 run you down![A][X]
 
 ## R8_0xE2_BD
-You for real, kid?[A][X]
+You for real, <kid>?[A][X]
 
 
 
 ## R8_0xE3_BQ
 You think you're special,[N]
-kid?[A][X]
+<kid>?[A][X]
 	
 ## R8_0xE3_BD
 Tcch.[......] I got grass caught[N]
@@ -3590,7 +3694,7 @@ You should take a quick rest.[A][X]
 ## MomViridianText
 [OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]Did you reach Viridian City safely?[N]
 Oh, my little [Tact] is all grown up...[A][N]
-[ToggleSmile]All kids leave home some day.[N]
+[ToggleSmile]All <kids> leave home some day.[N]
 It said so on TV.[A][N]
 [ToggleSmile]It feels like just yesterday you were playing[N]
 with Poké Dolls in the living room.[A][N]
@@ -3610,9 +3714,9 @@ stop by - I have a little something for you.[A][X]
 ## MomGiveItemText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadMom][OpenMidRight][ToggleSmile]You've come such a long way, sweetie.[N]
 I'm so proud of everything you've done![A][N]
-I put aside some money for you...[A][N]
-And please take this. Just a little[N]
-something from your biggest fan.[A][X]
+I put aside that money for you...[A][N]
+Just a little something[N]
+from your biggest fan.[A][X]
 
 
 
@@ -3643,7 +3747,7 @@ for me?[A][X]
 ## VRB1_0xE0_BD
 I lost out...[N]
 I never wanted to lose to anybody,[N]
-especially to a younger kid...[A][X]
+especially to <a kid>...[A][X]
 
 
 ## VRB1_0xE1_BQ // bug catcher 
@@ -3716,7 +3820,7 @@ challenge here and go home.[A][X]
 
 
 ## VRB3_0xE1_BQ 
-I heard rumors of a child prodigy.[A][X]
+I heard rumors of <a child> prodigy.[A][X]
 
 ## VRB3_0xE1_BD
 The rumors were true![N]
@@ -3776,7 +3880,10 @@ Mew![A][X]
 Mew fled somewhere![A][X]
 
 ## VeslyRoute23ChallengeText 
-Hey, Vesly here.[N]
+<ifVesly>Oh no.[N]
+The self-insert has escaped.[A][N]
+If you're me, you know[N]
+this still needs a battle.[A]<endif><ifnVesly>Hey, Vesly here.[N]
 y'kno, the creator.[A][N]
 Pokémblem has been a journey[N]
 to make, so I hope that my joy for[A][N]
@@ -3784,7 +3891,7 @@ the originals has come through here.[A][N]
 I'd love to hear your experience,[N]
 so feel free to reach out to me.[A][N]
 Of course, this wouldn't be complete[N]
-without a battle, would it?[A][X]
+without a battle, would it?[A]<endif>[X]
 
 ## VeslyRoute23DefeatText 
 I never had a chance, did I?[A][N]
@@ -3809,7 +3916,10 @@ Will you leave?[N]
 [Yes][X]
 
 ## LoreleiChallengeText
-[OpenMidRight][LoadProtag][OpenMidLeft][LoadLorelei][OpenMidLeft]Welcome to the Pokémon League.[A][N]
+[OpenMidRight][LoadProtag][OpenMidLeft][LoadLorelei][OpenMidLeft]<ifLorelei>Oh? My reflection[N]
+has entered the League.[A][N]
+[ToggleSmile]Then you know the rule:[N]
+keep calm, and freeze first.[A]<endif><ifnLorelei>Welcome to the Pokémon League.[A][N]
 I am Lorelei of the Elite Four.[A][N]
 [ToggleSmile]Their chic design.. and sleek shine..[N]
 icy Pokémon are best.[A][N]
@@ -3817,7 +3927,7 @@ icy Pokémon are best.[A][N]
 as they slip and slide around my room.[A][N]
 Hahaha![N]
 Can you feel it?[A][N]
-The chill has already begun.[A][X]
+The chill has already begun.[A]<endif>[X]
 
 
 
@@ -3836,7 +3946,10 @@ Pokémon League's power.[A][X]
 
 
 ## BrunoChallengeText
-[OpenMidRight][LoadProtag][OpenMidLeft][LoadBruno][OpenMidLeft][ToggleSmile]I am Bruno of the Elite Four![A][N]
+[OpenMidRight][LoadProtag][OpenMidLeft][LoadBruno][OpenMidLeft][ToggleSmile]<ifBruno>Hoo hah! Another Bruno![A][N]
+Good. No excuses.[A][N]
+Two mountains stand here.[N]
+Only one reaches the summit![A]<endif><ifnBruno>I am Bruno of the Elite Four![A][N]
 Through rigorous training, us hikers and[N]
 Pokémon can overcome any obstacle.[A][N]
 [ToggleSmile]Master any mountain![N]
@@ -3844,7 +3957,7 @@ Scale any summit![A][N]
 I've lived and trained this way![N]
 And I will never submit![A][N]
 We will grind you down the mountain![N]
-Hoo hah![A][X]
+Hoo hah![A]<endif>[X]
 	
 
 ## BrunoDefeatText
@@ -3859,8 +3972,12 @@ Go face your next challenge.[A][X]
 
 
 ## AgathaChallengeText
-[OpenMidRight][LoadProtag][OpenMidLeft][LoadAgatha][OpenMidLeft]I am Agatha of the Elite Four.[A][N]
-[ToggleSmile]I hear Oak's been using you, child.[A][N]
+[OpenMidRight][LoadProtag][OpenMidLeft][LoadAgatha][OpenMidLeft]<ifAgatha>Hmph. Wearing my face?[A][N]
+At least you chose[N]
+someone with standards.[A][N]
+Now prove there's bite[N]
+behind that old glare.[A]<endif><ifnAgatha>I am Agatha of the Elite Four.[A][N]
+[ToggleSmile]I hear Oak's been using you, <child>.[A][N]
 Sending you on errands, collecting[N]
 your Pokédex research.[A][N]
 [ToggleSmile]Does he even pay you?[A][N]
@@ -3873,7 +3990,7 @@ He won't even battle me anymore...[N]
 He's such a fool.[A][N]
 Pokémon are for battling![A][N]
 [Tact]! I'll show you how a real[N]
-Trainer battles![A][X]
+Trainer battles![A]<endif>[X]
 
 
 
@@ -3883,7 +4000,7 @@ duff does not care about you.[A][N]
 He used me, and he's[N]
 using you, too.[A][N]
 I have nothing else to say.[N]
-Run along now, child![A][X]
+Run along now, <child>![A][X]
 
 ## AgathaTalkText
 Hmpf. The old[N]
@@ -3891,11 +4008,14 @@ duff does not care about you.[A][N]
 He used me, and he's[N]
 using you, too.[A][N]
 I have nothing else to say.[N]
-Run along now, child![A][X]
+Run along now, <child>![A][X]
 	
 
 ## LanceChallengeText
-[OpenMidRight][LoadProtag][OpenMidLeft][LoadLance][OpenMidLeft]Ah! I've heard about you,[N]
+[OpenMidRight][LoadProtag][OpenMidLeft][LoadLance][OpenMidLeft]<ifLance>Ah! A challenger[N]
+with my noble bearing![A][N]
+[ToggleSmile]Then you understand dragons.[N]
+Power recognizes power![A]<endif><ifnLance>Ah! I've heard about you,[N]
 [Tact]![A][N]
 My dragons rule the Elite Four.[A][N]
 [ToggleSmile]I am strong to Sword and weak to Axe.[N]
@@ -3908,7 +4028,7 @@ They're virtually indestructible.[N]
 What are they even weak to?[A][N]
 I hope you're ready to lose.[A][N]
 Your League challenge ends with[N]
-me, [Tact]![A][X]
+me, [Tact]![A]<endif>[X]
 
 
 ## LanceDefeatText
@@ -4059,25 +4179,35 @@ has a breathtaking impact, right?[A][X]
 
 
 ## LtSurgeChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight]Atten-SHUN![A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight]<ifLtSurge>Atten-SHUN![A][N]
+Hold it. Soldier...[A][N]
+Why do you have my face?[A][N]
+This some kinda spy trick?[N]
+Mirror op? Ditto business?[A][N]
+[ToggleSmile]Ha! Doesn't matter.[A][N]
+Only one Lt. Surge commands[N]
+this Gym, and that's me![A][N]
+If you're wearin' my mug,[N]
+you better handle my voltage![A]<endif><ifnLtSurge>Atten-SHUN![A][N]
 Cadets are to report to the training[N]
 grounds at 0600 hours![A][N]
 Huh? You're here to fight?[N]
 [ToggleSmile]Ha ha ha! Good luck![A][N]
-I tell you, kid, electric Pokémon[N]
+I tell you, <kid>, electric Pokémon[N]
 saved me during the war![A][N]
 They zapped my enemies into[N]
 paralysis![A][N]
-[ToggleSmile]The same as I'll do to you![A][X]
+[ToggleSmile]The same as I'll do to you![A]
+<endif>[X]
 	
 ## LtSurgeDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadLtSurge][OpenMidRight]Bah. As a reward for your win,[N]
-take this Thunder Badge.[A][N]
+take this Thunder Badge.[LoadOverworldFaces][A][N]
 It mighta been a fluke,[N]
 but rules are rules...[A][X]
 
 ## LtSurgeWaitText
-[OpenMidRight][LoadLtSurge][OpenMidRight]Hold up, kid.[N]
+[OpenMidRight][LoadLtSurge][OpenMidRight]Hold up, <kid>.[N]
 Take this![A][X]
 
 ## LtSurgeRewardText
@@ -4102,44 +4232,56 @@ you on the force.[A][X]
 
 
 ## KogaChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]The pale moon grows dim.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]<ifKoga>The mask looks back.[A][N]
+My shadow wears my face.[A][N]
+How very curious.[A][N]
+[ToggleSmile]Fwahahaha! Ha![A][N]
+An impostor? A double?[A][N]
+Or poison in human form?[A][N]
+If you are Koga too,[A][N]
+then vanish as I vanish.[A][N]
+Strike before I strike![A]<endif><ifnKoga>The pale moon grows dim.[A][N]
 Shadows gather on my stage.[A][N]
-A child enters.[A][N]
-[ToggleSmile]Fwahahaha![N]
-I am Koga, shadow lord,
+<a child> enters.[A][N]
+[ToggleSmile]Fwahahaha! Ha![A][N]
+I am Koga, shadow lord,[A][N]
 master of poison![A][N]
-Footsteps make no sound.[N]
-Venom blooms beneath your feet.[N]
-Bow before the dark![A][X]
+Footsteps make no sound.[A][N]
+Venom blooms beneath your feet.[A][N]
+Bow before the dark![A]<endif>[X]
     
 ## KogaDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[N]
-The morning sun climbs.[A][N]
-The shadows yield to sunrise.[N]
-You have bested me.[A][N]
-Now take the Soul Badge.[N]
-Infuse it with your essence.[N]
-Walk proudly, young one.[A][X]
+The shadow yields to the rising sun.[A][N]
+Take the Soul Badge![N]
+You have earned it.[A][X]
+//[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Humph...[A][N]
+//The morning sun climbs.[LoadOverworldFaces][A][N]
+//The shadows yield to sunrise.[A][N]
+//You have bested me.[A][N]
+//Now take the Soul Badge.[A][N]
+//Infuse it with your essence.[A][N]
+//Walk proudly, young one.[A][X]
 
 ## KogaWaitText
-[OpenMidRight][LoadKoga][OpenMidRight]One gift yet remains.[N]
-Take it, and strike from the dark.[N]
+[OpenMidRight][LoadKoga][OpenMidRight]One gift yet remains.[A][N]
+Take it, and strike from the dark.[A][N]
 Let none see it come.[A][X]
 
 
 
 ## KogaRewardText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Silent as the dusk,[N][A]
-the second blow comes unseen...[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Silent as the dusk,[A][N]
+the second blow comes unseen...[A][N]
 foes wither away.[A][X]
 
 ## KogaSafariText
-[OpenMidRight][LoadKoga][OpenMidRight]Fufufufufu..[N][A]
-Venom stains the silent air.[N]
+[OpenMidRight][LoadKoga][OpenMidRight]Fufufufufu..[A][N]
+Venom stains the silent air.[A][N]
 Venomoth, Toxic![A][X]
 
 ## KogaSafariText2
-[OpenMidLeft][LoadKangaskhan][OpenMidRight][LoadKoga][OpenMidRight]Taste the cold despair.[N]
+[OpenMidLeft][LoadKangaskhan][OpenMidRight][LoadKoga][OpenMidRight]Taste the cold despair.[A][N]
 Mercy flees the battlefield.[A][N]
 Strike without mercy![A][X]
 
@@ -4148,19 +4290,19 @@ Strike without mercy![A][X]
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight][ToggleSmile]I sensed you afar.[N]
 Your spirit shakes like young leaves.[A][N]
 Power sleeps within.[A][N]
-[ToggleSmile]Wild hearts bare their fangs.[N]
+[ToggleSmile]Wild hearts bare their fangs.[A][N]
 Worthy foes sharpen the blade.[A][N]
 Let the hunt begin.[A][N]
-Danger fills the air.[N]
+Danger fills the air.[A][N]
 Poison dances on the wind,[A][N]
 as I desire.[A][X]
 
 ## KogaSafariText4
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Strike before they breathe.[N]
-Let your blade outrun their fear.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Strike before they breathe.[A][N]
+Let your blade outrun their fear.[A][N]
 Leave no chance to guard.[A][N]
-Swift and merciless,[N]
-offense becomes your armor.[N]
+Swift and merciless,[A][N]
+offense becomes your armor.[A][N]
 Victory follows.[A][X]
 
 
@@ -4173,13 +4315,13 @@ Victory follows.[A][X]
 Fate draws us once more.[A][N]
 My blade bathed in shadow.[N]
 Our paths cross again.[A][N]
-[ToggleSmile]Shadows cloud your mind.[N][A]
+[ToggleSmile]Shadows cloud your mind.[A][N]
 Confusion and dark despair...[N]
 Then my strike ends all![A][X]
 
 ## KogaRematchDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadKoga][OpenMidRight]Honed, I am not.[N]
-The shadows still betray me.[N][A]
+The shadows still betray me.[A][N]
 I must hone my skills.[A][X]
 
 
@@ -4200,21 +4342,25 @@ one of your Pokémon is ready to bloom.[A][X]
 
 
 ## ErikaChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadErika][OpenMidRight][ToggleSmile]Ah... what lovely weather.[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadErika][OpenMidRight][ToggleSmile]<ifErika>Oh my... another me?[A][N]
+How unusual. Like a cutting[N]
+from the same flower.[A][N]
+Let us see which bloom[N]
+has taken root.[A]<endif><ifnErika>Ah... what lovely weather.[A][N]
 The scent of blossoms always[N]
 puts me at ease.[A][N]
 [ToggleSmile]My name is Erika. I specialize[N]
-in botanical research.[N][A]
+in botanical research.[A][N]
 I sequence plant genomes[N]
 and craft herbal remedies.[A][N]
 [ToggleSmile]My Pokémon help me explore the deeper[N]
 truths of plants and natural healing.[A][N]
 Oh... you wish to challenge me?[N]
-[ToggleSmile]Very well, but I shall not lose.[A][X]
+[ToggleSmile]Very well, but I shall not lose.[A]<endif>[X]
 
 
 ## ErikaDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadErika][OpenMidRight]I concede defeat.[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadErika][OpenMidRight]I concede defeat.[LoadOverworldFaces][A][N]
 How curious... your strength[N]
 feels so natural.[A][N]
 I must confer upon you the[N]
@@ -4262,7 +4408,11 @@ an uproar...[A][X]
 //Things are easier... when they're[N]
 //predictable.[A][N]
 ## SabrinaChallengeText
-[OpenMidRight][LoadSabrina][OpenMidRight]I knew you were coming.[A][N]
+[OpenMidRight][LoadSabrina][OpenMidRight]<ifSabrina>I knew I would meet myself.[A][N]
+Still, knowing does not[N]
+make it less strange.[A][N]
+Let us see whose will[N]
+controls this vision.[A]<endif><ifnSabrina>I knew you were coming.[A][N]
 I've been cursed with visions - no,[N]
 experiences - since childhood.[A][N]
 I don't just see them..[N]
@@ -4270,14 +4420,14 @@ I feel them, too.[A][N]
 Prophecies, memories, sensations...[N]
 I meditate to regain control.[A][N]
 You're in the way of my solitude.[N]
-I will now take control.[A][X]
+I will now take control.[A]<endif>[X]
 
 
 ## ShowSabrinaText
 [OpenMidRight][LoadSabrina][OpenMidRight]...[A][CloseSpeechSlow][X]
 
 ## SabrinaDefeatText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadSabrina][OpenMidRight]Hmpf. Go now.[A][N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadSabrina][OpenMidRight]Hmpf. Go now.[LoadOverworldFaces][A][N]
 Your victory has earned[N]
 you the Marsh Badge.[A][N]
 You may now [ToggleRed]Surf[ToggleRed] the harsh[N]
@@ -4325,7 +4475,12 @@ Something in the dark is listening.[ToggleColorInvert][A][X]
 
 
 ## BlaineChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadBlaine][OpenMidRight][ToggleSmile]Hah![N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadBlaine][OpenMidRight][ToggleSmile]<ifBlaine>Hah! A Blaine-shaped[N]
+challenger![A][N]
+Excellent! One spark becomes[N]
+two wildfires![A][N]
+Let's see which flame[N]
+burns hotter![A]<endif><ifnBlaine>Hah![N]
 I am the fiery-hot Leader, Blaine![A][N]
 [ToggleSmile]Answer the quiz machines or[N]
 get burned![A][N]
@@ -4333,11 +4488,11 @@ Nothing can withstand intense heat![A][N]
 My fiery Pokémon will incinerate[N]
 any challenger![A][N]
 [ToggleSmile]Hah![N]
-You better have Burn Heal![A][X]
+You better have Burn Heal![A]<endif>[X]
 
 ## BlaineDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadBlaine][OpenMidRight]I have burned down to nothing![N]
-Not even ashes remain![A][N]
+Not even ashes remain![LoadOverworldFaces][A][N]
 You have earned the Volcano Badge.[A][X]
 
 ## BlaineWaitText
@@ -4377,7 +4532,11 @@ extreme temperatures.[A][X]
 
 
 ## Giovanni_Gym_ChallengeText
-[OpenMidLeft][LoadProtag][OpenMidRight][LoadGiovanni][OpenMidRight][ToggleSmile]Fwahahaha! Welcome to my[N]
+[OpenMidLeft][LoadProtag][OpenMidRight][LoadGiovanni][OpenMidRight][ToggleSmile]<ifGiovanni>Fwahahaha... bold.[A][N]
+You come before me[N]
+wearing my own face?[A][N]
+Then show me whether you[N]
+also carry my ambition.[A]<endif><ifnGiovanni>Fwahahaha! Welcome to my[N]
 hideout, [Tact]![A][N]
 It shall be so until I can restore[N]
 Team Rocket to its former glory.[A][N]
@@ -4385,12 +4544,12 @@ Team Rocket to its former glory.[A][N]
 So be it.[A][Clear]
 This time, I'm not holding back![A][N]
 Once more, you shall face[N]
-Giovanni, the greatest trainer![A][X]
+Giovanni, the greatest trainer![A]<endif>[X]
 
 
 ## Giovanni_GymDefeatText
 [OpenMidLeft][LoadProtag][OpenMidRight][LoadGiovanni][OpenMidRight][ToggleSmile]Ha![N]
-That was a truly intense fight.[A][Clear]
+That was a truly intense fight.[LoadOverworldFaces][A][Clear]
 You have won![A][N]
 As proof, here is the Earth Badge,[N]
 and with it, the power of Strength![A][X]

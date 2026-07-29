@@ -221,7 +221,7 @@ ble LoopThroughUnits
 mov r0, #0
 	
 End:
-
+bl SetAvatarClass_ASMC
 
 
 ldr r0, =0x202E4D8 @ Unit map	{U}

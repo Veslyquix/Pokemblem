@@ -24,13 +24,14 @@ TurnBasedEvents:
 TurnEventPlayer(0,GlobalTurnEvent,0,255)
 TurnEventPlayer(DisableTutFlag_A, TutMsg1, 0, 255) // 
 TurnEventPlayer(DisableTutFlag_B, TutMsg2, 0, 255) // 
+TurnEventPlayer(DisableTutFlag_C, BushTut, 5, 5) 
 END_MAIN
 
 //Reinforce(BushUnitID, NumberOfEnemies, UnitGroup, GracePeriod, FrequencyInTurns)
 { ; ReinforceEntry(ChapterID)
-Reinforce(0xF0, 1, ReinforcementUnits, 7, 4) // Top 
-Reinforce(0xF1, 1, ReinforcementUnits, 6, 3) // Middle 
-Reinforce(0xF2, 1, ReinforcementUnits, 3, 3) // Bottom 
+Reinforce(0xF0, 1, ReinforcementUnits, 8, 4) // Top 
+Reinforce(0xF1, 1, ReinforcementUnits, 5, 4) // Middle 
+// Reinforce(0xF2, 1, ReinforcementUnits, 3, 3) // Bottom 
 }
 
 CharacterBasedEvents:
@@ -66,6 +67,7 @@ END_MAIN
 MiscBasedEvents:
 CauseGameOverIfLordDies
 AFEV 0 GlobalAfev 0
+AREA 0x16 ChangeE0_AiEvent [2,27][11,35]
 //AFEV flagID eventOffset activationFlag
 //AREA flagID eventOffset [corner1x, corner1y] [corner2x, corner2y]
 AFEV 0 Restore_Options 0
@@ -82,6 +84,9 @@ EscapeTileEntry(12,39)
 EscapeTileEntry(13,39) 
 EscapeTileTerminator ; } 
 #endif 
+
+
+
 
 ToPallet:
 ChapterTransition(PalletCh, 12, 1)
@@ -106,7 +111,7 @@ PauseFreeMovement
 STAL 5
 CAM1 [13,23]
 CUMO [13,23]
-STAL 30
+STAL_SKIP_FAST 30
 CURE  
 TutText(TrainerTip_Quicksave)
 SVAL s1 ((ChapterID*2)+(HelpMsgFlagOffset<<3)) 
@@ -130,7 +135,7 @@ PauseFreeMovement
 STAL 5
 CAM1 [20,8]
 CUMO [20,8]
-STAL 30
+STAL_SKIP_FAST 30
 CURE  
 TutText(TrainerTip_Berries) 
 SVAL s1 ((ChapterID*2+1)+(HelpMsgFlagOffset<<3)) 
@@ -138,6 +143,68 @@ ASMC SetNewFlag_ASMC
 LABEL 99 
 NoFade 
 ENDA 
+
+BushTut: 
+CHECK_EVENTID DisableTutMsgsFlag
+BNE 99 sC s0
+EVBIT_MODIFY 4
+PauseFreeMovement
+CHECK_EXISTS 0xF1 
+BEQ 0 sC s0 
+STAL 5
+CAM1 [13,26]
+CUMO [13,26]
+STAL_SKIP_FAST 40
+CURE  
+
+LABEL 0 
+TutText(TrainerTip_Bushes) 
+CHECK_EXISTS 0xF1 
+BEQ 1 sC s0 
+CUMO [13,26]
+STAL_SKIP_FAST 40
+CURE  
+UseVulnerary(0xF1, 4)
+
+LABEL 1
+LABEL 99 
+NoFade 
+ENDA 
+
+
+ChangeE0_AiEvent:
+PlayerInRange 
+CHECK_EVENTID DisableTutFlag_D 
+BNE 99 sC s0 
+ASMC SetNearbyDR|1
+ASMC AreUnitsInDangerFogASMC 
+BEQ 0 sC s0 
+SVAL 1 TrainerPursueAI_chai 
+CHAI 0xE0 
+ENUT DisableTutFlag_D
+CHECK_EVENTID DisableTutMsgsFlag 
+BNE 99 sC s0 
+CHECK_CURSOR  
+SADD s9 sC s0 
+
+EVBIT_MODIFY 4
+PauseFreeMovement
+STAL 5
+CAM1 0xE0 
+CUMO 0xE0
+STAL_SKIP_FAST 45
+CURE  
+TutText(TrainerTip_Trainers) 
+SADD sB s9 s0 
+CAM1 (-1) // This is necessary so the camera & cursor doesn't stay on the enemy trainer 
+GOTO 99 
+
+LABEL 0 
+ENUF 0x16 
+LABEL 99 
+NoFade 
+ENDA 
+
 
 
 // Allocated 2 traps per chapter, in most cases 
@@ -227,14 +294,20 @@ ENUN
 RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(16,13,21,17)) //upper mid 
 LOAD1 0x1 EnemyUnitsC
 ENUN
+CHECK_EVENTID DisableTutFlag_C 
+BNE 57 sC s0 
+DISA 0xF1 
+LOAD1 0x1 EnemyUnitsMiddleBush
+ENUN
+LABEL 57 
 
 RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(12,24,17,28)) //lower mid 
-LOAD1 0x1 EnemyUnitsD
-ENUN
-RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(2,33,21,34))  //bottom bush - prev 37y 
-LOAD1 0x1 EnemyUnitsE
-ENUN
-RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(2,32,9,35))  //bottom w
+// LOAD1 0x1 EnemyUnitsD
+// ENUN
+// RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(2,33,21,34))  //bottom bush - prev 37y 
+// LOAD1 0x1 EnemyUnitsE
+// ENUN
+// RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(2,32,9,35))  //bottom w
 LOAD1 0x1 EnemyUnitsF
 ENUN
 RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(20,32,21,35))  //bottom e - prev 18x 
@@ -306,42 +379,8 @@ Capture Pokemon tutorial
 */
 
 
-#define AttackOption 1
-#define StaffOption 2
-#define WaitOption 4
-#define RescueOption 8
-#define DropOption 0x10 
-#define VisitOption 0x20 
-#define TalkOption 0x40 
-#define ItemOption 0x80 
-#define DiscardOption 0x100 
-#define TradeOption 0x200 
-#define SupplyOption 0x400 
-#define SupportOption 0x800 
-#define ArmoryOption 0x1000 
-#define OptionsOption 0x2000 
-#define EndOption 0x4000 
-#define UnkOption 0x8000 
 
-#define A_Key 1
-#define B_Key 2
-#define Select_Key 4
-#define Start_Key 8
-#define Right_Key 0x10 
-#define Left_Key 0x20 
-#define Up_Key 0x40 
-#define Down_Key 0x80 
-#define R_Key 0x100 
-#define L_Key 0x200 
 
-// DisableMenuOptionsRam bitflags 
-#define Attack_Off 1
-#define Capture_Off 2
-#define Guard_Off 4
-#define Call_Off 8
-#define Submenu_Off 0x10 
-#define Supply_Off 0x20 
-#define AoE_Off 0x1 // maybe 0x40 later  
 
 ALIGN 4
 MyTutorial1:
@@ -353,9 +392,9 @@ DISABLEOPTIONS EndOption
 SCOORD sB [17,32] // adjacent
 CAMERA_SB // show Mankey 
 CURSOR_FLASHING_SB
-STAL 15
-TutText_B(CatchPokemonTutorial_1)
-STAL 15
+STAL_SKIP_FAST 15
+TutText(CatchPokemonTutorial_1)
+STAL_SKIP_FAST 15
 CHECK_COORDS 0 // Party Leader  
 SADD sB sC s0 
 SET_CURSOR_SB
@@ -377,19 +416,23 @@ ENDA
 
 MyTutorial2:
 SetUnitStatus(GenericA+1, LuckStat, 10)
+CHECK_COORDS 0x7FFF 
+SADD sB sC s0 
+ASMC ModularSummon_CenterCameraASMC
 SHOW_MOVERANGE 0x7FFF
 // Wild Mankey at 13, 35
 SCOORD sB [14,35] // adjacent
 CURSOR_FLASHING_SB
 SCOORD sB [14,35] // adjacent
 CURSOR_FLASHING_SB
-STAL 25
+STAL 30
 DISABLEOPTIONS 0xFFFF // Disables all vanilla options, leaving only Guard and Capture. 
 IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
-Write_Byte(Attack_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+Write_Byte(Attack_Off|AoE_Off|Capture_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
 CURE
 CHECK_COORDS 0x7FFF 
 SADD sB sC s0 
+// CAMERA_SB
 ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
 EnqueneTutorialEvent_3_PreMove(MyTutorial3)
 SVAL 0xC 0x1
@@ -399,6 +442,7 @@ ENDA
 
 ALIGN 4
 MyTutorial3:	// Move to Target postion
+HIDE_MOVERANGE
 EVBIT_T 0x7
 SVAL 0xD 0x0 // empty queue 
 
@@ -414,15 +458,18 @@ GOTO 63
 
 LABEL 0x1	// if Not move to target
 SET_CURSOR_SB
+
 ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
-//CAMERA_SB
-CURSOR_FLASHING_SB
 SCOORD sB [14,35] // adjacent
 CURSOR_FLASHING_SB
-STAL_SKIP_FAST 8
-TutText_B(CatchPokemonTutorial_2)
-// TutText_B 
+STAL 30
+TutText_B(CatchPokemonTutorial_2) 
 CURE
+ASMC 0x8032EB5 //UpdatePathArrowWithCursor
+ASMC CallPathArrowDisp_Init
+// ASMC 0x801CC1D // PlayerPhase_InitUnitMovementSelect
+// ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
+SHOW_MOVERANGE 0x7FFF
 EnqueneTutorialEvent_3_PreMove(MyTutorial3) // Repeat if failed to move as told 
 SVAL 0xC 0x0
 LABEL 63
@@ -450,7 +497,8 @@ ENDA
 MyTutorial6:
 SetUnitStatus(GenericA+1, CurrentHP, 3)
 SetUnitStatus(GenericA+1, LuckStat, 2)
-TutText_B(CatchPokemonTutorial_5)
+CleanTutText_B(CatchPokemonTutorial_5)
+ASMC SilenceEventEngineExecType
 CHECK_COORDS 0 // Party Leader  
 SADD sB sC s0 
 SET_CURSOR_SB
@@ -464,13 +512,13 @@ SHOW_MOVERANGE 0x7FFF
 CURSOR_FLASHING [14,35] // adjacent
 CURSOR_FLASHING [16,35] // adjacent
 CURSOR_FLASHING [15,34] // adjacent
-STAL 20
+STAL 30
 // Wild Mankey at 13, 35
-//STAL 15
+//STAL_SKIP_FAST 15
 DISABLEOPTIONS 0xFFFF // Disables all vanilla options, leaving only Guard and Capture. 
 IGNORE_KEYS B_Key|Start_Key|R_Key|L_Key
 
-Write_Byte(Attack_Off|Guard_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
+Write_Byte(Attack_Off|AoE_Off|Guard_Off|Call_Off|Submenu_Off|Supply_Off, DisableMenuOptionsRam) 
 //WORD 0x30B41 MyTutorial2 | 0x8000000	// 0x3 = Pre Move
 EnqueneTutorialEvent_3_PreMove(MyTutorial8)
 SVAL 0xC 0x1
@@ -478,6 +526,7 @@ NoFade
 ENDA
 
 MyTutorial8:
+HIDE_MOVERANGE
 SVAL 0xD 0x0 // empty queue 
 CHECK_CURSOR
 SCOORD sB [14,35] // adjacent
@@ -500,14 +549,13 @@ SET_CURSOR_SB
 ASMC ModularSummon_CenterCameraASMC // this one centers the camera 
 //CAMERA_SB
 CURSOR_FLASHING_SB
-SCOORD sB [16,35] // adjacent
-CURSOR_FLASHING_SB
-SCOORD sB [14,35] // adjacent
-CURSOR_FLASHING_SB
-STAL_SKIP_FAST 8
+STAL 30
 TutText_B(CatchPokemonTutorial_2)
 // TutText_B 
 CURE
+ASMC 0x8032EB5 //UpdatePathArrowWithCursor
+ASMC CallPathArrowDisp_Init //PlayerPhase_InitUnitMovementSelect
+SHOW_MOVERANGE 0x7FFF
 EnqueneTutorialEvent_3_PreMove(MyTutorial8) // Repeat if failed to move as told 
 SVAL 0xC 0x0
 LABEL 63
@@ -608,9 +656,13 @@ UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [0,4] 001b	0x0 0x01 REDA0R4 [0x0,0
 UNIT 0xF1 BushID 0x0 Level(0, Enemy, 1)   [4,4] 0b	0x0 0x01 REDA4R4 [0x0,0x0,0x0,0x0] BushAI
 UNIT 
 
-EnemyUnitsD:
-UNIT 0xF2 BushID 0x0 Level(0, Enemy, 1)   [4,4] 0b	0x0 0x01 REDA4R4 [0x0,0x0,0x0,0x0] BushAI 
-UNIT
+EnemyUnitsMiddleBush:
+UNIT 0xF1 BushID 0x0 Level(0, Enemy, 1)   [26,13] 0b	0x0 0x01 REDA13R26 [0x0,0x0,0x0,0x0] BushAI
+UNIT 
+
+// EnemyUnitsD:
+// UNIT 0xF2 BushID 0x0 Level(0, Enemy, 1)   [4,4] 0b	0x0 0x01 REDA4R4 [0x0,0x0,0x0,0x0] BushAI 
+// UNIT
 
 EnemyUnitsE:
 UNIT GenericA ClassA 0x0 Level(0, Enemy, 1)   [1,0] 001b	0x0 0x01 REDA1R0 [0x0,0x0,0x0,0x0] AttackInRangeAI
@@ -652,7 +704,8 @@ TDQ_TableTerminator ; }
 
 
 HumanTrainers:
-UNIT 0xE0 boyID 0x0 Level(0, Enemy, 1) [7,27]  0b 0x0	0x1 REDA7R27 [FiveRangeWep,0x0,0x0,0x0] TrainerBossAI
+// UNIT 0xE0 boyID 0x0 Level(0, Enemy, 1) [7,27]  0b 0x0	0x1 REDA7R27 [FiveRangeWep,0x0,0x0,0x0] TrainerBossAI
+UNIT 0xE0 boyID 0x0 Level(0, Enemy, 1) [7,27]  0b 0x0	0x1 REDA7R27 [Tackle,0x0,0x0,0x0] TrainerAI //TrainerPursueAI
 UNIT 0xE1 bug_catcherID 0x0 Level(0, Enemy, 1) [12,17]  0b 0x0	0x1 REDA12R17 [OneRangeWep,0x0,0x0,0x0] TrainerAI
 UNIT 
 

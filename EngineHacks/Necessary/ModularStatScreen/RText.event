@@ -154,9 +154,9 @@ ST_Exp:
   RMenu(ST_Class,ST_HP,ST_Level,ST_Skill1,0x26,0x78,0x543)
 ST_HP:
   RMenu(ST_Level,ST_Class,ST_Skill6,ST_Skill5,0x6,0x88,0x544)
+ST_Skill1:
+  RMenu(ST_Skills,ST_Skill5,ST_HP,ST_Skill2,0x76,0x78,0,RTextLoop,SkillDescGetter)
 
-ST_Str:
-  RMenu(PersonalDataRText,ST_Mag,ST_Class,ST_Mov,0x66,0x18,0x546)
 ST_Mag:
   RMenu(ST_Str,ST_Def,ST_Class,ST_Spd,0x66,0x28,0x547)
 ST_Skl:
@@ -195,8 +195,8 @@ ST_Talk:
   RMenu(0,0,0,0,0xA6,0x58,SS_TalkRText)
 ST_Skills:
   RMenu(ST_Con,ST_Skill1,ST_Exp,ST_Level,0x96,0x68,SS_SkillsRText)
-ST_Skill1:
-  RMenu(ST_Skills,ST_Skill5,ST_HP,ST_Skill2,0x76,0x78,0,RTextLoop,SkillDescGetter)
+ST_Str:
+  RMenu(PersonalDataRText,ST_Mag,ST_Class,ST_Mov,0x66,0x18,0x546)
 ST_Skill2:
   RMenu(ST_Skills,ST_Skill5,ST_Skill1,ST_Skill3,0x8E,0x78,1,RTextLoop,SkillDescGetter+4)
 ST_Skill3:

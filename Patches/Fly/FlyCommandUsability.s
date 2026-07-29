@@ -24,6 +24,8 @@ push {lr}
 ldr r3, =IndoorMapsList
 ldr r1, =0x0202BCF0 @ gChapterData
 ldrb r1, [r1, #0x0E] @ chapter ID 
+cmp r1, #0 
+beq Indoors 
 sub r3, #1 
 IndoorMapLoop:
 add r3, #1 

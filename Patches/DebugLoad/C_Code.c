@@ -14,7 +14,8 @@ extern int DefaultUnitID_Link;
 enum
 {
     DEBUG_STUFF_CHAPTER_COUNT = 128,
-    DEBUG_PREP_LIST_COUNT = 150
+    DEBUG_PREP_LIST_COUNT = 150,
+    DEBUG_MAX_LOADED_UNITS = 40
 };
 
 struct DebugStuffStruct
@@ -53,6 +54,39 @@ static int DebugConvoyHasItem(int item)
     }
 
     return 0;
+}
+
+static void ClearConvoyItem(int item)
+{
+    int i;
+    int write = 0;
+    int kept;
+    int count = GetConvoyItemCount();
+    u16 * data = GetConvoyItemArray();
+
+    for (i = 0; i < count; i++)
+    {
+        if (!DebugIsSameItem(data[i], item))
+            data[write++] = data[i];
+    }
+
+    kept = write;
+
+    while (write < count)
+        data[write++] = 0;
+
+    gConvoyItemCount = kept;
+}
+extern u16 ItemListToDelete[];
+static void DebugClearExtraConvoyItems(void)
+{
+    u16 * data = ItemListToDelete;
+    int tmp;
+    while ((tmp = *data) != 0)
+    {
+        ClearConvoyItem(tmp);
+        data++;
+    }
 }
 
 static void DebugAddItemsToConvoy(const u16 * itemList)
@@ -126,8 +160,10 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
     gEventSlots[1] = DefaultUnitID_Link; // unit ID
     gEventSlots[3] = 1;                  // visible levels
     int level = debugStuff->level;
-    int i = 0;
-    for (; i < 0x40; ++i)
+    int loadedCount = 0;
+    int i;
+
+    for (i = 0; i < 0x40; ++i)
     {
         unit = GetUnit(i);
         if (UNIT_IS_VALID(unit))
@@ -136,29 +172,46 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
             {
                 ClearUnit(unit);
             }
+            else
+            {
+                loadedCount++;
+            }
         }
     }
-    i = 0;
 
-    while (*classList)
+    while (*classList && (loadedCount < DEBUG_MAX_LOADED_UNITS))
     {
         int isCaught;
+        int uid;
 
         classID = *classList++;
         isCaught = CheckIfCaught(classID);
+        uid = FindFreeSlot();
 
-        if (i > 40)
-        {
-            return;
-        }
+        struct UnitDefinition uDef = { 0 };
 
-        // if (!isCaught || !DebugPrepListHasClass(classID))
-        // {
-        unit = LoadUnit(DefaultUnit);
-        int uid = FindFreeSlot();
+        uDef.charIndex = uid;
+        uDef.classIndex = classID;
+        uDef.leaderCharIndex = 0;
+        uDef.autolevel = false;
+
+        uDef.allegiance = 2;
+
+        uDef.level = 0;
+
+        uDef.xPosition = 0;
+        uDef.yPosition = 0;
+
+        uDef.redaCount = 0;
+        uDef.redas = NULL;
+
+        uDef.genMonster = FALSE;
+        uDef.itemDrop = FALSE;
+        unit = LoadUnit(&uDef);
+
         if (unit && uid != 0xFF)
         {
-            i++;
+            loadedCount++;
 
             unit->pClassData = &classTablePoin[classID];
             unit->pCharacterData = GetCharacterData(uid);
@@ -170,7 +223,7 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
             unit->items[2] = 0;
             unit->items[3] = 0;
 
-            if (i < 16)
+            if (loadedCount < 16)
             {
                 DebugPlaceUnitNearActiveUnit(unit);
             }
@@ -178,7 +231,13 @@ static void DebugLoadClasses(const struct DebugStuffStruct * debugStuff)
             {
                 unit->state |= US_NOT_DEPLOYED | US_HIDDEN;
             }
+
             UnitChangeFaction(unit, FACTION_BLUE);
+        }
+        else if (unit)
+        {
+            ClearUnit(unit);
+            break;
         }
         // }
     }
@@ -199,6 +258,7 @@ void DebugLoadUnits(void)
         return;
 
     SetPartyGoldAmount(debugStuff->gold);
+    DebugClearExtraConvoyItems();
     DebugAddItemsToConvoy(debugStuff->itemList);
     DebugClearFlags(DebugRemoveFlagsList);
     DebugSetFlags(debugStuff->flagList);

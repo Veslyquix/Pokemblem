@@ -79,11 +79,15 @@ POIN GetUnitsInRange
 
 ALIGN 4
 Galeforce:
-#incbin "Galeforce/galeforce.dmp"
+// #incbin "Galeforce/galeforce.dmp"
+#include "Galeforce/galeforce.lyn.event" 
 POIN SkillTester
 WORD GaleforceID
 POIN GaleforceEvent
 #include "Galeforce/GaleforceEvent.event"
+ALIGN 4 
+GaleforceAccessory_Link:
+WORD SkillAccWordEquipped(GaleforceID)
 
 ALIGN 4
 Canto:

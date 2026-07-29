@@ -8,8 +8,13 @@ ALIGN 4
 DefaultUnitID_Link: 
 WORD 0x50
 BerserkGeneLink:
-// WORD SkillAcc(FuryID)
-WORD 0xA6FC // Berserk Gene 
+WORD SkillAccWord(FuryID)
+// WORD 0xA6FC // Berserk Gene 
+
+
+ItemListToDelete:
+SHORT 0xA6FC 0x6C 
+SHORT 0 
 
 // level, gold, items, classes, flags to set
 ALIGN 4 

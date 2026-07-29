@@ -10,7 +10,7 @@ $RECYCLE.BIN/
 
 # Windows Installer files
 # *.exe
-
+*.7z
 *.gba.7z
 *.ups
 *.sym

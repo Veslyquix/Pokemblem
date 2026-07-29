@@ -164,6 +164,7 @@ inline s8 FMU_CanUnitCrossTerrain(struct Unit * unit, int terrain)
 
 extern int SurfingClass_Link;
 extern int SurfingClass2_Link;
+extern int SurfID_Link;
 // previously had a hook: PrepScreenShowPokeballSprites
 extern u8 PokecenterChLabel;
 extern u8 RedPokeballSMS_Link;
@@ -197,25 +198,12 @@ extern void SetMuSpecialSprite(struct MuProc * proc, int jid, const u16 * pal);
 extern void FMU_SetMuSpecialSprite(struct MuProc * proc, Unit * unit, const u16 * pal);
 extern int GetUnitSpritePalette(Unit * unit);
 extern void RefreshUnitSprites(void);
+extern int GetAvatarClassId(struct Unit * unit, int onWater);
 void AdjustSpriteForWater(Unit * unit, struct FMUProc * proc, int ontoWater)
 {
     // int savedClass = proc->savedClass;
-    if (ontoWater)
-    {
-        proc->savedClass = unit->pClassData->number;
-        if (CheckFlag(GirlProtagFlag_Link))
-        {
-            unit->pClassData = GetClassData(SurfingClass2_Link);
-        }
-        else
-        {
-            unit->pClassData = GetClassData(SurfingClass_Link);
-        }
-    }
-    else
-    {
-        unit->pClassData = GetClassData(proc->savedClass);
-    }
+    proc->savedClass = unit->pClassData->number;
+    unit->pClassData = GetClassData(GetAvatarClassId(unit, ontoWater));
     // RefreshUnitSprites();
     struct MuProc * muProc = GetUnitMu(unit);
     if (muProc)
@@ -293,7 +281,7 @@ void EnableFreeMovementASMC(void)
     FreeMoveRam->use_dir = true;
     return;
 }
-
+extern void SetActiveAvatarClass(void);
 void DisableFreeMovementASMC(void)
 {
     EndAllMenus();
@@ -355,7 +343,8 @@ void End6CInternal_FreeMU()
     FreeMoveRam->use_dir = false;
     if (proc)
     {
-        AdjustSpriteForWater(proc->FMUnit, proc, false); // ensure they aren't surfing now
+        SetActiveAvatarClass();
+        // AdjustSpriteForWater(proc->FMUnit, proc, false); // ensure they aren't surfing now
         // EndAllMenus();
         ProcGoto((Proc *)proc, 0xF);
         BreakEachProcLoop(FMU_IdleProc);

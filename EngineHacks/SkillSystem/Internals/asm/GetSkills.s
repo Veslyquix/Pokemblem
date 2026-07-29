@@ -43,6 +43,14 @@ make_buffer:
 	mov r4, r0            @ var r4 = unit
 	ldr r5, =SkillsBuffer @ var r5 = it
 
+    mov r0, r4 @ unit 
+    bl GetPlusModeRandomSkill
+    cmp r0, #0 
+    beq no_plus_mode_skill 
+    strb r0, [r5] 
+    add r5, #1 
+    
+    no_plus_mode_skill: 
 	@ personal skill first, if any
 
 	ldr  r6, [r4]

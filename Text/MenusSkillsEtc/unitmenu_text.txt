@@ -1,4 +1,9 @@
 
+## UM_ProvokeName
+ Taunt[X]
+## UM_ProvokeDesc
+Aggro nearby enemies.[X]
+
 ## GiveUpOnMoveText
 Give up on move?[X]
 

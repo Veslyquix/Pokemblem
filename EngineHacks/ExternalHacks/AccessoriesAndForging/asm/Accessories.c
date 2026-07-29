@@ -148,7 +148,7 @@ int EquippedAccessoryGetter(struct Unit *unit) {
     if (isItemAnAccessory) {
       if (ITEM_EQUIPPED(unit->items[i]))
         return ITEM_INDEX(unit->items[i]); // & isItemAnAccessory
-    }
+    } // why does this return just the item index and not durability?
   }
   return 0; // if no equipped item return nothing
 }
@@ -180,6 +180,20 @@ int EquippedAccessoryDurabilityGetter(struct Unit *unit) {
     }
   }
   return 0; // if no equipped item return nothing
+}
+
+int EquippedAccessoryGetItemAndDurability(struct Unit *unit) {
+  if (!unit) {
+    return 0;
+  }
+  for (int i = 0; i < 5; i++) {
+    int isItemAnAccessory = GetItemAttributes(unit->items[i]) & IA_ACCESSORY;
+    if (isItemAnAccessory) {
+      if (ITEM_EQUIPPED(unit->items[i]))
+        return unit->items[i];
+    }
+  }
+  return 0;
 }
 
 inline int Accessory_GetItemMight(int item) {

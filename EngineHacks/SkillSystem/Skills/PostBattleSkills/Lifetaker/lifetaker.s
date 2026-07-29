@@ -56,7 +56,7 @@ beq	End
 
 @this used to just add curHP to curHP and set that as new curHP
 @make r0 = 1/4 maxHP
-lsr r0,r1,#2 @maxHP/4
+lsr r0,r1,#1 @maxHP/2
 
 add	r2, r0		@total healing
 cmp	r2, r1		@is the new hp higher than max?

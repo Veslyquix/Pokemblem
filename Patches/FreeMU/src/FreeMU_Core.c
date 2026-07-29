@@ -83,7 +83,7 @@ void pFMU_InputLoop(struct Proc * inputProc)
     } */
     // u16 iKeyOld = proc->lastInput;
 }
-
+extern void ReloadGameCoreGraphics(void);
 int IsFMUPaused(void)
 {
     return FreeMoveRam->pause;
@@ -194,7 +194,7 @@ void pFMU_MainLoop(struct FMUProc * proc)
 
         // StartFadeOutBlackMedium();
         // RenderBmMap();
-        extern void ReloadGameCoreGraphics(void);
+
         ReloadGameCoreGraphics();
         gLCDIOBuffer.dispControl.enableBg0 = true;
         gLCDIOBuffer.dispControl.enableBg1 = true;
@@ -526,7 +526,7 @@ void UpdateDestCoord(struct FMUProc * proc, int x, int y)
     proc->xTo = x;
     proc->yTo = y;
 }
-
+extern int WalkSlowlyFlag_Link;
 void FMU_InitVariables(struct FMUProc * proc)
 {
     pFMU_OnInit(proc);
@@ -567,7 +567,14 @@ void FMU_InitVariables(struct FMUProc * proc)
 
     if (FreeMoveRam->running)
     {
-        proc->moveSpeed = FreeMU_MovingSpeed.speedB;
+        if (CheckEventId(WalkSlowlyFlag_Link))
+        {
+            proc->moveSpeed = FreeMU_MovingSpeed.speedC;
+        }
+        else
+        {
+            proc->moveSpeed = FreeMU_MovingSpeed.speedB;
+        }
     }
     else
     {
@@ -592,7 +599,14 @@ void FMU_OnButton_ToggleSpeed(struct FMUProc * proc)
     if (FreeMoveRam->running == false)
     {
         FreeMoveRam->running = true; //
-        proc->moveSpeed = FreeMU_MovingSpeed.speedB;
+        if (CheckEventId(WalkSlowlyFlag_Link))
+        {
+            proc->moveSpeed = FreeMU_MovingSpeed.speedC;
+        }
+        else
+        {
+            proc->moveSpeed = FreeMU_MovingSpeed.speedB;
+        }
     }
     else
     {
@@ -1374,6 +1388,10 @@ void MU_OnEnd(struct MuProc * proc)
     AP_Delete(proc->sprite_anim);
     struct Unit * unit = proc->unit;
     if (!UNIT_IS_VALID(unit))
+    {
+        return;
+    }
+    if (UNIT_FACTION(unit) != FACTION_RED)
     {
         return;
     }

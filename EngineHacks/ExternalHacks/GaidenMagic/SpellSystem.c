@@ -238,8 +238,13 @@ int NewGetUnitEquippedWeapon(Unit *unit) // Autohook to 0x08016B28.
 extern int AI_UseWexpAsWeps;
 int NewGetUnitEquippedWeaponSlot(Unit *unit) // Autohook to 0x08016B58.
 {
+  int spell = GetFirstAttackSpell(unit);
+
   if (AI_UseWexpAsWeps) {
-    return 9;
+    if (CanUnitUseWeapon(unit, spell)) {
+      return 9;
+    }
+    return (-1);
   }
   // Vanilla behaviour
 
@@ -252,7 +257,6 @@ int NewGetUnitEquippedWeaponSlot(Unit *unit) // Autohook to 0x08016B58.
           return -1;
   */
 
-  int spell = GetFirstAttackSpell(unit);
   // enemy ai
   // this: (gBattleStats.config & (BATTLE_CONFIG_REAL|BATTLE_CONFIG_SIMULATE))
   // means not stat screen
@@ -601,14 +605,8 @@ int GetSpellCost(int spell) {
 
 int GetFirstAttackSpell(Unit *unit) {
   u8 *spells = SpellsGetter(unit, -1);
-  int spell = 0;
-  for (int i = 0; spells[i]; i++) {
-    if (GetItemType(spells[i]) != ITYPE_STAFF) {
-      spell = spells[i];
-      break;
-    } // Ensure that the spell we could counter with would be an attack spell.
-  }
-  return spell;
+  // int spell = spells[0];
+  return spells[0];
 }
 
 void Target_Routine_For_Fortify(BattleUnit *unit) {
