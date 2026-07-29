@@ -62,23 +62,20 @@ extern u16 SmsObjVramUpperChr;
 // }
 // sub_809A114 809872A 809a174
 #define MapBlankTile 0x400 // 0x400 // vanilla
-#define BlankTileX 31      // start at 0
-#define BlankTileY 31
-#define BlankTileOffset (((BlankTileY * 32) + BlankTileX) * 4)
-// bottom right tile of the tileset is now the blank tile instead of the top left (jeez this was annoying to do)
 extern u16 sTilesetConfig[0x1000 + 0x200];
 void sub_801A278(void)
 {
     // const u16 * tile = sTilesetConfig;
-    const u16 * tile = &sTilesetConfig[BlankTileOffset];
+    // const u16 * tile = &sTilesetConfig[BlankTileOffset];
     // TODO: game state bits constants
     if (!sub_800D208() || (gBmSt.gameStateBits & 0x10))
     {
         // TODO: macros?
-        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
-        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
-        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
-        RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        RegisterBlankTile(MapBlankTile);
+        // RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF)); // no need, as 0x400 is blank
+        // RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        // RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
+        // RegisterBlankTile(MapBlankTile + (*tile++ & 0x3FF));
     }
 
     // TODO: macro?
@@ -121,8 +118,10 @@ void InitBaseTilesBmMap(void)
 
     tiles = gBmMapBaseTiles[iy - 1];
 
+    // brk;
     for (ix = 0; ix < gBmMapSize.x; ++ix)
-        *tiles++ = BlankTileOffset;
+        *tiles++ = 0xFFFF; // idk, but this works
+    // *tiles++ = 0;
 
     gBmMapSize.y--; // ?
 }
