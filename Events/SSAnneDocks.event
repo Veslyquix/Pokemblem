@@ -41,7 +41,7 @@ END_MAIN
 
 
 LocationBasedEvents:
-House(0,ToSSAnne,21,15) //
+House(SSAnneInFuschiaFlag,ToSSAnne,21,15) //
 //Vendor(ShopItems,27,11)
 END_MAIN
 
@@ -67,6 +67,7 @@ NoFade
 ENDA 
 
 ToSSAnne:
+ENUF SSAnneInFuschiaFlag
 DigChapterTransition(ChapterID, SSAnneCh, 19,3)
 
 
@@ -157,6 +158,11 @@ CALL GlobalBeginningScene
 CALL LoadAndPlacePlayers 
 
 CALL CityBeginningScene 
+
+CHECK_EVENTID SSAnneInFuschiaFlag // if this is on, hide the ship 
+BEQ 5 sC s0 
+TILECHANGE 0 
+LABEL 5 
 
 CHECK_EVENTID MewFledFlag 
 BEQ 99 sC s0 

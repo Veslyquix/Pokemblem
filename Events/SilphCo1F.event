@@ -153,8 +153,11 @@ CheckTrainerFlag(0xEF) // based on unit IDs 0xE0-0xEF per chapter
 BNE 10 rC r0 
 LOAD1 0x1 GaryBattleUnitGroup 
 ENUN 
+GOTO 11 
 LABEL 10 
+ENUT NoPkmnTowerGary
 
+LABEL 11 
 AutoLevelUnits(TrainerL, True, 0xE0EF) // Trainers given visible levels 
 LABEL 0x63
 NoFade

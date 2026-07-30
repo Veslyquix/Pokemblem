@@ -438,6 +438,8 @@ CAM1 [12,8]
 EVBIT_MODIFY 4 
 // MUSCFAST ObtainBadge 
 MUSCFAST 0x7FFF 
+ENUT ChampionDefeatedTemp
+ENUT CompletedPokemonLeague
 Text(GaryDefeatText)
 TILECHANGE 0
 SVAL r3 25000 
@@ -445,8 +447,7 @@ GIVETOMAIN 0
 MarkTrainerAsDefeated(0xE1)
 AddTrapExt(SaveCostID, 12, 6, 0, SavePointSMS, 2)
 ENUT 0xA // prevent repeated ending scenes (but we just cutscene the rest so redundant) 
-ENUT ChampionDefeatedTemp
-ENUT CompletedPokemonLeague
+
 MUSCFAST OaksThemeBGM 
 Text(OakLeagueText)
 Text(OakLeagueText2)

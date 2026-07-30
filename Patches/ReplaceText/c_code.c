@@ -36,7 +36,7 @@ struct ProtagPortraitConditional
     const int * portraitId;
 };
 
-extern int PikachuMug_Link;
+extern int JanineMug_Link;
 extern int FujiMug_Link;
 extern int JoyMug_Link;
 extern int JennyMug_Link;
@@ -64,15 +64,15 @@ extern int VeslyMug_Link;
 extern int CheaterMug_Link;
 
 static const struct ProtagPortraitConditional ProtagPortraitConditionals[] = {
-    { "Pikachu", &PikachuMug_Link }, { "Fuji", &FujiMug_Link },         { "Joy", &JoyMug_Link },
-    { "Jenny", &JennyMug_Link },     { "Warden", &WardenMug_Link },     { "Ash", &AshMug_Link },
-    { "Gary", &GaryMug_Link },       { "Leaf", &LeafMug_Link },         { "Oak", &OakMug_Link },
-    { "Bill", &BillMug_Link },       { "James", &JamesMug_Link },       { "Jessie", &JessieMug_Link },
-    { "Brock", &BrockMug_Link },     { "Misty", &MistyMug_Link },       { "LtSurge", &LtSurgeMug_Link },
-    { "Erika", &ErikaMug_Link },     { "Koga", &KogaMug_Link },         { "Sabrina", &SabrinaMug_Link },
-    { "Blaine", &BlaineMug_Link },   { "Giovanni", &GiovanniMug_Link }, { "Lorelei", &LoreleiMug_Link },
-    { "Bruno", &BrunoMug_Link },     { "Agatha", &AgathaMug_Link },     { "Lance", &LanceMug_Link },
-    { "Vesly", &VeslyMug_Link },     { "Cheater", &CheaterMug_Link },   { 0, 0 },
+    { "LittleCup", &JanineMug_Link }, { "Fuji", &FujiMug_Link },         { "Joy", &JoyMug_Link },
+    { "Jenny", &JennyMug_Link },      { "Warden", &WardenMug_Link },     { "Ash", &AshMug_Link },
+    { "Gary", &GaryMug_Link },        { "Leaf", &LeafMug_Link },         { "Oak", &OakMug_Link },
+    { "Bill", &BillMug_Link },        { "James", &JamesMug_Link },       { "Jessie", &JessieMug_Link },
+    { "Brock", &BrockMug_Link },      { "Misty", &MistyMug_Link },       { "LtSurge", &LtSurgeMug_Link },
+    { "Erika", &ErikaMug_Link },      { "Koga", &KogaMug_Link },         { "Sabrina", &SabrinaMug_Link },
+    { "Blaine", &BlaineMug_Link },    { "Giovanni", &GiovanniMug_Link }, { "Lorelei", &LoreleiMug_Link },
+    { "Bruno", &BrunoMug_Link },      { "Agatha", &AgathaMug_Link },     { "Lance", &LanceMug_Link },
+    { "Vesly", &VeslyMug_Link },      { "Cheater", &CheaterMug_Link },   { 0, 0 },
 };
 
 /*

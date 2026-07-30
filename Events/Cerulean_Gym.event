@@ -165,6 +165,7 @@ EVBIT_MODIFY 4
 SOUN ObtainBadge 
 // STAL_FAST 90 //290 is full 
 EVBIT_MODIFY 4 
+ENUT CascadebadgeObtained 
 TEXTSTART 
 TEXTSHOW MistyDefeatText
 TEXTEND 
@@ -174,7 +175,7 @@ TEXTEND
 REMA 
 GiveItemWithDurability_Rand(0, SpellScroll, BubbleBeam)
 GiveSkillAccessory_Rand(0, EvioliteID)
-ENUT CascadebadgeObtained 
+
 ENUT CeruleanGymClosedFlag
 SVAL r3 4500 
 GIVETOMAIN 0 
@@ -200,9 +201,10 @@ UNCR(0x7FFF, 0x43) // Show SMS & Refresh
 ASMC 0x80790a5 //MU_EndAll //deselect unit
 MUSCSLOW GymBGM
 EVBIT_MODIFY 4 
+ENUT CeruleanGymRematchedFlag 
 Text(MistyRematchDefeatText)
 GiveItemWithDurability_Rand(0, SpellScroll, HydroPump)
-ENUT CeruleanGymRematchedFlag 
+
 SVAL r3 5000 
 GIVETOMAIN 0 
 //GiveSkillAccessory(0, RenewalID)

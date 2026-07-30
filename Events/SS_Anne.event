@@ -40,7 +40,8 @@ END_MAIN
 CharacterBasedEvents:
 CharacterEventBothWays(0,GlobalTalkEvent, 0xFF, Ephraim)
 CHAR ObtainedCutFlag CaptainHMevent [0x0, 0xE1] 0 // Captain 
-TrainerPostBattleTalk(0xE1) // Captain talk again 
+CHAR 0 CaptainTravelevent [0x0, 0xE1] 0 // Captain 
+// TrainerPostBattleTalk(0xE1) // Captain talk again 
 TrainerPostBattleTalk(0xE2) 
 TrainerPostBattleTalk(0xE3) 
 TrainerPostBattleTalk(0xE4) 
@@ -58,10 +59,61 @@ BottomWallText(CaptainTeachHMText)
 STAL 15 
 EVBIT_MODIFY 4 
 TutText(LearnedCutText)
+BottomWallText(SSA_0xE1_BD)
 
 LABEL 99 
 NoFade
 ENDA 
+
+CaptainTravelevent:
+CHECK_EVENTID GaveCaptainsGlasses 
+BNE 0 sC s0 
+BottomWallText(CaptainLostGlassesText)
+CHECK_EVENTID ObtainedCaptainsGlasses
+BEQ 99 sC s0 
+BottomWallText(GaveCaptainGlassesText)
+ENUT GaveCaptainsGlasses
+
+LABEL 0 
+EVBIT_MODIFY 4 
+SVAL s7 1 
+CHECK_EVENTID SSAnneInFuschiaFlag
+BNE 1 sC s0 
+BottomWallText(CaptainDepartForFuschiaText)
+BNE 99 sC s7 
+GOTO 2 
+
+LABEL 1 
+BottomWallText(CaptainDepartForVermilionText)
+BNE 99 sC s7 
+
+LABEL 2 
+CHECK_EVENTID SSAnneInFuschiaFlag 
+SADD sA sC s0 
+FADI 3 
+FADU 3
+BNE 3 sA s0 
+ENUT SSAnneInFuschiaFlag // In Vermilion, going to Fuschia 
+ENUF SSAnneInVermilionFlag 
+BottomWallText(CaptainArrivedFuschiaText)
+GOTO 4 
+
+LABEL 3 // In fuschia, going to vermilion 
+ENUF SSAnneInFuschiaFlag
+ENUT SSAnneInVermilionFlag 
+BottomWallText(CaptainArrivedVermilionText)
+LABEL 4 
+
+
+
+GOTO 99 
+
+
+LABEL 99 
+NoFade 
+ENDA 
+
+
 
 
 UpperBoat:
@@ -91,7 +143,13 @@ ToSSAnneDocks:
 ENUT SkipChTransitionFlag
 CHECK_EVENTID PlayableCutsceneFlag 
 BNE 20 rC r0 
+CHECK_EVENTID SSAnneInFuschiaFlag
+BNE 5 sC s0 
 ChapterTransition(SSAnneDocksCh, 21,14)
+GOTO 63 
+LABEL 5 
+ChapterTransition(Route19Ch, 12,34)
+GOTO 63 
 
 LABEL 20 // Cutscene prevents escape 
 CALL CannotEscapeTrainerBattleEvent

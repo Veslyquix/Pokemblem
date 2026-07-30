@@ -162,6 +162,7 @@ UNCR(0x7FFF, 0x43) // Show SMS & Refresh
 ASMC 0x80790a5 //MU_EndAll //deselect unit
 MUSCFAST 0x7FFF
 CAM1 [12,0] 
+ENUT AgathaDefeatedTemp
 Text(AgathaDefeatText)
 TILECHANGE 0
 SVAL r3 5000 
@@ -169,7 +170,7 @@ GIVETOMAIN 0
 MarkTrainerAsDefeated(0xE1)
 ReviveParty 
 AddTrapExt(SaveCostID, 11, 3, 0, SavePointSMS, 9) // GenericEffect(9) calls ReviveAndSaveEvent
-ENUT AgathaDefeatedTemp
+
 
 LABEL 99 
 NoFade

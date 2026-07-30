@@ -1,0 +1,20 @@
+
+after editing the .rascript file, you need to close and reopen ralibretro emulator, I think 
+
+after building pokemblem: 
+in RALibRetro: 
+Load Recent - Pokemblem 
+Select existing pokemblem 
+choose Test 
+Retroachievements->asset list 
+(core, not local) 
+select all, clone 
+select all, save 
+
+In RATools: 
+Recent->reload file 
+Edit->Update local 
+
+In RALibRetro -> assets list (local) 
+select an achievement, make it active 
+

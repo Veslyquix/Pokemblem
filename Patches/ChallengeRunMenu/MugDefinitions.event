@@ -36,9 +36,9 @@
 #define GunMug 189
 #define JamesMug 190
 #define JessieMug 191
+#define JanineMug 192 
 
 // Pokemon portraits used as challenge placeholders.
-#define PikachuMug 25
 #define MagikarpMug 129
 #define ArticunoMug 144
 #define ZapdosMug 145

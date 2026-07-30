@@ -71,7 +71,7 @@ MovementArrow(6,8, Up)
 MovementArrow(6,8, Up) 
 MovementArrow(11,5,Down) 
 MovementArrow(14,7,Down) 
-MovementArrow(14,1,Down) 
+MovementArrow(14,11,Down) 
 MovementArrow(9,9,Left) 
 MovementArrow(11,8,Left) 
 MovementArrow(11,10,Left) 
@@ -166,6 +166,9 @@ EVBIT_MODIFY 4
 SOUN ObtainBadge 
 // STAL_FAST 90 //290 is full 
 EVBIT_MODIFY 4 
+ENUT EarthbadgeObtained 
+ENUT ViridianGymClosedFlag
+ENUT StrengthBoulderFlag
 TEXTSTART 
 TEXTSHOW Giovanni_GymDefeatText
 TEXTEND 
@@ -174,9 +177,7 @@ TEXTCONT
 TEXTEND 
 REMA 
 GiveItemWithDurability_Rand(0, SpellScroll, Fissure)
-ENUT EarthbadgeObtained 
-ENUT ViridianGymClosedFlag
-ENUT StrengthBoulderFlag
+
 SVAL r3 10000 
 GIVETOMAIN 0 
 TEXTSHOW Giovanni_GymWaitText
