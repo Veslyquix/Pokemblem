@@ -247,10 +247,10 @@ RedSurfSMS
 GreenSurfSMS
 PoisonGasSMS
 SurfSMS
-Unused75SMS
-Unused76SMS
-Unused77SMS
-Unused78SMS
+JessieSMS
+JamesSMS
+JennySMS
+JoySMS
 Unused79SMS
 Unused80SMS
 
@@ -512,9 +512,9 @@ RedSurfMMS
 GreenSurfMMS
 PoisonGasMMS
 SurfMMS
-Unused75MMS
-Unused76MMS
-Unused77MMS
-Unused78MMS
+JessieMMS
+JamesMMS
+JennyMMS
+JoyMMS
 Unused79MMS
 Unused80MMS

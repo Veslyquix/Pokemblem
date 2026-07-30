@@ -260,8 +260,8 @@ ChaiEntry(0xE1)
 ChaiEntry(0) // Terminator 
 
 HumanTrainers:
-UNIT 0xE0 rocket_mID 0x0 Level(LVFACERIGHT, Enemy, 1) [8,7]  0b 0x0	0x1 REDA8R7 [FiveRangeWep,0x0,0x0,0x0] TrainerAI  
-UNIT 0xE1 rocket_fID 0x0 Level(LVFACELEFT, Enemy, 1) [12,7]  0b 0x0	0x1 REDA12R7 [FiveRangeWep,0x0,0x0,0x0] TrainerAI  
+UNIT 0xE0 JamesID 0x0 Level(LVFACERIGHT, Enemy, 1) [8,7]  0b 0x0	0x1 REDA8R7 [FiveRangeWep,0x0,0x0,0x0] TrainerAI  
+UNIT 0xE1 JessieID 0x0 Level(LVFACELEFT, Enemy, 1) [12,7]  0b 0x0	0x1 REDA12R7 [FiveRangeWep,0x0,0x0,0x0] TrainerAI  
 UNIT 
 
 MrFujiUnit:

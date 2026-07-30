@@ -381,8 +381,8 @@ BYTE blueID // Gary
 BYTE GreenID // Leaf
 BYTE prof_oakID // Oak
 BYTE billID // Bill
-BYTE rocket_mID // James
-BYTE rocket_fID // Jessie
+BYTE JamesID // James
+BYTE JessieID // Jessie
 BYTE BrockID
 BYTE MistyID
 BYTE LtSurgeID

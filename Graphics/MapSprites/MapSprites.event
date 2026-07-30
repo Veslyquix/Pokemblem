@@ -65,6 +65,10 @@ FMU_left_gfx_entry(SurfSMS, FMU_left_surf_Idles)
 FMU_left_gfx_entry(rockerSMS, FMU_left_rockerIdles) 
 FMU_left_gfx_entry(rocket_fSMS, FMU_left_rocket_fIdles) 
 FMU_left_gfx_entry(rocket_mSMS, FMU_left_rocket_mIdles) 
+FMU_left_gfx_entry(JessieSMS, FMU_left_jessieIdles)
+FMU_left_gfx_entry(JamesSMS, FMU_left_jamesIdles)
+FMU_left_gfx_entry(JennySMS, FMU_left_jennyIdles)
+FMU_left_gfx_entry(JoySMS, FMU_left_joyIdles)
 FMU_left_gfx_entry(SabrinaSMS, FMU_left_sabrinaIdles) 
 FMU_left_gfx_entry(sailorSMS, FMU_left_sailorIdles) 
 FMU_left_gfx_entry(scientistSMS, FMU_left_scientistIdles) 
@@ -118,7 +122,11 @@ FMU_right_gfx_entry(RedSurfSMS, FMU_right_surf_redIdles)
 FMU_right_gfx_entry(SurfSMS, FMU_right_surf_Idles) 
 FMU_right_gfx_entry(rockerSMS, FMU_right_rockerIdles) 
 FMU_right_gfx_entry(rocket_fSMS, FMU_right_rocket_fIdles) 
-FMU_right_gfx_entry(rocket_mSMS, FMU_right_rocket_mIdles) 
+FMU_right_gfx_entry(rocket_mSMS, FMU_right_rocket_mIdles)
+FMU_right_gfx_entry(JessieSMS, FMU_right_jessieIdles)
+FMU_right_gfx_entry(JamesSMS, FMU_right_jamesIdles)
+FMU_right_gfx_entry(JennySMS, FMU_right_jennyIdles)
+FMU_right_gfx_entry(JoySMS, FMU_right_joyIdles)
 FMU_right_gfx_entry(SabrinaSMS, FMU_right_sabrinaIdles) 
 FMU_right_gfx_entry(sailorSMS, FMU_right_sailorIdles) 
 FMU_right_gfx_entry(scientistSMS, FMU_right_scientistIdles) 
@@ -173,6 +181,10 @@ FMU_up_gfx_entry(SurfSMS, FMU_up_surf_Idles)
 FMU_up_gfx_entry(rockerSMS, FMU_up_rockerIdles) 
 FMU_up_gfx_entry(rocket_fSMS, FMU_up_rocket_fIdles) 
 FMU_up_gfx_entry(rocket_mSMS, FMU_up_rocket_mIdles) 
+FMU_up_gfx_entry(JessieSMS, FMU_up_jessieIdles)
+FMU_up_gfx_entry(JamesSMS, FMU_up_jamesIdles)
+FMU_up_gfx_entry(JennySMS, FMU_up_jennyIdles)
+FMU_up_gfx_entry(JoySMS, FMU_up_joyIdles)
 FMU_up_gfx_entry(SabrinaSMS, FMU_up_sabrinaIdles) 
 FMU_up_gfx_entry(sailorSMS, FMU_up_sailorIdles) 
 FMU_up_gfx_entry(scientistSMS, FMU_up_scientistIdles) 
@@ -275,6 +287,14 @@ ALIGN 4; FMU_left_rocket_fIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_rocket_f.dmp"
 ALIGN 4; FMU_left_rocket_mIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_rocket_m.dmp"
+ALIGN 4; FMU_left_jessieIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_left_jessie.dmp"
+ALIGN 4; FMU_left_jamesIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_left_james.dmp"
+ALIGN 4; FMU_left_jennyIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_left_jenny.dmp"
+ALIGN 4; FMU_left_joyIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_left_joy.dmp"
 ALIGN 4; FMU_left_sabrinaIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_left_sabrina.dmp"
 ALIGN 4; FMU_left_sailorIdles:
@@ -383,6 +403,14 @@ ALIGN 4; FMU_right_rocket_fIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_rocket_f.dmp"
 ALIGN 4; FMU_right_rocket_mIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_rocket_m.dmp"
+ALIGN 4; FMU_right_jessieIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_right_jessie.dmp"
+ALIGN 4; FMU_right_jamesIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_right_james.dmp"
+ALIGN 4; FMU_right_jennyIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_right_jenny.dmp"
+ALIGN 4; FMU_right_joyIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_right_joy.dmp"
 ALIGN 4; FMU_right_sabrinaIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_right_sabrina.dmp"
 ALIGN 4; FMU_right_sailorIdles:
@@ -491,6 +519,14 @@ ALIGN 4; FMU_up_rocket_fIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_rocket_f.dmp"
 ALIGN 4; FMU_up_rocket_mIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_rocket_m.dmp"
+ALIGN 4; FMU_up_jessieIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_up_jessie.dmp"
+ALIGN 4; FMU_up_jamesIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_up_james.dmp"
+ALIGN 4; FMU_up_jennyIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_up_jenny.dmp"
+ALIGN 4; FMU_up_joyIdles:
+#incbin "Trainer_SMS_Facing/SMS_facing_up_joy.dmp"
 ALIGN 4; FMU_up_sabrinaIdles:
 #incbin "Trainer_SMS_Facing/SMS_facing_up_sabrina.dmp"
 ALIGN 4; FMU_up_sailorIdles:
@@ -691,6 +727,10 @@ SetSMS(prof_oakSMS , 1 ,   prof_oakStanding)
 SetSMS(rockerSMS, 1 ,   rockerStanding)
 SetSMS(rocket_fSMS , 1 ,   rocket_fStanding)
 SetSMS(rocket_mSMS , 1 ,   rocket_mStanding)
+SetSMS(JessieSMS , 1 ,   jessieStanding)
+SetSMS(JamesSMS , 1 ,   jamesStanding)
+SetSMS(JennySMS , 1 ,   jennyStanding)
+SetSMS(JoySMS , 1 ,   joyStanding)
 SetSMS(sailorSMS, 1 ,   sailorStanding)
 SetSMS(scientistSMS , 1 ,   scientistStanding)
 SetSMS(super_nerdSMS , 1 ,   super_nerdStanding) 
@@ -827,10 +867,6 @@ SetSMS(MegaCharizardXSMS , 2 ,    MegaCharizardXStanding)
 SetSMS(HealingTileSMS , 0 ,    HealingTileStanding)
 SetSMS(MissingnoSMS , 2 ,    MissingnoStanding)
 SetSMS(PoisonGasSMS , 2 ,    PoisonGasStanding)
-SetSMS(Unused75SMS , 0 ,    m1Standing)
-SetSMS(Unused76SMS , 0 ,    m1Standing)
-SetSMS(Unused77SMS , 0 ,    m1Standing)
-SetSMS(Unused78SMS , 0 ,    m1Standing)
 SetSMS(Unused79SMS , 0 ,    m1Standing)
 SetSMS(Unused80SMS , 0 ,    m1Standing)
 
@@ -964,6 +1000,10 @@ SetMMS(prof_oakMMS ,    prof_oakMoving,        DemonKingAP)
 SetMMS(rockerMMS,    rockerMoving,        DemonKingAP)
 SetMMS(rocket_fMMS ,    rocket_fMoving,        DemonKingAP)
 SetMMS(rocket_mMMS ,    rocket_mMoving,        DemonKingAP)
+SetMMS(JessieMMS ,    jessieMoving,        DemonKingAP)
+SetMMS(JamesMMS ,    jamesMoving,        DemonKingAP)
+SetMMS(JennyMMS ,    jennyMoving,        DemonKingAP)
+SetMMS(JoyMMS ,    joyMoving,        DemonKingAP)
 SetMMS(sailorMMS,    sailorMoving,        DemonKingAP)
 SetMMS(scientistMMS ,    scientistMoving,        DemonKingAP)
 SetMMS(super_nerdMMS ,    super_nerdMoving,        DemonKingAP) 
@@ -1100,10 +1140,6 @@ SetMMS(MegaCharizardXMMS ,     MegaCharizardXMoving,        DemonKingAP)
 SetMMS(HealingTileMMS ,     HealingTileMoving,        DemonKingAP)
 SetMMS(MissingnoMMS ,     MissingnoMoving,        DemonKingAP)
 SetMMS(PoisonGasMMS ,     r1Moving,        DemonKingAP)
-SetMMS(Unused75MMS ,     r1Moving,        DemonKingAP)
-SetMMS(Unused76MMS ,     r1Moving,        DemonKingAP)
-SetMMS(Unused77MMS ,     r1Moving,        DemonKingAP)
-SetMMS(Unused78MMS ,     r1Moving,        DemonKingAP)
 SetMMS(Unused79MMS ,     r1Moving,        DemonKingAP)
 SetMMS(Unused80MMS ,     r1Moving,        DemonKingAP)
 
@@ -3049,6 +3085,18 @@ ALIGN 4
 rocket_mStanding:
 #incbin "Trainer_SMS/SMS_rocket_m.dmp"
 ALIGN 4
+jessieStanding:
+#incbin "Trainer_SMS/SMS_jessie.dmp"
+ALIGN 4
+jamesStanding:
+#incbin "Trainer_SMS/SMS_james.dmp"
+ALIGN 4
+jennyStanding:
+#incbin "Trainer_SMS/SMS_jenny.dmp"
+ALIGN 4
+joyStanding:
+#incbin "Trainer_SMS/SMS_joy.dmp"
+ALIGN 4
 sailorStanding:
 #incbin "Trainer_SMS/SMS_sailor.dmp"
 
@@ -3178,6 +3226,18 @@ rocket_fMoving:
 ALIGN 4
 rocket_mMoving:
 #incbin "Trainer_MMS/MMS_rocket_m.dmp"
+ALIGN 4
+jessieMoving:
+#incbin "Trainer_MMS/MMS_jessie.dmp"
+ALIGN 4
+jamesMoving:
+#incbin "Trainer_MMS/MMS_james.dmp"
+ALIGN 4
+jennyMoving:
+#incbin "Trainer_MMS/MMS_jenny.dmp"
+ALIGN 4
+joyMoving:
+#incbin "Trainer_MMS/MMS_joy.dmp"
 ALIGN 4
 sailorMoving:
 #incbin "Trainer_MMS/MMS_sailor.dmp"

@@ -73,6 +73,19 @@ BYTE 0xDD
 BYTE 0xDE
 BYTE 0xDF
 BYTE 0xE0 0xE1 0xE2 0xE3 0xE4 0xE5 0xE6 0xE7 0xE8 0xE9 0xEA 0xEB
+BYTE HealingTileClassID 
+// BYTE MissingnoID 
+BYTE RedSurfID 
+BYTE GreenSurfID 
+BYTE PoisonGasID 
+BYTE SurfID 
+BYTE JessieID 
+BYTE JamesID 
+BYTE JennyID  
+BYTE JoyID 
+BYTE Unused79ID 
+BYTE SnagID 
+BYTE Unused80ID 
 BYTE RedID GreenID 
 
 BYTE 0x00 // Terminator 

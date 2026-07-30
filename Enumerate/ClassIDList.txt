@@ -246,10 +246,10 @@ RedSurfID
 GreenSurfID
 PoisonGasID
 SurfID
-Unused75ID
-Unused76ID
-Unused77ID
-Unused78ID
+JessieID
+JamesID
+JennyID
+JoyID
 Unused79ID
 SnagID
 Unused80ID

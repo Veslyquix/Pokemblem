@@ -246,10 +246,10 @@
 #define GreenSurfID 0xF6
 #define PoisonGasID 0xF7
 #define SurfID 0xF8
-#define Unused75ID 0xF9
-#define Unused76ID 0xFA
-#define Unused77ID 0xFB
-#define Unused78ID 0xFC
+#define JessieID 0xF9
+#define JamesID 0xFA
+#define JennyID 0xFB
+#define JoyID 0xFC
 #define Unused79ID 0xFD
 #define SnagID 0xFE
 #define Unused80ID 0xFF
