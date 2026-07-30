@@ -723,6 +723,23 @@ void RegeneratorEffect(struct Unit * unitA, struct Unit * unitB)
 extern int IsTargetTypeImmune(int statusIndex, struct Unit * unitA, struct Unit * unitB);
 // this really uses battle units, but it doesn't matter
 
+int AreNoEnemiesAsleep(void)
+{
+    struct Unit * unit;
+    for (int i = 0x81; i < 0xC0; ++i)
+    {
+        unit = GetUnit(i);
+        if (!UNIT_IS_VALID(unit))
+        {
+            continue;
+        }
+        if (unit->statusIndex == UNIT_STATUS_SLEEP)
+        {
+            return false;
+        }
+    }
+    return true;
+}
 // Paras line
 extern int SporeTouchID_Link;
 void SporeTouchEffect(struct Unit * unitA, struct Unit * unitB)
@@ -739,8 +756,11 @@ void SporeTouchEffect(struct Unit * unitA, struct Unit * unitB)
     {
         if (SkillTester(unitA, SporeTouchID_Link))
         {
-            unitB->statusDuration = 2;
-            unitB->statusIndex = UNIT_STATUS_SLEEP;
+            if (AreNoEnemiesAsleep())
+            {
+                unitB->statusDuration = 2;
+                unitB->statusIndex = UNIT_STATUS_SLEEP;
+            }
         }
     }
 }

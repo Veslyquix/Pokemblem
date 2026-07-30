@@ -1873,7 +1873,8 @@ after battle at 1 range.[X]
 
 ## SD_SporeTouch
 Spore Touch: Put the enemy to[N]
-sleep after battle at 1 range.[X]
+sleep after battle at 1 range.[N]
+(Only 1 enemy may be asleep at a time.)[X]
 
 ## SD_PoisonTouch
 Poison Touch: Inflict poison[N]
