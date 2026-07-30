@@ -146,7 +146,8 @@ Hone Claws[X]
 Focus Energy[X]
 
 ## FocusEnergyDesc
-+10 Skl.[X]
++10 Skl. (Boosts Hit[N]
+and Crit rate.)[X]
 
 ## AgilityName ^
 Agility[X]
