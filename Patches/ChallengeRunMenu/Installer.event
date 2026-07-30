@@ -308,8 +308,8 @@ RedMug_ALink:
 WORD RedMug 
 RedMug_Link:
 WORD RedAltMug 
-PikachuMug_Link:
-WORD PikachuMug
+JanineMug_Link:
+WORD JanineMug
 FujiMug_Link:
 WORD FujiMug
 JoyMug_Link:
@@ -371,7 +371,7 @@ WORD SurfID
 ALIGN 4 
 AvatarClassIdTable:
 BYTE 0 // New Name
-BYTE RedID // Little Cup
+BYTE cooltrainer_fID // Little Cup
 BYTE mrfujiID // Void
 BYTE NurseID // Chaos / Joy
 BYTE policemanID // Plus / Jenny
@@ -402,7 +402,7 @@ BYTE RedID // Cheater
 ALIGN 4 
 AvatarFIDTable:
 SHORT 0 
-SHORT PikachuMug // Little Cup
+SHORT JanineMug // Little Cup
 SHORT FujiMug // Void
 SHORT JoyMug // Chaos
 SHORT JennyMug // Plus
@@ -434,7 +434,7 @@ SHORT CheaterMug
 ALIGN 4 
 TrainerFIDTable:
 SHORT NoPortraitMug // New Name
-SHORT PikachuMug // Little Cup
+SHORT JanineMug // Little Cup
 SHORT FujiMug // Void
 SHORT JoyMug // Chaos
 SHORT JennyMug // Plus

@@ -136,7 +136,7 @@ GiovanniData:
 #incbin "Dmp/Giovanni_Eden_minimug.dmp" 
 setMugEntry(170, GiovanniData, 3, 4, 3, 2, 8)
 
-//MugEntry(JanineMug, JanineMugData, JanineMinimugData, JanineFramesData, JaninePaletteData,  1, 6, 1, 4) 
+
 
 // 171 is reserved for convoy 
 ALIGN 16 
@@ -304,8 +304,16 @@ JessieData:
 #incbin "Dmp/Jessie_Eden_minimug.dmp" 
 setMugEntry(191, JessieData, 3, 5, 3, 3, 4)
 
+ALIGN 16 
+JanineData: 
+#incbin "Dmp/Janine_Eden_mug.dmp" 
+#incbin "Dmp/Janine_Eden_frames.dmp" 
+#incbin "Dmp/Janine_Eden_palette.dmp" 
+#incbin "Dmp/Janine_Eden_minimug.dmp" 
+setMugEntry(192, JanineData, 2, 6, 2, 4)
 
 
+//MugEntry(JanineMug, JanineMugData, JanineMinimugData, JanineFramesData, JaninePaletteData,  1, 6, 1, 4) 
 
 
 // Reserved 
