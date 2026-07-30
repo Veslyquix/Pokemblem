@@ -1505,11 +1505,11 @@
    <tile gid="110"/>
    <tile gid="110"/>
    <tile gid="110"/>
-   <tile gid="110"/>
-   <tile gid="110"/>
-   <tile gid="110"/>
-   <tile gid="110"/>
-   <tile gid="110"/>
+   <tile gid="111"/>
+   <tile gid="112"/>
+   <tile gid="66"/>
+   <tile gid="66"/>
+   <tile gid="112"/>
    <tile gid="456"/>
    <tile gid="452"/>
    <tile gid="453"/>

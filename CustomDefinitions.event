@@ -448,7 +448,7 @@ String("V1.23.01             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define KogaSafariFlag2 0xF7 
 
 #define SkippableCutscenesFlag 0xFF
-// 0xF7 - 0x10B free 
+// 0x104 - 0x10B free 
 #define NuzlockeFlag 0xF8 
 #define PlusFlag 0xF9 
 #define CheaterFlag 0xFA
@@ -459,6 +459,7 @@ String("V1.23.01             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define GrampsFlag 0x100
 #define HagFlag 0x101
 #define DoppelgangerFlag 0x102 // see yourself 
+
  
 
 // New flags 0x12D - 0x22D or more even 
@@ -471,8 +472,12 @@ String("V1.23.01             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define SabrinaCeruleanCaveFlag 0x133 
 #define MistyRoute1Flag 0x134
 #define MistyRoute5Flag 0x135
-#define SnorlaxFlag 0x136 
-
+#define SnorlaxFlag 0x136 // 203f769
+#define SSAnneInVermilionFlag 0x137 
+#define SSAnneInFuschiaFlag 0x138
+#define ObtainedCaptainsGlasses 0x139 
+#define GaveCaptainsGlasses 0x13A
+#define NoPkmnTowerGary 0x13B
 // Pewter City: visit gym with flag 0x12C 
 
 #define PewterGymClosedFlag 0x12C // final vanilla flag 

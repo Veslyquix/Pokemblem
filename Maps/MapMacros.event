@@ -65,6 +65,8 @@
 #define SeafoamB4MapChanges 132 
 #define SeafoamB5MapChanges 133
 #define CinnabarGymMapChanges 134 
+#define Route19MapChanges 135 
+#define DocksMapChanges 136
 
 
 

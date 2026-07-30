@@ -144,7 +144,13 @@ ChapterTransition(Route12NCh, 14,59)
 ToRoute13:
 ChapterTransition(Route13Ch, 52,0)
 
+GenericDisappearEffect(18, ObtainCaptainsGlassesEvent)
 
+ObtainCaptainsGlassesEvent: 
+ENUT ObtainedCaptainsGlasses
+TutText(ObtainedCaptainsGlassesText) 
+NoFade 
+ENDA 
 
 // Allocated 2 traps per chapter, in most cases 
 // Eg. 2 skill scrolls, 2 TMs, 2 Coin traps, 2 Pokeball traps 
@@ -154,7 +160,7 @@ Traps1:
 //CoinsTrap(29,18,ChapterID*2,450)
 //CoinsTrap(57,15,(ChapterID*2)+1,600)
 
-
+GenericDisappearCompletion(6, 3, ObtainedCaptainsGlasses, RedPokeballSMS, 18) // xx, yy, flag, sprite, effectID 
 //CutBush(12,10)
 //RockSmash(29,9)
 
@@ -216,7 +222,12 @@ RandomizeEnemyCoords(Grass, Range(0,0,5,5), Range(8,46,11,52)) //S patch
 
 AutoLevelUnits(WildLvl, True, 0x50FF) // Wilds  
  // Bushes
- 
+CHECK_EVENTID ObtainedCaptainsGlasses
+BEQ 7 sC s0 
+RemoveTrapAtCoords(6,3)
+LABEL 7
+
+
 CHECK_EVENTID SnorlaxFlag 
 BNE 13 sC s0 
 LOAD1 0x1 SnorlaxGroup

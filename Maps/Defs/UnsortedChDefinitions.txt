@@ -96,6 +96,7 @@ SilphCo4FCh
 SilphCo5FCh
 SlotMachineCh
 SSAnneCh
+SSAnneDocksCh
 VermilionCh
 VermilionGymCh
 VictoryRoadB1Ch
@@ -105,3 +106,4 @@ ViridianCh
 ViridianForestNCh
 ViridianForestSCh
 ViridianGymCh
+ViridianGym2Ch

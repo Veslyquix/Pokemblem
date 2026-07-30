@@ -281,6 +281,8 @@ SpellScrollTrap(9,11, (DebugCh*2)+1, DoubleEdge)
 //GenericDisappearCompletion(12, 5, 0, GarySMS, 0) // xx, yy, flag, sprite, effectID 
 //GenericDisappearCompletion(13, 5, 0, PidgeotSMS, 0) // xx, yy, flag, sprite, effectID 
 //GenericDisappearCompletion(16, 7, 0, SuspiciousWaterSMS, 0) // xx, yy, flag, sprite, effectID 
+//GenericDisappearCompletion(17, 7, 0, SuspiciousWaterSMS, 0) // xx, yy, flag, sprite, effectID 
+//GenericDisappearCompletion(18, 7, 0, SuspiciousWaterSMS, 0) // xx, yy, flag, sprite, effectID // captain's glasses 
 //GenericDisappearCompletion(13, 7, 0, sailorSMS, 0) // xx, yy, flag, sprite, effectID 
 //GenericDisappearCompletion(12, 8, 0, FlowerSMS, 0) // xx, yy, flag, sprite, effectID 
 //GenericDisappearCompletion(13, 9, 0, BerryTreeSMS, 0) // xx, yy, flag, sprite, effectID 

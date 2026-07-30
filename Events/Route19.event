@@ -47,6 +47,7 @@ END_MAIN
 
 
 LocationBasedEvents:
+House(SSAnneInVermilionFlag,ToSSAnne,12,35) //
 END_MAIN
 
 MiscBasedEvents:
@@ -74,6 +75,13 @@ ChapterTransition(FuschiaCh, 20,34)
 
 ToRoute20E:
 ChapterTransition(Route20ECh, 57,8)
+
+ToSSAnne:
+ENUF SSAnneInVermilionFlag 
+DigChapterTransition(ChapterID, SSAnneCh, 19,3)
+NoFade 
+ENDA 
+ 
 
 
 SurfMessageEvent: 
@@ -109,7 +117,7 @@ Traps1:
 
 //SkillScrollTrap(27,2, (ChapterID*2)+1, ChivalryID) 
 
-SignBTrap(12,35, ChapterID, 0x0) //no extra text 
+SignBTrap(11,27, ChapterID, 0x0) //no extra text 
 SignATrap(16,2, ChapterID, 0x0) // Can use ChapterID as the flagID if only using 1 per chapter 
 
 
@@ -141,6 +149,12 @@ BeginningScene:
 CALL GlobalBeginningScene
 CALL LoadAndPlacePlayers 
 
+CHECK_EVENTID SSAnneInFuschiaFlag 
+BNE 3 sC s0 
+TILECHANGE 0 
+ENUT SSAnneInVermilionFlag
+
+LABEL 3 
 
 
 LOAD1 0x1 EnemyUnitsA

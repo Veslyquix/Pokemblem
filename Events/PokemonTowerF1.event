@@ -152,6 +152,8 @@ AutoLevelUnits(WildLvl, True, 0x50FF) // Wilds
 */
 
 //CALL SetBushHpEvent
+CHECK_EVENTID NoPkmnTowerGary // we beat him in Silph Co already 
+BNE 10 sC s0 
 CheckTrainerFlag(0xEF) // based on unit IDs 0xE0-0xEF per chapter 
 BNE 10 rC r0 
 LOAD1 0x1 GaryBattleUnitGroup 

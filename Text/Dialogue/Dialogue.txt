@@ -2136,6 +2136,36 @@ Only then are you worthy.[A][X]
 You feel you've learned how[N]
 to cut little bushes now.[A][X]
 
+## CaptainLostGlassesText
+I'd cast off towards Fuschia City,[N]
+but I've misplaced my spectacles...[A][N]
+I think I last saw them while[N]
+fishing to the east.[A][N]
+A large Pokémon startled me[N]
+and I must've dropped them.[A][X]
+
+## GaveCaptainGlassesText
+OH! You found them![N]
+You're a lifesaver![A][X]
+
+
+## CaptainDepartForFuschiaText 
+Cast off towards Fuschia City?[N]
+[Yes][X]
+
+## CaptainDepartForVermilionText 
+Cast off towards Vermilion City?[N]
+[Yes][X]
+
+## CaptainArrivedFuschiaText
+We're here in Fuschia City.[A][X]
+
+## CaptainArrivedVermilionText
+We're here in Vermilion City.[A][X]
+
+## ObtainedCaptainsGlassesText
+Found someone's spectacles.[A][X]
+
 
 ## Route9W_WaitingSurge
 I'm waiting for Lt. Surge![A][N]

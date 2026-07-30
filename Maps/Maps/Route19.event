@@ -2,7 +2,17 @@
 
 #include eastdlib.event
 
-SetChapterData(Route19Ch,Route19Obj,0,Route19Pal,Route19Conf,Route19Map,Map,WaterAnimationID,0,0)
+SetChapterData(Route19Ch,VermilionObj,0,VermilionPal,VermilionConf,Route19Map,Map,WaterAnimationID,0,Route19MapChanges)
+MapChangesPointerTable(Route19MapChanges, MapChanges)
 Map:
 #incbin "Route19_data.dmp"
+
+MapChanges:
+TileMap(0,8,35,8,4,NoBoat)
+TileMapEnd
+
+NoBoat:
+SHORT 0x40 0x40 0x4 0x794 0x5bc 0x798 0x590 0x40 0x40 0x40 0x310 0x70c 0x70c 0x710 0x6a0 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 0x40 
+ALIGN 4
+
 Map_Pointer_Table(Route19Map,Map)
