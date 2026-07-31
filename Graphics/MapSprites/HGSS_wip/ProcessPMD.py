@@ -61,19 +61,42 @@ FULL_WALK_POKEMON = frozenset({
     148,  # Dragonair
 })
 
+OFFSET_BOTTOM_MMS_POKEMON = frozenset({
+    36,   # Clefable: use MMS frames 6, 7, 8
+    43,   # Oddish: use MMS frames 6, 7, 8
+    141,  # Kabutops: use MMS frames 6, 7, 8
+})
+
+STABLE_BOTTOM_MMS_POKEMON = frozenset({
+    41,   # Zubat
+    48,   # Venonat
+    56,   # Mankey
+    60,   # Poliwag
+    100,  # Voltorb
+})
+
+POKEMON_COLOR_OVERRIDES = {
+    118: {  # Goldeen: preserve the artist's orange, pink, and cool-gray regions.
+        (143, 223, 255): 8,
+        (255, 135, 95): 7,
+        (255, 135, 191): 5,
+        (215, 63, 0): 3,
+        (31, 159, 231): 10,
+        (159, 0, 0): 13,
+    },
+}
+
 SMS_FRAME_CELLS = ((7, 3), (7, 0), (7, 1))
-MMS_FRAME_CELLS = (
+MMS_WALK_CELLS = (
     (6, 1), (6, 2), (6, 3), (6, 2),  # side
     (0, 1), (0, 2), (0, 3), (0, 2),  # down
     (4, 1), (4, 2), (4, 3), (4, 2),  # up
-    (0, 3), (0, 0), (0, 1),          # hover
 )
 SHORT_SMS_FRAME_CELLS = ((7, 2), (7, 0), (7, 1))
-SHORT_MMS_FRAME_CELLS = (
+SHORT_MMS_WALK_CELLS = (
     (6, 0), (6, 1), (6, 2), (6, 1),  # side
     (0, 0), (0, 1), (0, 2), (0, 1),  # down
     (4, 0), (4, 1), (4, 2), (4, 1),  # up
-    (0, 2), (0, 0), (0, 1),          # hover
 )
 
 WIDTH_COLUMN_OVERRIDES = {
@@ -163,16 +186,32 @@ def column_count(number: int, width: int) -> int:
     return 4
 
 
-def walk_durations(walk_sheet: Path) -> tuple[int, ...]:
-    metadata_path = walk_sheet.with_name("AnimData.xml")
+def animation_metadata(
+    animation_sheet: Path,
+    animation_name: str,
+) -> tuple[int, int, tuple[int, ...]] | None:
+    metadata_path = animation_sheet.with_name("AnimData.xml")
     if not metadata_path.exists():
-        return ()
+        return None
 
     root = ET.parse(metadata_path).getroot()
-    walk = next((anim for anim in root.findall(".//Anim") if anim.findtext("Name") == "Walk"), None)
-    if walk is None:
-        return ()
-    return tuple(int(node.text) for node in walk.findall("./Durations/Duration") if node.text)
+    animation = next(
+        (anim for anim in root.findall(".//Anim") if anim.findtext("Name") == animation_name),
+        None,
+    )
+    if animation is None:
+        return None
+    frame_width = int(animation.findtext("FrameWidth", "0"))
+    frame_height = int(animation.findtext("FrameHeight", "0"))
+    durations = tuple(int(node.text) for node in animation.findall("./Durations/Duration") if node.text)
+    if frame_width <= 0 or frame_height <= 0 or not durations:
+        return None
+    return frame_width, frame_height, durations
+
+
+def walk_durations(walk_sheet: Path) -> tuple[int, ...]:
+    metadata = animation_metadata(walk_sheet, "Walk")
+    return metadata[2] if metadata is not None else ()
 
 
 def sample_walk_columns(durations: tuple[int, ...]) -> tuple[int, int, int, int]:
@@ -194,12 +233,19 @@ def sample_walk_columns(durations: tuple[int, ...]) -> tuple[int, int, int, int]
     return samples[0], samples[1], samples[2], samples[3]
 
 
-def full_walk_cells(columns: tuple[int, int, int, int]) -> tuple[tuple[int, int], ...]:
+def idle_fallback_cells(columns: int) -> tuple[tuple[int, int], ...]:
+    return tuple((0, min(column, columns - 1)) for column in range(3))
+
+
+def full_walk_cells(
+    sampled_columns: tuple[int, int, int, int],
+    columns: int,
+) -> tuple[tuple[int, int], ...]:
     return (
-        *((6, column) for column in columns),  # side
-        *((0, column) for column in columns),  # down
-        *((4, column) for column in columns),  # up
-        *((0, column) for column in columns[:3]),  # hover
+        *((6, column) for column in sampled_columns),  # side
+        *((0, column) for column in sampled_columns),  # down
+        *((4, column) for column in sampled_columns),  # up
+        *idle_fallback_cells(columns),
     )
 
 
@@ -211,10 +257,10 @@ def frame_cells(
     if number in FULL_WALK_POKEMON:
         if len(durations) != columns:
             raise ValueError(f"walk metadata describes {len(durations)} columns, but the sheet has {columns}")
-        return SMS_FRAME_CELLS, full_walk_cells(sample_walk_columns(durations))
+        return SMS_FRAME_CELLS, full_walk_cells(sample_walk_columns(durations), columns)
     if columns == 3:
-        return SHORT_SMS_FRAME_CELLS, SHORT_MMS_FRAME_CELLS
-    return SMS_FRAME_CELLS, MMS_FRAME_CELLS
+        return SHORT_SMS_FRAME_CELLS, SHORT_MMS_WALK_CELLS + idle_fallback_cells(columns)
+    return SMS_FRAME_CELLS, MMS_WALK_CELLS + idle_fallback_cells(columns)
 
 
 def horizontal_anchor(number: int, row: int) -> str | None:
@@ -617,6 +663,126 @@ def source_frame_group(
     return fit_frame_group(frames, palette)
 
 
+def frame_signature(frame: Image.Image) -> bytes:
+    return bytes(frame.getdata())
+
+
+def mask_overlap(first: Image.Image, second: Image.Image) -> float:
+    first_pixels = {index for index, pixel in enumerate(first.getdata()) if pixel != 0}
+    second_pixels = {index for index, pixel in enumerate(second.getdata()) if pixel != 0}
+    union = len(first_pixels | second_pixels)
+    return len(first_pixels & second_pixels) / union if union else 1.0
+
+
+def align_frame_baselines(frames: list[Image.Image], palette: list[int]) -> list[Image.Image]:
+    boxes = [transparent_mask(frame).getbbox() for frame in frames]
+    target_bottom = max(box[3] for box in boxes if box is not None)
+    aligned = []
+    for frame, box in zip(frames, boxes):
+        if box is None or box[3] == target_bottom:
+            aligned.append(frame)
+            continue
+        output = Image.new("P", (TARGET_FRAME_SIZE, TARGET_FRAME_SIZE), 0)
+        output.putpalette(palette)
+        output.paste(frame, (0, target_bottom - box[3]))
+        aligned.append(output)
+    return aligned
+
+
+def stable_distinct_idle_frames(
+    idle_frames: list[Image.Image],
+    walk_frames: list[Image.Image],
+    palette: list[int],
+) -> list[Image.Image]:
+    neutral = idle_frames[0]
+    seen = {frame_signature(neutral)}
+    candidates: list[tuple[int, int, Image.Image]] = []
+
+    def add_candidates(frames: list[Image.Image], source_priority: int) -> None:
+        for source_order, frame in enumerate(frames):
+            signature = frame_signature(frame)
+            if signature in seen:
+                continue
+            seen.add(signature)
+            candidates.append((source_priority, source_order, frame))
+
+    add_candidates(idle_frames[1:], 0)
+    if len(candidates) < 2:
+        add_candidates(walk_frames, 1)
+    if len(candidates) < 2:
+        hybrid_idle = []
+        for first in idle_frames:
+            for second in idle_frames:
+                if first is second:
+                    continue
+                hybrid = first.copy()
+                hybrid.paste(
+                    second.crop((TARGET_FRAME_SIZE // 2, 0, TARGET_FRAME_SIZE, TARGET_FRAME_SIZE)),
+                    (TARGET_FRAME_SIZE // 2, 0),
+                )
+                hybrid_idle.append(hybrid)
+        add_candidates(hybrid_idle, 2)
+    if len(candidates) < 2:
+        mirrored_idle = [frame.transpose(Image.Transpose.FLIP_LEFT_RIGHT) for frame in idle_frames]
+        add_candidates(mirrored_idle, 3)
+
+    if len(candidates) < 2:
+        raise ValueError("idle and down-facing walk animations contain fewer than three distinct frames")
+
+    selected = sorted(
+        candidates,
+        key=lambda candidate: (
+            candidate[0],
+            -mask_overlap(neutral, candidate[2]),
+            candidate[1],
+        ),
+    )[:2]
+    selected.sort(key=lambda candidate: (candidate[0], candidate[1]))
+    return align_frame_baselines([neutral, selected[0][2], selected[1][2]], palette)
+
+
+def idle_mms_frames(
+    walk_sheet: Path,
+    palette: list[int],
+    color_overrides: dict[tuple[int, int, int], int],
+) -> list[Image.Image] | None:
+    rows = 8
+    walk_metadata = animation_metadata(walk_sheet, "Walk")
+    if walk_metadata is None:
+        return None
+    walk_width, walk_height, walk_durations = walk_metadata
+    walk_source = Image.open(walk_sheet).convert("RGBA")
+    if walk_source.size != (walk_width * len(walk_durations), walk_height * rows):
+        raise ValueError(f"{walk_sheet}: size does not match its Walk metadata")
+    quantized_walk = quantize_to_palette(walk_source, palette, color_overrides)
+    walk_frames = [
+        source_frame(quantized_walk, 0, column, walk_width, walk_height, palette)
+        for column in range(len(walk_durations))
+    ]
+
+    idle_sheet_path = walk_sheet.with_name("Idle-Anim.png")
+    metadata = animation_metadata(idle_sheet_path, "Idle")
+    if not idle_sheet_path.exists() or metadata is None:
+        return stable_distinct_idle_frames([walk_frames[0]], walk_frames[1:], palette)
+
+    frame_width, frame_height, durations = metadata
+    source_sheet = Image.open(idle_sheet_path).convert("RGBA")
+    columns = len(durations)
+    if source_sheet.size != (frame_width * columns, frame_height * rows):
+        raise ValueError(
+            f"{idle_sheet_path}: metadata describes {columns}x{rows} "
+            f"{frame_width}x{frame_height} cells, but the sheet is "
+            f"{source_sheet.size[0]}x{source_sheet.size[1]}"
+        )
+
+    sheet = quantize_to_palette(source_sheet, palette, color_overrides)
+    idle_frames = [
+        source_frame(sheet, 0, column, frame_width, frame_height, palette)
+        for column in range(columns)
+    ]
+    return stable_distinct_idle_frames(idle_frames, walk_frames, palette)
+
+
 def paste_frames(frames: list[Image.Image], palette: list[int], size: tuple[int, int]) -> Image.Image:
     output = Image.new("P", size, 0)
     output.putpalette(palette)
@@ -681,6 +847,7 @@ def process_folder(
             artist_sms_dir / f"{number}.png",
             palette,
         )
+    color_overrides.update(POKEMON_COLOR_OVERRIDES.get(number, {}))
     sheet = quantize_to_palette(source_sheet, palette, color_overrides)
     sms_frames = [
         source_frame(sheet, row, column, frame_width, frame_height, palette, target_height, horizontal_anchor(number, row))
@@ -688,13 +855,20 @@ def process_folder(
     ]
     if number in FULL_WALK_POKEMON:
         mms_frames = []
-        for start, end in ((0, 4), (4, 8), (8, 12), (12, 15)):
+        for start, end in ((0, 4), (4, 8), (8, 12)):
             mms_frames.extend(source_frame_group(sheet, mms_cells[start:end], frame_width, frame_height, palette))
     else:
         mms_frames = [
             source_frame(sheet, row, column, frame_width, frame_height, palette, target_height, horizontal_anchor(number, row))
-            for row, column in mms_cells
+            for row, column in mms_cells[:12]
         ]
+    if number in STABLE_BOTTOM_MMS_POKEMON:
+        bottom_frames = idle_mms_frames(walk_sheet, palette, color_overrides)
+    elif number in OFFSET_BOTTOM_MMS_POKEMON:
+        bottom_frames = mms_frames[5:8]
+    else:
+        bottom_frames = mms_frames[4:7]
+    mms_frames.extend(bottom_frames or mms_frames[4:7])
 
     sms_dir.mkdir(parents=True, exist_ok=True)
     mms_dir.mkdir(parents=True, exist_ok=True)

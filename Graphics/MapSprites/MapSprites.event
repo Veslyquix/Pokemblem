@@ -17,6 +17,11 @@ FILL(256*4) 0
 ALIGN 4; FMU_idleSMSGfxTable_up:
 FILL(256*4) 0 
 
+// MMS pmd notes: 
+// walk kinda funny: clefable, oddish, venonat, seel, mankey, poliwag, haunter, voltorb, electrode, tangela, kabutops, dragonair
+// looks bad: onix, tauros, moltres, articuno, zapdos, dragonite 
+// golbat 
+
 
 FMU_left_gfx_entry(AgathaSMS, FMU_left_agathaIdles) 
 FMU_left_gfx_entry(balding_manSMS, FMU_left_balding_manIdles) 
