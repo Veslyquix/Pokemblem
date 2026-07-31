@@ -368,21 +368,22 @@ WORD AvatarClassId
 SurfID_Link:
 WORD SurfID
 
+// 10, 12, 13, 35, 36, 41, 42, 43, 49, 50, 51, 56, 63, 81, 82, 92, 100, 117, 118, 132, 141
 ALIGN 4 
 AvatarClassIdTable:
 BYTE 0 // New Name
 BYTE cooltrainer_fID // Little Cup
 BYTE mrfujiID // Void
-BYTE NurseID // Chaos / Joy
-BYTE policemanID // Plus / Jenny
+BYTE JoyID // Chaos / Joy
+BYTE JennyID // Plus / Jenny
 BYTE gentlemanID // Nuzlocke / Warden
 BYTE RedID // Ash
 BYTE blueID // Gary
 BYTE GreenID // Leaf
 BYTE prof_oakID // Oak
 BYTE billID // Bill
-BYTE rocket_mID // James
-BYTE rocket_fID // Jessie
+BYTE JamesID // James
+BYTE JessieID // Jessie
 BYTE BrockID
 BYTE MistyID
 BYTE LtSurgeID

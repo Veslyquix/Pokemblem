@@ -3,8 +3,15 @@ from PIL import Image, ImageDraw, ImageOps, ImageEnhance, ImageFilter
 import sys 
 from os import scandir
 import os 
-import png
-import libimagequant as liq
+try:
+    import png
+except ImportError:
+    png = None
+
+try:
+    import libimagequant as liq
+except ImportError:
+    liq = None
 
 
 
@@ -25,9 +32,16 @@ frame_height = 32
 
 palettedata = [ 0, 0, 0, 255, 0, 0, 255, 255, 0, 0, 255, 0, 255, 255, 255,85,255,85, 255,85,85, 255,255,85] 
 
+def make_blank(template_filename, source_image):
+    blank = Image.open(template_filename)
+    source_palette = source_image.getpalette()
+    if source_palette:
+        blank.putpalette(source_palette)
+    return blank
+
 dir_entries = scandir(directory)
 for entry in dir_entries:
-    if entry.is_file():
+    if entry.is_file() and entry.name.lower().endswith(".png"):
         info = entry.stat()
         print(f'{entry.name}')
 
@@ -38,11 +52,11 @@ for entry in dir_entries:
  
 
         
-        blank_sms = Image.open("BlankSMS.png")
-        blank_sms_facing = Image.open("BlankSMS_Facing.png")
-        blank_mms = Image.open("BlankMMS.png")
-        
         im = Image.open(trainer_filename)
+
+        blank_sms = make_blank("BlankSMS.png", im)
+        blank_sms_facing = make_blank("BlankSMS_Facing.png", im)
+        blank_mms = make_blank("BlankMMS.png", im)
 
         frame_1 = im.crop((0,0,frame_width,frame_height))
         # SMS 
