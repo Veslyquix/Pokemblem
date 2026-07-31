@@ -39,19 +39,32 @@ SHORT_MMS_FRAME_CELLS = (
 
 def mms_cycle_cells(sequence: tuple[int, int, int]) -> tuple[tuple[int, int], ...]:
     first, second, third = sequence
+    return mms_directional_cells(sequence, sequence, sequence)
+
+
+def mms_directional_cells(
+    side: tuple[int, int, int],
+    down: tuple[int, int, int],
+    up: tuple[int, int, int],
+) -> tuple[tuple[int, int], ...]:
+    side_first, side_second, side_third = side
+    down_first, down_second, down_third = down
+    up_first, up_second, up_third = up
     return (
-        (6, first), (6, second), (6, third), (6, second),  # side
-        (0, first), (0, second), (0, third), (0, second),  # down
-        (4, first), (4, second), (4, third), (4, second),  # up
-        (0, third), (0, first), (0, second),               # hover
+        (6, side_first), (6, side_second), (6, side_third), (6, side_second),  # side
+        (0, down_first), (0, down_second), (0, down_third), (0, down_second),  # down
+        (4, up_first), (4, up_second), (4, up_third), (4, up_second),          # up
+        (0, down_third), (0, down_first), (0, down_second),                    # hover
     )
 
 
 POKEMON_FRAME_OVERRIDES = {
     36: (SMS_FRAME_CELLS, mms_cycle_cells((0, 2, 4))),   # Clefable
     43: (SMS_FRAME_CELLS, mms_cycle_cells((0, 1, 2))),   # Oddish
-    56: (SMS_FRAME_CELLS, mms_cycle_cells((0, 1, 2))),   # Mankey
+    48: (SMS_FRAME_CELLS, mms_cycle_cells((0, 1, 2))),   # Venonat
+    56: (SMS_FRAME_CELLS, mms_directional_cells((0, 1, 2), (1, 0, 2), (1, 0, 2))),  # Mankey
     60: (SMS_FRAME_CELLS, mms_cycle_cells((0, 1, 2))),   # Poliwag
+    86: (SMS_FRAME_CELLS, mms_cycle_cells((0, 1, 2))),   # Seel
     93: (SMS_FRAME_CELLS, mms_cycle_cells((0, 2, 4))),   # Haunter
     100: (SMS_FRAME_CELLS, mms_cycle_cells((0, 1, 2))),  # Voltorb
     101: (SMS_FRAME_CELLS, mms_cycle_cells((0, 1, 2))),  # Electrode
