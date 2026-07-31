@@ -41,7 +41,7 @@ def make_blank(template_filename, source_image):
 
 dir_entries = scandir(directory)
 for entry in dir_entries:
-    if entry.is_file():
+    if entry.is_file() and entry.name.lower().endswith(".png"):
         info = entry.stat()
         print(f'{entry.name}')
 
