@@ -118,7 +118,7 @@ ExitTrainerAIListLoop:
 
 ldrb r0, [r3, #0x10] 
 ldrb r1, [r3, #0x11] 
-mov r2, #0 @ Wait 
+mov r2, #0 @ noop 
 bl SetAIToWaitAtCoords 
 b ReturnTrue 
 
@@ -176,7 +176,9 @@ ldrb r1, [r3, #0x1] @ YY
 
 
 SetMovementDecision:
-mov r2, #5 @ Wait 
+mov r2, #5 @ staff (if possible...), triggers range events ? 
+@ if (gAiDecision.targetId == 0), return 
+@ so should be safe I guess 
 bl SetAIToWaitAtCoords 
 
 SetupWaitUntilAIMovesProc:
@@ -595,25 +597,42 @@ bx r1
 .equ GetUnitByEventParameter, 0x0800BC51
 
 MoveTowardsGivenCoord: 
-push {r4, lr} 
+push {r4-r6, lr} 
 @ Given r0 = XX 
 @ r1 = yy 
 @ moves towards that coordinate 
 
-sub sp, #4 
-mov r2, r0 @ XX 
-@mov r1, r1 @ YY 
 
+mov r5, r0 @ xx 
+mov r6, r1 @ yy 
+ldr r4, =CurrentUnit 
+ldr r4, [r4] 
+ldrb r0, [r4, #0x10] @@ xx default 
+ldrb r1, [r4, #0x11] @@ yy default 
+
+ldr r3, =0x203AA96 @ AI decision +0x92 (XX) 
+strb r0, [r3, #0x0] @ XX 
+strb r1, [r3, #0x1] @ YY 
+mov r2, #5 @ staff (use action / do nothing)  
+bl SetAIToWaitAtCoords @ as a default just in case 
+
+
+sub sp, #4 
 mov r0, #1 @ dunno 
 str r0, [sp] 
-mov r0, r2 @ XX 
-mov r2, #0 @ Dunno 
+mov r0, r5 @ XX 
+mov r1, r6 @ YY 
+mov r2, #5 @ action staff 
 mov r3, #0xFF @ Dunno - safety..? 
 blh AiTryMoveTowards, r4 
 
+
+
+
+
 mov r0, #1 @ True 
 add sp, #4 
-pop {r4}
+pop {r4-r6}
 pop {r1} 
 bx r1 
 

@@ -59,7 +59,7 @@ PUSH; ORG $D74D0	//{U}
 #ifdef CLEAN_TITLE_SCREEN 
 String("                        ") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 #else 
-String("V1.23.03             Jul 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 #endif 
 
 
@@ -235,7 +235,7 @@ String("V1.23.03             Jul 2026") ; BYTE 0; POP // this overflows into the
 #define TempRamWhileExpShare2 0x2026E34 // used in pc boxes too 
 #define TempRamWhileExpShare3 0x2026E38 // used in pc boxes too 
 
-#define AvatarPortraitId 0x30017A8 
+#define AvatarPortraitId 0x30017A8 // these 4 are not changed on suspend/resume, so must be initialized 
 #define AvatarClassId 0x30017A9 
 #define XCoordTeleport 0x30017AA
 #define YCoordTeleport 0x30017AB
