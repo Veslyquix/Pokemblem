@@ -211,6 +211,8 @@ ALIGN 4
 EeveeEvent:
 EVBIT_MODIFY 4 
 WallText(PurchaseEeveeText)
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 LOAD1 1 EeveeUnitGroup  
 ENUN 
 ENUT FIXED_GROWTHS_FLAG_ID
@@ -226,6 +228,9 @@ WallText(No_PurchasedEeveeText)
 ENUF ObtainedEeveeFlag
 DISA TempAlly
 GOTO 63
+LABEL 29 
+TutText(CannotPurchasePkmnText)
+GOTO 63 
 
 LABEL 20
 CHECK_COORDS 0x7fff
