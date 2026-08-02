@@ -416,7 +416,7 @@ BYTE 1 0
 ALIGN 4
 RangeTemplateTable_SmallCurve3:
 BYTE 3 2 
-BYTE 2 9 
+BYTE 2 1 
 BYTE 1 1 1
 BYTE 0 0 1
 
