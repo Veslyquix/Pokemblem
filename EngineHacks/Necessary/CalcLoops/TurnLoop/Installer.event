@@ -10,7 +10,7 @@ POP
 
 ALIGN 4 
 TurnCalcLoop_Silent: // Effects that do not pause the game 
-POIN ProcessDebuffs ArmorMarch_StartOfTurn VigorDanceReset GaleforceBitReset // Standalone things that loop through all units and do not pause the game 
+POIN ProcessDebuffs RestoreStatusFromSkills ArmorMarch_StartOfTurn VigorDanceReset GaleforceBitReset // Standalone things that loop through all units and do not pause the game 
 POIN UpdateSMSDir_All // first turn only... 
 // POIN SeeAllDeployedPokemon // called in GlobalTurnEvent
 WORD 0 
@@ -101,8 +101,8 @@ EndOfTurnHealFunctionEntry(HoardersBaneID, HoardersBane_CanUnitHeal, HoardersBan
 EndOfTurnHealFunctionEntry(DarkBargainID, DarkBargain_CanUnitHeal, DarkBargain_HealAmount) 
 EndOfTurnHealFunctionEntry(SoulSapID, SoulSap_CanUnitHeal, SoulSap_HealAmount) 
 EndOfTurnHealFunctionEntry(ExplorerID, ExplorerUsability, ExplorerEffect) 
-EndOfTurnHealFunctionEntry(ShedSkinID, ShedSkinUsability, ShedSkinEffect) 
-EndOfTurnHealFunctionEntry(NaturalCureID, NaturalCureUsability, NaturalCureEffect) 
+// EndOfTurnHealFunctionEntry(ShedSkinID, ShedSkinUsability, ShedSkinEffect) 
+// EndOfTurnHealFunctionEntry(NaturalCureID, NaturalCureUsability, NaturalCureEffect) 
 EndOfTurnHealFunctionEntry(HydrationID, HydrationUsability, HydrationEffect) 
 EndOfTurnHealFunctionEntry(HarvestID, HarvestUsability, HarvestEffect) 
 

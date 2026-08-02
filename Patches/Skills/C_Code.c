@@ -343,14 +343,41 @@ int NaturalCureUsability(struct Unit * unit)
 {
     return true;
 }
-
 int NaturalCureEffect(struct Unit * unit) // NaturalCure: at the start of the turn, cure status
 {
     if (unit->statusDuration)
     {
-        unit->statusDuration = 1;
+        unit->statusDuration = 0;
+        unit->statusIndex = 0;
     }
     return 0;
+}
+
+extern int ShedSkinID_Link;
+extern int NaturalCureID_Link;
+extern int HydrationID_Link;
+int UnitCanHydrate(struct Unit * unit);
+void RestoreStatusFromSkills(void)
+{
+    struct Unit * unit;
+
+    for (int i = gPlaySt.faction + 1; i < gPlaySt.faction + 0x40; ++i)
+    {
+        unit = GetUnit(i);
+        if (!UNIT_IS_VALID(unit))
+        {
+            continue;
+        }
+        if (!unit->statusDuration)
+        {
+            continue;
+        }
+        if (SkillTester(unit, ShedSkinID_Link) || SkillTester(unit, NaturalCureID_Link) || UnitCanHydrate(unit))
+        {
+            unit->statusDuration = 0;
+            unit->statusIndex = 0;
+        }
+    }
 }
 
 extern int KeenEyeID_Link;
@@ -1626,6 +1653,11 @@ int SwiftSwimEffect(int stat, struct Unit * unit)
 int HydrationUsability(struct Unit * unit)
 {
     return IsCoordWater(unit->xPos, unit->yPos) || IsEffectivenessAuraNearby(unit, unit->index, DoesUnitHaveDampAura);
+}
+
+int UnitCanHydrate(struct Unit * unit)
+{
+    return HydrationUsability(unit) && SkillTester(unit, HydrationID_Link);
 }
 
 int HydrationEffect(struct Unit * unit)
