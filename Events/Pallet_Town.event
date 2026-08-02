@@ -31,6 +31,8 @@ END_MAIN
 PurchaseLaprasevent:
 EVBIT_MODIFY 4 
 WallText(CatchBeforePurchaseLaprasText)
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 CheckIfCaught(VenusaurID) 
 BNE 31 sC s0 
 CheckIfCaught(CharizardID)
@@ -83,6 +85,11 @@ GOTO 63
 
 LABEL 30 // Haven't caught the pokemon 
 ENUF PurchasedLaprasFlag
+GOTO 63
+
+LABEL 29
+TutText(CannotPurchasePkmnText)
+GOTO 30
 
 LABEL 63 
 NoFade

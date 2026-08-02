@@ -47,6 +47,8 @@ END_MAIN
 PurchaseGrowlitheevent:
 EVBIT_MODIFY 4 
 WallText(CatchBeforePurchaseGrowlitheText)
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 CheckIfCaught(BellsproutID) 
 BEQ 30 sC s0 
 CheckIfCaught(EkansID)
@@ -97,6 +99,11 @@ GOTO 63
 
 LABEL 30 // Haven't caught the pokemon 
 ENUF PurchasedGrowlitheFlag
+GOTO 63
+
+LABEL 29
+TutText(CannotPurchasePkmnText)
+GOTO 30
 
 LABEL 63 
 NoFade

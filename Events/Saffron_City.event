@@ -48,6 +48,8 @@ END_MAIN
 PurchaseHitmonchanevent:
 EVBIT_MODIFY 4 
 WallText(CatchBeforePurchaseHitmonchanText)
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 CHECK_EVENTID CannotEvolveFlag
 BNE 44 sC s0 
 CheckIfCaught(ScytherID) 
@@ -100,6 +102,10 @@ SET_ACTIVE 0x7ffe
 GOTO 63 
 LABEL 44 
 WallText(LittleCupRulesText)
+GOTO 30
+LABEL 29
+TutText(CannotPurchasePkmnText)
+GOTO 30
 LABEL 30 // Haven't caught the pokemon 
 ENUF PurchasedHitmonchanFlag
 
@@ -110,6 +116,8 @@ ENDA
 PurchaseHitmonleeevent:
 EVBIT_MODIFY 4 
 WallText(CatchBeforePurchaseHitmonleeText)
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 CHECK_EVENTID CannotEvolveFlag
 BNE 44 sC s0 
 CheckIfCaught(KangaskhanID) 
@@ -162,6 +170,10 @@ SET_ACTIVE 0x7ffe
 GOTO 63 
 LABEL 44 
 WallText(LittleCupRulesText)
+GOTO 30
+LABEL 29
+TutText(CannotPurchasePkmnText)
+GOTO 30
 LABEL 30 // Haven't caught the pokemon 
 ENUF PurchasedHitmonleeFlag
 
