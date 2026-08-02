@@ -27,7 +27,7 @@
 
 @ OBJ tile allocation
 
-	.set MMBNumberBaseTile,		0x2C0 @ also change in MMBCore.event 
+	.set MMBNumberBaseTile,		0x240 @ also change in MMBCore.event 
 	.set MMBNumberOAMBaseTile,	0x8000 + MMBNumberBaseTile
 
 @ Proc State
