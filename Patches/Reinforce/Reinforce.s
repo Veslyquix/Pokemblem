@@ -304,7 +304,7 @@ FinishUp:
 
 bl CopyMapOver
 
-blh 0x8026688 @SMS_Init
+@blh 0x8026688 @SMS_Init / ResetUnitSprites
 
 ldr r0, =ENUNEvent
 mov r1, #1

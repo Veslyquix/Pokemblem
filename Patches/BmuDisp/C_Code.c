@@ -1367,7 +1367,7 @@ void EnsureSMS32xGfxCounterHasRoom(int slotCount)
         limit = MMS_RESERVED_GFX_SLOT_START;
 
     if (gSMS32xGfxIndexCounter > limit)
-        gSMS32xGfxIndexCounter = 0x40;
+        ResetUnitSprites();
 }
 
 /*
@@ -1718,25 +1718,29 @@ void ForceSyncUnitSpriteSheet(void)
 
     if (frame >= 68)
     {
-        RegisterSMSGfxBufferMoveToObjVram(1);
+        // RegisterSMSGfxBufferMoveToObjVram(1);
+        CopySMSGfxBufferToObjVram(1);
         return;
     }
 
     if (frame >= 36)
     {
-        RegisterSMSGfxBufferMoveToObjVram(2);
+        // RegisterSMSGfxBufferMoveToObjVram(2);
+        CopySMSGfxBufferToObjVram(2);
         return;
     }
 
     if (frame >= 32)
     {
-        RegisterSMSGfxBufferMoveToObjVram(1);
+        // RegisterSMSGfxBufferMoveToObjVram(1);
+        CopySMSGfxBufferToObjVram(1);
         return;
     }
 
     if (frame >= 0)
     {
-        RegisterSMSGfxBufferMoveToObjVram(0);
+        // RegisterSMSGfxBufferMoveToObjVram(0);
+        CopySMSGfxBufferToObjVram(0);
         return;
     }
 }

@@ -69,7 +69,7 @@ StalVar(22)
 DISA 0xFC 
 
 LABEL 20 
-ASMC 0x8026689 //SMS_Init - refresh SMS in case we've gone overboard 
+//ASMC 0x8026689 //SMS_Init - ResetUnitSprites in case we've gone overboard 
 
 StalVar(5)
 
