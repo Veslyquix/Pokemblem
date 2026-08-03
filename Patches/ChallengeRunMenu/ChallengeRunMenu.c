@@ -900,6 +900,9 @@ void DrawChallengeRun(ChallengeRunProc * proc)
 
 void StartChallengeRun(ProcPtr parent)
 {
+    *AvatarPortraitId_Link = 0; // must initialize to 0, as it is not initialized on new game
+    *AvatarClassId_Link = 0;
+
     ClearBg0Bg1();
     // EnableBgSyncByIndex(0);
     ChallengeRunProc * proc;

@@ -18,6 +18,13 @@ SET_FUNC Div, __aeabi_idivmod
 SET_FUNC Div, __aeabi_uidiv
 SET_FUNC Div, __aeabi_uidivmod
 
+
+SET_DATA sChapterDataTable, 0x803462C
+SET_DATA sPortrait_data, 0x8005524
+SET_DATA sUnit_icon_wait_table, 0x8027bb0
+SET_DATA sUnit_icon_move_table, 0x8079584
+SET_DATA sConvoBackgroundData, 0x800e894
+SET_DATA sCGDataTable, 0x80b65F0 
 SET_FUNC IsCoordHiddenByMinimug, 0x809a21d
 SET_FUNC PutClassSpriteForSecretShop, 0x809a231
 SET_DATA gSMSGfxBuffer1, 0x8026958

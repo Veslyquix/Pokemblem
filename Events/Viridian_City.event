@@ -52,6 +52,8 @@ ENDA
 PurchasePsyduckevent:
 EVBIT_MODIFY 4 
 WallText(CatchBeforePurchasePsyduckText)
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 CheckIfCaught(MankeyID) 
 BEQ 30 sC s0 
 CheckIfCaught(PidgeyID)
@@ -100,6 +102,8 @@ ASMC ChangeS1UnitIntoLowestUnitID
 SADD sB sA s0 
 SET_ACTIVE 0x7ffe
 GOTO 63 
+LABEL 29
+TutText(CannotPurchasePkmnText)
 
 LABEL 30 // Haven't caught the pokemon 
 ENUF PurchasedPsyduckFlag 

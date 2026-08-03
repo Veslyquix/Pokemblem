@@ -251,10 +251,11 @@ LABEL 10
 //SetUnitStatus(2, CurrentHP, 5)
 CALL SetBushHpEvent
 
-MarkTrainerAsDefeated(0xE5) 
-UnmarkTrainerAsDefeated(0xE0)
+
+// UnmarkTrainerAsDefeated(0xE0)
 
 /*
+MarkTrainerAsDefeated(0xE5) 
 LOAD1 1 HireGeodudeUnitGroup
 ENUN 
 MOVE (-1) HiredPokemonUnitID [43,26]

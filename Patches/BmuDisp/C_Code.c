@@ -50,6 +50,30 @@ extern u16 SmsObjVramUpperChr;
 #define MMS_RESERVED_OBJ_CHR 0x39C
 #define MMS_RESERVED_GFX_SLOT_START (SMS_16X16_GFX_SLOT_COUNT - SMS_32X32_GFX_SLOT_STRIDE)
 
+extern struct MuInfo const * const sUnit_icon_move_table; // struct MuInfo
+static struct MuInfo const * GetMMSData(int id)
+{
+    if (id)
+        return sUnit_icon_move_table + id - 1; // 27bb0
+
+    return NULL;
+}
+
+// fixed olive green box by editing MMS slot chr from appearing on top of attacked pkmn after replace moves menu
+// unused, but could be a useful function later
+void RefreshMUSprites(void)
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        struct MuProc * proc = GetMu(i);
+        if (proc)
+        {
+            const struct MuInfo * info = GetMMSData(proc->jid);
+            Decompress(info->img, GetMuImgBufById(i));
+        }
+    }
+}
+
 // static u8 CONST_DATA sMuImgBufOffLut[MU_MAX_COUNT + 1] = {
 // 0, // dummy because active ids start at 1
 // 0, 2, 1, 3
@@ -308,9 +332,9 @@ void AreUnitsInDangerFogASMC(void)
     }
     gEventSlots[0xC] = result;
 }
-
+// mms slots
 extern struct MuConfig sMuConfig[MU_MAX_COUNT];
-static u16 const sMuChrOffLut_Default2[MU_MAX_COUNT] = { 0x00, 0x10, 0x08, 0x18 };
+static u16 const sMuChrOffLut_Default2[MU_MAX_COUNT] = { 0x00, 0x18, 0x10, 0x08 };
 struct MuConfig * GetDefaultMuConfig(int objTileId, u8 * outIndex)
 {
     int i;
@@ -326,7 +350,7 @@ struct MuConfig * GetDefaultMuConfig(int objTileId, u8 * outIndex)
         }
         else
         {
-            sMuConfig[i].chr = sMuChrOffLut_Default2[i] + 0x278;
+            sMuConfig[i].chr = sMuChrOffLut_Default2[i] + 0x284;
         }
 
         *outIndex = i;
@@ -1343,7 +1367,7 @@ void EnsureSMS32xGfxCounterHasRoom(int slotCount)
         limit = MMS_RESERVED_GFX_SLOT_START;
 
     if (gSMS32xGfxIndexCounter > limit)
-        gSMS32xGfxIndexCounter = 0x40;
+        ResetUnitSprites();
 }
 
 /*
@@ -1695,24 +1719,28 @@ void ForceSyncUnitSpriteSheet(void)
     if (frame >= 68)
     {
         RegisterSMSGfxBufferMoveToObjVram(1);
+        // CopySMSGfxBufferToObjVram(1);
         return;
     }
 
     if (frame >= 36)
     {
         RegisterSMSGfxBufferMoveToObjVram(2);
+        // CopySMSGfxBufferToObjVram(2);
         return;
     }
 
     if (frame >= 32)
     {
         RegisterSMSGfxBufferMoveToObjVram(1);
+        // CopySMSGfxBufferToObjVram(1);
         return;
     }
 
     if (frame >= 0)
     {
         RegisterSMSGfxBufferMoveToObjVram(0);
+        // CopySMSGfxBufferToObjVram(0);
         return;
     }
 }

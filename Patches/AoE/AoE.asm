@@ -1746,7 +1746,7 @@ AoE_RemoveDeadUnitLoop_BreakProcLoop:
 @Now that all the units have been explored, we're done.
 mov r0, r4 @  @ parent to break from 
 blh BreakProcLoop
-blh 0x8026688 @ ResetUnitSprites
+@blh 0x8026688 @ ResetUnitSprites
 
 b AoE_RemoveDeadUnitLoop_Exit 
 

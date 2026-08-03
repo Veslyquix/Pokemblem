@@ -106,6 +106,8 @@ ENDA
 
 KabutoEvent:
 EVBIT_MODIFY 4 
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 WallText(PurchaseKabutoText)
 LOAD1 1 KabutoUnitGroup  
 ENUN 
@@ -139,12 +141,17 @@ SVAL s1 TempAlly
 ASMC ChangeS1UnitIntoLowestUnitID
 SADD sB sA s0 
 SET_ACTIVE 0x7ffe
+GOTO 63
+LABEL 29
+TutText(CannotPurchasePkmnText)
 LABEL 63 
 NoFade
 ENDA 
 
 OmanyteEvent:
 EVBIT_MODIFY 4 
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 WallText(PurchaseOmanyteText)
 LOAD1 1 OmanyteUnitGroup  
 ENUN 
@@ -177,12 +184,17 @@ SVAL s1 TempAlly
 ASMC ChangeS1UnitIntoLowestUnitID
 SADD sB sA s0 
 SET_ACTIVE 0x7ffe
+GOTO 63
+LABEL 29
+TutText(CannotPurchasePkmnText)
 LABEL 63 
 NoFade
 ENDA 
 
 AerodactylEvent:
 EVBIT_MODIFY 4 
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 WallText(PurchaseAerodactylText)
 CHECK_EVENTID CannotEvolveFlag
 BNE 44 sC s0 
@@ -205,6 +217,11 @@ LABEL 44
 WallText(LittleCupRulesText)
 ENUF ObtainedAerodactylFlag 
 GOTO 63 
+
+LABEL 29
+TutText(CannotPurchasePkmnText)
+ENUF ObtainedAerodactylFlag
+GOTO 63
 
 LABEL 20
 ENUT ObtainedAerodactylFlag

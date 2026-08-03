@@ -10,9 +10,9 @@
 // 2008fe0 B gMUGfxBuffer[slot2]
 
 // #define SMS_Frame1_Buffer 0x201A5C8 
-#define SMS_Frame1_Buffer 0x2008fe0  //[2008000..200c000]!!
-#define SMS_Frame2_Buffer 0x20165c8
-#define SMS_Frame3_Buffer 0x2034010
+#define SMS_Frame1_Buffer 0x2008fe0  //[2008fe0..200cfe0]!!
+#define SMS_Frame2_Buffer 0x20165c8 // [20165c8..201A5c8]!!
+#define SMS_Frame3_Buffer 0x2034010 // [2034010..2038010]!!
 
 ALIGN 4 
 FaintCounter_Link:

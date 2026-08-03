@@ -1,10 +1,13 @@
 
 // Move MMBNumberBaseTile - Vesly 
+// also change in CommonDefinitions.inc
 PUSH 
 ORG $8d0b8 // InitPlayerPhaseInterface  
 WORD 0x6015800 //Decompress(gGfx_PlayerInterfaceNumbers, OBJ_CHR_ADDR(0x2E0));
+// WORD 0x6014800 //Decompress(gGfx_PlayerInterfaceNumbers, OBJ_CHR_ADDR(0x2E0));
 ORG $8d0c0
 WORD 0x6015940 //CpuFastCopy(BG_CHR_ADDR(0x175), OBJ_CHR_ADDR(0x2EA), CHR_SIZE);
+// WORD 0x6014940 //CpuFastCopy(BG_CHR_ADDR(0x175), OBJ_CHR_ADDR(0x2EA), CHR_SIZE);
 POP 
 
 	#include "EAstdlib.event"

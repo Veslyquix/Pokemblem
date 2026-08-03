@@ -48,6 +48,8 @@ TEXTSHOW RocketMagikarpText_A
 TEXTEND 
 SVAL r7 1 
 BNE 0 rC r7 
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 LOAD1 1 MagikarpUnitGroup 
 
 TEXTSHOW RocketMagikarpText_B
@@ -62,13 +64,20 @@ UNCM(0x36, 0x10009) // Undeploy + escape the magikarp
 SVAL s1 0x36 // Magikarp's UnitID 
 ASMC ChangeS1UnitIntoLowestUnitID
 
-GOTO 50 
-LABEL 0 
+GOTO 50
+LABEL 0
 TEXTSHOW RocketMagikarpText_C
 
-LABEL 50 
-TEXTEND 
-REMA 
+GOTO 50
+LABEL 29
+TEXTEND
+REMA
+TutText(CannotPurchasePkmnText)
+GOTO 0x63
+
+LABEL 50
+TEXTEND
+REMA
 
 CHECK_EVENTID RocketMagikarpFlag 
 BEQ 0x63 rC r0 

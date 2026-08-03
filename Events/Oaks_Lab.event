@@ -227,8 +227,10 @@ SADD rA rB r0
 STAL_SKIP_FAST 25
 TutText(UhOhText)
 SADD rB rA r0 
+CHECK_EVENTID CannotCaptureFlag 
+BNE 153 sC s0 
 CALL SendOutPkmnSlotB
-
+LABEL 153 
 
 
 UNCR(2, Hide) 

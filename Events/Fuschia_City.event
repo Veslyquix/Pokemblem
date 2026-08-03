@@ -49,6 +49,8 @@ END_MAIN
 PurchaseMagmarevent:
 EVBIT_MODIFY 4 
 WallText(CatchBeforePurchaseMagmarText)
+CHECK_EVENTID CannotCaptureFlag
+BNE 29 sC s0
 CHECK_EVENTID CannotEvolveFlag
 BNE 44 sC s0 
 CheckIfCaught(VenonatID) 
@@ -100,6 +102,10 @@ SET_ACTIVE 0x7ffe
 GOTO 63 
 LABEL 44 
 WallText(LittleCupRulesText)
+GOTO 30
+LABEL 29
+TutText(CannotPurchasePkmnText)
+GOTO 30
 LABEL 30 // Haven't caught the pokemon 
 ENUF PurchasedMagmarFlag
 

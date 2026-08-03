@@ -20,6 +20,10 @@ I'm going to disappear now[N]
 because it's easier to event.[A][N]
 Goodbye.[A][X]
 
+## CannotPurchasePkmnText
+Your ruleset prevents you[N]
+from purchasing Pokémon.[A][X]
+
 
 
 ## CantAffordSSAnneTicketText
