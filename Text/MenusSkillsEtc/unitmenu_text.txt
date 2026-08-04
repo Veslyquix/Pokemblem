@@ -350,8 +350,14 @@ Sweep nearby foes.[X]
 ## UM_RecoverDesc
 Restore some HP.[X]
 
+## UM_RestName
+ Rest[X]
+ 
+## UM_RestDesc
+Restore all HP and sleep.[X]
+
 ## UM_GrowthName
-Growth[X]
+ Growth[X]
 
 ## UM_GrowthDesc
 Boosts Str/Mag/Skl+5.[X]
@@ -431,9 +437,6 @@ Summons your party[N]
 to nearby tiles.[X]
 ## UM_Rest
  Rest[X]
-## UM_RestDesc 
-Heal all units
-and go to sleep.[X]
 ## UM_Cut
  Cut[X]
 ## UM_CutDesc

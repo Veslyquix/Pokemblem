@@ -98,22 +98,39 @@ Freeze[X]
 Entangle[X]
 # 0x553 
 Damaged each turn.[N]
-75% Def/Res.[X]
+Reduces Def/Res by 1/4.[N]
+Reduces other stats by 1/8th.[X]
+
+# 0x554 
+Zzzz... Zzzzz...[N]
+Reduces Def/Res by 1/2.[N]
+Reduces other stats by 1/8th.[X]
+
+# 0x555 
+Rarrrrr! Attack any unit,[N]
+be it friend or foe![N]
+Reduces stats by 1/8th.[X]
+
 
 # 0x558 BurnRTextDesc
 Damaged each turn.[N]
-25% Strength.[X]
+Reduces Str/Mag by 1/2.[N]
+Reduces other stats by 1/8th.[X]
 
 # 0x559 ParalysisRTextDesc
 Chance of a missed turn.[N]
-25% Speed.[X]
+Reduces Spd by 3/4.[N]
+Reduces other stats by 1/8th.[X]
+
 # 0x55A FreezeRTextDesc
-Frozen. Def/Res are halved.[N]
-Unable to move.[X]
+Frozen. Unable to move.[N]
+Reduces Def/Res by 1/2.[N]
+Reduces other stats by 1/8th.[X]
 
 # 0x55B TrappedRTextDesc 
 Entangled. Damaged each turn.[N]
-25% Speed/Mov.[X]
+Reduces Spd/Mov by 3/4.[N]
+Reduces other stats by 1/8th.[X]
 
 # 0x503
 // Previously Mt for battle forecast 

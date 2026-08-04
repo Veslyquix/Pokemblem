@@ -76,6 +76,7 @@ ENDA
 
 ALIGN 4 
 HandleProtag:
+ENUF CannotSkipEventFlag
 DisableFreeMovement 
 SendAllTransporter(ProtagID)
 FadeToBlack 
@@ -101,6 +102,7 @@ POIN NewSuspendEvent
 POP 
 
 NewSuspendEvent: 
+ENUT CannotSkipEventFlag
 EVBIT_MODIFY 0x4
 TEXTSTART
 TEXTSHOW 0x8FE
@@ -119,6 +121,7 @@ MNTS 0x0
 LABEL 0x0
 REMA
 EVBIT_T 0x7
+ENUF CannotSkipEventFlag
 ENDA
 
 //prep - make stuff unequipped 
@@ -130,6 +133,7 @@ GetUnitStatus(0x7fff, CurrentHP); BNE 10 sC s0; SVAL s2 5; GOTO 11; LABEL 10; SV
 
 
 ReleasePokemonEvent:
+ENUT CannotSkipEventFlag
 ASMC RegisterAllOwnedPokemon
 EVBIT_MODIFY 4
 CURSOR_FLASHING 0x7FFF // Shiny frame ? 
@@ -180,6 +184,7 @@ EVBIT_MODIFY 0
 CAM1 0xFC 
 DISA 0xFC 
 ENDFADE 
+ENUF CannotSkipEventFlag
 //CHECK_CHAPTER_NUMBER 
 //SADD r1 rC r0 
 //LOMA (-1) 
@@ -401,6 +406,7 @@ EnqueueREDAFromCoords: {
 }
 
 SendActorToNearestCoord:
+ENUT CannotSkipEventFlag
 EVBIT_MODIFY 1 
 ASMC_FindFreeTile(0x7fff)
 SADD sB sC s0 
@@ -416,10 +422,12 @@ ASMC SetActorCoords
 //UNCM(0x7FFE, 0x43) 
 MOVEFORCED 3 0x7FFF 0
 ENUN
+ENUF CannotSkipEventFlag
 NoFade 
 ENDA 
 
 RevivePartyCostEvent: 
+ENUT CannotSkipEventFlag
 EVBIT_MODIFY 4
 EVBIT_F 2 
 SVAL r7 1 
@@ -429,6 +437,7 @@ GIVETOSLOT3
 ReviveParty
 ASMC CallCommandEffect
 LABEL 99 
+ENUF CannotSkipEventFlag
 NoFade 
 ENDA 
 
@@ -495,20 +504,24 @@ ENDB
 ExitAreaEvent:
 SVAL r2 0 // Player allegiance 
 CALL 0x89EE1B8 // When matching allegiance stops in range 
+ENUT CannotSkipEventFlag
 EVBIT_MODIFY 4
 SVAL r7 1 
 EVBIT_F 2 
 TutText(ExitAreaText) 
+ENUF CannotSkipEventFlag
 NoFade 
 ENDA 
 
 ExitTowerEvent:
 SVAL r2 0 // Player allegiance 
 CALL 0x89EE1B8 // When matching allegiance stops in range 
+ENUT CannotSkipEventFlag
 EVBIT_MODIFY 4
 SVAL r7 1 
 EVBIT_F 2 
 TutText(ExitTowerText) 
+ENUF CannotSkipEventFlag
 NoFade 
 ENDA 
 
@@ -1418,7 +1431,7 @@ ChTransition:
 SVAL r2 0 // Player allegiance 
 CALL 0x89EE1B8 // When matching allegiance stops in range 
 PauseFreeMovement 
-
+ENUT CannotSkipEventFlag
 EVBIT_MODIFY 4
 EVBIT_F 2 
 SVAL r7 1 
@@ -1446,6 +1459,7 @@ GOTO 0x63
 
 
 LABEL 0x63 
+ENUF CannotSkipEventFlag
 EVBIT_MODIFY 0
 NoFade
 ENDA 

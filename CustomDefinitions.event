@@ -459,6 +459,7 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 #define GrampsFlag 0x100
 #define HagFlag 0x101
 #define DoppelgangerFlag 0x102 // see yourself 
+#define CannotSkipEventFlag 0x103  
 
  
 
@@ -616,7 +617,9 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 
 
 #define jumpToHack_r0(offset) "SHORT 0x4800 0x4700 ; POIN (offset|1)"
+#ifndef jumpToHack_r1 
 #define jumpToHack_r1(offset) "SHORT 0x4900 0x4708 ; POIN (offset|1)"
+#endif 
 #define jumpToHack_r2(offset) "SHORT 0x4A00 0x4710 ; POIN (offset|1)"
 #define jumpToHack_r3(offset) "SHORT 0x4B00 0x4718 ; POIN (offset|1)"
 

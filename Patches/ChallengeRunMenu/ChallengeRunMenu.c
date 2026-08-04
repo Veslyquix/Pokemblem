@@ -1,5 +1,5 @@
 #include "gbafe.h" // headers
-
+// [0x02023CA8..0x020244a8]!!
 #define PUREFUNC __attribute__((pure))
 #define ARMFUNC __attribute__((target("arm")))
 int Div(int a, int b) PUREFUNC;
@@ -61,6 +61,7 @@ typedef struct
     u8 displayedBadgeOption;
     u8 displayedRulesState;
     u8 pkmn[7];
+    u16 timer;
     u16 badgePalBase[CR_BADGE_PALETTE_COLOR_COUNT];
     // s8 Option[15];
 } ChallengeRunProc;
@@ -143,6 +144,8 @@ enum
 #define CR_BADGE_TILE_BASE 0x440
 #define CR_BADGE_TILE_WIDTH 17
 #define CR_BADGE_TILE_HEIGHT 17
+#define CR_TILEMAP_WIDTH 32
+#define CR_TILEMAP_HEIGHT 32
 #define CR_BADGE_PAL_SLOT 7
 #define CR_BADGE_X 8
 #define CR_BADGE_Y (-1)
@@ -161,8 +164,8 @@ enum
 #define CR_UIFRAME_BG 2
 #define CR_UIFRAME_TILE_ABS_BASE 0x2E0
 #define CR_UIFRAME_TILE_BASE 0xE0
-#define CR_UIFRAME_TILE_WIDTH 30
-#define CR_UIFRAME_TILE_HEIGHT 20
+#define CR_UIFRAME_TILE_WIDTH 32 // so it fills the entire bg for scrolling, not the screen size of 30x20
+#define CR_UIFRAME_TILE_HEIGHT 32
 #define CR_UIFRAME_PAL_SLOT 6
 #define CR_UIFRAME_TILE_DATA_OFFSET 0x4000
 
@@ -815,7 +818,7 @@ void DrawChallengeRunUiFrameBg(void)
         for (x = 0; x < CR_UIFRAME_TILE_WIDTH; x++)
         {
             TILEMAP_LOCATED(bg_table[CR_UIFRAME_BG], x, y)
-            [0] = (CR_UIFRAME_TILE_BASE + CR_FRLGUiFrameBG_map[(y * CR_UIFRAME_TILE_WIDTH) + x]) |
+            [0] = (CR_UIFRAME_TILE_BASE + CR_FRLGUiFrameBG_map[((y * CR_UIFRAME_TILE_WIDTH) + x)]) |
                 (CR_UIFRAME_PAL_SLOT << 12);
         }
     }
@@ -842,14 +845,31 @@ void DrawChallengeRunBadge(ChallengeRunProc * proc)
     StoreBadgePaletteBase(proc);
     ApplyBadgePaletteCycle(proc);
 
-    TileMap_FillRect(
-        TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X, CR_BADGE_Y), CR_BADGE_TILE_WIDTH, CR_BADGE_TILE_HEIGHT, 0);
+    for (y = 0; y < CR_BADGE_TILE_HEIGHT; y++)
+    {
+        for (x = 0; x < CR_BADGE_TILE_WIDTH; x++)
+        {
+            int dstX = CR_BADGE_X + x;
+            int dstY = CR_BADGE_Y + y;
+
+            if (dstX < 0 || dstX >= CR_TILEMAP_WIDTH || dstY < 0 || dstY >= CR_TILEMAP_HEIGHT)
+                continue;
+
+            TILEMAP_LOCATED(bg_table[CR_BADGE_BG], dstX, dstY)[0] = 0;
+        }
+    }
 
     for (y = 0; y < CR_BADGE_TILE_HEIGHT; y++)
     {
         for (x = 0; x < CR_BADGE_TILE_WIDTH; x++)
         {
-            TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X + x, CR_BADGE_Y + y)
+            int dstX = CR_BADGE_X + x;
+            int dstY = CR_BADGE_Y + y;
+
+            if (dstX < 0 || dstX >= CR_TILEMAP_WIDTH || dstY < 0 || dstY >= CR_TILEMAP_HEIGHT)
+                continue;
+
+            TILEMAP_LOCATED(bg_table[CR_BADGE_BG], dstX, dstY)
             [0] = ((CR_BADGE_TILE_BASE & 0x3FF) + (y * CR_BADGE_TILE_WIDTH) + x) | (CR_BADGE_PAL_SLOT << 12);
         }
     }
@@ -918,6 +938,7 @@ void StartChallengeRun(ProcPtr parent)
     {
         proc->id = 0;
         proc->offset = 0;
+        proc->timer = 0;
         proc->redraw = false;
         proc->cannotCatch = false;
         proc->cannotEvolve = false;
@@ -976,7 +997,9 @@ void SetTactNameFromCase(int id)
 extern struct KeyStatusBuffer sKeyStatusBuffer;
 static void ChallengeRunLoop(ChallengeRunProc * proc)
 {
+    proc->timer++;
 
+    BG_SetPosition(BG_2, 0 - (proc->timer >> 1), 0 - (proc->timer >> 1));
     DrawChallengeRunBadge(proc);
     ApplyBadgePaletteCycle(proc);
     DrawCR_Sprites(proc, 0);

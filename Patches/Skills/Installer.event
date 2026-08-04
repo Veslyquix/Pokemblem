@@ -126,9 +126,41 @@ SkillReq(GrislyWoundID, 0, 55, spdReq) // mansion
 
 #include "C_Code.lyn.event" 
 
-
-
-
-
-
+ALIGN 4 
+NormalType_Link:
+WORD NormalType
+FireType_Link:
+WORD FireType
+WaterType_Link:
+WORD WaterType
+ElectricType_Link:
+WORD ElectricType
+FightingType_Link:
+WORD FightingType
+PoisonType_Link:
+WORD PoisonType
+GroundType_Link:
+WORD GroundType
+FlyingType_Link:
+WORD FlyingType
+RockType_Link:
+WORD RockType
+GhostType_Link:
+WORD GhostType
+DragonType_Link:
+WORD DragonType
+GrassType_Link:
+WORD GrassType
+IceType_Link:
+WORD IceType
+SteelType_Link:
+WORD SteelType
+PsychicType_Link:
+WORD PsychicType
+BugType_Link:
+WORD BugType
+DarkType_Link:
+WORD DarkType
+// FairyType_Link:
+// WORD FairyType
 

@@ -106,7 +106,38 @@ bx r3
 .ltorg
 .align
 
+.global GenericStatus_Str 
+.type GenericStatus_Str, %function 
+GenericStatus_Str:
+push {r4-r5, lr}
+mov r5, r0 @stat
+mov r4, r1 @unit
+cmp r0, #0 
+blt End_TestGenericStr
+mov r0,r4
+ldr r1, =BurnStatusID_Link 
+ldr r1, [r1] 
+bl IsStatusApplicable 
+cmp r0, #0 
+bne End_TestGenericStr 
 
+mov r2, #0x30 
+ldrb r2, [r4, r2] @ Unit's status byte 
+cmp r2, #0 
+beq End_TestGenericStr
+mov r0, r5 
+add r0, #4 
+lsr r0, #3 @ 1/8 
+sub r5, r0 @ 7/8 Str when poisoned, asleep, frozen 
+
+End_TestGenericStr:
+mov r0, r5
+mov r1, r4
+pop {r4-r5}
+pop {r3}
+bx r3 
+.ltorg
+.align
 
 BurnStatus:
 push {r4-r5, lr}

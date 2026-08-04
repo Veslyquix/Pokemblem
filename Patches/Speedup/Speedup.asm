@@ -5,6 +5,7 @@
   .short 0xf800
 .endm
 .equ CheckEventId,0x8083da8
+.equ ClearFlag,0x8083d94
 .equ gKeyState, 0x2024CC0
 
 .global EvBitModify_Hook 
@@ -12,6 +13,13 @@
 EvBitModify_Hook: 
 push {lr} 
 mov r4, r0 @ vanilla uses r4 
+ldr r0, =CannotSkipEventFlag 
+lsl r0, #16 
+lsr r0, #16 
+blh CheckEventId 
+cmp r0, #0 
+bne DisableCannotSkipFlag 
+
 ldr r0, =SkippableCutscenesFlag 
 lsl r0, #16 
 lsr r0, #16 
@@ -23,6 +31,12 @@ mov r2, r4
 mov r3, #0 @ allow skipping 
 mov r4, #0 
 b Exit_EvBitModify_Hook
+DisableCannotSkipFlag: 
+@ldr r0, =CannotSkipEventFlag 
+@lsl r0, #16 
+@lsr r0, #16 
+@blh ClearFlag
+
 Vanilla_EvBitModify: 
 mov r2, r4 
 ldr r0, [r2, #0x38] 

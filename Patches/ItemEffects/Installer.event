@@ -54,8 +54,7 @@ DigChapterRam_Link:
 WORD DigChapterRam
 TeleportChapter_Link: 
 WORD TeleportChapter 
-PsychicType_Link: 
-WORD PsychicType 
+
 
 
 ALIGN 4 

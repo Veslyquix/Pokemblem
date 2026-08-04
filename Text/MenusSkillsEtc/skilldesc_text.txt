@@ -1676,7 +1676,8 @@ stat buffs do not deplete.[X]
 
 ## SD_Guts
 Guts: Boost str by 25%[N]
-while inflicted by status.[X]
+while inflicted by status. Immune[N]
+to debuffs from status conditions.[X]
 
 ## SD_StrongConstitution 
 Strong Constitution: +5[N]
@@ -1986,11 +1987,13 @@ attack bonus is doubled.[N]
 
 ## SD_AcidArmor
 Acid Armor: Boost Def/Res by 25%[N]
-while inflicted by status.[X]
+while inflicted by status. Immune[N]
+to debuffs from status conditions.[X]
 
 ## SD_QuickFeet
 Quick Feet: Boost speed by 25%[N]
-while inflicted by status.[N]
+while inflicted by status. Immune[N]
+to debuffs from status conditions.[N]
 [lock][Normal][X]
 
 ## SD_WeakArmor
