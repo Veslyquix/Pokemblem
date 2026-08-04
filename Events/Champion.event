@@ -45,8 +45,8 @@ House(0, ToHallOfFame, 13,3)
 END_MAIN
 
 CheckIfNoEnemiesLeft:
-CHECK_ENEMIES
 SVAL s1 1 
+CHECK_ENEMIES
 BNE 20 sC s1 
 
 CHECK_EVENTID ChampionDefeatedPhaseOne 
