@@ -16,6 +16,7 @@
 	.equ DrawOptionValueTexts, 0x80B1850
 	.equ GetConfigTextSlot, 0x80D1994
 	.equ GameOptionsOrderListPointer, 0x80B16F8
+	.equ PutGameOptionRow, 0x80b2188
 	.global LanguageCurrentLanguageLink
 	
 
@@ -84,8 +85,8 @@ bx r0
 RedrawVisibleConfigOptions:
 push {r4-r7, lr}
 ldr r0, =gConfigUiState
-ldr r0, [r0]
-cmp r0, #0
+ldr r6, [r0]
+cmp r6, #0
 beq RedrawVisibleConfigOptionsEnd
 @blh 0x8002D6C @ ProcEnd
 @ldr r0, =0x8022638
@@ -94,35 +95,27 @@ beq RedrawVisibleConfigOptionsEnd
 
 @blh 0x80B1A08@Config_Init
 @b RedrawVisibleConfigOptionsEnd
-ldrh r4, [r0, #0x2C] @ top visible option index
-ldrh r5, [r0, #0x34] @ visible option count
-add r5, r4
+mov r4, #0 
 RedrawVisibleConfigOptionsLoop:
-cmp r4, r5
+cmp r4, #6 
 bge RedrawVisibleConfigOptionsEnd
-mov r0, r4
-ldr r0, =GameOptionsOrderListPointer
-ldr r0, [r0]
-ldrb r0, [r0, r4]
-mov r1, #7
-blh GetConfigTextSlot
-mov r7, r0
-mov r6, r4
-lsl r6, r6, #1
-add r6, #1
-mov r0, #31
-and r6, r0
-mov r0, r4
-mov r1, #5
-blh DrawGameOptionIcon
-mov r0, r4
-mov r1, r7
-mov r2, r6
-blh DrawGameOptionText
-mov r0, r4
-mov r1, r7
-mov r2, r6
-blh DrawOptionValueTexts
+@ldr r0, =GameOptionsOrderListPointer
+@ldr r0, [r0]
+@ldrb r1, [r0, r4] 
+mov r0, r6 @ proc 
+mov r1, r4 @ counter
+mov r2, #0 
+blh PutGameOptionRow @(proc, gConfigUiState->selectedOptionIdx - 1, 0);
+@mov r1, #5
+@blh DrawGameOptionIcon
+@mov r0, r4
+@mov r1, r7
+@mov r2, r6
+@blh DrawGameOptionText
+@mov r0, r4
+@mov r1, r7
+@mov r2, r6
+@blh DrawOptionValueTexts
 add r4, #1
 b RedrawVisibleConfigOptionsLoop
 RedrawVisibleConfigOptionsEnd:
