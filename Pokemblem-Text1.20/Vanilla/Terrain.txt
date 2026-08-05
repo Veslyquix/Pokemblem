@@ -1,0 +1,122 @@
+# 0x55D 
+Chance to hit properly.[N]
+Glancing blows deal half damage.[X]
+
+# 0x55F 
+Chance the weapon will strike a[N]
+critical blow, doing 150% damage.[X]
+
+# 0x2E
+  MODE  Normal[X]
+
+# 0x2F
+  MODE  Hard[X]
+
+# 0x30
+  MODE  Lunatic[X]
+
+# 0x581
+Save any changes.[N]
+Choose Restart Chapter[N]
+to restart this chapter.[X]
+
+# 0x149
+For novices.[N]
+Select this if you[N]
+have little or no[N]
+experience with the[N]
+Fire Emblem series.[X]
+
+#0x14A
+For experienced[N]
+players. Trainers[N]
+are tougher than[N]
+usual.[X]
+
+#0x14B
+For masters of[N]
+Pokémon and[N]
+Fire Emblem. A tough[N]
+experience even for[N]
+seasoned veterans.[X]
+
+# 0x682
+ Enter[X]
+ 
+# 0x6CB
+//for enter 
+Confirm.[X]
+
+# 0x686
+ Mart[X]
+
+# 0x1C5
+Ground[X]
+
+# 0x1C6
+Ground[X]
+
+# 0x1C7
+Building[X]
+# 0x1C8
+Building[X]
+# 0x1C9
+Building[X]
+# 0x1CA
+Shop[X]
+# 0x1CB
+Shop[X]
+# 0x1CC
+Arena[X]
+# 0x1CD
+C.Room[X]
+
+# 0x1CE
+Cover[X]
+# 0x1CF
+Cover[X]
+
+# 0x1D0
+Grass[X]
+
+# 0x1D1
+Forest[X]
+
+
+# 0x1D2
+Dirt[X]
+# 0x1D3
+Dirt[X]
+# 0x1D4
+#river
+Shallow[X]
+# 0x1D5
+Hill[X]
+# 0x1D6
+Mntn[X]
+# 0x1D7
+Bridge[X]
+# 0x1D8
+Bridge[X]
+# 0x1D9
+Sea[X]
+# 0x1DA
+Shallow[X]
+# 0x1DB
+Ground[X]
+# 0x1DC
+Ground[X]
+
+# 0x1F1 // previously stairs 
+Telepad[X]
+
+# 0x1DD
+//#previously fence terrain
+--[X]
+# 0x1DE
+Wall[X]
+# 0x1DF
+Wall[X]
+
+
+

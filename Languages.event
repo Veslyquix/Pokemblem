@@ -5,6 +5,12 @@ TextTable_Spanish:
 ORG TextTable_Spanish + (MaxTextEntries) * 4
 #endif 
 
+#ifndef INSTALL_CHINESE
+ALIGN 4
+TextTable_Chinese:
+ORG TextTable_Chinese + (MaxTextEntries) * 4
+#endif
+
 #ifdef INSTALL_SPANISH 
 #undef TEXT_INSTALLER_TEXT_BUILDFILE_TXT
 
@@ -20,8 +26,22 @@ TextTable_Spanish:
 #undef TEXT_INSTALLER_TEXT_BUILDFILE_TXT
 #include "Language/Spanish/InstallTextData.event" // Overwrite with the language where possible 
 
-//#define setText(textID, offset) "PUSH; ORG (TextTable+4*textID); POIN (offset | 0x80000000); POP" //Anti-huffman
 #endif 
+
+#ifdef INSTALL_CHINESE
+#undef TEXT_INSTALLER_TEXT_BUILDFILE_TXT
+
+ALIGN 4
+TextTable_Chinese:
+#incbin "Text/PokemblemTextTable.dmp"
+  ORG TextTable_Chinese + (MaxTextEntries) * 4
+
+#define setText(textID, offset) "PUSH; ORG (TextTable_Chinese+4*textID); POIN (offset | 0x80000000); POP" //Anti-huffman
+
+#include "Text/InstallTextData.event" // Carbon copy English
+#undef TEXT_INSTALLER_TEXT_BUILDFILE_TXT
+#include "Language/Chinese/InstallTextData.event" // Overwrite with Chinese where possible
+#endif
 
 
 

@@ -10,7 +10,9 @@ ALIGN 4
 TextTables: 
 POIN TextTable
 POIN TextTable_Spanish
-//POIN TextTable_Chinese 
+#ifdef INSTALL_CHINESE
+POIN TextTable_Chinese
+#endif
 
 #endif 
 

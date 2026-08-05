@@ -1,0 +1,8 @@
+[OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight]嘿，小子！[N]
+你在这儿发什么呆呢？[A][N]
+打起仗来你可活不长的！[N]
+瞧你那点可怜的力量！[A][N]
+[ToggleSmile]我告诉你，小子，[N]
+电系宝可梦在战争中救过我！[A][N]
+它们把我的敌人电得麻痹了！[A][N]
+[ToggleSmile]我也要把你电成这样！[A][X]

@@ -22,7 +22,7 @@ extern const u8 * const * const TextTables[];
 char * GetStringFromIndexInBuffer(int index, char *buffer)
 {
 	int language = *CurrentLanguage_Link; 
-	if (language > 1) language = 0; 
+	if (language > 2) language = 0;
 	const u8 * ptr = TextTables[language][index];
     CallARM_DecompText(ptr, buffer);
     SomethingRelatedToText((void*)buffer);

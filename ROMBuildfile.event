@@ -64,7 +64,7 @@ POIN SkillAnimationTable
 	//#undef TEXT_INSTALLER_TEXT_BUILDFILE_TXT
 
     #include "Text/InstallTextData.event"
-	#include "Languages.event" 
+	
     MESSAGE Used text space ends at currentOffset
 	
 	#include "Language/TextTableCode/Installer.event" 
@@ -86,6 +86,7 @@ ORG FreeSpace
 		#include "Patches/An_Installer_of_Patches.event"
 	#endif 
 	#include "Maps/Master Map Installer.event"
+    #include "Languages.event" 
     
 #ifdef INCLUDE_FLYING
   	//Soaring outside bl range includes
