@@ -4,15 +4,41 @@
 #ifndef TEXT_DEFINITIONS_TEXT_BUILDFILE_TXT
 #define TEXT_DEFINITIONS_TEXT_BUILDFILE_TXT
 
+#define textWeaponRankIncreasedTo $002
 #define LearnedSkillText $03A
+#define SS_TalkText $03B
 #define SS_SkillsText $03C
 #define SS_TalkRText $03D
 #define SS_SkillsRText $03E
+#define SS_SkillsDefaultRText $03F
 #define PersonalDataDesc1 $040
+#define PersonalDataDesc2 $041
+#define LeadText $042
+#define LeadRText $043
+#define AllyStarCountRText $044
+#define EnemyStarCountRText $045
+#define DonateURL $046
+#define SS_BiorhythmText $047
+#define SS_BiorhythmRText $048
+#define SS_BiorhythmNeutral $049
+#define SS_BiorhythmGood $04A
+#define SS_BiorhythmGreat $04B
+#define SS_BiorhythmBest $04C
+#define SS_BiorhythmPoor $04D
+#define SS_BiorhythmBad $04E
+#define SS_BiorhythmWorst $04F
+#define LikesDesc $050
+#define DislikesDesc $051
+#define AgeDesc $052
+#define HeightDesc $053
 #define Text_Options_HPBars $094
+#define TxtData0x09E $09E
 #define Text_Options_HPBars_Desc $0B2
+#define TxtData0x0BA $0BA
+#define NSlashAText $26E
 #define PlayerPokemonDescText $26F
 #define OaksPikachuText $270
+#define OaksPikachuDescText $271
 #define TrainerPokemonDescText $272
 #define WildPokemonDescText $273
 #define WildPokemonText $274
@@ -27,6 +53,9 @@
 #define ParalysisRTextDesc $559
 #define FreezeRTextDesc $55A
 #define TrappedRTextDesc $55B
+#define PlaceUnitsText $9B7
+#define PlaceUnitsHelpText $9B8
+#define TxtData0x0D4B $D4B
 #define DislikesText $D4D
 #define HouseText $EA0
 #define VillageText $EA1

@@ -1,0 +1,10 @@
+# 0x2700 LanguageText
+Language[X]
+# 0x2701 LanguageHelpText
+Change the text language.[X]
+# 0x2702 EnglishText
+English[X]
+# 0x2703 SpanishText
+Español[X]
+# 0x2704 ChineseText
+中文[X]

@@ -1,11 +1,19 @@
 
-#define GameOptionsMaxEntries 0x14 // There are a couple places where the game checks the size of this table. 
-#define NumberOfOptionsToDisplay 12 
+#ifdef INSTALL_CHINESE
+  #define GameOptionsMaxEntries 0x15 // There are a couple places where the game checks the size of this table.
+  #define NumberOfOptionsToDisplay 13
+#else
+  #define GameOptionsMaxEntries 0x14
+  #define NumberOfOptionsToDisplay 12
+#endif
 
 #define AutosaveOpt 0x11 // New entries start at 0x11 
 #define HelpInfoOpt 0x12 
 #define TurboOpt 0x13 
 #define CutscenesOpt 0x14 
+#ifdef INSTALL_CHINESE
+  #define LanguageOpt 0x15
+#endif
 // #define DangerRadiusOpt 0x15 
 
 
@@ -71,12 +79,16 @@ GenericCheckCurrentOptionCode
 ALIGN 4
 GameOptionsOrderList:
 //BYTE AnimationOpt
+#ifdef INSTALL_CHINESE
+  BYTE LanguageOpt
+#endif
 BYTE AutosaveOpt
 BYTE HelpInfoOpt
 BYTE CutscenesOpt
 BYTE TurboOpt 
 BYTE GameSpeedOpt 
 BYTE TextSpeedOpt 
+
 //BYTE TerrainOpt 
 //BYTE UnitOpt
 //BYTE CombatOpt 
@@ -91,9 +103,14 @@ BYTE 0 0  // Terminator?
 
 
 // Set text/position/icon/checkCurrent / toggle routine for the entry 
+
 GameOptionsEntry(AutosaveOpt, QuicksaveText, PlayerPhaseHelpText, PlayerPhaseText, 368, ManualHelpText, ManualText, 1167, 0x12, QuicksaveCheckCurrentOption, QuicksaveToggleFunc) // 0x12 is icon 
 GameOptionsEntry(TurboOpt, TurboText, TurboHelpText, HelpInfoDisableText, 368, TurboHelpText, HelpInfoEnableText, 1167, 0x14, TurboCheckCurrentOption, TurboToggleFunc) 
 GameOptionsEntry(CutscenesOpt, CutscenesText, CutscenesDefaultHelpText, CutscenesDefaultText, 368, CutscenesSkippableHelpText, CutscenesSkippableText, 1167, 0x1C, CutscenesCheckCurrentOption, CutscenesToggleFunc) 
 GameOptionsEntry(HelpInfoOpt, HelpInfoText, HelpInfoHelpText, HelpInfoEnableText, 368, HelpInfoDisableHelpText, HelpInfoDisableText, 1167, 0x4, HelpInfoCheckCurrentOption, HelpInfoToggleFunc) 
+#ifdef INSTALL_CHINESE
+  // Packed positions are (text width in tiles << 8) | screen X.
+  GameOptionsEntry3(LanguageOpt, LanguageText, LanguageHelpText, EnglishText, 0x470, SpanishText, 0x59C, ChineseText, 0x4CC, 0x08, LanguageCheckCurrentOption, LanguageSetOption)
+#endif
 
 

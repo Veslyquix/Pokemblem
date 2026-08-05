@@ -27,6 +27,8 @@ Please screenshot this error number:[A][X]
 # 0x1A // magic / calcium / boots 
 Stat increased.[X]
 
+#include "MenusSkillsEtc/language_options_text.txt"
+
 
 
 
