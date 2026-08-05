@@ -44,6 +44,8 @@ NewAI2Entry(35, DoNothingAI1)
 // AI 2 list
 // Vanilla entries take up 0 - 18
 NewAI2Entry(0, MoveTowardsEnemy_AI2)
+NewAI2Entry(19, DoNothingAI2)
+NewAI2Entry(20, DoNothingAI2)
 NewAI2Entry(21, DoNothingAI2)
 NewAI2Entry(22, Within_2_Safest_Zoning_AI2)
 NewAI2Entry(23, Safest_Zoning_AI2)
