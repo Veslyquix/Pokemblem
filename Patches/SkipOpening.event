@@ -14,7 +14,9 @@ BYTE 0xC0 0x46
 
 //#ifdef DEBUG_MODE
 ORG 0x0CC20C
-BYTE 0x00 0x00	//Commenting this out shows the H&S 
+// BYTE 0x00 0x00	//Commenting this out shows the H&S 
+// H&S has now been replaced by language selection 
+
 //#endif
 // dunno how to show only the H&S screen but not the nintendo logo so oh well 
 

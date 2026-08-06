@@ -1,0 +1,66 @@
+#ifdef INSTALL_OTHER_LANGUAGES
+
+#include "C_Code.lyn.event"
+
+ALIGN 4 
+EnglishText_Link:
+SHORT EnglishText 
+SpanishText_Link:
+SHORT SpanishText 
+ChineseText_Link:
+SHORT ChineseText 
+ALIGN 4 
+LevelSelect_CN:
+#incbin "png/LevelSelectCN.dmp"
+ALIGN 4 
+SaveControl_CN:
+#incbin "png/SaveControlCN.dmp"
+ALIGN 4 
+SystemIcon_CN:
+#incbin "png/SystemIconCN.dmp"
+
+PUSH
+ORG 0x591710 // poin ProcScr_GameEarlyStartUI (H&S)
+// ORG 0x0C542C
+POIN LanguageSelectProcCmd
+
+ORG $a8d4c 
+callHackNew(Hook_LoadDifficultyGfx) 
+ORG $aa390 
+callHackNew(Hook_LoadDifficultyGfx) 
+SHORT $46c0 
+
+ORG $ac0d4 
+callHackNew(Hook_InitDifficultySelectScreen)
+SHORT $46c0 
+
+
+POP
+
+ALIGN 4
+LanguageSelect_CurrentLanguageLink:
+WORD CurrentLanguage
+
+ALIGN 4
+LanguageSelectFlagGfxEnglish:
+#incbin "png/english.dmp"
+ALIGN 4
+LanguageSelectFlagPalEnglish:
+#incbin "png/english_pal.dmp"
+
+ALIGN 4
+LanguageSelectFlagGfxSpanish:
+#incbin "png/espanol.dmp"
+ALIGN 4
+LanguageSelectFlagPalSpanish:
+#incbin "png/espanol_pal.dmp"
+
+ALIGN 4
+LanguageSelectFlagGfxChinese:
+#incbin "png/chinese.dmp"
+ALIGN 4
+LanguageSelectFlagPalChinese:
+#incbin "png/chinese_pal.dmp"
+
+
+#endif

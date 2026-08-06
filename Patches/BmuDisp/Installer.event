@@ -71,27 +71,11 @@ PlaytimeGfx:
 
 #define BattleForecast2x 0x2C8 // 0x2D8 vanilla 
 
-ALIGN 4 
-LevelSelect_CN:
-#incbin "data/LevelSelectCN.dmp"
-ALIGN 4 
-SaveControl_CN:
-#incbin "data/SaveControlCN.dmp"
-ALIGN 4 
-SystemIcon_CN:
-#incbin "data/SystemIconCN.dmp"
+
 
 PUSH 
 
-ORG $a8d4c 
-callHackNew(Hook_LoadDifficultyGfx) 
-ORG $aa390 
-callHackNew(Hook_LoadDifficultyGfx) 
-SHORT $46c0 
 
-ORG $ac0d4 
-callHackNew(Hook_InitDifficultySelectScreen)
-SHORT $46c0 
 
 // BattleForecast_LoopSlideIn 803710c
 ORG $371CC 
