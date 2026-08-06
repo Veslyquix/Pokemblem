@@ -845,295 +845,6 @@ yoga[X]
 ## EirikaHeightID
 420cm[X]
 
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03D4
-HP Up[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03D5
-Protein[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03D6
-Secret Tonic[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03D7
-Carbos[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03D8
-Luck[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03D9
-Iron[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03DA
-Zinc[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03DB
-Calcium[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03DC
-Bulk Up[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03DD
-Moon Stone[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03DE
-Link Stone[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03DF ^
-Thunder Stone[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03E0
-Leaf Stone[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03E1
-Water Stone[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03E5 ^
-Super Potion[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03E6
-Max Potion[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03E8
-Full Heal[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03F4
-Sacred Stone[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x03F6
-Fire Stone[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-## ExoticCandyName ^
-Exotic Candy[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0483
-Increases HP by a max of[NL]
-5 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0484
-Increases Str by[.][NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0485
-Increases stats by 2 points.[NL]
-Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0486
-Increases speed by[NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0487
-Increases luck by[.][NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0488
-Increases defense by[NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0489
-Increases resistance by[.][NL]
-1 point. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x048A
-Increases SpA by[.][NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x048B
-Increases constitution by[.][NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x048C
-For Clefairy, Jigglypuff, Nidorina,[NL]
-and Nidorino.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x048D
-For Kadabra, Machoke,[NL]
-Haunter, and Graveller.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x048E
-For Pikachu[NL]
-and Eevee.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x048F
-For Weepinbell,[NL]
-Gloom, and Exeggcute.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0490
-For Poliwhirl, Shellder,[NL]
-Staryu, and Eevee.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0494
-Use to restore[NL]
-15 health.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0495
-A powerful solution that[NL]
-restores all HP.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0497
-A medicinal solution that[.][NL]
-cures poison.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04A4
-A device that negates[.][NL]
-enemy critical attacks.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04A5
-Evolve certain Pokémon with this.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04A7
-For Vulpix, Growlithe,[NL]
-or Eevee.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-## ExoticCandyDesc
-Boost your stats[NL]
-by 1 level's worth.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04AB
-DUMMY[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C1
-Raises Max HP.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C2
-Raises strength.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C3
-Raises most stats[NL]
-by 2 points.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C4
-Raises speed.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C5
-Raises luck.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C6
-Raises defense.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C7
-Raises resistance.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C8
-Raises Special Attack.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C9
-Raises constitution.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04CA
-Use this on Clefairy,[NL] 
-Jigglypuff, Nidorina,[NL]
-or Nidorino.
-[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04CB
-Use this on Kadabra,[NL] 
-Machoke, Haunter,[NL]
-or Graveller.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04CC
-Use this on Pikachu[NL]
-or Eevee.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04CD
-Use this on Weepinbell,[NL]
-Gloom, or Exeggcute.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04CE
-Use this on Poliwhirl,[NL] 
-Shellder, Staryu, or Eevee.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04D2
-Restores 15 HP.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04D3
-Restores all HP.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04D5
-Cures poison.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04DA
- [.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04DD
-Negates enemies'[NL]
-critical attacks.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04DE
-Use this on a Pokémon[NL]
-that does not evolve[NL]
-by leveling up.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04E0
-Use this on Vulpix,[NL] 
-Growlithe, or Eevee.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04E3
-Lowers level by 1.[X]
-
 // Source: Text/ClassesCharsItems/Characters.txt
 # 0x0212
 P-01[X]
@@ -1406,7 +1117,8 @@ blank[X]
 # 0x11E0
 sfx unit[X]
 
-#0x1000 BulbasaurNameText ^
+// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
+# 0x1000 BulbasaurNameText ^
 Bulbasaur[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1420,13 +1132,13 @@ Resists: [Grass] [Water] [Electric] [Fighting] [Poison] [Ground] [Bug] [X]
 Ivysaur[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1003
+# 0x1003 BulbasaurDescText
 Typing: [Grass] [Poison][NL]
 Weak to: [Fire] [Ice] [Flying] [Psychic] [NL]
 Resists: [Grass] [Water] [Electric] [Fighting] [Poison] [Ground] [Bug] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1004
+# 0x1004 VenusaurNameText
 Venusaur[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1436,11 +1148,11 @@ Weak: FIRE, ICE, FLY, PSY[NL]
 Res: GRA, WTR, ELC, FIT, POI, GRD, BUG[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1006 ^
+# 0x1006 CharmanderNameText ^
 Charmander[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1007
+# 0x1007 CharmanderDescText
 Typing: [Fire] [NL]
 Weak to: [Water] [Ground] [Rock] [NL]
 Resists: [Bug] [Fire] [Grass] [Ice] [X]
@@ -1450,37 +1162,37 @@ Resists: [Bug] [Fire] [Grass] [Ice] [X]
 Charmeleon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100A
+# 0x100A CharizardNameText
 Charizard[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100B
+# 0x100B CharizardDescText
 Typing: [Fire] [Flying] [NL]
 Weak to: [Rock] [Water] [Electric] [NL]
 Resists: [Bug] [Fire] [Grass] [Ice] [Fighting] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100C
+# 0x100C SquirtleNameText
 Squirtle[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100D
+# 0x100D SquirtleDescText
 Typing: [Water] [NL]
 Weak to: [Electric] [Grass] [NL]
 Resists: [Fire] [Ice] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100E
+# 0x100E WartortleNameText
 Wartortle[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
 # 0x100F
-Typing: 
-Weak to: 
+Typing:
+Weak to:
 Resists: [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1010
+# 0x1010 BlastoiseNameText
 Blastoise[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1488,13 +1200,13 @@ Blastoise[X]
 Caterpie[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1013
+# 0x1013 CaterpieDescText
 Typing: [Bug] [NL]
 Weak to: [Fire] [Flying] [Rock] [NL]
 Resists: [Fighting] [Grass] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1014
+# 0x1014 MetapodNameText
 Metapod[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1502,7 +1214,7 @@ Metapod[X]
 Butterfree[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1017
+# 0x1017 ButterfreeDescText
 Typing: [Bug] [Flying] [NL]
 Weak to: [Fire] [Flying] [Rock] [Electric] [Ice] [NL]
 Resists: [Fighting] [Grass] [Bug] [Ground] [X]
@@ -1512,17 +1224,17 @@ Resists: [Fighting] [Grass] [Bug] [Ground] [X]
 Weedle[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1019
+# 0x1019 WeedleDescText
 Typing: [Bug] [Poison] [NL]
 Weak to: [Fire] [Flying] [Rock] [Psychic] [NL]
 Resists: [Fighting] [Grass] [Ground] [Bug] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x101A
+# 0x101A KakunaNameText
 Kakuna[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x101C
+# 0x101C BeedrillNameText
 Beedrill[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1530,17 +1242,17 @@ Beedrill[X]
 Pidgey[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x101F
+# 0x101F PidgeyDescText
 Typing: [Normal] [Flying] [NL]
 Weak to: [Electric] [Ice] [Rock] [NL]
 Resists: [Bug] [Fighting] [Grass] [Ground] [Ghost] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1020 ^
+# 0x1020 PidgeottoNameText ^
 Pidgeotto[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1022
+# 0x1022 PidgeotNameText
 Pidgeot[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1548,179 +1260,179 @@ Pidgeot[X]
 Rattata[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1025
+# 0x1025 RattataDescText
 Typing: [Normal] [NL]
 Weak to: [Fighting]  [NL]
 Resists: [Ghost] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1026
+# 0x1026 RaticateNameText
 Raticate[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1028
+# 0x1028 SpearowNameText
 Spearow[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x102A
+# 0x102A FearowNameText
 Fearow[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x102C
+# 0x102C EkansNameText
 Ekans[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x102D
+# 0x102D EkansDescText
 Typing: [Poison] [NL]
 Weak to: [Ground] [Psychic] [NL]
 Resists: [Bug] [Fighting] [Grass] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x102E
+# 0x102E ArbokNameText
 Arbok[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1030
+# 0x1030 PikachuNameText
 Pikachu[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1031
+# 0x1031 PikachuDescText
 Typing: [Electric] [NL]
 Weak to: [Ground] [NL]
 Resists: [Electric] [Flying] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1032
+# 0x1032 RaichuNameText
 Raichu[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1034
+# 0x1034 SandshrewNameText
 Sandshrew[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1035
+# 0x1035 SandshrewDescText
 Typing: [Ground] [NL]
 Weak to: [Grass] [Ice] [Water] [NL]
 Resists: [Poison] [Rock] [Electric] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1036
+# 0x1036 SandslashNameText
 Sandslash[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1038
+# 0x1038 NidoranFNameText
 Nidoran-F[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x103A ^
+# 0x103A NidorinaNameText ^
 Nidorina[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x103C
+# 0x103C NidoqueenNameText
 Nidoqueen[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x103D
+# 0x103D NidoqueenDescText
 Typing: [Poison] [Ground] [NL]
 Weak to: [Ground] [Psychic] [Ice] [Water] [NL]
 Resists: [Bug] [Fighting] [Grass] [Poison] [Rock] [Electric] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x103E
+# 0x103E NidoranMNameText
 Nidoran-M[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1040 ^
+# 0x1040 NidorinoNameText ^
 Nidorino[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1042
+# 0x1042 NidokingNameText
 Nidoking[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1044
+# 0x1044 ClefairyNameText
 Clefairy[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1046
+# 0x1046 ClefableNameText
 Clefable[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1048
+# 0x1048 VulpixNameText
 Vulpix[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x104A
+# 0x104A NinetalesNameText
 Ninetales[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x104C
+# 0x104C JigglypuffNameText
 Jigglypuff[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x104E
+# 0x104E WigglytuffNameText
 Wigglytuff[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1050
+# 0x1050 ZubatNameText
 Zubat[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1051
+# 0x1051 ZubatDescText
 Typing: [Poison] [Flying] [NL]
 Weak to: [Psychic] [Electric] [Ice] [Rock] [NL]
 Resists: [Bug] [Fighting] [Grass] [Poison] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1052
+# 0x1052 GolbatNameText
 Golbat[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1054
+# 0x1054 OddishNameText
 Oddish[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1056
+# 0x1056 GloomNameText
 Gloom[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1058
+# 0x1058 VileplumeNameText
 Vileplume[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105A
+# 0x105A ParasNameText
 Paras[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105B
+# 0x105B ParasDescText
 Typing: [Bug] [Grass] [NL]
 Weak to: [Fire] [Flying] [Rock] [Bug] [Ice] [Poison] [NL]
 Resists: [Fighting] [Grass] [Ground] [Electric] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105C
+# 0x105C ParasectNameText
 Parasect[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105E
+# 0x105E VenonatNameText
 Venonat[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105F
+# 0x105F VenonatDescText
 Typing: [Bug] [Poison] [NL]
 Weak to: [Fire] [Flying] [Rock] [Psychic] [NL]
 Resists: [Fighting] [Grass] [Ground] [Bug] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1060
+# 0x1060 VenomothNameText
 Venomoth[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1062
+# 0x1062 DiglettNameText
 Diglett[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1064
+# 0x1064 DugtrioNameText
 Dugtrio[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1728,125 +1440,125 @@ Dugtrio[X]
 Meowth[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1068
+# 0x1068 PersianNameText
 Persian[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x106A
+# 0x106A PsyduckNameText
 Psyduck[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x106C
+# 0x106C GolduckNameText
 Golduck[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x106E
+# 0x106E MankeyNameText
 Mankey[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x106F
+# 0x106F MankeyDescText
 Typing: [Fighting] [NL]
 Weak to: [Flying] [Psychic] [NL]
 Resists: [Bug] [Rock] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1070
+# 0x1070 PrimeapeNameText
 Primeape[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1072
+# 0x1072 GrowlitheNameText
 Growlithe[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1074
+# 0x1074 ArcanineNameText
 Arcanine[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1076
+# 0x1076 PoliwagNameText
 Poliwag[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1078
+# 0x1078 PoliwhirlNameText
 Poliwhirl[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107A
+# 0x107A PoliwrathNameText
 Poliwrath[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107B
+# 0x107B PoliwrathDescText
 Typing: [Water] [Fighting] [NL]
 Weak to: [Electric] [Grass] [Flying] [Psychic] [NL]
 Resists: [Fire] [Ice] [Water] [Bug] [Rock] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107C
+# 0x107C AbraNameText
 Abra[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107D
+# 0x107D AbraDescText
 Typing: [Psychic] [NL]
 Weak to: [Bug] [Ghost] [NL]
 Resists: [Fighting] [Psychic] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107E
+# 0x107E KadabraNameText
 Kadabra[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1080
+# 0x1080 AlakazamNameText
 Alakazam[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1082
+# 0x1082 MachopNameText
 Machop[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1084
+# 0x1084 MachokeNameText
 Machoke[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1086
+# 0x1086 MachampNameText
 Machamp[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1088
+# 0x1088 BellsproutNameText
 Bellsprout[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x108A
+# 0x108A WeepinbellNameText
 Weepinbell[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x108C
+# 0x108C VictreebelNameText
 Victreebel[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x108E
+# 0x108E TentacoolNameText
 Tentacool[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x108F
+# 0x108F TentacoolDescText
 Typing: [Water] [Poison] [NL]
 Weak to: [Electric] [Ground] [Psychic] [NL]
 Resists: [Fire] [Ice] [Water] [Bug] [Fighting] [Grass] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1090
+# 0x1090 TentacruelNameText
 Tentacruel[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1092
+# 0x1092 GeodudeNameText
 Geodude[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1093
+# 0x1093 GeodudeDescText
 Typing: [Rock] [Ground] [NL]
 Weak to: [Fighting] [Grass] [Ground] [Water] [Ice] [NL]
 Resists: [Fire] [Flying] [Normal] [Poison] [Rock] [Electric] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1094
+# 0x1094 GravellerNameText
 Graveler[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1856,377 +1568,377 @@ Weak to: [Rock] [Ground] [Dragon][N]
 Resists: [Fire] [Electric] [Grass] [Steel] [Bug] [Ice] [Water][X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1096
+# 0x1096 GolemNameText
 Golem[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1098
+# 0x1098 PonytaNameText
 Ponyta[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x109A
+# 0x109A RapidashNameText
 Rapidash[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x109C
+# 0x109C SlowpokeNameText
 Slowpoke[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x109E
+# 0x109E SlowbroNameText
 Slowbro[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x109F
+# 0x109F SlowpokeDescText
 Typing: [Water] [Psychic] [NL]
 Weak to: [Electric] [Grass] [Bug] [Ghost] [NL]
 Resists: [Fire] [Ice] [Water] [Fighting] [Psychic] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A0
+# 0x10A0 MagnemiteNameText
 Magnemite[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A1
+# 0x10A1 MagnemiteDescText
 Typing: [Electric] / [Steel][NL]
 Weak to: [Ground] [Fighting] [Fire] Resists: [Rock] [Psychic][NL]
 [Electric] [Normal] [Bug] [Dragon] [Grass] [Ice] [Flying] [Poison][X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A2
+# 0x10A2 MagnetonNameText
 Magneton[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A4
+# 0x10A4 FarfetchdNameText
 Farfetch'd[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A6
+# 0x10A6 DoduoNameText
 Doduo[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A8
+# 0x10A8 DodrioNameText
 Dodrio[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10AA
+# 0x10AA SeelNameText
 Seel[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10AB
+# 0x10AB DewgongDescText
 Typing: [Water] [Ice] [NL]
 Weak to: [Electric] [Grass] [Fighting] [Rock] [NL]
 Resists: [Fire] [Ice] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10AC
+# 0x10AC DewgongNameText
 Dewgong[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10AE
+# 0x10AE GrimerNameText
 Grimer[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B0
+# 0x10B0 MukNameText
 Muk[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B2
+# 0x10B2 ShellderNameText
 Shellder[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B4
+# 0x10B4 CloysterNameText
 Cloyster[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B6
+# 0x10B6 GastlyNameText
 Gastly[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B7
+# 0x10B7 GastlyDescText
 Typing: [Ghost] [Poison] [NL]
 Weak to: [Ghost] [Ground] [Psychic] [NL]
 Resists: [Bug] [Poison] [Fighting] [Normal] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B8
+# 0x10B8 HaunterNameText
 Haunter[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10BA
+# 0x10BA GengarNameText
 Gengar[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10BC
+# 0x10BC OnixNameText
 Onix[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10BE
+# 0x10BE DrowzeeNameText
 Drowzee[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C0
+# 0x10C0 HypnoNameText
 Hypno[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C2
+# 0x10C2 KrabbyNameText
 Krabby[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C4
+# 0x10C4 KinglerNameText
 Kingler[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C6
+# 0x10C6 VoltorbNameText
 Voltorb[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C8
+# 0x10C8 ElectrodeNameText
 Electrode[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10CA
+# 0x10CA ExeggcuteNameText
 Exeggcute[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10CB
+# 0x10CB ExeggcuteDescText
 Typing: [Grass] [Psychic] [NL]
 Weak to: [Bug] [Fire] [Flying] [Ice] [Poison] [Ghost] [NL]
 Resists: [Electric] [Grass] [Ground] [Water] [Fighting] [Psychic] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10CC
+# 0x10CC ExeggutorNameText
 Exeggutor[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10CE
+# 0x10CE CuboneNameText
 Cubone[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D0
+# 0x10D0 MarowakNameText
 Marowak[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D2
+# 0x10D2 HitmonleeNameText
 Hitmonlee[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D4
+# 0x10D4 HitmonchanNameText
 Hitmonchan[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D6
+# 0x10D6 LickitungNameText
 Lickitung[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D8
+# 0x10D8 KoffingNameText
 Koffing[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10DA
+# 0x10DA WeezingNameText
 Weezing[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10DC
+# 0x10DC RhyhornNameText
 Rhyhorn[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10DE
+# 0x10DE RhydonNameText
 Rhydon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E0
+# 0x10E0 ChanseyNameText
 Chansey[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E2
+# 0x10E2 TangelaNameText
 Tangela[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E3
+# 0x10E3 TangelaDescText
 Typing: [Grass] [NL]
 Weak to: [Bug] [Fire] [Flying] [Ice] [Poison]  [NL]
 Resists: [Electric] [Grass] [Ground] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E4 ^
+# 0x10E4 KangaskhanNameText ^
 Kangaskhan[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E6
+# 0x10E6 HorseaNameText
 Horsea[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E8
+# 0x10E8 SeadraNameText
 Seadra[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10EA
+# 0x10EA GoldeenNameText
 Goldeen[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10EC
+# 0x10EC SeakingNameText
 Seaking[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10EE
+# 0x10EE StaryuNameText
 Staryu[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12AA
+# 0x12AA MagmarNameText
 Magmar[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12AC
+# 0x12AC PinsirNameText
 Pinsir[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12AE
+# 0x12AE TaurosNameText
 Tauros[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B0
+# 0x12B0 MagikarpNameText
 Magikarp[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B2
+# 0x12B2 GyaradosNameText
 Gyarados[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B3
+# 0x12B3 GyaradosDescText
 Typing: [Water] [Flying] [NL]
 Weak to: [Electric] [Rock] [NL]
 Resists: [Fire] [Ice] [Water] [Bug] [Fighting] [Grass] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B4
+# 0x12B4 LaprasNameText
 Lapras[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B6
+# 0x12B6 DittoNameText
 Ditto[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B8
+# 0x12B8 EeveeNameText
 Eevee[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12BA
+# 0x12BA VaporeonNameText
 Vaporeon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12BC
+# 0x12BC JolteonNameText
 Jolteon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12BE
+# 0x12BE FlareonNameText
 Flareon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C0
+# 0x12C0 PorygonNameText
 Porygon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C2
+# 0x12C2 OmanyteNameText
 Omanyte[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C3
+# 0x12C3 OmanyteDescText
 Typing: [Water] [Rock] [NL]
 Weak to: [Electric] [Grass] [Fighting] [Ground] [NL]
 Resists: [Fire] [Ice] [Water] [Flying] [Normal] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C4
+# 0x12C4 OmastarNameText
 Omastar[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C6
+# 0x12C6 KabutoNameText
 Kabuto[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C8
+# 0x12C8 KabutopsNameText
 Kabutops[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CA
+# 0x12CA AerodactylNameText
 Aerodactyl[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CB
+# 0x12CB AerodactylDescText
 Typing: [Rock] [Flying][NL]
 Weak to: [Water] [Electric] [Ice] [Rock] [NL]
 Res: [Fire] [Flying] [Normal] [Poison] [Bug] [Fighting] [Grass] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CC
+# 0x12CC SnorlaxNameText
 Snorlax[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
 # 0x12CD
-Typing: 
-Weak to: 
+Typing:
+Weak to:
 Resists: [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CE
+# 0x12CE ArticunoNameText
 Articuno[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CF
+# 0x12CF ArticunoDescText
 Typing: [Ice] [Flying] [NL]
 Weak to: [Fire] [Rock] [Electric] [NL]
 Resists: [Bug] [Fighting] [Grass] [Ground] [Ice] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D0
+# 0x12D0 ZapdosNameText
 Zapdos[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D1
+# 0x12D1 ZapdosDescText
 Typing: [Electric] [Flying] [NL]
 Weak to: [Ice] [Rock] [NL]
 Resists: [Electric] [Flying] [Bug] [Fighting] [Grass] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D2
+# 0x12D2 MoltresNameText
 Moltres[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D3
+# 0x12D3 MoltresDescText
 Typing: [Fire] [Flying] [NL]
 Weak to: [Rock] [Water] [Electric] [NL]
 Resists: [Bug] [Fire] [Grass] [Ice] [Fighting] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D4
+# 0x12D4 DratiniNameText
 Dratini[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D5
+# 0x12D5 DratiniDescText
 Typing: [Dragon] [NL]
 Weak to: [Ice] [Dragon] [NL]
 Resists: [Electric] [Fire] [Grass] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D6
+# 0x12D6 DragonairNameText
 Dragonair[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D8
+# 0x12D8 DragoniteNameText
 Dragonite[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D9
+# 0x12D9 DragoniteDescText
 Typing: [Dragon] [Flying] [NL]
 Weak to: [Ice] [Dragon] [Rock] [NL]
 Resists: [Electric] [Fire] [Grass] [Water] [Bug] [Fighting] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12DA
+# 0x12DA MewtwoNameText
 Mewtwo[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12DC
+# 0x12DC MewNameText
 Mew[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -2246,34 +1958,54 @@ MissingNo.[X]
 Typing: Bird / Normal[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
+# 0x2F1 PhantomNameText
+Phantom[X]
+
+// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
+# 0x300 GorgonEggNameText
+Gorgon Egg[X]
+
+// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
+# 0x33D PhantomDescText
+--[X]
+
+// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
+# 0x34C GorgonEggDescText
+--[X]
+
+// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
 # 0x131E
 Placeholders[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1320
+# 0x1320 StarmieNameText
 Starmie[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1322
+# 0x1322 MrMimeNameText
 Mr. Mime[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1324
+# 0x1324 ScytherNameText
 Scyther[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1326
+# 0x1326 JynxNameText
 Jynx[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1327
+# 0x1327 JynxDescText
 Typing: [Ice] [Psychic] [NL]
 Weak to: [Fire] [Rock] [Bug] [Ghost] [NL]
 Resists: [Fighting] [Psychic] [Ice] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1328
+# 0x1328 ElectabuzzNameText
 Electabuzz[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+# 0x1329
+FirstEntry[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
 ## WarpCrystalName
@@ -2378,6 +2110,18 @@ for 250 steps.[X]
 // Items use ^ for narrowfont I guess, while classes use * 
 
 // Source: Text/ClassesCharsItems/Items.txt
+## DebugTextHere
+ Debug[A][X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SwordsDanceName ^
+Swords Dance[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SwordsDanceDesc 
++10 Str.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
 ## TransformName ^
 Transform[X]
 
@@ -2387,6 +2131,208 @@ Copy opponent's attack move[N]
 and stats in battle.[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
+## HardenName ^
+Harden[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HardenDesc
++5 Def.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TailwindName ^
+Tailwind[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TailwindDesc
++5 Spd to nearby allies.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HealPulseName ^
+Heal Pulse[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HealPulseDesc
+Restores HP to a nearby ally.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WishName ^
+Wish[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WishDesc
+Restores HP to nearby allies.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BulkUpName ^
+Bulk Up[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BulkUpDesc
++5 Str/Def.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CalmMindName ^
+Calm Mind[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CalmMindDesc
++5 Mag/Res.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HoneClawsName ^
+Hone Claws[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HoneClawsDesc
++5 Str, +10 Skl.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FocusEnergyName ^
+Focus Energy[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FocusEnergyDesc
++10 Skl. (Boosts Hit[N]
+and Crit rate.)[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AgilityName ^
+Agility[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AgilityDesc
++10 Spd.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AmnesiaName ^
+Amnesia[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AmnesiaDesc
++10 Mag/Res.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RecoverMoveText
+Recover[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RecoverDescText
+Restore 50% HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HeavyWardName ^
+Heavy Ward[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HeavyWardDesc
++6 Res while defending.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HeavyShieldName ^
+Heavy Shield[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HeavyShieldDesc
++6 Def while defending.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## StatBoostAccessoryHelpText
+Equip for a stat boost.[NL]
+Press R for details.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SkillAccessoryHelpText
+Equip for a skill.[NL]
+Press R for details.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnergyBandNameText
+Energy Band[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnergyBandDescText
+Str/Skl/Spd/Mag+2.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PerfectionistAccNameText
+Perfect Ring[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PerfectionistAccDescText
++10 Hit/Avo while full HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DazzleAccNameText
+Dark Robe[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DazzleAccDescText
+Prevents counterattacks.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealStrAccNameText
+Strength Seal[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealStrAccDescText
+Debuffs enemy Str[NL]
+by 10 after combat.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealMagAccNameText
+Magic Seal[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealMagAccDescText
+Debuffs enemy Mag[NL]
+by 10 after combat.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealSklAccNameText
+Skill Seal[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealSklAccDescText
+Debuffs enemy Skl[NL]
+by 10 after combat.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealSpdAccNameText
+Speed Seal[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealSpdAccDescText
+Debuffs enemy Spd[NL]
+by 10 after combat.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealLukAccNameText
+Luck Seal[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealLukAccDescText
+Debuffs enemy Luk[NL]
+by 10 after combat.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealResAccNameText
+Resistance Seal[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealResAccDescText
+Debuffs enemy Res[NL]
+by 10 after combat.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealDefAccNameText
+Defence Seal[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SealDefAccDescText
+Debuffs enemy Def[NL]
+by 10 after combat.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
 ## ShellBellName
 Shell Bell[X]
 
@@ -2394,6 +2340,191 @@ Shell Bell[X]
 ## ShellBellDesc
 After attacking, allies within[N]
 2 tiles heal 20% of max HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeatherShieldNameText ^
+Leather Shield[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeatherShieldDescText
+Def/Res +2.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BronzeShieldNameText ^
+Bronze Shield[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BronzeShieldDescText
+Def+4.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## OldWardNameText
+Old Ward[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## OldWardDescText
+Res+5.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WornBootsNameText ^
+Worn Boots[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WornBootsDescText
+Spd+4.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## OldScopeNameText ^
+Old Scope[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## OldScopeDescText
+Skl+5.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MuscleBandT2NameText ^
+Muscler Band[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MuscleBandT2DescText
+Str+5.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WiseGlassesT2NameText ^
+Wiser Glasses[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WiseGlassesT2DescText
+Mag+5.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnergyBandT2NameText ^
+Energer Band[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnergyBandT2DescText
+Str/Skl/Spd/Mag+4.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PaddedShieldNameText ^
+Padded Shield[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PaddedShieldDescText
+Def/Res+4.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IronShieldNameText
+Iron Shield[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IronShieldDescText
+Def+7.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MagicWardNameText
+Magic Ward[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MagicWardDescText
+Res+8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## QuickBootsNameText
+Quick Boots[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## QuickBootsDescText
+Spd+7.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SightScopeNameText
+Sight Scope[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SightScopeDescText
+Skl+7.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MuscleBandT3NameText ^
+Musclest Band[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MuscleBandT3DescText
+Str+8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WiseGlassesT3NameText ^
+Wisest Glasses[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WiseGlassesT3DescText
+Mag+8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnergyBandT3NameText ^
+Energest Band[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnergyBandT3DescText
+Str/Skl/Spd/Mag+6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnergyBandT4NameText
+NRG Band[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnergyBandT4DescText
+Str/Skl/Spd/Mag+8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## StuddedShieldNameText ^ 
+Studded Shield[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## StuddedShieldDescText
+Def/Res+6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SteelShieldNameText
+Steel Shield[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SteelShieldDescText
+Def+10.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnhancedWardNameText ^
+Enhanced Ward[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EnhancedWardDescText
+Res+10.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## VintageBootsNameText ^
+Vintage Boots[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## VintageBootsDescText
+Spd+10.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SilphScopeNameText
+Silph Scope[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SilphScopeDescText
+Your super effective STAB[N]
+attacks will always critical hit.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LuckyBracerT3NameText ^
+Lucky Bracer[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LuckyBracerT3DescText
+Luk+10.[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
 ## ProudBirdAccNameText
@@ -2480,6 +2611,15 @@ the enemy's current HP[N]
 after every battle.[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
+## RockyHelmetNameText ^
+Rocky Helmet[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RockyHelmetDescText
+Opponents take 20% of their current[NL]
+HP after attacking the holder.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
 ## LuckyEggName
 Lucky Egg[X]
 
@@ -2496,6 +2636,16 @@ Zoom Lens[X]
 ## ZoomLensDesc
 +40 Hit when[N]
 initiating battle.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BerserkGeneName ^
+Berserk Gene[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BerserkGeneDesc
++20% Str/Mag/Spd[N]
+-20% Def/Res.[N]
+Unit loses 10% HP after combat.[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
 ## SkullMaskName
@@ -2525,6 +2675,135 @@ Battle debuffs enemy[N]
 Def/Res by 25%.[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
+## SurgesSigilNameText
+Surge's Sigil[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SurgesSigilDescText
++6 dmg dealt and received.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ObliviousRingNameText ^
+Oblivious Ring[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ObliviousRingDescText
+Cannot double or be doubled.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LuckyBracerNameText ^
+Lucky Bracer[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LuckyBracerDescText
+Grants +15 Crit.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BlackbeltText
+Blackbelt[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BlackbeltDescText
+Slightly powers up[NL]
+FIGHTING moves.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BlackbeltUseDesc
+Slightly powers up[NL]
+FIGHTING moves.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DryingPanText
+Drying Pan[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DryingPanDesc
+Negates weakness to[NL]
+WATER moves.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ChoiceBandText ^
+Choice Band[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ChoiceBandDescText
+Powers up a single[NL]
+move.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## JellyDonutText
+Jelly Donut[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## JellyDonutDescText
+Dub-exclusive.[NL]
+Heals 25 HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WiseGlassesNameText
+Wise Glasses[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WiseGlassesDescText
+Grants Mag+3.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WiseGlassesUseDesc
+Grants Mag+3.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+ ## EvioliteNameText
+Eviolite[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EvioliteDescText
+Grants Def/Res+2.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EvioliteUseDesc
+Grants Def/Res+2.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MuscleBandNameText
+Muscle Band[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MuscleBandDescText
+Grants Str+3.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MuscleBandUseDesc
+Grants Str+3.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CloakNameText
+Cloak[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CloakDescText
+Grants Shade+: Enemies[N]
+won't target this unit.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CloakUseDesc
+Grants Shade+: Enemies[N]
+won't target this unit.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## QuickClawNameText
+Quick Claw[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## QuickClawDescText
+Attack first[NL]
+while defending.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## QuickClawUseDesc
+Attack first[NL]
+while defending.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
 ## CleatsNameText
 Cleats[X]
 
@@ -2534,6 +2813,924 @@ Can traverse ice[N]
 without sliding.[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
+## RenewalRingNameText
+Renewal Ring[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RenewalRingDescText
+Grants Renewal: Heal[N]
+30% HP each turn.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RenewalRingUseDesc
+Grants Renewal: Heal[N]
+30% HP each turn.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExpShareNameText
+Exp. Share[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExpShareDescText
+Grants Exp. to adjacent[NL]
+units after battle.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExpShareUseDesc
+Gives EXP to adjacent[N]
+allies after combat.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PursuitRingNameText
+Pursuit Ring[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PursuitRingDescText
+Reduces the amount of AS required[N]
+to double an enemy from 4 to 1.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PursuitRingUseDesc
+1 AS to double[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ArcanaShieldNameText
+Arcana Shield[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ArcanaShieldDescText
+Reduces all magical damage[N]
+received by 25%.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ArcanaShieldUseDesc
+-25% magic damage[N]
+received[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WhetstoneNameText
+Whetstone[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WhetstoneDescText
+Effective weapons have a 4x[N]
+multiplier on might.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WhetstoneUseDesc
+Effectiveness x4[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AngelRingNameText
+Angel Ring[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AngelRingDescText
+All level up gains are doubled.[N]
++1 becomes +2, +2 becomes +4.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AngelRingUseDesc
+Double stat gains[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SuperPotionText
+Super Potion[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PotionText
+Potion[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HyperPotionText
+Hyper Potion[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MaxPotionText
+Max Potion[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BerryText
+Berry[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SitrusBerryText
+Sitrus Berry[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PotionDescText
+Restores 25 HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SuperPotionDescText
+Restores 40 HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HyperPotionDescText
+Restores 60 HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MaxPotionDescText
+Restores all HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BerryDescText
+Restores 8 HP.[N]
+If equipped, eaten[N]
+in a pinch.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SitrusBerryDescText
+Restores 20 HP.[N]
+Consumed at low HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PokeballName ^
+Pokeball[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BarrageName ^
+Barrage[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BindName ^
+Bind[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BodySlamName ^
+Body Slam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CometPunchName ^
+Comet Punch[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ConstrictName ^
+Bind[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CovetName ^
+Covet[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CutName ^
+Cut[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DoubleHitName ^
+Double Hit[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DoubleEdgeName ^
+Double Edge[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EggBombName ^
+Egg Bomb[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExplosionName ^
+Explosion[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlashName ^
+Flash[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FuryName ^
+Fury [X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GlareName ^
+Glare[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GrowlName ^
+Growl[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GrowthName ^
+Growth[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## VineWhipName ^
+Vine Whip[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HazeName ^
+Haze[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DoubleKickName ^
+Double Kick[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GuillotineName ^
+Guillotine[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HeadbuttName ^
+Headbutt[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HornAttackName ^
+Horn Attack[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HornDrillName ^
+Horn Drill[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HyperBeamName ^
+Hyper Beam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HyperFangName ^
+Hyper Fang[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeerName ^
+Leer[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LovelyKissName ^
+Lovely Kiss[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MegaKickName ^
+Mega Kick[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MegaPunchName ^
+Mega Punch[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MetronomeName ^
+Metronome[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IceBeamName ^
+Ice Beam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## VoltTackleName ^
+Volt Tackle[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderboltName ^
+Thunderbolt[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## KarateChopName ^
+Karate Chop[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CounterName ^
+Counter[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MinimizeName ^
+Minimize[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PayDayName ^
+Pay Day[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoundName ^
+Pound[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## QuickAttackName ^
+Quick Attack[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RageName ^
+Rage[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RecoverName ^
+Recover[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RoarName ^
+Roar[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SandAttackName ^
+Sand-Attack[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ScratchName ^
+Scratch[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SingName^
+Sing[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SingDesc
+Lull a foe to sleep.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SlamName ^
+Slam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SlashName ^
+Slash[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SplashName ^
+Splash[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonAxeName ^
+Dragon Axe[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderName ^
+Thunder[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IcePunchName ^
+Ice Punch[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AttackPulseName ^
+Attack Pulse[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SuperFangName ^
+Super Fang[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SwiftName ^
+Swift[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TackleName ^
+Tackle[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TailWhipName ^
+Tail Whip[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TakeDownName ^
+Take Down[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThrashName ^
+Thrash[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TriAttackName ^
+Tri Attack[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EmberName ^
+Ember[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FirePunchName ^
+Fire Punch[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlameWheelName ^
+Flame Wheel[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AvalancheName ^
+Avalanche[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BlizzardName ^
+Blizzard[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RollingKickName ^
+Rolling Kick[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HiJumpKickName ^
+Hi Jump Kick[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## JumpKickName ^
+Jump Kick[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LowKickName ^
+Low Kick[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThundershockName ^
+Thundershock[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AcidName ^
+Acid[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonGasName ^
+Poison Gas[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonStingName ^
+Poison Sting[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SludgeName ^
+Sludge Bomb[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SmogName ^
+Smog[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeafBladeName ^
+Leaf Blade[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SleepPowderName ^
+Sleep Powder[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SolarBeamName ^
+Solar Beam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RazorLeafName ^
+Razor Leaf[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ScorchName ^
+Scorch[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlamethrowerName ^
+Flamethrower[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FireSpinName ^
+Fire Spin[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BoneClubName ^
+Bone Club[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FireBlastName ^
+Fire Blast[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SacredFireName ^
+Sacred Fire[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WaterGunName ^
+Water Gun[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ClampName ^
+Clamp[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CrabhammerName ^
+Crabhammer[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BubbleBeamName ^
+Bubble Beam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SurfName ^
+Surf[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderPunchName ^
+Thunder Punch[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WithdrawName ^
+Withdraw[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AbsorbName ^
+Absorb[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GrassKnotName ^
+Grass Knot[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MegaDrainName ^
+Mega Drain[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PetalDanceName ^
+Petal Dance[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeafFlurryName ^
+Leaf Flurry[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AuroraBeamName ^
+Aurora Beam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DigName ^
+Dig[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonJabName ^
+Poison Jab[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ToxicName ^
+Toxic[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SeismicTossName ^
+Seismic Toss[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SubmissionName ^
+Submission[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ConstrictDesc
+Chip damage.[N]
+Pulls the target towards you.[N]
+Debuffs Spd by 8 (AoE: by 6).[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DoubleHitDesc
+Hits twice.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeerDesc
+Chip damage.[N]
+Debuffs Def/Res by 8.[N]
+AoE: Debuffs Def/Res by 6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TailWhipDesc
+Chip damage.[N]
+Debuffs Def/Res by 8.[N]
+AoE: Debuffs Def/Res by 6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlashDesc
+Chip damage.[N]
+Debuffs stats by 4.[N]
+AoE: Debuffs stats by 3.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GrowlDesc
+Chip damage.[N]
+Debuffs Str/Mag by 8.[N]
+AoE: Debuffs Str/Mag by 6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoundDesc
+Chip damage.[N]
+Debuffs stats by 4.[N]
+AoE: Debuffs stats by 3.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SandAttackDesc
+Chip damage.[N]
+Debuffs stats by 4.[N]
+AoE: Debuffs stats by 3.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AcidDesc
+Chip damage.[N]
+Debuffs Def/Res by 8.[N]
+AoE: Debuffs Def/Res by 6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RockTombName ^
+Rock Tomb[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RockTombDesc
+[PI] Debuffs Spd by 8.[N]
+AoE: Debuffs Spd by 6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## StringShotName ^
+String Shot[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## StringShotDesc
+Chip damage.[N]
+Debuffs Spd by 8.[N]
+AoE: Debuffs Spd by 6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ScreechName ^
+Screech[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ScreechDesc
+Chip damage.[N]
+Debuffs Def/Res by 12.[N]
+AoE: Debuffs Def/Res by 10.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SnarlName
+Snarl[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SnarlDesc
+Chip damage.[N]
+Debuffs Str/Mag by 8.[N]
+AoE: Debuffs Str/Mag by 6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MetalSoundName ^
+Metal Sound[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MetalSoundDesc
+Chip damage.[N]
+Debuffs Def/Res by 12.[N]
+AoE: Debuffs Def/Res by 10.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MudShotName ^
+Mud Shot[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MudShotDesc
+[SI] Shoots a wad of mud.[N]
+Debuffs Speed by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IcyWindName
+Icy Wind[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IcyWindDesc
+[SI] A chilling wind attack.[N]
+Debuffs Spd by 8.[N]
+AoE: Debuffs Spd by 6.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## VineWhipDesc
+[PI] A weak whipping attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HeadbuttDesc
+[PI] The user butts with its head.[N]
+Knocks the target back.[N]
+30% chance to debuff Str/Mag by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MegaPunchDesc
+[PI] A powerful punch.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderboltDesc
+[SI] A powerful bolt of electricity.[N]
+10% Paralysis chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## QuickAttackDesc
+[PI] Strike first when attacked.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ScratchDesc
+[PI] A weak scratch.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BodySlamDesc
+[PI] A full body slam. May paralyze.[N]
+Knocks the target back.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SlashDesc
+[PI] High critical hit ratio.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AttackPulseDesc
+[SI] A special pulse of power.[.][X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TackleDesc 
+[PI] A weak full-body attack.[N]
+Knocks the target back.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EmberDesc
+[SI] A weak flame.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## KarateChopDesc
+[PI] A swift chop.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LowKickDesc
+[PI] A low blow. Inflicts[N]
+more damage on heavier foes.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThundershockDesc
+[SI] A weak jolt of electricity.[N]
+10% Paralysis chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonStingDesc
+[PI] A weak, venomous sting.[N]
+30% Poison chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SmogDesc
+Chip damage.[N]
+40% Poison chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WaterGunDesc
+[SI] A weak spout of water.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BubbleBeamDesc
+[SI] A powerful stream of bubbles.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderPunchDesc
+[PI] An electric punch.[N]
+10% Paralysis chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AbsorbDesc
+[SI] Saps some health.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeafFlurryDesc 
+[SI] A flurry of leaves.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonJamDesc
+[PI] A powerful, venomous jab.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DoubleslapName ^
+Doubleslap[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DoubleslapDesc
+Hits with 50% Atk 2-5 times.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BubbleName ^
+Bubble[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BubbleDesc
+[SI] A weak froth of bubbles.[N]
+10% chance to debuff Spd by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BonemerangName ^
+Bonemerang[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EarthquakeName ^
+Earthquake[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FissureName ^
+Fissure[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MagnitudeName ^
+Magnitude[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MagnitudeDesc
+[PI] A small quake.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EarthPowerName ^
+Earth Power[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DrillPeckName ^
+Drill Peck[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlyName ^
+Fly[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GustName ^
+Gust[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GustDesc
+[SI] A weak gust of wind.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PeckName ^
+Peck[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PeckDesc
+[PI] A small peck on the cheek. <3[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SkyAttackName ^
+Sky Attack[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SkyAttackDesc
+[PI] A powerful, flying attack that[N]
+debuffs the user by 15 Str/Mag[N]
+if it doesn't KO. Cannot double.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MirrorMoveName ^
+Mirror Move[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WingAttackName ^
+Wing Attack[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WingAttackDesc
+[PI] A strong, winged attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BarrierName ^
+Barrier[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BarrierDesc
+[SI] Boosts def by 10.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ConfusionName ^
+Confusion[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ConfusionDesc
+[SI] A weak psychic pulse.[N]
+20% chance to debuff Str/Mag by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DreamEaterName ^
+Dream Eater[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DreamEaterDesc
+[SI] Dreams are eaten.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HypnosisName ^
+Hypnosis[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HypnosisDesc
+[SI] The foe is lulled to sleep.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LightScreenName ^
+Light Screen[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LightScreenDesc
++5 Res to nearby allies.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ReflectName ^
+Reflect[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ReflectDesc
++5 Def to nearby allies.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PsybeamName ^
+Psybeam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PsybeamDesc
+[SI] A peculiar ray.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PsychicName ^
+Psychic[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PsychicDesc
+[SI] A strong telekinetic attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
 ## PsystrikeName ^
 Psystrike[X]
 
@@ -2541,6 +3738,913 @@ Psystrike[X]
 ## PsystrikeDesc
 [SI] A strong telekinetic attack.[N]
 Targets Defense.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RestName ^
+Rest[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RestDesc
+[SI] Sleep to recover health.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TeleportName ^
+Teleport[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TeleportDesc
+Does nothing currently.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RockSlideName ^
+Rock Slide[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RockSlideDesc
+[PI] A barrage of rocks.[N]
+30% chance to debuff Str/Mag by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RockThrowName ^
+Rock Throw[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RockThrowDesc
+[PI] Thrown rocks.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AncientpowerName ^
+Ancientpower[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AncientpowerDesc
+[SI] A prehistoric attack.[N]
+10% chance to boost stats by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RolloutName ^
+Rollout[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RolloutDesc
+[PI] An intense, rolling attack.[N]
+Lands on the other side of the foe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SandstormName ^
+Sandstorm[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SandstormDesc
+[SI] Summons a sandstorm.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ConfuseRayName ^
+Confuse Ray[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ConfuseRayDesc
+[SI] A confusing ray attack.[N]
+50% Berserk chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LickName ^
+Lick[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LickDesc
+[PI] A baffling lick attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## NightShadeName ^
+Night Shade[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## NightShadeDesc
+[SI] A ghostly pulse.[N]
+Negates 50% Def. Cannot double.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## NightmareName ^
+Nightmare[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## NightmareDesc
+[SI] Inflicts a nightmare if asleep.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ShadowBallName ^
+Shadow Ball[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ShadowBallDesc
+[SI] A shadowy blob attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ShadowPunchName ^
+Shadow Punch[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ShadowPunchDesc
+[PI] A punch from the shadows.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonClawName ^
+Dragon Claw[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonClawDesc
+[PI] A slash with huge claws.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonDanceName ^
+Dragon Dance[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonDanceDesc
+[SI] Boosts Att+10 and Spd+5.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonRageName ^
+Dragon Rage[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonRageDesc
+[SI] Deals exactly 20 Damage.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonbreathName ^
+Dragonbreath[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DragonbreathDesc
+[SI] A strong breath attack.[N]
+Chance to paralyze.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## OutrageName ^
+Outrage[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## OutrageDesc
+[PI] A rampaging attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TwisterName ^
+Twister[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TwisterDesc
+[SI] A draconic storm.[N]
+30% chance to debuff Str/Mag by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BugBiteName ^
+Bug Bite[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BugBiteDesc
+[PI] A vicious bite.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BugBuzzName ^
+Bug Buzz[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BugBuzzDesc
+[SI] A swarming buzz.[N]
+10% chance to debuff Res by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FuryCutterName ^
+Fury Cutter[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FuryCutterDesc
+[PI] A vicious swipe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeechLifeName ^
+Leech Life[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeechLifeDesc
+[PI] Saps a little health.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MegahornName ^
+Megahorn[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MegahornDesc
+[PI] A brutal, ramming attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PinMissileName ^
+Pin Missile[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PinMissileDesc
+[PI] Sharp pins strike 2-5 times.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SignalBeamName ^
+Signal Beam[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SignalBeamDesc
+[SI] A strange beam attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## UTurnName ^
+U-Turn[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## UTurnDesc
+[PI] A rush and retreat attack.[N]
+Grants Canto+.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## XScissorName ^
+X-Scissor[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## XScissorDesc
+[PI] A dual-slashing attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderWaveName ^
+Thunder Wave[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderWaveDesc
+Chip damage.[N]
+Paralyzes the foe for 4 turns.[N]
+AoE: Paralyze for 2 turns.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MagicalLeafName ^
+Magical Leaf[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MagicalLeafDesc
+[SI] Perfect accuracy.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SparkName ^
+Spark[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SparkDesc
+[PI] A weak spark.[N]
+30% Paralysis chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BiteName
+Bite[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BiteDesc
+[PI] A weak bite.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThiefName
+Thief[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThiefDesc
+[PI] A weak swipe.[N]
+Does not steal anything.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CometPunchDesc 
+[PI] Flurry of 2-5 strikes.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CovetDesc
+[PI] Attack while stealing an item.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CrushClawName ^
+Crush Claw[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CrushClawDesc
+[PI] A crushing claw attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CutDesc
+[PI] A basic, cutting attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DoubleEdgeDesc
+[PI] A reckless, life-risking tackle.[N]
+Takes 7 damage recoil.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EggBombDesc 
+[PI] A large egg is hurled at the foe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExplosionDesc
+[PI] The user explodes at the[N]
+enemy. Always Critical Hits.[N]
+Also deals minor AoE.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GlareDesc
+[PI] Paralyzes the foe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GrowthDesc
++5 Str/Mag/Spd.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GuillotineDesc
+[PI] A powerful cutting blow.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HornAttackDesc
+[PI] Impales the foe with a horn.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HornDrillDesc
+[PI] Drills the foe with a horn.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HyperBeamDesc
+[SI] A powerful beam that[N]
+debuffs the user by 15 Str/Mag[N]
+if it doesn't KO. Cannot double.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HyperFangDesc
+[PI] Bites with superior fangs.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MegaKickDesc
+[PI] A fearsome kick. Inflicts[N]
+more damage on heavier foes.[N]
+Lands on the other side of the foe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PayDayDesc
+[PI] Throws coins to damage foes.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RageDesc
+[PI] Strikes with anger and fury.[N]
+If below full HP, +4 damage.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MetalClawName ^
+Metal Claw[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MetalClawDesc
+[PI] A slash with metalic claws.[N]
+10% chance to boost Str by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IronTailName ^
+Iron Tail[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IronTailDesc
+[PI] A steel strike with the tail.[N]
+30% chance to debuff Def/Res by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MeteorMashName ^
+Meteor Mash[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MeteorMashDesc
+[PI] A powerful metallic strike.[N]
+20% chance to boost Str by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MirrorShotName ^
+Mirror Shot[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MirrorShotDesc
+[SI] Uses technology to strike.[N]
+30% chance to debuff Skill by 15.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlashCannonName ^
+Flash Cannon[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlashCannonDesc
+[SI] Emits a technological flash.[N]
+10% chance to debuff Res by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SlamDesc
+[PI] Slams the foe with a[N]
+powerful tackle.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SplashDesc
+Does nothing.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SuperFangDesc
+Bites with hard fangs.[N]
+Deals 1/4 remaining HP.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SwiftDesc
+[SI] Strikes with perfect accuracy.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TakeDownDesc
+[PI] A harsh, reckless tackle.[N]
+Takes 6 damage recoil.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThrashDesc
+[PI] A rough, thrashing blow.[N]
+Takes 4 damage recoil.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## TriAttackDesc
+[SI] A fiery, icy and electric blast.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FirePunchDesc
+[PI] A blazing punch of flame.[N]
+10% Burn chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlameWheelDesc
+[PI] A blazing fiery tackle.[N]
+10% Burn chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ScorchDesc
+[SI] A burst of hot flame.[N]
+10% Burn chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlamethrowerDesc
+[SI] A searing torrent of flame.[N]
+10% Burn chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FireSpinDesc
+[SI] An entrapping circle of flames.[N]
+Pulls the target and binds them.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FireBlastDesc
+[SI] An intense blast of fire.[N]
+10% Burn chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SacredFireDesc
+[PI] A blast of searing holy flame.[N]
+50% Burn chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ClampDesc
+[PI] Clamps down hard on the foe.[N]
+Pulls the target and binds them.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CrabhammerDesc
+[PI] Swats with a crabbed arm.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HydroPumpDesc
+[SI] Blasts the foe with water jets.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SurfDesc
+[SI] Torrents of water hit the foe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WaterfallDesc
+[PI] Crashes like a waterfall.[N]
+20% chance to debuff Str/Mag by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WaterPulseDesc
+[SI] Pulses water at the foe.[N]
+20% chance to debuff Str/Mag by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HydroPumpName ^
+Hydro Pump[X]
+//THE QUICK BROWN[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WaterPulseName ^
+Water Pulse[X]
+//FOX JUMPS OVER[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WaterfallName ^
+Waterfall[X]
+//THE LAZY DOG[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeechSeedDesc
+[SI] Saps the health of the target.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## GrassKnotDesc
+[SI] Trip the foe with a vine.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MegaDrainDesc
+[SI] Drains the health of the foe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PetalDanceDesc
+[SI] A powerful display of plant[N]
+power.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeafBladeDesc
+[PI] Cuts with a blade of leaves.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SolarBeamDesc
+[SI] A beam of solar power that[N]
+debuffs the user by 15 Str/Mag[N]
+if it doesn't KO. Cannot double.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RazorLeafDesc
+[PI] A barrage of cutting leaves.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderDesc
+[SI] A fierce but shaky bolt.[N]
+30% Paralysis chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## VoltTackleDesc
+[PI] A powerful electric tackle.[N]
+10% Paralysis chance.[N]
+Takes 7 damage recoil.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BlizzardDesc
+[SI] Unleashes a harsh storm.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AuroraBeamDesc
+[SI] Creates a chilly beam of frost.[N]
+10% chance to debuff Str by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IceBeamDesc
+[SI] Blasts a harsh frosty beam.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IcePunchDesc
+[PI] Strikes with an icy fist.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AvalancheDesc
+[PI] Calls forth a blanket of snow.[N]
+50% chance to debuff Def by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DoubleKickDesc
+[PI] Hits twice. Inflicts[N]
+more damage on heavier foes.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HiJumpKickDesc
+[PI] A leaping kick of strength.[N]
+Inflicts extra on heavier foes.[N]
+Lands on the other side of the foe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## JumpKickDesc
+[PI] A leaping kick of power.[N]
+Inflicts extra on heavier foes.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## RollingKickDesc
+[PI] User rolls and unleashes kicks.[N]
+Inflicts extra on heavier foes.[N]
+Lands on the other side of the foe.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SeismicTossDesc
+[PI] A hardy judo throw.[N]
+Negates 50% Def. Cannot double.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SubmissionDesc
+[PI] Throws the foe with their might.[N]
+Inflicts extra on heavier foes.[N]
+Takes 7 damage recoil.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonGasDesc
+[SI] A foul smelling poison attack.[N]
+Poisons the foe for 4 turns.[N]
+AoE: Poisons for 2 turns.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonPowderName ^
+Poison Powder[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonPowderDesc
+Chip damage.[N]
+Poisons the foe for 4 turns.[N]
+AoE: Poisons for 2 turns.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SludgeDesc
+[SI] Hurls a poisonous goo.[N]
+30% Poison chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## PoisonJabDesc
+[PI] A poisonous strike.[N]
+30% Poison chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ToxicDesc
+Chip damage.[N]
+Poisons the foe for 4 turns.[N]
+AoE: Poisons for 2 turns.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DigDesc
+[PI] An earthy strike from below.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BonemerangDesc
+[PI] Whips a bone boomerang.[N]
+Hits twice.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EarthquakeDesc
+[PI] Creates a powerful quake.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FissureDesc
+[PI] Creates an earthen rift.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## EarthPowerDesc
+[SI] Strikes by shaking the ground.[N]
+10% chance to debuff Res by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MudBombName ^
+Mud Bomb[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MudBombDesc
+[SI] Shoots a massive wad of mud.[N]
+30% chance to debuff Skl by 15.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DrillPeckDesc
+[PI] A drilling peck from the sky.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FlyDesc
+[PI] A flying high attack.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AirSlashName ^
+Air Slash[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## AirSlashDesc
+[SI] A diving slash of wind.[N]
+30% chance to debuff Str/Mag by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HexName ^
+Hex[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HexDesc
+[SI] A spirit's vengeful curse.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## NightSlashName ^
+Night Slash[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## NightSlashDesc
+[PI] A daring and dark strike.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DarkPulseName ^
+Dark Pulse[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## DarkPulseDesc
+[SI] A painful wave of darkness.[N]
+20% chance to debuff Str/Mag by 8.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## NightDazeName ^
+Night Daze[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## NightDazeDesc
+[SI] A dark gaze that strikes fear.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## BindDesc
+[PI] Traps the foe in a vicious grip.[N]
+Pulls the target and binds them.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HurricaneName
+Hurricane[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HurricaneDesc
+[SI] A fierce wind attack.[N]
+10% Berserk chance.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MoonStoneName ^
+Moon Stone[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## MoonStoneDesc
+For Clefairy, Jigglypuff,[N]
+Nidorina, and Nidorino.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LinkStoneName ^
+Link Stone[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LinkStoneDesc
+For Kadabra, Machoke,[N]
+Haunter, and Graveller.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderStoneName ^
+Thunder Stone[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ThunderStoneDesc
+For Pikachu[N]
+and Eevee.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeafStoneName ^
+Leaf Stone[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LeafStoneDesc
+For Weepinbell,[N]
+Gloom, and Exeggcute.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WaterStoneName 
+Water Stone[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## WaterStoneDesc
+For Poliwhirl, Shellder,[N]
+Staryu, and Eevee.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FireStoneName ^
+Fire Stone[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FireStoneDesc
+For Vulpix, Growlithe,[N]
+or Eevee.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SacredStoneName ^
+Sacred Stone[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SacredStoneDesc
+For any Pokémon[N]
+yet to evolve.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## FireStoneUse
+Use this on Vulpix,[N]
+Growlithe, or Eevee.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HPUpName ^
+HP Up[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HPUpDesc
+Increases HP by a max of[N]
+5 points.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ProteinName ^
+Protein[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ProteinDesc
+Increases Str by 1.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SecretTonicName ^
+Secret Tonic[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## SecretTonicDesc
+Increases stats by 1 point.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CarbosName ^
+Carbos[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CarbosDesc
+Increases speed by 1.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LuckyTonicName ^
+Luck[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## LuckyTonicDesc
+Increases luck by 1.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IronName ^
+Iron[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## IronDesc
+Increases defense by 1.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ZincName ^
+Zinc[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ZincDesc
+Increases res by 1.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CalciumName ^
+Calcium[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## CalciumDesc
+Increases Mag by 1.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ConBoosterName ^
+Bulk Up[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ConBoosterDesc
+Increases con by 1.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ShockWaveName ^
+Shock Wave[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ShockWaveDesc
+[SI] Perfect accuracy.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HoplonGuardName 
+Hoplon Guard[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HoplonGuardDesc
+A device that negates[.][NL]
+enemy critical attacks.[.][X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HoplonGuardUseText
+Negates enemies'[NL]
+critical attacks.[.][X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExoticCandyName ^
+Exotic Candy[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExoticCandyDesc
+Boost your stats[NL]
+by 1 level's worth.[X]
 
 // Source: Text/MenusSkillsEtc/unitmenu_text.txt
 ## UM_ProvokeName
@@ -2635,6 +4739,80 @@ Leave this menu.[X]
 another [G] steps.[A][X]
 
 // Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## FMU_MenuName
+ Grid Mode[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## FMU_MenuDesc
+Control multiple units[N]
+on a grid.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Learnset
+ Learnset[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_LearnsetDesc
+View moves to be learned.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HealTile
+ Heal[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HealTileDesc
+Heal nearby units.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## SuspiciousRockText
+A suspicious looking rock...[A][X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## PokedexNameText
+ Pokédex[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## PokedexDescText
+View Pokémon data[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## OrderMovesName
+ Moves[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## QuicksaveHelpText
+Create a temporary save.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## CM_QuicksaveText
+ ^{Quicksave}[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## ConfigText
+ Config[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## ConfigHelpText
+Configure game options.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Promote
+ Evolve[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_PromoteDesc
+Evolve this unit. There is no[N]
+reason not to evolve immediately.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Fly
+ Fly[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_FlyDesc
+Fly to a destination.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
 ## UM_Fly2
  Fly Menu[X]
 
@@ -2642,6 +4820,46 @@ another [G] steps.[A][X]
 ## UM_FlyDesc2
 Fly to a destination[N]
 with a basic menu.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## QuicksaveText
+Quicksave[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## PlayerPhaseHelpText
+Autosave at the start of Player Phase.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## PlayerPhaseText
+Auto[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## ManualHelpText
+Quicksave manually from the Ch. Menu.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## ManualText
+Manual[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## DangerRadiusText
+Danger Zone[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## DangerRadiusHelpText
+Display Danger Zone automatically.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## DangerRadiusAutoText
+Auto[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## DangerRadiusManualHelpText
+Press Select to toggle Danger Zone.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## DangerRadiusManualText
+Manual[X]
 
 // Source: Text/MenusSkillsEtc/unitmenu_text.txt
 ## CutscenesText
@@ -2664,8 +4882,797 @@ Cutscenes are skippable. Gfx may glitch.[X]
 Skippable[X]
 
 // Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## HelpInfoText
+Help Info[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## HelpInfoHelpText
+Provide helpful information.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## HelpInfoEnableText
+ON[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## HelpInfoDisableHelpText
+Disable helpful information.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## HelpInfoDisableText
+OFF[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## FullyParalyzedText
+Fully Paralyzed![A][X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## OrderMovesDesc
+Arrange your moves[N]
+for counter-attacking.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_RecoverMove
+ Recover[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Wish
+ Wish[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HealPulse
+ Heal Pulse[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SplashName
+ Splash[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SplashDesc
+Does nothing.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SwordsDanceName ^
+ Swords Dance[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SwordsDanceDesc 
++10 Str.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_GuardName
+ Guard[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_GuardDesc
++4 HP/Def/Res.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## GuardMoveName
+Guard[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## GuardMoveDesc
++4 HP/Def/Res.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HardenName
+ Harden[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HardenDesc
++5 Def.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_TailwindName
+ Tailwind[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_TailwindDesc
++5 Spd to nearby allies.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HealPulseName
+ Heal Pulse[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HealPulseDesc
+Restores HP to a nearby ally.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_WishName
+ Wish[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_WishDesc
+Restores HP to nearby allies.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_BulkUpName
+ Bulk Up[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_BulkUpDesc
++5 Str/Def.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_CalmMindName
+ Calm Mind[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_CalmMindDesc
++5 Mag/Res.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HoneClawsName
+ Hone Claws[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_HoneClawsDesc
++5 Str, +10 Skl.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_FocusEnergyName
+ Focus Energy[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_FocusEnergyDesc
++10 Skl.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AgilityName
+ Agility[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AgilityDesc
++10 Spd.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AmnesiaName
+ Amnesia[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AmnesiaDesc
++10 Mag/Res.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## SplashMeterRisingText
+Your [Red]Splash[N]
+Meter[Red] is rising![A][X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEHelp
+Select an area to Attack. Press L/R to Rotate.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEHealHelp
+Select an area to Heal. Press L/R to Rotate.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName
+ AoE[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEDesc
+Hit multiple units.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName0
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName1
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName2
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName3
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName4
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName5
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName6
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName7
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName8
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AoEName9
+ Atk Name[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_BlazeName
+Blaze[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_TorrentName
+Torrent[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_OvergrowthName
+Overgrowth[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_BlazeDesc
+Burn nearby foes.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_TorrentDesc
+Blast nearby foes.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_OvergrowthDesc
+Sweep nearby foes.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_RecoverName
+ Recover[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_RecoverDesc
+Restore some HP.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
 ## UM_RestName
  Rest[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_RestDesc
+Restore all HP and sleep.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_GrowthName
+ Growth[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_GrowthDesc
+Boosts Str/Mag/Skl+5.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Release
+ Release[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_ReleaseDesc
+Let the Pokémon free.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## ReleasePokemonText
+Will you release this Pokémon?[NL]
+[No][X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## GoodbyeReleasePokemonText
+Goodbye![A][X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## CannotReleasePokemonText
+That's your last one![A][X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## BetterKeepPokemonText
+Better keep them.[A][X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## ToyBoxText
+ Toy Box[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## ToyBoxDescText
+Freely place units.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## AttackStatsText
+Stats[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## PressRSkillDetails
+Learn this skill.[NL]
+Press R to view[NL]
+more details.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## CannotEquipAccessoryTextID
+You cannot equip this![X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## IM_UnequipAccessory 
+Unequip[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## PressRSpellDetails
+Learn this move.
+#[NL]
+//#Press R to view[NL]
+//#more details.
+[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## LearnedSpellText
+ Learned  [X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## SS_LearnNewSpell
+ SPALL[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## NoBerriesLeftText
+The tree is barren![A][X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_PickBerry
+ Forage[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_PickBerryDesc
+Look for berries.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_EatBerry
+ Eat[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_EatBerryDesc
+Eat from the tree.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Call
+ Call[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_CallDesc
+Summons your party[N]
+to nearby tiles.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Rest
+ Rest[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Cut
+ Cut[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_CutDesc
+Cut down the bush.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_RockSmash
+ Rock Smash[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_RockSmashDesc
+Destroy the rocks.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Strength
+ Strength[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_StrengthDesc
+Push heavy objects.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_StepOn
+ Step-on[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_StepOnDesc
+This looks dangerous...[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Jump
+ Jump[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_JumpDesc
+Jump into the hole.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Eat
+ Eat[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_EatDesc
+Eat the food.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Examine
+ Examine[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_ExamineDesc
+Hmm...[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Interact
+ Interact[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_InteractDesc
+Perform an action.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Talk2
+ Talk[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Talk2Desc 
+Start a conversation.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Attack2
+ Attack[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Attack2Desc
+Attack an enemy.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Enter
+ Enter[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_EnterDesc
+Enter into it.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Exit2
+ Exit[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Exit2Desc
+Exit out of it.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Confirm
+ Confirm[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_ConfirmDesc
+Process action.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Read
+ Read[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_ReadDesc
+Read the words.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Take2
+ Take[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Take2Desc
+Take the item.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Pickup
+ Pickup[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_PickupDesc
+Pick it up.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Save
+ Save[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SaveDesc
+Save the game.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Use
+ Use[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_UseDesc
+Use it.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Rally
+ Rally[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_RallyDesc
+Buff nearby allies.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Lunge
+ Lunge[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_LungeDesc
+Switch places with opponent[N]
+after combat.[N]
+(3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Mercy
+ Mercy[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_MercyDesc
+Leave opponent with[N]
+at least 1 HP.[N]
+(3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Gamble
+ Gamble[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_GambleDesc
+2x crit rate, 0.5x hit rate.[N]
+(3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UMText_DV
+ Dragon Vein[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UMText_DVDesc
+Use the power of dragons.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Shove
+ Shove[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_ShoveDesc
+Push an adjacent unit one[N]
+tile away.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Smite
+ Smite[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SmiteDesc
+Push an adjacent unit two[N]
+tiles away.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Pivot
+ Pivot[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_PivotDesc
+Move to opposite side of[N]
+an adjacent ally.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Reposition
+ Reposition[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_RepositionDesc
+Move adjacent ally to this[N]
+unit's opposite side.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Swap
+ Swap[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SwapDesc
+Swap positions with adjacent[N]
+ally.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Capture
+ Capture[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_CaptureDesc
+Capture a Pokémon.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_EditSkill
+ Edit Skills[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_EditSkillDesc
+DEBUG: Edit this unit's skill set.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_CombatArts
+ Combat Arts[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_CombatArtsDesc
+Select an alternative attack.[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Adept
+ Adept[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AdeptDesc
+Gain a consecutive attack.[N]
+(3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Aether
+ Aether[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AetherDesc
+First strike absorbs HP,[N]
+second strike negates defenses.[N]
+(4 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Astra
+ Astra[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_AstraDesc
+5 attacks at half damage.[N]
+(1 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_DragonFang
+ Dragon Fang[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_DragonFangDesc
+1.5x damage.[N]
+(3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Glacies
+ Glacies[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_GlaciesDesc
+Add unit's Resistance to damage[N]
+dealt. (3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Ignis
+ Ignis[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_IgnisDesc
+Add Def/2 and Res/2[N]
+to damage dealt.[N]
+(3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Luna
+ Luna[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_LunaDesc
+Negates enemy defenses.[N]
+(3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Sol
+ Sol[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SolDesc
+Restore damage dealt as HP.[N]
+(3 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SureShot
+ Sure Shot[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SureShotDesc
+A precision attack that always[N]
+hits and does 1.5x damage.[N]
+(4 Durability Per Hit)[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_Swarp
+ Swarp[X]
+
+// Source: Text/MenusSkillsEtc/unitmenu_text.txt
+## UM_SwarpDesc
+Swap positions with a distant[N]
+ally.[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## NormalTypeText
+Normal[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## FightingTypeText
+Fighting[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## ElectricTypeText
+Electric[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## WaterTypeText
+Water[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## IceTypeText
+Ice[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## FireTypeText
+Fire[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## FlyingTypeText
+Flying[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## DragonTypeText
+Dragon[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## StaffTypeText
+Staff[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## GrassTypeText
+Grass[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## PoisonTypeText
+Poison[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## BugTypeText
+Bug[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## GroundTypeText
+Ground[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## RockTypeText
+Rock[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## PsychicTypeText
+Psychic[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## GhostTypeText
+Ghost[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## DarkTypeText
+Dark[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## ItemTypeText
+Misc[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## SteelTypeText
+Steel[X]
+
+// Source: Text/MenusSkillsEtc/WeaponTypes.txt
+## FairyTypeText
+Fairy[X]
 
 // Source: Text/MenusSkillsEtc/skilldesc_text.txt
 ## SD_Surf
@@ -2699,6 +5706,988 @@ target, deal 50% more damage.[X]
 ## SD_Hover
 Hover: Can go over[N]
 ledges and water.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_PowerfulAura
+Powerful Aura: Temporarily[N]
+immune to attacks![X]
+
+
+
+// used these for skill names 
+//([:][^\n]*[\[X\]])
+//([:][^\n]*[\n][^\n]*[\[X\]])
+//([:][^\n]*[\n][^\n]*[\n][^\n]*[\[X\]])
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_WonderGuard
+Wonder Guard: Immune to[N]
+non-supereffective attacks.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Sturdy
+Sturdy: Cannot be[N]
+knocked out with one hit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ScaledBack
+Scaled Back:[N]
+Deals half damage.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Adept
+Adept: Gain a consecutive attack.[N]
+(Speed % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Acrobat
+Acrobat: All traversable[N]
+terrain costs 1 movement.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Pass
+Pass: Can move through[N]
+enemy units.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_CantoPlus
+Canto+: Can move again after[N]
+attacking and other actions.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_WaryFighter
+Oblivious: Unit cannot[N]
+double or be doubled.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SureShot
+Sure Shot: A precision attack that[N]
+always hits and does 1.5x damage.[N]
+(Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Provoke
+Provoke: Enemies are more[N]
+likely to target this unit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Frenzy
+Frenzy: For every 4 damage[N]
+taken, +1 to damage dealt.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Canto
+Canto: Can move again[N]
+after certain actions.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Lethality
+Lethality: Instantly kill opponent.[N]
+(Skill/2 % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Bane
+Bane: Leave the opponent at[N]
+1 HP if the attack would kill.[N]
+(Skill/2 % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Luna
+Luna+: Negates enemy defenses.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Sol
+Sol: Restore damage dealt as HP.[N]
+(Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Aether
+Aether: First strike absorbs HP,[N]
+second strike negates defenses.[N]
+(Skill/2 % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Astra
+Astra: 5 attacks at half damage.[N]
+(Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Swordbreaker
+Swordbreaker: +50 Hit/Avo when[N]
+enemy has a sword equipped.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Lancebreaker
+Lancebreaker: +50 Hit/Avo when[N]
+enemy has a lance equipped.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Axebreaker
+Axebreaker: +50 Hit/Avo when[N]
+enemy has an axe equipped.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Bowbreaker
+Bowbreaker: +50 Hit/Avo when[N]
+enemy has a bow equipped.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Tomebreaker
+Tomebreaker: +50 Hit/Avo when[N]
+enemy has a tome equipped.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Aegis
+Aegis+: Halve damage from[N]
+special attacks.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Pavise
+Pavise+: Halve damage from[N]
+physical attacks.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DuelistsBlow
+Duelist's Blow: +30 Avo[N]
+when initiating battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DeathBlow
+Death Blow: +20 Crit[N]
+when initiating battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DartingBlow
+Darting Blow: +5 Attack Speed[N]
+when initiating battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_WardingBlow
+Warding Blow: +20 Res[N]
+when initiating battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_CertainBlow
+Certain Blow: +40 Hit[N]
+when initiating battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ArmoredBlow
+Armored Blow: +10 Def[N]
+when initiating battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Desperation
+Desperation: If HP < 50%,[N]
+double attacks occur immediately.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Wrath
+Wrath: If HP < 50%,[N]
++15 critical rate.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Swordfaire
+Swordfaire: +4 damage[N]
+when equipping a sword.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Lancefaire
+Lancefaire: +4 damage[N]
+when equipping a lance.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Axefaire
+Axefaire: +4 damage[N]
+when equipping an axe.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Bowfaire
+Bowfaire: +4 damage[N]
+when equipping a bow.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Tomefaire
+Tomefaire: +4 damage[N]
+when equipping a tome.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_CritUp
+Crit Boost: +15 critical rate.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Amaterasu
+Healer: Allies within 2 tiles[N]
+recover 20% HP each turn.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Paragon
+Paragon: Experience gain[N]
+is doubled.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Impale
+Impale: Deal 4x damage.[N]
+(Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Colossus
+Colossus: Triples Strength.[N]
+(Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Ignis
+Ignis: Add Def/2 and Res/2[N]
+to damage dealt.[N]
+(Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_LifeAndDeath
+Life and Death: +6 to[N]
+damage dealt and taken.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Opportunist
+Opportunist: +2 damage[N]
+if the foe cannot counter.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Trample
+Trample: +5 damage to[N]
+unmounted units.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Camaraderie
+Camaraderie: Recover 10% HP each turn[N]
+if there are allies within 2 tiles.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Relief
+Relief: Recover 20% HP each turn if[N]
+there are no allies within 2 tiles.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Tantivy
+Tantivy: +10 Hit/Avoid if there are[N]
+no allies within 3 tiles.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Focus
+Focus: +10 Critical if there are[N]
+no allies within 3 tiles.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Bond
+Bond: All allies within 3 tiles[N]
+recover 10% HP each turn.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Anathema
+Anathema: -10 Avoid/Dodge to all[N]
+enemies within 3 tiles.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_LilysPoise
+Forewarn: Adjacent allies[N]
+take 10 less damage.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_FieryBlood
+Fiery Blood: +4 damage[N]
+when HP is not at max.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_NaturalCover
+Natural Cover: -3 damage taken[N]
+when on terrain with effects.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SealStr
+Seal Strength: Debuff opponent's Str[N]
+by 10 after combat. (Recover 2/turn)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SealSkl
+Seal Skill: Debuff opponent's Skl[N]
+by 10 after combat. (Recover 2/turn)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SealLuk
+Seal Luck: Debuff opponent's Luck[N]
+by 10 after combat. (Recover 2/turn)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SealRes
+Seal Resistance: Debuff opponent's Res[N]
+by 10 after combat. (Recover 2/turn)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SealMag
+Seal Magic: Debuff opponent's Mag[N]
+by 10 after combat. (Recover 2/turn)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_QuickDraw
+Quick Draw: +2 Damage[N]
+when initiating battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_WindDisciple
+Wind Disciple: +10 Hit and[N]
+Avoid when HP is not at max.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_StrongRiposte
+Strong Riposte: When under[N]
+attack, damage +2. [X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Patience
+Patience: When under[N]
+attack, avoid +10. [X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Pursuit
+Pursuit: When under attack,[N]
+attack speed +4. [X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_LightWeight
+Light Weight: When holding three[N]
+or less items, attack speed +3.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_KillingMachine
+Killing Machine: Total critical[N]
+rate is doubled.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_CriticalForce
+Critical Force: Base critical is[N]
+Skl * 1.5.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Chivalry
+Chivalry: When foe is at full HP,[N]
+attack and def/res +1.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Pragmatic
+Pragmatic: When foe is not at full HP,[N]
+attack and def/res+1.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Moonbow
+Moonbow: Enemy Def/Res is[N]
+reduced by 25%. Charge: 2[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_LuckySeven
+Lucky Seven: +20 Hit and Avoid[N]
+until the 7th turn.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_QuickBurn
+Quick Burn: +15 Hit and Avoid.[N]
+This bonus decreases each turn.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SlowBurn
+Slow Burn: +1 Hit and Avoid for[N]
+each passing turn, up to 15.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Despoil
+Pay Day: Obtain money after[N]
+attacking and defeating a higher-[N]
+levelled enemy. (Luck*2 % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_BreathOfLife
+Breath of Life: After attacking,[N]
+allies in 2 tiles heal 20% of max HP.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_RandomMug
+Quantum Visage: Face changes[N]
+every time it's looked at.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_IdentityProblems
+Identity Problems: This unit can't[N]
+decide on a name or face.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_HeroesDeathBlow
+Death Blow: +6 Attack[N]
+when initiating battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_HeroesLifeAndDeath
+Life and Death: Grants[N]
++5 Atk/Mag/Spd, -5 Def/Res.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Vantage
+Vantage: If HP < 50%,[N]
+strike first when attacked.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Hawkeye
+Hawkeye: User will[N]
+always hit the enemy.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Bracing_Stance
+Bracing Stance: +4 defense[N]
+and resistance when[N]
+foe initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Darting_Stance
+Darting Stance: +6 speed[N]
+when foe initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Fierce_Stance
+Fierce Stance: +6 attack[N]
+when foe initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Kestrel_Stance
+Kestrel Stance: +4 attack[N]
+and speed when foe[N]
+initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Mirror_Stance
+Mirror Stance: +4 attack[N]
+and resistance when[N]
+foe initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Ready_Stance
+Ready Stance: +4 speed[N]
+and defense when foe[N]
+initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Steady_Stance
+Steady Stance: +6 defense[N]
+when foe initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Sturdy_Stance
+Sturdy Stance: +4 attack[N]
+and defense when foe[N]
+initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Swift_Stance
+Swift Stance: +4 speed[N]
+and resistance when[N]
+foe initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Warding_Stance
+Warding Stance: +6 resistance[N]
+when foe initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Spectrum_Stance
+Spectrum Stance: +2 attack,[N]
+speed, defense, and resistance[N]
+when foe initiates battle.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Capture
+Capture: Capture an enemy after[N]
+defeating it with reduced stats.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_BlackMagic
+Black Magic: Skill% chance to[N]
+inflict a random status.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Foresight
+Foresight: Avoid the damage[N]
+from enemy Critical Hits and[N]
+Skill Activations.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ArmorMarch
+Armor March: At start of turn, if unit[N]
+is adjacent to an armor ally, unit and[N]
+adjacent armor allies gain +2 Mov.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Forager
+Forager: Recover 20% HP each turn[N]
+if on a Plain, Forest or Mountain.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_FullMetalBody
+Full Metal Body: This unit is[N]
+immune to all the Seal skills.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_LiquidOoze
+Liquid Ooze: Attackers trying to gain HP[N]
+from attacking this unit lose it instead.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DevilsLuck
+Devil's Luck: Immune to Devil Reversal.[N]
+Gives unit's Devil Reversal to the enemy.[N]
+(31-Luck % chance of Devil Reversal).[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DevilsPact
+Devil's Pact: Immune to Devil Reversal.[N]
+Curses the enemy with Devil Reversal.[N]
+(31-Luck % chance of Devil Reversal).[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DevilsWhim
+Devil's Whim: This unit is cursed, but[N]
+the curse spreads to the enemy as well.[N]
+(31-Luck % chance of Devil Reversal).[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Barricade
+Barricade: Damage taken is[N]
+halved after first being struck.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_BarricadePlus
+Barricade+: In combat, damage[N]
+recieved equals half of the[N]
+damage when struck last.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Perfectionist
+Perfectionist: +15 Hit/Avoid when[N]
+user's HP is at maximum.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Puissance
+Puissance: +3 Damage when the user's[N]
+Strength is higher than the enemy's.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_BattleVeteran
+Battle Veteran: Gain +1 damage and[N]
++5% Hit per 10 levels unit has.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SilentPride
+Silent Pride: Gain 1 damage and take[N]
+-1 damage per 25% below max HP.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Loyalty
+Loyalty: When within 2 spaces of[N]
+a Lord, -3 damage taken, +15% hit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Thunderstorm
+Thunderstorm: If weapon weight > enemy[N]
+W. Weight, +2 dmg, +15% hit, +5% crit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Outrider
+Outrider: Take -1 damage and[N]
+gain +3% crit per space moved.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_HeavyStrikes
+Heavy Strikes: Add weapon[N]
+weight to critical chance.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Charge
+Charge: Gain +1 damage for[N]
+every two squares moved.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Vanity
+Vanity: Gain +2 Damage and +10 Hit[N]
+when fighting enemy at 2 range.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_MageSlayer
+Mage Slayer: Gain +2 damage and +10%[N]
+crit when facing magical enemies.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_KnightAspirant
+Knight Aspirant: When above 75%[N]
+health, +2 damage, +15% avoid.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Watchful
+Watchful: This Pokémon[N]
+cannot be captured.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Boon
+Boon: Cure bad status effects[N]
+at the beginning of each turn.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ReMove
+Re-Move: Luck% chance to get[N]
+another action at end of turn.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Powerstaff
+Powerstaff: Get another action[N]
+after using a staff.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DriveSkl
+Drive Skill: Allies within[N]
+2 spaces receive +4 skill.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DriveLck
+Drive Luck: Allies within[N]
+2 spaces receive +4 luck.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Blossom
+Blossom: 2x growth rates[N]
+and 2x exp gain.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Aptitude
+Aptitude: +20% to[N]
+all growth rates.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_QuickRiposte
+Quick Riposte: If defending and[N]
+HP is 50% or higher, unit doubles[N]
+and attacker cannot double.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Insight
+Insight: Hit +10.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Vigilance
+Vigilance: Avoid +10.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Prescience
+Prescience: When initiating[N]
+battle, Hit and Avo +10.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DefiantAvo
+Deviant Avoid: When HP is 25%[N]
+or lower, gain +30 Avoid.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DefiantCrit
+Defiant Crit: When HP is 25%[N]
+or lower, gain +30 Crit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ShortShield
+Short Shield: Gain 6 defense[N]
+against attacks recieved in melee.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_TowerShield
+Tower Shield: Gain 6 defense[N]
+against attacks recieved at range.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_TowerShieldPlus
+Tower Shield+: Take no damage[N]
+against attacks recieved at range.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_VoidCurse
+Void Curse: This unit gives[N]
+no experience when defeated.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_AlertStance
+Alert Stance: +15 Avo[N]
+when defending.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_AlertStancePlus
+Alert Stance+: +30 Avo[N]
+when defending.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Corona
+Corona: Negate enemy resistance.[N]
+(Skill% activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Flare
+Flare: Halve enemy resistance.[N]
+(Skill% activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Petrify
+Petrify: Inflict stone status.[N]
+(Skill% activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Enrage
+Enrage: Inflict berserk status.[N]
+(Skill% activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Deadeye
+Deadeye: Doubles hit rate.[N]
+Skill% chance to inflict sleep.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DragonFang
+Dragon Fang: 1.5x damage.[N]
+(Skill% activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Fortune
+Battle Armor: This unit[N]
+cannot be crit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ArcaneBlade
+Arcane Blade: When initiating battle[N]
+at 1 range: Add 3+(Mag/2) to Hit[N]
+and Crit[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_BlueFlame
+Blue Flame: Attack +2 to this[N]
+unit. When adjacent to an ally[N]
+with this skill, gain Attack +2.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DoubleLion
+Double Lion: All weapons[N]
+are treated as brave.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Eclipse
+Eclipse: Leave opponent with 1 HP.[N]
+(Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Resourceful
+Resourceful: Double bonus[N]
+effectiveness multipliers.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Shade
+Shade: Enemies are less[N]
+likely to target this unit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ShadePlus
+Shade+: Enemies won't[N]
+target this unit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Imbue
+Imbue: Heal HP equal to magic[N]
+at the start of each turn.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Thighdeology
+Thighdeology: If a unit within[N]
+3 tiles has Nice Thighs, gain[N]
++2 Attack and +20 Hit.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Thotslayer
+Thotslayer: +15 crit against units[N]
+with Nice Thighs or Personality.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Corrosion
+Corrosion: Decrease durability[N]
+of enemy's weapon by User's level[N]
+(Skill/2% activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_KeepUp
+Keep Up: If unit is within 3[N]
+spaces of an ally with Canto[N]
+or Canto+, unit gains +2 Mov.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_IndoorMarch
+Indoor March: If unit is on[N]
+indoor terrain, unit gains +2 Mov.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_NatureRush
+Nature Rush: If unit is on[N]
+rough terrain, unit gains +2 Mov.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Glacies
+Glacies: Add unit's Resistance[N]
+to damage dealt. (Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ChargePlus
+Charge+: If unit has used up[N]
+all movement, gain brave effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_GreatShield
+Great Shield: Negate all damage.[N]
+(Defense % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Vengeance
+Vengeance: Add half of damage[N]
+taken to damage dealt.[N]
+(Skill % activation)[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Synchronize
+Synchronize: Statuses are also[N]
+applied to the attacker.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK1
+My Skill1: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK2
+My Skill2: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK3
+My Skill3: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK4
+My Skill4: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK5
+My Skill5: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK6
+My Skill6: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK7
+My Skill7: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK8
+My Skill8: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SK9
+My Skill9: Has an effect.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Absorb
+Absorb: Heal for 25%[N]
+of damage dealt.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Drain
+Drain: Heal for 50%[N]
+of damage dealt.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_TripleHit
+Triple Hit: Hits 50%[N]
+damage three times.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_MultiHit
+Multi-Hit: Hits 50%[N]
+damage two to five times.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ScaledUp
+Scaled Up: This unit[N]
+deals 20% more damage.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_ExpShare
+Exp Share: Gain exp when a[N]
+higher-levelled ally within[N]
+2 tiles attacks an enemy.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_DancingBlade
+Dancing Blade: +4 Attack Speed[N]
+/-2 Damage when unit's Con[N]
+is lower than the enemy.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_FireBoost
+Fire Boost: Grants +6 Attack[N]
+if unit's current HP is at[N]
+least 3 higher than the enemy's.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_WindBoost
+Wind Boost: Grants +6 Attack[N]
+Speed if unit's current HP is at[N]
+least 3 higher than the enemy's.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_EarthBoost
+Earth Boost: Grants +6 Defense[N]
+if unit's current HP is at[N]
+least 3 higher than the enemy's.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_WaterBoost
+Water Boost: Grants +6 Resistance[N]
+if unit's current HP is at[N]
+least 3 higher than the enemy's.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Guts
+Guts: Boost str by 25%[N]
+while inflicted by status. Immune[N]
+to debuffs from status conditions.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_HoardersBane
+Gluttony: At the end of your[N]
+turn, consume a berry if below[N]
+full health.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_RecklessFighter
+Reckless Fighter: If below max HP,[N]
+this unit and the opponent[N]
+can always double.[N]
+[lock][Fighting][X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_PridefulWarrior 
+Proud Bird: This unit always attacks[N]
+after the enemy. If holding a leek,[N]
+it will attack twice.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SteadyBrawler
+Steady Brawler: This unit deals[N]
+20% less damage while doubling,[N]
+but 20% more when not.[N]
+[lock][Fighting][X]
 
 // Source: Text/MenusSkillsEtc/skilldesc_text.txt
 ## SD_Chlorophyll
@@ -2993,6 +6982,30 @@ in water or in Damp Aura's range.[N]
 [lock][Water][X]
 
 // Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Counter
+Counter: Reflect half physical damage[N]
+when attacked at 1-2 range.[N]
+[lock][Fighting], or 50+ Str cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_CounterMagic
+Countermagic: Reflect half magic damage[N]
+when attacked at 1-2 range.[N]
+[lock][Psychic], or 50+ Mag cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Miracle
+Sturdy: Survive a lethal[N]
+attack if HP > 75%.[N]
+[lock][Rock], [Ground], [Steel], or 55+ Def cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Vantage_Plus
+Vantage: User attacks[N]
+first when attacked.[N]
+[lock][Normal], [Flying], or 50+ Spd cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
 ## SD_Multiscale
 Multiscale: Take half[N]
 damage when at full HP.[N]
@@ -3023,16 +7036,68 @@ enemy Spd by 25%.[N]
 [lock][Steel], [Electric][X]
 
 // Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Fury
+Enhanced DNA: +20% Str/Mag/Spd.[N]
+-20% Def/Res.[N]
+Unit loses 10% HP after combat.[N]
+[lock] 60+ Str, Mag, or Spd.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Dazzle
+Dazzle: Opponents cannot[N]
+counterattack this unit.[N]
+[lock][Ghost][X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Lifetaker
+Lifetaker: Restore up to 50% HP after[N]
+attacking and defeating an enemy.[N]
+[lock][Ghost][X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Galeforce
+Galeforce: Move again with half power[N]
+after defeating an enemy on your phase.[N]
+[lock][Flying], or 60+ Spd cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
 ## Acc_Galeforce
 Galeforce: Move again with half power[N]
 after defeating an enemy on your phase[N]
 if this was equipped start of turn.[X]
 
 // Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Renewal
+Renewal: Restore 30% of max HP[N]
+at the start of each turn.[N]
+[lock][Psychic], or 50+ Res cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
 ## SD_RockyHelmet
 Rough Skin: Opponent takes[N]
 20% of current HP after attacking.[N]
 [lock][Rock], [Ground], or 45+ Def cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Poison_Strike
+Poison Strike: Deals damage equal to[N]
+20% of the enemy's current HP after[N]
+battle this unit initiates.[N]
+[lock][Poison], or 50+ Def or Res cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_Grisly_Wound
+Aftermath: Deals damage equal[N]
+to 20% of the enemy's current[N]
+HP after every battle.[N]
+[lock] 55+ Spd cap.[X]
+
+// Source: Text/MenusSkillsEtc/skilldesc_text.txt
+## SD_SavageBlow
+Savage Blow: After attacking,[N]
+enemies within 2 tiles lose[N]
+20% of their current HP.[N]
+[lock] 55+ Str or Mag cap.[X]
 
 // Source: Text/MenusSkillsEtc/skillname_text.txt
 ## SN_Surf
@@ -3059,8 +7124,28 @@ Swarm[X]
 Hover[X]
 
 // Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_PowerfulAura
+Powerful Aura[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
 ## SN_Intimidate2
 Intimidate[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_WonderGuard
+Wonder Guard[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Sturdy
+Sturdy[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ScaledBack
+Scaled Back[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ScaledUp
+Scaled Up[X]
 
 // Source: Text/MenusSkillsEtc/skillname_text.txt
 ## SN_Downgrade
@@ -3069,6 +7154,730 @@ Downgrade[X]
 // Source: Text/MenusSkillsEtc/skillname_text.txt
 ## SN_GuardBreaker ^
 Guard Breaker[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Adept
+Adept[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Acrobat
+Acrobat[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Pass
+Pass[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_CantoPlus
+Canto+[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_WaryFighter
+Oblivious[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SureShot
+Sure Shot[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Provoke
+Provoke[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Frenzy
+Frenzy[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Canto
+Canto[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Lethality
+Lethality[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Bane
+Bane[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Luna
+Luna[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Sol
+Sol[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Aether
+Aether[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Astra
+Astra[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Swordbreaker
+Swordbreaker[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Lancebreaker
+Lancebreaker[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Axebreaker
+Axebreaker[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Bowbreaker
+Bowbreaker[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Tomebreaker
+Tomebreaker[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Aegis
+Aegis[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Pavise
+Pavise[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DuelistsBlow
+Duelist's Blow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DeathBlow
+Death Blow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DartingBlow
+Darting Blow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_WardingBlow
+Warding Blow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_CertainBlow
+Certain Blow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ArmoredBlow
+Armored Blow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Vantage
+Vantage[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Desperation
+Desperation[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Wrath
+Wrath[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Counter ^
+Counter[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_CounterMagic ^
+Countermagic[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Miracle
+Sturdy[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Swordfaire
+Swordfaire[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Lancefaire
+Lancefaire[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Axefaire
+Axefaire[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Bowfaire
+Bowfaire[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Tomefaire
+Tomefaire[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_CritUp
+Crit Boost[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Lifetaker
+Lifetaker[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Galeforce
+Galeforce[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Renewal
+Renewal[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Amaterasu
+Healer[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Paragon
+Paragon[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Impale
+Impale[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Colossus
+Colossus[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Ignis
+Ignis[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_LifeAndDeath
+Life and Death[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Opportunist
+Opportunist[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Trample
+Trample[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Camaraderie
+Camaraderie[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SavageBlow
+Savage Blow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Relief
+Relief[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Tantivy
+Tantivy[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Focus
+Focus[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Bond
+Bond[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Anathema
+Anathema[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_LilysPoise
+Forewarn[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_FieryBlood
+Fiery Blood[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_NaturalCover
+Natural Cover[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SealStr
+Seal Strength[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SealSkl
+Seal Skill[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SealLuk
+Seal Luck[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SealRes
+Seal Resistance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SealMag
+Seal Magic[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_QuickDraw
+Quick Draw[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_WindDisciple
+Wind Disciple[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_StrongRiposte ^
+Strong Riposte[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Patience
+Patience[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Pursuit
+Pursuit[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_LightWeight
+Light Weight[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_KillingMachine
+Killing Machine[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_CriticalForce
+Critical Force[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Chivalry
+Chivalry[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Pragmatic
+Pragmatic[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Moonbow
+Moonbow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_LuckySeven
+Lucky Seven[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_QuickBurn
+Quick Burn[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SlowBurn
+Slow Burn[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Despoil
+Pay Day[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_BreathOfLife
+Breath of Life[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Fury ^
+Enhanced DNA[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Dazzle
+Dazzle[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_RandomMug
+Quantum Visage[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_IdentityProblems
+Identity Problems[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_HeroesDeathBlow
+Death Blow[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_HeroesLifeAndDeath
+Life and Death[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Vantage_Plus
+Vantage+[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Hawkeye
+Hawkeye[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Bracing_Stance
+Bracing Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Darting_Stance ^
+Darting Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Fierce_Stance ^
+Fierce Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Kestrel_Stance
+Kestrel Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Mirror_Stance
+Mirror Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Ready_Stance
+Ready Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Steady_Stance
+Steady Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Sturdy_Stance
+Sturdy Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Swift_Stance
+Swift Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Warding_Stance
+Warding Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Spectrum_Stance
+Spectrum Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Capture
+Capture[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_BlackMagic
+Black Magic[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Foresight
+Foresight[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ArmorMarch
+Armor March[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Forager
+Forager[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_FullMetalBody
+Full Metal Body[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_LiquidOoze
+Liquid Ooze[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DevilsLuck
+Devil's Luck[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DevilsPact
+Devil's Pact[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DevilsWhim
+Devil's Whim[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Poison_Strike
+Poison Strike[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Grisly_Wound
+Aftermath[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Barricade
+Barricade[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_BarricadePlus
+Barricade+[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Perfectionist
+Perfectionist[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Puissance
+Puissance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_BattleVeteran
+Battle Veteran[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SilentPride
+Silent Pride[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Loyalty
+Loyalty[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Thunderstorm
+Thunderstorm[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Outrider
+Outrider[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_HeavyStrikes
+Heavy Strikes[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Charge
+Charge[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Vanity
+Vanity[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_MageSlayer
+Mage Slayer[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_KnightAspirant
+Knight Aspirant[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Watchful
+Watchful[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Boon
+Boon[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ReMove
+Re-Move[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Powerstaff
+Powerstaff[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DriveSkl
+Drive Skill[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DriveLck
+Drive Luck[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Blossom
+Blossom[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Aptitude
+Aptitude[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_QuickRiposte
+Quick Riposte[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Insight
+Insight[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Vigilance
+Vigilance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Prescience
+Prescience[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DefiantAvo
+Deviant Avoid[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DefiantCrit
+Defiant Crit[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ShortShield
+Short Shield[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_TowerShield
+Tower Shield[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_TowerShieldPlus
+Tower Shield+[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_VoidCurse
+Void Curse[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_AlertStance
+Alert Stance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_AlertStancePlus
+Alert Stance+[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Corona
+Corona[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Flare
+Flare[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Petrify
+Petrify[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Enrage
+Enrage[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Deadeye
+Deadeye[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DragonFang
+Dragon Fang[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Fortune
+Battle Armor[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ArcaneBlade
+Arcane Blade[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_BlueFlame
+Blue Flame[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_DoubleLion
+Double Lion[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Eclipse
+Eclipse[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Resourceful
+Resourceful[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Shade
+Shade[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ShadePlus
+Shade+[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Imbue
+Imbue[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Thighdeology
+Thighdeology[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Thotslayer
+Thotslayer[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Corrosion
+Corrosion[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_KeepUp
+Keep Up[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_IndoorMarch
+Indoor March[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_NatureRush
+Nature Rush[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Glacies
+Glacies[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ChargePlus
+Charge+[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_GreatShield
+Great Shield[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Vengeance
+Vengeance[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Absorb
+Absorb[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Drain
+Drain[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_TripleHit
+Triple Hit[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_MultiHit
+Multi-Hit[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_ExpShare
+Exp Share[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_HoardersBane
+Gluttony[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_RecklessFighter ^
+Reckless Fighter[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_PridefulWarrior
+Proud Bird[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_SteadyBrawler ^
+Steady Brawler[X]
 
 // Source: Text/MenusSkillsEtc/skillname_text.txt
 ## SN_Chlorophyll
@@ -3239,6 +8048,10 @@ Acid Armor[X]
 Quick Feet[X]
 
 // Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Guts
+Guts[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
 ## SN_WeakArmor
 Weak Armor[X]
 
@@ -3249,6 +8062,10 @@ StrongClaws[X]
 // Source: Text/MenusSkillsEtc/skillname_text.txt
 ## SN_Pressure
 Pressure[X]
+
+// Source: Text/MenusSkillsEtc/skillname_text.txt
+## SN_Synchronize
+Synchronize[X]
 
 // Source: Text/MenusSkillsEtc/skillname_text.txt
 ## SN_ChanseySkill
@@ -3299,6 +8116,335 @@ Tactical Vest[X]
 Eviolite[X]
 
 // Source: Text/MenusSkillsEtc/chapter_names.txt
+## OaksLabChText 
+# ([A-Z,a-z])\w+
+# ##$0Text\r$0[X]\r\r
+Oak's Lab[X]
+
+
+
+ ##PalletChText
+Pallet Town[X]
+
+
+ ##Route1ChText
+Route 1[X]
+
+
+ ##ViridianChText
+Viridian City[X]
+
+
+ ##Route2SChText
+Route 2[X]
+
+
+ ##ViridianForestSChText
+Viridian Forest[X]
+
+
+ ##ViridianForestNChText
+Viridian Forest[X]
+
+
+ ##Route2NChText
+Route 2[X]
+
+
+ ##PewterChText
+Pewter City[X]
+
+
+ ##PewterGymChText
+Pewter Gym[X]
+
+
+ ##Route3WChText
+Route 3[X]
+
+
+ ##Route3MChText
+Route 3[X]
+
+
+ ##Route3EChText
+Route 3[X]
+
+
+ ##Route4WChText
+Route 4[X]
+
+
+ ##MtMoonB1ChText
+MtMoon B1[X]
+
+
+ ##MtMoonB2ChText
+MtMoon B2[X]
+
+
+ ##MtMoonB3ChText
+MtMoon B3[X]
+
+
+ ##Route4MChText
+Route 4[X]
+
+
+ ##Route4EChText
+Route 4[X]
+
+
+ ##CeruleanChText
+Cerulean City[X]
+
+
+ ##CeruleanGymChText
+Cerulean Gym[X]
+
+
+ ##Route24ChText
+Route 24[X]
+
+
+ ##Route25ChText
+Route 25[X]
+
+
+ ##Route5ChText
+Route 5[X]
+
+
+ ##Route6ChText
+Route 6[X]
+
+
+ ##VermilionChText //^
+Vermilion City[X]
+
+
+ ##VermilionGymChText //^
+Vermilion Gym[X]
+
+
+ ##SSAnneChText
+SS Anne[X]
+
+
+ ##DiglettsCaveChText
+Diglett's Cave[X]
+
+
+ ##Route11ChText
+Route 11[X]
+
+
+ ##Route9WChText
+Route 9[X]
+
+
+ ##Route9EChText
+Route 9[X]
+
+
+ ##Route10ChText
+Route 10[X]
+
+
+##RockTunnelB1ChText //^
+Rock Tunnel[X]
+
+
+ ##RockTunnelB2ChText //^
+Rock Tunnel[X]
+
+
+ ##LavenderChText
+Lavender Town[X]
+
+
+ ##Route8ChText
+Route 8[X]
+
+
+ ##PokemonTowerF1ChText //^
+Pkmn Tower[X]
+
+
+ ##PokemonTowerF2ChText //^
+Pkmn Tower[X]
+
+
+ ##PokemonTowerF3ChText //^
+Pkmn Tower[X]
+
+
+ ##PokemonTowerF4ChText //^
+Pkmn Tower[X]
+
+
+ ##PokemonTowerF5ChText //^
+Pkmn Tower[X]
+
+
+ ##Route12NChText
+Route 12[X]
+
+
+ ##Route12SChText
+Route 12[X]
+
+
+ ##Route13ChText
+Route 13[X]
+
+
+ ##Route14ChText
+Route 14[X]
+
+
+ ##Route15ChText
+Route 15[X]
+
+
+ ##FuschiaChText
+Fuchsia City[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## SafariSText //^
+Safari Zone[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## SafariEText //^
+Safari Zone[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## SafariNText //^
+Safari Zone[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## SafariWText //^
+Safari Zone[X]
+
+ ##FuschiaGymChText
+Fuchsia Gym[X]
+
+
+ ##Route18ChText
+Route 18[X]
+
+
+ ##Route17SChText
+Route 17[X]
+
+
+ ##Route17NChText
+Route 17[X]
+
+
+ ##Route16ChText
+Route 16[X]
+
+
+ ##CeladonChText
+Celadon City[X]
+
+
+ ##CeladonGymChText
+Celadon Gym[X]
+
+
+ ##Route7ChText
+Route 7[X]
+
+
+ ##SaffronChText
+Saffron City[X]
+
+
+ ##SaffronDojoChText
+Saffron Dojo[X]
+
+
+ ##SaffronGymChText
+Saffron Gym[X]
+
+
+ ##Route19ChText
+Route 19[X]
+
+
+ ##Route20EChText
+Route 20[X]
+
+
+ ##Route20WChText
+Route 20[X]
+
+
+ ##CinnabarChText //^
+Cinnabar Island[X]
+
+
+ ##CinnabarGymChText
+Cinnabar Gym[X]
+
+
+ ##Route21ChText
+Route 21[X]
+
+
+ ##ViridianGymChText
+Viridian Gym[X]
+
+
+ ##Route22ChText
+Route 22[X]
+
+
+ ##Route23SChText
+Route 23[X]
+
+
+ ##Route23MChText
+Route 23[X]
+
+
+ ##Route23NChText
+Route 23[X]
+
+ ##PokecenterChText
+PC Box[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## SilphCoChText
+Silph Co[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## SeafoamChText //^
+Seafoam Cave[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## MansionChText //^
+Pkmn Mansion[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## PowerPlantChText
+Power Plant[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## CeruleanCaveChText
+Cerulean Cave[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## VictoryRoadChText 
+Victory Road[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## IndigoPlateauChText
+Indigo Plateau[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
 ## LoreleiChText
 VS Lorelei[X]
 
@@ -3321,6 +8467,10 @@ VS Gary[X]
 // Source: Text/MenusSkillsEtc/chapter_names.txt
 ## HallOfFameChText
 Hall of Fame[X]
+
+// Source: Text/MenusSkillsEtc/chapter_names.txt
+## DebugChText
+Debug Room[X]
 
 // Source: Text/MenusSkillsEtc/chapter_names.txt
 ## SSAnneDocksChText
@@ -3375,6 +8525,10 @@ Emulator: Change your save type in[N]
 GBA Hardware: Your flashcard/gamepak[N]
 does not support SRAM and cannot save[N]
 for this game. Sorry.[A][X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## UhOhText
+Uh oh![A][X]
 
 // Source: Text/Dialogue/OaksLab.txt
 ## ChallengeRunMessage
@@ -3457,6 +8611,34 @@ Plus[X]
 Cheater[X]
 
 // Source: Text/Dialogue/OaksLab.txt
+## JesterName
+Jester[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## DarkName
+Dark[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## HiroName
+Hiro[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## N426Name
+N426[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## ZoramineName
+Zoramine[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## PandanName
+Pandan[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## DerName
+Der[X]
+
+// Source: Text/Dialogue/OaksLab.txt
 ## OakName
 Oak[X]
 
@@ -3477,8 +8659,148 @@ James[X]
 Jessie[X]
 
 // Source: Text/Dialogue/OaksLab.txt
+## bpatName
+bpat[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## VeslyName
+Vesly[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## ZaimName
+Zaim[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## AriadnaName
+Ariadna[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## ScubName
+Scub[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## ChilanName
+Chilan[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## AkimName
+Akim[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## MitchellName
+Mitchell[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## PikuName
+Piku[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## FpkforName
+Fpkfor[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## OmarName
+Omar[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## CheeseName
+Cheese[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## BoomName
+Boom[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## LexykName
+Lexyk[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## TubaTunaName
+TubaTuna[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## LuisName
+Luis[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## GastonName
+Gaston[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## FabulaName
+Fabula[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## AName
+A[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## AshName
+Ash[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## RedName
+Red[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## GaryName
+Gary[X]
+
+// Source: Text/Dialogue/OaksLab.txt
 ## LittleCupName
 LittleCup[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## BrockName
+Brock[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## MistyName
+Misty[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## ErikaName
+Erika[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## KogaName
+Koga[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## SabrinaName
+Sabrina[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## BlaineName
+Blaine[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## GiovanniName
+Giovanni[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## LoreleiName
+Lorelei[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## BrunoName
+Bruno[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## AgathaName
+Agatha[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## LanceName
+Lance[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## MewStarterName
+Mew[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## MewtwoStarterName
+Mewtwo[X]
 
 // Source: Text/Dialogue/Dialogue.txt
 ## DebugText
@@ -9604,6 +14926,10 @@ very intelligent and learns any move.[X]
 // Source: Text/text_buildfile.txt
 ## ErrorOccurredMessageID
 Please screenshot this error number:[A][X]
+
+// Source: Text/text_buildfile.txt
+# 0x1A // magic / calcium / boots 
+Stat increased.[X]
 
 // Source: Text/MenusSkillsEtc/language_options_text.txt
 # 0x2700 LanguageText

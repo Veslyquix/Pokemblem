@@ -575,6 +575,19 @@ Oak's beloved Pikachu.[X]
 # 0x275
 训练家[X]
 
+# 0x2F1 PhantomNameText
+Phantom[.][X]
+
+# 0x300 GorgonEggNameText
+Gorgon Egg[X]
+
+# 0x33D PhantomDescText
+Phantom warriors who possess great[N]
+strength but vanish when attacked.[X]
+
+# 0x34C GorgonEggDescText
+Eggs of lovely and deadly gorgons.[X]
+
 # 0x3D4
 HP Up[X]
 
@@ -4186,12 +4199,12 @@ Fallen units aregone and disappear.Recommended for ifyou want to playtough simul
 # 0x1002 IvysaurText
 妙蛙草[X]
 
-# 0x1003
+# 0x1003 BulbasaurDescText
 『属性』 ᢷ ᢾ[N]
 『弱点』 ᢵ ᢹ ᣁ ᢿ [N]
 『抗性』 ᢷ ᢰ ᢳ ᢴ ᢾ ᢸ ᢱ [X]
 
-# 0x1004
+# 0x1004 VenusaurNameText
 妙蛙花[X]
 
 # 0x1005
@@ -4199,10 +4212,10 @@ Grass/Poison. [N]
 Weak: FIRE, ICE, FLY, PSY[N]
 Res: GRA, WTR, ELC, FIT, POI, GRD, BUG[X]
 
-# 0x1006
+# 0x1006 CharmanderNameText
 小火龙[X]
 
-# 0x1007
+# 0x1007 CharmanderDescText
 『属性』 ᢵ [N]
 『弱点』 ᢰ ᢸ ᣀ[.] [N]
 『抗性』 ᢱ ᢵ ᢷ ᢹ [X]
@@ -4210,46 +4223,43 @@ Res: GRA, WTR, ELC, FIT, POI, GRD, BUG[X]
 # 0x1008 CharmeleonText
 火恐龙[X]
 
-# 0x100A
+# 0x100A CharizardNameText
 喷火龙[X]
 
-# 0x100B
+# 0x100B CharizardDescText
 『属性』 ᢵ ᣁ [N]
 『弱点』 ᣀ[.] ᢰ ᢳ [N]
 『抗性』 ᢱ ᢵ ᢷ ᢹ ᢴ ᢸ [X]
 
-# 0x100C
+# 0x100C SquirtleNameText
 杰尼龟[X]
 
-# 0x100D
+# 0x100D SquirtleDescText
 『属性』 ᢰ [N]
 『弱点』 ᢳ ᢷ [N]
 『抗性』 ᢵ ᢹ ᢰ [X]
 
-# 0x100E
+# 0x100E WartortleNameText
 卡咪龟[X]
 
-# 0x100F
-Typing: Weak to: Resists: [X]
-
-# 0x1010
+# 0x1010 BlastoiseNameText
 水箭龟[X]
 
 # 0x1012 CaterpieName
 绿毛虫[X]
 
-# 0x1013
+# 0x1013 CaterpieDescText
 『属性』 ᢱ [N]
 『弱点』 ᢵ ᣁ ᣀ[.] [N]
 『抗性』 ᢴ ᢷ ᢸ [X]
 
-# 0x1014
+# 0x1014 MetapodNameText
 铁甲蛹[X]
 
 # 0x1016 ButterfreeName
 巴大蝶[X]
 
-# 0x1017
+# 0x1017 ButterfreeDescText
 『属性』 ᢱ ᣁ [N]
 『弱点』 ᢵ ᣁ ᣀ[.] ᢳ ᢹ [N]
 『抗性』 ᢴ ᢷ ᢱ ᢸ [X]
@@ -4257,265 +4267,265 @@ Typing: Weak to: Resists: [X]
 # 0x1018 WeedleName
 独角虫[X]
 
-# 0x1019
+# 0x1019 WeedleDescText
 『属性』 ᢱ ᢾ [N]
 『弱点』 ᢵ ᣁ ᣀ[.] ᢿ [N]
 『抗性』 ᢴ ᢷ ᢸ ᢱ ᢾ [X]
 
-# 0x101A
+# 0x101A KakunaNameText
 铁壳蛹[X]
 
-# 0x101C
+# 0x101C BeedrillNameText
 大针蜂[X]
 
 # 0x101E PidgeyName
 波波[X]
 
-# 0x101F
+# 0x101F PidgeyDescText
 『属性』 ᢺ ᣁ [N]
 『弱点』 ᢳ ᢹ ᣀ[.] [N]
 『抗性』 ᢱ ᢴ ᢷ ᢸ ᢶ [X]
 
-# 0x1020
+# 0x1020 PidgeottoNameText
 比比鸟[X]
 
-# 0x1022
+# 0x1022 PidgeotNameText
 大比鸟[X]
 
 # 0x1024 RattataName
 小拉达[X]
 
-# 0x1025
+# 0x1025 RattataDescText
 『属性』 ᢺ [N]
 『弱点』 ᢴ  [N]
 『抗性』 ᢶ [X]
 
-# 0x1026
+# 0x1026 RaticateNameText
 拉达[X]
 
-# 0x1028
+# 0x1028 SpearowNameText
 烈雀[X]
 
-# 0x102A
+# 0x102A FearowNameText
 大嘴雀[X]
 
-# 0x102C
+# 0x102C EkansNameText
 阿柏蛇[X]
 
-# 0x102D
+# 0x102D EkansDescText
 『属性』 ᢾ [N]
 『弱点』 ᢸ ᢿ [N]
 『抗性』 ᢱ ᢴ ᢷ ᢾ [X]
 
-# 0x102E
+# 0x102E ArbokNameText
 阿柏怪[X]
 
-# 0x1030
+# 0x1030 PikachuNameText
 皮卡丘[X]
 
-# 0x1031
+# 0x1031 PikachuDescText
 『属性』 ᢳ [N]
 『弱点』 ᢸ [N]
 『抗性』 ᢳ ᣁ [X]
 
-# 0x1032
+# 0x1032 RaichuNameText
 雷丘[X]
 
-# 0x1034
+# 0x1034 SandshrewNameText
 穿山鼠[X]
 
-# 0x1035
+# 0x1035 SandshrewDescText
 『属性』 ᢸ [N]
 『弱点』 ᢷ ᢹ ᢰ [N]
 『抗性』 ᢾ ᣀ[.] ᢳ [X]
 
-# 0x1036
+# 0x1036 SandslashNameText
 穿山王[X]
 
-# 0x1038
+# 0x1038 NidoranFNameText
 尼多兰[X]
 
-# 0x103A
+# 0x103A NidorinaNameText
 尼多娜[X]
 
-# 0x103C
+# 0x103C NidoqueenNameText
 尼多后[X]
 
-# 0x103D
+# 0x103D NidoqueenDescText
 『属性』 ᢾ ᢸ [N]
 『弱点』 ᢸ ᢿ ᢹ ᢰ [N]
 『抗性』 ᢱ ᢴ ᢷ ᢾ ᣀ[.] ᢳ [X]
 
-# 0x103E
+# 0x103E NidoranMNameText
 尼多朗[X]
 
-# 0x1040
+# 0x1040 NidorinoNameText
 尼多力诺[X]
 
-# 0x1042
+# 0x1042 NidokingNameText
 尼多王[X]
 
-# 0x1044
+# 0x1044 ClefairyNameText
 皮皮[X]
 
-# 0x1046
+# 0x1046 ClefableNameText
 皮可西[X]
 
-# 0x1048
+# 0x1048 VulpixNameText
 六尾[X]
 
-# 0x104A
+# 0x104A NinetalesNameText
 九尾[X]
 
-# 0x104C
+# 0x104C JigglypuffNameText
 胖丁[X]
 
-# 0x104E
+# 0x104E WigglytuffNameText
 胖可丁[X]
 
-# 0x1050
+# 0x1050 ZubatNameText
 超音蝠[X]
 
-# 0x1051
+# 0x1051 ZubatDescText
 『属性』 ᢾ ᣁ [N]
 『弱点』 ᢿ ᢳ ᢹ ᣀ[.] [N]
 『抗性』 ᢱ ᢴ ᢷ ᢾ ᢸ [X]
 
-# 0x1052
+# 0x1052 GolbatNameText
 大嘴蝠[X]
 
-# 0x1054
+# 0x1054 OddishNameText
 走路草[X]
 
-# 0x1056
+# 0x1056 GloomNameText
 臭臭花[X]
 
-# 0x1058
+# 0x1058 VileplumeNameText
 霸王花[X]
 
-# 0x105A
+# 0x105A ParasNameText
 派拉斯[X]
 
-# 0x105B
+# 0x105B ParasDescText
 『属性』 ᢱ ᢷ [N]
 『弱点』 ᢵ ᣁ ᣀ[.] ᢱ ᢹ ᢾ [N]
 『抗性』 ᢴ ᢷ ᢸ ᢳ ᢰ [X]
 
-# 0x105C
+# 0x105C ParasectNameText
 派拉斯特[X]
 
-# 0x105E
+# 0x105E VenonatNameText
 毛球[X]
 
-# 0x105F
+# 0x105F VenonatDescText
 『属性』 ᢱ ᢾ [N]
 『弱点』 ᢵ ᣁ ᣀ[.] ᢿ [N]
 『抗性』 ᢴ ᢷ ᢸ ᢱ ᢾ [X]
 
-# 0x1060
+# 0x1060 VenomothNameText
 摩鲁蛾[X]
 
-# 0x1062
+# 0x1062 DiglettNameText
 地鼠[X]
 
-# 0x1064
+# 0x1064 DugtrioNameText
 三地鼠[X]
 
 # 0x1066 MeowthName
 喵喵[X]
 
-# 0x1068
+# 0x1068 PersianNameText
 猫老大[X]
 
-# 0x106A
+# 0x106A PsyduckNameText
 可达鸭[X]
 
-# 0x106C
+# 0x106C GolduckNameText
 哥达鸭[X]
 
-# 0x106E
+# 0x106E MankeyNameText
 猴怪[X]
 
-# 0x106F
+# 0x106F MankeyDescText
 『属性』 ᢴ [N]
 『弱点』 ᣁ ᢿ [N]
 『抗性』 ᢱ ᣀ[.] [X]
 
-# 0x1070
+# 0x1070 PrimeapeNameText
 火暴猴[X]
 
-# 0x1072
+# 0x1072 GrowlitheNameText
 卡蒂狗[X]
 
-# 0x1074
+# 0x1074 ArcanineNameText
 风速狗[X]
 
-# 0x1076
+# 0x1076 PoliwagNameText
 蚊香蝌蚪[X]
 
-# 0x1078
+# 0x1078 PoliwhirlNameText
 蚊香君[X]
 
-# 0x107A
+# 0x107A PoliwrathNameText
 蚊香泳士[X]
 
-# 0x107B
+# 0x107B PoliwrathDescText
 『属性』 ᢰ ᢴ [N]
 『弱点』 ᢳ ᢷ ᣁ ᢿ [N]
 『抗性』 ᢵ ᢹ ᢰ ᢱ ᣀ[.] [X]
 
-# 0x107C
+# 0x107C AbraNameText
 凯西[X]
 
-# 0x107D
+# 0x107D AbraDescText
 『属性』 ᢿ [N]
 『弱点』 ᢱ ᢶ [N]
 『抗性』 ᢴ ᢿ [X]
 
-# 0x107E
+# 0x107E KadabraNameText
 勇基拉[X]
 
-# 0x1080
+# 0x1080 AlakazamNameText
 胡地[X]
 
-# 0x1082
+# 0x1082 MachopNameText
 腕力[X]
 
-# 0x1084
+# 0x1084 MachokeNameText
 豪力[X]
 
-# 0x1086
+# 0x1086 MachampNameText
 怪力[X]
 
-# 0x1088
+# 0x1088 BellsproutNameText
 喇叭芽[X]
 
-# 0x108A
+# 0x108A WeepinbellNameText
 口呆花[X]
 
-# 0x108C
+# 0x108C VictreebelNameText
 大食花[X]
 
-# 0x108E
+# 0x108E TentacoolNameText
 玛瑙水母[X]
 
-# 0x108F
+# 0x108F TentacoolDescText
 『属性』 ᢰ ᢾ [N]
 『弱点』 ᢳ ᢸ ᢿ [N]
 『抗性』 ᢵ ᢹ ᢰ ᢱ ᢴ ᢷ ᢾ [X]
 
-# 0x1090
+# 0x1090 TentacruelNameText
 毒刺水母[X]
 
-# 0x1092
+# 0x1092 GeodudeNameText
 小拳石[X]
 
-# 0x1093
+# 0x1093 GeodudeDescText
 『属性』 ᣀ[.] ᢸ [N]
 『弱点』 ᢴ ᢷ ᢸ ᢰ ᢹ [N]
 『抗性』 ᢵ ᣁ ᢺ ᢾ ᣀ[.] ᢳ [X]
 
-# 0x1094
+# 0x1094 GravellerNameText
 隆隆石[X]
 
 # 0x1095 FireDragonDesc
@@ -4523,313 +4533,313 @@ Typing: Weak to: Resists: [X]
 『弱点』 ᣀ[.] ᢸ ᢲ[N]
 『抗性』 ᢵ ᢳ ᢷ ᣂ ᢱ ᢹ ᢰ[X]
 
-# 0x1096
+# 0x1096 GolemNameText
 隆隆岩[X]
 
-# 0x1098
+# 0x1098 PonytaNameText
 小火马[X]
 
-# 0x109A
+# 0x109A RapidashNameText
 烈焰马[X]
 
-# 0x109C
+# 0x109C SlowpokeNameText
 呆呆兽[X]
 
-# 0x109E
+# 0x109E SlowbroNameText
 呆壳兽[X]
 
-# 0x109F
+# 0x109F SlowpokeDescText
 『属性』 ᢰ ᢿ [N]
 『弱点』 ᢳ ᢷ ᢱ ᢶ [N]
 『抗性』 ᢵ ᢹ ᢰ ᢴ ᢿ [X]
 
-# 0x10A0
+# 0x10A0 MagnemiteNameText
 小磁怪[X]
 
-# 0x10A1
+# 0x10A1 MagnemiteDescText
 『属性』 ᢳ / ᣂ[N]
 『弱点』 ᢸ ᢴ ᢵ 『抗性』 ᣀ[.] ᢿ[N]
 ᢳ ᢺ ᢱ ᢲ ᢷ ᢹ ᣁ ᢾ[X]
 
-# 0x10A2
+# 0x10A2 MagnetonNameText
 三合一磁怪[X]
 
-# 0x10A4
+# 0x10A4 FarfetchdNameText
 大葱鸭[X]
 
-# 0x10A6
+# 0x10A6 DoduoNameText
 嘟嘟[X]
 
-# 0x10A8
+# 0x10A8 DodrioNameText
 嘟嘟利[X]
 
-# 0x10AA
+# 0x10AA SeelNameText
 小海狮[X]
 
-# 0x10AB
+# 0x10AB DewgongDescText
 『属性』 ᢰ ᢹ [N]
 『弱点』 ᢳ ᢷ ᢴ ᣀ[.] [N]
 『抗性』 ᢵ ᢹ ᢰ [X]
 
-# 0x10AC
+# 0x10AC DewgongNameText
 白海狮[X]
 
-# 0x10AE
+# 0x10AE GrimerNameText
 臭泥[X]
 
-# 0x10B0
+# 0x10B0 MukNameText
 臭臭泥[X]
 
-# 0x10B2
+# 0x10B2 ShellderNameText
 大舌贝[X]
 
-# 0x10B4
+# 0x10B4 CloysterNameText
 刺甲贝[X]
 
-# 0x10B6
+# 0x10B6 GastlyNameText
 鬼斯[X]
 
-# 0x10B7
+# 0x10B7 GastlyDescText
 『属性』 ᢶ ᢾ [N]
 『弱点』 ᢶ ᢸ ᢿ [N]
 『抗性』 ᢱ ᢾ ᢴ ᢺ [X]
 
-# 0x10B8
+# 0x10B8 HaunterNameText
 鬼斯通[X]
 
-# 0x10BA
+# 0x10BA GengarNameText
 耿鬼[X]
 
-# 0x10BC
+# 0x10BC OnixNameText
 大岩蛇[X]
 
-# 0x10BE
+# 0x10BE DrowzeeNameText
 催眠貘[X]
 
-# 0x10C0
+# 0x10C0 HypnoNameText
 引梦貘人[X]
 
-# 0x10C2
+# 0x10C2 KrabbyNameText
 大钳蟹[X]
 
-# 0x10C4
+# 0x10C4 KinglerNameText
 巨钳蟹[X]
 
-# 0x10C6
+# 0x10C6 VoltorbNameText
 霹雳电球[X]
 
-# 0x10C8
+# 0x10C8 ElectrodeNameText
 顽皮雷弹[X]
 
-# 0x10CA
+# 0x10CA ExeggcuteNameText
 蛋蛋[X]
 
-# 0x10CB
+# 0x10CB ExeggcuteDescText
 『属性』 ᢷ ᢿ [N]
 『弱点』 ᢱ ᢵ ᣁ ᢹ ᢾ ᢶ [N]
 『抗性』 ᢳ ᢷ ᢸ ᢰ ᢴ ᢿ [X]
 
-# 0x10CC
+# 0x10CC ExeggutorNameText
 椰蛋树[X]
 
-# 0x10CE
+# 0x10CE CuboneNameText
 卡拉卡拉[X]
 
-# 0x10D0
+# 0x10D0 MarowakNameText
 嘎啦嘎啦[X]
 
-# 0x10D2
+# 0x10D2 HitmonleeNameText
 飞腿郎[X]
 
-# 0x10D4
+# 0x10D4 HitmonchanNameText
 快拳郎[X]
 
-# 0x10D6
+# 0x10D6 LickitungNameText
 大舌头[X]
 
-# 0x10D8
+# 0x10D8 KoffingNameText
 瓦斯弹[X]
 
-# 0x10DA
+# 0x10DA WeezingNameText
 双弹瓦斯[X]
 
-# 0x10DC
+# 0x10DC RhyhornNameText
 独角犀牛[X]
 
-# 0x10DE
+# 0x10DE RhydonNameText
 钻角犀兽[X]
 
-# 0x10E0
+# 0x10E0 ChanseyNameText
 吉利蛋[X]
 
-# 0x10E2
+# 0x10E2 TangelaNameText
 蔓藤怪[X]
 
-# 0x10E3
+# 0x10E3 TangelaDescText
 『属性』 ᢷ [N]
 『弱点』 ᢱ ᢵ ᣁ ᢹ ᢾ  [N]
 『抗性』 ᢳ ᢷ ᢸ ᢰ [X]
 
-# 0x10E4
+# 0x10E4 KangaskhanNameText
 袋兽[X]
 
-# 0x10E6
+# 0x10E6 HorseaNameText
 墨海马[X]
 
-# 0x10E8
+# 0x10E8 SeadraNameText
 海刺龙[X]
 
-# 0x10EA
+# 0x10EA GoldeenNameText
 角金鱼[X]
 
-# 0x10EC
+# 0x10EC SeakingNameText
 金鱼王[X]
 
-# 0x10EE
+# 0x10EE StaryuNameText
 海星星[X]
 
-# 0x12AA
+# 0x12AA MagmarNameText
 鸭嘴火兽[X]
 
-# 0x12AC
+# 0x12AC PinsirNameText
 凯罗斯[X]
 
-# 0x12AE
+# 0x12AE TaurosNameText
 肯泰罗[X]
 
-# 0x12B0
+# 0x12B0 MagikarpNameText
 鲤鱼王[X]
 
-# 0x12B2
+# 0x12B2 GyaradosNameText
 暴鲤龙[X]
 
-# 0x12B3
+# 0x12B3 GyaradosDescText
 『属性』 ᢰ ᣁ [N]
 『弱点』 ᢳ ᣀ[.] [N]
 『抗性』 ᢵ ᢹ ᢰ ᢱ ᢴ ᢷ ᢸ [X]
 
-# 0x12B4
+# 0x12B4 LaprasNameText
 拉普拉斯[X]
 
-# 0x12B6
+# 0x12B6 DittoNameText
 百变怪[X]
 
-# 0x12B8
+# 0x12B8 EeveeNameText
 伊布[X]
 
-# 0x12BA
+# 0x12BA VaporeonNameText
 水伊布[X]
 
-# 0x12BC
+# 0x12BC JolteonNameText
 雷伊布[X]
 
-# 0x12BE
+# 0x12BE FlareonNameText
 火伊布[X]
 
-# 0x12C0
+# 0x12C0 PorygonNameText
 多边兽[X]
 
-# 0x12C2
+# 0x12C2 OmanyteNameText
 菊石兽[X]
 
-# 0x12C3
+# 0x12C3 OmanyteDescText
 『属性』 ᢰ ᣀ[.] [N]
 『弱点』 ᢳ ᢷ ᢴ ᢸ [N]
 『抗性』 ᢵ ᢹ ᢰ ᣁ ᢺ ᢾ [X]
 
-# 0x12C4
+# 0x12C4 OmastarNameText
 多刺菊石兽[X]
 
-# 0x12C6
+# 0x12C6 KabutoNameText
 化石盔[X]
 
-# 0x12C8
+# 0x12C8 KabutopsNameText
 镰刀盔[X]
 
-# 0x12CA
+# 0x12CA AerodactylNameText
 化石翼龙[X]
 
-# 0x12CB
+# 0x12CB AerodactylDescText
 『属性』 ᣀ[.] ᣁ[N]
 『弱点』 ᢰ ᢳ ᢹ ᣀ[.] [N]
 『抗性』 ᢵ ᣁ ᢺ ᢾ ᢱ ᢴ ᢷ ᢸ [X]
 
-# 0x12CC
+# 0x12CC SnorlaxNameText
 卡比兽[X]
 
-# 0x12CD
-Typing: Weak to: Resists: [X]
-
-# 0x12CE
+# 0x12CE ArticunoNameText
 急冻鸟[X]
 
-# 0x12CF
+# 0x12CF ArticunoDescText
 『属性』 ᢹ ᣁ [N]
 『弱点』 ᢵ ᣀ[.] ᢳ [N]
 『抗性』 ᢱ ᢴ ᢷ ᢸ ᢹ [X]
 
-# 0x12D0
+# 0x12D0 ZapdosNameText
 闪电鸟[X]
 
-# 0x12D1
+# 0x12D1 ZapdosDescText
 『属性』 ᢳ ᣁ [N]
 『弱点』 ᢹ ᣀ[.] [N]
 『抗性』 ᢳ ᣁ ᢱ ᢴ ᢷ ᢸ [X]
 
-# 0x12D2
+# 0x12D2 MoltresNameText
 火焰鸟[X]
 
-# 0x12D3
+# 0x12D3 MoltresDescText
 『属性』 ᢵ ᣁ [N]
 『弱点』 ᣀ[.] ᢰ ᢳ [N]
 『抗性』 ᢱ ᢵ ᢷ ᢹ ᢴ ᢸ [X]
 
-# 0x12D4
+# 0x12D4 DratiniNameText
 迷你龙[X]
 
-# 0x12D5
+# 0x12D5 DratiniDescText
 『属性』 ᢲ [N]
 『弱点』 ᢹ ᢲ [N]
 『抗性』 ᢳ ᢵ ᢷ ᢰ [X]
 
-# 0x12D6
+# 0x12D6 DragonairNameText
 哈克龙[X]
 
-# 0x12D8
+# 0x12D8 DragoniteNameText
 快龙[X]
 
-# 0x12D9
+# 0x12D9 DragoniteDescText
 『属性』 ᢲ ᣁ [N]
 『弱点』 ᢹ ᢲ ᣀ[.] [N]
 『抗性』 ᢳ ᢵ ᢷ ᢰ ᢱ ᢴ ᢸ [X]
 
-# 0x12DA
+# 0x12DA MewtwoNameText
 超梦[X]
 
-# 0x12DC
+# 0x12DC MewNameText
 梦幻[X]
+
+# 0x1313 MissingnoName
+MissingNo.[X]
 
 # 0x1314 MissingnoDesc
 『属性』 [X]
 
-# 0x1320
+# 0x1320 StarmieNameText
 宝石海星[X]
 
-# 0x1322
+# 0x1322 MrMimeNameText
 魔墙人偶[X]
 
-# 0x1324
+# 0x1324 ScytherNameText
 飞天螳螂[X]
 
-# 0x1326
+# 0x1326 JynxNameText
 迷唇姐[X]
 
-# 0x1327
+# 0x1327 JynxDescText
 『属性』 ᢹ ᢿ [N]
 『弱点』 ᢵ ᣀ[.] ᢱ ᢶ [N]
 『抗性』 ᢴ ᢿ ᢹ [X]
 
-# 0x1328
+# 0x1328 ElectabuzzNameText
 电击兽[X]
 
 # 0x132A WarpCrystalName

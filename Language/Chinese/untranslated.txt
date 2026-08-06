@@ -126,76 +126,6 @@ yoga[X]
 ## EirikaHeightID
 420cm[X]
 
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-## ExoticCandyName ^
-Exotic Candy[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0486
-Increases speed by[NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0487
-Increases luck by[.][NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0488
-Increases defense by[NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x048B
-Increases constitution by[.][NL]
-2 points. Vanishes after use.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x0495
-A powerful solution that[NL]
-restores all HP.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-## ExoticCandyDesc
-Boost your stats[NL]
-by 1 level's worth.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04AB
-DUMMY[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C1
-Raises Max HP.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C4
-Raises speed.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C5
-Raises luck.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C6
-Raises defense.[.][X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C7
-Raises resistance.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04C9
-Raises constitution.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04D3
-Restores all HP.[X]
-
-// Source: Text/ClassesCharsItems/VanillaItemText.txt
-# 0x04DA
- [.][X]
-
 // Source: Text/ClassesCharsItems/Characters.txt
 # 0x0246
 Riev[X]
@@ -232,9 +162,6 @@ blank[X]
 # 0x11E0
 sfx unit[X]
 
-#0x1000 BulbasaurNameText ^
-Bulbasaur[X]
-
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
 # 0x1300
 Treeko[X]
@@ -242,10 +169,6 @@ Treeko[X]
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
 # 0x1312
 Crobat[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-## MissingnoName
-MissingNo.[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
 # 0x131E
@@ -344,6 +267,29 @@ Does nothing currently.[X]
 ## FireStoneUse
 Use this on Vulpix,[N]
 Growlithe, or Eevee.[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HoplonGuardName 
+Hoplon Guard[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HoplonGuardDesc
+A device that negates[.][NL]
+enemy critical attacks.[.][X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## HoplonGuardUseText
+Negates enemies'[NL]
+critical attacks.[.][X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExoticCandyName ^
+Exotic Candy[X]
+
+// Source: Text/ClassesCharsItems/Items.txt
+## ExoticCandyDesc
+Boost your stats[NL]
+by 1 level's worth.[X]
 
 // Source: Text/MenusSkillsEtc/unitmenu_text.txt
 ## UM_ProvokeName
