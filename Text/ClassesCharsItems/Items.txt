@@ -1836,7 +1836,19 @@ Shock Wave[X]
 ## ShockWaveDesc
 [SI] Perfect accuracy.[X]
 
-
+## HoplonGuardName 
+Hoplon Guard[X]
+## HoplonGuardDesc
+A device that negates[.][NL]
+enemy critical attacks.[.][X]
+## HoplonGuardUseText
+Negates enemies'[NL]
+critical attacks.[.][X]
+## ExoticCandyName ^
+Exotic Candy[X]
+## ExoticCandyDesc
+Boost your stats[NL]
+by 1 level's worth.[X]
 
 
 

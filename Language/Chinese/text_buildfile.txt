@@ -518,19 +518,19 @@ P-35[X]
 # 0x24F
 P-36[X]
 
-# 0x250
+# 0x250 NSlashAText
 P-37[X]
 
-# 0x253
+# 0x253 OaksPikachuDescText
 训练家[X]
 
-# 0x254
+# 0x254 TrainerPokemonDescText
 You can't catch a trainer's Pokémon![X]
 
-# 0x255
+# 0x255 WildPokemonDescText
 Wild[X]
 
-# 0x256
+# 0x256 WildPokemonText
 Maybe I could catch this![X]
 
 # 0x25B
@@ -551,28 +551,28 @@ Grass[X]
 # 0x26B
 Ghost[X]
 
-# 0x26E NSlashAText
+# 0x26E
 --[X]
 
-# 0x26F PlayerPokemonDescText
+# 0x26F
 一只宝可梦[X]
 
-# 0x270 OaksPikachuText
+# 0x270
 训练家[X]
 
-# 0x271 OaksPikachuDescText
+# 0x271
 Oak's beloved Pikachu.[X]
 
-# 0x272 TrainerPokemonDescText
+# 0x272
 训练家的宝可梦[X]
 
-# 0x273 WildPokemonDescText
+# 0x273
 野生宝可梦[X]
 
-# 0x274 WildPokemonText
+# 0x274
 野生宝可梦[X]
 
-# 0x275 TrainerPokemonText
+# 0x275
 训练家[X]
 
 # 0x3D4
@@ -650,7 +650,7 @@ Fire Stone[X]
 # 0x3FD
 250 Gold[X]
 
-# 0x402 ExoticCandyName
+# 0x402
 神奇糖果[X]
 
 # 0x471
@@ -714,7 +714,7 @@ Evolve certain Pokémon with this.[X]
 六尾、卡蒂狗和伊布[N]
 进化专用[X]
 
-# 0x4AA ExoticCandyDesc
+# 0x4AA
 使用可提升宝可梦等级[X]
 
 # 0x4AF
@@ -6741,2636 +6741,2543 @@ HP增强剂[X]
 # 0x1586 ShockWaveDesc
 ᢼ 绝对命中[X]
 
-# 0x158B UM_Travel
+# 0x1590 UM_Travel
    快速旅行[X]
 
-# 0x158C UM_TravelDesc
+# 0x1591 UM_TravelDesc
 通过飞行、挖掘或传送[N]
 等方式进行快速旅行[X]
 
-# 0x158D CM_Dig
+# 0x1592 CM_Dig
    挖洞[X]
 
-# 0x158E CM_DigDesc
+# 0x1593 CM_DigDesc
 挖洞离开迷宫[X]
 
-# 0x158F CM_EscapeRope
+# 0x1594 CM_EscapeRope
    离洞绳[X]
 
-# 0x1590 CM_EscapeRopeDesc
+# 0x1595 CM_EscapeRopeDesc
 离开当前迷宫[X]
 
-# 0x1591 CM_Teleport
+# 0x1596 CM_Teleport
    传送水晶[X]
 
-# 0x1592 CM_TeleportDesc
+# 0x1597 CM_TeleportDesc
 传送至上次你所[N]
 去过的宝可梦中心[X]
 
-# 0x1593 CM_WarpCrystal
+# 0x1598 CM_WarpCrystal
    传送水晶[X]
 
-# 0x1594 CM_WarpCrystalDesc
+# 0x1599 CM_WarpCrystalDesc
 传送至上次你所[N]
 去过的宝可梦中心[X]
 
-# 0x1595 UM_Revive
+# 0x159A UM_Revive
    活力碎片[X]
 
-# 0x1596 UM_ReviveDesc
+# 0x159B UM_ReviveDesc
 使濒死的宝可梦恢复活力[X]
 
-# 0x1597 TurboText
+# 0x159C TurboText
 涡轮增压器[X]
 
-# 0x1598 TurboHelpText
+# 0x159D TurboHelpText
 各项机制速度加快[X]
 
-# 0x1599 PrepScreenExitText
+# 0x159E PrepScreenExitText
 返回地图[X]
 
-# 0x159A PrepScreenExitHelpText
+# 0x159F PrepScreenExitHelpText
 离开当前页面[X]
 
-# 0x159B UseName
+# 0x15A0 UseName
    使用[X]
 
-# 0x159C RepelStepsRemainingText
+# 0x15A1 RepelStepsRemainingText
 [LoadFace][0x64][0x1][OpenFarLeft]喷雾效果还剩 [G]步。[A][X]
 
-# 0x159D FMU_MenuName
+# 0x15A2 FMU_MenuName
    网格模式[X]
 
-# 0x159E FMU_MenuDesc
+# 0x15A3 FMU_MenuDesc
 战旗经典操作模式[X]
 
-# 0x159F UM_Learnset
+# 0x15A4 UM_Learnset
    招式查看[X]
 
-# 0x15A0 UM_LearnsetDesc
+# 0x15A5 UM_LearnsetDesc
 查看宝可梦[N]
 能学习到的招式[X]
 
-# 0x15A1 UM_HealTile
+# 0x15A6 UM_HealTile
    治疗[X]
 
-# 0x15A2 UM_HealTileDesc
+# 0x15A7 UM_HealTileDesc
 治疗附近的宝可梦[X]
 
-# 0x15A3 SuspiciousRockText
+# 0x15A8 SuspiciousRockText
 一块看起来很可疑的石头……[A][X]
 
-# 0x15A4 PokedexNameText
+# 0x15A9 PokedexNameText
    宝可梦图鉴[X]
 
-# 0x15A5 PokedexDescText
+# 0x15AA PokedexDescText
 查看宝可梦信息[X]
 
-# 0x15A6 OrderMovesName
+# 0x15AB OrderMovesName
    招式顺序[X]
 
-# 0x15A7 QuicksaveHelpText
+# 0x15AC QuicksaveHelpText
 创建一个临时的存档[X]
 
-# 0x15A8 CM_QuicksaveText
+# 0x15AD CM_QuicksaveText
    快速存档[X]
 
-# 0x15A9 ConfigText
+# 0x15AE ConfigText
    设定[X]
 
-# 0x15AA ConfigHelpText
+# 0x15AF ConfigHelpText
 设置游戏选项[X]
 
-# 0x15AB UM_Promote
+# 0x15B0 UM_Promote
    进化[X]
 
-# 0x15AC UM_PromoteDesc
+# 0x15B1 UM_PromoteDesc
 进化当前宝可梦，[N]
 没理由不马上进化[X]
 
-# 0x15AD UM_Fly
+# 0x15B2 UM_Fly
    飞翔[X]
 
-# 0x15AE UM_FlyDesc
+# 0x15B3 UM_FlyDesc
 飞到目的地[X]
 
-# 0x15AF UM_Fly2
+# 0x15B4 UM_Fly2
    飞行菜单[X]
 
-# 0x15B0 UM_FlyDesc2
+# 0x15B5 UM_FlyDesc2
 飞向指定的目的地[X]
 
-# 0x15B1 QuicksaveText
+# 0x15B6 QuicksaveText
 快速存档[X]
 
-# 0x15B2 PlayerPhaseHelpText
+# 0x15B7 PlayerPhaseHelpText
 玩家回合开始时自动保存[X]
 
-# 0x15B3 PlayerPhaseText
+# 0x15B8 PlayerPhaseText
 自动[X]
 
-# 0x15B4 ManualHelpText
+# 0x15B9 ManualHelpText
 更改为手动保存游戏记录[X]
 
-# 0x15B5 ManualText
+# 0x15BA ManualText
 手动[X]
 
-# 0x15B6 DangerRadiusText
+# 0x15BB DangerRadiusText
 危险区域显示[X]
 
-# 0x15B7 DangerRadiusHelpText
+# 0x15BC DangerRadiusHelpText
 自动显示危险区域[X]
 
-# 0x15B8 DangerRadiusAutoText
+# 0x15BD DangerRadiusAutoText
 自动[X]
 
-# 0x15B9 DangerRadiusManualHelpText
+# 0x15BE DangerRadiusManualHelpText
 按选择键显示危险区域[X]
 
-# 0x15BA DangerRadiusManualText
+# 0x15BF DangerRadiusManualText
 手动[X]
 
-# 0x15BB CutscenesText
+# 0x15C0 CutscenesText
 过场动画[X]
 
-# 0x15BC CutscenesDefaultHelpText
+# 0x15C1 CutscenesDefaultHelpText
 某些过场动画不能跳过[X]
 
-# 0x15BD CutscenesDefaultText
+# 0x15C2 CutscenesDefaultText
 正常[X]
 
-# 0x15BE CutscenesSkippableHelpText
+# 0x15C3 CutscenesSkippableHelpText
 过场动画可以跳过[N]
 画面可能会出错[X]
 
-# 0x15BF CutscenesSkippableText
+# 0x15C4 CutscenesSkippableText
 跳过[X]
 
-# 0x15C0 HelpInfoText
+# 0x15C5 HelpInfoText
 信息帮助[X]
 
-# 0x15C1 HelpInfoHelpText
+# 0x15C6 HelpInfoHelpText
 提供有用的信息帮助[X]
 
-# 0x15C2 HelpInfoEnableText
+# 0x15C7 HelpInfoEnableText
 开[X]
 
-# 0x15C3 HelpInfoDisableHelpText
+# 0x15C8 HelpInfoDisableHelpText
 关闭有用的信息帮助[X]
 
-# 0x15C4 HelpInfoDisableText
+# 0x15C9 HelpInfoDisableText
 关[X]
 
-# 0x15C5 FullyParalyzedText
+# 0x15CA FullyParalyzedText
 完全麻痹！[A][X]
 
-# 0x15C6 OrderMovesDesc
+# 0x15CB OrderMovesDesc
 设置反击的招式[X]
 
-# 0x15C7 UM_RecoverMove
+# 0x15CC UM_RecoverMove
    自我再生[X]
 
-# 0x15C8 UM_Wish
+# 0x15CD UM_Wish
    祈愿[X]
 
-# 0x15C9 UM_HealPulse
+# 0x15CE UM_HealPulse
    治愈波动[X]
 
-# 0x15CA UM_SplashName
+# 0x15CF UM_SplashName
    跃起[X]
 
-# 0x15CB UM_SplashDesc
+# 0x15D0 UM_SplashDesc
 什么都没发生[X]
 
-# 0x15CC UM_SwordsDanceName
+# 0x15D1 UM_SwordsDanceName
    剑舞[X]
 
-# 0x15CD UM_SwordsDanceDesc
+# 0x15D2 UM_SwordsDanceDesc
 攻击+10[X]
 
-# 0x15CE UM_GuardName
+# 0x15D3 UM_GuardName
    守住[X]
 
-# 0x15CF UM_GuardDesc
+# 0x15D4 UM_GuardDesc
 HP/防御/特防+4[X]
 
-# 0x15D0 GuardMoveName
+# 0x15D5 GuardMoveName
 守住[X]
 
-# 0x15D1 GuardMoveDesc
+# 0x15D6 GuardMoveDesc
 HP/防御/特防+4[X]
 
-# 0x15D2 UM_HardenName
+# 0x15D7 UM_HardenName
    变硬[X]
 
-# 0x15D3 UM_HardenDesc
+# 0x15D8 UM_HardenDesc
 防御+5[X]
 
-# 0x15D4 UM_TailwindName
+# 0x15D9 UM_TailwindName
    顺风[X]
 
-# 0x15D5 UM_TailwindDesc
+# 0x15DA UM_TailwindDesc
 附近所有宝可梦速度+5[X]
 
-# 0x15D6 UM_HealPulseName
+# 0x15DB UM_HealPulseName
    治愈波动[X]
 
-# 0x15D7 UM_HealPulseDesc
+# 0x15DC UM_HealPulseDesc
 回复邻近同伴的HP[X]
 
-# 0x15D8 UM_WishName
+# 0x15DD UM_WishName
    祈愿[X]
 
-# 0x15D9 UM_WishDesc
+# 0x15DE UM_WishDesc
 回复邻近同伴的HP[X]
 
-# 0x15DA UM_BulkUpName
+# 0x15DF UM_BulkUpName
    健美[X]
 
-# 0x15DB UM_BulkUpDesc
+# 0x15E0 UM_BulkUpDesc
 攻击/防御+5[X]
 
-# 0x15DC UM_CalmMindName
+# 0x15E1 UM_CalmMindName
    冥想[X]
 
-# 0x15DD UM_CalmMindDesc
+# 0x15E2 UM_CalmMindDesc
 特攻/特防+5[X]
 
-# 0x15DE UM_HoneClawsName
+# 0x15E3 UM_HoneClawsName
    磨爪[X]
 
-# 0x15DF UM_HoneClawsDesc
+# 0x15E4 UM_HoneClawsDesc
 攻击+5，技术+10[X]
 
-# 0x15E0 UM_FocusEnergyName
+# 0x15E5 UM_FocusEnergyName
    聚气[X]
 
-# 0x15E1 UM_FocusEnergyDesc
+# 0x15E6 UM_FocusEnergyDesc
 技术+10[X]
 
-# 0x15E2 UM_AgilityName
+# 0x15E7 UM_AgilityName
    高速移动[X]
 
-# 0x15E3 UM_AgilityDesc
+# 0x15E8 UM_AgilityDesc
 速度+10[X]
 
-# 0x15E4 UM_AmnesiaName
+# 0x15E9 UM_AmnesiaName
    瞬间失忆[X]
 
-# 0x15E5 UM_AmnesiaDesc
+# 0x15EA UM_AmnesiaDesc
 特攻/特防+10[X]
 
-# 0x15E6 SplashMeterRisingText
+# 0x15EB SplashMeterRisingText
 Your [ToggleRed]Splash[N]
 Meter[ToggleRed] is rising![A][X]
 
-# 0x15E7 UM_AoEHelp
+# 0x15EC UM_AoEHelp
 选择某个区域攻击，按L/R键切换攻击范围[X]
 
-# 0x15E8 UM_AoEHealHelp
+# 0x15ED UM_AoEHealHelp
 选择某个区域攻击，按L/R键切换攻击范围[X]
 
-# 0x15E9 UM_AoEName
+# 0x15EE UM_AoEName
    范围攻击[X]
 
-# 0x15EA UM_AoEDesc
+# 0x15EF UM_AoEDesc
 对多个目标发起进攻[X]
 
-# 0x15FB UM_RecoverName
+# 0x1600 UM_RecoverName
    自我再生[X]
 
-# 0x15FC UM_RecoverDesc
+# 0x1601 UM_RecoverDesc
 回复一些HP[X]
 
-# 0x15FE UM_RestDesc
+# 0x1603 UM_RestDesc
 治愈所有单位，[N]
 然后去睡觉[X]
 
-# 0x15FF UM_GrowthName
+# 0x1604 UM_GrowthName
    生长[X]
 
-# 0x1600 UM_GrowthDesc
+# 0x1605 UM_GrowthDesc
 攻击/特攻/技术+5[X]
 
-# 0x1601 UM_Release
+# 0x1606 UM_Release
    放生[X]
 
-# 0x1602 UM_ReleaseDesc
+# 0x1607 UM_ReleaseDesc
 放宝可梦回归自然[X]
 
-# 0x1603 ReleasePokemonText
+# 0x1608 ReleasePokemonText
 你要放生这只宝可梦吗？[N]
 [No][X]
 
-# 0x1604 GoodbyeReleasePokemonText
+# 0x1609 GoodbyeReleasePokemonText
 再见啦！[A][X]
 
-# 0x1605 CannotReleasePokemonText
+# 0x160A CannotReleasePokemonText
 这是你最后一只啦！[A][X]
 
-# 0x1606 BetterKeepPokemonText
+# 0x160B BetterKeepPokemonText
 最好保留它们。[A][X]
 
-# 0x1607 ToyBoxText
+# 0x160C ToyBoxText
    玩具箱[X]
 
-# 0x1608 ToyBoxDescText
+# 0x160D ToyBoxDescText
 自由放置宝可梦[X]
 
-# 0x160A PressRSkillDetails
+# 0x160F PressRSkillDetails
 学习当前技能，[N]
 按R键查看更多信息[X]
 
-# 0x160B CannotEquipAccessoryTextID
+# 0x1610 CannotEquipAccessoryTextID
 你无法装备该物品！[X]
 
-# 0x160C IM_UnequipAccessory
+# 0x1611 IM_UnequipAccessory
    卸下[X]
 
-# 0x160D PressRSpellDetails
+# 0x1612 PressRSpellDetails
 学习当前招式[X]
 
-# 0x160E LearnedSpellText
+# 0x1613 LearnedSpellText
    习得[X]
 
-# 0x1610 NoBerriesLeftText
+# 0x1615 NoBerriesLeftText
 果子还没有成熟！[A][X]
 
-# 0x1611 UM_PickBerry
+# 0x1616 UM_PickBerry
    摘果子[X]
 
-# 0x1612 UM_PickBerryDesc
+# 0x1617 UM_PickBerryDesc
 寻找树果[X]
 
-# 0x1613 UM_EatBerry
+# 0x1618 UM_EatBerry
    进食[X]
 
-# 0x1614 UM_EatBerryDesc
+# 0x1619 UM_EatBerryDesc
 吃树上的果子[X]
 
-# 0x1615 UM_Call
+# 0x161A UM_Call
    呼唤[X]
 
-# 0x1616 UM_CallDesc
+# 0x161B UM_CallDesc
 召唤你的同伴至邻近的位置[X]
 
-# 0x1617 UM_Rest
+# 0x161C UM_Rest
    休息[X]
 
-# 0x1618 UM_Cut
+# 0x161D UM_Cut
    居合斩[X]
 
-# 0x1619 UM_CutDesc
+# 0x161E UM_CutDesc
 砍掉灌木丛[X]
 
-# 0x161A UM_RockSmash
+# 0x161F UM_RockSmash
    碎岩[X]
 
-# 0x161B UM_RockSmashDesc
+# 0x1620 UM_RockSmashDesc
 摧毁岩石[X]
 
-# 0x161C UM_Strength
+# 0x1621 UM_Strength
    怪力[X]
 
-# 0x161D UM_StrengthDesc
+# 0x1622 UM_StrengthDesc
 推动大石头[X]
 
-# 0x161E UM_StepOn
+# 0x1623 UM_StepOn
    踩踏[X]
 
-# 0x161F UM_StepOnDesc
+# 0x1624 UM_StepOnDesc
 这看起来很危险……[X]
 
-# 0x1620 UM_Jump
+# 0x1625 UM_Jump
    跳入[X]
 
-# 0x1621 UM_JumpDesc
+# 0x1626 UM_JumpDesc
 跳进洞里[X]
 
-# 0x1622 UM_Eat
+# 0x1627 UM_Eat
    进食[X]
 
-# 0x1623 UM_EatDesc
+# 0x1628 UM_EatDesc
 吃食物[X]
 
-# 0x1624 UM_Examine
+# 0x1629 UM_Examine
    查阅[X]
 
-# 0x1625 UM_ExamineDesc
+# 0x162A UM_ExamineDesc
 呃呃……[X]
 
-# 0x1626 UM_Interact
+# 0x162B UM_Interact
    交互[X]
 
-# 0x1627 UM_InteractDesc
+# 0x162C UM_InteractDesc
 执行一项操作[X]
 
-# 0x1628 UM_Talk2
+# 0x162D UM_Talk2
    对话[X]
 
-# 0x1629 UM_Talk2Desc
+# 0x162E UM_Talk2Desc
 开启一段对话[X]
 
-# 0x162A UM_Attack2
+# 0x162F UM_Attack2
    攻击[X]
 
-# 0x162B UM_Attack2Desc
+# 0x1630 UM_Attack2Desc
 攻击敌人[X]
 
-# 0x162C UM_Enter
+# 0x1631 UM_Enter
    进入[X]
 
-# 0x162D UM_EnterDesc
+# 0x1632 UM_EnterDesc
 进入室内[X]
 
-# 0x162E UM_Exit2
+# 0x1633 UM_Exit2
    离开[X]
 
-# 0x162F UM_Exit2Desc
+# 0x1634 UM_Exit2Desc
 退出房屋[X]
 
-# 0x1630 UM_Confirm
+# 0x1635 UM_Confirm
    确认[X]
 
-# 0x1631 UM_ConfirmDesc
+# 0x1636 UM_ConfirmDesc
 执行操作[X]
 
-# 0x1632 UM_Read
+# 0x1637 UM_Read
    阅读[X]
 
-# 0x1633 UM_ReadDesc
+# 0x1638 UM_ReadDesc
 阅读文本[X]
 
-# 0x1634 UM_Take2
+# 0x1639 UM_Take2
    拾取[X]
 
-# 0x1635 UM_Take2Desc
+# 0x163A UM_Take2Desc
 拾取物品[X]
 
-# 0x1638 UM_Save
+# 0x163D UM_Save
    记录[X]
 
-# 0x1639 UM_SaveDesc
+# 0x163E UM_SaveDesc
 保存游戏记录[X]
 
-# 0x1650 UM_Capture
+# 0x1655 UM_Capture
    捕捉[X]
 
-# 0x1651 UM_CaptureDesc
+# 0x1656 UM_CaptureDesc
 捕捉宝可梦[X]
 
-# 0x16F6 NormalTypeText
+# 0x166F NormalTypeText
 一般[X]
 
-# 0x16F7 FightingTypeText
+# 0x1670 FightingTypeText
 格斗[X]
 
-# 0x16F8 ElectricTypeText
+# 0x1671 ElectricTypeText
 电[X]
 
-# 0x16F9 WaterTypeText
+# 0x1672 WaterTypeText
 水[X]
 
-# 0x16FA IceTypeText
+# 0x1673 IceTypeText
 冰[X]
 
-# 0x16FB FireTypeText
+# 0x1674 FireTypeText
 火[X]
 
-# 0x16FC FlyingTypeText
+# 0x1675 FlyingTypeText
 飞行[X]
 
-# 0x16FD DragonTypeText
+# 0x1676 DragonTypeText
 龙[X]
 
-# 0x16FF GrassTypeText
+# 0x1678 GrassTypeText
 草[X]
 
-# 0x1700 PoisonTypeText
+# 0x1679 PoisonTypeText
 毒[X]
 
-# 0x1701 BugTypeText
+# 0x167A BugTypeText
 虫[X]
 
-# 0x1702 GroundTypeText
+# 0x167B GroundTypeText
 地面[X]
 
-# 0x1703 RockTypeText
+# 0x167C RockTypeText
 岩石[X]
 
-# 0x1704 PsychicTypeText
+# 0x167D PsychicTypeText
 超能[X]
 
-# 0x1705 GhostTypeText
+# 0x167E GhostTypeText
 幽灵[X]
 
-# 0x1706 DarkTypeText
+# 0x167F DarkTypeText
 恶[X]
 
-# 0x1707 ItemTypeText
+# 0x1680 ItemTypeText
 杂项[X]
 
-# 0x1708 SteelTypeText
+# 0x1681 SteelTypeText
 钢[X]
 
-# 0x1709 FairyTypeText
+# 0x1682 FairyTypeText
 妖精[X]
 
-# 0x170A SD_Surf
+# 0x1683 SD_Surf
 『冲浪』: [N]
 能够穿越深水区[X]
 
-# 0x170E SD_SilphScope
+# 0x1687 SD_SilphScope
 『西尔佛检视镜』:  [N]
 效果绝佳的招式必定会心[X]
 
-# 0x170F SD_Flank
+# 0x1688 SD_Flank
 『穿透』: 如果一名[N]
 友方位于相邻目标的对面，[N]
 则造成的伤害增加50%[X]
 
-# 0x1710 SD_Hover
+# 0x1689 SD_Hover
 『浮空』: 可以[N]
 越过悬崖边缘和水面[X]
 
-# 0x1711 SD_PowerfulAura
+# 0x168A SD_PowerfulAura
 『无敌光环』: [N]
 暂时免疫攻击！[X]
 
-# 0x1712 SD_WonderGuard
+# 0x168B SD_WonderGuard
 『神奇守护』: [N]
 免疫非效果绝佳的招式[X]
 
-# 0x1713 SD_Sturdy
+# 0x168C SD_Sturdy
 『结实』: [N]
 无法被一击击倒[X]
 
-# 0x1714 SD_WeakChipDmg
-『芯片损坏』: [N]
-力量/特攻减半，[N]
-穿刺伤害也减半[X]
-
-# 0x1715 SD_ScaledBack
+# 0x168D SD_ScaledBack
 『退缩』:[N]
 造成的伤害减半[X]
 
-# 0x1717 SD_Adept
+# 0x168E SD_Adept
 『连续』: 发动时可[N]
 再进行一次攻击（速%）[X]
 
-# 0x1718 SD_Acrobat
+# 0x168F SD_Acrobat
 『轻羽』: [N]
 所有地形阻碍降至为1[X]
 
-# 0x1719 SD_Pass
+# 0x1690 SD_Pass
 『穿越』: [N]
 可以穿过敌人所在格子[X]
 
-# 0x171A SD_CantoPlus
+# 0x1691 SD_CantoPlus
 『再动+』: 在攻击或[N]
 其他动作后可以再次移动[X]
 
-# 0x171B SD_WaryFighter
+# 0x1692 SD_WaryFighter
 『迟钝』: 战斗中[N]
 无法追击或被追击[X]
 
-# 0x171C SD_SureShot
+# 0x1693 SD_SureShot
 『必中』: 发动时必定[N]
 击中敌人，伤害x1.5（技%）[X]
 
-# 0x171D SD_Provoke
+# 0x1694 SD_Provoke
 『嘲讽』: [N]
 敌方优先攻击该单位[X]
 
-# 0x171F SD_Frenzy
+# 0x1695 SD_Frenzy
 『狂暴』: [N]
 每受到4点伤害，[N]
 自身伤害+1[X]
 
-# 0x1720 SD_Canto
+# 0x1696 SD_Canto
 『再动』: 在某些[N]
 动作后可以再次移动[X]
 
-# 0x1722 SD_Lethality
+# 0x1697 SD_Lethality
 『瞬杀』: 发动时[N]
 立即击杀对手（è技%）[X]
 
-# 0x1723 SD_Bane
+# 0x1698 SD_Bane
 『灾祸』: [N]
 发动时使对手[N]
 HP降至1（è技%）[X]
 
-# 0x1724 SD_Luna
+# 0x1699 SD_Luna
 『月光』: 发动时[N]
 无视对手防御（技%）[X]
 
-# 0x1725 SD_Sol
+# 0x169A SD_Sol
 『太阳』: 发动时将[N]
 伤害转化为HP（技%）[X]
 
-# 0x1726 SD_Aether
+# 0x169B SD_Aether
 『天空』: [N]
 第一下攻击可吸血，[N]
 第二下无视防御（è技%）[X]
 
-# 0x1727 SD_Astra
+# 0x169C SD_Astra
 『流星』: 发起五次[N]
 伤害减半的攻击（技%）[X]
 
-# 0x172F SD_Aegis
+# 0x16A2 SD_Aegis
 『圣盾』: [N]
 特殊攻击无效（技%）[X]
 
-# 0x1730 SD_Pavise
+# 0x16A3 SD_Pavise
 『大盾』: [N]
 物理攻击无效（技%）[X]
 
-# 0x1731 SD_DuelistsBlow
+# 0x16A4 SD_DuelistsBlow
 『清流一击』: [N]
 主动进攻时回避+30[X]
 
-# 0x1732 SD_DeathBlow
+# 0x16A5 SD_DeathBlow
 『鬼神一击』: [N]
 主动进攻时必杀+20[X]
 
-# 0x1733 SD_DartingBlow
+# 0x16A6 SD_DartingBlow
 『飞燕一击』: [N]
 主动进攻时攻速+5[X]
 
-# 0x1734 SD_WardingBlow
+# 0x16A7 SD_WardingBlow
 『明镜一击』: [N]
 主动进攻时魔防+20[X]
 
-# 0x1735 SD_CertainBlow
+# 0x16A8 SD_CertainBlow
 『凶鸟一击』: [N]
 主动进攻时命中+40[X]
 
-# 0x1736 SD_ArmoredBlow
+# 0x16A9 SD_ArmoredBlow
 『金刚一击』: [N]
 主动进攻时防御+10[X]
 
-# 0x1737 SD_Desperation
+# 0x16AA SD_Desperation
 『伏击』: HP<50%时，[N]
 总是自己先发动攻击[X]
 
-# 0x1738 SD_Wrath
+# 0x16AB SD_Wrath
 『怒』: [N]
 HP<50%时,必杀+15[X]
 
-# 0x173E SD_CritUp
+# 0x16B1 SD_CritUp
 『必杀上升』:[N]
 必杀+15[X]
 
-# 0x174A SD_Amaterasu
+# 0x16B2 SD_Amaterasu
 『治愈光环』: 两格内[N]
 友军每回合恢复20%HP[X]
 
-# 0x1752 SD_Paragon
+# 0x16B3 SD_Paragon
 『精英』: [N]
 经验获取翻倍[X]
 
-# 0x1753 SD_Impale
+# 0x16B4 SD_Impale
 『穿刺』: [N]
 造成4倍伤害（技%）[X]
 
-# 0x1754 SD_Colossus
+# 0x16B5 SD_Colossus
 『怪力』: [N]
 自身力量变为3倍（技%）[X]
 
-# 0x1761 SD_Ignis
+# 0x16B6 SD_Ignis
 『华炎』: 发动时双防[N]
 的一半加到伤害上（技%）[X]
 
-# 0x1762 SD_LifeAndDeath
+# 0x16B7 SD_LifeAndDeath
 『死或生』: [N]
 受到/造成的伤害+6[X]
 
-# 0x1766 SD_Opportunist
+# 0x16B8 SD_Opportunist
 『伺机者』: [N]
 敌方无法反击时伤害+2[X]
 
-# 0x1767 SD_Trample
+# 0x16B9 SD_Trample
 『居高临下』: [N]
 对非骑乘单位造成伤害+5[X]
 
-# 0x1768 SD_Camaraderie
+# 0x16BA SD_Camaraderie
 『同心协力』: 两格内存[N]
 在友军时，每回合恢复10%HP[X]
 
-# 0x176A SD_Relief
+# 0x16BB SD_Relief
 『解脱』: 2格范围内无[N]
 友军时，每回合恢复20%HP[X]
 
-# 0x176B SD_Tantivy
+# 0x16BC SD_Tantivy
 『疾驰』: 若三格以内[N]
 无友军，命中/回避+10[X]
 
-# 0x176C SD_Focus
+# 0x16BD SD_Focus
 『专注』: 3格内[N]
 没有友方单位必杀+10[X]
 
-# 0x176D SD_Bond
+# 0x16BE SD_Bond
 『羁绊』: 三格内所有[N]
 友军每回合恢复10%HP[X]
 
-# 0x176E SD_Anathema
+# 0x16BF SD_Anathema
 『诅咒』: 三格内[N]
 的敌方回避/必避-10[X]
 
-# 0x176F SD_LilysPoise
+# 0x16C0 SD_LilysPoise
 『预知梦』: [N]
 相邻的友方所受伤害-10[X]
 
-# 0x1772 SD_FieryBlood
+# 0x16C1 SD_FieryBlood
 『炎之血』: [N]
 HP不满时造成伤害+4[X]
 
-# 0x1774 SD_NaturalCover
+# 0x16C2 SD_NaturalCover
 『天然掩蔽』: 身处有地形[N]
 效果的地块时，受到伤害-3[X]
 
-# 0x1775 SD_SealStr
+# 0x16C3 SD_SealStr
 『攻击封印』: [N]
 战斗后对方攻击-10[N]
 （每回合恢复2）[X]
 
-# 0x1776 SD_SealSkl
+# 0x16C4 SD_SealSkl
 『技术封印』: [N]
 战斗后对方技术-10[N]
 （每回合恢复2）[X]
 
-# 0x1778 SD_SealLuk
+# 0x16C5 SD_SealLuk
 『速度封印』: [N]
 战斗后对方速度-10[N]
 （每回合恢复2）[X]
 
-# 0x177A SD_SealRes
+# 0x16C6 SD_SealRes
 『特防封印』: [N]
 战斗后对方特防-10[N]
 （每回合恢复2）[X]
 
-# 0x177B SD_SealMag
+# 0x16C7 SD_SealMag
 『特攻封印』: [N]
 战斗后对方特攻-10[N]
 （每回合恢复2）[X]
 
-# 0x177F SD_QuickDraw
+# 0x16C8 SD_QuickDraw
 『先发制人』: [N]
 主动进攻时造成伤害+4[X]
 
-# 0x1780 SD_WindDisciple
+# 0x16C9 SD_WindDisciple
 『风之加护』: [N]
 HP不满时命中/回避+10[X]
 
-# 0x1781 SD_StrongRiposte
+# 0x16CA SD_StrongRiposte
 『强力还击』: [N]
 被攻击时造成伤害+2[X]
 
-# 0x1782 SD_Patience
+# 0x16CB SD_Patience
 『忍耐』:[N]
 被攻击时回避+10[X]
 
-# 0x1783 SD_Pursuit
+# 0x16CC SD_Pursuit
 『追击』:[N]
 被攻击时攻速+4[X]
 
-# 0x1784 SD_LightWeight
+# 0x16CD SD_LightWeight
 『轻装』: 所持物品[N]
 少于三个时，攻速+3[X]
 
-# 0x1785 SD_KillingMachine
+# 0x16CE SD_KillingMachine
 『杀人机器』: [N]
 必杀率翻倍[X]
 
-# 0x1786 SD_CriticalForce
+# 0x16CF SD_CriticalForce
 『必杀之力』: [N]
 基础必杀率为技术x1.5[X]
 
-# 0x1787 SD_Chivalry
+# 0x16D0 SD_Chivalry
 『骑士道』: [N]
 对手满HP时，攻击/双防+1[X]
 
-# 0x1788 SD_Pragmatic
+# 0x16D1 SD_Pragmatic
 『务实』: [N]
 对手HP不满时，[N]
 攻击/双防+1[X]
 
-# 0x178A SD_Moonbow
+# 0x16D2 SD_Moonbow
 『月弓』: 敌方双防[N]
 降低25%；蓄力消耗：2[X]
 
-# 0x178D SD_DownWithArch
-Down with Arch: If the hit lands,[N]
-instantly kill the enemy unit.[N]
-(Only if name starts with “Arch”)[X]
-
-# 0x178E SD_UpWithArch
-Up with Arch: Adjacent ally units gain[N]
-might equal to half this unit's might.[N]
-(ONy if name starts with “Arch”)[X]
-
-# 0x1792 SD_LuckySeven
+# 0x16D3 SD_LuckySeven
 『幸运7』: [N]
 前7回合命中/回避+20[X]
 
-# 0x1795 SD_QuickBurn
+# 0x16D4 SD_QuickBurn
 『狂热』: [N]
 命中/回避+15，[N]
 该效果每回合衰减[X]
 
-# 0x1796 SD_SlowBurn
+# 0x16D5 SD_SlowBurn
 『慢热』: 回合结束后[N]
 命中/回避+1，最多+15[X]
 
-# 0x1797 SD_Despoil
+# 0x16D6 SD_Despoil
 『聚宝功』: [N]
 攻击并击败更高等级的[N]
 敌人后获得金钱（2x运%）[X]
 
-# 0x179B SD_BreathOfLife
+# 0x16D7 SD_BreathOfLife
 『生命之息』: [N]
 攻击后，2格范围内[N]
 所有友军恢复20%HP[X]
 
-# 0x179E SD_RandomMug
+# 0x16D8 SD_RandomMug
 『量子幻容』:  [N]
 每次被注视时，[N]
 样貌都会发生变化[X]
 
-# 0x17A1 SD_IdentityProblems
+# 0x16D9 SD_IdentityProblems
 『身份紊乱』: 该单位[N]
 无法稳定自身的姓名与容貌[X]
 
-# 0x17A3 SD_HeroesDeathBlow
+# 0x16DA SD_HeroesDeathBlow
 『毁灭一击』: [N]
 主动进攻时攻击+6[X]
 
-# 0x17A4 SD_HeroesLifeAndDeath
+# 0x16DB SD_HeroesLifeAndDeath
 『死线』: [N]
 攻击/特攻/速度+5；[N]
 防御/特防-5[X]
 
-# 0x17A6 SD_Vantage
+# 0x16DC SD_Vantage
 『绝地反击』: [N]
 HP<50%时，追击立即判定[X]
 
-# 0x17A7 SD_Hawkeye
+# 0x16DD SD_Hawkeye
 『鹰眼』: [N]
 总是能命中对方[X]
 
-# 0x17A9 SD_Bracing_Stance
+# 0x16DE SD_Bracing_Stance
 『防御姿态』: [N]
 被攻击时双防+4[X]
 
-# 0x17AA SD_Darting_Stance
+# 0x16DF SD_Darting_Stance
 『突击姿态』: [N]
 被攻击时速度+6[X]
 
-# 0x17AB SD_Fierce_Stance
+# 0x16E0 SD_Fierce_Stance
 『凶猛姿态』: [N]
 被攻击时攻击+6[X]
 
-# 0x17AC SD_Kestrel_Stance
+# 0x16E1 SD_Kestrel_Stance
 『隼之姿态』: [N]
 被攻击时速度/防御+4[X]
 
-# 0x17AD SD_Mirror_Stance
+# 0x16E2 SD_Mirror_Stance
 『明镜姿态』: [N]
 被攻击时攻击/特防+4[X]
 
-# 0x17AE SD_Ready_Stance
+# 0x16E3 SD_Ready_Stance
 『备战姿态』: [N]
 被攻击时速度/防御+4[X]
 
-# 0x17AF SD_Steady_Stance
+# 0x16E4 SD_Steady_Stance
 『防御姿态』: [N]
 被攻击时防御+6[X]
 
-# 0x17B0 SD_Sturdy_Stance
+# 0x16E5 SD_Sturdy_Stance
 『强壮姿态』: [N]
 被攻击时攻击/防御+4[X]
 
-# 0x17B1 SD_Swift_Stance
+# 0x16E6 SD_Swift_Stance
 『迅捷姿态』: [N]
 被攻击时速度/特防+4[X]
 
-# 0x17B2 SD_Warding_Stance
+# 0x16E7 SD_Warding_Stance
 『守护姿态』: [N]
 被攻击时特防+6[X]
 
-# 0x17B3 SD_Spectrum_Stance
+# 0x16E8 SD_Spectrum_Stance
 『七彩守护』: [N]
 被攻击时全属性+2[X]
 
-# 0x17B6 SD_Capture
+# 0x16E9 SD_Capture
 『捕获』: 以较低状态[N]
 击败敌人后可以捕获敌人[X]
 
-# 0x17B7 SD_BlackMagic
+# 0x16EA SD_BlackMagic
 『黑魔法』: [N]
 给对手施加随机[N]
 负面状态（技%）[X]
 
-# 0x17BA SD_Foresight
+# 0x16EB SD_Foresight
 『预知』: 免疫敌方[N]
 必杀与技能带来的伤害[X]
 
-# 0x17BB SD_Axefaith
-『斧之信仰』: 斧类武器不[N]
-会损耗耐久，装备斧武器时，[N]
-命中获得运x1.5倍加成[X]
-
-# 0x17BC SD_ArmorMarch
+# 0x16EC SD_ArmorMarch
 『重甲行军』: 回合开始时[N]
 若自身相邻有重甲友军，[N]
 自身与相邻重甲友军移动+2[X]
 
-# 0x17BE SD_Forager
+# 0x16ED SD_Forager
 『觅食』: [N]
 身处平原、森林或山地[N]
 地形时，每回合恢复20%HP[X]
 
-# 0x17BF SD_FullMetalBody
+# 0x16EE SD_FullMetalBody
 『全金属机身』: [N]
 不受封印类技能影响降低能力[X]
 
-# 0x17C0 SD_LiquidOoze
+# 0x16EF SD_LiquidOoze
 『毒血』:[N]
 被吸血时扣除对方等量HP[X]
 
-# 0x17C3 SD_DevilsLuck
+# 0x16F0 SD_DevilsLuck
 恶魔之运: 免疫恶魔武器反噬，[N]
 将恶魔效果逆转给敌人[N]
 (逆转几率为31-运%）[X]
 
-# 0x17C4 SD_DevilsPact
+# 0x16F1 SD_DevilsPact
 恶魔契约: 免疫恶魔武器反噬，[N]
 用恶魔反噬诅咒敌人[N]
 (反噬几率为31-运%）[X]
 
-# 0x17C5 SD_DevilsWhim
+# 0x16F2 SD_DevilsWhim
 恶魔诅咒: 受到恶魔诅咒，[N]
 但诅咒也会传染给敌人[N]
 (反噬几率为31-运%）[X]
 
-# 0x17C7 SD_Barricade
+# 0x16F3 SD_Barricade
 『壁垒』: 受到一次[N]
 伤害之后承受伤害减半[X]
 
-# 0x17C8 SD_BarricadePlus
+# 0x16F4 SD_BarricadePlus
 『壁垒+』: 战斗中所受[N]
 伤害为上次伤害的一半[X]
 
-# 0x17CA SD_Perfectionist
+# 0x16F5 SD_Perfectionist
 『完美主义』: [N]
 自身满HP时，命中/回避+15[X]
 
-# 0x17CB SD_Puissance
+# 0x16F6 SD_Puissance
 『力量压制』: 自身[N]
 攻击高于敌方时，伤害+3[X]
 
-# 0x17CC SD_BattleVeteran
+# 0x16F7 SD_BattleVeteran
 『战场老兵』: [N]
 单位每有10级[N]
 伤害+1，命中+5[X]
 
-# 0x17CE SD_SilentPride
+# 0x16F8 SD_SilentPride
 『默然傲骨』: [N]
 HP<25%时[N]
 伤害+1，受到伤害-1[X]
 
-# 0x17CF SD_Loyalty
+# 0x16F9 SD_Loyalty
 『忠随』: [N]
 身处领主2格范围内时，[N]
 受到伤害-3，命中+15[X]
 
-# 0x17D0 SD_Thunderstorm
+# 0x16FA SD_Thunderstorm
 『雷暴』: 武器重量[N]
 大于对手的装备时造成[N]
 伤害+2，命中+15，必杀+5[X]
 
-# 0x17D1 SD_Outrider
+# 0x16FB SD_Outrider
 『先锋』: 每移动一格[N]
 受到的伤害-1，必杀+3[X]
 
-# 0x17D2 SD_HeavyStrikes
+# 0x16FC SD_HeavyStrikes
 『重击』: [N]
 附加与装备[N]
 重量等值的必杀率[X]
 
-# 0x17D3 SD_Charge
+# 0x16FD SD_Charge
 『冲锋』: 每移动[N]
 两格造成伤害+1[X]
 
-# 0x17D5 SD_Vanity
+# 0x16FE SD_Vanity
 『虚荣』: 与两格[N]
 距离的敌人交战时，[N]
 伤害+2，命中+10[X]
 
-# 0x17D6 SD_MageSlayer
+# 0x16FF SD_MageSlayer
 『法师杀手』: 对阵魔法[N]
 单位时，伤害+2，必杀+10[X]
 
-# 0x17D7 SD_KnightAspirant
+# 0x1700 SD_KnightAspirant
 『骑士精神』: [N]
 HP>75%时，造成[N]
 伤害+2，回避+15[X]
 
-# 0x17D8 SD_Watchful
+# 0x1701 SD_Watchful
 『警觉』: [N]
 该宝可梦不能被捕获[X]
 
-# 0x17DA SD_Boon
+# 0x1702 SD_Boon
 『恩泽』:[N]
 回合开始时清除自身[N]
 所有负面异常状态[X]
 
-# 0x17DB SD_ReMove
+# 0x1703 SD_ReMove
 『幸运再动』:  [N]
 (运%)几率可再次行动[X]
 
-# 0x17DC SD_Powerstaff
+# 0x1704 SD_Powerstaff
 『杖达人』: [N]
 使用法杖后可额外行动一次[X]
 
-# 0x17E4 SD_Blossom
+# 0x1707 SD_Blossom
 『繁花』: [N]
 成长/经验翻倍[X]
 
-# 0x17E5 SD_Aptitude
+# 0x1708 SD_Aptitude
 『良成长』: [N]
 全属性成长率+20%[X]
 
-# 0x17E6 SD_QuickRiposte
+# 0x1709 SD_QuickRiposte
 『迅捷反击』: [N]
 被攻击且HP<50%时，自身[N]
 可追击，敌方不可追击[X]
 
-# 0x17E8 SD_Insight
+# 0x170A SD_Insight
 『洞悉』: [N]
 命中率+10[X]
 
-# 0x17E9 SD_Vigilance
+# 0x170B SD_Vigilance
 『警戒』: 回避+10[X]
 
-# 0x17EE SD_Prescience
+# 0x170C SD_Prescience
 『先知』: [N]
 主动战斗时，命中/回避+10[X]
 
-# 0x17EF SD_DefiantAvo
+# 0x170D SD_DefiantAvo
 『回避觉醒』: [N]
 HP<25%时，回避+30[X]
 
-# 0x17F0 SD_DefiantCrit
+# 0x170E SD_DefiantCrit
 『必杀觉醒』: [N]
 HP<25%时，必杀+30[X]
 
-# 0x17F3 SD_DefiantSkl
-Defiant Skl: When HP is 25%[N]
-[N]
-or lower, gain +4 Skill.[X]
-
-# 0x17F9 SD_ShortShield
+# 0x170F SD_ShortShield
 『近距离防御』: [N]
 近身战斗时防御+6[X]
 
-# 0x17FA SD_TowerShield
+# 0x1710 SD_TowerShield
 『远距离防御』: [N]
 近身战斗时防御+6[X]
 
-# 0x17FB SD_TowerShieldPlus
+# 0x1711 SD_TowerShieldPlus
 『强化塔盾』: [N]
 远程攻击无效[X]
 
-# 0x17FC SD_VoidCurse
+# 0x1712 SD_VoidCurse
 『虚空诅咒』: 击败[N]
 这个单位不会获得经验[X]
 
-# 0x1800 SD_AlertStance
+# 0x1713 SD_AlertStance
 『警戒姿态』: [N]
 被攻击时回避+15[X]
 
-# 0x1801 SD_AlertStancePlus
+# 0x1714 SD_AlertStancePlus
 『警戒姿态+』: [N]
 被攻击时回避+30[X]
 
-# 0x1802 SD_Corona
+# 0x1715 SD_Corona
 『耀星』: [N]
 无视对手特防（技%）[X]
 
-# 0x1803 SD_Flare
+# 0x1716 SD_Flare
 『日蚀』: [N]
 对手魔防减半（技%）[X]
 
-# 0x1806 SD_Petrify
+# 0x1717 SD_Petrify
 『石化』: 发动时[N]
 使对手石化（技%）[X]
 
-# 0x1807 SD_Enrage
+# 0x1718 SD_Enrage
 『激怒』: [N]
 发动时使对手混乱（技%）[X]
 
-# 0x1808 SD_Deadeye
+# 0x1719 SD_Deadeye
 『死眼』: 命中翻倍，[N]
 有几率使对手睡眠（技%）[X]
 
-# 0x1809 SD_DragonFang
+# 0x171A SD_DragonFang
 『龙穿』: [N]
 造成伤害x1.5（技%）[X]
 
-# 0x180A SD_Fortune
+# 0x171B SD_Fortune
 『强运』: [N]
 免疫必杀[X]
 
-# 0x180C SD_ArcaneBlade
+# 0x171C SD_ArcaneBlade
 『奥术之刃』: [N]
 主动近身攻击时，[N]
 命中/必杀增加3+（è魔力）[X]
 
-# 0x180E SD_BlueFlame
+# 0x171D SD_BlueFlame
 『蓝炎』: [N]
 自身与相邻友军攻击+2[N]
 与有此技能的友军相邻再+2[X]
 
-# 0x180F SD_DoubleLion
+# 0x171E SD_DoubleLion
 『狮心』: [N]
 所有武器都可以2回攻击[X]
 
-# 0x1810 SD_Eclipse
+# 0x171F SD_Eclipse
 『月食』: [N]
 使目标保留1HP（技%）[X]
 
-# 0x1819 SD_Resourceful
+# 0x1720 SD_Resourceful
 『足智多谋』: [N]
 特效伤害翻倍[X]
 
-# 0x181A SD_Cultured
-『风雅』: 若身旁有『美腿』[N]
-单位时发动攻击，可再次移动；[N]
-对『美腿』类单位命中-50 [X]
-
-# 0x1823 SD_Shade
+# 0x1721 SD_Shade
 『影遁』: [N]
 敌人不容易攻击该单位[X]
 
-# 0x1824 SD_ShadePlus
+# 0x1722 SD_ShadePlus
 『影遁+』: [N]
 敌人不会攻击该单位[X]
 
-# 0x1825 SD_Imbue
+# 0x1723 SD_Imbue
 『赋灵』: 每回合开始时[N]
 恢复等同于自身特攻数值的HP[X]
 
-# 0x1826 SD_Thighdeology
+# 0x1724 SD_Thighdeology
 『恋足』: 3格范围内存在[N]
 拥有『美腿』的单位时，[N]
 自身攻击+2、命中+20[X]
 
-# 0x1827 SD_Thotslayer
+# 0x1725 SD_Thotslayer
 『猎艳者』: [N]
 对阵拥有『美腿』[N]
 特质单位时，必杀+15[X]
 
-# 0x1828 SD_Corrosion
+# 0x1726 SD_Corrosion
 『腐蚀』: 发动时[N]
 根据人物等级削减[N]
 对方武器耐久（è技%）[X]
 
-# 0x1829 SD_KeepUp
+# 0x1727 SD_KeepUp
 『跟进』: 若自身与拥有[N]
 『再动』技能的友军相距[N]
 3格以内，自身移动+2[X]
 
-# 0x182A SD_IndoorMarch
+# 0x1728 SD_IndoorMarch
 『室内行军』:  [N]
 单位处于室内地形时，移动+2[X]
 
-# 0x182B SD_NatureRush
+# 0x1729 SD_NatureRush
 『自然疾行』: [N]
 身处崎岖地形时，移动+2[X]
 
-# 0x182D SD_Glacies
+# 0x172A SD_Glacies
 『冰华』: 发动时[N]
 将特防加到伤害上（技%）[X]
 
-# 0x182E SD_Gridmaster
-『阵地掌控者』: [N]
-使用移动类技能[N]
-不会结束本次行动[X]
-
-# 0x1833 SD_ChargePlus
+# 0x172B SD_ChargePlus
 『冲锋+』: 单位移动力[N]
 耗尽后，获得勇者效果[X]
 
-# 0x1834 SD_GreatShield
+# 0x172C SD_GreatShield
 『神盾』: [N]
 发动时免疫伤害（防%）[X]
 
-# 0x1836 SD_Vengeance
+# 0x172D SD_Vengeance
 『复仇』: [N]
 受到伤害的一半[N]
 加到伤害上（技%）[X]
 
-# 0x1837 SD_Synchronize
+# 0x172E SD_Synchronize
 『同步』: [N]
 状态效果同样会[N]
 施加在攻击者身上[X]
 
-# 0x1846 SD_ScaledUp
+# 0x173C SD_ScaledUp
 『凶猛』: [N]
 造成的伤害提升20%[X]
 
-# 0x1847 SD_ExpShare
+# 0x173D SD_ExpShare
 『学习装置』:  [N]
 当两格范围内的等级更高的[N]
 宝可梦攻击敌人时，获得经验值[X]
 
-# 0x1885 SD_HeavyBlade
-Heavy Blade: +4 Damage/-2[N]
-Attack Speed when unit's Con[N]
- is bigger than the enemy.[X]
-
-# 0x18B5 SD_Guts
+# 0x1743 SD_Guts
 『毅力』: 处于异常[N]
 状态时，攻击提升25%[X]
 
-# 0x18B9 SD_HoardersBane
+# 0x1744 SD_HoardersBane
 『暴食』: [N]
 回合结束时，若自身非[N]
 满HP则自动食用一枚树果[X]
 
-# 0x18C6 SD_RecklessFighter
+# 0x1745 SD_RecklessFighter
 『鲁莽战士』: HP不满时，[N]
 自身与对手总能追击[N]
 ޅᢴ[X]
 
-# 0x18C7 SD_KeenFighter
-『稳健战士』: [N]
-对手能追击时，[N]
-受伤害将减少25%[X]
-
-# 0x18C8 SD_PridefulWarrior
+# 0x1746 SD_PridefulWarrior
 『骄傲之鸟』: [N]
 该单位永远后手攻击；[N]
 若持有大葱，则可攻击两次[X]
 
-# 0x18CC SD_SteadyBrawler
+# 0x1747 SD_SteadyBrawler
 『稳健战士』: [N]
 追击时造成的伤害减少20%；[N]
 不能时造成的伤害将增加20%[N]
 ޅᢴ[X]
 
-# 0x18D0 SD_Chlorophyll
+# 0x1748 SD_Chlorophyll
 『叶绿素』: 在户外或处于[N]
 烈焰光环范围内时，速度翻倍[N]
 ޅᢷ[X]
 
-# 0x18D1 SD_SolarPower
+# 0x1749 SD_SolarPower
 『太阳之力』: 身处户外或烈焰[N]
 光环范围内时，攻击/特攻提升25%[N]
 ޅᢵ[X]
 
-# 0x18D2 SD_Explorer
+# 0x174A SD_Explorer
 『探索者』: 身处室外或潮湿[N]
 光环范围内时，每回合恢复25%HP[X]
 
-# 0x18D3 SD_TintedLens
+# 0x174B SD_TintedLens
 『有色眼镜』: 效果不佳的[N]
 招式会造成效果绝佳的伤害[N]
 ޅᢱ[X]
 
-# 0x18D4 SD_ShedSkin
+# 0x174C SD_ShedSkin
 『蜕皮』: 回合开始时，[N]
 治愈所有异常状态[N]
 ޅᢱ[X]
 
-# 0x18D5 SD_KeenEye
+# 0x174D SD_KeenEye
 『锐利目光』: [N]
 招式精准度提升50%[X]
 
-# 0x18D6 SD_Sniper
+# 0x174E SD_Sniper
 『狙击手』: 必杀+30[X]
 
-# 0x18D7 SD_LightningRod
+# 0x174F SD_LightningRod
 『避雷针』: [N]
 吸收附近的电系招式[N]
 吸收后攻击/特攻+15[X]
 
-# 0x18D8 SD_FieryAura
+# 0x1750 SD_FieryAura
 『烈焰光环』: 附近[N]
 火系招式伤害提升50%，[N]
 水系招式伤害降低25%[X]
 
-# 0x18D9 SD_DampAura
+# 0x1751 SD_DampAura
 『潮湿光环』: 附近[N]
 水系招式伤害提升50%，[N]
 火系招式伤害降低25%[X]
 
-# 0x18DA SD_Unaware
+# 0x1752 SD_Unaware
 『纯朴』: [N]
 无视目标的属性增益效果[X]
 
-# 0x18DB SD_Competitive
+# 0x1753 SD_Competitive
 『好胜』: [X]
 
-# 0x18DC SD_Defiant
+# 0x1754 SD_Defiant
 『不服输』: [X]
 
-# 0x18DD SD_Rivalry
+# 0x1755 SD_Rivalry
 『斗争心』: 若对手的[N]
 最高属性值高于自身，[N]
 则造成额外25%的伤害[X]
 
-# 0x18DE SD_Hustle
+# 0x1756 SD_Hustle
 『活力』: [N]
 造成的伤害增加25%，[N]
 但攻击命中率降低20%[X]
 
-# 0x18DF SD_ArenaTrap
+# 0x1757 SD_ArenaTrap
 『沙穴』: [N]
 战斗结束后，[N]
 在一格内锁定敌人[X]
 
-# 0x18E0 SD_SporeTouch
+# 0x1758 SD_SporeTouch
 『孢子触碰』: 战斗后[N]
 一格范围施加睡眠效果[X]
 
-# 0x18E1 SD_PoisonTouch
+# 0x1759 SD_PoisonTouch
 『毒手』: 战斗后[N]
 一格范围施加中毒效果[N]
 ޅᢾ[X]
 
-# 0x18E2 SD_MagicGuard
+# 0x175A SD_MagicGuard
 『魔法防守』: [X]
 
-# 0x18E3 SD_ClearBody
+# 0x175B SD_ClearBody
 『恒净之躯』: [N]
 能力不会被下降[X]
 
-# 0x18E4 SD_Regenerator
+# 0x175C SD_Regenerator
 『再生力』: [N]
 选择“待机”后恢复30%HP[X]
 
-# 0x18E5 SD_Analytic
+# 0x175D SD_Analytic
 『分析』: 对速度更快[N]
 的对手造成多30%的伤害[X]
 
-# 0x18E6 SD_Hydration
+# 0x175E SD_Hydration
 『湿润之躯』: [N]
 在阶段结束时，若在水中或在[N]
 潮湿光环范围内，恢复全部HP[X]
 
-# 0x18E7 SD_ShellArmor
+# 0x175F SD_ShellArmor
 『硬壳盔甲』: [N]
 不会受到必杀伤害[N]
 ޅᢰ,或防御上限50+[X]
 
-# 0x18E8 SD_Grudge
+# 0x1760 SD_Grudge
 『怨念』: 濒死后，[N]
 对手的防御/特防-30[X]
 
-# 0x18E9 SD_Aftermath
+# 0x1761 SD_Aftermath
 『诱爆』: [N]
 濒死后，对手减少25%HP[X]
 
-# 0x18EA SD_SheerForce
+# 0x1762 SD_SheerForce
 『强行』: 带有副作用的[N]
 招式会额外造成30%的伤害[X]
 
-# 0x18EB SD_Forewarn
+# 0x1763 SD_Forewarn
 『预知梦』: 相邻[N]
 单位受到的伤害-10[N]
 ޅᢿ[X]
 
-# 0x18EC SD_HyperCutter
+# 0x1764 SD_HyperCutter
 『怪力钳』: [N]
 免疫减益效果[X]
 
-# 0x18ED SD_Harvest
+# 0x1765 SD_Harvest
 『收获』: 户外或在烈焰光环[N]
 范围内时，每回合恢复50%HP[N]
 ޅᢷ, ᢱ[X]
 
-# 0x18EE SD_Unburden
+# 0x1766 SD_Unburden
 『轻装』: 没有[N]
 持有道具时速度翻倍[X]
 
-# 0x18EF SD_RecklessRock
+# 0x1767 SD_RecklessRock
 『舍身』: [N]
 造成/受到的伤害+20%[N]
 ޅᣀ[.][X]
 
-# 0x18F0 SD_Scrappy
+# 0x1768 SD_Scrappy
 『胆量』: [N]
 攻击无视免疫[N]
 ޅᢺ, ᢴ[X]
 
-# 0x18F1 SD_Filter
+# 0x1769 SD_Filter
 『过滤』: 效果绝佳[N]
 的招式伤害减少25%[X]
 
-# 0x18F2 SD_Technician
+# 0x176A SD_Technician
 『技术高手』: [N]
 威力为6或以下的[N]
 招式威力翻倍[X]
 
-# 0x18F3 SD_DrySkin
+# 0x176B SD_DrySkin
 『干燥皮肤』: 被水属性[N]
 招式命中时会完全恢复；弱火[N]
 ޅᢱ[X]
 
-# 0x18F4 SD_MotorDrive
+# 0x176C SD_MotorDrive
 『电气引擎』: 被电属性[N]
 招式命中时，速度+10[X]
 
-# 0x18F5 SD_FlashFire
+# 0x176D SD_FlashFire
 『引火』: 被火属性[N]
 招式命中时，特攻+10[X]
 
-# 0x18F6 SD_AngerPoint
+# 0x176E SD_AngerPoint
 『愤怒穴位』: [X]
 
-# 0x18F7 SD_Transform
+# 0x176F SD_Transform
 『变身』: 在战斗中[N]
 复制对手的招式和状态[X]
 
-# 0x18F8 SD_Adaptability
+# 0x1770 SD_Adaptability
 『适应力』: [N]
 本系招式攻击加成翻倍[N]
 ޅᢺ, ᢰ, ᢵ, ᢷ, ᢳ[X]
 
-# 0x18F9 SD_AcidArmor
+# 0x1771 SD_AcidArmor
 『溶化』: [N]
 受到异常状态时，[N]
 防御/特防提升25%[X]
 
-# 0x18FA SD_QuickFeet
+# 0x1772 SD_QuickFeet
 『飞毛腿』: 处于异常[N]
 状态时，速度提升25%[N]
 ޅᢺ[X]
 
-# 0x18FB SD_WeakArmor
+# 0x1773 SD_WeakArmor
 『碎裂铠甲』: [N]
 受到伤害时[N]
 防御-5，速度+10[X]
 
-# 0x18FC SD_StrongClaws
+# 0x1774 SD_StrongClaws
 『硬爪』: [N]
 攻击提升1/8[X]
 
-# 0x18FD SD_Pressure
+# 0x1775 SD_Pressure
 『压迫感』: [N]
 对手的招式随机[X]
 
-# 0x18FE SD_ChanseySkill
+# 0x1776 SD_ChanseySkill
 『吉利蛋』: [X]
 
-# 0x18FF SD_OddishSkill
+# 0x1777 SD_OddishSkill
 『奇异特性』: [X]
 
-# 0x1900 SD_Simple
+# 0x1778 SD_Simple
 『单纯』: [N]
 增益/减益效果翻倍[X]
 
-# 0x1901 SD_NaturalCure
+# 0x1779 SD_NaturalCure
 『自然回复』: [N]
 回合开始恢复自身状态[X]
 
-# 0x1902 SD_LaprasSkill
+# 0x177A SD_LaprasSkill
 『拉普拉斯』: [X]
 
-# 0x1903 SD_Levitate
+# 0x177B SD_Levitate
 『飘浮』: [N]
 免疫地面类招式[X]
 
-# 0x1904 SD_SwiftSwim
+# 0x177C SD_SwiftSwim
 『悠游自如』: 在水中或[N]
 潮湿光环的范围内速度翻倍[N]
 ޅᢰ[X]
 
-# 0x1905 SD_Counter
+# 0x177D SD_Counter
 『反击』: 反弹[N]
 距离为1-2的物理伤害[N]
 ޅᢴ，或攻击上限50+[X]
 
-# 0x1906 SD_CounterMagic
+# 0x177E SD_CounterMagic
 『魔法反击』: 反弹[N]
 距离为1-2的魔法伤害[N]
 ޅᢿ，或特攻上限50+[X]
 
-# 0x1907 SD_Miracle
+# 0x177F SD_Miracle
 『结实』: 若HP>75%，[N]
 则在致命攻击中保留1HP[N]
 ޅᣀ[.], ᢸ,或防御上限55+[X]
 
-# 0x1908 SD_Vantage_Plus
+# 0x1780 SD_Vantage_Plus
 『伏击』: [N]
 总是先发动攻击[N]
 ޅ 速度上限50+[X]
 
-# 0x1909 SD_Multiscale
+# 0x1781 SD_Multiscale
 『多重鳞片』: [N]
 生命值满时，所受伤害减半[N]
 ޅᢲ, ᢰ,或防御/特防上限55+[X]
 
-# 0x190A SD_Swarm
+# 0x1782 SD_Swarm
 『虫之预感』: 如果相邻的目标[N]
 被包围，则造成的伤害增加100%[N]
 ޅᢱ,或者速度上限55+[X]
 
-# 0x190B SD_Intimidate2
+# 0x1783 SD_Intimidate2
 『威吓』: 战斗中使[N]
 敌方攻击/特攻降低20%[N]
 ޅᢴ, ᢶ[X]
 
-# 0x190C SD_GuardBreaker
+# 0x1784 SD_GuardBreaker
 『破防』: 战斗中[N]
 使敌人防御/特防降低25%[N]
 ޅᢾ, ᢹ[X]
 
-# 0x190D SD_Downgrade
+# 0x1785 SD_Downgrade
 『降级』: 战斗中[N]
 使敌人速度降低25%[N]
 ޅᣂ, ᢳ[X]
 
-# 0x190E SD_Fury
+# 0x1786 SD_Fury
 『强化基因』: 攻击/特攻/速度+20%[N]
 防御/特防-20%；战斗结束后HP-10%[N]
 ޅ 攻击/特攻/速度60+[X]
 
-# 0x190F SD_Dazzle
+# 0x1787 SD_Dazzle
 『炫目』: [N]
 对方无法反击[N]
 ޅᢶ[X]
 
-# 0x1910 SD_Lifetaker
+# 0x1788 SD_Lifetaker
 『生命吸收』: 攻击[N]
 并击败对手后回复25%HP[N]
 ޅᢶ[X]
 
-# 0x1911 SD_Galeforce
+# 0x1789 SD_Galeforce
 『疾风迅雷』: 装备该道具开局[N]
 的前提下，击杀敌人后可再次行动[N]
 ޅᣁ,或速度上限60+[X]
 
-# 0x1913 SD_Renewal
+# 0x178B SD_Renewal
 『回复』: [N]
 每回合开始时恢复30%HP[N]
 ޅᢿ,或特防上限50+[X]
 
-# 0x1914 SD_RockyHelmet
+# 0x178C SD_RockyHelmet
 『粗糙皮肤』: 对手在[N]
 攻击后会损失当前HP的25%。[N]
 ޅᣀ[.], ᢸ,或防御上限45+[X]
 
-# 0x1915 SD_Poison_Strike
+# 0x178D SD_Poison_Strike
 『剧毒打击』: 战斗后，造成[N]
 等同于敌方当前25%HP的伤害[N]
 ޅᢾ,或攻击/特攻上限45+[X]
 
-# 0x1916 SD_Grisly_Wound
+# 0x178E SD_Grisly_Wound
 『战后余威』: 战斗结束后，[N]
 造成敌方当前 25%HP的伤害[N]
 ޅ 攻击/特攻上限50+[X]
 
-# 0x1917 SD_SavageBlow
+# 0x178F SD_SavageBlow
 『野蛮重击』: 攻击后，[N]
 2格范围内敌人损失当前25%HP[N]
 ޅ 攻击/特攻上限55+[X]
 
-# 0x1918 SN_Surf
+# 0x1790 SN_Surf
 冲浪[X]
 
-# 0x1919 SN_Multiscale
+# 0x1791 SN_Multiscale
 多重鳞片[X]
 
-# 0x191A SN_SilphScope
+# 0x1792 SN_SilphScope
 西尔佛检视镜[X]
 
-# 0x191B SN_Flank
+# 0x1793 SN_Flank
 闪焰[X]
 
-# 0x191C SN_Swarm
+# 0x1794 SN_Swarm
 虫之预感[X]
 
-# 0x191D SN_Hover
+# 0x1795 SN_Hover
 浮空[X]
 
-# 0x191E SN_PowerfulAura
+# 0x1796 SN_PowerfulAura
 无敌光环[X]
 
-# 0x191F SN_Intimidate2
+# 0x1797 SN_Intimidate2
 威吓[X]
 
-# 0x1920 SN_WonderGuard
+# 0x1798 SN_WonderGuard
 神奇守护[X]
 
-# 0x1921 SN_Sturdy
+# 0x1799 SN_Sturdy
 结实[X]
 
-# 0x1922 SN_WeakChipDmg
-芯片损坏[X]
-
-# 0x1923 SN_ScaledBack
+# 0x179A SN_ScaledBack
 退缩[X]
 
-# 0x1924 SN_ScaledUp
+# 0x179B SN_ScaledUp
 凶猛[X]
 
-# 0x1925 SN_Downgrade
+# 0x179C SN_Downgrade
 降级[X]
 
-# 0x1926 SN_GuardBreaker
+# 0x179D SN_GuardBreaker
 破甲[X]
 
-# 0x1927 SN_Savior
-守护者[X]
-
-# 0x1928 SN_Adept
+# 0x179E SN_Adept
 连续[X]
 
-# 0x1929 SN_Acrobat
+# 0x179F SN_Acrobat
 轻羽[X]
 
-# 0x192A SN_Pass
+# 0x17A0 SN_Pass
 穿越[X]
 
-# 0x192B SN_CantoPlus
+# 0x17A1 SN_CantoPlus
 再动+[X]
 
-# 0x192C SN_WaryFighter
+# 0x17A2 SN_WaryFighter
 迟钝[X]
 
-# 0x192D SN_SureShot
+# 0x17A3 SN_SureShot
 必中[X]
 
-# 0x192E SN_Provoke
+# 0x17A4 SN_Provoke
 嘲讽[X]
 
-# 0x192F SN_Mercy
-怜悯[X]
-
-# 0x1930 SN_Frenzy
+# 0x17A5 SN_Frenzy
 狂暴[X]
 
-# 0x1931 SN_Canto
+# 0x17A6 SN_Canto
 再动[X]
 
-# 0x1932 SN_Cunning
-狡猾[X]
-
-# 0x1933 SN_Lethality
+# 0x17A7 SN_Lethality
 瞬杀[X]
 
-# 0x1934 SN_Bane
+# 0x17A8 SN_Bane
 灾祸[X]
 
-# 0x1935 SN_Luna
+# 0x17A9 SN_Luna
 月光[X]
 
-# 0x1936 SN_Sol
+# 0x17AA SN_Sol
 太阳[X]
 
-# 0x1937 SN_Aether
+# 0x17AB SN_Aether
 天空[X]
 
-# 0x1938 SN_Astra
+# 0x17AC SN_Astra
 流星[X]
 
-# 0x1940 SN_Aegis
+# 0x17B2 SN_Aegis
 圣盾[X]
 
-# 0x1941 SN_Pavise
+# 0x17B3 SN_Pavise
 大盾[X]
 
-# 0x1942 SN_DuelistsBlow
+# 0x17B4 SN_DuelistsBlow
 清流一击[X]
 
-# 0x1943 SN_DeathBlow
+# 0x17B5 SN_DeathBlow
 鬼神一击[X]
 
-# 0x1944 SN_DartingBlow
+# 0x17B6 SN_DartingBlow
 飞燕一击[X]
 
-# 0x1945 SN_WardingBlow
+# 0x17B7 SN_WardingBlow
 明镜一击[X]
 
-# 0x1946 SN_CertainBlow
+# 0x17B8 SN_CertainBlow
 凶鸟一击[X]
 
-# 0x1947 SN_ArmoredBlow
+# 0x17B9 SN_ArmoredBlow
 金刚一击[X]
 
-# 0x1948 SN_Vantage
+# 0x17BA SN_Vantage
 伏击[X]
 
-# 0x1949 SN_Desperation
+# 0x17BB SN_Desperation
 绝地求生[X]
 
-# 0x194A SN_Wrath
+# 0x17BC SN_Wrath
 怒[X]
 
-# 0x194B SN_Counter
+# 0x17BD SN_Counter
 反击[X]
 
-# 0x194C SN_CounterMagic
+# 0x17BE SN_CounterMagic
 魔法反击[X]
 
-# 0x194D SN_Miracle
+# 0x17BF SN_Miracle
 结实[X]
 
-# 0x1953 SN_CritUp
+# 0x17C5 SN_CritUp
 必杀上升[X]
 
-# 0x1957 SN_Lifetaker
+# 0x17C6 SN_Lifetaker
 生命吸收[X]
 
-# 0x1958 SN_Galeforce
+# 0x17C7 SN_Galeforce
 疾风迅雷[X]
 
-# 0x1959 SN_Renewal
+# 0x17C8 SN_Renewal
 回复[X]
 
-# 0x195A SN_NiceThighs
-美腿[X]
-
-# 0x1960 SN_VoiceOfPeace
-和平之声[X]
-
-# 0x1961 SN_Amaterasu
+# 0x17C9 SN_Amaterasu
 治愈光环[X]
 
-# 0x1966 SN_SpurRes
-Ⴝᵖᵘʳްʀᵉˢiˢᵗᵃⁿᶜᵉ[X]
-
-# 0x1969 SN_Paragon
+# 0x17CA SN_Paragon
 精英[X]
 
-# 0x196A SN_Impale
+# 0x17CB SN_Impale
 穿刺[X]
 
-# 0x196B SN_Colossus
+# 0x17CC SN_Colossus
 怪力[X]
 
-# 0x1977 SN_LiveToServe
-乐于助人[X]
-
-# 0x1978 SN_Ignis
+# 0x17CD SN_Ignis
 华炎[X]
 
-# 0x1979 SN_LifeAndDeath
+# 0x17CE SN_LifeAndDeath
 死或生[X]
 
-# 0x197D SN_Opportunist
+# 0x17CF SN_Opportunist
 伺机者[X]
 
-# 0x197E SN_Trample
+# 0x17D0 SN_Trample
 居高临下[X]
 
-# 0x197F SN_Camaraderie
+# 0x17D1 SN_Camaraderie
 同心协力[X]
 
-# 0x1981 SN_SavageBlow
+# 0x17D2 SN_SavageBlow
 野蛮重击[X]
 
-# 0x1982 SN_Relief
+# 0x17D3 SN_Relief
 解脱[X]
 
-# 0x1983 SN_Tantivy
+# 0x17D4 SN_Tantivy
 疾驰[X]
 
-# 0x1984 SN_Focus
+# 0x17D5 SN_Focus
 专注[X]
 
-# 0x1985 SN_Bond
+# 0x17D6 SN_Bond
 羁绊[X]
 
-# 0x1986 SN_Anathema
+# 0x17D7 SN_Anathema
 诅咒[X]
 
-# 0x1987 SN_LilysPoise
+# 0x17D8 SN_LilysPoise
 预知梦[X]
 
-# 0x198A SN_FieryBlood
+# 0x17D9 SN_FieryBlood
 炎之血[X]
 
-# 0x198C SN_NaturalCover
+# 0x17DA SN_NaturalCover
 天然掩蔽[X]
 
-# 0x198D SN_SealStr
+# 0x17DB SN_SealStr
 攻击封印[X]
 
-# 0x198E SN_SealSkl
+# 0x17DC SN_SealSkl
 技术封印[X]
 
-# 0x198F SN_SealSpd
-速度封印[X]
-
-# 0x1992 SN_SealRes
+# 0x17DE SN_SealRes
 特防封印[X]
 
-# 0x1993 SN_SealMag
+# 0x17DF SN_SealMag
 特攻封印[X]
 
-# 0x1997 SN_QuickDraw
+# 0x17E0 SN_QuickDraw
 先发制人[X]
 
-# 0x1998 SN_WindDisciple
+# 0x17E1 SN_WindDisciple
 风之加护[X]
 
-# 0x1999 SN_StrongRiposte
+# 0x17E2 SN_StrongRiposte
 强力还击[X]
 
-# 0x199A SN_Patience
+# 0x17E3 SN_Patience
 忍耐[X]
 
-# 0x199B SN_Pursuit
+# 0x17E4 SN_Pursuit
 追击[X]
 
-# 0x199C SN_LightWeight
+# 0x17E5 SN_LightWeight
 轻装[X]
 
-# 0x199D SN_KillingMachine
+# 0x17E6 SN_KillingMachine
 杀人机器[X]
 
-# 0x199E SN_CriticalForce
+# 0x17E7 SN_CriticalForce
 必杀之力[X]
 
-# 0x199F SN_Chivalry
+# 0x17E8 SN_Chivalry
 骑士道[X]
 
-# 0x19A0 SN_Pragmatic
+# 0x17E9 SN_Pragmatic
 务实[X]
 
-# 0x19A2 SN_Moonbow
+# 0x17EA SN_Moonbow
 月弓[X]
 
-# 0x19A3 SN_Shove
-推[X]
-
-# 0x19A4 SN_Smite
-撞[X]
-
-# 0x19AA SN_LuckySeven
+# 0x17EB SN_LuckySeven
 幸运7[X]
 
-# 0x19AD SN_QuickBurn
+# 0x17EC SN_QuickBurn
 狂热[X]
 
-# 0x19AE SN_SlowBurn
+# 0x17ED SN_SlowBurn
 慢热[X]
 
-# 0x19AF SN_Despoil
+# 0x17EE SN_Despoil
 聚宝功[X]
 
-# 0x19B3 SN_BreathOfLife
+# 0x17EF SN_BreathOfLife
 生命之息[X]
 
-# 0x19B4 SN_Fury
+# 0x17F0 SN_Fury
 强化基因[X]
 
-# 0x19B5 SN_Dazzle
+# 0x17F1 SN_Dazzle
 炫目[X]
 
-# 0x19B8 SN_RandomMug
+# 0x17F2 SN_RandomMug
 量子幻容[X]
 
-# 0x19BB SN_IdentityProblems
+# 0x17F3 SN_IdentityProblems
 身份紊乱[X]
 
-# 0x19BD SN_HeroesDeathBlow
+# 0x17F4 SN_HeroesDeathBlow
 毁灭一击[X]
 
-# 0x19BE SN_HeroesLifeAndDeath
+# 0x17F5 SN_HeroesLifeAndDeath
 死线[X]
 
-# 0x19C0 SN_Vantage_Plus
+# 0x17F6 SN_Vantage_Plus
 伏击+[X]
 
-# 0x19C1 SN_Hawkeye
+# 0x17F7 SN_Hawkeye
 鹰眼[X]
 
-# 0x19C3 SN_Bracing_Stance
+# 0x17F8 SN_Bracing_Stance
 防御姿态[X]
 
-# 0x19C4 SN_Darting_Stance
+# 0x17F9 SN_Darting_Stance
 突击姿态[X]
 
-# 0x19C5 SN_Fierce_Stance
+# 0x17FA SN_Fierce_Stance
 凶猛姿态[X]
 
-# 0x19C6 SN_Kestrel_Stance
+# 0x17FB SN_Kestrel_Stance
 隼之姿态[X]
 
-# 0x19C7 SN_Mirror_Stance
+# 0x17FC SN_Mirror_Stance
 明镜姿态[X]
 
-# 0x19C8 SN_Ready_Stance
+# 0x17FD SN_Ready_Stance
 备战姿态[X]
 
-# 0x19C9 SN_Steady_Stance
+# 0x17FE SN_Steady_Stance
 防御姿态[X]
 
-# 0x19CA SN_Sturdy_Stance
+# 0x17FF SN_Sturdy_Stance
 强壮姿态[X]
 
-# 0x19CB SN_Swift_Stance
+# 0x1800 SN_Swift_Stance
 迅捷姿态[X]
 
-# 0x19CC SN_Warding_Stance
+# 0x1801 SN_Warding_Stance
 守护姿态[X]
 
-# 0x19CD SN_Spectrum_Stance
+# 0x1802 SN_Spectrum_Stance
 七彩守护[X]
 
-# 0x19D0 SN_Capture
+# 0x1803 SN_Capture
 捕获[X]
 
-# 0x19D1 SN_BlackMagic
+# 0x1804 SN_BlackMagic
 黑魔法[X]
 
-# 0x19D4 SN_Foresight
+# 0x1805 SN_Foresight
 预知[X]
 
-# 0x19D5 SN_Axefaith
-斧之信仰[X]
-
-# 0x19D6 SN_ArmorMarch
+# 0x1806 SN_ArmorMarch
 重甲行军[X]
 
-# 0x19D8 SN_Forager
+# 0x1807 SN_Forager
 觅食[X]
 
-# 0x19D9 SN_FullMetalBody
+# 0x1808 SN_FullMetalBody
 全金属机身[X]
 
-# 0x19DA SN_LiquidOoze
+# 0x1809 SN_LiquidOoze
 毒血[X]
 
-# 0x19DD SN_DevilsLuck
+# 0x180A SN_DevilsLuck
 恶魔之运[X]
 
-# 0x19DE SN_DevilsPact
+# 0x180B SN_DevilsPact
 恶魔契约[X]
 
-# 0x19DF SN_DevilsWhim
+# 0x180C SN_DevilsWhim
 恶魔诅咒[X]
 
-# 0x19E0 SN_Poison_Strike
+# 0x180D SN_Poison_Strike
 剧毒打击[X]
 
-# 0x19E1 SN_Grisly_Wound
+# 0x180E SN_Grisly_Wound
 战后余威[X]
 
-# 0x19E3 SN_Barricade
+# 0x180F SN_Barricade
 壁垒[X]
 
-# 0x19E4 SN_BarricadePlus
+# 0x1810 SN_BarricadePlus
 壁垒+[X]
 
-# 0x19E6 SN_Perfectionist
+# 0x1811 SN_Perfectionist
 完美主义[X]
 
-# 0x19E7 SN_Puissance
+# 0x1812 SN_Puissance
 力量压制[X]
 
-# 0x19E8 SN_BattleVeteran
+# 0x1813 SN_BattleVeteran
 战场老兵[X]
 
-# 0x19EA SN_SilentPride
+# 0x1814 SN_SilentPride
 默然傲骨[X]
 
-# 0x19EB SN_Loyalty
+# 0x1815 SN_Loyalty
 忠随[X]
 
-# 0x19EC SN_Thunderstorm
+# 0x1816 SN_Thunderstorm
 雷暴[X]
 
-# 0x19ED SN_Outrider
+# 0x1817 SN_Outrider
 先锋[X]
 
-# 0x19EE SN_HeavyStrikes
+# 0x1818 SN_HeavyStrikes
 重击[X]
 
-# 0x19EF SN_Charge
+# 0x1819 SN_Charge
 冲锋[X]
 
-# 0x19F1 SN_Vanity
+# 0x181A SN_Vanity
 虚荣[X]
 
-# 0x19F2 SN_MageSlayer
+# 0x181B SN_MageSlayer
 法师杀手[X]
 
-# 0x19F3 SN_KnightAspirant
+# 0x181C SN_KnightAspirant
 骑士精神[X]
 
-# 0x19F4 SN_Watchful
+# 0x181D SN_Watchful
 警觉[X]
 
-# 0x19F6 SN_Boon
+# 0x181E SN_Boon
 恩泽[X]
 
-# 0x19F7 SN_ReMove
+# 0x181F SN_ReMove
 幸运再动[X]
 
-# 0x19F8 SN_Powerstaff
+# 0x1820 SN_Powerstaff
 杖达人[X]
 
-# 0x1A00 SN_Blossom
+# 0x1823 SN_Blossom
 繁花[X]
 
-# 0x1A01 SN_Aptitude
+# 0x1824 SN_Aptitude
 良成长[X]
 
-# 0x1A02 SN_QuickRiposte
+# 0x1825 SN_QuickRiposte
 迅捷反击[X]
 
-# 0x1A04 SN_Insight
+# 0x1826 SN_Insight
 洞悉[X]
 
-# 0x1A05 SN_Vigilance
+# 0x1827 SN_Vigilance
 警戒[X]
 
-# 0x1A0A SN_Prescience
+# 0x1828 SN_Prescience
 先知[X]
 
-# 0x1A0B SN_DefiantAvo
+# 0x1829 SN_DefiantAvo
 回避觉醒[X]
 
-# 0x1A0C SN_DefiantCrit
+# 0x182A SN_DefiantCrit
 必杀觉醒[X]
 
-# 0x1A15 SN_ShortShield
+# 0x182B SN_ShortShield
 近距离防御[X]
 
-# 0x1A16 SN_TowerShield
+# 0x182C SN_TowerShield
 远距离防御[X]
 
-# 0x1A17 SN_TowerShieldPlus
+# 0x182D SN_TowerShieldPlus
 强化塔盾[X]
 
-# 0x1A18 SN_VoidCurse
+# 0x182E SN_VoidCurse
 虚空诅咒[X]
 
-# 0x1A1C SN_AlertStance
+# 0x182F SN_AlertStance
 警戒姿态[X]
 
-# 0x1A1D SN_AlertStancePlus
+# 0x1830 SN_AlertStancePlus
 警戒姿态+[X]
 
-# 0x1A1E SN_Corona
+# 0x1831 SN_Corona
 耀星[X]
 
-# 0x1A1F SN_Flare
+# 0x1832 SN_Flare
 日蚀[X]
 
-# 0x1A22 SN_Petrify
+# 0x1833 SN_Petrify
 石化[X]
 
-# 0x1A23 SN_Enrage
+# 0x1834 SN_Enrage
 激怒[X]
 
-# 0x1A24 SN_Deadeye
+# 0x1835 SN_Deadeye
 死眼[X]
 
-# 0x1A25 SN_DragonFang
+# 0x1836 SN_DragonFang
 龙穿[X]
 
-# 0x1A26 SN_Fortune
+# 0x1837 SN_Fortune
 强运[X]
 
-# 0x1A28 SN_ArcaneBlade
+# 0x1838 SN_ArcaneBlade
 奥术之刃[X]
 
-# 0x1A2A SN_BlueFlame
+# 0x1839 SN_BlueFlame
 蓝炎[X]
 
-# 0x1A2B SN_DoubleLion
+# 0x183A SN_DoubleLion
 狮心[X]
 
-# 0x1A2C SN_Eclipse
+# 0x183B SN_Eclipse
 月食[X]
 
-# 0x1A35 SN_Resourceful
+# 0x183C SN_Resourceful
 足智多谋[X]
 
-# 0x1A36 SN_Cultured
-风雅[X]
-
-# 0x1A3F SN_Shade
+# 0x183D SN_Shade
 影遁[X]
 
-# 0x1A40 SN_ShadePlus
+# 0x183E SN_ShadePlus
 影遁+[X]
 
-# 0x1A41 SN_Imbue
+# 0x183F SN_Imbue
 赋灵[X]
 
-# 0x1A42 SN_Thighdeology
+# 0x1840 SN_Thighdeology
 恋足[X]
 
-# 0x1A43 SN_Thotslayer
+# 0x1841 SN_Thotslayer
 猎艳者[X]
 
-# 0x1A44 SN_Corrosion
+# 0x1842 SN_Corrosion
 腐蚀[X]
 
-# 0x1A45 SN_KeepUp
+# 0x1843 SN_KeepUp
 跟进[X]
 
-# 0x1A46 SN_IndoorMarch
+# 0x1844 SN_IndoorMarch
 室内行军[X]
 
-# 0x1A47 SN_NatureRush
+# 0x1845 SN_NatureRush
 自然疾行[X]
 
-# 0x1A49 SN_Glacies
+# 0x1846 SN_Glacies
 冰华[X]
 
-# 0x1A4A SN_Gridmaster
-阵地掌控者[X]
-
-# 0x1A4F SN_ChargePlus
+# 0x1847 SN_ChargePlus
 冲锋+[X]
 
-# 0x1A50 SN_GreatShield
+# 0x1848 SN_GreatShield
 神盾[X]
 
-# 0x1A52 SN_Vengeance
+# 0x1849 SN_Vengeance
 复仇[X]
 
-# 0x1A53 SN_Swarp
-同步[X]
-
-# 0x1A58 SN_ExpShare
+# 0x184E SN_ExpShare
 学习装置[X]
 
-# 0x1A89 SN_HoardersBane
+# 0x184F SN_HoardersBane
 暴食[X]
 
-# 0x1A95 SN_RecklessFighter
+# 0x1850 SN_RecklessFighter
 鲁莽战士[X]
 
-# 0x1A96 SN_KeenFighter
-稳健战士[X]
-
-# 0x1A98 SN_PridefulWarrior
+# 0x1851 SN_PridefulWarrior
 骄傲之鸟[X]
 
-# 0x1A9B SN_SteadyBrawler
+# 0x1852 SN_SteadyBrawler
 稳健战士[X]
 
-# 0x1A9F SN_Chlorophyll
+# 0x1853 SN_Chlorophyll
 叶绿素[X]
 
-# 0x1AA0 SN_SolarPower
+# 0x1854 SN_SolarPower
 太阳之力[X]
 
-# 0x1AA1 SN_Explorer
+# 0x1855 SN_Explorer
 探索者[X]
 
-# 0x1AA2 SN_TintedLens
+# 0x1856 SN_TintedLens
 有色眼镜[X]
 
-# 0x1AA3 SN_ShedSkin
+# 0x1857 SN_ShedSkin
 蜕皮[X]
 
-# 0x1AA4 SN_KeenEye
+# 0x1858 SN_KeenEye
 锐利目光[X]
 
-# 0x1AA5 SN_Sniper
+# 0x1859 SN_Sniper
 狙击手[X]
 
-# 0x1AA6 SN_LightningRod
+# 0x185A SN_LightningRod
 避雷针[X]
 
-# 0x1AA7 SN_FieryAura
+# 0x185B SN_FieryAura
 烈焰光环[X]
 
-# 0x1AA8 SN_DampAura
+# 0x185C SN_DampAura
 潮湿光环[X]
 
-# 0x1AA9 SN_Unaware
+# 0x185D SN_Unaware
 纯朴[X]
 
-# 0x1AAA SN_Competitive
+# 0x185E SN_Competitive
 好胜[X]
 
-# 0x1AAB SN_Defiant
+# 0x185F SN_Defiant
 不服输[X]
 
-# 0x1AAC SN_Rivalry
+# 0x1860 SN_Rivalry
 斗争心[X]
 
-# 0x1AAD SN_Hustle
+# 0x1861 SN_Hustle
 活力[X]
 
-# 0x1AAE SN_ArenaTrap
+# 0x1862 SN_ArenaTrap
 沙穴[X]
 
-# 0x1AAF SN_MagicGuard
+# 0x1863 SN_MagicGuard
 魔法防守[X]
 
-# 0x1AB0 SN_ClearBody
+# 0x1864 SN_ClearBody
 恒净之躯[X]
 
-# 0x1AB1 SN_Regenerator
+# 0x1865 SN_Regenerator
 再生力[X]
 
-# 0x1AB2 SN_Analytic
+# 0x1866 SN_Analytic
 分析[X]
 
-# 0x1AB3 SN_Hydration
+# 0x1867 SN_Hydration
 湿润之躯[X]
 
-# 0x1AB4 SN_PoisonTouch
+# 0x1868 SN_PoisonTouch
 毒手[X]
 
-# 0x1AB5 SN_ShellArmor
+# 0x1869 SN_ShellArmor
 硬壳盔甲[X]
 
-# 0x1AB6 SN_Grudge
+# 0x186A SN_Grudge
 怨念[X]
 
-# 0x1AB7 SN_Aftermath
+# 0x186B SN_Aftermath
 诱爆[X]
 
-# 0x1AB8 SN_SheerForce
+# 0x186C SN_SheerForce
 强行[X]
 
-# 0x1AB9 SN_Forewarn
+# 0x186D SN_Forewarn
 预知梦[X]
 
-# 0x1ABA SN_HyperCutter
+# 0x186E SN_HyperCutter
 怪力钳[X]
 
-# 0x1ABB SN_Harvest
+# 0x186F SN_Harvest
 收获[X]
 
-# 0x1ABC SN_Unburden
+# 0x1870 SN_Unburden
 轻装[X]
 
-# 0x1ABD SN_RecklessRock
+# 0x1871 SN_RecklessRock
 舍身[X]
 
-# 0x1ABE SN_Scrappy
+# 0x1872 SN_Scrappy
 胆量[X]
 
-# 0x1ABF SN_Filter
+# 0x1873 SN_Filter
 过滤[X]
 
-# 0x1AC0 SN_Technician
+# 0x1874 SN_Technician
 技术高手[X]
 
-# 0x1AC1 SN_DrySkin
+# 0x1875 SN_DrySkin
 干燥皮肤[X]
 
-# 0x1AC2 SN_MotorDrive
+# 0x1876 SN_MotorDrive
 电气引擎[X]
 
-# 0x1AC3 SN_FlashFire
+# 0x1877 SN_FlashFire
 引火[X]
 
-# 0x1AC4 SN_AngerPoint
+# 0x1878 SN_AngerPoint
 愤怒穴位[X]
 
-# 0x1AC5 SN_Transform
+# 0x1879 SN_Transform
 变身[X]
 
-# 0x1AC6 SN_Adaptability
+# 0x187A SN_Adaptability
 适应力[X]
 
-# 0x1AC7 SN_AcidArmor
+# 0x187B SN_AcidArmor
 溶化[X]
 
-# 0x1AC8 SN_QuickFeet
+# 0x187C SN_QuickFeet
 飞毛腿[X]
 
-# 0x1AC9 SN_Guts
+# 0x187D SN_Guts
 毅力[X]
 
-# 0x1ACA SN_WeakArmor
+# 0x187E SN_WeakArmor
 碎裂铠甲[X]
 
-# 0x1ACB SN_StrongClaws
+# 0x187F SN_StrongClaws
 硬爪[X]
 
-# 0x1ACC SN_Pressure
+# 0x1880 SN_Pressure
 压迫感[X]
 
-# 0x1ACD SN_Synchronize
+# 0x1881 SN_Synchronize
 同步[X]
 
-# 0x1ACE SN_ChanseySkill
+# 0x1882 SN_ChanseySkill
 吉利蛋技能[X]
 
-# 0x1ACF SN_OddishSkill
+# 0x1883 SN_OddishSkill
 走路草技能[X]
 
-# 0x1AD0 SN_SporeTouch
+# 0x1884 SN_SporeTouch
 孢子触碰[X]
 
-# 0x1AD1 SN_Simple
+# 0x1885 SN_Simple
 单纯[X]
 
-# 0x1AD2 SN_NaturalCure
+# 0x1886 SN_NaturalCure
 自然回复[X]
 
-# 0x1AD3 SN_LaprasSkill
+# 0x1887 SN_LaprasSkill
 拉普拉斯技能[X]
 
-# 0x1AD4 SN_Levitate
+# 0x1888 SN_Levitate
 飘浮[X]
 
-# 0x1AD5 SN_SwiftSwim
+# 0x1889 SN_SwiftSwim
 悠游自如[X]
 
-# 0x1AD6 SN_RockyHelmet
+# 0x188A SN_RockyHelmet
 粗糙皮肤[X]
 
-# 0x1ADA OaksLabChText
+# 0x188E OaksLabChText
 大木的实验室[X]
 
-# 0x1ADB PalletChText
+# 0x188F PalletChText
 真新镇[X]
 
-# 0x1ADC Route1ChText
+# 0x1890 Route1ChText
 1号道路[X]
 
-# 0x1ADD ViridianChText
+# 0x1891 ViridianChText
 常青市[X]
 
-# 0x1ADE Route2SChText
+# 0x1892 Route2SChText
 2号道路[X]
 
-# 0x1ADF ViridianForestSChText
+# 0x1893 ViridianForestSChText
 常青森林[X]
 
-# 0x1AE0 ViridianForestNChText
+# 0x1894 ViridianForestNChText
 常青森林[X]
 
-# 0x1AE1 Route2NChText
+# 0x1895 Route2NChText
 2号道路[X]
 
-# 0x1AE2 PewterChText
+# 0x1896 PewterChText
 深灰市[X]
 
-# 0x1AE3 PewterGymChText
+# 0x1897 PewterGymChText
 深灰道馆[X]
 
-# 0x1AE4 Route3WChText
+# 0x1898 Route3WChText
 3号道路[X]
 
-# 0x1AE5 Route3MChText
+# 0x1899 Route3MChText
 3号道路[X]
 
-# 0x1AE6 Route3EChText
+# 0x189A Route3EChText
 3号道路[X]
 
-# 0x1AE7 Route4WChText
+# 0x189B Route4WChText
 3号道路[X]
 
-# 0x1AE8 MtMoonB1ChText
+# 0x189C MtMoonB1ChText
 月见山B1层[X]
 
-# 0x1AE9 MtMoonB2ChText
+# 0x189D MtMoonB2ChText
 月见山B2层[X]
 
-# 0x1AEA MtMoonB3ChText
+# 0x189E MtMoonB3ChText
 月见山B3层[X]
 
-# 0x1AEB Route4MChText
+# 0x189F Route4MChText
 4号道路[X]
 
-# 0x1AEC Route4EChText
+# 0x18A0 Route4EChText
 4号道路[X]
 
-# 0x1AED CeruleanChText
+# 0x18A1 CeruleanChText
 华蓝市[X]
 
-# 0x1AEE CeruleanGymChText
+# 0x18A2 CeruleanGymChText
 华蓝道馆[X]
 
-# 0x1AEF Route24ChText
+# 0x18A3 Route24ChText
 24号道路[X]
 
-# 0x1AF0 Route25ChText
+# 0x18A4 Route25ChText
 25号道路[X]
 
-# 0x1AF1 Route5ChText
+# 0x18A5 Route5ChText
 5号道路[X]
 
-# 0x1AF2 Route6ChText
+# 0x18A6 Route6ChText
 6号道路[X]
 
-# 0x1AF3 VermilionChText
+# 0x18A7 VermilionChText
 枯叶市[X]
 
-# 0x1AF4 VermilionGymChText
+# 0x18A8 VermilionGymChText
 枯叶道馆[X]
 
-# 0x1AF5 SSAnneChText
+# 0x18A9 SSAnneChText
 圣特安努号[X]
 
-# 0x1AF6 DiglettsCaveChText
+# 0x18AA DiglettsCaveChText
 地鼠洞穴[X]
 
-# 0x1AF7 Route11ChText
+# 0x18AB Route11ChText
 11号道路[X]
 
-# 0x1AF8 Route9WChText
+# 0x18AC Route9WChText
 9号道路[X]
 
-# 0x1AF9 Route9EChText
+# 0x18AD Route9EChText
 9号道路[X]
 
-# 0x1AFA Route10ChText
+# 0x18AE Route10ChText
 10号道路[X]
 
-# 0x1AFB RockTunnelB1ChText
+# 0x18AF RockTunnelB1ChText
 岩山隧道[X]
 
-# 0x1AFC RockTunnelB2ChText
+# 0x18B0 RockTunnelB2ChText
 岩山隧道[X]
 
-# 0x1AFD LavenderChText
+# 0x18B1 LavenderChText
 紫苑镇[X]
 
-# 0x1AFE Route8ChText
+# 0x18B2 Route8ChText
 8号道路[X]
 
-# 0x1AFF PokemonTowerF1ChText
+# 0x18B3 PokemonTowerF1ChText
 宝可梦塔[X]
 
-# 0x1B00 PokemonTowerF2ChText
+# 0x18B4 PokemonTowerF2ChText
 宝可梦塔[X]
 
-# 0x1B01 PokemonTowerF3ChText
+# 0x18B5 PokemonTowerF3ChText
 宝可梦塔[X]
 
-# 0x1B02 PokemonTowerF4ChText
+# 0x18B6 PokemonTowerF4ChText
 宝可梦塔[X]
 
-# 0x1B03 PokemonTowerF5ChText
+# 0x18B7 PokemonTowerF5ChText
 宝可梦塔[X]
 
-# 0x1B04 Route12NChText
+# 0x18B8 Route12NChText
 12号道路[X]
 
-# 0x1B05 Route12SChText
+# 0x18B9 Route12SChText
 12号道路[X]
 
-# 0x1B06 Route13ChText
+# 0x18BA Route13ChText
 13号道路[X]
 
-# 0x1B07 Route14ChText
+# 0x18BB Route14ChText
 14号道路[X]
 
-# 0x1B08 Route15ChText
+# 0x18BC Route15ChText
 15号道路[X]
 
-# 0x1B09 FuschiaChText
+# 0x18BD FuschiaChText
 浅红市[X]
 
-# 0x1B0A SafariSText
+# 0x18BE SafariSText
 狩猎地带[X]
 
-# 0x1B0B SafariEText
+# 0x18BF SafariEText
 狩猎地带[X]
 
-# 0x1B0C SafariNText
+# 0x18C0 SafariNText
 狩猎地带[X]
 
-# 0x1B0D SafariWText
+# 0x18C1 SafariWText
 狩猎地带[X]
 
-# 0x1B0E FuschiaGymChText
+# 0x18C2 FuschiaGymChText
 浅红道馆[X]
 
-# 0x1B0F Route18ChText
+# 0x18C3 Route18ChText
 18号道路[X]
 
-# 0x1B10 Route17SChText
+# 0x18C4 Route17SChText
 17号道路[X]
 
-# 0x1B11 Route17NChText
+# 0x18C5 Route17NChText
 17号道路[X]
 
-# 0x1B12 Route16ChText
+# 0x18C6 Route16ChText
 16号道路[X]
 
-# 0x1B13 CeladonChText
+# 0x18C7 CeladonChText
 玉虹市[X]
 
-# 0x1B14 CeladonGymChText
+# 0x18C8 CeladonGymChText
 玉虹道馆[X]
 
-# 0x1B15 Route7ChText
+# 0x18C9 Route7ChText
 7号道路[X]
 
-# 0x1B16 SaffronChText
+# 0x18CA SaffronChText
 金黄市[X]
 
-# 0x1B17 SaffronDojoChText
+# 0x18CB SaffronDojoChText
 格斗道场[X]
 
-# 0x1B18 SaffronGymChText
+# 0x18CC SaffronGymChText
 金黄道馆[X]
 
-# 0x1B19 Route19ChText
+# 0x18CD Route19ChText
 19号道路[X]
 
-# 0x1B1A Route20EChText
+# 0x18CE Route20EChText
 20号道路[X]
 
-# 0x1B1B Route20WChText
+# 0x18CF Route20WChText
 20号道路[X]
 
-# 0x1B1C CinnabarChText
+# 0x18D0 CinnabarChText
 红莲镇[X]
 
-# 0x1B1D CinnabarGymChText
+# 0x18D1 CinnabarGymChText
 红莲道馆[X]
 
-# 0x1B1E Route21ChText
+# 0x18D2 Route21ChText
 21号道路[X]
 
-# 0x1B1F ViridianGymChText
+# 0x18D3 ViridianGymChText
 常青道馆[X]
 
-# 0x1B20 Route22ChText
+# 0x18D4 Route22ChText
 22号道路[X]
 
-# 0x1B21 Route23SChText
+# 0x18D5 Route23SChText
 23号道路[X]
 
-# 0x1B22 Route23MChText
+# 0x18D6 Route23MChText
 23号道路[X]
 
-# 0x1B23 Route23NChText
+# 0x18D7 Route23NChText
 23号道路[X]
 
-# 0x1B24 PokecenterChText
+# 0x18D8 PokecenterChText
 电脑[X]
 
-# 0x1B25 SilphCoChText
+# 0x18D9 SilphCoChText
 西尔佛公司[X]
 
-# 0x1B26 SeafoamChText
+# 0x18DA SeafoamChText
 双子岛[X]
 
-# 0x1B27 MansionChText
+# 0x18DB MansionChText
 宝可梦屋[X]
 
-# 0x1B28 PowerPlantChText
+# 0x18DC PowerPlantChText
 无人发电厂[X]
 
-# 0x1B29 CeruleanCaveChText
+# 0x18DD CeruleanCaveChText
 华蓝洞窟[X]
 
-# 0x1B2A VictoryRoadChText
+# 0x18DE VictoryRoadChText
 冠军之路[X]
 
-# 0x1B2B IndigoPlateauChText
+# 0x18DF IndigoPlateauChText
 石英高原[X]
 
-# 0x1B2C LoreleiChText
+# 0x18E0 LoreleiChText
 与科拿对决[X]
 
-# 0x1B2D BrunoChText
+# 0x18E1 BrunoChText
 与希巴对决[X]
 
-# 0x1B2E AgathaChText
+# 0x18E2 AgathaChText
 与菊子对决[X]
 
-# 0x1B2F LanceChText
+# 0x18E3 LanceChText
 与阿渡对决[X]
 
-# 0x1B30 RivalChText
+# 0x18E4 RivalChText
 与青绿对决[X]
 
-# 0x1B31 HallOfFameChText
+# 0x18E5 HallOfFameChText
 登入名人堂[X]
 
-# 0x1B32 DebugChText
+# 0x18E6 DebugChText
 调试间[X]
 
-# 0x1B33 SSAnneDocksChText
+# 0x18E7 SSAnneDocksChText
 码头[X]
 
-# 0x1B34 EnableRandomizerText
+# 0x18E8 EnableRandomizerText
 要使用宝可梦随机生成器吗？[N]
 [No][X]
 
-# 0x1B35 DebuggerOnText
+# 0x18E9 DebuggerOnText
 调试器已通过快捷键[N]
 [ToggleRed]L[ToggleRed]+[ToggleRed]左[ToggleRed]+[ToggleRed]上[ToggleRed]开启。[A][X]
 
-# 0x1B36 DebuggerOffText
+# 0x18EA DebuggerOffText
 调试器已通过快捷键[N]
 [ToggleRed]L[ToggleRed]+[ToggleRed]左[ToggleRed]+[ToggleRed]上[ToggleRed]关闭。[A][X]
 
-# 0x1B37 SRAMNotWorkingText
+# 0x18EB SRAMNotWorkingText
 存档功能可能没有作用，[N]
 你的存档文件里有数据吗？[A][N]
 建议: 在模拟器的[N]
@@ -9379,14 +9286,14 @@ Attack Speed when unit's Con[N]
 GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 所以无法保存此游戏，非常抱歉。[A][X]
 
-# 0x1B38 GenericUnitDesc
+# 0x18EC GenericUnitDesc
 一只宝可梦[X]
 
-# 0x1B39 ErrorText
+# 0x18ED ErrorText
 发生错误。[N]
 请发送错误信息报告。[A][X]
 
-# 0x1B3A WhosTheKidText
+# 0x18EE WhosTheKidText
 [OpenFarLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenLeft][LoadFace][0x9B][0x1][OpenLeft]这家伙是谁？[A][CloseSpeechSlow][OpenMidRight]这是 [Tact]，你的新邻居。[A][N]
 我之前和你提起过他们要搬来的，[N]
 还记得吗？[A][OpenLeft]哼。[A][OpenLeft][ClearFace][OpenMidRight][MoveRight][OpenRight]欢迎来到宝可梦纹章的世界，[A][Clear]我的名字是【大木】！[N]
@@ -9408,149 +9315,149 @@ GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 游戏交流2群：293715571[N]
 游戏交流3群：1170295824[ToggleRed][A][X]
 
-# 0x1B3B GaryTakesBothText
+# 0x18EF GaryTakesBothText
 [OpenLeft][LoadFace][0x9A][0x1][OpenLeft]哈哈，那我就选这一个！[A][CloseSpeechSlow][X]
 
-# 0x1B3C UhOhText
+# 0x18F0 UhOhText
 就决定是你了！[A][X]
 
-# 0x1B3D OakJustOneText
+# 0x18F1 OakJustOneText
 [OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]嘿！[N]
 我说了只能选一个！[A][X]
 
-# 0x1B3E FirstGaryDefeat
+# 0x18F2 FirstGaryDefeat
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9A][0x1][OpenMidRight]这不公平！[N]
 你们两个合起伙来欺负我！[A][N]
 哼……你们胜之不武。[A][OpenMidRight][ClearFace][OpenMidRight][....][X]
 
-# 0x1B3F OakFirstGaryDefeat
+# 0x18F3 OakFirstGaryDefeat
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]真是个顽皮的孩子，[N]
 不好意思啊。[A][N]
 诶，做家长的[N]
 真是不容易啊。[A][CloseSpeechSlow][OpenMidRight][MoveRight][OpenRight][ToggleSmile]对了！说起这个，[N]
 你妈妈要我把这个交给你。[A][X]
 
-# 0x1B40 SpeedRunnerText
+# 0x18F4 SpeedRunnerText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][FastPrint]噢？速通玩家吗？[N]
 那我就不耽误你了。[A][X]
 
-# 0x1B41 PlaytesterMessage
+# 0x18F5 PlaytesterMessage
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]噢， [Tact]？[N]
 这还真是惊喜啊。[A][N]
 这是专门为你准备的[N]
 额外福利。[A][X]
 
-# 0x1B42 ChallengeRunMessage
+# 0x18F6 ChallengeRunMessage
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]你好， [Tact]，当前模式[ToggleRed]无法捕捉宝可梦[ToggleRed]。[A][N]
 你可能会遇到一些挫折与挑战……[A][X]
 
-# 0x1B43 LittleCupMessageText
+# 0x18F7 LittleCupMessageText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]你好， [Tact]，当前模式[ToggleRed]宝可梦无法进化[ToggleRed]。[A][N]
 你也无法捕捉任何单形态宝可梦。[A][N]
 你可能会遇到一些挫折与挑战……[A][X]
 
-# 0x1B49 VeslyMessageText
+# 0x18FD VeslyMessageText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]你好，全能的[Tact]，当前模式[N]
 [ToggleRed]无法捕捉宝可梦[ToggleRed]。[A][N]
 没错，我就是这样通关的噩梦模式，[N]
 所以，你也可以。[A][X]
 
-# 0x1B4A OakMessageText
+# 0x18FE OakMessageText
 [OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]你好，“我”。我[ToggleRed]无法[N]
 在此模式下捕捉/进化宝可梦[ToggleRed]。[A][N]
 不过没关系。[A][X]
 
-# 0x1B4B NiceTryText
+# 0x18FF NiceTryText
 [OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]噢，你是叫[N]
 [Tact]？[A][N]
 不错的名字。[A][X]
 
-# 0x1B58 OakName
+# 0x190C OakName
 大木[X]
 
-# 0x1B59 BillName
+# 0x190D BillName
 正辉[X]
 
-# 0x1B71 RedName
+# 0x1925 RedName
 赤红[X]
 
-# 0x1B72 GaryName
+# 0x1926 GaryName
 青绿[X]
 
-# 0x1B73 LittleCupName
+# 0x1927 LittleCupName
 迷你杯[X]
 
-# 0x1B74 BrockName
+# 0x1928 BrockName
 小刚[X]
 
-# 0x1B75 MistyName
+# 0x1929 MistyName
 小霞[X]
 
-# 0x1B76 LtSurgeName
+# 0x192A LtSurgeName
 马志士[X]
 
-# 0x1B77 ErikaName
+# 0x192B ErikaName
 莉佳[X]
 
-# 0x1B78 KogaName
+# 0x192C KogaName
 阿桔[X]
 
-# 0x1B79 SabrinaName
+# 0x192D SabrinaName
 娜姿[X]
 
-# 0x1B7A BlaineName
+# 0x192E BlaineName
 夏伯[X]
 
-# 0x1B7B GiovanniName
+# 0x192F GiovanniName
 坂木[X]
 
-# 0x1B7C LoreleiName
+# 0x1930 LoreleiName
 科拿[X]
 
-# 0x1B7D BrunoName
+# 0x1931 BrunoName
 希巴[X]
 
-# 0x1B7E AgathaName
+# 0x1932 AgathaName
 菊子[X]
 
-# 0x1B7F LanceName
+# 0x1933 LanceName
 阿渡[X]
 
-# 0x1B80 MewStarterName
+# 0x1934 MewStarterName
 梦幻[X]
 
-# 0x1B81 MewtwoStarterName
+# 0x1935 MewtwoStarterName
 超梦[X]
 
-# 0x1B83 TurnTwoText
+# 0x1937 TurnTwoText
 这发生在第2回合。[A][X]
 
-# 0x1B84 CannotSurfYetText
+# 0x1938 CannotSurfYetText
 在你击败娜姿前，[N]
 你是不能穿过深水区的。[A][X]
 
-# 0x1B85 YouNeedSSAnneTicketText
+# 0x1939 YouNeedSSAnneTicketText
 您想买一张票吗？[A][N]
 花费10000ᢽ?[N]
 [Yes][X]
 
-# 0x1B86 BoughtSSAnneTicketText
+# 0x193A BoughtSSAnneTicketText
 我现在要消失了，因为[N]
 这样更容易举办活动。[A][N]
 再见。[A][X]
 
-# 0x1B88 CantAffordSSAnneTicketText
+# 0x193C CantAffordSSAnneTicketText
 上船需要船票。[A][N]
 票价是10,000ᢽ，不过[N]
 我们有时也会发放免费票。[A][N]
 等你买得起[N]
 船票的时候再来吧。[A][X]
 
-# 0x1B89 PowerOutText
+# 0x193D PowerOutText
 抱歉，停电了。恢复[N]
 供电前我们暂停营业。[A][X]
 
-# 0x1B8A BrockViridianText
+# 0x193E BrockViridianText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9E][0x1][OpenMidRight]过了这里，[N]
 野生的宝可梦就相当危险了。[A][N]
 所以联盟让我把这些巨石拖到[N]
@@ -9558,13 +9465,13 @@ GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 [ToggleSmile]所以我买了这些。[A][N]
 来，尝一个试试。[A][X]
 
-# 0x1B8B BrockViridianText2
+# 0x193F BrockViridianText2
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9E][0x1][OpenMidRight][ToggleSmile]没有什么比果冻馅甜甜圈更棒的了。[A][N]
 [Clear][ToggleSmile]我要回深灰市了。[A][N]
 当你准备好迎接挑战时，[N]
 来找我吧。[A][X]
 
-# 0x1B8C BillMtMoonText
+# 0x1940 BillMtMoonText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xB5][0x1][OpenMidRight][ToggleSmile]哦！也是训练家！[A][N]
 [ToggleSmile]等等——别动！你可能会把[N]
 我正在追踪的可拉可拉吓跑……[A][N]
@@ -9576,36 +9483,36 @@ GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 [ToggleSmile]你能帮我把它捡回来吗？[A][N]
 我真的会非常感激的。[A][X]
 
-# 0x1B8D BillMtMoonText2
+# 0x1941 BillMtMoonText2
 [OpenMidRight][ToggleSmile]你找到了！谢谢！[A][N]
 我正要回位于华蓝市北边的家。[A][N]
 有空来找我玩吧。[N]
 你真是帮了大忙。[A][X]
 
-# 0x1B8E ObtainedBillsRopeText
+# 0x1942 ObtainedBillsRopeText
 取得正辉的离洞绳！[A][X]
 
-# 0x1B8F BillHouseText
+# 0x1943 BillHouseText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xB5][0x1][OpenMidRight][ToggleSmile]哦，[Tact]！[A][N]
 你帮了我之后，我就[N]
 匆匆离开了——真抱歉。[A][N]
 我一直在想该怎么报答你。[N]
 来！这个应该就够了。[A][X]
 
-# 0x1B90 BillHouseText2
+# 0x1944 BillHouseText2
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xB5][0x1][OpenMidRight][ToggleSmile]他们邀我赴宴，[N]
 可我实在受不了这种奢华应酬。[A][N]
 不如你替我去吧？[A][X]
 
-# 0x1B91 BillHouseTicketText
+# 0x1945 BillHouseTicketText
 取得圣特安努号船票。[A][X]
 
-# 0x1B92 BillHouseAwayText
+# 0x1946 BillHouseAwayText
 房门上了锁，贴着一张字条，[N]
 上面写着：[A][N]
 “前往月见山追踪皮可西。”[A][X]
 
-# 0x1B93 SurgePowerPlantText
+# 0x1947 SurgePowerPlantText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight]喂！小家伙，你迷路了？[N]
 我们正在加班抢修，恢复电力网络。[A][N]
 [ToggleSmile]还有一群霹雳电球帮我们供能。[A][N]
@@ -9614,7 +9521,7 @@ GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 简直像照看一群脾气糟糕的炸弹。[N]
 我往前面去看看。[A][X]
 
-# 0x1B94 SurgePowerPlantText2
+# 0x1948 SurgePowerPlantText2
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight][ToggleSmile]最后一处电路修好啦——[N]
 任务完成！[A][N]
 电力全部恢复，这次居然没有[N]
@@ -9623,16 +9530,16 @@ GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 要是想好好切磋一场，[N]
 小家伙，到那儿来找我！[A][X]
 
-# 0x1B95 NotSafeToFleeText
+# 0x1949 NotSafeToFleeText
 现在行动不安全！[A][X]
 
-# 0x1B96 VictoryRoadNurseJoyText_A
+# 0x194A VictoryRoadNurseJoyText_A
 这里的训练家经常会[N]
 需要治疗他们的宝可梦。[A][N]
 你需要吗？只需要3000ᢽ[N]
 [Yes][X]
 
-# 0x1B97 VictoryRoadNurseJoyText_B
+# 0x194B VictoryRoadNurseJoyText_B
 我很喜欢看着那些训练家[N]
 历经千难万阻来到这里。[A][N]
 大家来到石英高原后[N]
@@ -9641,7 +9548,7 @@ GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 不过需要收费噢3000ᢽ?[N]
 [Yes][X]
 
-# 0x1B98 Route14NurseJoyText
+# 0x194C Route14NurseJoyText
 距离浅红市已经[N]
 只剩一半的路程啦，[A][N]
 坚持住， [Tact]！[A][N]
@@ -9649,7 +9556,7 @@ GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 只需要2000ᢽ?[N]
 [Yes][X]
 
-# 0x1B99 MtMoonNurseJoyText
+# 0x194D MtMoonNurseJoyText
 来这里的人总是会抱怨，[A][N]
 所以我是在这里帮忙[N]
 恢复大家的宝可梦状态的。[A][N]
@@ -9658,268 +9565,268 @@ GBA实机: 你的硬件/烧录卡不支持SRAM，[N]
 你要恢复你的宝可梦状态吗？[N]
 [Yes][X]
 
-# 0x1B9A SlotMachineDoesntWorkProperly
+# 0x194E SlotMachineDoesntWorkProperly
 请注意，老虎机搭配[N]
 随机职业时判定存在异常。[A][N]
 即便转出三个相同图案连成一线，[N]
 若该职业并非初始选用职业，[N]
 也无法中奖。[A][X]
 
-# 0x1B9B BossPokemonWarningText
+# 0x194F BossPokemonWarningText
 野生的[ToggleRed]宝可梦首领[ToggleRed]被强力的守护力量[N]
 保护着，它们不能被捕捉。在它们的[N]
 小弟被击败前，它们无法被攻击。[A][X]
 
-# 0x1B9C SkipTutorialText
+# 0x1950 SkipTutorialText
 要跳过捕捉教程吗？[N]
 [No][X]
 
-# 0x1B9D RematchText
+# 0x1951 RematchText
 要再次战斗吗？[N]
 [Yes][X]
 
-# 0x1B9E SavingHelpText
+# 0x1952 SavingHelpText
 你的模拟器存档类型需设置为[N]
 「自动」，才能正常运行。[A][X]
 
-# 0x1B9F GM_IntroTitle
+# 0x1953 GM_IntroTitle
 宝可梦纹章[X]
 
-# 0x1BA0 GM_Roaming_SH
+# 0x1954 GM_Roaming_SH
 自由行动[X]
 
-# 0x1BA2 GM_Roaming
+# 0x1956 GM_Roaming
 当你走到某个危险的区域时，[N]
 战斗就会开始。危险解除后，[N]
 将光标放置在主角身上按A键，[N]
 就能继续自由探索模式。[X]
 
-# 0x1BA3 GM_Quicksave_SH
+# 0x1957 GM_Quicksave_SH
 快速存档[X]
 
-# 0x1BA4 GM_Quicksave
+# 0x1958 GM_Quicksave
 你可以从主菜单中回到你的宝[N]
 可梦都正常的最后一个回合。[N]
 你也可以在设置中关闭自动保[N]
 存功能，这样快速存档就可以[N]
 作为存档点了。[X]
 
-# 0x1BA5 GM_Trainers_SH
+# 0x1959 GM_Trainers_SH
 训练家[X]
 
-# 0x1BA6 GM_Trainers
+# 0x195A GM_Trainers
 如果你在敌方回合处于训练家[N]
 的攻击范围内，他们就会向你[N]
 发起挑战。如果你的某只宝可[N]
 梦离开了这个区域，你就可以[N]
 撤离这场战斗了。[X]
 
-# 0x1BA7 GM_Discord_SH
+# 0x195B GM_Discord_SH
 Discord论坛[X]
 
-# 0x1BA8 GM_Discord
+# 0x195C GM_Discord
 论坛地址:[N]
 discord.com/invite/XEZjTJQ[N]
 to join the community.[X]
 
-# 0x1BA9 GM_Bushes_SH
+# 0x195D GM_Bushes_SH
 野生的宝可梦[X]
 
-# 0x1BAA GM_Bushes
+# 0x195E GM_Bushes
 野生的宝可梦会从草丛中跳出[N]
 来对你发起攻击。如果你攻击[N]
 这些草丛，一段时间内它们就[N]
 不会出现。[X]
 
-# 0x1BAB GM_CombatTitle
+# 0x195F GM_CombatTitle
 战斗[X]
 
-# 0x1BAD GM_MiscTitle
+# 0x1961 GM_MiscTitle
 杂项[X]
 
-# 0x1BAE GM_Capture_SH
+# 0x1962 GM_Capture_SH
 捕捉[X]
 
-# 0x1BAF GM_Capture
+# 0x1963 GM_Capture
 只要你能负担地起300金币的精[N]
 灵球，你就可以在击倒一只野生[N]
 宝可梦的同时对其进行捕捉，将[N]
 其变成你的伙伴。[X]
 
-# 0x1BB0 GM_Party_SH
+# 0x1964 GM_Party_SH
 伙伴[X]
 
-# 0x1BB1 GM_CatchTip
+# 0x1965 GM_CatchTip
 如果你随身携带的宝可梦少于6只，[N]
 当你抓到一只新的宝可梦时，它[N]
 会立刻加入战场，并恢复一定的[N]
 自身状态。[X]
 
-# 0x1BB2 GM_Hitrate_SH
+# 0x1966 GM_Hitrate_SH
 命中率[X]
 
-# 0x1BB3 GM_Hitrate
+# 0x1967 GM_Hitrate
 这个游戏里没有攻击“miss”[N]
 的情况，当出现“miss”时，[N]
 会触发擦击，对目标造成原先[N]
 一半的伤害。[X]
 
-# 0x1BB4 GM_AoETitle
+# 0x1968 GM_AoETitle
 范围攻击[X]
 
-# 0x1BB5 GM_AoE_SH
+# 0x1969 GM_AoE_SH
 范围攻击[X]
 
-# 0x1BB7 GM_AoE
+# 0x196B GM_AoE
 范围攻击对目标造成的伤害会降[N]
 低为原先的2/3，但是可以攻击[N]
 多个目标。按L或R键可以切换攻[N]
 击范围。[X]
 
-# 0x1BB8 GM_EffectivenessHeaderText
+# 0x196C GM_EffectivenessHeaderText
 克制伤害[X]
 
-# 0x1BB9 GM_Effectiveness_SH
+# 0x196D GM_Effectiveness_SH
 克制伤害[X]
 
-# 0x1BBA GM_Effectiveness
+# 0x196E GM_Effectiveness
 正常情况下会心一击对目标造成[N]
 的伤害约为150%，属性被克制时[N]
 伤害为75%。属性被克制时普通攻[N]
 击对目标造成的伤害为50%。[X]
 
-# 0x1BBF GM_TypeCombinations_SH
+# 0x1973 GM_TypeCombinations_SH
 属性组合[X]
 
-# 0x1BC0 GM_TypeCombinations
+# 0x1974 GM_TypeCombinations
 宝可梦纹章中，免疫/抗性会掩盖[N]
 一些弱点。比如一只具有一般/飞[N]
 行属性的宝可梦就会对格斗属性有[N]
 抗性。此外，宝可梦不会受到双倍[N]
 属性的克制。[X]
 
-# 0x1BC4 GM_Levelups_SH
+# 0x1978 GM_Levelups_SH
 随机生成器[X]
 
-# 0x1BC5 GM_Levelups
+# 0x1979 GM_Levelups
 一只宝可梦的每个属性最多不会低[N]
 于平均值3个点，所以你也不用担[N]
 心基础能力有什么大的差距。[X]
 
-# 0x1BC6 GM_Grinding_SH
+# 0x197A GM_Grinding_SH
 经验平衡[X]
 
-# 0x1BC7 GM_Grinding
+# 0x197B GM_Grinding
 如果你的宝可梦等级过高，[N]
 其将得不到战斗经验，[N]
 如果等级过低，[N]
 升级速度就会变得很快。[X]
 
-# 0x1BC8 GM_Repels_SH
+# 0x197C GM_Repels_SH
 喷雾剂[X]
 
-# 0x1BC9 GM_Repels
+# 0x197D GM_Repels
 喷雾剂会使野生宝可梦的[N]
 移动力降为2，这使得它们[N]
 不大能攻击到你。[X]
 
-# 0x1BCA GM_Rematches_SH
+# 0x197E GM_Rematches_SH
 多次挑战[X]
 
-# 0x1BCB GM_Rematches
+# 0x197F GM_Rematches
 击败训练家获得的经验会增加50%，[N]
 并且可以进行多次战斗。但多次战[N]
 斗后获得的金币会越来越少。[X]
 
-# 0x1BCC GM_Call_SH
+# 0x1980 GM_Call_SH
 呼唤[X]
 
-# 0x1BCD GM_Call
+# 0x1981 GM_Call
 除了和训练家的战斗外，其他战斗[N]
 中使用『呼唤』指令将会将你的所[N]
 有宝可梦召唤到身边。[X]
 
-# 0x1BCE GM_Submenu_SH
+# 0x1982 GM_Submenu_SH
 子菜单[X]
 
-# 0x1BCF GM_Submenu
+# 0x1983 GM_Submenu
 你可以在主菜单栏上按左右键进入[N]
 子菜单，子菜单栏里你可以查看宝[N]
 可梦的招式学习列表以及对装备招[N]
 式进行排序。[X]
 
-# 0x1BD3 PalletTrainerTipsText
+# 0x1987 PalletTrainerTipsText
 回家休息或者去宝可梦中心[N]
 可以保存游戏记录和[N]
 恢复宝可梦的状态噢~[N]
             -训练家小贴士[A][X]
 
-# 0x1BD4 TrainerTip_Quicksave
+# 0x1988 TrainerTip_Quicksave
 在你没有宝可梦倒下的情况下，[N]
 游戏会在你的每个回合的开始[N]
 自动保存。你可以在[ToggleRed]设定[ToggleRed]选项[N]
 里更改为手动[ToggleRed]快速存档[ToggleRed]。[N]
                -训练家小贴士[A][X]
 
-# 0x1BD5 TrainerTip_Berries
+# 0x1989 TrainerTip_Berries
 宝可梦装备树果后可以在[N]
 战斗中自己食用。[N]
 它们可是很美味的噢！[N]
                 -训练家小贴士[A][X]
 
-# 0x1BD8 TrainerTip_Catch
+# 0x198C TrainerTip_Catch
 按[ToggleRed]R键[ToggleRed]可以查看绝大多数详细信息。[N]
 按[ToggleRed]L键[ToggleRed]可以切换至下一项，按住[ToggleRed]B键[N]
 [ToggleRed]可以让地图光标快速移动。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BD9 TrainerTip_Water
+# 0x198D TrainerTip_Water
 有一些宝可梦能够游过浅滩[N]
 或者跳过崖涧。[N]
 按下[ToggleRed]L[ToggleRed]或[ToggleRed]Start[ToggleRed]即可进入网格模式。[N]
              -训练家小贴士[A][X]
 
-# 0x1BDA TrainerTip_DangerZone
+# 0x198E TrainerTip_DangerZone
 范围攻击对目标造成的伤害会降低为[N]
 原先的2/3，但是可以攻击多个目标。[N]
 按L或R键可以切换攻击范围。[N]
                    -训练家小贴士[A][X]
 
-# 0x1BDB TrainerTip_TMs_2
+# 0x198F TrainerTip_TMs_2
 所有的招式学习器和技能卷轴后面都[N]
 能买到。[N]
                      -训练家小贴士[A][X]
 
-# 0x1BDC TrainerTip_WildBosses
+# 0x1990 TrainerTip_WildBosses
 野生的宝可梦首领被强力的守护力量[N]
 保护着，它们不能被捕捉。在它们的[N]
 小弟被击败前，它们无法被攻击。[N]
                    -训练家小贴士[A][X]
 
-# 0x1BDD TrainerTip_DangerZone2
+# 0x1991 TrainerTip_DangerZone2
 一只宝可梦的每个属性最多不会低于[N]
 平均值3个点，所以你也不用担心基[N]
 础能力有什么大的差距。[N]
                      -训练家小贴士[A][X]
 
-# 0x1BDE TrainerTip_Zoning
+# 0x1992 TrainerTip_Zoning
 这个游戏里没有攻击“miss”的情况，[N]
 当出现“miss”时，会触发擦击，对[N]
 目标造成原先一半的伤害。[N]
                      -训练家小贴士[A][X]
 
-# 0x1BDF TrainerTip_Accessory
+# 0x1993 TrainerTip_Accessory
 将物品装备起来会得到额外的效果。[N]
                       -训练家小贴士[A][X]
 
-# 0x1BE0 TrainerTip_Def
+# 0x1994 TrainerTip_Def
 你可以在主菜单栏上按[ToggleRed]左右键[ToggleRed]进入子[N]
 菜单，子菜单栏里你可以查看宝可梦[N]
 的招式学习列表以及对装备招式进行[N]
 排序。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BE1 TrainerTip_Mart
+# 0x1995 TrainerTip_Mart
 商店里出售的招式学习器是一种提升[N]
 自己宝可梦实力非常有效的方式！有[N]
 的宝可梦的弱点是特殊攻击的招式，[A][N]
@@ -9927,84 +9834,84 @@ to join the community.[X]
 活应变噢！[N]
                             -训练家小贴士[A][X]
 
-# 0x1BE2 PewterFlowerSignText
+# 0x1996 PewterFlowerSignText
 似乎每当你回来的时候，树果总是会[N]
 重新长出来。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BE3 TrainerTip_PartySize
+# 0x1997 TrainerTip_PartySize
 如果你随身携带的宝可梦少于6只，[N]
 当你抓到一只新的宝可梦时，它会[N]
 立刻加入战场，并恢复一定的自身状态。[N]
                         -训练家小贴士[A][X]
 
-# 0x1BE4 TrainerTip_LearnTMs
+# 0x1998 TrainerTip_LearnTMs
 宝可梦可以学习任何和它们自身属性[N]
 一样的招式。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BE5 TrainerTip_Typing
+# 0x1999 TrainerTip_Typing
 在宝可梦的名字上按[ToggleRed]R键[ToggleRed]可以查看宝[N]
 可梦的弱点。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BE6 TrainerTip_MoveMapFaster
+# 0x199A TrainerTip_MoveMapFaster
 除了和训练家的战斗外，其他战斗中[N]
 使用『呼唤』指令将会将你的所有宝[N]
 可梦召唤到身边。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BE7 TrainerTip_CursorJump
+# 0x199B TrainerTip_CursorJump
 免疫/抗性会掩盖一些弱点。比如一[N]
 只具有一般/飞行属性的宝可梦就会[N]
 对格斗属性有抗性。此外，宝可梦不[N]
 会受到双倍属性的克制。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BE8 TrainerTip_MaxPokemon
+# 0x199C TrainerTip_MaxPokemon
 你最多只能同时拥有150只宝可梦。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BE9 TrainerTip_FourSkills
+# 0x199D TrainerTip_FourSkills
 一只宝可梦最多能学到4个卷轴技能。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BEA TrainerTip_Submenu
+# 0x199E TrainerTip_Submenu
 你可以在主菜单栏上按[ToggleRed]左右键[ToggleRed]进入子[N]
 菜单。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BEB TrainerTip_Release
+# 0x199F TrainerTip_Release
 你可以在子菜单栏里放生宝可梦。[N]
                             -训练家小贴士[A][X]
 
-# 0x1BEC TrainerTip_ReorderMoves
+# 0x19A0 TrainerTip_ReorderMoves
 在子菜单栏中更改招式顺序不会消耗[N]
 你的行动次数。[A][N]
                             -训练家小贴士[A][X]
 
-# 0x1BEF UnusedTrainerTips2
+# 0x19A3 UnusedTrainerTips2
 You can carry up to 6 Pokémon[N]
 with you at once.[N]
             - Trainer's Tips.[A][X]
 
-# 0x1BFC CatchPokemonTutorial_1
+# 0x19B0 CatchPokemonTutorial_1
 让我们来试着抓一只宝可梦吧。[A][X]
 
-# 0x1BFD CatchPokemonTutorial_2
+# 0x19B1 CatchPokemonTutorial_2
 移动到高亮的格子内。[A][X]
 
-# 0x1BFE CatchPokemonTutorial_3
+# 0x19B2 CatchPokemonTutorial_3
 先暂时防守一下。[A][X]
 
-# 0x1BFF CatchPokemonTutorial_4
+# 0x19B3 CatchPokemonTutorial_4
 我们会防守并进行反击。[A][X]
 
-# 0x1C00 CatchPokemonTutorial_5
+# 0x19B4 CatchPokemonTutorial_5
 太好了！它现在很虚弱！[A][N]
 现在就是我们出手的机会。[A][X]
 
-# 0x1C01 CatchPokemonTutorial_6
+# 0x19B5 CatchPokemonTutorial_6
 战斗页面上蓝色的一边会显示[N]
 当前招式能对目标造成的伤害。[A][N]
 红色的一边则会显示对手的HP、[N]
@@ -10014,150 +9921,150 @@ with you at once.[N]
 当能够击败目标时[N]
 就可以对其进行捕捉了！[A][X]
 
-# 0x1C02 CatchPokemonTutorial_7
+# 0x19B6 CatchPokemonTutorial_7
 干得漂亮！[A] [N]
 去收服更多的宝可梦，[N]
 变得更强大吧。[A][X]
 
-# 0x1C03 SignsFastTravel
+# 0x19B7 SignsFastTravel
 查看有些地方可以[N]
 进行快速移动。[A][X]
 
-# 0x1C04 KnowledgeArea
+# 0x19B8 KnowledgeArea
 你已经很了解这片区域了，[N]
 可以进行快速移动。[A][X]
 
-# 0x1C05 RetreatCenter
+# 0x19B9 RetreatCenter
 撤回到上一个宝可梦中心？[N]
 [No][X]
 
-# 0x1C06 ViridianGymText
+# 0x19BA ViridianGymText
 常青道馆[A][X]
 
-# 0x1C07 ViridianGymText2
+# 0x19BB ViridianGymText2
 常青道馆[A][X]
 
-# 0x1C08 LearnMoveText
+# 0x19BC LearnMoveText
 要学习新的招式吗？[N]
 [Yes][X]
 
-# 0x1C09 ProceedAreaText
+# 0x19BD ProceedAreaText
 要进入下一个区域吗？[N]
 [Yes][X]
 
-# 0x1C0A ExitAreaText
+# 0x19BE ExitAreaText
 要离开这个区域吗？[N]
 [Yes][X]
 
-# 0x1C0B ExitTowerText
+# 0x19BF ExitTowerText
 要离开宝可梦塔吗？[N]
 [Yes][X]
 
-# 0x1C0C Route2UpperHouseText
+# 0x19C0 Route2UpperHouseText
 每次我一出门，[N]
 都会有一只勇吉拉在等着我…[A][N]
 它总是能知道我要做什么…[A][X]
 
-# 0x1C0D EnterOaksLabText
+# 0x19C1 EnterOaksLabText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]一个邂逅宝可梦的[N]
 美妙世界在等着你！[A][X]
 
-# 0x1C0E DexRating_Text_Generic
+# 0x19C2 DexRating_Text_Generic
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 太棒了！继续加油！[A][X]
 
-# 0x1C0F DexRating_Text_LessThan10
+# 0x19C3 DexRating_Text_LessThan10
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 你还有很多事没完成。[A][N]
 走过每一片草丛，[N]
 去寻找宝可梦吧！[A][X]
 
-# 0x1C10 DexRating_Text_LessThan20
+# 0x19C4 DexRating_Text_LessThan20
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 看起来你已经步入正轨了！[A][X]
 
-# 0x1C11 DexRating_Text_LessThan30
+# 0x19C5 DexRating_Text_LessThan30
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 你的图鉴收录数量还差[N]
 不少呢！[A]试着去捕获[N]
 其他种类的宝可梦吧！[A][X]
 
-# 0x1C12 DexRating_Text_LessThan40
+# 0x19C6 DexRating_Text_LessThan40
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 不错，能看出来你一直在努力！[A][X]
 
-# 0x1C13 DexRating_Text_LessThan50
+# 0x19C7 DexRating_Text_LessThan50
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 你的宝可梦图鉴收集进度[N]
 相当不错！[A][X]
 
-# 0x1C14 DexRating_Text_LessThan60
+# 0x19C8 DexRating_Text_LessThan60
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 啊，你终于集齐50种宝可梦了！[A][X]
 
-# 0x1C15 DexRating_Text_LessThan70
+# 0x19C9 DexRating_Text_LessThan70
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 哈哈！你的图鉴收藏已经[N]
 相当可观啦！[A][X]
 
-# 0x1C16 DexRating_Text_LessThan80
+# 0x19CA DexRating_Text_LessThan80
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 太棒了！[A][N]
 要是开发者做了钓鱼系统，[N]
 你肯定能收集更多宝可梦！[A][X]
 
-# 0x1C17 DexRating_Text_LessThan90
+# 0x19CB DexRating_Text_LessThan90
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 真厉害！我猜……[N]
 你很喜欢收集东西，对吧？[A][X]
 
-# 0x1C18 DexRating_Text_LessThan100
+# 0x19CC DexRating_Text_LessThan100
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 太让人佩服了！[N]
 这一定花了你不少功夫吧！[A][X]
 
-# 0x1C19 DexRating_Text_LessThan110
+# 0x19CD DexRating_Text_LessThan110
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 你终于集齐100种宝可梦了！[N]
 真不敢相信你这么厉害！[A][X]
 
-# 0x1C1A DexRating_Text_LessThan120
+# 0x19CE DexRating_Text_LessThan120
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 你连宝可梦的进化型都[N]
 收集齐了！太厉害了！[A][X]
 
-# 0x1C1B DexRating_Text_LessThan130
+# 0x19CF DexRating_Text_LessThan130
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 太棒啦！可以问问朋友们去[N]
 哪里能遇见更多宝可梦哦！[A][X]
 
-# 0x1C1C DexRating_Text_LessThan140
+# 0x19D0 DexRating_Text_LessThan140
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 太出色了！你现在已经是[N]
 收集图鉴的老手啦！[A][X]
 
-# 0x1C1D DexRating_Text_LessThan150
+# 0x19D1 DexRating_Text_LessThan150
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 我已经没什么话能夸你了！现在[N]
 你就是名副其实的宝可梦博士！[A][X]
 
-# 0x1C1E DexRating_Text_Complete
+# 0x19D2 DexRating_Text_Complete
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]你已遇见[G]只宝可梦，[LoadOverworldFaces][N]
 累计捕获[G]只。[A][N]
 你的宝可梦图鉴已经完全集齐了！[N]
@@ -10177,56 +10084,56 @@ with you at once.[N]
 同时按下[ToggleRed]L[ToggleRed]、[ToggleRed]左[ToggleRed]、[ToggleRed]上[ToggleRed]的情况很少见，[N]
 因此大多数玩家从未发现过它……[A][X]
 
-# 0x1C1F EnterGaryHouseText
+# 0x19D3 EnterGaryHouseText
 你找到了一张世界地图！[A][N]
 ……但是上面到处都是[N]
 乱涂乱画的痕迹。[A][N]
 于是你放了回去。[A][X]
 
-# 0x1C20 CatchBeforePurchasePsyduckText
+# 0x19D4 CatchBeforePurchasePsyduckText
 我是大木博士的助手。[A][N]
 如果你能同时抓到猴怪、[N]
 波波和小拉达的话，[A][N]
 我就可以卖一只可达鸭给你。[A][X]
 
-# 0x1C21 PurchasePsyduckText
+# 0x19D5 PurchasePsyduckText
 啊，我看到你抓到了它们。[A][N]
 仅需1000ᢽ这只可达鸭就是你的了，[N]
 怎么样？[A][X]
 
-# 0x1C22 No_PurchasedPsyduckText
+# 0x19D6 No_PurchasedPsyduckText
 真是遗憾。[A][X]
 
-# 0x1C23 Yes_PurchasedPsyduckText
+# 0x19D7 Yes_PurchasedPsyduckText
 成交！[A][X]
 
-# 0x1C24 ViridianOaksAideBD
+# 0x19D8 ViridianOaksAideBD
 要照顾好可达鸭噢！[A][X]
 
-# 0x1C25 CatchBeforePurchaseOddishText
+# 0x19D9 CatchBeforePurchaseOddishText
 我是大木博士的助手。[A][N]
 如果你能同时抓到绿毛虫、[N]
 独角虫和皮卡丘的话，[A][N]
 我就可以卖一只走路草给你。[A][X]
 
-# 0x1C26 PurchaseOddishText
+# 0x19DA PurchaseOddishText
 啊，你抓到了它们啊！[N]
 干得不错。[A][N]
 你要买一只走路草[N]
 加入你的队伍吗？[A][X]
 
-# 0x1C27 No_PurchasedOddishText
+# 0x19DB No_PurchasedOddishText
 等你改变主意了再回来吧。[A][X]
 
-# 0x1C28 Yes_PurchasedOddishText
+# 0x19DC Yes_PurchasedOddishText
 我知道你肯定会给予[N]
 走路草爱与支持的。[A][X]
 
-# 0x1C29 PewterOaksAideBD
+# 0x19DD PewterOaksAideBD
 我知道你肯定会给予[N]
 走路草爱与支持的。[A][X]
 
-# 0x1C2A CatchBeforePurchaseGrowlitheText
+# 0x19DE CatchBeforePurchaseGrowlitheText
 我是在真新镇伟大的大木博士[N]
 那里工作的实习生。[A][N]
 要是我有工资就好了……[A][N]
@@ -10234,182 +10141,182 @@ with you at once.[N]
 阿柏蛇和烈雀的话，[A][N]
 就来找我吧。[A][X]
 
-# 0x1C2B PurchaseGrowlitheText
+# 0x19DF PurchaseGrowlitheText
 啊，你可真是勤劳刻苦啊！[A][N]
 你想拥有一只卡蒂狗吗？[A][X]
 
-# 0x1C2C No_PurchasedGrowlitheText
+# 0x19E0 No_PurchasedGrowlitheText
 你要是改变主意了[N]
 可以随时回来。[A][X]
 
-# 0x1C2D Yes_PurchasedGrowlitheText
+# 0x19E1 Yes_PurchasedGrowlitheText
 我知道你肯定能将[N]
 卡蒂狗照顾得很好。[A][X]
 
-# 0x1C2E CeruleanOaksAideBD
+# 0x19E2 CeruleanOaksAideBD
 我知道你肯定能将[N]
 卡蒂狗照顾得很好。[A][X]
 
-# 0x1C2F CatchBeforePurchaseFarfetchdText
+# 0x19E3 CatchBeforePurchaseFarfetchdText
 这个夏天我在为大木博士打工，[N]
 但是报酬太少了。[A][N]
 我希望我能挣点钱买把椅子…[A][N]
 等你把六尾、喵喵和催眠貘[N]
 都抓到的时候再来找我吧。[A][X]
 
-# 0x1C30 PurchaseFarfetchdText
+# 0x19E4 PurchaseFarfetchdText
 啊，你已经收集到[N]
 一定数量的宝可梦了。[A][N]
 有兴趣将大葱鸭添加进[N]
 你的宝可梦图鉴吗？[A][X]
 
-# 0x1C31 No_PurchasedFarfetchdText
+# 0x19E5 No_PurchasedFarfetchdText
 等你改变主意了再回来吧。[A][X]
 
-# 0x1C32 Yes_PurchasedFarfetchdText
+# 0x19E6 Yes_PurchasedFarfetchdText
 我知道你会照顾好大葱鸭的。[A][X]
 
-# 0x1C33 VermilionOaksAideBD
+# 0x19E7 VermilionOaksAideBD
 我知道你会照顾好大葱鸭的。[A][X]
 
-# 0x1C34 CatchBeforePurchaseElectabuzzText
+# 0x19E8 CatchBeforePurchaseElectabuzzText
 大木博士的人脉遍布整个关东，[A][N]
 他委托给了我这件特殊的任务。[A][N]
 他让我奖励那些能同时抓到小拳石、[N]
 超音蝠和大岩蛇的训练家。[A][X]
 
-# 0x1C35 PurchaseElectabuzzText
+# 0x19E9 PurchaseElectabuzzText
 啊，看来你已经[N]
 穿过了岩山隧道。[A][N]
 你想要一只电击兽吗？[A][X]
 
-# 0x1C36 No_PurchasedElectabuzzText
+# 0x19EA No_PurchasedElectabuzzText
 改变主意了再回来噢。[A][X]
 
-# 0x1C37 Yes_PurchasedElectabuzzText
+# 0x19EB Yes_PurchasedElectabuzzText
 我知道你一定能将[N]
 电击兽培养得很好。[A][X]
 
-# 0x1C38 LavenderOaksAideBD
+# 0x19EC LavenderOaksAideBD
 我知道你一定能将[N]
 电击兽培养得很好。[A][X]
 
-# 0x1C39 CatchBeforePurchaseMagmarText
+# 0x19ED CatchBeforePurchaseMagmarText
 大木博士的人脉遍布整个关东，[A][N]
 他委托给了我这件特殊的任务。[A][N]
 他让我奖励那些能同时抓到毛球、[N]
 蛋蛋和大钳蟹的训练家。[A][X]
 
-# 0x1C3A PurchaseMagmarText
+# 0x19EE PurchaseMagmarText
 哇哦，你做到了，[N]
 你想要一只鸭嘴火兽吗？[A][X]
 
-# 0x1C3B No_PurchasedMagmarText
+# 0x19EF No_PurchasedMagmarText
 等你改变主意了再回来吧。[A][X]
 
-# 0x1C3C Yes_PurchasedMagmarText
+# 0x19F0 Yes_PurchasedMagmarText
 我知道你一定会把鸭嘴火兽[N]
 照顾得很好。[A][X]
 
-# 0x1C3D FuschiaOaksAideBD
+# 0x19F1 FuschiaOaksAideBD
 我知道你一定会把鸭嘴火兽[N]
 照顾得很好。[A][X]
 
-# 0x1C3E CatchBeforePurchaseJynxText
+# 0x19F2 CatchBeforePurchaseJynxText
 大木博士是我的导师，[N]
 他让我在这里等着。[A][N]
 这样我就可以帮助那些同时拥有[N]
 嘟嘟、小火马和比比鸟的训练家。[A][X]
 
-# 0x1C3F PurchaseJynxText
+# 0x19F3 PurchaseJynxText
 你一定是在自行车道上[N]
 捉到的它们。[A][N]
 怎么样，[N]
 想要一只迷唇姐吗？[A][X]
 
-# 0x1C40 No_PurchasedJynxText
+# 0x19F4 No_PurchasedJynxText
 改变主意了的话，[N]
 随时可以回来噢。[A][X]
 
-# 0x1C41 Yes_PurchasedJynxText
+# 0x19F5 Yes_PurchasedJynxText
 我相信你会照顾好迷唇姐的。[A][X]
 
-# 0x1C42 CeladonOaksAideBD
+# 0x19F6 CeladonOaksAideBD
 我相信你会照顾好迷唇姐的。[A][X]
 
-# 0x1C43 CatchBeforePurchaseHitmonchanText
+# 0x19F7 CatchBeforePurchaseHitmonchanText
 空闲的时候我会练练拳击，[N]
 不忙的时候也会给大木博士帮点忙。[A][N]
 我在这里是为了等候那些同时抓到了[N]
 飞天螳螂、凯罗斯和吉利蛋的训练家。[A][X]
 
-# 0x1C44 PurchaseHitmonchanText
+# 0x19F8 PurchaseHitmonchanText
 哇噢，你一定花了[N]
 很多时间在狩猎地带。[A][N]
 你想要你的队伍里[N]
 有一只快拳郎吗？[A][X]
 
-# 0x1C45 No_PurchasedHitmonchanText
+# 0x19F9 No_PurchasedHitmonchanText
 等你改变主意了再回来吧。[A][X]
 
-# 0x1C46 Yes_PurchasedHitmonchanText
+# 0x19FA Yes_PurchasedHitmonchanText
 我知道你一定会把快拳郎[N]
 照顾得很好。[A][X]
 
-# 0x1C47 SaffronOaksAide1BD
+# 0x19FB SaffronOaksAide1BD
 我知道你一定会把快拳郎[N]
 照顾得很好。[A][X]
 
-# 0x1C48 CatchBeforePurchaseHitmonleeText
+# 0x19FC CatchBeforePurchaseHitmonleeText
 狩猎地带非常大。[A][N]
 要想抓到袋兽、肯泰罗[N]
 和迷你龙是非常困难的。[A][X]
 
-# 0x1C49 PurchaseHitmonleeText
+# 0x19FD PurchaseHitmonleeText
 ……但是你做到了！[A][N]
 你想让飞腿郎加入你的队伍吗？[A][X]
 
-# 0x1C4A No_PurchasedHitmonleeText
+# 0x19FE No_PurchasedHitmonleeText
 改变主意了再回来噢。[A][X]
 
-# 0x1C4B Yes_PurchasedHitmonleeText
+# 0x19FF Yes_PurchasedHitmonleeText
 我知道你一定能将[N]
 飞腿郎培养得很好。[A][X]
 
-# 0x1C4C SaffronOaksAide2BD
+# 0x1A00 SaffronOaksAide2BD
 我知道你一定能将[N]
 飞腿郎培养得很好。[A][X]
 
-# 0x1C4D CatchBeforePurchaseLaprasText
+# 0x1A01 CatchBeforePurchaseLaprasText
 我是大木博士的助手。[A][N]
 如果有训练家能将他的初始[N]
 宝可梦进化到最终形态，[A][N]
 他就有机会可以在我这里[N]
 购买一只拉普拉斯。[A][X]
 
-# 0x1C4E PurchaseLaprasText
+# 0x1A02 PurchaseLaprasText
 噢，你做到了！[A][N]
 你想要拉普拉斯吗？[A][X]
 
-# 0x1C4F No_PurchasedLaprasText
+# 0x1A03 No_PurchasedLaprasText
 等你改变主意了再回来吧。[A][X]
 
-# 0x1C50 Yes_PurchasedLaprasText
+# 0x1A04 Yes_PurchasedLaprasText
 我知道拉普拉斯一定会[N]
 成为你的好伙伴。[A][X]
 
-# 0x1C51 PalletOaksAideBD
+# 0x1A05 PalletOaksAideBD
 我知道拉普拉斯一定会[N]
 成为你的好伙伴。[A][X]
 
-# 0x1C52 GiveUpLearnMoveText
+# 0x1A06 GiveUpLearnMoveText
 放弃学习新招式吗？[N]
 [Yes][X]
 
-# 0x1C53 CannotEscapeTrainerBattleText
+# 0x1A07 CannotEscapeTrainerBattleText
 [OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]教学战不能逃跑！[A][X]
 
-# 0x1C54 GaryRoute2SChallengeText
+# 0x1A08 GaryRoute2SChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenRight][LoadFace][0x9B][0x1][OpenRight]哈哈，我就在想[N]
 你什么时候会出现。[A][N]
 看到你这副挣扎的样子[N]
@@ -10417,61 +10324,61 @@ with you at once.[N]
 我已经抓到3只宝可梦了！[A][LoadFace][0x9C][0x1][OpenRight][N]
 击败你是[ToggleRed]绰绰有余[ToggleRed]了！[A][X]
 
-# 0x1C55 GaryRoute2SDefeatText
+# 0x1A09 GaryRoute2SDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9B][0x1][OpenMidRight]别自以为是了，[N]
 我向来都是对你手下留情的。[A][X]
 
-# 0x1C56 ViridianForestNBirdkeeperText
+# 0x1A0A ViridianForestNBirdkeeperText
 [OpenMidLeft][LoadFace][0x9D][0x1][OpenMidLeft]谁也别想从这里过去！[N]
 这块地盘现在归我们了。[A][Clear][N]
 快，构筑[ToggleRed]防线[ToggleRed]！[A][X]
 
-# 0x1C57 RedHouseText
+# 0x1A0B RedHouseText
 [Tact]的家[A][X]
 
-# 0x1C58 GaryHouseText
+# 0x1A0C GaryHouseText
 小茂的家[A][X]
 
-# 0x1C59 PalletTownText
+# 0x1A0D PalletTownText
 真新镇[A][X]
 
-# 0x1C5A ResearchLabText
+# 0x1A0E ResearchLabText
 大木的实验室[A][X]
 
-# 0x1C5B ViridianCityText
+# 0x1A0F ViridianCityText
 常青市[A][X]
 
-# 0x1C5C JumpLedgeText
+# 0x1A10 JumpLedgeText
 要跳下去吗？   [No][X]
 
-# 0x1C5D ViridianUpperHouseText
+# 0x1A11 ViridianUpperHouseText
 这里的道馆都关了有一段时间了。[N]
 联盟就不能委派一个新的馆主吗？[A][X]
 
-# 0x1C5E ViridianUpperHouseText_Lategame
+# 0x1A12 ViridianUpperHouseText_Lategame
 此地新任道馆馆主[N]
 身上满是谜团……[A][X]
 
-# 0x1C5F ViridianGrumpyManText
+# 0x1A13 ViridianGrumpyManText
 嗯？谁让你这么大摇大摆地[N]
 走进来的，这是你家啊？[A][N]
 这是私人住宅！[N]
 不要打扰我喝咖啡！[A][X]
 
-# 0x1C60 MissingNoHintText
+# 0x1A14 MissingNoHintText
 我看到了！[N]
 比你我都要高！[A][N]
 一个巨大的俄罗斯方块！[N]
 L形的，太诡异了……[A][X]
 
-# 0x1C61 CinnabarOldManText2
+# 0x1A15 CinnabarOldManText2
 我的家在常青市。[A][N]
 我原以为大海会对[N]
 我这把老骨头有帮助。[A][N]
 可我现在很害怕，[N]
 也许我应该快点回家…[A][X]
 
-# 0x1C62 ViridianGrumpyManText2
+# 0x1A16 ViridianGrumpyManText2
 以前我还教过不少小孩呢。[A][N]
 不看我抓到一只独角虫，[N]
 就不许他们往前走。[A][N]
@@ -10480,11 +10387,11 @@ L形的，太诡异了……[A][X]
 可现在我被禁足在家，眼前[N]
 总浮现俄罗斯方块的影子……[A][X]
 
-# 0x1C63 PolicemanOldManText
+# 0x1A17 PolicemanOldManText
 是啊是啊，[N]
 大家都这么说……[A][X]
 
-# 0x1C64 PewterMuseumText
+# 0x1A18 PewterMuseumText
 这个博物馆是我们研究[N]
 化石进化的地方，[A][N]
 什么？你见过？[A][N]
@@ -10492,25 +10399,25 @@ L形的，太诡异了……[A][X]
 化石进化需要数百年的时间，[.....][N]
 你想说的是[ToggleRed]蛹变[ToggleRed]吧。[A][X]
 
-# 0x1C65 PewterSWHouseText
+# 0x1A19 PewterSWHouseText
 你知道吗？[N]
 这里的生活可是相当安逸的！[A][N]
 当一个NPC也不赖嘛！[A][X]
 
-# 0x1C66 PewterNEHouseText
+# 0x1A1A PewterNEHouseText
 如果你能给我一只超梦的话，[N]
 我就把我的鬼斯通给你。[A][Clear][N]
 哈哈，开个玩笑，[N]
 我甚至连鬼斯通都没有。[A][X]
 
-# 0x1C67 PewterMuseumSignText
+# 0x1A1B PewterMuseumSignText
 深灰科学博物馆[A][X]
 
-# 0x1C68 PewterGymSignText
+# 0x1A1C PewterGymSignText
 深灰道馆[N]
 岩石系宝可梦[A][X]
 
-# 0x1C69 BrockIntroText
+# 0x1A1D BrockIntroText
 [OpenMidRight][LoadFace][0x9E][0x1][OpenMidRight]我相信坚如磐石的[N]
 防守和决心！[A][N]
 没错！所以我的[N]
@@ -10520,30 +10427,30 @@ L形的，太诡异了……[A][X]
 呃，它们不算。[A][CloseSpeechSlow][LoadOverworldFaces][OpenMidRight][ToggleSmile][MoveLeft][OpenLeft]没有啦，亲爱的，[N]
 老爸也爱你们。[A][CloseSpeechSlow][LoadOverworldFaces][OpenLeft][ToggleSmile][MoveMidRight][OpenMidRight]哼，战斗吧！[A][X]
 
-# 0x1C6A PewterCityText
+# 0x1A1E PewterCityText
 岩石之城[A][X]
 
-# 0x1C6B NoBoulderbadgeText2
+# 0x1A1F NoBoulderbadgeText2
 你需要灰色徽章才能通过这里。[A][X]
 
-# 0x1C6C NoBoulderbadgeText
+# 0x1A20 NoBoulderbadgeText
 嘿，别急着往前冲！[N]
 冷静！[A][N]
 嗯？你不认为自己能战胜馆主吗？[N]
 不，你当然可以了！[N]
 永远不要低估你的宝可梦！[A][X]
 
-# 0x1C6D PewterCheckGymText
+# 0x1A21 PewterCheckGymText
 我一定要打败小刚！[A][N]
 深呼吸…一定要保持冷静！[N]
 我当然可以的……[A][N]
 嗯！要么全力以赴！[N]
 要么一无所有！[A][X]
 
-# 0x1C6E ClosedAreaText
+# 0x1A22 ClosedAreaText
 前方区域已关闭[A][X]
 
-# 0x1C6F BrockDefeatText
+# 0x1A23 BrockDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9E][0x1][OpenMidRight]作为你赢得胜利的证明，[N]
 这是给你的【灰色徽章】！[A][N]
 你已经成功挑战了我的道馆，[N]
@@ -10551,50 +10458,50 @@ L形的，太诡异了……[A][X]
 不过，别的道馆馆主[N]
 可没那么容易对付噢。[A][X]
 
-# 0x1C70 BrockDryingPanText
+# 0x1A24 BrockDryingPanText
 [OpenMidRight][LoadFace][0x9E][0x1][OpenMidRight]等等！[N]
 还有这个。[A][X]
 
-# 0x1C71 BrockDryingPanText2
+# 0x1A25 BrockDryingPanText2
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9E][0x1][OpenMidRight][ToggleSmile]这支可靠的平底锅可是能帮你的[N]
 宝可梦克服水属性弱点的好东西啊。[A][N]
 虽然我有点舍不得把它给你，[N]
 但我知道你一定会好好照顾它的。[A][N]
 祝你好运啦，[Tact]！[A][LoadOverworldFaces][X]
 
-# 0x1C72 PokemonCapturedText
+# 0x1A26 PokemonCapturedText
 [OpenLeft][LoadFace][0x64][0x1][OpenLeft][FastPrint]收服宝可梦啦！[N]
 消耗[ToggleRed]300ᢽ[ToggleRed]。[A][X]
 
-# 0x1C73 CannotCaptureText
+# 0x1A27 CannotCaptureText
 [OpenLeft][LoadFace][0x64][0x1][OpenLeft][FastPrint]电脑箱子满了。[N]
 请放生一些宝可梦。[A][X]
 
-# 0x1C74 RocketMagikarpText_A
+# 0x1A28 RocketMagikarpText_A
 [OpenRight][LoadFace][0x1][0x1][OpenRight]你好呀！[A][N]
 我这儿有笔好交易要跟你说！[A][Clear][N]
 只要2000ᢽ这只超棒的鲤鱼王[N]
 就归你了！[A]要不要？[N]
      [No][X]
 
-# 0x1C75 RocketMagikarpText_B
+# 0x1A29 RocketMagikarpText_B
 [OpenRight]总算成了！我是说……恭喜你。[A][X]
 
-# 0x1C76 RocketMagikarpText_C
+# 0x1A2A RocketMagikarpText_C
 [OpenRight]哼，真是白费口舌。[A][X]
 
-# 0x1C77 UnusedSeenGastlyquote
+# 0x1A2B UnusedSeenGastlyquote
 [OpenRight][LoadFace][0x1][0x1][OpenRight]你见过鬼斯吗？[A][X]
 
-# 0x1C78 DoorLockedText
+# 0x1A2C DoorLockedText
 门锁上了。[A][X]
 
-# 0x1C79 UnusedBillQuote
+# 0x1A2D UnusedBillQuote
 往北走一点住着一位宝可梦狂热玩家。[N]
 要我说，离那边远点会更安全。[A][N]
 谁知道他整天都在琢磨些什么呢？[A][X]
 
-# 0x1C7A MistyChallengeText
+# 0x1A2E MistyChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9F][0x1][OpenMidRight][ToggleSmile]我的战术就是用我的[N]
 水系宝可梦全力猛攻！[A][N]
 如果你想成为职业的宝可梦训练家，[N]
@@ -10609,7 +10516,7 @@ L形的，太诡异了……[A][X]
 我的宝可梦会把你[N]
 按在地上摩擦的！[A][X]
 
-# 0x1C7B MistyDefeatText
+# 0x1A2F MistyDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9F][0x1][OpenMidRight]啊！差点被水冲走！[A][N]
 好吧，我想你值得拥有这个。[A][N]
 [ToggleSmile]这个【蓝色徽章】[N]
@@ -10617,24 +10524,24 @@ L形的，太诡异了……[A][X]
 尽情地炫耀吧-[N]
 你做得很好。[A][X]
 
-# 0x1C7C MistyRewardText
+# 0x1A30 MistyRewardText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9F][0x1][OpenMidRight][ToggleSmile]这只治疗戒指能让你的[N]
 宝可梦每回合都恢复健康。[A][N]
 我要教我的宝石海星学会『自愈』，[N]
 所以我已经不再需要它啦。[A][N]
 拿着它吧， [Tact]！[A][LoadOverworldFaces][X]
 
-# 0x1C7D MistyWaitText
+# 0x1A31 MistyWaitText
 [OpenMidRight][LoadFace][0x9F][0x1][OpenMidRight]等一下！[N]
 这个也给你。[A][X]
 
-# 0x1C7E MistyRematchText
+# 0x1A32 MistyRematchText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9F][0x1][OpenMidRight][ToggleSmile]喂，你有没有心仪的观景胜地？[N]
 我尤其喜欢25号道路的那处海角！[A][N]
 那片海岸承载了我好多回忆……[A][N]
 什么样的回忆？哼！我才不告诉你！[A][X]
 
-# 0x1C7F MistyRematchDefeatText
+# 0x1A33 MistyRematchDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9F][0x1][OpenMidRight]嘿，你听说过吗？[A][N]
 带上搭档漫步25号道路，[N]
 凝视水池，就能许下真爱心愿！[A][N]
@@ -10642,7 +10549,7 @@ L形的，太诡异了……[A][X]
 [ToggleSmile]其实那是我随口编的啦！[N]
 哈哈哈！[A][X]
 
-# 0x1C80 MistyRoute1Text
+# 0x1A34 MistyRoute1Text
 [OpenMidLeft][LoadFace][0xB9][0x1][OpenMidRight][LoadFace][0x9F][0x1][OpenMidRight]警官，我跟你说啊。[A][N]
 有个带着皮卡丘的小鬼[N]
 把我的自行车偷走了！[A][N]
@@ -10658,7 +10565,7 @@ L形的，太诡异了……[A][X]
 脸上的心虚劲儿也一样……[A][CloseSpeechSlow][N]
 [MoveRight][OpenRight]哼。但愿你不是那个人。[A][X]
 
-# 0x1C81 MistyRoute5Text
+# 0x1A35 MistyRoute5Text
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9F][0x1][OpenMidRight][ToggleSmile]哦，你好[Tact]！[N]
 我最近都在培育屋帮忙照看宝可梦。[A][N]
 刚出生的宝可梦实在太可爱啦！[A][N]
@@ -10669,287 +10576,287 @@ L形的，太诡异了……[A][X]
 看它们摇摇晃晃跑来跑去，[N]
 我能看上一整天！[A][X]
 
-# 0x1C82 SaveCostText
+# 0x1A36 SaveCostText
 [OpenLeft][LoadFace][0x64][0x1][OpenLeft][FastPrint]是否存入[G]ᢽ?[N]
 [Yes][X]
 
-# 0x1C83 TooPoorToSaveText
+# 0x1A37 TooPoorToSaveText
 [OpenLeft][LoadFace][0x64][0x1][OpenLeft][FastPrint]金钱不足。[N]
 需要500ᢽ。[A][X]
 
-# 0x1C84 ViridianForestTrainerE4Text
+# 0x1A38 ViridianForestTrainerE4Text
 我超爱短裤！[A][N]
 穿着舒服又轻便！[A][X]
 
-# 0x1C85 ViridianForestTrainerE4DefeatText
+# 0x1A39 ViridianForestTrainerE4DefeatText
 啊啊…[A][X]
 
-# 0x1C86 R1_0xE1_BQ
+# 0x1A3A R1_0xE1_BQ
 虽然我年纪很小，[N]
 但我可不喜欢别人轻视我！[A][X]
 
-# 0x1C87 R1_0xE1_BD
+# 0x1A3B R1_0xE1_BD
 可恶！我要去抓更强的宝可梦！[A][X]
 
-# 0x1C88 R1_0xE0_BQ
+# 0x1A3C R1_0xE0_BQ
 又输了，我要收集更多的宝可梦！[A][N]
 等等！你看上去有点弱！[N]
 来吧，我们战斗吧！[A][X]
 
-# 0x1C89 R1_0xE0_BD
+# 0x1A3D R1_0xE0_BD
 啊，我没有宝可梦了。[A][X]
 
-# 0x1C8A R2_0xE1_BQ
+# 0x1A3E R2_0xE1_BQ
 你是要去常青森林吗？[N]
 那里是一个天然的迷宫。[A][N]
 不如我们来一场战斗吧？[A][X]
 
-# 0x1C8B R2_0xE1_BD
+# 0x1A3F R2_0xE1_BD
 我在那里迷路了，[N]
 我在这里也迷路了！[A]][X]
 
-# 0x1C8C VFS_0xE0_BQ
+# 0x1A40 VFS_0xE0_BQ
 我约了几个朋友来这里[N]
 抓厉害的宝可梦！[A][N]
 战斗吧！[A][X]
 
-# 0x1C8D VFS_0xE0_BD
+# 0x1A41 VFS_0xE0_BD
 啊！我输了？[A][X]
 
-# 0x1C8E VF_0xE0_BQ
+# 0x1A42 VF_0xE0_BQ
 我一直在渴望着来一场战斗！[A][X]
 
-# 0x1C8F VF_0xE0_BD
+# 0x1A43 VF_0xE0_BD
 哼，[N]
 没有一件事是顺利的。[A][X]
 
-# 0x1C90 VF_0xE1_BQ
+# 0x1A44 VF_0xE1_BQ
 嘿！你也有宝可梦啊！[N]
 来吧！让我们战斗吧！[A][X]
 
-# 0x1C91 VF_0xE1_BD
+# 0x1A45 VF_0xE1_BD
 不！靠【绿毛虫】还是太勉强了！[A][X]
 
-# 0x1C92 VF_0xE2_BQ
+# 0x1A46 VF_0xE2_BQ
 嘿！如果你也是宝可梦训练家的话，[N]
 那你就不能逃避战斗！[A][X]
 
-# 0x1C93 VF_0xE2_BD
+# 0x1A47 VF_0xE2_BD
 什么？我没有宝可梦了！[A][X]
 
-# 0x1C94 VF_0xE3_BQ
+# 0x1A48 VF_0xE3_BQ
 呃！我可不想惹麻烦！[A][X]
 
-# 0x1C95 VF_0xE3_BD
+# 0x1A49 VF_0xE3_BD
 妈妈为了保护我[N]
 给了我这些宝可梦…[A][X]
 
-# 0x1C96 VF_0xE4_BQ
+# 0x1A4A VF_0xE4_BQ
 嘿，等一下！[N]
 这么着急干什么？[A][X]
 
-# 0x1C97 VF_0xE4_BD
+# 0x1A4B VF_0xE4_BD
 我投降！[N]
 你太强了！[A][X]
 
-# 0x1C98 HireGeodudeText
+# 0x1A4C HireGeodudeText
 你想租借我的洛奇吗？[N]
 它对这片区域可是很熟悉的噢。[A][X]
 
-# 0x1C99 No_HireGeodudeText
+# 0x1A4D No_HireGeodudeText
 没关系的，洛奇。[A][X]
 
-# 0x1C9A Yes_HireGeodudeText
+# 0x1A4E Yes_HireGeodudeText
 洛奇会照顾好你的！[A][X]
 
-# 0x1C9B HiredGeodudeText
+# 0x1A4F HiredGeodudeText
 等你结束后，[N]
 洛奇会自己回来找我的。[A][X]
 
-# 0x1C9C R3_0xE0_BQ
+# 0x1A50 R3_0xE0_BQ
 嘿！[N]
 我在【常青森林】见过你！[A][X]
 
-# 0x1C9D R3_0xE0_BD
+# 0x1A51 R3_0xE0_BD
 你又打败了我！[A][X]
 
-# 0x1C9E R3_0xE1_BQ
+# 0x1A52 R3_0xE1_BQ
 不好意思！[N]
 你刚才是不是看了我？[A][X]
 
-# 0x1C9F R3_0xE1_BD
+# 0x1A53 R3_0xE1_BD
 你太粗鲁了！[A][X]
 
-# 0x1CA0 R3_0xE2_BQ
+# 0x1A54 R3_0xE2_BQ
 你好啊！[N]
 我非常喜欢穿短裤！[A][N]
 穿着便捷又舒服！[A][X]
 
-# 0x1CA1 R3_0xE2_BD
+# 0x1A55 R3_0xE2_BD
 我不相信！[A][X]
 
-# 0x1CA2 R3_0xE3_BQ
+# 0x1A56 R3_0xE3_BQ
 哎呀！[N]
 你是不是碰到我了？[A][X]
 
-# 0x1CA3 R3_0xE3_BD
+# 0x1A57 R3_0xE3_BD
 就这样算了？[A][X]
 
-# 0x1CA4 R3_0xE4_BQ
+# 0x1A58 R3_0xE4_BQ
 你也是【训练家】吗？[N]
 那我们就马上开始吧！[A][X]
 
-# 0x1CA5 R3_0xE4_BD
+# 0x1A59 R3_0xE4_BD
 要是我抓到新的宝可梦的话，[N]
 赢的人一定是我！[A][X]
 
-# 0x1CA6 R3_0xE5_BQ
+# 0x1A5A R3_0xE5_BQ
 你刚刚看我的那个眼神…[N]
 实在太勾人了！[A][X]
 
-# 0x1CA7 R3_0xE5_BD
+# 0x1A5B R3_0xE5_BD
 友善一点！[A][X]
 
-# 0x1CA8 R3_0xE6_BQ
+# 0x1A5C R3_0xE6_BQ
 嘿！你竟然没穿短裤！[N]
 你怎么回事？[A][X]
 
-# 0x1CA9 R3_0xE6_BD
+# 0x1A5D R3_0xE6_BD
 我穿的一直都是短裤，[N]
 哪怕是冬天我也穿。[A][N]
 这是我的原则。[A][X]
 
-# 0x1CAA MMB1_0xE0_BQ
+# 0x1A5E MMB1_0xE0_BQ
 什么？[N]
 我在这里等着我朋友找我呢。[A][X]
 
-# 0x1CAB MMB1_0xE0_BD
+# 0x1A5F MMB1_0xE0_BD
 我迷路了？[A][X]
 
-# 0x1CAC MMB1_0xE1_BQ
+# 0x1A60 MMB1_0xE1_BQ
 你也是来探索洞穴的吗？[A][X]
 
-# 0x1CAD MMB1_0xE1_BD
+# 0x1A61 MMB1_0xE1_BD
 在这里我就感觉在家一样。[A][X]
 
-# 0x1CAE MMB1_0xE2_BQ
+# 0x1A62 MMB1_0xE2_BQ
 什么！[N]
 不要偷偷靠近我！[A][X]
 
-# 0x1CAF MMB1_0xE2_BD
+# 0x1A63 MMB1_0xE2_BD
 我的宝可梦还不够强大！[A][X]
 
-# 0x1CB0 MMB1_0xE3_BQ
+# 0x1A64 MMB1_0xE3_BQ
 哇啊！这里比我想象得[N]
 要大太多了！[A][X]
 
-# 0x1CB1 MMB1_0xE3_BD
+# 0x1A65 MMB1_0xE3_BD
 噢！我输了！[N]
 你是怎么离开这里的？[A][N]
 这里太大了，[N]
 我可能迷路了。[A][X]
 
-# 0x1CB2 MMB1_0xE4_BQ
+# 0x1A66 MMB1_0xE4_BQ
 哇啊！[N]
 你吓了我一跳！[A][N]
 …噢，原来是个小孩啊！[A][X]
 
-# 0x1CB3 MMB1_0xE4_BD
+# 0x1A67 MMB1_0xE4_BD
 哇啊！[N]
 你又吓到我了！[A][X]
 
-# 0x1CB4 MMB1_0xE5_BQ
+# 0x1A68 MMB1_0xE5_BQ
 有可疑的人在洞穴里，[N]
 你是什么人？[A][X]
 
-# 0x1CB5 MMB1_0xE5_BD
+# 0x1A69 MMB1_0xE5_BD
 你赢了！[A][N]
 我看见他们了！[N]
 我确定他们是火箭队的人！[A][X]
 
-# 0x1CB6 MMB2_0xE0_BQ
+# 0x1A6A MMB2_0xE0_BQ
 我来这里是因为我听说这里[N]
 有一些非常罕见的化石。[A][X]
 
-# 0x1CB7 MMB2_0xE0_BD
+# 0x1A6B MMB2_0xE0_BD
 我输了。[A][X]
 
-# 0x1CB8 MMB2_0xE1_BQ
+# 0x1A6C MMB2_0xE1_BQ
 这个方向是死路！[A][N]
 我刚从那边回来，[N]
 所以我知道。[A][N]
 和我战斗吧！[A][X]
 
-# 0x1CB9 MMB2_0xE1_BD
+# 0x1A6D MMB2_0xE1_BD
 穿过这个洞穴，[N]
 你才能去往华蓝市。[A][X]
 
-# 0x1CBA MMB3_0xE0_BQ
+# 0x1A6E MMB3_0xE0_BQ
 我们火箭队会找到化石！[A][N]
 将它们复活成宝可梦后[N]
 会给我们带来巨大的财富。[A][X]
 
-# 0x1CBB MMB3_0xE0_BD
+# 0x1A6F MMB3_0xE0_BD
 啊！[N]
 我现在很生气！[A][X]
 
-# 0x1CBC MMB3_0xE1_BQ
+# 0x1A70 MMB3_0xE1_BQ
 我们，火箭队，是最强大的组织！[A][N]
 唯有力量才能征服一切！[A][X]
 
-# 0x1CBD MMB3_0xE1_BD
+# 0x1A71 MMB3_0xE1_BD
 搞砸了！[A][X]
 
-# 0x1CBE MMB3_0xE2_BQ
+# 0x1A72 MMB3_0xE2_BQ
 我们正在干一件大活儿！[N]
 滚开，小鬼。[A][X]
 
-# 0x1CBF MMB3_0xE2_BD
+# 0x1A73 MMB3_0xE2_BD
 那么，你很不错……[A][X]
 
-# 0x1CC0 MMB3_0xE3_BQ
+# 0x1A74 MMB3_0xE3_BQ
 小孩子不应该掺和大人的事！[A][N]
 小心给自己惹上麻烦！[A][X]
 
-# 0x1CC1 MMB3_0xE3_BD
+# 0x1A75 MMB3_0xE3_BD
 我快气倒了！[A][X]
 
-# 0x1CC2 MMB3_0xE4_BQ
+# 0x1A76 MMB3_0xE4_BQ
 “嘿，站住！[N]
 这些化石是我发现的！”[A][N]
 我跟他们说了，[N]
 但他们不听我的……[A][X]
 
-# 0x1CC3 MMB3_0xE4_BD
+# 0x1A77 MMB3_0xE4_BD
 现在我一个化石都没有了…[A][X]
 
-# 0x1CC4 MMB3_0xE5_BQ
+# 0x1A78 MMB3_0xE5_BQ
 你有麻烦了！[A][X]
 
-# 0x1CC5 MMB3_0xE5_BD
+# 0x1A79 MMB3_0xE5_BD
 看上去我们才是…[A][X]
 
-# 0x1CC6 MMB3_0xE6_BQ
+# 0x1A7A MMB3_0xE6_BQ
 而且是双倍的！[A][X]
 
-# 0x1CC7 MMB3_0xE6_BD
+# 0x1A7B MMB3_0xE6_BD
 好讨厌的感觉！[A][X]
 
-# 0x1CC8 R4_0xE0_BQ
+# 0x1A7C R4_0xE0_BQ
 我来月见山是为了寻找[N]
 新的岩石系宝可梦。[A][X]
 
-# 0x1CC9 R4_0xE0_BD
+# 0x1A7D R4_0xE0_BD
 我找到的只有岩石…[A][X]
 
-# 0x1CCA GaryCeruleanChallengeText
+# 0x1A7E GaryCeruleanChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9A][0x1][OpenMidRight]嘿！又是你这张脸！[A][N]
 我就应该在常青市[N]
 把你踩在脚下的。[A][LoadFace][0x9B][0x1][OpenMidRight]嗯？你在瞎咧咧什么。[A][N]
 [LoadFace][0x9C][0x1][OpenMidRight]我现在正好有一肚子火要发。[N]
 来吧！[A][X]
 
-# 0x1CCB GaryCeruleanDefeatText
+# 0x1A7F GaryCeruleanDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9B][0x1][OpenMidRight]哼，我本来是能赢的，[N]
 都怪这些愚蠢的规则。[A][N]
 你知道吗？[N]
@@ -10958,20 +10865,20 @@ L形的，太诡异了……[A][X]
 连一点还手之力都没有。[A][N]
 再见，软弱的家伙。[A][X]
 
-# 0x1CCC NoCascadeBadgeText
+# 0x1A80 NoCascadeBadgeText
 我正在为火箭队执行巡逻任务。[A][X]
 
-# 0x1CCD CeruleanGymSignText
+# 0x1A81 CeruleanGymSignText
 华蓝道馆[A][X]
 
-# 0x1CCE CeruleanBicycleShopSignText
+# 0x1A82 CeruleanBicycleShopSignText
 自行车店[A][X]
 
-# 0x1CCF BicycleShopText
+# 0x1A83 BicycleShopText
 想要买一辆自行车吗？[N]
 只要1000000ᢽ噢![A][X]
 
-# 0x1CD0 CeruleanCityNWHouseText
+# 0x1A84 CeruleanCityNWHouseText
 什么？你只是想从[N]
 我的后院里拿一些糖果？[A][N]
 听着，孩子…[.....]…[.....]…[......][N]
@@ -10981,42 +10888,42 @@ L形的，太诡异了……[A][X]
 而且你也不应该吃地上捡的糖果，[N]
 这很不卫生。[A][X]
 
-# 0x1CD1 CeruleanCityWHouseText
+# 0x1A85 CeruleanCityWHouseText
 你也是宝可梦训练家吗？[A][N]
 收集、战斗…[A][N]
 这种生活真是艰难啊，[N]
 不是吗？[A][X]
 
-# 0x1CD2 CeruleanCityNHouseText
+# 0x1A86 CeruleanCityNHouseText
 诶……[N]
 真是太无聊了……[A][N]
 就没有哪里发生点有趣的事吗？[A][X]
 
-# 0x1CD3 CeruleanCitySHouseText
+# 0x1A87 CeruleanCitySHouseText
 你知道有一种特殊的招式学习器[N]
 能够砍倒细小的树木吗？[A][X]
 
-# 0x1CD4 UNUSED_0xE1_BD
+# 0x1A88 UNUSED_0xE1_BD
 失败太糟糕了！[N]
 这实在太丢人了。[A][X]
 
-# 0x1CD5 R24_0xE0_BQ
+# 0x1A89 R24_0xE0_BQ
 我来了！[N]
 我是不会让你轻易过去的！[A][X]
 
-# 0x1CD6 R24_0xE0_BD
+# 0x1A8A R24_0xE0_BD
 哎呀！[N]
 一败涂地！[A][X]
 
-# 0x1CD7 R24_0xE1_BQ
+# 0x1A8B R24_0xE1_BQ
 嗯！我已经准备好了！[N]
 我要打败你！[A][X]
 
-# 0x1CD8 R24_0xE1_BD
+# 0x1A8C R24_0xE1_BD
 哇啊！[N]
 太勉强了！[A][X]
 
-# 0x1CD9 R24_0xE2_BQ
+# 0x1A8D R24_0xE2_BQ
 你想加入火箭队吗？[A][N]
 我们是一个专门从事[N]
 宝可梦犯罪事业的组织！[A][N]
@@ -11029,41 +10936,41 @@ L形的，太诡异了……[A][X]
 我会给你一个[N]
 不能拒绝的理由的！[A][X]
 
-# 0x1CDA R24_0xE2_BD
+# 0x1A8E R24_0xE2_BD
 呃啊！[N]
 你很强！[A][X]
 
-# 0x1CDB R25_0xE0_BQ
+# 0x1A8F R25_0xE0_BQ
 本地的【训练家们】[N]
 会来这里训练宝可梦。[A][X]
 
-# 0x1CDC R25_0xE0_BD
+# 0x1A90 R25_0xE0_BD
 你还不错。[A][X]
 
-# 0x1CDD R25_0xE1_BQ
+# 0x1A91 R25_0xE1_BQ
 我有一种感觉……[N]
 我知道我必须要和你战斗！[A][X]
 
-# 0x1CDE R25_0xE1_BD
+# 0x1A92 R25_0xE1_BD
 我也知道我会输！[A][X]
 
-# 0x1CDF R25_0xE3_BQ
+# 0x1A93 R25_0xE3_BQ
 我的朋友有很多可爱的宝可梦，[N]
 我好嫉妒啊！[A][X]
 
-# 0x1CE0 R25_0xE3_BD
+# 0x1A94 R25_0xE3_BD
 我不那么嫉妒了！[A][X]
 
-# 0x1CE1 R25_0xE2_BQ
+# 0x1A95 R25_0xE2_BQ
 虽然我刚才月见山上下来，[N]
 但我还有余力噢！[A][X]
 
-# 0x1CE2 R25_0xE2_BD
+# 0x1A96 R25_0xE2_BD
 可恶！[A][N]
 都怪那只【超音蝠】[N]
 在山洞里咬了我。[A][X]
 
-# 0x1CE3 DaycareHouseText
+# 0x1A97 DaycareHouseText
 我经营着一家培育屋。[A][N]
 你想让我替你照顾你的一只宝可梦吗？[A][Clear][N]
 不过现在排队时间可能需要好几个月，[N]
@@ -11071,57 +10978,57 @@ L形的，太诡异了……[A][X]
 不好意思，[N]
 你可以过段时间来吗？[A][X]
 
-# 0x1CE4 UndergroundPassText
+# 0x1A98 UndergroundPassText
 走过很长的一段路后，[N]
 你到达了另一边。[A][X]
 
-# 0x1CE5 R5_0xE0_BQ
+# 0x1A99 R5_0xE0_BQ
 来战斗吧，[N]
 不过你可不能作弊噢！[A][X]
 
-# 0x1CE6 R5_0xE0_BD
+# 0x1A9A R5_0xE0_BD
 啊？[N]
 这不科学！[A][X]
 
-# 0x1CE7 R5_0xE1_BQ
+# 0x1A9B R5_0xE1_BQ
 我从来都没有在这附近见过你，[N]
 你厉害吗？[A][X]
 
-# 0x1CE8 R5_0xE1_BD
+# 0x1A9C R5_0xE1_BD
 你太厉害了！[A][X]
 
-# 0x1CE9 R6_0xE0_BQ
+# 0x1A9D R6_0xE0_BQ
 谁在那里？[N]
 好吧，那就战斗吧！[A][X]
 
-# 0x1CEA R6_0xE0_BD
+# 0x1A9E R6_0xE0_BD
 我就是赢不了！[A][X]
 
-# 0x1CEB R6_0xE1_BQ
+# 0x1A9F R6_0xE1_BQ
 我一直在用心地培养我的宝可梦，[N]
 它们现在应该准备好了！[A][X]
 
-# 0x1CEC R6_0xE1_BD
+# 0x1AA0 R6_0xE1_BD
 哼……[A][N]
 我最好再去收服一些[N]
 更强的宝可梦！[A][X]
 
-# 0x1CED R6_0xE2_BQ
+# 0x1AA1 R6_0xE2_BQ
 这里没什么虫子。[A][X]
 
-# 0x1CEE R6_0xE2_BD
+# 0x1AA2 R6_0xE2_BD
 不！[N]
 这一定是在开玩笑！[A][N]
 我爱虫子，[N]
 我要回【常青森林】。[A][X]
 
-# 0x1CEF VermilionGymSignText
+# 0x1AA3 VermilionGymSignText
 枯叶道馆[A][X]
 
-# 0x1CF0 VermilionFanClubSignText
+# 0x1AA4 VermilionFanClubSignText
 枯叶市宝可梦发烧友俱乐部[A][X]
 
-# 0x1CF1 FanClubText
+# 0x1AA5 FanClubText
 我是这家宝可梦[N]
 发烧友俱乐部的会长！[A][N]
 我培养了超过一百只宝可梦！[A][N]
@@ -11151,7 +11058,7 @@ L形的，太诡异了……[A][X]
 梦里什么都有，[N]
 赶紧走。[A][X]
 
-# 0x1CF2 VermilionNWHouseText
+# 0x1AA6 VermilionNWHouseText
 我就是传说中的【钓鱼名人】！[A][N]
 我简直是太喜欢钓鱼了！[A][N]
 我很愿意和你分享[N]
@@ -11159,47 +11066,47 @@ L形的，太诡异了……[A][X]
 但是那懒的要死的开发者[N]
 连鱼竿都没做出来。[A][X]
 
-# 0x1CF3 VermilionMidHouseText
+# 0x1AA7 VermilionMidHouseText
 嘿！[N]
 你有咕咕吗？[A][N]
 想用它换我的勇基拉吗？[A][N]
 没有吗…？[N]
 那可真是太遗憾了。[A][X]
 
-# 0x1CF4 VermilionSEHouseText
+# 0x1AA8 VermilionSEHouseText
 我要让我的波波飞去北方的[N]
 金黄市替我送一封信。[A][X]
 
-# 0x1CF5 R11_0xE0_BQ
+# 0x1AA9 R11_0xE0_BQ
 我是我们班上最厉害的，[N]
 我每天都早上都会训练。[A][X]
 
-# 0x1CF6 R11_0xE0_BD
+# 0x1AAA R11_0xE0_BD
 可恶！[N]
 我的宝可梦还需要变得更强！[A][X]
 
-# 0x1CF7 R11_0xE1_BQ
+# 0x1AAB R11_0xE1_BQ
 小心！[N]
 我正在铺设电缆！[A][X]
 
-# 0x1CF8 R11_0xE1_BD
+# 0x1AAC R11_0xE1_BD
 你电到我了！[A][X]
 
-# 0x1CF9 R11_0xE2_BQ
+# 0x1AAD R11_0xE2_BQ
 在宝可梦的世界里，[N]
 你绝对不能做一个懦夫！[A][X]
 
-# 0x1CFA R11_0xE2_BD
+# 0x1AAE R11_0xE2_BD
 啊！我受够了！[A][X]
 
-# 0x1CFB R11_0xE3_BQ
+# 0x1AAF R11_0xE3_BQ
 小心通电的电线！[A][X]
 
-# 0x1CFC R11_0xE3_BD
+# 0x1AB0 R11_0xE3_BD
 哇啊！[N]
 你可真是激情四射！[A][X]
 
-# 0x1CFD SSA_0xE0_BQ
+# 0x1AB1 SSA_0xE0_BQ
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9A][0x1][OpenMidRight][ToggleSmile]嘿[N]
 [Tact]！[A][N]
 竟然能在这里见到你！[A][N]
@@ -11215,41 +11122,41 @@ L形的，太诡异了……[A][X]
 因为马上我就会[N]
 把你打飞进海里！[A][X]
 
-# 0x1CFE SSA_0xE0_BD
+# 0x1AB2 SSA_0xE0_BD
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9B][0x1][OpenMidRight]哼！[A][Clear]要不是我浪费了[N]
 太多时间在抓宝可梦上，[A][N]
 我早就已经赢了。[A][X]
 
-# 0x1CFF SSA_0xE3_BQ
+# 0x1AB3 SSA_0xE3_BQ
 你这个无礼的小家伙！[N]
 你是怎么敢闯进来的！[A][X]
 
-# 0x1D00 SSA_0xE3_BD
+# 0x1AB4 SSA_0xE3_BD
 哼！无礼的小鬼！[N]
 真是没有家教！[A][X]
 
-# 0x1D01 SSA_0xE2_BQ
+# 0x1AB5 SSA_0xE2_BQ
 嘿，伙计！[A][N]
 让我们来跳支舞吧！[A][X]
 
-# 0x1D02 SSA_0xE2_BD
+# 0x1AB6 SSA_0xE2_BD
 你这家伙真是[N]
 让人印象深刻啊！[A][X]
 
-# 0x1D03 SSA_0xE4_BQ
+# 0x1AB7 SSA_0xE4_BQ
 我只是一名孤身旅人……[A][N]
 一路上收服的宝可梦，[N]
 便是我唯一的同伴与挚友……[A][X]
 
-# 0x1D04 SSA_0xE4_BD
+# 0x1AB8 SSA_0xE4_BD
 哎呀，我的朋友……[A][X]
 
-# 0x1D05 SSA_0xE1_BD
+# 0x1AB9 SSA_0xE1_BD
 使用【居合斩】的话，[N]
 你就能砍断那些细小的树木。[A][N]
 为什么不去枯叶市试试它呢？[A][X]
 
-# 0x1D06 CaptainTeachHMText
+# 0x1ABA CaptainTeachHMText
 你想见识见识我的[N]
 秘传【居合斩】吗？[A][N]
 走近点看…[N]
@@ -11259,139 +11166,139 @@ L形的，太诡异了……[A][X]
 …[N]
 ……[A][X]
 
-# 0x1D07 CaptainCantTeachHMText
+# 0x1ABB CaptainCantTeachHMText
 你感觉自己现在已经知道[N]
 怎么砍断那些矮小的树了。[A][N]
 首先，你必须先拿到[N]
 华蓝市的蓝色徽章。[A][N]
 唯有如此，你才算具备资格。[A][X]
 
-# 0x1D08 LearnedCutText
+# 0x1ABC LearnedCutText
 你已经学会了[N]
 斩断小树丛的招式。[A][X]
 
-# 0x1D10 Route9W_WaitingSurge
+# 0x1AC4 Route9W_WaitingSurge
 我在等马志士！[A][N]
 他答应我会带我[N]
 参观无人发电厂…[A][X]
 
-# 0x1D11 Route9W_WaitingSurge2
+# 0x1AC5 Route9W_WaitingSurge2
 我在等马志士！[A][N]
 无人发电厂出什么事了…[A][X]
 
-# 0x1D12 R9W_0xE0_BQ
+# 0x1AC6 R9W_0xE0_BQ
 你带着宝可梦啊！[N]
 你是我的了！[A][X]
 
-# 0x1D13 R9W_0xE0_BD
+# 0x1AC7 R9W_0xE0_BD
 你的样子欺骗了我…[A][X]
 
-# 0x1D14 R9W_0xE1_BQ
+# 0x1AC8 R9W_0xE1_BQ
 和那些好看的宝可梦[N]
 一起走在那里的是谁？[A][X]
 
-# 0x1D15 R9W_0xE1_BD
+# 0x1AC9 R9W_0xE1_BD
 我晕了！[A][X]
 
-# 0x1D16 R9E_0xE0_BQ
+# 0x1ACA R9E_0xE0_BQ
 你可别小看我！[A][X]
 
-# 0x1D17 R9E_0xE0_BD
+# 0x1ACB R9E_0xE0_BD
 不！[N]
 你太强了。[A][X]
 
-# 0x1D18 R9E_0xE1_BQ
+# 0x1ACC R9E_0xE1_BQ
 我要走岩山隧道去往紫苑镇…[A][X]
 
-# 0x1D19 R9E_0xE1_BD
+# 0x1ACD R9E_0xE1_BD
 我迷路了…[A][X]
 
-# 0x1D1A R10_0xE0_BQ
+# 0x1ACE R10_0xE0_BQ
 我曾几次去过宝可梦道馆，[A][N]
 …但我每次都输了。[A][X]
 
-# 0x1D1B R10_0xE0_BD
+# 0x1ACF R10_0xE0_BD
 啊！[N]
 我的所有努力都白费了！[A][X]
 
-# 0x1D1C RTB1_0xE0_BQ
+# 0x1AD0 RTB1_0xE0_BQ
 这条隧道可是很长的，小鬼！[A][X]
 
-# 0x1D1D RTB1_0xE0_BD
+# 0x1AD1 RTB1_0xE0_BD
 哎！[N]
 你赢了！[A][X]
 
-# 0x1D1E RTB1_0xE1_BQ
+# 0x1AD2 RTB1_0xE1_BQ
 呃，[N]
 也许我迷路了…[A][X]
 
-# 0x1D1F RTB1_0xE1_BD
+# 0x1AD3 RTB1_0xE1_BD
 放松！[N]
 我在做什么？[A][N]
 出口在哪里？[A][X]
 
-# 0x1D20 RTB1_0xE2_BQ
+# 0x1AD4 RTB1_0xE2_BQ
 哎呀！[A][N]
 别想在这里搞事情！[A][X]
 
-# 0x1D21 RTB1_0xE2_BD
+# 0x1AD5 RTB1_0xE2_BD
 这里太黑了…[A][X]
 
-# 0x1D22 RTB1_0xE3_BQ
+# 0x1AD6 RTB1_0xE3_BQ
 我来这里是为了寻找[N]
 野生的宝可梦的。[A][X]
 
-# 0x1D23 RTB1_0xE3_BD
+# 0x1AD7 RTB1_0xE3_BD
 我没有宝可梦了！[A][X]
 
-# 0x1D24 RTB2_0xE0_BQ
+# 0x1AD8 RTB2_0xE0_BQ
 哈哈哈！[N]
 你能击败我的力量吗？[A][X]
 
-# 0x1D25 RTB2_0xE0_BD
+# 0x1AD9 RTB2_0xE0_BD
 哎呀！[N]
 打不过！[A][X]
 
-# 0x1D26 RTB2_0xE1_BQ
+# 0x1ADA RTB2_0xE1_BQ
 使出你的全力！[A][X]
 
-# 0x1D27 RTB2_0xE1_BD
+# 0x1ADB RTB2_0xE1_BD
 筋疲力尽了！[A][X]
 
-# 0x1D28 RTB2_0xE2_BQ
+# 0x1ADC RTB2_0xE2_BQ
 我的宝可梦实力[N]
 可是会让你哭的！[A][X]
 
-# 0x1D29 RTB2_0xE2_BD
+# 0x1ADD RTB2_0xE2_BD
 我投降！[N]
 你的宝可梦实力更强！[A][X]
 
-# 0x1D2A RTB2_0xE3_BQ
+# 0x1ADE RTB2_0xE3_BQ
 我在家的时候会画一些[N]
 宝可梦的插图。[A][X]
 
-# 0x1D2B RTB2_0xE3_BD
+# 0x1ADF RTB2_0xE3_BD
 呼…[N]
 我快累瘫了…[A][X]
 
-# 0x1D2C PokemonTowerText
+# 0x1AE0 PokemonTowerText
 宝可梦塔[N]
 宝可梦灵魂的安息之地[A][X]
 
-# 0x1D2D GhostsText
+# 0x1AE1 GhostsText
 你相信有幽灵吗？[A][X]
 
-# 0x1D2E LavenderHouse1Text
+# 0x1AE2 LavenderHouse1Text
 这个镇子以宝可梦的墓地而出名，[A][N]
 祭奠宝可梦的仪式[N]
 都会在宝可梦塔里举行。[A][X]
 
-# 0x1D2F LavenderHouse2Text
+# 0x1AE3 LavenderHouse2Text
 宝可梦塔里出现了幽灵。[A][N]
 我觉得那是火箭队[N]
 杀死的宝可梦的冤魂。[A][X]
 
-# 0x1D30 GaryLavenderChallengeText
+# 0x1AE4 GaryLavenderChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenRight][LoadFace][0x9B][0x1][OpenRight]嘿， [Tact]![N]
 你的宝可梦死了？[A][N]
 什么？ 你不玩Nuzlocke？[A][N]
@@ -11400,7 +11307,7 @@ L形的，太诡异了……[A][X]
 统统打晕过去！[A][N]
 来吧！[A][X]
 
-# 0x1D31 GaryLavenderNuzlockeChallengeText
+# 0x1AE5 GaryLavenderNuzlockeChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenRight][LoadFace][0x9B][0x1][OpenRight]嘿， [Tact]![N]
 你的宝可梦死了？[A][N]
 你觉得你是一个[N]
@@ -11415,68 +11322,68 @@ L形的，太诡异了……[A][X]
 [LoadFace][0x9C][0x1][OpenRight]我倒想知道你有多少[N]
 宝可梦够我打的，来吧！[A][X]
 
-# 0x1D32 GaryLavenderDefeatText
+# 0x1AE6 GaryLavenderDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenRight][LoadFace][0x9B][0x1][OpenRight]啊啊！[N]
 你这个讨厌的家伙！[A][N]
 哼…我不该对你手下留情。[A][X]
 
-# 0x1D33 PTF2_0xE0_BQ
+# 0x1AE7 PTF2_0xE0_BQ
 呃啊…哇啊…[N]
 呼呼…噶啊…[A][X]
 
-# 0x1D34 PTF2_0xE0_BD
+# 0x1AE8 PTF2_0xE0_BD
 嗯？[N]
 我在做什么？[A][N]
 对不起！[N]
 我被幽灵附身了！[A][X]
 
-# 0x1D35 PTF3_0xE0_BQ
+# 0x1AE9 PTF3_0xE0_BQ
 咯咯咯…[N]
 哇啊啊！[A][X]
 
-# 0x1D36 PTF3_0xE0_BD
+# 0x1AEA PTF3_0xE0_BD
 哇啊！[N]
 我得救了！[A][X]
 
-# 0x1D37 PTF4_0xE0_BQ
+# 0x1AEB PTF4_0xE0_BQ
 给…我…[N]
 血……[A][X]
 
-# 0x1D38 PTF4_0xE0_BD
+# 0x1AEC PTF4_0xE0_BD
 我感觉有点虚弱和贫血…[A][X]
 
-# 0x1D39 PTF4_MarowakChallengeText
+# 0x1AED PTF4_MarowakChallengeText
 离开这里…[N]
 入侵者…[A][X]
 
-# 0x1D3A PTF4_MarowakDefeatText
+# 0x1AEE PTF4_MarowakDefeatText
 宝可梦的灵魂得到了安息，[N]
 它去了另一个世界。[A][X]
 
-# 0x1D3B AuraFlareText
+# 0x1AEF AuraFlareText
 野生的宝可梦身上[N]
 发出了闪亮的光环！[A][X]
 
-# 0x1D3C AuraDissipated
+# 0x1AF0 AuraDissipated
 野生的宝可梦身上[N]
 的光环正在消散！[A][X]
 
-# 0x1D3D CannotEscapeAuraBattleText
+# 0x1AF1 CannotEscapeAuraBattleText
 你逃不掉的！[A][X]
 
-# 0x1D3E PTF5_0xE0_BQ
+# 0x1AF2 PTF5_0xE0_BQ
 你想干嘛？[A][X]
 
-# 0x1D3F PTF5_0xE1_BQ
+# 0x1AF3 PTF5_0xE1_BQ
 为什么会来这里？[A][X]
 
-# 0x1D40 PTF5_0xE0_BD
+# 0x1AF4 PTF5_0xE0_BD
 什么？我只是想挣点钱。[A][X]
 
-# 0x1D41 PTF5_0xE1_BD
+# 0x1AF5 PTF5_0xE1_BD
 嗯？我只是在工作啊。[A][X]
 
-# 0x1D42 MrFujiText
+# 0x1AF6 MrFujiText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenRight][LoadFace][0xB7][0x1][OpenRight]啊？[N]
 你是来救我的？[A][N]
 谢谢你，[N]
@@ -11488,73 +11395,73 @@ L形的，太诡异了……[A][X]
 不过我必须得感谢你的热心肠，[N]
 这个给你，拿着吧。[A][X]
 
-# 0x1D43 ObtainedPokefluteText
+# 0x1AF7 ObtainedPokefluteText
 获得宝可梦之笛[A][X]
 
-# 0x1D44 MrFujiText2
+# 0x1AF8 MrFujiText2
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenRight][LoadFace][0xB7][0x1][OpenRight]宝可梦之笛可以[N]
 唤醒沉睡的宝可梦。[A][X]
 
-# 0x1D45 MrFujiText3
+# 0x1AF9 MrFujiText3
 我有时会来这里冥想。[A][X]
 
-# 0x1D46 R12N_0xE0_BQ
+# 0x1AFA R12N_0xE0_BQ
 你知道怎么[N]
 训练鲤鱼王吗？[A][X]
 
-# 0x1D47 R12N_0xE0_BD
+# 0x1AFB R12N_0xE0_BD
 我真希望我能知道！[A][X]
 
-# 0x1D48 R12N_0xE1_BQ
+# 0x1AFC R12N_0xE1_BQ
 好耶！咬钩了！[A][X]
 
-# 0x1D49 R12N_0xE1_BD
+# 0x1AFD R12N_0xE1_BD
 嘁，只是一只小鱼…[A][X]
 
-# 0x1D4A R12N_0xE2_BQ
+# 0x1AFE R12N_0xE2_BQ
 什么，鲤鱼王？[N]
 我一直在这里钓着呢。[A][X]
 
-# 0x1D4B R12N_0xE2_BD
+# 0x1AFF R12N_0xE2_BD
 小子，鲤鱼王确实很弱小，[N]
 但是暴鲤龙可是非常强的。[A][X]
 
-# 0x1D4C R12N_0xE3_BQ
+# 0x1B00 R12N_0xE3_BQ
 【钓鱼狂人】VS【宝可梦小子】！[A][X]
 
-# 0x1D4D R12N_0xE3_BD
+# 0x1B01 R12N_0xE3_BD
 实力差太多了！[A][X]
 
-# 0x1D4E R12N_0xE4_BQ
+# 0x1B02 R12N_0xE4_BQ
 我热爱钓鱼，[N]
 但是不要误会，[A][N]
 要是我还有[N]
 更多的工作就好了。[A][X]
 
-# 0x1D4F R12N_0xE4_BD
+# 0x1B03 R12N_0xE4_BD
 这不容易…[A][X]
 
-# 0x1D50 Route12ClosedText
+# 0x1B04 Route12ClosedText
 对不起，我们已经[N]
 封锁了前方区域，[A][N]
 有一只一直在睡觉的[N]
 宝可梦挡住了去路！[A][X]
 
-# 0x1D51 SnorlaxSleepingText
+# 0x1B05 SnorlaxSleepingText
 一只正在呼呼大睡的[N]
 宝可梦挡住了去路…[A][X]
 
-# 0x1D52 PlayPokefluteText
+# 0x1B06 PlayPokefluteText
 [Tact]吹响了宝可梦之笛。[A][X]
 
-# 0x1D53 SnorlaxGrumpyText
+# 0x1B07 SnorlaxGrumpyText
 被叫醒的宝可梦[N]
 愤怒地发起了攻击！[A][X]
 
-# 0x1D54 SnorlaxLeftText
+# 0x1B08 SnorlaxLeftText
 啊啊啊…[A][X]
 
-# 0x1D55 Route12FisherHouseText
+# 0x1B09 Route12FisherHouseText
 钓鱼？我确实喜欢钓鱼啊、[N]
 做一个房子啊之类的事。[A][N]
 什么？[N]
@@ -11564,141 +11471,141 @@ L形的，太诡异了……[A][X]
 不对不对，[N]
 我很久以前把他们给吃了。[A][X]
 
-# 0x1D56 R12S_0xE0_BQ
+# 0x1B0A R12S_0xE0_BQ
 我对钓宝可梦简直是一窍不通，[A][N]
 我都没钓到除了大钳蟹[N]
 以外的任何宝可梦。[A][X]
 
-# 0x1D57 R12S_0xE0_BD
+# 0x1B0B R12S_0xE0_BD
 也许我应该换一个钓鱼点…[A][X]
 
-# 0x1D58 R12S_0xE1_BQ
+# 0x1B0C R12S_0xE1_BQ
 要是有更好的钓鱼竿，[N]
 我就能捉到更厉害的宝可梦…[A][X]
 
-# 0x1D59 R12S_0xE1_BD
+# 0x1B0D R12S_0xE1_BD
 等一下！[N]
 我的鱼线卡住了！[A][X]
 
-# 0x1D5A R12S_0xE2_BQ
+# 0x1B0E R12S_0xE2_BQ
 你看上去很温柔，[N]
 所以我觉得我能打败你。[A][N]
 我会放手一搏的！[X]
 
-# 0x1D5B R12S_0xE2_BD
+# 0x1B0F R12S_0xE2_BD
 大鱼跑了！[A][X]
 
-# 0x1D5C R12S_0xE3_BQ
+# 0x1B10 R12S_0xE3_BQ
 钓到了什么？[A][N]
 你永远都不可能知道[N]
 你会钓到什么！[A][X]
 
-# 0x1D5D R12S_0xE3_BD
+# 0x1B11 R12S_0xE3_BD
 鱼跑了！[A][X]
 
-# 0x1D5E R13_0xE0_BQ
+# 0x1B12 R13_0xE0_BQ
 我的宝可梦想要和你战斗！[A][X]
 
-# 0x1D5F R13_0xE0_BD
+# 0x1B13 R13_0xE0_BD
 虽然输了，[N]
 但它们还是很高兴。[A][X]
 
-# 0x1D60 R13_0xE1_BQ
+# 0x1B14 R13_0xE1_BQ
 有人跟我说，[A][N]
 作为一个孩子而言[N]
 我已经很厉害了。[A][X]
 
-# 0x1D61 R13_0xE1_BD
+# 0x1B15 R13_0xE1_BD
 噢不！我输了！[A][X]
 
-# 0x1D62 R13_0xE2_BQ
+# 0x1B16 R13_0xE2_BQ
 我可爱的宝可梦[N]
 想要认识你。[A][X]
 
-# 0x1D63 R13_0xE2_BD
+# 0x1B17 R13_0xE2_BD
 厉害！[N]
 漂亮的胜利！[A][X]
 
-# 0x1D64 R14_0xE0_BQ
+# 0x1B18 R14_0xE0_BQ
 哇噢！你的徽章太酷了！[A][X]
 
-# 0x1D65 R14_0xE0_BD
+# 0x1B19 R14_0xE0_BD
 你是从【道馆馆主】那里[N]
 得到这些徽章的，我知道的！[A][X]
 
-# 0x1D66 R14_0xE1_BQ
+# 0x1B1A R14_0xE1_BQ
 我在洞穴探险时[N]
 发现过【速度增强剂】。[A][X]
 
-# 0x1D67 R14_0xE1_BD
+# 0x1B1B R14_0xE1_BD
 【速度增强剂】能提升[N]
 我的宝可梦的【速度】。[A][X]
 
-# 0x1D68 R14_0xE2_BQ
+# 0x1B1C R14_0xE2_BQ
 有报告称这附近有[N]
 暴走族在到处闲逛。[A][X]
 
-# 0x1D69 R14_0xE2_BD
+# 0x1B1D R14_0xE2_BD
 在外要注意安全。[A][X]
 
-# 0x1D6A R14_0xE3_BQ
+# 0x1B1E R14_0xE3_BQ
 我需要消磨点时间，[N]
 来战斗吧。[A][X]
 
-# 0x1D6B R14_0xE3_BD
+# 0x1B1F R14_0xE3_BD
 什么？[N]
 你！？[A][X]
 
-# 0x1D6C R15_0xE0_BQ
+# 0x1B20 R15_0xE0_BQ
 我刚刚交换到了一些宝可梦，[N]
 我能拿你来练练手吗？[A][X]
 
-# 0x1D6D R15_0xE0_BD
+# 0x1B21 R15_0xE0_BD
 它们还不够好！[A][X]
 
-# 0x1D6E R15_0xE1_BQ
+# 0x1B22 R15_0xE1_BQ
 我当然会和你一起玩了，[N]
 亲爱的。[A][X]
 
-# 0x1D6F R15_0xE1_BD
+# 0x1B23 R15_0xE1_BD
 噢！你这只[N]
 狂热的小野兽！[A][X]
 
-# 0x1D70 R15_0xE2_BQ
+# 0x1B24 R15_0xE2_BQ
 你看起来挺绅士的，[N]
 所以我觉得我能赢过你。[A][N]
 我来试一试！[A][X]
 
-# 0x1D71 R15_0xE2_BD
+# 0x1B25 R15_0xE2_BD
 不，判断失误！[A][X]
 
-# 0x1D72 R15_0xE3_BQ
+# 0x1B26 R15_0xE3_BQ
 我培养宝可梦是为了保护自己，[N]
 因为我只有一个人住。[A][X]
 
-# 0x1D73 R15_0xE3_BD
+# 0x1B27 R15_0xE3_BD
 呃呃…宝可梦对我来说[N]
 不仅仅是输赢。[A][X]
 
-# 0x1D74 R15_0xE4_BQ
+# 0x1B28 R15_0xE4_BQ
 你想和我的宝可梦战斗吗？[A][X]
 
-# 0x1D75 R15_0xE4_BD
+# 0x1B29 R15_0xE4_BD
 已经结束了？[A][X]
 
-# 0x1D76 R15_0xE5_BQ
+# 0x1B2A R15_0xE5_BQ
 我没有可以交换宝可梦的朋友，[N]
 所以我用通讯石来进化。[A][X]
 
-# 0x1D77 R15_0xE5_BD
+# 0x1B2B R15_0xE5_BD
 也许我还是应该交一些朋友…[A][X]
 
-# 0x1D78 FuschiaMidHouseText
+# 0x1B2C FuschiaMidHouseText
 狩猎地带的入口处有一座动物园，[A][N]
 动物园的后面就是[N]
 捕捉宝可梦的狩猎地带。[A][X]
 
-# 0x1D79 FuschiaSEHouseAText
+# 0x1B2D FuschiaSEHouseAText
 嗯？金假牙？[N]
 怪力？神奇糖果？[A][N]
 慢点，孩子，[N]
@@ -11707,7 +11614,7 @@ L形的，太诡异了……[A][X]
 什么，[N]
 你以为今天是万圣节吗？[A][X]
 
-# 0x1D7A FuschiaSEHouseBText
+# 0x1B2E FuschiaSEHouseBText
 你喜欢钓鱼吗？[N]
 我很讨厌它！[A][N]
 编写这样一个愚蠢的功能[N]
@@ -11715,48 +11622,48 @@ L形的，太诡异了……[A][X]
 我想知道是否真的能有人[N]
 能将钓鱼变成现实…[A][X]
 
-# 0x1D7B FuschiaWHouseAText
+# 0x1B2F FuschiaWHouseAText
 你去过狩猎地带了吗？[A][N]
 那里有一些只能在那里[N]
 捉到的宝可梦。[A][X]
 
-# 0x1D7C FuschiaWHouseBText
+# 0x1B30 FuschiaWHouseBText
 阿桔用的是毒系宝可梦。[A][N]
 嗯？[.....]为什么它们叫毒系？[A][N]
 我也不知道。[A][N]
 也许它们在战斗中的表现[N]
 真得很恶毒？[A][X]
 
-# 0x1D7D FuschiaSESignText
+# 0x1B31 FuschiaSESignText
 园长的家[A][X]
 
-# 0x1D7E FuschiaGymSignText
+# 0x1B32 FuschiaGymSignText
 浅红道馆[A][X]
 
-# 0x1D7F FuschiaSafariSignText
+# 0x1B33 FuschiaSafariSignText
 狩猎地带[A][X]
 
-# 0x1D80 EnterSafariZoneText
+# 0x1B34 EnterSafariZoneText
 享受你的狩猎时刻吧！[N]
 这里是完全免费的，[N]
 也没有任何时间限制。[A][X]
 
-# 0x1D81 SafariSHouseText
+# 0x1B35 SafariSHouseText
 呃呃…走开。[A][N]
 也许我应该换个地方住…[A][X]
 
-# 0x1D82 SafariNHouseText
+# 0x1B36 SafariNHouseText
 这里的宝可梦物种繁多，[N]
 真是壮观啊！[A][X]
 
-# 0x1D83 SafariEHouseText
+# 0x1B37 SafariEHouseText
 有很多强大的宝可梦[N]
 在外面四处游荡！[A][X]
 
-# 0x1D84 SafariWHouse_AText
+# 0x1B38 SafariWHouse_AText
 当心飞天螳螂！[A][X]
 
-# 0x1D85 WardenAText
+# 0x1B39 WardenAText
 [OpenFarRight][LoadFace][0xBC][0x1][OpenRight][LoadFace][0xBD][0x1][OpenFarRight]站住！来者何人！[A][N]
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenFarRight]嗯？就一个小鬼？[A][N]
 什么？关都地区在日本？[N]
@@ -11786,118 +11693,118 @@ L形的，太诡异了……[A][X]
 要是再被镜头拍到，咱俩[N]
 都会从动画里彻底消失。[A][X]
 
-# 0x1D86 WardenBText
+# 0x1B3A WardenBText
 你掌握了碎岩的能力。[A][X]
 
-# 0x1D87 CompleteGymFirst
+# 0x1B3B CompleteGymFirst
 我应该先挑战本地的道馆…[A][X]
 
-# 0x1D88 R18_0xE0_BQ
+# 0x1B3C R18_0xE0_BQ
 我总是会在每一处草地里[N]
 寻找新的宝可梦。[A][X]
 
-# 0x1D89 R18_0xE0_BD
+# 0x1B3D R18_0xE0_BD
 哼！[A][X]
 
-# 0x1D8A R18_0xE1_BQ
+# 0x1B3E R18_0xE1_BQ
 这里是我的地盘！[N]
 滚开！[A][X]
 
-# 0x1D8B R18_0xE1_BD
+# 0x1B3F R18_0xE1_BD
 见鬼！[A][X]
 
-# 0x1D8C R17S_0xE1_BQ
+# 0x1B40 R17S_0xE1_BQ
 你这宝可梦不错啊！[N]
 交出来！[A][X]
 
-# 0x1D8D R17S_0xE1_BD
+# 0x1B41 R17S_0xE1_BD
 哼，[N]
 谁要它们！[A][X]
 
-# 0x1D8E R17S_0xE0_BQ
+# 0x1B42 R17S_0xE0_BQ
 你想干嘛？[A][X]
 
-# 0x1D8F R17S_0xE0_BD
+# 0x1B43 R17S_0xE0_BD
 我们就喜欢待在这里，[N]
 碍着你了？[A][X]
 
-# 0x1D90 R17S_0xE2_BQ
+# 0x1B44 R17S_0xE2_BQ
 出来玩玩吧，[N]
 小老鼠！[A][X]
 
-# 0x1D91 R17S_0xE2_BD
+# 0x1B45 R17S_0xE2_BD
 你这只小耗子！[A][X]
 
-# 0x1D92 R17S_0xE3_BQ
+# 0x1B46 R17S_0xE3_BQ
 嘿，你刚刚撞到我了！[A][X]
 
-# 0x1D93 R17S_0xE3_BD
+# 0x1B47 R17S_0xE3_BD
 原地爆炸！[A][X]
 
-# 0x1D94 R17S_0xE4_BQ
+# 0x1B48 R17S_0xE4_BQ
 我现在又饿又烦躁！[N]
 我急需一个沙包！[A][X]
 
-# 0x1D95 R17S_0xE4_BD
+# 0x1B49 R17S_0xE4_BD
 烦躁，烦躁，烦躁！[A][X]
 
-# 0x1D96 R17N_0xE0_BQ
+# 0x1B4A R17N_0xE0_BQ
 嘿，那边的小子！[N]
 让我们好好享受一下吧！[A][X]
 
-# 0x1D97 R17N_0xE0_BD
+# 0x1B4B R17N_0xE0_BD
 不要惹怒我！[A][X]
 
-# 0x1D98 R17N_0xE1_BQ
+# 0x1B4C R17N_0xE1_BQ
 和小孩子对战是不可能[N]
 快速致富的。[A][X]
 
-# 0x1D99 R17N_0xE1_BD
+# 0x1B4D R17N_0xE1_BD
 累趴下了！[A][X]
 
-# 0x1D9A R17N_0xE2_BQ
+# 0x1B4E R17N_0xE2_BQ
 我对我的力量引以为傲，[N]
 来吧，小子！[A][X]
 
-# 0x1D9B R17N_0xE2_BD
+# 0x1B4F R17N_0xE2_BD
 呜嗷！[A][X]
 
-# 0x1D9C R17N_0xE3_BQ
+# 0x1B50 R17N_0xE3_BQ
 我喜欢下坡飙车！[A][X]
 
-# 0x1D9D R17N_0xE3_BD
+# 0x1B51 R17N_0xE3_BD
 炸了！[A][X]
 
-# 0x1D9E R17N_0xE4_BQ
+# 0x1B52 R17N_0xE4_BQ
 哥们，这里的规则[N]
 是我们制定的！[A][X]
 
-# 0x1D9F R17N_0xE4_BD
+# 0x1B53 R17N_0xE4_BD
 懵了！[A][X]
 
-# 0x1DA0 R16_0xE0_BQ
+# 0x1B54 R16_0xE0_BQ
 我需要来点热身！[A][X]
 
-# 0x1DA1 R16_0xE0_BD
+# 0x1B55 R16_0xE0_BD
 呜嗷！[N]
 不错的热身啊！[A][X]
 
-# 0x1DA2 R16_0xE1_BQ
+# 0x1B56 R16_0xE1_BQ
 做人要叛逆！[A][X]
 
-# 0x1DA3 R16_0xE1_BD
+# 0x1B57 R16_0xE1_BD
 啊啊啊！[A][X]
 
-# 0x1DA4 GameSeedText
+# 0x1B58 GameSeedText
 随机种子[X]
 
-# 0x1DA5 GameSeedDesc
+# 0x1B59 GameSeedDesc
 与游戏好友竞赛，共享游戏随机效果[X]
 
-# 0x1DA7 GameSeedDesc2
+# 0x1B5B GameSeedDesc2
 相同的随机数生成器设置[X]
 
-# 0x1DA9 SecretHouseFlyText
+# 0x1B5D SecretHouseFlyText
 噢，你竟然发现了我！[A][N]
 我还以为我这里[N]
 是个完美的藏身处…[A][.....][N]
@@ -11906,188 +11813,188 @@ L形的，太诡异了……[A][X]
 嗯…可以了…[A][N]
 [ToggleRed][......]【鸟系宝可梦[......]能够使用[......]飞翔了】！[ToggleRed][A][X]
 
-# 0x1DAA LearnFlyText
+# 0x1B5E LearnFlyText
 你突然意识到鸟系宝可梦[N]
 可以使用飞翔了。[A][X]
 
-# 0x1DAB UseFlyText
+# 0x1B5F UseFlyText
 我不知道为什么每个人[N]
 都需要我教给他们…[A][X]
 
-# 0x1DAC HowToFlyText
+# 0x1B60 HowToFlyText
 可以通过[ToggleRed]快速旅行[ToggleRed]指令[N]
 进行[ToggleRed]飞翔[ToggleRed]。[A][X]
 
-# 0x1DAD YouAlreadyRevivedThisPokemonText
+# 0x1B61 YouAlreadyRevivedThisPokemonText
 你已经复活了这只宝可梦。[A][X]
 
-# 0x1DAE YouDontHaveThisFossilText
+# 0x1B62 YouDontHaveThisFossilText
 嗯？你似乎没有这个化石。[A][X]
 
-# 0x1DAF DomeFossilChoice
+# 0x1B63 DomeFossilChoice
 我有甲壳化石…[X]
 
-# 0x1DB0 HelixFossilChoice
+# 0x1B64 HelixFossilChoice
 我有贝壳化石…[X]
 
-# 0x1DB1 OldAmberChoice
+# 0x1B65 OldAmberChoice
 我有秘密琥珀…[X]
 
-# 0x1DB2 ExitChoice
+# 0x1B66 ExitChoice
 返回[X]
 
-# 0x1DB3 CinnabarLabIntroText
+# 0x1B67 CinnabarLabIntroText
 我们是一家研究[N]
 宝可梦化石的权威机构！[A][N]
 你有化石需要我们研究的吗？[A][X]
 
-# 0x1DB4 PurchaseKabutoText
+# 0x1B68 PurchaseKabutoText
 我可以帮你复活化石，[N]
 但需要你资助我们的研究。[A][X]
 
-# 0x1DB5 No_PurchasedKabutoText
+# 0x1B69 No_PurchasedKabutoText
 行吧，留着好好把玩吧。[A][X]
 
-# 0x1DB6 Yes_PurchasedKabutoText
+# 0x1B6A Yes_PurchasedKabutoText
 谢谢！好好照顾[N]
 这只化石盔噢！[A][X]
 
-# 0x1DB7 PurchaseOmanyteText
+# 0x1B6B PurchaseOmanyteText
 我可以帮你复活化石，[N]
 但需要你资助我们的研究。[A][X]
 
-# 0x1DB8 No_PurchasedOmanyteText
+# 0x1B6C No_PurchasedOmanyteText
 行吧，留着好好把玩吧。[A][X]
 
-# 0x1DB9 Yes_PurchasedOmanyteText
+# 0x1B6D Yes_PurchasedOmanyteText
 谢谢！好好照顾[N]
 这只菊石兽噢！[A][X]
 
-# 0x1DBA PurchaseAerodactylText
+# 0x1B6E PurchaseAerodactylText
 我可以帮你复活化石，[N]
 但需要你资助我们的研究。[A][X]
 
-# 0x1DBB No_PurchasedAerodactylText
+# 0x1B6F No_PurchasedAerodactylText
 行吧，留着好好把玩吧。[A][X]
 
-# 0x1DBC Yes_PurchasedAerodactylText
+# 0x1B70 Yes_PurchasedAerodactylText
 谢谢！好好照顾[N]
 这只化石翼龙噢！[A][X]
 
-# 0x1DBD ObtainOldAmber
+# 0x1B71 ObtainOldAmber
 官方攻略告诉我要收集这个，[N]
 但我不想要它。[A][N]
 我只用热门的宝可梦，[N]
 所以这是你的了。[A][X]
 
-# 0x1DBE ObtainOldAmber2
+# 0x1B72 ObtainOldAmber2
 获得秘密琥珀[A][X]
 
-# 0x1DBF AlreadyObtainedOldAmber
+# 0x1B73 AlreadyObtainedOldAmber
 谁会看攻略，不是吗？[A][X]
 
-# 0x1DC0 WordsEchoedText
+# 0x1B74 WordsEchoedText
 你的脑海中回响起了一些话…[A][X]
 
-# 0x1DC1 ReleaseThemText
+# 0x1B75 ReleaseThemText
 [OpenMidRight][LoadFace][0x88][0x1][OpenMidRight][ToggleColorInvert]解放…它们…[ToggleColorInvert][A][X]
 
-# 0x1DC2 ThisIsntTheTimeText
+# 0x1B76 ThisIsntTheTimeText
 [OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleColorInvert]现在还不是使用它的时候！[ToggleColorInvert][A][X]
 
-# 0x1DC3 ObtainHelixFossilText
+# 0x1B77 ObtainHelixFossilText
 获得贝壳化石[A][X]
 
-# 0x1DC4 ObtainDomeFossilText
+# 0x1B78 ObtainDomeFossilText
 获得甲壳化石[A][X]
 
-# 0x1DC5 PurchaseEeveeText
+# 0x1B79 PurchaseEeveeText
 我在街道上发现的这只流浪伊布，[N]
 可怜的家伙。[A][N]
 它需要一个可靠的训练家照顾它，[N]
 你有兴趣吗？[A][X]
 
-# 0x1DC6 No_PurchasedEeveeText
+# 0x1B7A No_PurchasedEeveeText
 啊，那我就继续照顾它吧。[A][X]
 
-# 0x1DC7 Yes_PurchasedEeveeText
+# 0x1B7B Yes_PurchasedEeveeText
 谢谢你！[N]
 一定要照顾好伊布噢！[A][X]
 
-# 0x1DC8 PurchasePrizeText
+# 0x1B7C PurchasePrizeText
 我这里有最棒的宝可梦，[N]
 怎么样，有兴趣吗？[A][X]
 
-# 0x1DC9 No_PurchasedPrizeText
+# 0x1B7D No_PurchasedPrizeText
 等你赚了大钱了再来噢！[A][X]
 
-# 0x1DCA Yes_PurchasedPrizeText
+# 0x1B7E Yes_PurchasedPrizeText
 哇噢！大手笔啊！[A][X]
 
-# 0x1DCB DeveloperText
+# 0x1B7F DeveloperText
 我是Vesly，这个改版的制作者。[A][N]
 后续我可能会在这里[N]
 增加一些额外的游戏内容，[A][N]
 但现在就不用在意啦。[A][X]
 
-# 0x1DCC ComingSoonText
+# 0x1B80 ComingSoonText
 敬请期待。[A][X]
 
-# 0x1DCD CeladonGymSignText
+# 0x1B81 CeladonGymSignText
 玉虹道馆[A][X]
 
-# 0x1DCE CeladonSlotsSignText
+# 0x1B82 CeladonSlotsSignText
 新人福利！赢取免费游戏的机会！[N]
 快来玉虹游戏城玩老虎机吧！[A][X]
 
-# 0x1DCF CeladonMartSignText
+# 0x1B83 CeladonMartSignText
 玉虹百货公司[A][X]
 
-# 0x1DD0 CeladonSHouseText
+# 0x1B84 CeladonSHouseText
 啊…我破产了，[N]
 我该怎么跟我的家人说？[A][X]
 
-# 0x1DD1 CeladonSEHouseText
+# 0x1B85 CeladonSEHouseText
 很快玉虹市就会[N]
 全部建成公寓楼了…[A][N]
 我想知道我该什么时候[N]
 卖掉这里的房子…[A][X]
 
-# 0x1DD2 PlaySlotsText
+# 0x1B86 PlaySlotsText
 1000ᢽ 一把，[N]
 要玩老虎机吗？[N]
 [Yes][X]
 
-# 0x1DD3 PlaySlotsAgainText
+# 0x1B87 PlaySlotsAgainText
 还想玩老虎机吗？[N]
 [Yes][X]
 
-# 0x1DD4 InsufficientFundsText
+# 0x1B88 InsufficientFundsText
 抱歉.[N]
 你已经破产了。[A][X]
 
-# 0x1DD5 BetterSlowDownText
+# 0x1B89 BetterSlowDownText
 一定要控制好节奏…[A][X]
 
-# 0x1DD6 PsychicSaffronText
+# 0x1B8A PsychicSaffronText
 等等！不要说话！[A][N]
 我知道你想要这个！[A][X]
 
-# 0x1DD7 PsychicSaffronText2
+# 0x1B8B PsychicSaffronText2
 你已经知道了吧？[A][Clear][N]
 【超能系】在一代中[N]
 实在是太强了。[A][X]
 
-# 0x1DD8 SilphCoSignText
+# 0x1B8C SilphCoSignText
 西尔佛公司[A][X]
 
-# 0x1DD9 SaffronGymSignText
+# 0x1B8D SaffronGymSignText
 金黄道馆[A][X]
 
-# 0x1DDA SaffronDojoSignText
+# 0x1B8E SaffronDojoSignText
 金黄格斗道场[A][X]
 
-# 0x1DDB SaffronNWHouseText
+# 0x1B8F SaffronNWHouseText
 …………[N]
 ………………[A][N]
 …………[N]
@@ -12096,14 +12003,14 @@ L形的，太诡异了……[A][X]
 你一直不说话，[N]
 我就不能模仿你。[A][X]
 
-# 0x1DDC SaffronWHouseText
+# 0x1B90 SaffronWHouseText
 【模仿少女】太可爱了！[N]
 我要把【皮皮玩偶】送给她。[A][X]
 
-# 0x1DDD SaffronKaraokeClub
+# 0x1B91 SaffronKaraokeClub
 卡拉OK爱好者俱乐部[A][X]
 
-# 0x1DDE SaffronEHouseText
+# 0x1B92 SaffronEHouseText
 我想做到最好，[....][N]
 比任何人都努力。[......][N]
 收集它们是对我的考验，[....][N]
@@ -12144,19 +12051,19 @@ L形的，太诡异了……[A][X]
 宝可梦！[.....][N]
 [Yes][X]
 
-# 0x1DDF SaffronRocket_0
+# 0x1B93 SaffronRocket_0
 你想做什么？[N]
 赶紧消失！[A][X]
 
-# 0x1DE0 SaffronRocket_1
+# 0x1B94 SaffronRocket_1
 老大说他要把这座城市的名字[N]
 改成【火箭队】！[A][X]
 
-# 0x1DE1 SaffronRocket_2
+# 0x1B95 SaffronRocket_2
 不要挑衅我！[N]
 否则有你的好果子吃！[A][X]
 
-# 0x1DE2 GarySilphCoChallengeText
+# 0x1B96 GarySilphCoChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9B][0x1][OpenMidRight]你怎么才来，[N]
 [Tact]？[A][Clear]哈哈哈！[A][N]
 我就知道只要我在这里等着，[N]
@@ -12165,7 +12072,7 @@ L形的，太诡异了……[A][X]
 所以我想看看你的实力[N]
 是不是有所增进！[A][X]
 
-# 0x1DE3 GarySilphCoDefeatText
+# 0x1B97 GarySilphCoDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9B][0x1][OpenMidRight]不！[A][N]
 所以你是准备好面对火箭队的[N]
 [A][Clear]老大了！[A][Clear][N]
@@ -12177,119 +12084,119 @@ L形的，太诡异了……[A][X]
 最强的【训练家】！[A][N]
 再见啦！[A][X]
 
-# 0x1DE4 OutOfServiceText
+# 0x1B98 OutOfServiceText
 暂停使用[A][X]
 
-# 0x1DE5 MagicFeelsDrained
+# 0x1B99 MagicFeelsDrained
 受到烈火灼烧…[A][X]
 
-# 0x1DE6 StrFeelsSapped
+# 0x1B9A StrFeelsSapped
 你的体力感觉有点不支…[A][X]
 
-# 0x1DE7 DefFeelsSapped
+# 0x1B9B DefFeelsSapped
 你的防守能力减弱了…[A][X]
 
-# 0x1DE8 StatsSapped
+# 0x1B9C StatsSapped
 你感到筋疲力尽…[A][X]
 
-# 0x1DE9 SilphCo_2F_0xE0_BQ
+# 0x1B9D SilphCo_2F_0xE0_BQ
 这里不允许小孩进来！[A][X]
 
-# 0x1DEA SilphCo_2F_0xE0_BD
+# 0x1B9E SilphCo_2F_0xE0_BD
 太难了！[A][X]
 
-# 0x1DEB SilphCo_2F_0xE1_BQ
+# 0x1B9F SilphCo_2F_0xE1_BQ
 这里禁止进入！[N]
 滚回家去！[A][X]
 
-# 0x1DEC SilphCo_2F_0xE1_BD
+# 0x1BA0 SilphCo_2F_0xE1_BD
 你很厉害啊。[A][X]
 
-# 0x1DED SilphCo_2F_0xE2_BQ
+# 0x1BA1 SilphCo_2F_0xE2_BQ
 不要招惹我们，小鬼！[A][X]
 
-# 0x1DEE SilphCo_2F_0xE2_BD
+# 0x1BA2 SilphCo_2F_0xE2_BD
 我投降！[A][X]
 
-# 0x1DEF SilphCo_2F_0xE3_BQ
+# 0x1BA3 SilphCo_2F_0xE3_BQ
 发现入侵者！[A][X]
 
-# 0x1DF0 SilphCo_2F_0xE3_BD
+# 0x1BA4 SilphCo_2F_0xE3_BD
 你是什么人？[A][X]
 
-# 0x1DF1 SilphCo_2F_0xE4_BQ
+# 0x1BA5 SilphCo_2F_0xE4_BQ
 【火箭队】已经控制了[N]
 【西尔佛公司】！[A][X]
 
-# 0x1DF2 SilphCo_2F_0xE4_BD
+# 0x1BA6 SilphCo_2F_0xE4_BD
 啊啊啊！[A][X]
 
-# 0x1DF3 SilphCo_2F_0xE5_BQ
+# 0x1BA7 SilphCo_2F_0xE5_BQ
 什什么？[A][N]
 这里怎么会有小孩！[A][X]
 
-# 0x1DF4 SilphCo_2F_0xE5_BD
+# 0x1BA8 SilphCo_2F_0xE5_BD
 天啊！[A][X]
 
-# 0x1DF5 SilphCo_3F_0xE0_BQ
+# 0x1BA9 SilphCo_3F_0xE0_BQ
 你竟敢惹【火箭队】？[A][X]
 
-# 0x1DF6 SilphCo_3F_0xE0_BD
+# 0x1BAA SilphCo_3F_0xE0_BD
 你会付出代价的！[A][X]
 
-# 0x1DF7 SilphCo_3F_0xE1_BQ
+# 0x1BAB SilphCo_3F_0xE1_BQ
 救命！[N]
 我是西尔佛的员工。[A][X]
 
-# 0x1DF8 SilphCo_3F_0xE1_BD
+# 0x1BAC SilphCo_3F_0xE1_BD
 你怎么知道我是火箭队的？[A][X]
 
-# 0x1DF9 SilphCo_3F_0xE2_BQ
+# 0x1BAD SilphCo_3F_0xE2_BQ
 我甚至不配拥有[N]
 一间真正的办公室…[A][X]
 
-# 0x1DFA SilphCo_3F_0xE2_BD
+# 0x1BAE SilphCo_3F_0xE2_BD
 也许我应该研究一些[N]
 更有趣的东西…[A][X]
 
-# 0x1DFB SilphCo_3F_0xE3_BQ
+# 0x1BAF SilphCo_3F_0xE3_BQ
 我听说有个小孩[N]
 在大楼里面闲逛。[A][X]
 
-# 0x1DFC SilphCo_3F_0xE3_BD
+# 0x1BB0 SilphCo_3F_0xE3_BD
 我炸裂了！[A][X]
 
-# 0x1DFD SilphCo_3F_0xE4_BQ
+# 0x1BB1 SilphCo_3F_0xE4_BQ
 呃-噢！[N]
 我闻到了小老鼠的味道！[A][X]
 
-# 0x1DFE SilphCo_3F_0xE4_BD
+# 0x1BB2 SilphCo_3F_0xE4_BD
 熄火了！[A][X]
 
-# 0x1DFF SilphCo_4F_0xE0_BQ
+# 0x1BB3 SilphCo_4F_0xE0_BQ
 有小鬼入侵？[N]
 那一定就是你了！[A][X]
 
-# 0x1E00 SilphCo_4F_0xE0_BD
+# 0x1BB4 SilphCo_4F_0xE0_BD
 好吧！[N]
 我输了！[A][X]
 
-# 0x1E01 SilphCo_4F_0xE1_BQ
+# 0x1BB5 SilphCo_4F_0xE1_BQ
 你给我们带来了麻烦！[A][X]
 
-# 0x1E02 SilphCo_4F_0xE1_BD
+# 0x1BB6 SilphCo_4F_0xE1_BD
 什么？[N]
 我输了？[A][X]
 
-# 0x1E03 SilphCo_4F_0xE2_BQ
+# 0x1BB7 SilphCo_4F_0xE2_BQ
 嘘！你就看不出[N]
 我在躲起来吗？[A][X]
 
-# 0x1E04 SilphCo_4F_0xE2_BD
+# 0x1BB8 SilphCo_4F_0xE2_BD
 该死！[N]
 你暴露了我的行踪！[A][X]
 
-# 0x1E05 SilphCo_4F_0xE2_Unused
+# 0x1BB9 SilphCo_4F_0xE2_Unused
 噢！你不是火箭队的！ [N]
 你是来救我们的吗？[A][Clear]不管怎样！谢谢你！[A][N]
 作为感谢，[N]
@@ -12304,22 +12211,22 @@ L形的，太诡异了……[A][X]
 它非常擅长游泳，[N]
 你可以乘坐它穿过各种水面！[A][X]
 
-# 0x1E06 SilphCo_2F_Report
+# 0x1BBA SilphCo_2F_Report
 这是一份【宝可梦报告】！[A][N]
 【宝可梦研究所】创造出了【多边兽】，[N]
 人类史上第一只人造宝可梦。[A][X]
 
-# 0x1E07 SilphCo_3F_Report_A
+# 0x1BBB SilphCo_3F_Report_A
 这是一份【宝可梦报告】！[A][N]
 研究表明一些宝可梦[N]
 可以通过通讯进化。[A][X]
 
-# 0x1E08 SilphCo_3F_Report_B
+# 0x1BBC SilphCo_3F_Report_B
 这是一份【宝可梦报告】！[A][N]
 有超过150种宝可梦[N]
 已经被人类发现。[A][X]
 
-# 0x1E09 SilphCo_Giovanni_Challenge
+# 0x1BBD SilphCo_Giovanni_Challenge
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xAA][0x1][OpenMidRight]啊，[Tact]！[N]
 我们终于见面了！[A][N]
 我必须得说，[N]
@@ -12328,7 +12235,7 @@ L形的，太诡异了……[A][X]
 现在的话，[N]
 就让你感受一下世界的痛苦吧！[A][X]
 
-# 0x1E0A SilphCo_Giovanni_Defeat
+# 0x1BBE SilphCo_Giovanni_Defeat
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xAA][0x1][OpenMidRight]啊啊！！[A][N]
 该死！[N]
 你毁了我们在西尔佛的计划！[A][N]
@@ -12337,251 +12244,251 @@ L形的，太诡异了……[A][X]
 都是为火箭队而存在的！[A][N]
 我得走了，但我会回来的！[A][X]
 
-# 0x1E0B KoichiChallengeText
+# 0x1BBF KoichiChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xB6][0x1][OpenMidRight]我是【空手道大王】！[N]
 我一直在等待着有人来挑战我！[A][N]
 你想要挑战我？[N]
 别指望我会手下留情！[A][N]
 呜啊啊啊！[A][X]
 
-# 0x1E0C KoichiDefeatText
+# 0x1BC0 KoichiDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xB6][0x1][OpenMidRight]哇啊！[N]
 啊！败北了！[A][N]
 随时都能和我切磋比试。[A][X]
 
-# 0x1E0D KoichiTalkText
+# 0x1BC1 KoichiTalkText
 永远不要失去信念！[N]
 永不动摇！[A][X]
 
-# 0x1E0E R8_0xE0_BQ
+# 0x1BC2 R8_0xE0_BQ
 来吧！[N]
 让我们来玩个游戏吧！[A][X]
 
-# 0x1E0F R8_0xE0_BD
+# 0x1BC3 R8_0xE0_BD
 可恶！[N]
 输了！[A][X]
 
-# 0x1E10 R8_0xE1_BQ
+# 0x1BC4 R8_0xE1_BQ
 我的摩托车坏了，小子。[A][X]
 
-# 0x1E11 R8_0xE1_BD
+# 0x1BC5 R8_0xE1_BD
 啊，小子，[N]
 我对这个没兴趣。[A][X]
 
-# 0x1E12 R8_0xE2_BQ
+# 0x1BC6 R8_0xE2_BQ
 让开，别被我撞到！[A][X]
 
-# 0x1E13 R8_0xE2_BD
+# 0x1BC7 R8_0xE2_BD
 你是认真的，小子？[A][X]
 
-# 0x1E14 R8_0xE3_BQ
+# 0x1BC8 R8_0xE3_BQ
 你觉得你很特别，[N]
 小子？[A][X]
 
-# 0x1E15 R8_0xE3_BD
+# 0x1BC9 R8_0xE3_BD
 哼，[......][N]
 我的车轮被草给缠住了。[A][X]
 
-# 0x1E16 R8_0xE4_BQ
+# 0x1BCA R8_0xE4_BQ
 什么宝可梦是可爱、[N]
 圆滚滚、毛茸茸的？[X]
 
-# 0x1E17 R8_0xE4_BD
+# 0x1BCB R8_0xE4_BD
 不要！[A][N]
 不要对我的小皮这么刻薄！[A][N]
 什么小皮？[N]
 这是我给她取的爱称。[A][X]
 
-# 0x1E18 R8_0xE5_BQ
+# 0x1BCC R8_0xE5_BQ
 你需要策略和决心[N]
 才能取得胜利！[A][X]
 
-# 0x1E19 R8_0xE5_BD
+# 0x1BCD R8_0xE5_BD
 今天状况不好。[A][X]
 
-# 0x1E1A R19_0xE0_BQ
+# 0x1BCE R19_0xE0_BQ
 我爱游泳！[N]
 你呢？[A][X]
 
-# 0x1E1B R19_0xE0_BD
+# 0x1BCF R19_0xE0_BD
 溺水了![A][X]
 
-# 0x1E1C R19_0xE1_BQ
+# 0x1BD0 R19_0xE1_BQ
 你想知道有没有鱼咬钩？[A][X]
 
-# 0x1E1D R19_0xE1_BD
+# 0x1BD1 R19_0xE1_BD
 该死！[A][X]
 
-# 0x1E1E R19_0xE2_BQ
+# 0x1BD2 R19_0xE2_BQ
 大获丰收！[N]
 要来试试吗？[A][X]
 
-# 0x1E1F R19_0xE2_BD
+# 0x1BD3 R19_0xE2_BD
 呵呵。鲤鱼王果然[N]
 还是太弱了，不是吗？[A][X]
 
-# 0x1E20 R19_0xE3_BQ
+# 0x1BD4 R19_0xE3_BQ
 海平线那边是什么？[A][X]
 
-# 0x1E21 R19_0xE3_BD
+# 0x1BD5 R19_0xE3_BD
 我看到那边有几个岛屿！[A][X]
 
-# 0x1E22 R19_0xE4_BQ
+# 0x1BD6 R19_0xE4_BQ
 离【双子岛】还有很远…[A][X]
 
-# 0x1E23 R19_0xE4_BD
+# 0x1BD7 R19_0xE4_BD
 我想回浅红市了…[A][X]
 
-# 0x1E24 R20E_0xE0_BQ
+# 0x1BD8 R20E_0xE0_BQ
 是我大姐教我如何[N]
 游泳和训练宝可梦的。[A][X]
 
-# 0x1E25 R20E_0xE0_BD
+# 0x1BD9 R20E_0xE0_BD
 哇啊！[N]
 也许你比我大姐更强！[A][X]
 
-# 0x1E26 R20E_0xE1_BQ
+# 0x1BDA R20E_0xE1_BQ
 我刚穿过双子岛来到这里。[A][X]
 
-# 0x1E27 R20E_0xE1_BD
+# 0x1BDB R20E_0xE1_BD
 嗷！[N]
 浑身痛！[A][X]
 
-# 0x1E28 R20E_0xE2_BQ
+# 0x1BDC R20E_0xE2_BQ
 游泳很美妙！[N]
 但是晒伤一点都不好！[A][X]
 
-# 0x1E29 R20E_0xE2_BD
+# 0x1BDD R20E_0xE2_BD
 震惊！[A][X]
 
-# 0x1E2A R20W_0xE0_BQ
+# 0x1BDE R20W_0xE0_BQ
 这里的水很浅，[N]
 所以有很多人在这里游泳。[A][X]
 
-# 0x1E2B R20W_0xE0_BD
+# 0x1BDF R20W_0xE0_BD
 扑腾！[A][X]
 
-# 0x1E2C R20W_0xE1_BQ
+# 0x1BE0 R20W_0xE1_BQ
 我的朋友们为了好玩[N]
 把我埋在了沙子里！[A][X]
 
-# 0x1E2D R20W_0xE1_BD
+# 0x1BE1 R20W_0xE1_BD
 嘿，大家伙？[N]
 你们在吗？[A][N]
 我相信他们[N]
 马上就会回来的。[A][X]
 
-# 0x1E2E R20W_0xE2_BQ
+# 0x1BE2 R20W_0xE2_BQ
 我喜欢和这里的鱼儿[N]
 一起在海浪中漂浮。[A][X]
 
-# 0x1E2F R20W_0xE2_BD
+# 0x1BE3 R20W_0xE2_BD
 哎呀！[A][N]
 想和我一起漂浮吗？[A][X]
 
-# 0x1E30 R20W_0xE3_BQ
+# 0x1BE4 R20W_0xE3_BQ
 看看我的强壮体魄！[A][X]
 
-# 0x1E31 R20W_0xE3_BD
+# 0x1BE5 R20W_0xE3_BD
 太弱了！[A][N]
 我应该锻炼的是我的宝可梦，[N]
 而不是我！[A][X]
 
-# 0x1E32 R20W_0xE4_BQ
+# 0x1BE6 R20W_0xE4_BQ
 我从红莲镇一路游到了这里，[A][N]
 我告诉你啊，[N]
 这真的非常不容易。[A][X]
 
-# 0x1E33 R20W_0xE4_BD
+# 0x1BE7 R20W_0xE4_BD
 太失望了！[A][X]
 
-# 0x1E34 R20W_0xE5_BQ
+# 0x1BE8 R20W_0xE5_BQ
 红莲镇有一个宝可梦研究所，[N]
 我爸爸就在那里工作。[A][X]
 
-# 0x1E35 R20W_0xE5_BD
+# 0x1BE9 R20W_0xE5_BD
 啊啊！我输了。[A][N]
 红莲镇其实是一座火山岛，[N]
 我听说它是从海里升起的。[A][X]
 
-# 0x1E36 R21_0xE0_BQ
+# 0x1BEA R21_0xE0_BQ
 我的宝可梦都是[N]
 在大海里捉到的。[A][X]
 
-# 0x1E37 R21_0xE0_BD
+# 0x1BEB R21_0xE0_BD
 潜水员！！[N]
 下潜！！[A][X]
 
-# 0x1E38 R21_0xE1_BQ
+# 0x1BEC R21_0xE1_BQ
 大海洗涤了我的身体和灵魂！[A][X]
 
-# 0x1E39 R21_0xE1_BD
+# 0x1BED R21_0xE1_BD
 哎！[A][N]
 虽然大海很好，[N]
 但我也喜欢大山。[A][X]
 
-# 0x1E3A R21_0xE2_BQ
+# 0x1BEE R21_0xE2_BQ
 啊！[N]
 沐浴着阳光和暖风！[A][X]
 
-# 0x1E3B R21_0xE2_BD
+# 0x1BEF R21_0xE2_BD
 啊！[N]
 我输了！[A][X]
 
-# 0x1E3C R21_0xE3_BQ
+# 0x1BF0 R21_0xE3_BQ
 我在参加铁人三项比赛。[A][X]
 
-# 0x1E3D R21_0xE3_BD
+# 0x1BF1 R21_0xE3_BD
 喘气…[N]
 喘气…喘气…[A][N]
 虽然我游泳输了！[A][N]
 但我接下来还有自行车[N]
 和马拉松两个项目！[A][X]
 
-# 0x1E3E R21_0xE4_BQ
+# 0x1BF2 R21_0xE4_BQ
 我男朋友送了我很多大珍珠。[A][X]
 
-# 0x1E3F R21_0xE4_BD
+# 0x1BF3 R21_0xE4_BD
 噢，不！[N]
 我掉了一颗珍珠！[A][X]
 
-# 0x1E40 R21_0xE5_BQ
+# 0x1BF4 R21_0xE5_BQ
 我和我朋友一起在这里游泳…[N]
 我有点累了…[A][X]
 
-# 0x1E41 R21_0xE5_BD
+# 0x1BF5 R21_0xE5_BD
 我累坏了…[A][X]
 
-# 0x1E42 ObtainedSecretKeyText
+# 0x1BF6 ObtainedSecretKeyText
 获得秘密钥匙！[A][X]
 
-# 0x1E43 ObtainedCardKeyText
+# 0x1BF7 ObtainedCardKeyText
 获得钥匙卡！[A][X]
 
-# 0x1E44 TombstonerText
+# 0x1BF8 TombstonerText
 tombstoner是没有[N]
 发布的招式吗？[N]
 [Yes][X]
 
-# 0x1E45 DiscordText
+# 0x1BF9 DiscordText
 你有加入这个改版的论坛吗？[N]
 [Yes][X]
 
-# 0x1E46 MissingNoQuestionText
+# 0x1BFA MissingNoQuestionText
 MissingNo的属性是[N]
 一般/飞行吗？[N]
 [Yes][X]
 
-# 0x1E47 CinnabarLabSignText
+# 0x1BFB CinnabarLabSignText
 红莲研究所[A][X]
 
-# 0x1E48 CinnabarGymSignText
+# 0x1BFC CinnabarGymSignText
 红莲道馆[X]
 
-# 0x1E49 CinnabarMansionSignText
+# 0x1BFD CinnabarMansionSignText
 宝可梦屋[A][X]
 
-# 0x1E4A GaryRoute22ChallengeText
+# 0x1BFE GaryRoute22ChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9A][0x1][OpenMidRight]什么？ [Tact]！[N]
 在这儿碰到你真是令我惊讶！[A][N]
 [LoadFace][0x9B][0x1][OpenMidRight]这么说你是打算[N]
@@ -12592,7 +12499,7 @@ MissingNo的属性是[N]
 我要先击败你！[A][N]
 来吧！[A][X]
 
-# 0x1E4B GaryRoute22DefeatText
+# 0x1BFF GaryRoute22DefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9A][0x1][OpenMidRight]什么！？[N]
 我太大意了！[A][Clear][N]
 [LoadFace][0x9B][0x1][OpenFarLeft]这下我放松多了，[A][N]
@@ -12603,7 +12510,7 @@ MissingNo的属性是[N]
 不过你自己应该也很清楚吧！[N]
 我走了，回见！[A][X]
 
-# 0x1E4C OakNotifyRematchesText
+# 0x1C00 OakNotifyRematchesText
 咳咳，我是大木。听说你[N]
 已经收集了全部的道馆徽章。[A][N]
 我已经通知了所有的馆主们，[N]
@@ -12611,7 +12518,7 @@ MissingNo的属性是[N]
 不过我没能联系上常青道馆。[A][N]
 总之，祝你好运啦。[A][X]
 
-# 0x1E4D OakNotifyRematches2Text
+# 0x1C01 OakNotifyRematches2Text
 我是大木，我们已经找到暂时[N]
 接替常青道馆馆主一职的人了。[A][N]
 也许你会愿意与他战斗一场？[A][N]
@@ -12622,11 +12529,11 @@ MissingNo的属性是[N]
 一场战斗都没有输过![A][N]
 再见， [Tact]。[A][X]
 
-# 0x1E4E MomWelcomeHomeText
+# 0x1C02 MomWelcomeHomeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xB8][0x1][OpenMidRight][ToggleSmile]哦，[Tact]。[A][N]
 你该稍微休息片刻。[A][X]
 
-# 0x1E4F MomViridianText
+# 0x1C03 MomViridianText
 [OpenMidRight][LoadFace][0xB8][0x1][OpenMidRight][ToggleSmile]顺利抵达常磐市了吗？[N]
 我的小[Tact]都长成大人了……[A][N]
 [ToggleSmile]孩子总有一天会离开家独自远行。[N]
@@ -12636,7 +12543,7 @@ MissingNo的属性是[N]
 在外万事小心，宝贝。[N]
 别忘了勤洗衣服！[A][X]
 
-# 0x1E50 MomCinnabarText
+# 0x1C04 MomCinnabarText
 [OpenMidRight][LoadFace][0xB8][0x1][OpenMidRight][ToggleSmile]嗨，孩子！听说你快要[N]
 集齐所有道馆徽章了！[A][N]
 你一路走到今天，[N]
@@ -12646,20 +12553,20 @@ MissingNo的属性是[N]
 如果路过真新镇，一定回家坐坐，[N]
 我准备了小礼物送给你。[A][X]
 
-# 0x1E51 MomGiveItemText
+# 0x1C05 MomGiveItemText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xB8][0x1][OpenMidRight][ToggleSmile]孩子，你已经走过了漫漫长路。[N]
 你的所有成就都令我无比自豪！[A][N]
 我为你存了一些钱……[A][N]
 还有这个，请收下。这是来自[N]
 你头号支持者的一点心意。[A][X]
 
-# 0x1E52 MomPostLeagueText
+# 0x1C06 MomPostLeagueText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xB8][0x1][OpenMidRight][ToggleSmile][Tact]，你回来了！[N]
 我在电视上看到你拿下联盟冠军了！[A][N]
 你肯定累坏了……[N]
 快过来好好歇一会儿，孩子。[A][X]
 
-# 0x1E53 SafariTroubleText
+# 0x1C07 SafariTroubleText
 [OpenMidRight][LoadFace][0xB8][0x1][OpenMidRight]哦，[Tact]！[A][N]
 大木博士的助手跟我说你[N]
 已经到浅红市了……[A][N]
@@ -12668,124 +12575,124 @@ MissingNo的属性是[N]
 孩子，一定要多加小心。[N]
 别忘了按时吃饭！[A][X]
 
-# 0x1E54 VRB1_0xE0_BQ
+# 0x1C08 VRB1_0xE0_BQ
 我想知道你是不是[N]
 够格做我的对手？[A][X]
 
-# 0x1E55 VRB1_0xE0_BD
+# 0x1C09 VRB1_0xE0_BD
 完败…[A][N]
 我从未想过我会输，[N]
 更何况是输给一个孩子…[A][X]
 
-# 0x1E56 VRB1_0xE1_BQ
+# 0x1C0A VRB1_0xE1_BQ
 总有人说虫系宝可梦不是最强的。[A][N]
 今天我就要证明他们都是错的！[A][X]
 
-# 0x1E57 VRB1_0xE1_BD
+# 0x1C0B VRB1_0xE1_BD
 哼！[N]
 我承认…不过是暂时的！[A][X]
 
-# 0x1E58 VRB2_0xE0_BQ
+# 0x1C0C VRB2_0xE0_BQ
 希巴是四天王之一，[N]
 我们这些登山者都很仰慕他。[A][X]
 
-# 0x1E59 VRB2_0xE0_BD
+# 0x1C0D VRB2_0xE0_BD
 啊！[N]
 我要是和希巴一样强就好了…[A][X]
 
-# 0x1E5A VRB2_0xE1_BQ
+# 0x1C0E VRB2_0xE1_BQ
 如果你能通过这里，[N]
 你就可以见到四天王了。[A][X]
 
-# 0x1E5B VRB2_0xE1_BD
+# 0x1C0F VRB2_0xE1_BD
 不！[N]
 难以置信！[A][X]
 
-# 0x1E5C VRB2_0xE2_BQ
+# 0x1C10 VRB2_0xE2_BQ
 啊，你是想挑战四天王？[A][X]
 
-# 0x1E5D VRB2_0xE2_BD
+# 0x1C11 VRB2_0xE2_BD
 你打败了我！[A][X]
 
-# 0x1E5E VRB2_0xE3_BQ
+# 0x1C12 VRB2_0xE3_BQ
 [Tact]！[N]
 我就知道我会在这里见到你！[A][N]
 我永远不会原谅你的！[A][X]
 
-# 0x1E5F VRB2_0xE3_BD
+# 0x1C13 VRB2_0xE3_BD
 啊啊！！[N]
 嗯？我是谁？[N]
 呵呵，好吧。[A][N]
 说得你好像已经忘了和你[N]
 对战过的那些人一样…[A][X]
 
-# 0x1E60 VRB3_0xE0_BQ
+# 0x1C14 VRB3_0xE0_BQ
 冠军之路太难了吗？[A][X]
 
-# 0x1E61 VRB3_0xE0_BD
+# 0x1C15 VRB3_0xE0_BD
 做得好！[A][N]
 很多训练家在这里放弃，[N]
 一个个都回家去了。[A][X]
 
-# 0x1E62 VRB3_0xE1_BQ
+# 0x1C16 VRB3_0xE1_BQ
 我听传闻说有个天才少年。[A][X]
 
-# 0x1E63 VRB3_0xE1_BD
+# 0x1C17 VRB3_0xE1_BD
 传闻是真的！[A][N]
 就是你打败了【火箭队】的[N]
 【坂木】？[A][X]
 
-# 0x1E64 VRB3_0xE2_BQ
+# 0x1C18 VRB3_0xE2_BQ
 训练家们活着就是为了寻找[N]
 更强大的对手。[A][X]
 
-# 0x1E65 VRB3_0xE2_BD
+# 0x1C19 VRB3_0xE2_BD
 噢！[N]
 好强！[A][X]
 
-# 0x1E66 VRB3_0xE3_BQ
+# 0x1C1A VRB3_0xE3_BQ
 我会让你知道[N]
 你其实没有那么优秀！[A][X]
 
-# 0x1E67 VRB3_0xE3_BD
+# 0x1C1B VRB3_0xE3_BD
 好气啊！[N]
 原来不优秀的人是我…[A][X]
 
-# 0x1E68 VRB3_0xE4_BQ
+# 0x1C1C VRB3_0xE4_BQ
 只有被选择的人[N]
 才能通过这里！[A][X]
 
-# 0x1E69 VRB3_0xE4_BD
+# 0x1C1D VRB3_0xE4_BD
 我不相信！[A][N]
 这里的所有训练家[N]
 目标都是宝可梦联盟。[A][N]
 你可不要放松警惕。[A][X]
 
-# 0x1E6A MoltresChallengeText
+# 0x1C1E MoltresChallengeText
 啵噗![A][X]
 
-# 0x1E6B MoltresDefeatText
+# 0x1C1F MoltresDefeatText
 火焰鸟逃到了什么地方！[A][X]
 
-# 0x1E6C ZapdosChallengeText
+# 0x1C20 ZapdosChallengeText
 啵噗![A][X]
 
-# 0x1E6D ZapdosDefeatText
+# 0x1C21 ZapdosDefeatText
 闪电鸟逃到了什么地方！[A][X]
 
-# 0x1E6E ArticunoChallengeText
+# 0x1C22 ArticunoChallengeText
 啵噗![A][X]
 
-# 0x1E6F ArticunoDefeatText
+# 0x1C23 ArticunoDefeatText
 急冻鸟逃到了什么地方！[A][X]
 
-# 0x1E70 MewChallengeText
+# 0x1C24 MewChallengeText
 缪！[A][X]
 
-# 0x1E71 MewDefeatText
+# 0x1C25 MewDefeatText
 梦幻逃到了什么地方！[A][X]
 
-# 0x1E72 VeslyRoute23ChallengeText
+# 0x1C26 VeslyRoute23ChallengeText
 嘿，这里是你的老朋友Vesly，[N]
 你知道的，[N]
 宝可梦纹章的制作者。[A][N]
@@ -12799,29 +12706,29 @@ MissingNo的属性是[N]
 当然了，这种时刻不来场战斗，[N]
 岂不是很遗憾？[A][X]
 
-# 0x1E73 VeslyRoute23DefeatText
+# 0x1C27 VeslyRoute23DefeatText
 我果然没有胜算，不是吗？[A][N]
 似乎你已经准备好了。[A][N]
 准备好挑战四天王吧，[N]
 祝你好运， [Tact]。[A][X]
 
-# 0x1E74 VeslyNuzlockeRoute23ChallengeText
+# 0x1C28 VeslyNuzlockeRoute23ChallengeText
 要玩nuzlocke吗？哟，[N]
 行啊，我可不会被吓到的，[N]
 抱歉。[A][X]
 
-# 0x1E75 Elite4Explanation
+# 0x1C29 Elite4Explanation
 你可以随时离开，[A][N]
 但如果你离开科拿的房间，[N]
 你的挑战将会重新开始。[A][X]
 
-# 0x1E76 Elite4ExitText
+# 0x1C2A Elite4ExitText
 如果你现在离开，[N]
 那你的这次挑战[N]
 将会中断。[A][Clear]要离开吗？[N]
 [Yes][X]
 
-# 0x1E77 LoreleiChallengeText
+# 0x1C2B LoreleiChallengeText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0xAF][0x1][OpenMidLeft]欢迎来到宝可梦联盟。[A][N]
 我是四天王中的科拿。[A][N]
 [ToggleSmile]没有人能够击败[N]
@@ -12832,19 +12739,19 @@ MissingNo的属性是[N]
 哈哈哈！[N]
 你准备好了吗？[A][X]
 
-# 0x1E78 LoreleiDefeatText
+# 0x1C2C LoreleiDefeatText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0xAF][0x1][OpenMidLeft]你比我想象的更厉害，[N]
 朝下一个房间前进吧。[A][N]
 宝可梦联盟的力量[N]
 可不只是如此。[A][X]
 
-# 0x1E79 LoreleiTalkText
+# 0x1C2D LoreleiTalkText
 你比我想象的更厉害，[N]
 朝下一个房间前进吧。[A][N]
 宝可梦联盟的力量[N]
 可不只是如此。[A][X]
 
-# 0x1E7A BrunoChallengeText
+# 0x1C2E BrunoChallengeText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0xAC][0x1][OpenMidLeft][ToggleSmile]我是四天王中的希巴！[A][N]
 无论是宝可梦还是人类，[A][N]
 只要通过战斗的磨练，[N]
@@ -12856,17 +12763,17 @@ MissingNo的属性是[N]
 打倒的滋味吧！[A][N]
 呼哈！[A][X]
 
-# 0x1E7B BrunoDefeatText
+# 0x1C2F BrunoDefeatText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0xAC][0x1][OpenMidLeft][ToggleSmile]为什么？[N]
 我为什么会输？[A][N]
 我的工作已经完成了，[N]
 去面对你的下一个挑战吧。[A][X]
 
-# 0x1E7C BrunoTalkText
+# 0x1C30 BrunoTalkText
 我的工作已经完成了，[N]
 去面对你的下一个挑战吧。[A][X]
 
-# 0x1E7D AgathaChallengeText
+# 0x1C31 AgathaChallengeText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0xAD][0x1][OpenMidLeft]我是四天王之一的菊子。[A][N]
 [ToggleSmile]我听说大木相当疼爱你，孩子。[A][N]
 那个糟老头曾经又强大又迷人。[A][N]
@@ -12880,7 +12787,7 @@ MissingNo的属性是[N]
 让我来教你真正的训练家[N]
 是怎样战斗的！[A][X]
 
-# 0x1E7E AgathaDefeatText
+# 0x1C32 AgathaDefeatText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0xAD][0x1][OpenMidLeft]啊，真是了不得啊！[N]
 你确实有点特别，孩子！[A][N]
 你赢了我，我想我明白那个[N]
@@ -12888,13 +12795,13 @@ MissingNo的属性是[N]
 我没有别的话可说了，[N]
 去下一个房间吧，孩子！[A][X]
 
-# 0x1E7F AgathaTalkText
+# 0x1C33 AgathaTalkText
 我想我明白那个[N]
 糟老头在你身上看到什么了。[A][N]
 我没有别的话可说了，[N]
 去下一个房间吧，孩子！[A][X]
 
-# 0x1E80 LanceChallengeText
+# 0x1C34 LanceChallengeText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0xAE][0x1][OpenMidLeft]啊！我听说过你的名字，[A][N]
 [Tact]！[A][N]
 [N]
@@ -12913,7 +12820,7 @@ MissingNo的属性是[N]
 你的联盟挑战[N]
 将会在我这里终结， [Tact]！[A][X]
 
-# 0x1E81 LanceDefeatText
+# 0x1C35 LanceDefeatText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0xAE][0x1][OpenMidLeft]到此为止吧！[A][N]
 我虽然不想承认，[N]
 但你确实是一位宝可梦大师！[A][N]
@@ -12928,7 +12835,7 @@ MissingNo的属性是[N]
 他先于你战胜了我们四天王。[A][N]
 他是真正的宝可梦联盟冠军。[A][X]
 
-# 0x1E82 LanceTalkText
+# 0x1C36 LanceTalkText
 到现在我都不相信我的龙[N]
 会输给你， [Tact]。[A][N]
 你现在是宝可梦联盟的冠军了！[A][N]
@@ -12940,7 +12847,7 @@ MissingNo的属性是[N]
 他先于你战胜了我们四天王。[A][N]
 他是真正的宝可梦联盟冠军。[A][X]
 
-# 0x1E83 GaryChallengeText
+# 0x1C37 GaryChallengeText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0x9A][0x1][OpenMidLeft]你来啦，我一直在期待着[N]
 和你的见面呢，[Tact]。[A][N]
 [OpenMidLeft][LoadFace][0x9B][0x1][OpenMidLeft]我的对手就应该这样强大，[N]
@@ -12953,15 +12860,15 @@ MissingNo的属性是[N]
 我就是宝可梦联盟的冠军！[A][OpenMidLeft][LoadFace][0x9C][0x1][OpenMidLeft]我是宝可梦史上[N]
 最伟大的训练家！[A][X]
 
-# 0x1E84 GaryDefeatPhaseOneText
+# 0x1C38 GaryDefeatPhaseOneText
 [OpenMidRight][LoadFace][0x9A][0x1][OpenMidRight][ToggleColorInvert]不——！[N]
 不可能！[A][N]
 [LoadFace][0x9C][0x1][OpenMidRight]我不会输！[A][ToggleColorInvert][X]
 
-# 0x1E85 GaryGamesharkText
+# 0x1C39 GaryGamesharkText
 小茂[ToggleRed]开挂了！[ToggleRed][A][X]
 
-# 0x1E86 GaryDefeatText
+# 0x1C3A GaryDefeatText
 [OpenMidRight][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0x9A][0x1][OpenMidLeft]不会吧……[....]你居然真的打赢我了！[....][N]
 每次都是你把一切搞砸！[A][N]
 凭什么？！为什么你总能赢我？！[N]
@@ -12971,7 +12878,7 @@ MissingNo的属性是[N]
 [OpenMidLeft][LoadFace][0x9C][0x1][OpenMidLeft]好好守住你的头衔吧，手下败将。[N]
 待在这儿本来也越来越没意思了。[A][X]
 
-# 0x1E87 GaryTalkText
+# 0x1C3B GaryTalkText
 不会吧……[....]你居然真的打赢我了！[....][N]
 每次都是你把一切搞砸！[A][N]
 凭什么？！为什么你总能赢我？！[N]
@@ -12982,7 +12889,7 @@ MissingNo的属性是[N]
 好好守住你的头衔吧，手下败将。[N]
 待在这儿本来也越来越没意思了。[A][X]
 
-# 0x1E88 OakLeagueText
+# 0x1C3C OakLeagueText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile] [Tact]！[A][N]
 堂堂正正，你赢了！[A][N]
 真心地祝贺你！[A][N]
@@ -12992,7 +12899,7 @@ MissingNo的属性是[N]
 应该说，你长大了！[A][N]
 [Tact]，你的时代来临了！[A][X]
 
-# 0x1E89 OakLeagueText2
+# 0x1C3D OakLeagueText2
 [OpenFarLeft][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0x9A][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight]小茂……[N]
 我对你很失望。[A][N]
 一听说你打败了四天王的消息[N]
@@ -13007,7 +12914,7 @@ MissingNo的属性是[N]
 你再怎么认真也不会[N]
 站在冠军的顶峰的！[A][X]
 
-# 0x1E8A OakLeagueText3
+# 0x1C3E OakLeagueText3
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][Tact]。[A][N]
 你能获得胜利不止是[N]
 靠自己一个人的力量。[A][N]
@@ -13016,7 +12923,7 @@ MissingNo的属性是[N]
 [Tact]！[N]
 跟我来！[A][X]
 
-# 0x1E8B OakLeagueText4
+# 0x1C3F OakLeagueText4
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x99][0x1][OpenMidRight][ToggleSmile]咳-嗯！[N]
 祝贺， [Tact]！[A][N]
 这层楼是宝可梦荣誉殿堂。[A][N]
@@ -13030,19 +12937,19 @@ MissingNo的属性是[N]
 祝贺你，[Tact]，你和你的宝可梦[N]
 是荣誉殿堂的成员了！[A][X]
 
-# 0x1E8C BrockRematchText
+# 0x1C40 BrockRematchText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9E][0x1][OpenMidRight][ToggleSmile]哈，你回来啦，[N]
 [ToggleSmile]这次我不会手下留情了。[A][N]
 来吧！[A][X]
 
-# 0x1E8D BrockRematchDefeatText
+# 0x1C41 BrockRematchDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9E][0x1][OpenMidRight][ToggleSmile]每座城市的道馆都独一无二！[A][N]
 深灰道馆的这些设计是我的骄傲。[A][N]
 虽然这些小把戏算不得什么，[A][N]
 但你不能否认第一次进来时，[N]
 你有被震撼到，不是吗？[A][X]
 
-# 0x1E8E LtSurgeChallengeText
+# 0x1C42 LtSurgeChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight]嘿，小子！[N]
 你在这儿发什么呆呢？[A][N]
 打起仗来你可活不长的！[N]
@@ -13052,21 +12959,21 @@ MissingNo的属性是[N]
 它们把我的敌人电得麻痹了！[A][N]
 [ToggleSmile]我也要把你电成这样！[A][X]
 
-# 0x1E8F LtSurgeDefeatText
+# 0x1C43 LtSurgeDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight]哼，作为你获胜的奖励，[N]
 拿着这个橙色徽章吧。[A][N]
 也许你是侥幸，[N]
 但规则就是规则…[A][X]
 
-# 0x1E90 LtSurgeWaitText
+# 0x1C44 LtSurgeWaitText
 [OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight]等等，小子，[N]
 这个也拿着。[A][X]
 
-# 0x1E91 LtSurgeRewardText
+# 0x1C45 LtSurgeRewardText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight][ToggleSmile]有时候它会决定你的生死！[A][N]
 当然，这是一把双刃剑。[A][X]
 
-# 0x1E92 LtSurgeRematchText
+# 0x1C46 LtSurgeRematchText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight][ToggleSmile]当年我为国家而战的时候，[N]
 我培养了很多训练家。[A][N]
 我教他们基本功，[A][N]
@@ -13074,13 +12981,13 @@ MissingNo的属性是[N]
 一刻也不懈怠。[A][N]
 [ToggleSmile]你这次输定了！[A][X]
 
-# 0x1E93 LtSurgeRematchDefeatText
+# 0x1C47 LtSurgeRematchDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA5][0x1][OpenMidRight]你在哪儿训练的？[N]
 谁教的你？[A][N]
 部队里太需要[N]
 更多像你这样的人才了。[A][X]
 
-# 0x1E94 KogaChallengeText
+# 0x1C48 KogaChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight]月色渐亏……暗影蠢蠢欲动……[N]
 区区孩童，也敢踏上我的舞台？[A][N]
 [ToggleSmile]哇哈哈哈哈！[N]
@@ -13089,29 +12996,29 @@ MissingNo的属性是[N]
 脚步无声，毒雾蔓延……[N]
 直到你向黑暗俯首称臣！[A][X]
 
-# 0x1E95 KogaDefeatText
+# 0x1C49 KogaDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight]呃！你证明了你的实力！[A][N]
 拿着吧！[N]
 【粉红徽章】是你的了！[A][X]
 
-# 0x1E96 KogaWaitText
+# 0x1C4A KogaWaitText
 [OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight]嘿！[N]
 还有这个！[A][X]
 
-# 0x1E97 KogaRewardText
+# 0x1C4B KogaRewardText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight]静若暮色，[A][N]
 第二击悄然而至，无影无形……[N]
 对手就此颓然倒下。[A][X]
 
-# 0x1E98 KogaSafariText
+# 0x1C4C KogaSafariText
 [OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight]呼呼呵……[N]
 摩鲁蛾，使出剧毒！[A][X]
 
-# 0x1E99 KogaSafariText2
+# 0x1C4D KogaSafariText2
 [OpenMidLeft][LoadFace][0x73][0x1][OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight]体会绝望吧！[N]
 我绝不会手下留情！[A][X]
 
-# 0x1E9A KogaSafariText3
+# 0x1C4E KogaSafariText3
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight][ToggleSmile]我老远就察觉到你的气息了……[N]
 你的气场蕴藏着无限潜能。[A][N]
 [ToggleSmile] 这些野生宝可梦，[N]
@@ -13119,23 +13026,23 @@ MissingNo的属性是[N]
 四下危机四伏……[N]
 正合我意。[A][X]
 
-# 0x1E9B KogaSafariText4
+# 0x1C4F KogaSafariText4
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight]出手要迅疾……[....][N]
 不给对手喘息之机。[A][N]
 最顶尖的防守，[N]
 就是迅猛无情的进攻！[A][X]
 
-# 0x1E9C KogaRematchText
+# 0x1C50 KogaRematchText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight][ToggleSmile]呼呼呵……命运让我们再度相遇。[N]
 我便是潜藏于暗影中的无形利刃。[A][N]
 [ToggleSmile]我的忍术交织着混乱与绝望，[N]
 迷惑你，再将你彻底击溃！[A][X]
 
-# 0x1E9D KogaRematchDefeatText
+# 0x1C51 KogaRematchDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA6][0x1][OpenMidRight]影子再次出卖了我。[N]
 我必须磨炼技艺。[A][X]
 
-# 0x1E9E ErikaRoute14Text
+# 0x1C52 ErikaRoute14Text
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA7][0x1][OpenMidRight][ToggleSmile]啊……难得遇见[N]
 孤身漂泊至此的旅人。[A][N]
 昨日雨后，菌类遍地绽放。[N]
@@ -13151,7 +13058,7 @@ MissingNo的属性是[N]
 来，收下这个。或许你的某只宝可梦，[N]
 即将迎来蜕变绽放的时刻。[A][X]
 
-# 0x1E9F ErikaChallengeText
+# 0x1C53 ErikaChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA7][0x1][OpenMidRight][ToggleSmile]啊……真是风和日丽。[A][N]
 繁花的芬芳总能让我内心平静。[A][N]
 [ToggleSmile]我叫莉佳，专攻植物研究。[A][N]
@@ -13162,23 +13069,23 @@ MissingNo的属性是[N]
 噢……你想要向我发起挑战？[N]
 [ToggleSmile]可以，不过我绝不会落败。[A][X]
 
-# 0x1EA0 ErikaDefeatText
+# 0x1C54 ErikaDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA7][0x1][OpenMidRight]哎！[N]
 我输了。[A][N]
 你很强，[A][N]
 我必须得把【彩虹徽章】[N]
 授予给你。[A][X]
 
-# 0x1EA1 ErikaWaitText
+# 0x1C55 ErikaWaitText
 [OpenMidRight][LoadFace][0xA7][0x1][OpenMidRight][Tact]！[N]
 请拿着这个。[A][X]
 
-# 0x1EA2 ErikaRewardText
+# 0x1C56 ErikaRewardText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA7][0x1][OpenMidRight][ToggleSmile]它能回复携带它的宝可梦[N]
 周边同伴的状态。[A][N]
 我希望你能好好利用它。[A][X]
 
-# 0x1EA3 ErikaRematchText
+# 0x1C57 ErikaRematchText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA7][0x1][OpenMidRight][ToggleSmile]你喜欢植物吗？[A][N]
 有的娇弱柔嫩，有的顽强坚韧。[A][N]
 只要水分、温度与土壤调配得当，[N]
@@ -13189,13 +13096,13 @@ MissingNo的属性是[N]
 身体会受到各类外界因素影响……[A][N]
 [ToggleSmile]就让我为你演示一番。[A][X]
 
-# 0x1EA4 ErikaRematchDefeatText
+# 0x1C58 ErikaRematchDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA7][0x1][OpenMidRight][ToggleSmile]拿植物做实验，[N]
 从来不会有人多说半句。[A][N]
 [ToggleSmile]可一旦把活的生灵当成实验样本，[N]
 立刻就会引来一片哗然……[A][X]
 
-# 0x1EA5 SabrinaChallengeText
+# 0x1C59 SabrinaChallengeText
 [OpenMidRight][LoadFace][0xA8][0x1][OpenMidRight]我能预感到你的到来。[A][N]
 当我还是个小女孩的时候，[N]
 我就拥有了超能力。[A][N]
@@ -13205,10 +13112,10 @@ MissingNo的属性是[N]
 但如果你是认真的话，[A][N]
 我是不会手下留情的！[A][X]
 
-# 0x1EA6 ShowSabrinaText
+# 0x1C5A ShowSabrinaText
 [OpenMidRight][LoadFace][0xA8][0x1][OpenMidRight]……[A][CloseSpeechSlow][X]
 
-# 0x1EA7 SabrinaDefeatText
+# 0x1C5B SabrinaDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA8][0x1][OpenMidRight]哼。拿好了。[A][N]
 为了嘉奖你的胜利，[N]
 给与你这枚【金色徽章】。[A][N]
@@ -13216,30 +13123,30 @@ MissingNo的属性是[N]
 横渡汹涌大海，[A][N]
 向着红莲镇进发……[A][X]
 
-# 0x1EA8 SabrinaWaitText
+# 0x1C5C SabrinaWaitText
 [OpenMidRight][LoadFace][0xA8][0x1][OpenMidRight]等等，[N]
 我还有这个要给你。[A][X]
 
-# 0x1EA9 SabrinaRewardText
+# 0x1C5D SabrinaRewardText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA8][0x1][OpenMidRight]这能帮助你集中精力[N]
 来躲避敌人的必杀一击。[A][N]
 [ToggleSmile]什么？每个人都有超能力，[N]
 他们只是没有意识到而已。[A][X]
 
-# 0x1EAA SabrinaRematchText
+# 0x1C5E SabrinaRematchText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA8][0x1][OpenMidRight]超能力就是控制力。[A][N]
 闭上眼睛，清空思绪，[N]
 放空一切。[A][N]
 就这样一直下去，[N]
 直到什么都不能影响你。[A][X]
 
-# 0x1EAB SabrinaRematchDefeatText
+# 0x1C5F SabrinaRematchDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA8][0x1][OpenMidRight]我很羡慕你。[A][N]
 [ToggleSmile]你的精神很脆弱，[N]
 但你却不受它的影响。[A][N]
 [ToggleSmile]也许控制并不是一切。[A][X]
 
-# 0x1EAC SabrinaCeruleanCaveText
+# 0x1C60 SabrinaCeruleanCaveText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA8][0x1][OpenMidRight][ToggleColorInvert]啊……就算在此地，[N]
 我也察觉到了你靠近的气息。[A][N]
 这片空间充斥着超能力能量……[N]
@@ -13251,7 +13158,7 @@ MissingNo的属性是[N]
 [ToggleSmile]谨守心神。[N]
 黑暗之中，有某物正在静静聆听。[ToggleColorInvert][A][X]
 
-# 0x1EAD BlaineChallengeText
+# 0x1C61 BlaineChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA9][0x1][OpenMidRight][ToggleSmile]啊哈！[A][N]
 夏伯就是我，[N]
 红莲道馆火热的馆主！[A][N]
@@ -13262,19 +13169,19 @@ MissingNo的属性是[N]
 [ToggleSmile]好了！[N]
 开战前你最好准备些灼伤药！[A][X]
 
-# 0x1EAE BlaineDefeatText
+# 0x1C62 BlaineDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA9][0x1][OpenMidRight]被燃烧殆尽的是我！[N]
 烧得连灰烬都不剩！[A][N]
 【深红徽章】是你的了。[A][X]
 
-# 0x1EAF BlaineWaitText
+# 0x1C63 BlaineWaitText
 [OpenMidRight][LoadFace][0xA9][0x1][OpenMidRight]还有这个！[A][X]
 
-# 0x1EB0 BlaineRewardText
+# 0x1C64 BlaineRewardText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA9][0x1][OpenMidRight]这个头带会让你[N]
 热血澎湃！[A][X]
 
-# 0x1EB1 BlaineSeafoamText
+# 0x1C65 BlaineSeafoamText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA9][0x1][OpenMidRight]好冷啊！[N]
 是谁敢打破我冰天雪地的苦修？！[A][N]
 瀑布冰水刺骨，[N]
@@ -13287,17 +13194,17 @@ MissingNo的属性是[N]
 [ToggleSmile]回到红莲道馆吧。[N]
 我会在那里恭候大驾。[A][X]
 
-# 0x1EB2 BlaineRematchText
+# 0x1C66 BlaineRematchText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA9][0x1][OpenMidRight][ToggleSmile]最近我一直在双子岛训练。[A][N]
 [ToggleSmile]那里冰冷的温度反而让我[N]
 和我的宝可梦内心更加炙热！[A][X]
 
-# 0x1EB3 BlaineRematchDefeatText
+# 0x1C67 BlaineRematchDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xA9][0x1][OpenMidRight]我为这座道馆献上了我的一生。[A][N]
 但这仍然不够，[N]
 我必须得在更极端的气候下训练。[A][X]
 
-# 0x1EB4 Giovanni_Gym_ChallengeText
+# 0x1C68 Giovanni_Gym_ChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xAA][0x1][OpenMidRight][ToggleSmile]哈哈哈哈！欢迎来到[N]
 我的藏身之处， [Tact]！[A][N]
 在我重铸火箭队往日的荣光之前，[N]
@@ -13308,17 +13215,17 @@ MissingNo的属性是[N]
 再一次，你将要面对【坂木】，[N]
 那个最强大的【训练家】！[A][X]
 
-# 0x1EB5 Giovanni_GymDefeatText
+# 0x1C69 Giovanni_GymDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xAA][0x1][OpenMidRight][ToggleSmile]哈！[N]
 真是酣畅淋漓的一场战斗。[A][Clear]你赢了！[A][N]
 作为证明，这是【绿色徽章】，[N]
 有了它，你就能使用怪力了！[A][X]
 
-# 0x1EB6 Giovanni_GymWaitText
+# 0x1C6A Giovanni_GymWaitText
 [OpenMidRight][LoadFace][0xAA][0x1][OpenMidRight]把这个当做你[N]
 挑战联盟的礼物吧。[A][X]
 
-# 0x1EB7 Giovanni_GymRewardText
+# 0x1C6B Giovanni_GymRewardText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0xAA][0x1][OpenMidRight]以这种方式落败，[N]
 我无颜面对我的追随者们。[A][Clear][N]
 我背叛了他们对我的忠诚。[A][N]
@@ -13329,7 +13236,7 @@ MissingNo的属性是[N]
 也许我们将来可能会再相见吧！[N]
 再见了！[A][X]
 
-# 0x1EB8 GaryRematchText
+# 0x1C6C GaryRematchText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9A][0x1][OpenMidRight]哈哈哈，是 [Tact]！[N]
 喜欢我的王者归来吗？[A][LoadFace][0x9B][0x1][OpenMidRight][N]
 你敢相信？尽管我开了挂，[N]
@@ -13344,38 +13251,38 @@ MissingNo的属性是[N]
 现在的话，[N]
 就让我们一决高下吧！[A][X]
 
-# 0x1EB9 GaryRematchDefeatText
+# 0x1C6D GaryRematchDefeatText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidRight][LoadFace][0x9B][0x1][OpenMidRight]哼，你能赢我完全[N]
 是因为你的主角光环。[A][N]
 你说说到底谁才是开挂的，[N]
 你重载了多少次存档？[A][X]
 
-# 0x1EBA MewAlertedText
+# 0x1C6E MewAlertedText
 [OpenMidRight][LoadFace][0x97][0x1][OpenMidRight]…！[A][X]
 
-# 0x1EBB CeruleanCaveUnworhtyText
+# 0x1C6F CeruleanCaveUnworhtyText
 一道超能力屏障封住了洞窟。[N]
 你还不够资格。[A][X]
 
-# 0x1EBC CeruleanCaveSealText
+# 0x1C70 CeruleanCaveSealText
 一道超能力屏障封住了洞窟。[A][X]
 
-# 0x1EBD MewSealText
+# 0x1C71 MewSealText
 你感受到邮轮传来的牵引之力……[A][X]
 
-# 0x1EBE ArticunoSealText
+# 0x1C72 ArticunoSealText
 你感受到远方荒芜洞窟中[N]
 透出的阵阵寒意……[A][X]
 
-# 0x1EBF ZapdosSealText
+# 0x1C73 ZapdosSealText
 一阵电光闪过，勾起了你[N]
 前往别处探索的念头……[A][X]
 
-# 0x1EC0 MoltresSealText
+# 0x1C74 MoltresSealText
 通往胜利的道路燃起了[N]
 你对战的热血……[A][X]
 
-# 0x1EC1 MoveRelearnerIntro
+# 0x1C75 MoveRelearnerIntro
 嗯？为什么我会在这里？[A][N]
 对此我想问，为什么我们在这里？[A][N]
 …噢，对了！[N]
@@ -13383,809 +13290,809 @@ MissingNo的属性是[N]
 我可以帮你的宝可梦[N]
 回忆它们以前学过的招式。[A][X]
 
-# 0x1EC2 MoveRelearnerYes
+# 0x1C76 MoveRelearnerYes
 要回忆宝可梦的招式吗？[N]
 [Yes][X]
 
-# 0x1EC3 MoveRelearnerHeartScale
+# 0x1C77 MoveRelearnerHeartScale
 你需要一块心之鳞片。[A][X]
 
-# 0x1EC4 MoveRelearnerPokemonTalk
+# 0x1C78 MoveRelearnerPokemonTalk
 只需要让你的宝可梦[N]
 走到我面前就行了。[A][X]
 
-# 0x1EC5 MewtwoChallengeText
+# 0x1C79 MewtwoChallengeText
 [OpenMidLeft][LoadFace][0xB3][0x1][OpenMidLeft][LoadFace][0x96][0x1][OpenMidLeft][ToggleColorInvert]关东的冠军啊，[N]
 我感受到了你难以抑制的火热雄心。[A][N]
 既然你这么渴望力量，[N]
 那我就让你看看我的力量吧。[A][X]
 
-# 0x1EC6 LittleCupRulesText
+# 0x1C7A LittleCupRulesText
 本次挑战禁止使用进化型宝可梦与[N]
 无进化链的基础宝可梦。很遗憾。[A][X]
 
-# 0x1EC7 ShedinjaName
+# 0x1C7B ShedinjaName
 脱壳忍者[X]
 
-# 0x1EC8 SableyeName
+# 0x1C7C SableyeName
 勾魂眼[X]
 
-# 0x1EC9 ShedinjaDesc
+# 0x1C7D ShedinjaDesc
 彪悍到没有弱点[X]
 
-# 0x1ECA SableyeDesc
+# 0x1C7E SableyeDesc
 被神奇的力量守护着，[N]
 免疫所有攻击.[X]
 
-# 0x1ECB MegaAlakazamName
+# 0x1C7F MegaAlakazamName
 Mega胡地[X]
 
-# 0x1ECC MegaPidgeotName
+# 0x1C80 MegaPidgeotName
 Mega大比鸟[X]
 
-# 0x1ECD MegaVenusaurName
+# 0x1C81 MegaVenusaurName
 Mega妙蛙花[X]
 
-# 0x1ECE MegaCharizardXName
+# 0x1C82 MegaCharizardXName
 Mega喷火龙X[X]
 
-# 0x1ECF MegaBlastoiseName
+# 0x1C83 MegaBlastoiseName
 Mega水箭龟[X]
 
-# 0x1ED0 BulbasaurPokedexText
+# 0x1C84 BulbasaurPokedexText
 从出生的时候开始，[N]
 背上就有一颗植物种子。[N]
 这颗种子会渐渐地长大。[X]
 
-# 0x1ED1 IvysaurPokedexText
+# 0x1C85 IvysaurPokedexText
 据说长在背上的花苞[N]
 在吸收足够的养分后，[N]
 就会开出大大的花朵。[X]
 
-# 0x1ED2 VenusaurPokedexText
+# 0x1C86 VenusaurPokedexText
 花朵散发出的迷人香味[N]
 能安抚激动的心情，[N]
 甚至消弭斗争。[X]
 
-# 0x1ED3 CharmanderPokedexText
+# 0x1C87 CharmanderPokedexText
 生下来的时候，尾巴上就有[N]
 火焰在燃烧。火焰熄灭时，[N]
 它的生命也会结束。[X]
 
-# 0x1ED4 CharmeleonPokedexText
+# 0x1C88 CharmeleonPokedexText
 会先挥舞尾巴扫倒对手，[N]
 然后再用利爪将[N]
 其撕成碎片。[X]
 
-# 0x1ED5 CharizardPokedexText
+# 0x1C89 CharizardPokedexText
 能用翅膀飞到距地面[N]
 1400米的高度。[N]
 会吐出高温火焰。[X]
 
-# 0x1ED6 SquirtlePokedexText
+# 0x1C8A SquirtlePokedexText
 当它把长长的脖子[N]
 缩回壳里时，会顺势发[N]
 射出力道强劲的水枪。[X]
 
-# 0x1ED7 WartortlePokedexText
+# 0x1C8B WartortlePokedexText
 作为宠物来说，[N]
 活得比人类还久。另外，[N]
 它膨大的尾巴是长寿象征。[X]
 
-# 0x1ED8 BlastoisePokedexText
+# 0x1C8C BlastoisePokedexText
 身体很重，压住对手后[N]
 就能让对手昏厥。[N]
 遇到危险时会躲进壳里。[X]
 
-# 0x1ED9 CaterpiePokedexText
+# 0x1C8D CaterpiePokedexText
 外表覆著绿色的皮肤，[N]
 藉著蜕皮的过程不断成长，[N]
 最后用丝缠住自己，变化成蛹。[X]
 
-# 0x1EDA MetapodPokedexText
+# 0x1C8E MetapodPokedexText
 虽然有坚硬的外壳，[N]
 因为壳里的身体很软，[N]
 所以无法抵抗强力的攻击。[X]
 
-# 0x1EDB ButterfreePokedexText
+# 0x1C8F ButterfreePokedexText
 能弹开水滴的鳞粉[N]
 保护着翅膀。即使是在[N]
 雨天也可以在空中飞行。[X]
 
-# 0x1EDC WeedlePokedexText
+# 0x1C90 WeedlePokedexText
 大量栖息在森林或草地里。[N]
 头顶上长着约[N]
 5厘米的尖锐小毒针。[X]
 
-# 0x1EDD KakunaPokedexText
+# 0x1C91 KakunaPokedexText
 为了进化为成虫[N]
 所形成的蛹状态，[N]
 本身倒是动也不动。[X]
 
-# 0x1EDE BeedrillPokedexText
+# 0x1C92 BeedrillPokedexText
 有时会成群结队地出现。[N]
 能以超快的速度飞来飞去，[N]
 并用尾部的毒针不断刺击对手。[X]
 
-# 0x1EDF PidgeyPokedexText
+# 0x1C93 PidgeyPokedexText
 不喜欢战斗，[N]
 经常藏身在草丛中，[N]
 抓取小虫做为食物。[X]
 
-# 0x1EE0 PidgeottoPokedexText
+# 0x1C94 PidgeottoPokedexText
 脚爪非常发达。[N]
 会一把抓起猎物蛋蛋，[N]
 带回100公里外的巢穴。[X]
 
-# 0x1EE1 PidgeotPokedexText
+# 0x1C95 PidgeotPokedexText
 会展开美丽的翅膀[N]
 威吓对手。能以2马赫[N]
 的速度在天上飞来飞去。[X]
 
-# 0x1EE2 RattataPokedexText
+# 0x1C96 RattataPokedexText
 牙齿又长又锋利。[N]
 因为一生之中都在长牙，[N]
 所以要靠啃咬坚硬的东西来磨牙。[X]
 
-# 0x1EE3 RaticatePokedexText
+# 0x1C97 RaticatePokedexText
 后脚上各有三根指头，[N]
 上面附著小小的蹼，[N]
 能在水中游泳并越过河流。[X]
 
-# 0x1EE4 SpearowPokedexText
+# 0x1C98 SpearowPokedexText
 总是显的很忙碌的样子，[N]
 来回的飞来飞去，体力虽然很弱，[N]
 但若进行反击时则会非常可怕。[X]
 
-# 0x1EE5 FearowPokedexText
+# 0x1C99 FearowPokedexText
 可以用巨大的翅膀持续地[N]
 在天空飞翔，就算一天都[N]
 没有降落下来，也不会有问题。[X]
 
-# 0x1EE6 EkansPokedexText
+# 0x1C9A EkansPokedexText
 大量栖息在草地等地方。[N]
 会伸出舌头感知[N]
 周围的危险。[X]
 
-# 0x1EE7 ArbokPokedexText
+# 0x1C9B ArbokPokedexText
 腹部的花纹看起来像一张[N]
 可怕的脸。弱小的敌人只要[N]
 看到这个花纹就会被吓跑。[X]
 
-# 0x1EE8 PikachuPokedexText
+# 0x1C9C PikachuPokedexText
 脸颊两边有着小小的[N]
 电力袋。遇到危险时[N]
 就会放电。[X]
 
-# 0x1EE9 RaichuPokedexText
+# 0x1C9D RaichuPokedexText
 电击有时候会达到十万伏特，[N]
 不小心碰到的话，[N]
 连印度象也会昏厥。[X]
 
-# 0x1EEA SandshrewPokedexText
+# 0x1C9E SandshrewPokedexText
 会在地上挖洞居住。[N]
 如果危险临近，就会[N]
 蜷成一团来保护自己。[X]
 
-# 0x1EEB SandslashPokedexText
+# 0x1C9F SandslashPokedexText
 会敏捷地跑来跑去，[N]
 擅长用背上的针和尖[N]
 锐的爪进行攻击。[X]
 
-# 0x1EEC NidoranFPokedexText
+# 0x1CA0 NidoranFPokedexText
 它的毒针虽然很小[N]
 却十分有威力，[N]
 雌性的角都比较小。[X]
 
-# 0x1EED NidorinaPokedexText
+# 0x1CA1 NidorinaPokedexText
 由于是雌性，所以性情温和。[N]
 嘴里发出的[N]
 超音波有迷惑对手的力量。[X]
 
-# 0x1EEE NidoqueenPokedexText
+# 0x1CA2 NidoqueenPokedexText
 身上长满像刺一样[N]
 坚硬的鳞片。[N]
 兴奋时针会竖起来。[X]
 
-# 0x1EEF NidoranMPokedexText
+# 0x1CA3 NidoranMPokedexText
 耳朵很大，在听远处的声音时，[N]
 耳朵会像翅膀一样拍动。[N]
 生气时会放出毒针。[X]
 
-# 0x1EF0 NidorinoPokedexText
+# 0x1CA4 NidorinoPokedexText
 性格易怒，发达的尖角[N]
 在挥动的时候，[N]
 可以刺穿钻石。[X]
 
-# 0x1EF1 NidokingPokedexText
+# 0x1CA5 NidokingPokedexText
 像石头一样坚硬的皮肤[N]
 以及长长的角是它的特征。[N]
 角上有毒需要注意。[X]
 
-# 0x1EF2 ClefairyPokedexText
+# 0x1CA6 ClefairyPokedexText
 因为它的造型非常的令人喜爱，[N]
 因此在当宠物方面很受人欢迎，[N]
 不过并不容易找到就是了。[X]
 
-# 0x1EF3 ClefablePokedexText
+# 0x1CA7 ClefablePokedexText
 耳朵非常好，[N]
 连1公里外针落地的声音[N]
 都能听得一清二楚。[X]
 
-# 0x1EF4 VulpixPokedexText
+# 0x1CA8 VulpixPokedexText
 虽然还是幼崽，[N]
 却有着6根美丽的尾巴。[N]
 长大后，尾巴会变得更多。[X]
 
-# 0x1EF5 NinetalesPokedexText
+# 0x1CA9 NinetalesPokedexText
 拥有金光灿灿的体毛[N]
 以及9条长长的尾巴。[N]
 据说它可以活上1000年。[X]
 
-# 0x1EF6 JigglypuffPokedexText
+# 0x1CAA JigglypuffPokedexText
 会用圆圆的大眼睛来[N]
 诱惑对手，并唱出悦耳[N]
 的歌曲让其入睡。[X]
 
-# 0x1EF7 WigglytuffPokedexText
+# 0x1CAB WigglytuffPokedexText
 身上长的纹理细致、[N]
 非常柔软、令人著迷的毛，[N]
 它的毛皮是高级品喔！[X]
 
-# 0x1EF8 ZubatPokedexText
+# 0x1CAC ZubatPokedexText
 没有双眼。会从嘴里[N]
 发出超音波在黑暗中[N]
 飞来飞去。[X]
 
-# 0x1EF9 GolbatPokedexText
+# 0x1CAD GolbatPokedexText
 用尖锐的牙齿咬住猎物，[N]
 一次可以吸掉[N]
 300毫升的血液。[X]
 
-# 0x1EFA OddishPokedexText
+# 0x1CAE OddishPokedexText
 别名谜行草。[N]
 据说到了晚上，会用2条根[N]
 走上长达300米的距离。[X]
 
-# 0x1EFB GloomPokedexText
+# 0x1CAF GloomPokedexText
 雌蕊会散发一种极其[N]
 强烈的恶臭，[N]
 能让2公里远的人昏倒。[X]
 
-# 0x1EFC VileplumePokedexText
+# 0x1CB0 VileplumePokedexText
 会从世界上最大的花瓣[N]
 疯狂散播能引起[N]
 过敏的花粉。[X]
 
-# 0x1EFD ParasPokedexText
+# 0x1CB1 ParasPokedexText
 虫背上长着名为[N]
 冬虫夏草的蘑菇。[N]
 长大后蘑菇也会变大。[X]
 
-# 0x1EFE ParasectPokedexText
+# 0x1CB2 ParasectPokedexText
 从菇伞散播毒孢子。[N]
 但是在中国，[N]
 会把这种毒孢子入药。[X]
 
-# 0x1EFF VenonatPokedexText
+# 0x1CB3 VenonatPokedexText
 在黑暗中也能让眼睛[N]
 发挥雷达的作用来活动。[N]
 会从眼睛射出光束。[X]
 
-# 0x1F00 VenomothPokedexText
+# 0x1CB4 VenomothPokedexText
 翅膀上附着着鳞粉，[N]
 每次翩翩扇动翅膀，[N]
 就会播撒剧毒的粉末。[X]
 
-# 0x1F01 DiglettPokedexText
+# 0x1CB5 DiglettPokedexText
 在地下较浅的地方移动。[N]
 被它挖掘过的地面会鼓起来，[N]
 所以非常容易发现。[X]
 
-# 0x1F02 DugtrioPokedexText
+# 0x1CB6 DugtrioPokedexText
 在地下挖洞前进，[N]
 会趁对手不注意的时候，[N]
 从其他地方发动攻击。[X]
 
-# 0x1F03 MeowthPokedexText
+# 0x1CB7 MeowthPokedexText
 白天一直在睡觉。[N]
 一到夜晚眼睛就会放光，[N]
 在自己的地盘徘徊。[X]
 
-# 0x1F04 PersianPokedexText
+# 0x1CB8 PersianPokedexText
 性情凶暴，当它竖起[N]
 尾巴时要多加小心。[N]
 那是它要飞扑过来咬你的前兆。[X]
 
-# 0x1F05 PsyduckPokedexText
+# 0x1CB9 PsyduckPokedexText
 一直受到头痛的困扰。[N]
 在头痛欲裂时，[N]
 就会开始使用神奇的力量。[X]
 
-# 0x1F06 GolduckPokedexText
+# 0x1CBA GolduckPokedexText
 因为手掌变成了蹼，所以它[N]
 很擅长游泳。能在湖泊之类[N]
 的地方看到它优雅的身姿。[X]
 
-# 0x1F07 MankeyPokedexText
+# 0x1CBB MankeyPokedexText
 身体很灵活，[N]
 性格很凶暴。[N]
 暴怒后的大闹很难去制止。[X]
 
-# 0x1F08 PrimeapePokedexText
+# 0x1CBC PrimeapePokedexText
 它一直都在激烈地发怒，[N]
 即便是你逃到天涯海角，[N]
 它也会追上来。[X]
 
-# 0x1F09 GrowlithePokedexText
+# 0x1CBD GrowlithePokedexText
 性格诚实，容易和人亲近。[N]
 对于敌人，它会吼叫追咬，[N]
 并试着把其赶跑。[X]
 
-# 0x1F0A ArcaninePokedexText
+# 0x1CBE ArcaninePokedexText
 中国传说的宝可梦。[N]
 能以超乎想象的[N]
 速度奔跑。[X]
 
-# 0x1F0B PoliwagPokedexText
+# 0x1CBF PoliwagPokedexText
 滑溜溜的黑色皮肤又薄又湿。[N]
 透过皮肤可以看到部分内脏[N]
 呈漩涡状。[X]
 
-# 0x1F0C PoliwhirlPokedexText
+# 0x1CC0 PoliwhirlPokedexText
 2条腿很发达，虽然可以[N]
 在地上生活，但不知为何[N]
 更喜欢生活在水里。[X]
 
-# 0x1F0D PoliwrathPokedexText
+# 0x1CC1 PoliwrathPokedexText
 擅长游泳，[N]
 蛙泳和自由泳都可以。[N]
 奥林匹克选手也难以匹敌的快。[X]
 
-# 0x1F0E AbraPokedexText
+# 0x1CC2 AbraPokedexText
 1天有18个小时都在睡觉。[N]
 就算在睡着的时候，[N]
 也会使用各种各样的超能力。[X]
 
-# 0x1F0F KadabraPokedexText
+# 0x1CC3 KadabraPokedexText
 某个早上，[N]
 超能力少年在床上醒来，[N]
 变身成了勇基拉。[X]
 
-# 0x1F10 AlakazamPokedexText
+# 0x1CC4 AlakazamPokedexText
 不怎么喜欢力量招式，[N]
 自在地操纵超能力[N]
 把对手打倒。[X]
 
-# 0x1F11 MachopPokedexText
+# 0x1CC5 MachopPokedexText
 全身都是肌肉，[N]
 虽然只有小孩那么大，[N]
 却可以扔飞100个成年人。[X]
 
-# 0x1F12 MachokePokedexText
+# 0x1CC6 MachokePokedexText
 有着不会疲劳的强韧肉体。[N]
 会去帮助人类完成例如[N]
 搬运沉重行李之类的工作。[X]
 
-# 0x1F13 MachampPokedexText
+# 0x1CC7 MachampPokedexText
 发达的4条手臂[N]
 能在2秒内[N]
 打出1000拳。[X]
 
-# 0x1F14 BellsproutPokedexText
+# 0x1CC8 BellsproutPokedexText
 因为花苞长得像人脸，[N]
 所以私底下它被说成[N]
 是某种传说中的风茄。[X]
 
-# 0x1F15 WeepinbellPokedexText
+# 0x1CC9 WeepinbellPokedexText
 叶子部分会变成刀刃[N]
 切割对手。嘴里会吐[N]
 出可溶化万物的液体。[X]
 
-# 0x1F16 VictreebelPokedexText
+# 0x1CCA VictreebelPokedexText
 一旦被像蜜一样的香味吸引[N]
 到它的口中就会无法得救。[N]
 只会被它的溶解液溶化掉。[X]
 
-# 0x1F17 TentacoolPokedexText
+# 0x1CCB TentacoolPokedexText
 会从水晶般晶莹剔透[N]
 的眼珠里发射带有[N]
 神奇光芒的光束。[X]
 
-# 0x1F18 TentacruelPokedexText
+# 0x1CCC TentacruelPokedexText
 能随意摆动80只触手。[N]
 被蜇到的话，毒液就会侵入[N]
 体内，并产生尖锐的疼痛感。[X]
 
-# 0x1F19 GeodudePokedexText
+# 0x1CCD GeodudePokedexText
 圆圆的很容易拿着，[N]
 所以可以抓起来玩砸[N]
 对方的小拳石合战。[X]
 
-# 0x1F1A GravellerPokedexText
+# 0x1CCE GravellerPokedexText
 在山的斜坡上走的话[N]
 可以碰到隆隆岩[N]
 滚过来。[X]
 
-# 0x1F1B GolemPokedexText
+# 0x1CCF GolemPokedexText
 被如岩盘般坚硬的[N]
 壳包裹着。[N]
 1年蜕皮1次来变大。[X]
 
-# 0x1F1C PonytaPokedexText
+# 0x1CD0 PonytaPokedexText
 身体很轻，脚的力量很强。[N]
 一跳就可以[N]
 飞过东京铁塔。[X]
 
-# 0x1F1D RapidashPokedexText
+# 0x1CD1 RapidashPokedexText
 时速最高可以达到240千米。[N]
 火焰熊熊燃烧着，用和新干线[N]
 一样的速度赶超它。[X]
 
-# 0x1F1E SlowpokePokedexText
+# 0x1CD2 SlowpokePokedexText
 总是在发呆，不知道它[N]
 在想些什么。[N]
 很擅长用尾巴来钓食物。[X]
 
-# 0x1F1F SlowbroPokedexText
+# 0x1CD3 SlowbroPokedexText
 呆呆兽去海里捕食时，[N]
 由于被大舌贝咬住[N]
 尾巴而变成了呆壳兽。[X]
 
-# 0x1F20 MagnemitePokedexText
+# 0x1CD4 MagnemitePokedexText
 会浮在空中移动，[N]
 并从左右的组件里[N]
 发射电磁波什么的。[X]
 
-# 0x1F21 MagnetonPokedexText
+# 0x1CD5 MagnetonPokedexText
 由多个小磁怪连接而成，[N]
 会发出强力的[N]
 磁力和高电压。[X]
 
-# 0x1F22 FarfetchdPokedexText
+# 0x1CD6 FarfetchdPokedexText
 走路的同时，手上会[N]
 一直拿着1根用来[N]
 给自己筑巢的植物茎。[X]
 
-# 0x1F23 DoduoPokedexText
+# 0x1CD7 DoduoPokedexText
 因为突变而被发现的，[N]
 有着2个脑袋的宝可梦。[N]
 能以100公里的时速奔跑。[X]
 
-# 0x1F24 DodrioPokedexText
+# 0x1CD8 DodrioPokedexText
 极少见的珍稀物种。[N]
 3个脑袋会各自表现出[N]
 愉快、悲伤和愤怒之情。[X]
 
-# 0x1F25 SeelPokedexText
+# 0x1CD9 SeelPokedexText
 覆盖有淡蓝色体毛的[N]
 皮肤十分厚实。[N]
 在零下40度也能活动。[X]
 
-# 0x1F26 DewgongPokedexText
+# 0x1CDA DewgongPokedexText
 全身覆盖有雪白的毛发。[N]
 与其说它耐寒，[N]
 倒不如说越冷它越有精神。[X]
 
-# 0x1F27 GrimerPokedexText
+# 0x1CDB GrimerPokedexText
 受到月亮X射线的照射后，[N]
 污泥变成了臭泥。[N]
 非常喜欢脏东西。[X]
 
-# 0x1F28 MukPokedexText
+# 0x1CDC MukPokedexText
 平时和地面混在一起[N]
 看不出来。碰到它身[N]
 体的话会被猛毒侵蚀。[X]
 
-# 0x1F29 ShellderPokedexText
+# 0x1CDD ShellderPokedexText
 被比钻石还坚硬的壳所包裹。[N]
 不过内部却[N]
 是超乎意料的柔软。[X]
 
-# 0x1F2A CloysterPokedexText
+# 0x1CDE CloysterPokedexText
 贝壳非常坚硬，连燃烧弹[N]
 都无法破坏。[N]
 只有攻击的时候才会张开。[X]
 
-# 0x1F2B GastlyPokedexText
+# 0x1CDF GastlyPokedexText
 稀薄的瓦斯状生命体，[N]
 被瓦斯包围的话连[N]
 印度大象也会在2秒内倒下。[X]
 
-# 0x1F2C HaunterPokedexText
+# 0x1CE0 HaunterPokedexText
 如果黑暗中空空如也，[N]
 但你却感觉被什么盯上了，[N]
 那么鬼斯通一定就在那里。[X]
 
-# 0x1F2D GengarPokedexText
+# 0x1CE1 GengarPokedexText
 据说它会为了夺取[N]
 山中遇难者的生命而[N]
 从黑暗中出现。[X]
 
-# 0x1F2E OnixPokedexText
+# 0x1CE2 OnixPokedexText
 平时住在地里。[N]
 会以80公里的时速在地下[N]
 一边挖掘一边寻找食物。[X]
 
-# 0x1F2F DrowzeePokedexText
+# 0x1CE3 DrowzeePokedexText
 据说是传说中叫做貘[N]
 的食梦动物的子孙。[N]
 非常擅长催眠术。[X]
 
-# 0x1F30 HypnoPokedexText
+# 0x1CE4 HypnoPokedexText
 会拿着像钟摆一样的东西走动。[N]
 曾经发生过它使用催眠术[N]
 把孩子带走的事件。[X]
 
-# 0x1F31 KrabbyPokedexText
+# 0x1CE5 KrabbyPokedexText
 能在海边上找到它。[N]
 巨大的钳子即使断掉，[N]
 今后也会再长出来。[X]
 
-# 0x1F32 KinglerPokedexText
+# 0x1CE6 KinglerPokedexText
 虽然坚硬的钳子有[N]
 着1万马力的力量，[N]
 但因为太大而行动迟缓。[X]
 
-# 0x1F33 VoltorbPokedexText
+# 0x1CE7 VoltorbPokedexText
 正体不明的生物，[N]
 据说发生过发出刺耳声[N]
 后突然玉石俱碎的事件。[X]
 
-# 0x1F34 ElectrodePokedexText
+# 0x1CE8 ElectrodePokedexText
 稍微受点刺激就会爆炸。[N]
 有着炸弹球的[N]
 外号而令人恐惧。[X]
 
-# 0x1F35 ExeggcutePokedexText
+# 0x1CE9 ExeggcutePokedexText
 虽然看起来像是什么东西的蛋，[N]
 但人们已经弄清了它其实是[N]
 接近于植物种子的生物。[X]
 
-# 0x1F36 ExeggutorPokedexText
+# 0x1CEA ExeggutorPokedexText
 被称为会走路的热带雨林。[N]
 每个果实都有自己的脸，[N]
 而且拥有各自的想法。[X]
 
-# 0x1F37 CubonePokedexText
+# 0x1CEB CubonePokedexText
 头上戴着与自己天人永隔[N]
 的母亲的头骨。据说在[N]
 寂寞的时候会大声哭泣。[X]
 
-# 0x1F38 MarowakPokedexText
+# 0x1CEC MarowakPokedexText
 身体很小，原本很弱。[N]
 学会使用骨头后，[N]
 性格变得粗暴起来。[X]
 
-# 0x1F39 HitmonleePokedexText
+# 0x1CED HitmonleePokedexText
 腿能自由地伸缩，[N]
 即使离得很远，[N]
 也能把对手踢飞。[X]
 
-# 0x1F3A HitmonchanPokedexText
+# 0x1CEE HitmonchanPokedexText
 身上附有职业[N]
 拳击手之魂。[N]
 拳速比高铁还快。[X]
 
-# 0x1F3B LickitungPokedexText
+# 0x1CEF LickitungPokedexText
 舌头有身体2倍长，[N]
 并能像手一样活动自如，[N]
 能用它来代替手拿取食物或攻击。[X]
 
-# 0x1F3C KoffingPokedexText
+# 0x1CF0 KoffingPokedexText
 薄薄的气球状身体里[N]
 贮满了剧毒的瓦斯。[N]
 它靠过来的话，会感觉很臭。[X]
 
-# 0x1F3D WeezingPokedexText
+# 0x1CF1 WeezingPokedexText
 有时会因为非常罕见的突变，[N]
 出现2个连接在一起的[N]
 双胞胎小瓦斯弹。[X]
 
-# 0x1F3E RhyhornPokedexText
+# 0x1CF2 RhyhornPokedexText
 虽然头脑很差但力气很大，[N]
 可以用撞击把[N]
 高楼大厦撞得粉粹。[X]
 
-# 0x1F3F RhydonPokedexText
+# 0x1CF3 RhydonPokedexText
 进化后会变得仅用后脚就能站立。[N]
 如果被它的角刺中，[N]
 就连岩石也会被开个洞。[X]
 
-# 0x1F40 ChanseyPokedexText
+# 0x1CF4 ChanseyPokedexText
 1天能生好几个蛋。[N]
 这些蛋不但营养丰富，[N]
 而且好像非常好吃。[X]
 
-# 0x1F41 TangelaPokedexText
+# 0x1CF5 TangelaPokedexText
 蓝色藤状植物缠在一起，[N]
 看不到本来面目。[N]
 会缠住接近的物体。[X]
 
-# 0x1F42 KangaskhanPokedexText
+# 0x1CF6 KangaskhanPokedexText
 雌性把宝宝放在[N]
 腹袋里抚育。[N]
 擅长连续拳攻击。[X]
 
-# 0x1F43 HorseaPokedexText
+# 0x1CF7 HorseaPokedexText
 会用像发条一样圆圆卷起[N]
 的尾巴来保持身体平衡。[N]
 有时会从口中吐出墨汁。[X]
 
-# 0x1F44 SeadraPokedexText
+# 0x1CF8 SeadraPokedexText
 如果糊里糊涂想去摸它的话，[N]
 有时就会被它长在身体上的[N]
 刺扎到而陷入昏厥。[X]
 
-# 0x1F45 GoldeenPokedexText
+# 0x1CF9 GoldeenPokedexText
 背鳍和尾鳍像肌肉[N]
 那样发达。能够以5节[N]
 的速度在水中游泳。[X]
 
-# 0x1F46 SeakingPokedexText
+# 0x1CFA SeakingPokedexText
 用钻头一样的角[N]
 捅穿岩壁做成[N]
 自己的窝。[X]
 
-# 0x1F47 StaryuPokedexText
+# 0x1CFB StaryuPokedexText
 大量出现在海边，[N]
 到了晚上，身体中间的[N]
 部分就会闪烁着红光。[X]
 
-# 0x1F48 StarmiePokedexText
+# 0x1CFC StarmiePokedexText
 因为有着几何形状的身体，[N]
 也被当地人怀疑[N]
 是不是宇宙生物。[X]
 
-# 0x1F49 MrMimePokedexText
+# 0x1CFD MrMimePokedexText
 擅长使人信以为真。[N]
 据说以默剧形式制造[N]
 的墙壁会真的出现。[X]
 
-# 0x1F4A ScytherPokedexText
+# 0x1CFE ScytherPokedexText
 会用锋利的镰刀斩断猎物[N]
 取其性命。只有极少数情况[N]
 下会用翅膀飞行。[X]
 
-# 0x1F4B JynxPokedexText
+# 0x1CFF JynxPokedexText
 虽然说的话听上去像是人类语言，[N]
 但具体说的是什么还不清楚，[N]
 现在正在研究当中。[X]
 
-# 0x1F4C ElectabuzzPokedexText
+# 0x1D00 ElectabuzzPokedexText
 非常喜欢强大的电力，[N]
 所以会经常出现在[N]
 大型发电厂等地。[X]
 
-# 0x1F4D MagmarPokedexText
+# 0x1D01 MagmarPokedexText
 它是在火山口附近被发现的。[N]
 会从嘴里吐出火焰。[N]
 体温高达1200度。[X]
 
-# 0x1F4E PinsirPokedexText
+# 0x1D02 PinsirPokedexText
 两根长角力量十足。[N]
 一旦被夹到，[N]
 不被撕碎就不会被放开。[X]
 
-# 0x1F4F TaurosPokedexText
+# 0x1D03 TaurosPokedexText
 准备要撞击过来的时候，[N]
 会用3条尾巴狠[N]
 狠地抽打自己的身体。[X]
 
-# 0x1F50 MagikarpPokedexText
+# 0x1D04 MagikarpPokedexText
 力量和速度几乎都不行。[N]
 是世界上最弱[N]
 最可怜的宝可梦。[X]
 
-# 0x1F51 GyaradosPokedexText
+# 0x1D05 GyaradosPokedexText
 性格非常凶暴。[N]
 从嘴里发出的破坏光线[N]
 可以烧毁一切东西。[X]
 
-# 0x1F52 LaprasPokedexText
+# 0x1D06 LaprasPokedexText
 有着可以理解人类语言[N]
 的高智商。喜欢乘载着人[N]
 在海上前行。[X]
 
-# 0x1F53 DittoPokedexText
+# 0x1D07 DittoPokedexText
 会自己重组身体细胞的结构，[N]
 变身成其他[N]
 的生命体。[X]
 
-# 0x1F54 EeveePokedexText
+# 0x1D08 EeveePokedexText
 可以进化成3种[N]
 宝可梦的珍奇的[N]
 宝可梦。[X]
 
-# 0x1F55 VaporeonPokedexText
+# 0x1D09 VaporeonPokedexText
 身体细胞的结构与水分子相似。[N]
 它能和水融为一体，[N]
 让别人无法看见它。[X]
 
-# 0x1F56 JolteonPokedexText
+# 0x1D0A JolteonPokedexText
 当雷伊布生气或是吃惊时，[N]
 它全身的体毛会像针一样[N]
 竖起来刺穿对手。[X]
 
-# 0x1F57 FlareonPokedexText
+# 0x1D0B FlareonPokedexText
 体内有着火袋，[N]
 深吸气后会吐出[N]
 1700度的火焰。[X]
 
-# 0x1F58 PorygonPokedexText
+# 0x1D0C PorygonPokedexText
 使用最先进的科学技术，[N]
 终于成功制造出[N]
 人工的宝可梦。[X]
 
-# 0x1F59 OmanytePokedexText
+# 0x1D0D OmanytePokedexText
 是很久以前生活在[N]
 海里的古代宝可梦。[N]
 靠弯曲10只脚来游动。[X]
 
-# 0x1F5A OmastarPokedexText
+# 0x1D0E OmastarPokedexText
 触手像手脚一般发达。[N]
 在紧紧抓住对手的[N]
 同时会咬上去。[X]
 
-# 0x1F5B KabutoPokedexText
+# 0x1D0F KabutoPokedexText
 从古代生物的化石中[N]
 再生的宝可梦。[N]
 一直在用坚硬的壳保护自己。[X]
 
-# 0x1F5C KabutopsPokedexText
+# 0x1D10 KabutopsPokedexText
 能在水中自由游动，[N]
 用锋利的镰刀抓住[N]
 对手吸取对方的体液。[X]
 
-# 0x1F5D AerodactylPokedexText
+# 0x1D11 AerodactylPokedexText
 从残留在琥珀中的恐龙[N]
 遗传基因复活而来。[N]
 会一边高声鸣叫一边飞行。[X]
 
-# 0x1F5E SnorlaxPokedexText
+# 0x1D12 SnorlaxPokedexText
 每天不吃上400公斤的[N]
 食物心里就不畅快。[N]
 吃饱了就会开始睡觉。[X]
 
-# 0x1F5F ArticunoPokedexText
+# 0x1D13 ArticunoPokedexText
 传说的鸟宝可梦，[N]
 飘曳着长尾巴飞行的[N]
 姿态非常好看。[X]
 
-# 0x1F60 ZapdosPokedexText
+# 0x1D14 ZapdosPokedexText
 传说的鸟宝可梦，[N]
 飞的时候会发出[N]
 爆裂的啪啪声。[X]
 
-# 0x1F61 MoltresPokedexText
+# 0x1D15 MoltresPokedexText
 传说的鸟宝可梦，[N]
 橙色的如燃烧一般的[N]
 翅膀凌驾看到的一切。[X]
 
-# 0x1F62 DratiniPokedexText
+# 0x1D16 DratiniPokedexText
 幼年时身长就超过2米，[N]
 随着反复蜕皮[N]
 而长得更大。[X]
 
-# 0x1F63 DragonairPokedexText
+# 0x1D17 DragonairPokedexText
 据说生活在海或者湖中，[N]
 虽然没有翅膀，但偶尔[N]
 会被目击到在空中飞行。[X]
 
-# 0x1F64 DragonitePokedexText
+# 0x1D18 DragonitePokedexText
 体型很大，能在空中飞行。[N]
 大约只需16小时[N]
 就能绕地球1周。[X]
 
-# 0x1F65 MewtwoPokedexText
+# 0x1D19 MewtwoPokedexText
 出于研究目的不断[N]
 重组基因，结果变成[N]
 凶暴的宝可梦。[X]
 
-# 0x1F66 MewPokedexText
+# 0x1D1A MewPokedexText
 生活在南美的本应已经灭绝[N]
 的宝可梦，智商非常高，[N]
 什么都能记住。[X]
 
-# 0x1F67 ErrorOccurredMessageID
+# 0x1D1B ErrorOccurredMessageID
 请把这个错误代码截图：[A][X]

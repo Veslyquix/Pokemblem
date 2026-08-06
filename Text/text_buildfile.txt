@@ -3,7 +3,6 @@
 #include "Vanilla/Shops.txt"
 #include "Vanilla/Terrain.txt"
 #include "Vanilla/default.txt" 
-#include "ClassesCharsItems/VanillaItemText.txt"
 #include "ClassesCharsItems/Characters.txt"
 #include "ClassesCharsItems/ClassNamesDesc.txt" 
 

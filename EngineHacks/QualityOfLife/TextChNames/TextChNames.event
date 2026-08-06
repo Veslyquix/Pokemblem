@@ -9,7 +9,8 @@
 
 
 #ifdef _FE8_
-
+  ALIGN 4
+  #include "asm/chapter_title_utf8.lyn.event"
   {
 
   #include "EAstdlib.event"
@@ -23,8 +24,7 @@
       jumpToHack(Chname)
   POP
 
-  ALIGN 4
-  #include "asm/chapter_title_utf8.lyn.event"
+
 
   Chname:
     #include "asm/fe8_chapter_names.lyn.event"
