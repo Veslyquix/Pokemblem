@@ -1,7 +1,5 @@
 
 
-// [909EA34..909EC54]?
-// 57348 
 PUSH 
 
 ORG $59bd8 
@@ -19,21 +17,36 @@ POIN NewAnimTable
 ORG $70a60 
 POIN NewAnimTable
 
+ORG $51e48 
+POIN NewBattleTerrainTable // battle_terrain_table
+ORG $5aad0 
+POIN NewBattleTerrainTable
+ 
+
 POP 
 
+#define TemplePlatform "0 0 0 TemplePlatformImg TemplePlatform_Pal 0" 
+#define TemplePlatform_16 "TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform" 
+#define TemplePlatform_128 "TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16"
+ALIGN 4 
+NewBattleTerrainTable: 
+POIN TemplePlatform_128 
 
-#ifdef _FE8_ 
-#define DefaultAnimEntry "BYTE 0x6C 0x6F 0x72 0x6D 0x5F 0x73 0x70 0x31 0x00 0x00 0x00 0x00;POIN 0xC0B030 0xC0AC08 0xC0A3A4 0xC09B6C 0xC09B10 ; "
-#endif // fe8 
-#define DefAnim16 "DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry DefaultAnimEntry"
-#define DefAnim256 "DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16 DefAnim16"
+ALIGN 4 
+WORD 0 0 0 0 
+
+TemplePlatformImg:
+#incbin "platform/Platform3F.png.dmp" 
+ALIGN 4 
+TemplePlatform_Pal:
+#incbin "platform/Platform3F.png.pal.dmp" 
+
 
 
 ALIGN 4 
 NewAnimTable: 
-FILL(256*32) 0 
-// DefAnim256
-// ORG NewAnimTable + (AnimTableSize * 32) 
+FILL (160*32) 0 
+// ORG NewAnimTable + (160 * 32) 
 
 #define classAnim(classID,animPointer)  "ORG classTable +classID*(72)  + 48; WORD $08000000 + animPointer"
 
