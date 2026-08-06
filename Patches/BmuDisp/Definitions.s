@@ -18,7 +18,11 @@ SET_FUNC Div, __aeabi_idivmod
 SET_FUNC Div, __aeabi_uidiv
 SET_FUNC Div, __aeabi_uidivmod
 
-
+SET_DATA sGfx_MiscUiGraphics, 0x80156ac
+SET_DATA sImg_DifficultyMenuObjs, 0x80ac188
+SET_DATA sImg_SaveScreenSprits, 0x80a8edc
+SET_DATA sPal_MiscUiGraphics, 0x80156b8
+SET_DATA sPal_08A295B4, 0x80a8ee8
 SET_DATA sChapterDataTable, 0x803462C
 SET_DATA sPortrait_data, 0x8005524
 SET_DATA sUnit_icon_wait_table, 0x8027bb0

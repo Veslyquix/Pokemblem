@@ -49,6 +49,70 @@ extern u16 SmsObjVramUpperChr;
 #define SMS_16X16_GFX_SLOT_COUNT (0x80 - SMS_32X32_GFX_SLOT_STRIDE)
 #define MMS_RESERVED_OBJ_CHR 0x39C
 #define MMS_RESERVED_GFX_SLOT_START (SMS_16X16_GFX_SLOT_COUNT - SMS_32X32_GFX_SLOT_STRIDE)
+extern u16 ** sGfx_MiscUiGraphics;     // 0x80156ac
+extern u16 ** sImg_DifficultyMenuObjs; // 0x80ac188
+extern u16 ** sImg_SaveScreenSprits;   // 0x80a8edc
+extern u16 ** sPal_MiscUiGraphics;     // 0x80156b8
+extern u16 ** sPal_08A295B4;           // 0x80a8ee8
+
+extern u16 LevelSelect_CN;
+extern u16 SaveControl_CN;
+extern u16 SystemIcon_CN;
+extern u8 * CurrentLanguage_Link;
+int GetLanguage()
+{
+    return *CurrentLanguage_Link;
+}
+void LoadObjUIGfx(void)
+{
+    if (GetLanguage() == 2)
+    {
+        Decompress(&SystemIcon_CN, gGenericBuffer);
+    }
+    else
+    {
+        Decompress(*sGfx_MiscUiGraphics, gGenericBuffer);
+    }
+
+    Copy2dChr(gGenericBuffer, (void *)0x06010000, 0x12, 4);
+
+    ApplyPalettes(*sPal_MiscUiGraphics, 0x10, 2);
+
+    return;
+}
+
+// InitDifficultySelectScreen  80AC084 Img_DifficultyMenuObjs 8A28A0C
+void Hook_InitDifficultySelectScreen(void)
+{
+
+    ApplyPalette(*sPal_08A295B4, 2);
+    if (GetLanguage() == 2)
+    {
+        Decompress(&LevelSelect_CN, (void *)0x06010800);
+    }
+
+    else
+    {
+        Decompress(*sImg_DifficultyMenuObjs, (void *)0x06010800);
+    }
+}
+
+// SaveMenu_InitScreen 0x080A8CD4 Img_SaveScreenSprits 8A26A74
+// SaveMenu_ReloadScreenFormDifficulty 0x080AA30C
+void Hook_LoadDifficultyGfx(void)
+{
+    CallARM_FillTileRect(
+        gBG2TilemapBuffer, gGenericBuffer,
+        OBJ_PALETTE(BGPAL_SAVEMENU_BGFOG) + OBJ_PRIORITY(0) + OBJ_CHAR(BGCHR_SAVEMENU_BGFOG));
+    if (GetLanguage() == 2)
+    {
+        Decompress(&SaveControl_CN, OBJ_VRAM0 + OBJCHR_SAVEMENU_SPRITES * TILE_SIZE_4BPP);
+    }
+    else
+    {
+        Decompress(*sImg_SaveScreenSprits, OBJ_VRAM0 + OBJCHR_SAVEMENU_SPRITES * TILE_SIZE_4BPP);
+    }
+}
 
 extern struct MuInfo const * const sUnit_icon_move_table; // struct MuInfo
 static struct MuInfo const * GetMMSData(int id)
@@ -137,8 +201,8 @@ void InitBaseTilesBmMap(void)
             gBmMapBaseTiles[iy][ix] = *tiles++;
     }
 
-    // this is for StartSubtitleHelp. If you are against the edge of the screen, it shifts the map up and draws a black
-    // line under the text
+    // this is for StartSubtitleHelp. If you are against the edge of the screen, it shifts the map up and draws a
+    // black line under the text
 
     tiles = gBmMapBaseTiles[iy - 1];
 
@@ -230,7 +294,8 @@ void RegisterFillTile(const void * src, void * dst, int size)
 // [2037c10]!!
 
 void sub_809A114(
-    struct PrepItemScreenProc * proc, u8 row, s8 flag) // fix the last row in prep item menu from showing an extra name
+    struct PrepItemScreenProc * proc, u8 row,
+    s8 flag) // fix the last row in prep item menu from showing an extra name
 {
     int i;
     int idx;
@@ -2033,8 +2098,8 @@ void PutUnitSpritesOam(void)
 
             case 2:
                 CallARM_PushToSecondaryOAM(
-                    OAM1_X((x - 8) + r3 + 0x200), OAM0_Y(0x100 + y - 16), gObject_32x32, it->oam2Base + OAM2_LAYER(2));
-                break;
+                    OAM1_X((x - 8) + r3 + 0x200), OAM0_Y(0x100 + y - 16), gObject_32x32, it->oam2Base +
+OAM2_LAYER(2)); break;
 
             case 3:
                 CallARM_PushToSecondaryOAM(
@@ -2049,8 +2114,8 @@ void PutUnitSpritesOam(void)
 
             case 5:
                 CallARM_PushToSecondaryOAM(
-                    OAM1_X((x - 8) + r3 + 0x200), OAM0_Y(0x100 + y - 16), gObject_32x32, it->oam2Base + OAM2_LAYER(3));
-                break;
+                    OAM1_X((x - 8) + r3 + 0x200), OAM0_Y(0x100 + y - 16), gObject_32x32, it->oam2Base +
+OAM2_LAYER(3)); break;
         }
     }
 }
@@ -2339,13 +2404,13 @@ void PutUnitSprite(int layer, int x, int y, struct Unit * unit)
     switch (GetInfo(id).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            PutSprite(layer, x, y, gObject_16x16, (GetUnitDisplayedSpritePalette(unit) & 0xf) * 0x1000 + 0x880 + chr);
-            break;
+            PutSprite(layer, x, y, gObject_16x16, (GetUnitDisplayedSpritePalette(unit) & 0xf) * 0x1000 + 0x880 +
+chr); break;
 
         case UNIT_ICON_SIZE_16x32:
             PutSprite(
-                layer, x, y - 16, gObject_16x32, (GetUnitDisplayedSpritePalette(unit) & 0xf) * 0x1000 + 0x880 + chr);
-            break;
+                layer, x, y - 16, gObject_16x32, (GetUnitDisplayedSpritePalette(unit) & 0xf) * 0x1000 + 0x880 +
+chr); break;
 
         case UNIT_ICON_SIZE_32x32:
             PutSprite(
@@ -2455,8 +2520,8 @@ void sub_8027E4C(int layer, int x, int y, int oam2, struct Unit * unit)
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            PutSprite(layer, x - 8, y - 16, gObject_32x32, oam2 + (GetUnitSpritePalette(unit) & 0xf) * 0x1000 + chr);
-            break;
+            PutSprite(layer, x - 8, y - 16, gObject_32x32, oam2 + (GetUnitSpritePalette(unit) & 0xf) * 0x1000 +
+chr); break;
     }
 }
 

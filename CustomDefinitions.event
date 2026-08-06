@@ -7,7 +7,7 @@
 // post action events? 1-2 frames? 
 // 7BBB8 MapAnim_EndBattle 
 //#define FreeSpace 0x012a49a8 // after music, some gfx, and fonts
-#define FreeSpace 0x01300000 // after music, some gfx, and fonts
+#define FreeSpace 0x01400000 // after music, some gfx, and fonts
 #define FreeSpace_Low 0xb2a610
 #define POKEMBLEM
 

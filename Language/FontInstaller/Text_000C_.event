@@ -1,31 +1,111 @@
 // Sub Font Installer
 ALIGN 4
+Fonts(0x0000, 6)
+	#incbin "../FontData/FontText_C.fefont"
+
+ALIGN 4
 Fonts(0x0030, 5)
 	#incbin "../FontData/FontText「.fefont"
+
+ALIGN 4
+Fonts(0x004E, 12)
+	#incbin "../FontData/FontText丌.fefont"
+
+ALIGN 4
+Fonts(0x0050, 12)
+	#incbin "../FontData/FontText倌.fefont"
 
 ALIGN 4
 Fonts(0x0054, 12)
 	#incbin "../FontData/FontText同.fefont"
 
 ALIGN 4
-Fonts(0x005E, 13)
+Fonts(0x0056, 12)
+	#incbin "../FontData/FontText嘌.fefont"
+
+ALIGN 4
+Fonts(0x005A, 12)
+	#incbin "../FontData/FontText娌.fefont"
+
+ALIGN 4
+Fonts(0x005E, 12)
 	#incbin "../FontData/FontText希.fefont"
 
 ALIGN 4
-Fonts(0x0066, 12)
+Fonts(0x0062, 12)
+	#incbin "../FontData/FontText戌.fefont"
+
+ALIGN 4
+Fonts(0x0064, 12)
+	#incbin "../FontData/FontText搌.fefont"
+
+ALIGN 4
+Fonts(0x0066, 11)
 	#incbin "../FontData/FontText昌.fefont"
 
 ALIGN 4
-Fonts(0x0080, 13)
+Fonts(0x0068, 12)
+	#incbin "../FontData/FontText栌.fefont"
+
+ALIGN 4
+Fonts(0x006D, 12)
+	#incbin "../FontData/FontText洌.fefont"
+
+ALIGN 4
+Fonts(0x006E, 12)
+	#incbin "../FontData/FontText渌.fefont"
+
+ALIGN 4
+Fonts(0x0076, 12)
+	#incbin "../FontData/FontText瘌.fefont"
+
+ALIGN 4
+Fonts(0x0078, 12)
+	#incbin "../FontData/FontText砌.fefont"
+
+ALIGN 4
+Fonts(0x007C, 12)
+	#incbin "../FontData/FontText簌.fefont"
+
+ALIGN 4
+Fonts(0x007F, 12)
+	#incbin "../FontData/FontText缌.fefont"
+
+ALIGN 4
+Fonts(0x0080, 12)
 	#incbin "../FontData/FontText而.fefont"
 
 ALIGN 4
-Fonts(0x0082, 13)
+Fonts(0x0082, 12)
 	#incbin "../FontData/FontText舌.fefont"
 
 ALIGN 4
-Fonts(0x0084, 13)
+Fonts(0x0083, 12)
+	#incbin "../FontData/FontText茌.fefont"
+
+ALIGN 4
+Fonts(0x0084, 12)
 	#incbin "../FontData/FontText萌.fefont"
+
+ALIGN 4
+Fonts(0x0085, 12)
+	#incbin "../FontData/FontText蔌.fefont"
+
+ALIGN 4
+Fonts(0x008C, 12)
+	#incbin "../FontData/FontText谌.fefont"
+
+ALIGN 4
+Fonts(0x008E, 12)
+	#incbin "../FontData/FontText踌.fefont"
+
+ALIGN 4
+Fonts(0x0095, 12)
+	#incbin "../FontData/FontText锌.fefont"
+
+ALIGN 4
+Fonts(0x0096, 12)
+	#incbin "../FontData/FontText阌.fefont"
 
 ALIGN 4
 Fonts(0x00FF, 4)

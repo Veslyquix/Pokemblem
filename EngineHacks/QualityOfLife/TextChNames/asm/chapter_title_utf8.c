@@ -11,14 +11,25 @@ struct Utf8Glyph {
 
 #define TEXT_GLYPH_TABLE ((struct Utf8Glyph *const *) 0x0858F6F4)
 
-static u32 DecodeUtf8(const u8 *text) {
+static const struct Utf8Glyph sMissingUtf8Glyph = {
+    0,
+    0,
+    12,
+    0,
+    0,
+    { 0 },
+};
+
+static u32 DecodeUtf8(const u8 *text, int *outLength) {
     u32 codepoint;
     u8 lead = text[0];
     int length;
     int i;
 
-    if (lead < 0x80)
+    if (lead < 0x80) {
+        *outLength = 1;
         return lead;
+    }
 
     if (lead < 0xC0)
         return 0;
@@ -41,14 +52,16 @@ static u32 DecodeUtf8(const u8 *text) {
         codepoint = (codepoint << 6) | (text[i] & 0x3F);
     }
 
+    *outLength = length;
     return codepoint;
 }
 
 struct Utf8Glyph *ChapterTitleFindUtf8Glyph(const u8 *text) {
-    u32 codepoint = DecodeUtf8(text);
+    int length = 0;
+    u32 codepoint = DecodeUtf8(text, &length);
     struct Utf8Glyph *glyph;
 
-    if (codepoint == 0)
+    if (codepoint == 0 || length == 1)
         return 0;
 
     glyph = TEXT_GLYPH_TABLE[codepoint & 0xFF];
@@ -60,7 +73,7 @@ struct Utf8Glyph *ChapterTitleFindUtf8Glyph(const u8 *text) {
         glyph = glyph->next;
     }
 
-    return 0;
+    return (struct Utf8Glyph *) &sMissingUtf8Glyph;
 }
 
 int ChapterTitleDrawUtf8Glyph(const struct Utf8Glyph *glyph, void *destination, int x) {

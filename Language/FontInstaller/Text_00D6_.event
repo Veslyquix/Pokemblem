@@ -1,25 +1,109 @@
 // Sub Font Installer
 ALIGN 4
-Fonts(0x004E, 13)
+Fonts(0x004E, 12)
 	#incbin "../FontData/FontText他.fefont"
 
 ALIGN 4
-Fonts(0x0053, 13)
+Fonts(0x0050, 12)
+	#incbin "../FontData/FontText僖.fefont"
+
+ALIGN 4
+Fonts(0x0052, 12)
+	#incbin "../FontData/FontText勖.fefont"
+
+ALIGN 4
+Fonts(0x0053, 12)
 	#incbin "../FontData/FontText取.fefont"
 
 ALIGN 4
-Fonts(0x0062, 13)
+Fonts(0x0055, 12)
+	#incbin "../FontData/FontText嗖.fefont"
+
+ALIGN 4
+Fonts(0x005A, 12)
+	#incbin "../FontData/FontText嫖.fefont"
+
+ALIGN 4
+Fonts(0x005E, 12)
+	#incbin "../FontData/FontText廖.fefont"
+
+ALIGN 4
+Fonts(0x005F, 12)
+	#incbin "../FontData/FontText忖.fefont"
+
+ALIGN 4
+Fonts(0x0062, 12)
 	#incbin "../FontData/FontText拖.fefont"
 
 ALIGN 4
-Fonts(0x0076, 13)
+Fonts(0x0063, 12)
+	#incbin "../FontData/FontText揖.fefont"
+
+ALIGN 4
+Fonts(0x0065, 12)
+	#incbin "../FontData/FontText旖.fefont"
+
+ALIGN 4
+Fonts(0x006B, 12)
+	#incbin "../FontData/FontText毖.fefont"
+
+ALIGN 4
+Fonts(0x006C, 12)
+	#incbin "../FontData/FontText泖.fefont"
+
+ALIGN 4
+Fonts(0x006D, 12)
+	#incbin "../FontData/FontText淖.fefont"
+
+ALIGN 4
+Fonts(0x0075, 12)
+	#incbin "../FontData/FontText痖.fefont"
+
+ALIGN 4
+Fonts(0x0076, 12)
 	#incbin "../FontData/FontText盖.fefont"
 
 ALIGN 4
-Fonts(0x007C, 13)
+Fonts(0x007A, 12)
+	#incbin "../FontData/FontText竖.fefont"
+
+ALIGN 4
+Fonts(0x007C, 12)
 	#incbin "../FontData/FontText糖.fefont"
 
 ALIGN 4
-Fonts(0x009C, 13)
+Fonts(0x0080, 12)
+	#incbin "../FontData/FontText胖.fefont"
+
+ALIGN 4
+Fonts(0x0083, 12)
+	#incbin "../FontData/FontText菖.fefont"
+
+ALIGN 4
+Fonts(0x0084, 12)
+	#incbin "../FontData/FontText蓖.fefont"
+
+ALIGN 4
+Fonts(0x0089, 12)
+	#incbin "../FontData/FontText觖.fefont"
+
+ALIGN 4
+Fonts(0x008B, 12)
+	#incbin "../FontData/FontText诖.fefont"
+
+ALIGN 4
+Fonts(0x008D, 12)
+	#incbin "../FontData/FontText跖.fefont"
+
+ALIGN 4
+Fonts(0x0093, 12)
+	#incbin "../FontData/FontText鏖.fefont"
+
+ALIGN 4
+Fonts(0x0094, 12)
+	#incbin "../FontData/FontText铖.fefont"
+
+ALIGN 4
+Fonts(0x009C, 12)
 	#incbin "../FontData/FontText鳖.fefont"
 

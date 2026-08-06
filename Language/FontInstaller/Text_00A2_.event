@@ -1,37 +1,105 @@
 // Sub Font Installer
 ALIGN 4
-Fonts(0x004E, 13)
+Fonts(0x004E, 12)
 	#incbin "../FontData/FontText亢.fefont"
 
 ALIGN 4
-Fonts(0x005B, 13)
+Fonts(0x0051, 12)
+	#incbin "../FontData/FontText冢.fefont"
+
+ALIGN 4
+Fonts(0x0052, 12)
+	#incbin "../FontData/FontText劢.fefont"
+
+ALIGN 4
+Fonts(0x0053, 12)
+	#incbin "../FontData/FontText厢.fefont"
+
+ALIGN 4
+Fonts(0x0057, 12)
+	#incbin "../FontData/FontText垢.fefont"
+
+ALIGN 4
+Fonts(0x005B, 12)
 	#incbin "../FontData/FontText客.fefont"
 
 ALIGN 4
-Fonts(0x0062, 13)
+Fonts(0x005C, 12)
+	#incbin "../FontData/FontText岢.fefont"
+
+ALIGN 4
+Fonts(0x0062, 12)
 	#incbin "../FontData/FontText抢.fefont"
 
 ALIGN 4
-Fonts(0x0063, 13)
+Fonts(0x0063, 12)
 	#incbin "../FontData/FontText探.fefont"
 
 ALIGN 4
-Fonts(0x006E, 13)
+Fonts(0x0067, 12)
+	#incbin "../FontData/FontText枢.fefont"
+
+ALIGN 4
+Fonts(0x0068, 12)
+	#incbin "../FontData/FontText梢.fefont"
+
+ALIGN 4
+Fonts(0x006E, 12)
 	#incbin "../FontData/FontText溢.fefont"
 
 ALIGN 4
-Fonts(0x007E, 13)
+Fonts(0x0073, 12)
+	#incbin "../FontData/FontText玢.fefont"
+
+ALIGN 4
+Fonts(0x0077, 12)
+	#incbin "../FontData/FontText瞢.fefont"
+
+ALIGN 4
+Fonts(0x007B, 12)
+	#incbin "../FontData/FontText箢.fefont"
+
+ALIGN 4
+Fonts(0x007C, 12)
+	#incbin "../FontData/FontText粢.fefont"
+
+ALIGN 4
+Fonts(0x007E, 12)
 	#incbin "../FontData/FontText红.fefont"
 
 ALIGN 4
-Fonts(0x0080, 13)
+Fonts(0x0080, 12)
 	#incbin "../FontData/FontText肢.fefont"
 
 ALIGN 4
-Fonts(0x008B, 13)
+Fonts(0x0088, 12)
+	#incbin "../FontData/FontText袢.fefont"
+
+ALIGN 4
+Fonts(0x008B, 12)
 	#incbin "../FontData/FontText订.fefont"
 
 ALIGN 4
-Fonts(0x0094, 13)
+Fonts(0x0090, 12)
+	#incbin "../FontData/FontText邢.fefont"
+
+ALIGN 4
+Fonts(0x0091, 12)
+	#incbin "../FontData/FontText醢.fefont"
+
+ALIGN 4
+Fonts(0x0094, 12)
 	#incbin "../FontData/FontText钢.fefont"
+
+ALIGN 4
+Fonts(0x0098, 12)
+	#incbin "../FontData/FontText颢.fefont"
+
+ALIGN 4
+Fonts(0x009A, 12)
+	#incbin "../FontData/FontText骢.fefont"
+
+ALIGN 4
+Fonts(0x009C, 12)
+	#incbin "../FontData/FontText鲢.fefont"
 

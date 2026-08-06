@@ -4,7 +4,15 @@ Fonts(0x0007, 2)
 	#incbin "../FontData/FontTextޘ.fefont"
 
 ALIGN 4
-Fonts(0x0055, 13)
+Fonts(0x004E, 12)
+	#incbin "../FontData/FontText亘.fefont"
+
+ALIGN 4
+Fonts(0x0053, 12)
+	#incbin "../FontData/FontText厘.fefont"
+
+ALIGN 4
+Fonts(0x0055, 12)
 	#incbin "../FontData/FontText喘.fefont"
 
 ALIGN 4
@@ -12,22 +20,90 @@ Fonts(0x005B, 12)
 	#incbin "../FontData/FontText官.fefont"
 
 ALIGN 4
-Fonts(0x005F, 13)
+Fonts(0x005C, 12)
+	#incbin "../FontData/FontText岘.fefont"
+
+ALIGN 4
+Fonts(0x005F, 12)
 	#incbin "../FontData/FontText徘.fefont"
 
 ALIGN 4
-Fonts(0x0062, 13)
+Fonts(0x0062, 12)
 	#incbin "../FontData/FontText折.fefont"
 
 ALIGN 4
-Fonts(0x0063, 13)
+Fonts(0x0063, 12)
 	#incbin "../FontData/FontText掘.fefont"
 
 ALIGN 4
-Fonts(0x007C, 13)
+Fonts(0x0067, 12)
+	#incbin "../FontData/FontText枘.fefont"
+
+ALIGN 4
+Fonts(0x0069, 12)
+	#incbin "../FontData/FontText榘.fefont"
+
+ALIGN 4
+Fonts(0x006E, 12)
+	#incbin "../FontData/FontText溘.fefont"
+
+ALIGN 4
+Fonts(0x0071, 12)
+	#incbin "../FontData/FontText熘.fefont"
+
+ALIGN 4
+Fonts(0x0078, 12)
+	#incbin "../FontData/FontText碘.fefont"
+
+ALIGN 4
+Fonts(0x007A, 12)
+	#incbin "../FontData/FontText窘.fefont"
+
+ALIGN 4
+Fonts(0x007C, 12)
 	#incbin "../FontData/FontText粘.fefont"
 
 ALIGN 4
-Fonts(0x0098, 13)
+Fonts(0x0080, 12)
+	#incbin "../FontData/FontText肘.fefont"
+
+ALIGN 4
+Fonts(0x0081, 12)
+	#incbin "../FontData/FontText膘.fefont"
+
+ALIGN 4
+Fonts(0x0082, 12)
+	#incbin "../FontData/FontText芘.fefont"
+
+ALIGN 4
+Fonts(0x0083, 12)
+	#incbin "../FontData/FontText莘.fefont"
+
+ALIGN 4
+Fonts(0x008C, 12)
+	#incbin "../FontData/FontText貘.fefont"
+
+ALIGN 4
+Fonts(0x008F, 12)
+	#incbin "../FontData/FontText辘.fefont"
+
+ALIGN 4
+Fonts(0x0096, 12)
+	#incbin "../FontData/FontText隘.fefont"
+
+ALIGN 4
+Fonts(0x0097, 12)
+	#incbin "../FontData/FontText鞘.fefont"
+
+ALIGN 4
+Fonts(0x0098, 12)
 	#incbin "../FontData/FontText题.fefont"
+
+ALIGN 4
+Fonts(0x0099, 12)
+	#incbin "../FontData/FontText馘.fefont"
+
+ALIGN 4
+Fonts(0x009A, 12)
+	#incbin "../FontData/FontText骘.fefont"
 

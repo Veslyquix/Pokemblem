@@ -1,61 +1,217 @@
 // Sub Font Installer
 ALIGN 4
-Fonts(0x004F, 9)
+Fonts(0x004F, 8)
 	#incbin "../FontData/FontItem侯.fefont"
 
 ALIGN 4
-Fonts(0x0054, 11)
+Fonts(0x0050, 8)
+	#incbin "../FontData/FontItem傯.fefont"
+
+ALIGN 4
+Fonts(0x0051, 8)
+	#incbin "../FontData/FontItem冯.fefont"
+
+ALIGN 4
+Fonts(0x0054, 8)
 	#incbin "../FontData/FontItem咯.fefont"
 
 ALIGN 4
-Fonts(0x0056, 11)
+Fonts(0x0056, 8)
 	#incbin "../FontData/FontItem嚯.fefont"
 
 ALIGN 4
-Fonts(0x0060, 11)
+Fonts(0x0057, 8)
+	#incbin "../FontData/FontItem垯.fefont"
+
+ALIGN 4
+Fonts(0x0059, 8)
+	#incbin "../FontData/FontItem妯.fefont"
+
+ALIGN 4
+Fonts(0x005A, 8)
+	#incbin "../FontData/FontItem媯.fefont"
+
+ALIGN 4
+Fonts(0x005F, 8)
+	#incbin "../FontData/FontItem徯.fefont"
+
+ALIGN 4
+Fonts(0x0060, 8)
 	#incbin "../FontData/FontItem悯.fefont"
 
 ALIGN 4
-Fonts(0x0065, 9)
+Fonts(0x0061, 8)
+	#incbin "../FontData/FontItem憯.fefont"
+
+ALIGN 4
+Fonts(0x0063, 8)
+	#incbin "../FontData/FontItem掯.fefont"
+
+ALIGN 4
+Fonts(0x0065, 8)
 	#incbin "../FontData/FontItem斯.fefont"
 
 ALIGN 4
-Fonts(0x0067, 11)
+Fonts(0x0067, 8)
 	#incbin "../FontData/FontItem枯.fefont"
 
 ALIGN 4
-Fonts(0x0068, 9)
+Fonts(0x0068, 8)
 	#incbin "../FontData/FontItem梯.fefont"
 
 ALIGN 4
-Fonts(0x006D, 9)
+Fonts(0x006A, 8)
+	#incbin "../FontData/FontItem檯.fefont"
+
+ALIGN 4
+Fonts(0x006B, 8)
+	#incbin "../FontData/FontItem殯.fefont"
+
+ALIGN 4
+Fonts(0x006D, 8)
 	#incbin "../FontData/FontItem涯.fefont"
 
 ALIGN 4
-Fonts(0x0072, 9)
+Fonts(0x006E, 8)
+	#incbin "../FontData/FontItem溯.fefont"
+
+ALIGN 4
+Fonts(0x006F, 8)
+	#incbin "../FontData/FontItem澯.fefont"
+
+ALIGN 4
+Fonts(0x0070, 8)
+	#incbin "../FontData/FontItem炯.fefont"
+
+ALIGN 4
+Fonts(0x0071, 8)
+	#incbin "../FontData/FontItem熯.fefont"
+
+ALIGN 4
+Fonts(0x0072, 8)
 	#incbin "../FontData/FontItem犯.fefont"
 
 ALIGN 4
-Fonts(0x0073, 9)
+Fonts(0x0073, 8)
 	#incbin "../FontData/FontItem环.fefont"
 
 ALIGN 4
-Fonts(0x0075, 9)
+Fonts(0x0075, 8)
 	#incbin "../FontData/FontItem疯.fefont"
 
 ALIGN 4
-Fonts(0x007E, 9)
+Fonts(0x0078, 8)
+	#incbin "../FontData/FontItem碯.fefont"
+
+ALIGN 4
+Fonts(0x007A, 8)
+	#incbin "../FontData/FontItem窯.fefont"
+
+ALIGN 4
+Fonts(0x007D, 8)
+	#incbin "../FontData/FontItem綯.fefont"
+
+ALIGN 4
+Fonts(0x007E, 8)
 	#incbin "../FontData/FontItem纯.fefont"
 
 ALIGN 4
-Fonts(0x0080, 9)
+Fonts(0x007F, 8)
+	#incbin "../FontData/FontItem羯.fefont"
+
+ALIGN 4
+Fonts(0x0080, 8)
 	#incbin "../FontData/FontItem肯.fefont"
 
 ALIGN 4
-Fonts(0x008B, 11)
+Fonts(0x0082, 8)
+	#incbin "../FontData/FontItem芯.fefont"
+
+ALIGN 4
+Fonts(0x0083, 8)
+	#incbin "../FontData/FontItem莯.fefont"
+
+ALIGN 4
+Fonts(0x0084, 8)
+	#incbin "../FontData/FontItem蒯.fefont"
+
+ALIGN 4
+Fonts(0x0085, 8)
+	#incbin "../FontData/FontItem薯.fefont"
+
+ALIGN 4
+Fonts(0x0086, 8)
+	#incbin "../FontData/FontItem蚯.fefont"
+
+ALIGN 4
+Fonts(0x0087, 8)
+	#incbin "../FontData/FontItem螯.fefont"
+
+ALIGN 4
+Fonts(0x0088, 8)
+	#incbin "../FontData/FontItem袯.fefont"
+
+ALIGN 4
+Fonts(0x0089, 8)
+	#incbin "../FontData/FontItem覯.fefont"
+
+ALIGN 4
+Fonts(0x008B, 8)
 	#incbin "../FontData/FontItem讯.fefont"
 
 ALIGN 4
-Fonts(0x008E, 9)
+Fonts(0x008C, 8)
+	#incbin "../FontData/FontItem貯.fefont"
+
+ALIGN 4
+Fonts(0x008D, 8)
+	#incbin "../FontData/FontItem趯.fefont"
+
+ALIGN 4
+Fonts(0x008E, 8)
 	#incbin "../FontData/FontItem躯.fefont"
+
+ALIGN 4
+Fonts(0x008F, 8)
+	#incbin "../FontData/FontItem辯.fefont"
+
+ALIGN 4
+Fonts(0x0090, 8)
+	#incbin "../FontData/FontItem邯.fefont"
+
+ALIGN 4
+Fonts(0x0091, 8)
+	#incbin "../FontData/FontItem醯.fefont"
+
+ALIGN 4
+Fonts(0x0093, 8)
+	#incbin "../FontData/FontItem鎯.fefont"
+
+ALIGN 4
+Fonts(0x0094, 8)
+	#incbin "../FontData/FontItem钯.fefont"
+
+ALIGN 4
+Fonts(0x0097, 8)
+	#incbin "../FontData/FontItem鞯.fefont"
+
+ALIGN 4
+Fonts(0x0098, 8)
+	#incbin "../FontData/FontItem颯.fefont"
+
+ALIGN 4
+Fonts(0x009A, 8)
+	#incbin "../FontData/FontItem骯.fefont"
+
+ALIGN 4
+Fonts(0x009C, 8)
+	#incbin "../FontData/FontItem鲯.fefont"
+
+ALIGN 4
+Fonts(0x009D, 8)
+	#incbin "../FontData/FontItem鶯.fefont"
+
+ALIGN 4
+Fonts(0x009E, 8)
+	#incbin "../FontData/FontItem麯.fefont"
 

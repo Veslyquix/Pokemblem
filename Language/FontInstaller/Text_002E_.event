@@ -1,33 +1,105 @@
 // Sub Font Installer
 ALIGN 4
 Fonts(0x0000, 2)
-	#incbin "../FontData/FontText..fefont"
+	#incbin "../FontData/FontText_2E.fefont"
+
+ALIGN 4
+Fonts(0x0050, 12)
+	#incbin "../FontData/FontText倮.fefont"
 
 ALIGN 4
 Fonts(0x0052, 12)
 	#incbin "../FontData/FontText刮.fefont"
 
 ALIGN 4
-Fonts(0x0055, 13)
+Fonts(0x0053, 12)
+	#incbin "../FontData/FontText匮.fefont"
+
+ALIGN 4
+Fonts(0x0054, 12)
+	#incbin "../FontData/FontText吮.fefont"
+
+ALIGN 4
+Fonts(0x0055, 12)
 	#incbin "../FontData/FontText售.fefont"
 
 ALIGN 4
-Fonts(0x0059, 13)
+Fonts(0x0057, 12)
+	#incbin "../FontData/FontText圮.fefont"
+
+ALIGN 4
+Fonts(0x0059, 12)
 	#incbin "../FontData/FontText央.fefont"
 
 ALIGN 4
-Fonts(0x005E, 13)
+Fonts(0x005D, 11)
+	#incbin "../FontData/FontText崮.fefont"
+
+ALIGN 4
+Fonts(0x005E, 12)
 	#incbin "../FontData/FontText帮.fefont"
 
 ALIGN 4
-Fonts(0x0073, 13)
+Fonts(0x0062, 12)
+	#incbin "../FontData/FontText戮.fefont"
+
+ALIGN 4
+Fonts(0x0065, 12)
+	#incbin "../FontData/FontText攮.fefont"
+
+ALIGN 4
+Fonts(0x006C, 12)
+	#incbin "../FontData/FontText氮.fefont"
+
+ALIGN 4
+Fonts(0x006D, 12)
+	#incbin "../FontData/FontText洮.fefont"
+
+ALIGN 4
+Fonts(0x0073, 12)
 	#incbin "../FontData/FontText献.fefont"
 
 ALIGN 4
-Fonts(0x0090, 13)
+Fonts(0x0074, 12)
+	#incbin "../FontData/FontText琮.fefont"
+
+ALIGN 4
+Fonts(0x007B, 12)
+	#incbin "../FontData/FontText笮.fefont"
+
+ALIGN 4
+Fonts(0x007F, 12)
+	#incbin "../FontData/FontText缮.fefont"
+
+ALIGN 4
+Fonts(0x0087, 12)
+	#incbin "../FontData/FontText蜮.fefont"
+
+ALIGN 4
+Fonts(0x008C, 12)
+	#incbin "../FontData/FontText谮.fefont"
+
+ALIGN 4
+Fonts(0x008D, 12)
+	#incbin "../FontData/FontText贮.fefont"
+
+ALIGN 4
+Fonts(0x008E, 12)
+	#incbin "../FontData/FontText踮.fefont"
+
+ALIGN 4
+Fonts(0x0090, 12)
 	#incbin "../FontData/FontText逮.fefont"
 
 ALIGN 4
-Fonts(0x0095, 13)
+Fonts(0x0095, 12)
 	#incbin "../FontData/FontText键.fefont"
+
+ALIGN 4
+Fonts(0x0096, 12)
+	#incbin "../FontData/FontText阮.fefont"
+
+ALIGN 4
+Fonts(0x0099, 12)
+	#incbin "../FontData/FontText餮.fefont"
 

@@ -452,9 +452,20 @@ b       GotTextCharacterIndex
 		
 	Check_Colon:
 	cmp     r1,#0x3A     
-	bne     Check_CD     
+	bne     CheckUtf8Fallback
 	mov     r0,#0x43     
 	b       GotTextCharacterIndex  
+
+	CheckUtf8Fallback:
+	cmp     r2,#0xC0
+	blo     Check_CD
+	mov     r0,r3
+	ldr     r3,=Utf8FindGlyph
+	ldr     r3,[r3]
+	mov     lr,r3
+	.short  0xF800
+	cmp     r0,#0
+	bne     GotTextCharacterIndex
 	
 	Check_CD:        @Í
 	cmp     r1,#0xCD
