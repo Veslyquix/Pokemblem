@@ -71,12 +71,12 @@ void LoadObjUIGfx(void)
     }
     else
     {
-        Decompress(*sGfx_MiscUiGraphics, gGenericBuffer);
+        Decompress(sGfx_MiscUiGraphics, gGenericBuffer);
     }
 
-    Copy2dChr(gGenericBuffer, (void *)0x06010000, 0x12, 4);
+    Copy2dChr(gGenericBuffer, (void *)0x06010000, 0x18, 4);
 
-    ApplyPalettes(*sPal_MiscUiGraphics, 0x10, 2);
+    ApplyPalettes(sPal_MiscUiGraphics, 0x10, 2);
 
     return;
 }
@@ -93,7 +93,7 @@ void Hook_InitDifficultySelectScreen(void)
 
     else
     {
-        Decompress(*sImg_DifficultyMenuObjs, (void *)0x06010800);
+        Decompress(sImg_DifficultyMenuObjs, (void *)0x06010800);
     }
 }
 
@@ -110,7 +110,7 @@ void Hook_LoadDifficultyGfx(void)
     }
     else
     {
-        Decompress(*sImg_SaveScreenSprits, OBJ_VRAM0 + OBJCHR_SAVEMENU_SPRITES * TILE_SIZE_4BPP);
+        Decompress(sImg_SaveScreenSprits, OBJ_VRAM0 + OBJCHR_SAVEMENU_SPRITES * TILE_SIZE_4BPP);
     }
 }
 
