@@ -11,7 +11,7 @@ PUSH
 ORG FreeSpace
 #include "Maps/MapTables.event" 
 NewChapterDataTable: // so we can see this for maps 
-MESSAGE Used free space will end at currentOffset
+
 MESSAGE please wait a while
 POP 
 #endif 
@@ -32,8 +32,8 @@ MESSAGE Chunk 2 free space ends at currentOffset and equal to FreeSpace_Low2
 ASSERT 0x9000000-CURRENTOFFSET 
 	ORG 0x01000000
 	#include "Music/MusicInstaller.event" 
-	
-	ORG 0x1081420 // export undo buffer will not put you in freespace 
+	ORG $1081420 // export undo buffer will not put you in freespace 
+    // don't edit this 
 	
 	// #include "Language/Installer.event" // 0x12a3dd0
 	//#include "Fonts/UTF-8/Installer.event" 

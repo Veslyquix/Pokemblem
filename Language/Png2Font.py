@@ -21,7 +21,7 @@ def NotdDir(in_file, out_file):
 	out_file_name = os.path.basename(out_file)
 
 
-	print( in_file_name, " => ", out_file_name )
+	print((in_file_name + " => " + out_file_name).encode("ascii", "backslashreplace").decode("ascii"))
 
 
 def Png2Font(file, quiet=False):

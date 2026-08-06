@@ -1,4 +1,5 @@
-// PROTECT $15680 $156bc
+
+// PROTECT $44d4 
 // PROTECT $267fc $2713c
 // PROTECT $27330 $2734c
 //PROTECT $144F944
@@ -7,6 +8,7 @@
 // post action events? 1-2 frames? 
 // 7BBB8 MapAnim_EndBattle 
 //#define FreeSpace 0x012a49a8 // after music, some gfx, and fonts
+// #define FreeSpace 0x1056E98 // after music, some gfx, and fonts
 #define FreeSpace 0x1081420 // after music, some gfx, and fonts
 #define FreeSpace_Low 0xb2a610
 #define FreeSpace_Low2 0xE78490 // currently goes until 8FA608C 
@@ -133,11 +135,6 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 #define Ves_SkillBlockThree_ItemID 0xFE
 #define Ves_SkillBlockFour_ItemID 0xFF 
 
-
-
-#ifndef ClassAnimTable
-    #define ClassAnimTable (0xc00008-0x20)
-#endif
 
 
 #define MuscleBand_BoostIndex 1 

@@ -186,7 +186,7 @@ static void DrawLanguageText(LanguageSelectProc * proc)
             GetStringFromIndex(*sLanguageTextLinks[i]));
     }
 
-    InitLine(&proc->text[LS_LANGUAGE_COUNT + 1], LS_OPTION_X, 15, TEXT_COLOR_SYSTEM_GREEN, 11, "A/START");
+    InitLine(&proc->text[LS_LANGUAGE_COUNT + 1], LS_OPTION_X - 2, 15, TEXT_COLOR_SYSTEM_GREEN, 11, " Press A/START");
 
     BG_EnableSyncByMask(BG_SYNC_BIT(0));
 }
