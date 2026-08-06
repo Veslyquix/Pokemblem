@@ -26,9 +26,8 @@ ORG FreeSpace_Low
 	//Graphics
 	#include "Graphics/GraphicsInstaller.event"
 #endif 
-MESSAGE FreeSpace_Low2 should be at CURRENTOFFSET 
 	ASSERT (FreeSpace - (currentOffset&0x1FFFFFF)) // So that you don't overwrite vanilla tables if using default freespace
-MESSAGE Chunk 2 free space ends at currentOffset
+MESSAGE Chunk 2 free space ends at currentOffset and equal to FreeSpace_Low2
 
 ASSERT 0x9000000-CURRENTOFFSET 
 	ORG 0x01000000

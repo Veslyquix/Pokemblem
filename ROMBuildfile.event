@@ -104,6 +104,7 @@ ORG FreeSpace
 
     
 #ifdef INCLUDE_FLYING
+MESSAGE Soaring starts at currentOffset
   	//Soaring outside bl range includes
     ALIGN 4
     #include "EngineHacks/Soaring/src/hostable.lyn.event"
@@ -115,6 +116,7 @@ ORG FreeSpace
     #incbin "EngineHacks/Soaring/src/pleftmatrix.dmp"
     ALIGN 4
     #include "EngineHacks/Soaring/Graphics/Master Graphics Installer.event"
+MESSAGE Soaring ends at currentOffset
 #endif 
     ALIGN 4
     MESSAGE Used hax space ends at currentOffset
