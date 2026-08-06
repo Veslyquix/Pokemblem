@@ -821,250 +821,6 @@ Cost[X]
 # this iterates automatically, so if the last one with a fixed address is 0x1500, the first free is 1501 
  Skill learned[X]
 
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaLike1ID
-piña coladas[X]
-
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaLike2ID * 
-getting caught in the rain[X]
-
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaDislike1ID
-health food[X]
-
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaDislike2ID
-yoga[X]
-
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaAgeID
-1337[X]
-
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaHeightID
-420cm[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0212
-P-01[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0213
-P-02[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0214
-P-03[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0215
-P-04[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0216
-P-05[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0217
-P-06[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0218
-P-07[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0219
-P-08[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x021A
-P-09[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x021B
-P-0A[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x021C
-P-0B[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x021D
-P-0C[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x021E
-P-0D[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x021F
-P-0E[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0220
-P-0F[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0221
-P-10[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0222
-P-11[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0223
-P-12[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0224
-P-13[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0225
-P-14[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0226
-P-15[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0227
-P-16[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0228
-P-17[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0229
-P-18[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x022A
-P-19[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x022B
-P-1A[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x022C
-P-1B[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x022D
-P-1C[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x022E
-P-1D[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x022F
-P-1E[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0230
-P-1F[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0231
-P-20[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0232
-P-21[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0233
-P-22[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0234
-P-23[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0235
-P-24[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0236
-P-25[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0237
-P-26[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0238
-P-27[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0239
-P-28[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x023A
-P-29[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x023B
-P-2A[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x023D
-P-2B[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0244
-P-2C[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0245
-P-2D[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0246
-Riev[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0247
-P-2E[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0248
-P-2F[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0249
-P-30[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x024A
-P-31[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x024B
-P-32[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x024C
-P-33[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x024D
-P-34[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x024E
-P-35[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x024F
-P-36[X]
-
 // Source: Text/ClassesCharsItems/Characters.txt
 ## NSlashAText
 --[X]
@@ -1098,27 +854,7 @@ Wild[X]
 Trainer[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11D0
-sfx[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11D1
-open ball[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11D2
-pokeball[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11D3
-blank[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11E0
-sfx unit[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1000 BulbasaurNameText ^
+## BulbasaurNameText ^
 Bulbasaur[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1132,27 +868,21 @@ Resists: [Grass] [Water] [Electric] [Fighting] [Poison] [Ground] [Bug] [X]
 Ivysaur[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1003 BulbasaurDescText
+## BulbasaurDescText
 Typing: [Grass] [Poison][NL]
 Weak to: [Fire] [Ice] [Flying] [Psychic] [NL]
 Resists: [Grass] [Water] [Electric] [Fighting] [Poison] [Ground] [Bug] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1004 VenusaurNameText
+## VenusaurNameText
 Venusaur[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1005
-Grass/Poison. [NL]
-Weak: FIRE, ICE, FLY, PSY[NL]
-Res: GRA, WTR, ELC, FIT, POI, GRD, BUG[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1006 CharmanderNameText ^
+## CharmanderNameText ^
 Charmander[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1007 CharmanderDescText
+## CharmanderDescText
 Typing: [Fire] [NL]
 Weak to: [Water] [Ground] [Rock] [NL]
 Resists: [Bug] [Fire] [Grass] [Ice] [X]
@@ -1162,403 +892,397 @@ Resists: [Bug] [Fire] [Grass] [Ice] [X]
 Charmeleon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100A CharizardNameText
+## CharizardNameText
 Charizard[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100B CharizardDescText
+## CharizardDescText
 Typing: [Fire] [Flying] [NL]
 Weak to: [Rock] [Water] [Electric] [NL]
 Resists: [Bug] [Fire] [Grass] [Ice] [Fighting] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100C SquirtleNameText
+## SquirtleNameText
 Squirtle[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100D SquirtleDescText
+## SquirtleDescText
 Typing: [Water] [NL]
 Weak to: [Electric] [Grass] [NL]
 Resists: [Fire] [Ice] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100E WartortleNameText
+## WartortleNameText
 Wartortle[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x100F
-Typing:
-Weak to:
-Resists: [X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1010 BlastoiseNameText
+## BlastoiseNameText
 Blastoise[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1012 CaterpieName
+## CaterpieName
 Caterpie[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1013 CaterpieDescText
+## CaterpieDescText
 Typing: [Bug] [NL]
 Weak to: [Fire] [Flying] [Rock] [NL]
 Resists: [Fighting] [Grass] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1014 MetapodNameText
+## MetapodNameText
 Metapod[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1016 ButterfreeName
+## ButterfreeName
 Butterfree[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1017 ButterfreeDescText
+## ButterfreeDescText
 Typing: [Bug] [Flying] [NL]
 Weak to: [Fire] [Flying] [Rock] [Electric] [Ice] [NL]
 Resists: [Fighting] [Grass] [Bug] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1018 WeedleName
+## WeedleName
 Weedle[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1019 WeedleDescText
+## WeedleDescText
 Typing: [Bug] [Poison] [NL]
 Weak to: [Fire] [Flying] [Rock] [Psychic] [NL]
 Resists: [Fighting] [Grass] [Ground] [Bug] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x101A KakunaNameText
+## KakunaNameText
 Kakuna[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x101C BeedrillNameText
+## BeedrillNameText
 Beedrill[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x101E PidgeyName
+## PidgeyName
 Pidgey[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x101F PidgeyDescText
+## PidgeyDescText
 Typing: [Normal] [Flying] [NL]
 Weak to: [Electric] [Ice] [Rock] [NL]
 Resists: [Bug] [Fighting] [Grass] [Ground] [Ghost] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1020 PidgeottoNameText ^
+## PidgeottoNameText ^
 Pidgeotto[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1022 PidgeotNameText
+## PidgeotNameText
 Pidgeot[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1024 RattataName
+## RattataName
 Rattata[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1025 RattataDescText
+## RattataDescText
 Typing: [Normal] [NL]
 Weak to: [Fighting]  [NL]
 Resists: [Ghost] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1026 RaticateNameText
+## RaticateNameText
 Raticate[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1028 SpearowNameText
+## SpearowNameText
 Spearow[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x102A FearowNameText
+## FearowNameText
 Fearow[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x102C EkansNameText
+## EkansNameText
 Ekans[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x102D EkansDescText
+## EkansDescText
 Typing: [Poison] [NL]
 Weak to: [Ground] [Psychic] [NL]
 Resists: [Bug] [Fighting] [Grass] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x102E ArbokNameText
+## ArbokNameText
 Arbok[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1030 PikachuNameText
+## PikachuNameText
 Pikachu[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1031 PikachuDescText
+## PikachuDescText
 Typing: [Electric] [NL]
 Weak to: [Ground] [NL]
 Resists: [Electric] [Flying] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1032 RaichuNameText
+## RaichuNameText
 Raichu[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1034 SandshrewNameText
+## SandshrewNameText
 Sandshrew[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1035 SandshrewDescText
+## SandshrewDescText
 Typing: [Ground] [NL]
 Weak to: [Grass] [Ice] [Water] [NL]
 Resists: [Poison] [Rock] [Electric] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1036 SandslashNameText
+## SandslashNameText
 Sandslash[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1038 NidoranFNameText
+## NidoranFNameText
 Nidoran-F[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x103A NidorinaNameText ^
+## NidorinaNameText ^
 Nidorina[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x103C NidoqueenNameText
+## NidoqueenNameText
 Nidoqueen[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x103D NidoqueenDescText
+## NidoqueenDescText
 Typing: [Poison] [Ground] [NL]
 Weak to: [Ground] [Psychic] [Ice] [Water] [NL]
 Resists: [Bug] [Fighting] [Grass] [Poison] [Rock] [Electric] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x103E NidoranMNameText
+## NidoranMNameText
 Nidoran-M[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1040 NidorinoNameText ^
+## NidorinoNameText ^
 Nidorino[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1042 NidokingNameText
+## NidokingNameText
 Nidoking[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1044 ClefairyNameText
+## ClefairyNameText
 Clefairy[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1046 ClefableNameText
+## ClefableNameText
 Clefable[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1048 VulpixNameText
+## VulpixNameText
 Vulpix[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x104A NinetalesNameText
+## NinetalesNameText
 Ninetales[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x104C JigglypuffNameText
+## JigglypuffNameText
 Jigglypuff[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x104E WigglytuffNameText
+## WigglytuffNameText
 Wigglytuff[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1050 ZubatNameText
+## ZubatNameText
 Zubat[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1051 ZubatDescText
+## ZubatDescText
 Typing: [Poison] [Flying] [NL]
 Weak to: [Psychic] [Electric] [Ice] [Rock] [NL]
 Resists: [Bug] [Fighting] [Grass] [Poison] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1052 GolbatNameText
+## GolbatNameText
 Golbat[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1054 OddishNameText
+## OddishNameText
 Oddish[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1056 GloomNameText
+## GloomNameText
 Gloom[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1058 VileplumeNameText
+## VileplumeNameText
 Vileplume[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105A ParasNameText
+## ParasNameText
 Paras[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105B ParasDescText
+## ParasDescText
 Typing: [Bug] [Grass] [NL]
 Weak to: [Fire] [Flying] [Rock] [Bug] [Ice] [Poison] [NL]
 Resists: [Fighting] [Grass] [Ground] [Electric] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105C ParasectNameText
+## ParasectNameText
 Parasect[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105E VenonatNameText
+## VenonatNameText
 Venonat[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x105F VenonatDescText
+## VenonatDescText
 Typing: [Bug] [Poison] [NL]
 Weak to: [Fire] [Flying] [Rock] [Psychic] [NL]
 Resists: [Fighting] [Grass] [Ground] [Bug] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1060 VenomothNameText
+## VenomothNameText
 Venomoth[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1062 DiglettNameText
+## DiglettNameText
 Diglett[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1064 DugtrioNameText
+## DugtrioNameText
 Dugtrio[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1066 MeowthName
+## MeowthName
 Meowth[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1068 PersianNameText
+## PersianNameText
 Persian[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x106A PsyduckNameText
+## PsyduckNameText
 Psyduck[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x106C GolduckNameText
+## GolduckNameText
 Golduck[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x106E MankeyNameText
+## MankeyNameText
 Mankey[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x106F MankeyDescText
+## MankeyDescText
 Typing: [Fighting] [NL]
 Weak to: [Flying] [Psychic] [NL]
 Resists: [Bug] [Rock] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1070 PrimeapeNameText
+## PrimeapeNameText
 Primeape[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1072 GrowlitheNameText
+## GrowlitheNameText
 Growlithe[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1074 ArcanineNameText
+## ArcanineNameText
 Arcanine[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1076 PoliwagNameText
+## PoliwagNameText
 Poliwag[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1078 PoliwhirlNameText
+## PoliwhirlNameText
 Poliwhirl[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107A PoliwrathNameText
+## PoliwrathNameText
 Poliwrath[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107B PoliwrathDescText
+## PoliwrathDescText
 Typing: [Water] [Fighting] [NL]
 Weak to: [Electric] [Grass] [Flying] [Psychic] [NL]
 Resists: [Fire] [Ice] [Water] [Bug] [Rock] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107C AbraNameText
+## AbraNameText
 Abra[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107D AbraDescText
+## AbraDescText
 Typing: [Psychic] [NL]
 Weak to: [Bug] [Ghost] [NL]
 Resists: [Fighting] [Psychic] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x107E KadabraNameText
+## KadabraNameText
 Kadabra[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1080 AlakazamNameText
+## AlakazamNameText
 Alakazam[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1082 MachopNameText
+## MachopNameText
 Machop[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1084 MachokeNameText
+## MachokeNameText
 Machoke[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1086 MachampNameText
+## MachampNameText
 Machamp[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1088 BellsproutNameText
+## BellsproutNameText
 Bellsprout[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x108A WeepinbellNameText
+## WeepinbellNameText
 Weepinbell[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x108C VictreebelNameText
+## VictreebelNameText
 Victreebel[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x108E TentacoolNameText
+## TentacoolNameText
 Tentacool[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x108F TentacoolDescText
+## TentacoolDescText
 Typing: [Water] [Poison] [NL]
 Weak to: [Electric] [Ground] [Psychic] [NL]
 Resists: [Fire] [Ice] [Water] [Bug] [Fighting] [Grass] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1090 TentacruelNameText
+## TentacruelNameText
 Tentacruel[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1092 GeodudeNameText
+## GeodudeNameText
 Geodude[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1093 GeodudeDescText
+## GeodudeDescText
 Typing: [Rock] [Ground] [NL]
 Weak to: [Fighting] [Grass] [Ground] [Water] [Ice] [NL]
 Resists: [Fire] [Flying] [Normal] [Poison] [Rock] [Electric] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1094 GravellerNameText
+## GravellerNameText
 Graveler[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
@@ -1568,386 +1292,372 @@ Weak to: [Rock] [Ground] [Dragon][N]
 Resists: [Fire] [Electric] [Grass] [Steel] [Bug] [Ice] [Water][X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1096 GolemNameText
+## GolemNameText
 Golem[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1098 PonytaNameText
+## PonytaNameText
 Ponyta[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x109A RapidashNameText
+## RapidashNameText
 Rapidash[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x109C SlowpokeNameText
+## SlowpokeNameText
 Slowpoke[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x109E SlowbroNameText
+## SlowbroNameText
 Slowbro[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x109F SlowpokeDescText
+## SlowpokeDescText
 Typing: [Water] [Psychic] [NL]
 Weak to: [Electric] [Grass] [Bug] [Ghost] [NL]
 Resists: [Fire] [Ice] [Water] [Fighting] [Psychic] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A0 MagnemiteNameText
+## MagnemiteNameText
 Magnemite[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A1 MagnemiteDescText
+## MagnemiteDescText
 Typing: [Electric] / [Steel][NL]
 Weak to: [Ground] [Fighting] [Fire] Resists: [Rock] [Psychic][NL]
 [Electric] [Normal] [Bug] [Dragon] [Grass] [Ice] [Flying] [Poison][X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A2 MagnetonNameText
+## MagnetonNameText
 Magneton[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A4 FarfetchdNameText
+## FarfetchdNameText
 Farfetch'd[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A6 DoduoNameText
+## DoduoNameText
 Doduo[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10A8 DodrioNameText
+## DodrioNameText
 Dodrio[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10AA SeelNameText
+## SeelNameText
 Seel[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10AB DewgongDescText
+## DewgongDescText
 Typing: [Water] [Ice] [NL]
 Weak to: [Electric] [Grass] [Fighting] [Rock] [NL]
 Resists: [Fire] [Ice] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10AC DewgongNameText
+## DewgongNameText
 Dewgong[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10AE GrimerNameText
+## GrimerNameText
 Grimer[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B0 MukNameText
+## MukNameText
 Muk[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B2 ShellderNameText
+## ShellderNameText
 Shellder[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B4 CloysterNameText
+## CloysterNameText
 Cloyster[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B6 GastlyNameText
+## GastlyNameText
 Gastly[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B7 GastlyDescText
+## GastlyDescText
 Typing: [Ghost] [Poison] [NL]
 Weak to: [Ghost] [Ground] [Psychic] [NL]
 Resists: [Bug] [Poison] [Fighting] [Normal] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10B8 HaunterNameText
+## HaunterNameText
 Haunter[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10BA GengarNameText
+## GengarNameText
 Gengar[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10BC OnixNameText
+## OnixNameText
 Onix[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10BE DrowzeeNameText
+## DrowzeeNameText
 Drowzee[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C0 HypnoNameText
+## HypnoNameText
 Hypno[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C2 KrabbyNameText
+## KrabbyNameText
 Krabby[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C4 KinglerNameText
+## KinglerNameText
 Kingler[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C6 VoltorbNameText
+## VoltorbNameText
 Voltorb[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10C8 ElectrodeNameText
+## ElectrodeNameText
 Electrode[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10CA ExeggcuteNameText
+## ExeggcuteNameText
 Exeggcute[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10CB ExeggcuteDescText
+## ExeggcuteDescText
 Typing: [Grass] [Psychic] [NL]
 Weak to: [Bug] [Fire] [Flying] [Ice] [Poison] [Ghost] [NL]
 Resists: [Electric] [Grass] [Ground] [Water] [Fighting] [Psychic] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10CC ExeggutorNameText
+## ExeggutorNameText
 Exeggutor[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10CE CuboneNameText
+## CuboneNameText
 Cubone[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D0 MarowakNameText
+## MarowakNameText
 Marowak[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D2 HitmonleeNameText
+## HitmonleeNameText
 Hitmonlee[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D4 HitmonchanNameText
+## HitmonchanNameText
 Hitmonchan[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D6 LickitungNameText
+## LickitungNameText
 Lickitung[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10D8 KoffingNameText
+## KoffingNameText
 Koffing[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10DA WeezingNameText
+## WeezingNameText
 Weezing[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10DC RhyhornNameText
+## RhyhornNameText
 Rhyhorn[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10DE RhydonNameText
+## RhydonNameText
 Rhydon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E0 ChanseyNameText
+## ChanseyNameText
 Chansey[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E2 TangelaNameText
+## TangelaNameText
 Tangela[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E3 TangelaDescText
+## TangelaDescText
 Typing: [Grass] [NL]
 Weak to: [Bug] [Fire] [Flying] [Ice] [Poison]  [NL]
 Resists: [Electric] [Grass] [Ground] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E4 KangaskhanNameText ^
+## KangaskhanNameText ^
 Kangaskhan[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E6 HorseaNameText
+## HorseaNameText
 Horsea[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10E8 SeadraNameText
+## SeadraNameText
 Seadra[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10EA GoldeenNameText
+## GoldeenNameText
 Goldeen[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10EC SeakingNameText
+## SeakingNameText
 Seaking[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x10EE StaryuNameText
+## StaryuNameText
 Staryu[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12AA MagmarNameText
+## MagmarNameText
 Magmar[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12AC PinsirNameText
+## PinsirNameText
 Pinsir[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12AE TaurosNameText
+## TaurosNameText
 Tauros[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B0 MagikarpNameText
+## MagikarpNameText
 Magikarp[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B2 GyaradosNameText
+## GyaradosNameText
 Gyarados[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B3 GyaradosDescText
+## GyaradosDescText
 Typing: [Water] [Flying] [NL]
 Weak to: [Electric] [Rock] [NL]
 Resists: [Fire] [Ice] [Water] [Bug] [Fighting] [Grass] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B4 LaprasNameText
+## LaprasNameText
 Lapras[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B6 DittoNameText
+## DittoNameText
 Ditto[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12B8 EeveeNameText
+## EeveeNameText
 Eevee[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12BA VaporeonNameText
+## VaporeonNameText
 Vaporeon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12BC JolteonNameText
+## JolteonNameText
 Jolteon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12BE FlareonNameText
+## FlareonNameText
 Flareon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C0 PorygonNameText
+## PorygonNameText
 Porygon[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C2 OmanyteNameText
+## OmanyteNameText
 Omanyte[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C3 OmanyteDescText
+## OmanyteDescText
 Typing: [Water] [Rock] [NL]
 Weak to: [Electric] [Grass] [Fighting] [Ground] [NL]
 Resists: [Fire] [Ice] [Water] [Flying] [Normal] [Poison] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C4 OmastarNameText
+## OmastarNameText
 Omastar[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C6 KabutoNameText
+## KabutoNameText
 Kabuto[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12C8 KabutopsNameText
+## KabutopsNameText
 Kabutops[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CA AerodactylNameText
+## AerodactylNameText
 Aerodactyl[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CB AerodactylDescText
+## AerodactylDescText
 Typing: [Rock] [Flying][NL]
 Weak to: [Water] [Electric] [Ice] [Rock] [NL]
 Res: [Fire] [Flying] [Normal] [Poison] [Bug] [Fighting] [Grass] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CC SnorlaxNameText
+## SnorlaxNameText
 Snorlax[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CD
-Typing:
-Weak to:
-Resists: [X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CE ArticunoNameText
+## ArticunoNameText
 Articuno[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12CF ArticunoDescText
+## ArticunoDescText
 Typing: [Ice] [Flying] [NL]
 Weak to: [Fire] [Rock] [Electric] [NL]
 Resists: [Bug] [Fighting] [Grass] [Ground] [Ice] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D0 ZapdosNameText
+## ZapdosNameText
 Zapdos[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D1 ZapdosDescText
+## ZapdosDescText
 Typing: [Electric] [Flying] [NL]
 Weak to: [Ice] [Rock] [NL]
 Resists: [Electric] [Flying] [Bug] [Fighting] [Grass] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D2 MoltresNameText
+## MoltresNameText
 Moltres[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D3 MoltresDescText
+## MoltresDescText
 Typing: [Fire] [Flying] [NL]
 Weak to: [Rock] [Water] [Electric] [NL]
 Resists: [Bug] [Fire] [Grass] [Ice] [Fighting] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D4 DratiniNameText
+## DratiniNameText
 Dratini[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D5 DratiniDescText
+## DratiniDescText
 Typing: [Dragon] [NL]
 Weak to: [Ice] [Dragon] [NL]
 Resists: [Electric] [Fire] [Grass] [Water] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D6 DragonairNameText
+## DragonairNameText
 Dragonair[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D8 DragoniteNameText
+## DragoniteNameText
 Dragonite[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12D9 DragoniteDescText
+## DragoniteDescText
 Typing: [Dragon] [Flying] [NL]
 Weak to: [Ice] [Dragon] [Rock] [NL]
 Resists: [Electric] [Fire] [Grass] [Water] [Bug] [Fighting] [Ground] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12DA MewtwoNameText
+## MewtwoNameText
 Mewtwo[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x12DC MewNameText
+## MewNameText
 Mew[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1300
-Treeko[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1312
-Crobat[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
 ## MissingnoName
@@ -1958,54 +1668,38 @@ MissingNo.[X]
 Typing: Bird / Normal[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x2F1 PhantomNameText
+## PhantomNameText
 Phantom[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x300 GorgonEggNameText
+## GorgonEggNameText
 Gorgon Egg[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x33D PhantomDescText
---[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x34C GorgonEggDescText
---[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x131E
-Placeholders[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1320 StarmieNameText
+## StarmieNameText
 Starmie[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1322 MrMimeNameText
+## MrMimeNameText
 Mr. Mime[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1324 ScytherNameText
+## ScytherNameText
 Scyther[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1326 JynxNameText
+## JynxNameText
 Jynx[X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1327 JynxDescText
+## JynxDescText
 Typing: [Ice] [Psychic] [NL]
 Weak to: [Fire] [Rock] [Bug] [Ghost] [NL]
 Resists: [Fighting] [Psychic] [Ice] [X]
 
 // Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1328 ElectabuzzNameText
+## ElectabuzzNameText
 Electabuzz[X]
-
-// Source: Text/ClassesCharsItems/Items.txt
-# 0x1329
-FirstEntry[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
 ## WarpCrystalName

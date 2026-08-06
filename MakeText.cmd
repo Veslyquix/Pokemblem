@@ -13,8 +13,6 @@ popd
 
 echo Building Chinese text...
 pushd "%root%Language\Chinese" || exit /b 1
-python extract_chinese_text.py
-if errorlevel 1 exit /b 1
 echo: | ("%textprocess%" text_buildfile.txt --parser-exe "%parsefile%" --installer "InstallTextData.event" --definitions "TextDefinitions.event")
 if errorlevel 1 exit /b 1
 python "%root%Language\remap_language_text_ids.py" Chinese

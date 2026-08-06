@@ -110,26 +110,6 @@ to use any moves.[X]
 ## GaidenMagicHPCostText
 Cost[X]
 
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaDislike1ID
-health food[X]
-
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaDislike2ID
-yoga[X]
-
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaAgeID
-1337[X]
-
-// Source: Text/Vanilla/unitinfo_text.txt
-## EirikaHeightID
-420cm[X]
-
-// Source: Text/ClassesCharsItems/Characters.txt
-# 0x0246
-Riev[X]
-
 // Source: Text/ClassesCharsItems/Characters.txt
 ## PlayerPokemonDescText
 A Pokémon.[X]
@@ -141,42 +121,6 @@ Trainer[X]
 // Source: Text/ClassesCharsItems/Characters.txt
 ## TrainerPokemonText
 Trainer[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11D0
-sfx[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11D1
-open ball[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11D2
-pokeball[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11D3
-blank[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x11E0
-sfx unit[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1300
-Treeko[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x1312
-Crobat[X]
-
-// Source: Text/ClassesCharsItems/ClassNamesDesc.txt
-# 0x131E
-Placeholders[X]
-
-// Source: Text/ClassesCharsItems/Items.txt
-# 0x1329
-FirstEntry[X]
 
 // Source: Text/ClassesCharsItems/Items.txt
 ## TauntName

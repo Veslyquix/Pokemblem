@@ -7,8 +7,6 @@
 // [#] 0x[0-9]{3,4}.*[\n]{1}([^{\s]*)[\s]([^\s[]*)[[]*X]
 // ## $1$2Name\n$1 $2[X]
 
-# 0x1329
-FirstEntry[X]
 
 ## WarpCrystalName
 Warp Crystal[X]
