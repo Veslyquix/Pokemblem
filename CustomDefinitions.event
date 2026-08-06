@@ -7,8 +7,13 @@
 // post action events? 1-2 frames? 
 // 7BBB8 MapAnim_EndBattle 
 //#define FreeSpace 0x012a49a8 // after music, some gfx, and fonts
-#define FreeSpace 0x01400000 // after music, some gfx, and fonts
+#define FreeSpace 0x1081420 // after music, some gfx, and fonts
 #define FreeSpace_Low 0xb2a610
+#define FreeSpace_Low2 0xE78490 // currently goes until 8FA608C 
+//#define FreeSpace2_End 0xFFFFFF
+#define FreeSpace_Low_End 0x9000000
+//#define FreeSpaceBLRange 0x1c1ec0
+
 #define POKEMBLEM
 
 #define AI_USE_WEXP_AS_WEPS
@@ -20,9 +25,7 @@
 //#define SkillSys_HookAiTryDoOffensiveAction
 // Shade+ (in AiSkills), Steal+, and Barricade hook this function so I've disabled them 
 
-//#define FreeSpace2_End 0xFFFFFF
-#define FreeSpace_Low_End 0x8C00000
-//#define FreeSpaceBLRange 0x1c1ec0
+
 
 // Comment out for public releases
 // #define DEBUG_MODE 
