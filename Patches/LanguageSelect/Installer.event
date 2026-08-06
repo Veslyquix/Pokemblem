@@ -1,5 +1,5 @@
 #ifdef INSTALL_OTHER_LANGUAGES
-
+ 
 #include "C_Code.lyn.event"
 
 ALIGN 4 
@@ -34,6 +34,9 @@ ORG $ac0d4
 callHackNew(Hook_InitDifficultySelectScreen)
 SHORT $46c0 
 
+ORG $C5724
+callHackNew(Hook_LoadTitleBackground)
+SHORT $46c0 $46c0 $46c0 
 
 POP
 
@@ -62,5 +65,11 @@ ALIGN 4
 LanguageSelectFlagPalChinese:
 #incbin "png/chinese_pal.dmp"
 
+ALIGN 4
+TitleBackgroundImage_CN:
+#incbin "png/256ColCN.img_comp.dmp"
+ALIGN 4
+TitleBackgroundPalette_CN:
+#incbin "png/256ColCN.pal.bin"
 
 #endif

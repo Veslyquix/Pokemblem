@@ -67,7 +67,7 @@
 	
 	PUSH
 	//draw our thing instead of the regular background
-	ORG $C5724; jumpToHack(titlebackgrounddrawer)
+	// ORG $C5724; jumpToHack(titlebackgrounddrawer)
 	//skip a bunch of stuff
 	ORG $C5738; SHORT 0xE030
 	ORG $C57A8; SHORT 0xE048

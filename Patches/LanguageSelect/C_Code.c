@@ -9,10 +9,50 @@ extern u16 ** sPal_08A295B4;           // 0x80a8ee8
 extern u16 LevelSelect_CN;
 extern u16 SaveControl_CN;
 extern u16 SystemIcon_CN;
+extern const u8 titlebackgroundimage[];
+extern const u16 titlebackgroundpalette[];
+extern const u16 titlebackgroundtsa[];
+extern const u8 TitleBackgroundImage_CN[];
+extern const u16 TitleBackgroundPalette_CN[];
 extern u8 * CurrentLanguage_Link;
 int GetLanguage()
 {
     return *CurrentLanguage_Link;
+}
+
+static void CopyTitleBackgroundTsa(const void * tsa)
+{
+    const u32 * src = tsa;
+    u32 * dst = (u32 *)BG_GetMapBuffer(BG_0);
+    u32 * end = (u32 *)BG_GetMapBuffer(BG_1);
+
+    while (dst < end)
+    {
+        *dst++ = *src++;
+    }
+}
+
+void Hook_LoadTitleBackground(void)
+{
+    const void * image = titlebackgroundimage;
+    const void * palette = titlebackgroundpalette;
+
+    if (GetLanguage() == 2)
+    {
+        image = TitleBackgroundImage_CN;
+        palette = TitleBackgroundPalette_CN;
+    }
+
+    BG_SetColorBpp(BG_0, 8);
+
+    Decompress(image, (void *)0x06002E00);
+    Decompress(image, (void *)0x06000000);
+
+    CopyToPaletteBuffer(palette, 0, 0x200);
+    CopyTitleBackgroundTsa(titlebackgroundtsa);
+
+    EnablePaletteSync();
+    BG_EnableSyncByMask(BG_SYNC_BIT(BG_0));
 }
 void LoadObjUIGfx(void)
 {

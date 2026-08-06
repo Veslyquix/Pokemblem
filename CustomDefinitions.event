@@ -229,6 +229,7 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 
 #define FaintCounter 0x30017a0 // SHORT 
 #define GlobalFaintCounter 0xE000050 // SHORT, but sram packing is byte  
+#define CurrentLanguage 0xE000052 
 #define FreeRamByte1 0x30017A2 // - 0x30017A6 
 #define FreeMoveRamByte 0x30017A7 
 
@@ -248,7 +249,7 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 //#define RetreatChapter 		0x30017b0
 #define PlayerAvatarClass 0x30017b0
 //#define DigChapter 			0x30017b1 
-#define CurrentLanguage 0x30017b1 
+// #define CurrentLanguage 0x30017b1 // saved on suspend 
 #define GaryStarterClass 		0x30017b2 //we can set this at the beginning and then add 1 a couple times to evolve, maybe? 
 #define PostTrainerBattleRamLocat 0x30017b3 
 #define DisableMenuOptionsRam 0x30017b4 // byte bitflags: gaiden, capture, submenu, (guard & call use definitions)  
