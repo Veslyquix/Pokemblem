@@ -82,10 +82,6 @@ Champion Battle (BD)[X]
 Pallet Town[X]
 # 0x07B7
 Oak's Lab[X]
-# 0x07B8
-Lyon (Organ Arrangement)[X]
-# 0x07B9
-The Final Battle[X]
 # 0x07BA
 Oak's Theme (BD)[X]
 # 0x07BB

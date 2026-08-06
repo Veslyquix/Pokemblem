@@ -26,7 +26,8 @@ POIN LanguageSelectProcCmd
 
 ORG $a8d4c 
 callHackNew(Hook_LoadDifficultyGfx) 
-ORG $aa390 
+ORG $aa392 
+SHORT $46c0 
 callHackNew(Hook_LoadDifficultyGfx) 
 SHORT $46c0 
 

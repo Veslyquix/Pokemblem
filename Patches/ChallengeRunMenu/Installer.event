@@ -7,6 +7,87 @@ WORD CannotEvolveFlag
 CannotCaptureFlag_Link:
 WORD CannotCaptureFlag
 
+ALIGN 4
+CRText_Title_Link:
+WORD CRText_Title
+CRText_RuleHeader_Link:
+WORD CRText_RuleHeader
+CRText_RuleNone_Link:
+WORD CRText_RuleNone
+CRText_RuleCannotEvolve_Link:
+WORD CRText_RuleCannotEvolve
+CRText_RuleCannotCaptureCertain_Link:
+WORD CRText_RuleCannotCaptureCertain
+CRText_RuleCannotCapture_Link:
+WORD CRText_RuleCannotCapture
+CRText_RuleCannotGainExp_Link:
+WORD CRText_RuleCannotGainExp
+CRText_RuleRandomizer_Link:
+WORD CRText_RuleRandomizer
+CRText_RuleEnemySkills_Link:
+WORD CRText_RuleEnemySkills
+CRText_RuleEnemySkills2_Link:
+WORD CRText_RuleEnemySkills2
+CRText_RuleNuzlocke_Link:
+WORD CRText_RuleNuzlocke
+CRText_RuleNuzlocke2_Link:
+WORD CRText_RuleNuzlocke2
+
+CRText_OptionNewName_Link:
+WORD CRText_OptionNewName
+CRText_OptionLittleCup_Link:
+WORD CRText_OptionLittleCup
+CRText_OptionVoid_Link:
+WORD CRText_OptionVoid
+CRText_OptionChaos_Link:
+WORD CRText_OptionChaos
+CRText_OptionPlus_Link:
+WORD CRText_OptionPlus
+CRText_OptionNuzlocke_Link:
+WORD CRText_OptionNuzlocke
+CRText_OptionAsh_Link:
+WORD CRText_OptionAsh
+CRText_OptionGary_Link:
+WORD CRText_OptionGary
+CRText_OptionLeaf_Link:
+WORD CRText_OptionLeaf
+CRText_OptionOak_Link:
+WORD CRText_OptionOak
+CRText_OptionBill_Link:
+WORD CRText_OptionBill
+CRText_OptionJames_Link:
+WORD CRText_OptionJames
+CRText_OptionJessie_Link:
+WORD CRText_OptionJessie
+CRText_OptionBrock_Link:
+WORD CRText_OptionBrock
+CRText_OptionMisty_Link:
+WORD CRText_OptionMisty
+CRText_OptionLtSurge_Link:
+WORD CRText_OptionLtSurge
+CRText_OptionErika_Link:
+WORD CRText_OptionErika
+CRText_OptionKoga_Link:
+WORD CRText_OptionKoga
+CRText_OptionSabrina_Link:
+WORD CRText_OptionSabrina
+CRText_OptionBlaine_Link:
+WORD CRText_OptionBlaine
+CRText_OptionGiovanni_Link:
+WORD CRText_OptionGiovanni
+CRText_OptionLorelei_Link:
+WORD CRText_OptionLorelei
+CRText_OptionBruno_Link:
+WORD CRText_OptionBruno
+CRText_OptionAgatha_Link:
+WORD CRText_OptionAgatha
+CRText_OptionLance_Link:
+WORD CRText_OptionLance
+CRText_OptionVesly_Link:
+WORD CRText_OptionVesly
+CRText_OptionCheater_Link:
+WORD CRText_OptionCheater
+
 ALIGN 4 
 PlusModeRandomSkills:
 // No Pass, as that's annoying 

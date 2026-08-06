@@ -65,14 +65,14 @@ You may need it.[A][X]
 Send to your PC?[NL]
 [Yes][X]
 
-# 0x08C1
-Looks like you're full.[.][A][X]
+//# 0x08C1
+//Looks like you're full.[.][A][X]
 
-# 0x08C2
-Your hands are full.[A][X]
+//# 0x08C2
+//Your hands are full.[A][X]
 
-# 0x08C3
-Your hands are full.[A][X]
+//# 0x08C3
+//Your hands are full.[A][X]
 
 
 # 0x08C5
@@ -83,7 +83,5 @@ You can count on it![A][X]
 Don't come crying to me[NL]
 when your party wipes.[A][Clear][X]
 
-# 0x08CA
-Too bad you don't have a[NL]
-supply convoy to send it to.[A][X]
+
 

@@ -306,19 +306,61 @@ void DrawCR_Sprites(ChallengeRunProc * proc, int bg)
     SyncUnitSpriteSheet();
 }
 void ClearLine(int);
-static const char * const ChallengeRunInfoText[CR_TEXT_COUNT] = {
-    "Challenge Runs",
-    "",
-    "No additional restrictions.",
-    "Cannot evolve Pokémon.",
-    "Cannot capture certain Pokémon.",
-    "Cannot capture Pokémon.",
-    "Cannot gain EXP.",
-    "All randomizer options enabled.",
-    "Enemies take half damage and",
-    "have random, powerful skills.",
-    "Fainted Pokémon are released.",
-    "Not recommended.",
+
+extern u16 CRText_Title_Link;
+extern u16 CRText_RuleHeader_Link;
+extern u16 CRText_RuleNone_Link;
+extern u16 CRText_RuleCannotEvolve_Link;
+extern u16 CRText_RuleCannotCaptureCertain_Link;
+extern u16 CRText_RuleCannotCapture_Link;
+extern u16 CRText_RuleCannotGainExp_Link;
+extern u16 CRText_RuleRandomizer_Link;
+extern u16 CRText_RuleEnemySkills_Link;
+extern u16 CRText_RuleEnemySkills2_Link;
+extern u16 CRText_RuleNuzlocke_Link;
+extern u16 CRText_RuleNuzlocke2_Link;
+
+extern u16 CRText_OptionNewName_Link;
+extern u16 CRText_OptionLittleCup_Link;
+extern u16 CRText_OptionVoid_Link;
+extern u16 CRText_OptionChaos_Link;
+extern u16 CRText_OptionPlus_Link;
+extern u16 CRText_OptionNuzlocke_Link;
+extern u16 CRText_OptionAsh_Link;
+extern u16 CRText_OptionGary_Link;
+extern u16 CRText_OptionLeaf_Link;
+extern u16 CRText_OptionOak_Link;
+extern u16 CRText_OptionBill_Link;
+extern u16 CRText_OptionJames_Link;
+extern u16 CRText_OptionJessie_Link;
+extern u16 CRText_OptionBrock_Link;
+extern u16 CRText_OptionMisty_Link;
+extern u16 CRText_OptionLtSurge_Link;
+extern u16 CRText_OptionErika_Link;
+extern u16 CRText_OptionKoga_Link;
+extern u16 CRText_OptionSabrina_Link;
+extern u16 CRText_OptionBlaine_Link;
+extern u16 CRText_OptionGiovanni_Link;
+extern u16 CRText_OptionLorelei_Link;
+extern u16 CRText_OptionBruno_Link;
+extern u16 CRText_OptionAgatha_Link;
+extern u16 CRText_OptionLance_Link;
+extern u16 CRText_OptionVesly_Link;
+extern u16 CRText_OptionCheater_Link;
+
+static const u16 * const ChallengeRunInfoTextIds[CR_TEXT_COUNT] = {
+    &CRText_Title_Link,
+    &CRText_RuleHeader_Link,
+    &CRText_RuleNone_Link,
+    &CRText_RuleCannotEvolve_Link,
+    &CRText_RuleCannotCaptureCertain_Link,
+    &CRText_RuleCannotCapture_Link,
+    &CRText_RuleCannotGainExp_Link,
+    &CRText_RuleRandomizer_Link,
+    &CRText_RuleEnemySkills_Link,
+    &CRText_RuleEnemySkills2_Link,
+    &CRText_RuleNuzlocke_Link,
+    &CRText_RuleNuzlocke2_Link,
 };
 
 const char SpecialNames[CR_OPTION_COUNT][10] = {
@@ -355,6 +397,36 @@ const char SpecialNames[CR_OPTION_COUNT][10] = {
     "Lance",
     "Vesly",
     "Cheater",
+};
+
+static const u16 * const ChallengeRunOptionTextIds[CR_OPTION_COUNT] = {
+    &CRText_OptionNewName_Link,
+    &CRText_OptionLittleCup_Link,
+    &CRText_OptionVoid_Link,
+    &CRText_OptionChaos_Link,
+    &CRText_OptionPlus_Link,
+    &CRText_OptionNuzlocke_Link,
+    &CRText_OptionAsh_Link,
+    &CRText_OptionGary_Link,
+    &CRText_OptionLeaf_Link,
+    &CRText_OptionOak_Link,
+    &CRText_OptionBill_Link,
+    &CRText_OptionJames_Link,
+    &CRText_OptionJessie_Link,
+    &CRText_OptionBrock_Link,
+    &CRText_OptionMisty_Link,
+    &CRText_OptionLtSurge_Link,
+    &CRText_OptionErika_Link,
+    &CRText_OptionKoga_Link,
+    &CRText_OptionSabrina_Link,
+    &CRText_OptionBlaine_Link,
+    &CRText_OptionGiovanni_Link,
+    &CRText_OptionLorelei_Link,
+    &CRText_OptionBruno_Link,
+    &CRText_OptionAgatha_Link,
+    &CRText_OptionLance_Link,
+    &CRText_OptionVesly_Link,
+    &CRText_OptionCheater_Link,
 };
 
 static bool StringEquals(const char * left, const char * right)
@@ -889,31 +961,35 @@ void DrawChallengeRun(ChallengeRunProc * proc)
 
     for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
     {
-        InitLine(i, x, y + (2 * i), white, 0, SpecialNames[i + proc->offset]);
+        const char * str = GetStringFromIndex(*ChallengeRunOptionTextIds[i + proc->offset]);
+        InitLine(i, x, y + (2 * i), white, 0, str);
     }
 
     proc->handleID = CR_VISIBLE_OPTIONS;
 
     for (i = 0; i < CR_TEXT_COUNT; i++)
     {
+        const char * str = GetStringFromIndex(*ChallengeRunInfoTextIds[i]);
         int color = (i == CR_TEXT_TITLE) ? green : white;
-        int width = 1 + ((GetStringTextLen(ChallengeRunInfoText[i]) + 8) / 8);
-        InitLine(i + proc->handleID, 12, 1, color, width, ChallengeRunInfoText[i]);
+        int width = 1 + ((GetStringTextLen(str) + 8) / 8);
+        InitLine(i + proc->handleID, 12, 1, color, width, str);
     }
 
     for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
     {
-        PrepareLine(i, SpecialNames[i + proc->offset], 6);
+        const char * str = GetStringFromIndex(*ChallengeRunOptionTextIds[i + proc->offset]);
+        PrepareLine(i, str, 6);
         DrawLine(i, x, y + (2 * i), bg);
     }
 
     for (i = 0; i < CR_TEXT_COUNT; i++)
     {
+        const char * str = GetStringFromIndex(*ChallengeRunInfoTextIds[i]);
         int cursor = (i == CR_TEXT_TITLE) ? 0 : RULES_TEXT_CURSOR_X;
-        PrepareLine(i + proc->handleID, ChallengeRunInfoText[i], cursor);
+        PrepareLine(i + proc->handleID, str, cursor);
     }
 
-    DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 0, bg); // "Challenge Runs" // 22 1
+    DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 0, bg); // 22 1
     DrawAdditionalRulesText(proc);
     BG_EnableSyncByMask(BG_SYNC_BIT(bg));
 }

@@ -170,14 +170,6 @@ Pallet Town[X]
 Oak's Lab[X]
 
 // Source: Text/Vanilla/Songs.txt
-# 0x07B8
-Lyon (Organ Arrangement)[X]
-
-// Source: Text/Vanilla/Songs.txt
-# 0x07B9
-The Final Battle[X]
-
-// Source: Text/Vanilla/Songs.txt
 # 0x07BA
 Oak's Theme (BD)[X]
 
@@ -322,17 +314,14 @@ You may need it.[A][X]
 Send to your PC?[NL]
 [Yes][X]
 
-// Source: Text/Vanilla/Shops.txt
-# 0x08C1
-Looks like you're full.[.][A][X]
+//# 0x08C1
+//Looks like you're full.[.][A][X]
 
-// Source: Text/Vanilla/Shops.txt
-# 0x08C2
-Your hands are full.[A][X]
+//# 0x08C2
+//Your hands are full.[A][X]
 
-// Source: Text/Vanilla/Shops.txt
-# 0x08C3
-Your hands are full.[A][X]
+//# 0x08C3
+//Your hands are full.[A][X]
 
 // Source: Text/Vanilla/Shops.txt
 # 0x08C5
@@ -342,11 +331,6 @@ You can count on it![A][X]
 # 0x08C8
 Don't come crying to me[NL]
 when your party wipes.[A][Clear][X]
-
-// Source: Text/Vanilla/Shops.txt
-# 0x08CA
-Too bad you don't have a[NL]
-supply convoy to send it to.[A][X]
 
 // Source: Text/Vanilla/Terrain.txt
 # 0x55D 
@@ -718,24 +702,6 @@ Also boosts evasion.[X]
 [MidRight][LoadFace][0xFF][0xFF]These look useful.[A][X]
 
 // Source: Text/Vanilla/default.txt
-## DV1Desc
-Freeze all enemies[N]
-for one turn[X]
-
-// Source: Text/Vanilla/default.txt
-## nameCamus
-//#for identity problems
-Camus[X]
-
-// Source: Text/Vanilla/default.txt
-## nameSirius
-Sirius[X]
-
-// Source: Text/Vanilla/default.txt
-## nameZeke
-Zeke[X]
-
-// Source: Text/Vanilla/default.txt
 ## StairsNameText
  Teleport[X]
 
@@ -748,37 +714,6 @@ somewhere...[X]
 ## StairsBlockedText
 The teleporter is blocked[N]
 from the other side.[X]
-
-// Source: Text/Vanilla/default.txt
-## RaidNameText
- Raid[X]
-
-// Source: Text/Vanilla/default.txt
-## RaidDescText
-Destroy this village[N]
-for items and gold.[X]
-
-// Source: Text/Vanilla/default.txt
-## EscapeName
- Escape[X]
-
-// Source: Text/Vanilla/default.txt
-## EscapeDesc
-Have this unit[N]
-leave this chapter.[X]
-
-// Source: Text/Vanilla/default.txt
-## ArriveName
- Arrive[X]
-
-// Source: Text/Vanilla/default.txt
-## ArriveDesc
-Complete this chapter[N]
-by having this unit arrive.[X]
-
-// Source: Text/Vanilla/default.txt
-## LordMustEscapeLastText
-This unit must escape last.[X]
 
 // Source: Text/Vanilla/default.txt
 ## Mov_Text_ID
@@ -820,6 +755,9 @@ Cost[X]
 ## PrepScreenUseSkillScroll
 # this iterates automatically, so if the last one with a fixed address is 0x1500, the first free is 1501 
  Skill learned[X]
+ 
+#0xF17 TxtData0xF17
+ Wait >>[X]
 
 // Source: Text/ClassesCharsItems/Characters.txt
 ## NSlashAText
@@ -8169,6 +8107,162 @@ Debug Room[X]
 // Source: Text/MenusSkillsEtc/chapter_names.txt
 ## SSAnneDocksChText
 Docks[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_Title
+Challenge Runs[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleHeader
+[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleNone
+No additional restrictions.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleCannotEvolve
+Cannot evolve Pokémon.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleCannotCaptureCertain
+Cannot capture certain Pokémon.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleCannotCapture
+Cannot capture Pokémon.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleCannotGainExp
+Cannot gain EXP.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleRandomizer
+All randomizer options enabled.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleEnemySkills
+Enemies take half damage and[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleEnemySkills2
+have random, powerful skills.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleNuzlocke
+Fainted Pokémon are released.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_RuleNuzlocke2
+Not recommended.[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionNewName
+New Name[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionLittleCup
+LittleCup[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionVoid
+Void[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionChaos
+Chaos[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionPlus
+Plus[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionNuzlocke
+Nuzlocke[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionAsh
+Ash[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionGary
+Gary[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionLeaf
+Leaf[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionOak
+Oak[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionBill
+Bill[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionJames
+James[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionJessie
+Jessie[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionBrock
+Brock[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionMisty
+Misty[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionLtSurge
+Lt. Surge[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionErika
+Erika[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionKoga
+Koga[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionSabrina
+Sabrina[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionBlaine
+Blaine[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionGiovanni
+Giovanni[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionLorelei
+Lorelei[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionBruno
+Bruno[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionAgatha
+Agatha[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionLance
+Lance[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionVesly
+Vesly[X]
+
+// Source: Text/MenusSkillsEtc/custom_menus.txt
+## CRText_OptionCheater
+Cheater[X]
 
 // Source: Text/Dialogue/OaksLab.txt
 ## DebuggerOnText

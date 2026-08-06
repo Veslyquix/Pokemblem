@@ -53,20 +53,6 @@ Debug Error[X]
 ## VillageText
 [MidRight][LoadFace][0xFF][0xFF]These look useful.[A][X]
 
-## DV1Desc
-Freeze all enemies[N]
-for one turn[X]
-
-## nameCamus
-//#for identity problems
-Camus[X]
-
-## nameSirius
-Sirius[X]
-
-## nameZeke
-Zeke[X]
-
 ## StairsNameText
  Teleport[X]
 
@@ -78,29 +64,6 @@ somewhere...[X]
 The teleporter is blocked[N]
 from the other side.[X]
 
-## RaidNameText
- Raid[X]
-
-## RaidDescText
-Destroy this village[N]
-for items and gold.[X]
-
-## EscapeName
- Escape[X]
-
-## EscapeDesc
-Have this unit[N]
-leave this chapter.[X]
-
-## ArriveName
- Arrive[X]
-
-## ArriveDesc
-Complete this chapter[N]
-by having this unit arrive.[X]
-
-## LordMustEscapeLastText
-This unit must escape last.[X]
 
 ## Mov_Text_ID
 Mov[X]

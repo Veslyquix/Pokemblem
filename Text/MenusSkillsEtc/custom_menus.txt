@@ -1,0 +1,116 @@
+## CRText_Title
+Challenge Runs[X]
+
+## CRText_RuleHeader
+[X]
+
+## CRText_RuleNone
+No additional restrictions.[X]
+
+## CRText_RuleCannotEvolve
+Cannot evolve Pokémon.[X]
+
+## CRText_RuleCannotCaptureCertain
+Cannot capture certain Pokémon.[X]
+
+## CRText_RuleCannotCapture
+Cannot capture Pokémon.[X]
+
+## CRText_RuleCannotGainExp
+Cannot gain EXP.[X]
+
+## CRText_RuleRandomizer
+All randomizer options enabled.[X]
+
+## CRText_RuleEnemySkills
+Enemies take half damage and[X]
+
+## CRText_RuleEnemySkills2
+have random, powerful skills.[X]
+
+## CRText_RuleNuzlocke
+Fainted Pokémon are released.[X]
+
+## CRText_RuleNuzlocke2
+Not recommended.[X]
+
+## CRText_OptionNewName
+New Name[X]
+
+## CRText_OptionLittleCup
+LittleCup[X]
+
+## CRText_OptionVoid
+Void[X]
+
+## CRText_OptionChaos
+Chaos[X]
+
+## CRText_OptionPlus
+Plus[X]
+
+## CRText_OptionNuzlocke
+Nuzlocke[X]
+
+## CRText_OptionAsh
+Ash[X]
+
+## CRText_OptionGary
+Gary[X]
+
+## CRText_OptionLeaf
+Leaf[X]
+
+## CRText_OptionOak
+Oak[X]
+
+## CRText_OptionBill
+Bill[X]
+
+## CRText_OptionJames
+James[X]
+
+## CRText_OptionJessie
+Jessie[X]
+
+## CRText_OptionBrock
+Brock[X]
+
+## CRText_OptionMisty
+Misty[X]
+
+## CRText_OptionLtSurge
+Lt. Surge[X]
+
+## CRText_OptionErika
+Erika[X]
+
+## CRText_OptionKoga
+Koga[X]
+
+## CRText_OptionSabrina
+Sabrina[X]
+
+## CRText_OptionBlaine
+Blaine[X]
+
+## CRText_OptionGiovanni
+Giovanni[X]
+
+## CRText_OptionLorelei
+Lorelei[X]
+
+## CRText_OptionBruno
+Bruno[X]
+
+## CRText_OptionAgatha
+Agatha[X]
+
+## CRText_OptionLance
+Lance[X]
+
+## CRText_OptionVesly
+Vesly[X]
+
+## CRText_OptionCheater
+Cheater[X]
