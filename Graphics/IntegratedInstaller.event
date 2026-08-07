@@ -3,3 +3,5 @@
 #include "AccessoryIcons/Installer.event" 
 #include "MapSprites/MapSprites.event" 
 #include "BGs/Installer.event" 
+#include "Title Screen/Title Screen.event"
+

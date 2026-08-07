@@ -4,11 +4,15 @@ Fonts(0x0007, 12)
 	#incbin "../FontData/FontTextތ.fefont"
 
 ALIGN 4
-Fonts(0x004E, 13)
+Fonts(0x004E, 12)
 	#incbin "../FontData/FontText二.fefont"
 
 ALIGN 4
-Fonts(0x0053, 13)
+Fonts(0x0051, 12)
+	#incbin "../FontData/FontText册.fefont"
+
+ALIGN 4
+Fonts(0x0053, 12)
 	#incbin "../FontData/FontText厌.fefont"
 
 ALIGN 4
@@ -16,34 +20,94 @@ Fonts(0x0054, 12)
 	#incbin "../FontData/FontText和.fefont"
 
 ALIGN 4
-Fonts(0x005B, 13)
+Fonts(0x0057, 12)
+	#incbin "../FontData/FontText垌.fefont"
+
+ALIGN 4
+Fonts(0x005B, 12)
 	#incbin "../FontData/FontText完.fefont"
 
 ALIGN 4
-Fonts(0x005C, 13)
+Fonts(0x005C, 12)
 	#incbin "../FontData/FontText岌.fefont"
 
 ALIGN 4
-Fonts(0x0063, 13)
+Fonts(0x005F, 12)
+	#incbin "../FontData/FontText後.fefont"
+
+ALIGN 4
+Fonts(0x0060, 12)
+	#incbin "../FontData/FontText悌.fefont"
+
+ALIGN 4
+Fonts(0x0063, 12)
 	#incbin "../FontData/FontText掌.fefont"
+
+ALIGN 4
+Fonts(0x0065, 12)
+	#incbin "../FontData/FontText斌.fefont"
+
+ALIGN 4
+Fonts(0x0066, 12)
+	#incbin "../FontData/FontText暌.fefont"
+
+ALIGN 4
+Fonts(0x006C, 12)
+	#incbin "../FontData/FontText沌.fefont"
 
 ALIGN 4
 Fonts(0x006D, 12)
 	#incbin "../FontData/FontText涌.fefont"
 
 ALIGN 4
-Fonts(0x0078, 13)
+Fonts(0x006F, 12)
+	#incbin "../FontData/FontText澌.fefont"
+
+ALIGN 4
+Fonts(0x0077, 12)
+	#incbin "../FontData/FontText瞌.fefont"
+
+ALIGN 4
+Fonts(0x0078, 12)
 	#incbin "../FontData/FontText碌.fefont"
 
 ALIGN 4
-Fonts(0x0080, 13)
+Fonts(0x007F, 12)
+	#incbin "../FontData/FontText羌.fefont"
+
+ALIGN 4
+Fonts(0x0080, 12)
 	#incbin "../FontData/FontText肌.fefont"
 
 ALIGN 4
-Fonts(0x008C, 13)
+Fonts(0x0084, 12)
+	#incbin "../FontData/FontText蒌.fefont"
+
+ALIGN 4
+Fonts(0x0086, 12)
+	#incbin "../FontData/FontText蚌.fefont"
+
+ALIGN 4
+Fonts(0x008C, 12)
 	#incbin "../FontData/FontText貌.fefont"
 
 ALIGN 4
-Fonts(0x009A, 13)
+Fonts(0x0091, 12)
+	#incbin "../FontData/FontText醌.fefont"
+
+ALIGN 4
+Fonts(0x0094, 12)
+	#incbin "../FontData/FontText钌.fefont"
+
+ALIGN 4
+Fonts(0x0098, 12)
+	#incbin "../FontData/FontText颌.fefont"
+
+ALIGN 4
+Fonts(0x009A, 12)
 	#incbin "../FontData/FontText验.fefont"
+
+ALIGN 4
+Fonts(0x009F, 12)
+	#incbin "../FontData/FontText龌.fefont"
 

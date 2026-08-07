@@ -23,6 +23,7 @@ GrowthBuffs:
 WepBuffEntry(  5,     5,   0,    5,   0,    0,   0,   0)
 
 #include "RecoverMove.lyn.event" 
+#include "RestMove.lyn.event" 
 
 
 #include "SplashMove.lyn.event"

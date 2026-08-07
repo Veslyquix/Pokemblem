@@ -1,21 +1,109 @@
 // Sub Font Installer
 ALIGN 4
-Fonts(0x004E, 13)
+Fonts(0x004E, 12)
 	#incbin "../FontData/FontText令.fefont"
 
 ALIGN 4
-Fonts(0x0052, 13)
+Fonts(0x0051, 12)
+	#incbin "../FontData/FontText凤.fefont"
+
+ALIGN 4
+Fonts(0x0052, 12)
 	#incbin "../FontData/FontText勤.fefont"
 
 ALIGN 4
-Fonts(0x0053, 13)
+Fonts(0x0053, 12)
 	#incbin "../FontData/FontText古.fefont"
 
 ALIGN 4
-Fonts(0x0070, 13)
+Fonts(0x0055, 12)
+	#incbin "../FontData/FontText嗤.fefont"
+
+ALIGN 4
+Fonts(0x0056, 12)
+	#incbin "../FontData/FontText囤.fefont"
+
+ALIGN 4
+Fonts(0x0057, 12)
+	#incbin "../FontData/FontText埤.fefont"
+
+ALIGN 4
+Fonts(0x0058, 12)
+	#incbin "../FontData/FontText壤.fefont"
+
+ALIGN 4
+Fonts(0x005B, 12)
+	#incbin "../FontData/FontText寤.fefont"
+
+ALIGN 4
+Fonts(0x005C, 12)
+	#incbin "../FontData/FontText峤.fefont"
+
+ALIGN 4
+Fonts(0x005F, 12)
+	#incbin "../FontData/FontText忤.fefont"
+
+ALIGN 4
+Fonts(0x0064, 12)
+	#incbin "../FontData/FontText擤.fefont"
+
+ALIGN 4
+Fonts(0x006D, 12)
+	#incbin "../FontData/FontText淤.fefont"
+
+ALIGN 4
+Fonts(0x006E, 12)
+	#incbin "../FontData/FontText滤.fefont"
+
+ALIGN 4
+Fonts(0x0070, 12)
 	#incbin "../FontData/FontText烤.fefont"
 
 ALIGN 4
-Fonts(0x0079, 13)
+Fonts(0x0074, 12)
+	#incbin "../FontData/FontText瓤.fefont"
+
+ALIGN 4
+Fonts(0x0075, 12)
+	#incbin "../FontData/FontText痤.fefont"
+
+ALIGN 4
+Fonts(0x0079, 12)
 	#incbin "../FontData/FontText秤.fefont"
+
+ALIGN 4
+Fonts(0x0080, 12)
+	#incbin "../FontData/FontText胤.fefont"
+
+ALIGN 4
+Fonts(0x0082, 12)
+	#incbin "../FontData/FontText苤.fefont"
+
+ALIGN 4
+Fonts(0x0085, 12)
+	#incbin "../FontData/FontText藤.fefont"
+
+ALIGN 4
+Fonts(0x0086, 12)
+	#incbin "../FontData/FontText蛤.fefont"
+
+ALIGN 4
+Fonts(0x0088, 12)
+	#incbin "../FontData/FontText裤.fefont"
+
+ALIGN 4
+Fonts(0x008B, 12)
+	#incbin "../FontData/FontText诤.fefont"
+
+ALIGN 4
+Fonts(0x008D, 12)
+	#incbin "../FontData/FontText跤.fefont"
+
+ALIGN 4
+Fonts(0x008F, 12)
+	#incbin "../FontData/FontText迤.fefont"
+
+ALIGN 4
+Fonts(0x0094, 12)
+	#incbin "../FontData/FontText铤.fefont"
 

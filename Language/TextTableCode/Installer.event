@@ -9,8 +9,16 @@ WORD CurrentLanguage
 ALIGN 4 
 TextTables: 
 POIN TextTable
+#ifdef INSTALL_SPANISH
 POIN TextTable_Spanish
-//POIN TextTable_Chinese 
+#else
+POIN TextTable
+#endif
+#ifdef INSTALL_CHINESE
+POIN TextTable_Chinese
+#else
+POIN TextTable
+#endif
 
 #endif 
 

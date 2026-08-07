@@ -1,49 +1,105 @@
 // Sub Font Installer
 ALIGN 4
+Fonts(0x0000, 8)
+	#incbin "../FontData/FontText_W.fefont"
+
+ALIGN 4
 Fonts(0x001D, 4)
 	#incbin "../FontData/FontTextᵗ.fefont"
 
 ALIGN 4
-Fonts(0x0053, 13)
+Fonts(0x004F, 12)
+	#incbin "../FontData/FontText佗.fefont"
+
+ALIGN 4
+Fonts(0x0053, 12)
 	#incbin "../FontData/FontText南.fefont"
 
 ALIGN 4
-Fonts(0x0054, 13)
+Fonts(0x0054, 12)
 	#incbin "../FontData/FontText呗.fefont"
 
 ALIGN 4
-Fonts(0x0056, 13)
+Fonts(0x0056, 12)
 	#incbin "../FontData/FontText噗.fefont"
 
 ALIGN 4
-Fonts(0x0057, 13)
+Fonts(0x0057, 12)
 	#incbin "../FontData/FontText块.fefont"
 
 ALIGN 4
-Fonts(0x0059, 13)
+Fonts(0x0059, 12)
 	#incbin "../FontData/FontText套.fefont"
 
 ALIGN 4
-Fonts(0x005B, 13)
+Fonts(0x005B, 12)
 	#incbin "../FontData/FontText字.fefont"
 
 ALIGN 4
-Fonts(0x006C, 13)
+Fonts(0x005F, 12)
+	#incbin "../FontData/FontText彗.fefont"
+
+ALIGN 4
+Fonts(0x0066, 12)
+	#incbin "../FontData/FontText晗.fefont"
+
+ALIGN 4
+Fonts(0x0069, 12)
+	#incbin "../FontData/FontText楗.fefont"
+
+ALIGN 4
+Fonts(0x006C, 12)
 	#incbin "../FontData/FontText汗.fefont"
 
 ALIGN 4
-Fonts(0x007F, 13)
+Fonts(0x0073, 12)
+	#incbin "../FontData/FontText獗.fefont"
+
+ALIGN 4
+Fonts(0x0074, 12)
+	#incbin "../FontData/FontText瑗.fefont"
+
+ALIGN 4
+Fonts(0x0078, 12)
+	#incbin "../FontData/FontText硗.fefont"
+
+ALIGN 4
+Fonts(0x0079, 12)
+	#incbin "../FontData/FontText祗.fefont"
+
+ALIGN 4
+Fonts(0x007A, 12)
+	#incbin "../FontData/FontText穗.fefont"
+
+ALIGN 4
+Fonts(0x007F, 12)
 	#incbin "../FontData/FontText罗.fefont"
 
 ALIGN 4
-Fonts(0x0084, 13)
+Fonts(0x0084, 12)
 	#incbin "../FontData/FontText著.fefont"
 
 ALIGN 4
-Fonts(0x0088, 13)
+Fonts(0x0087, 12)
+	#incbin "../FontData/FontText蝗.fefont"
+
+ALIGN 4
+Fonts(0x0088, 12)
 	#incbin "../FontData/FontText街.fefont"
 
 ALIGN 4
-Fonts(0x0090, 13)
+Fonts(0x0090, 12)
 	#incbin "../FontData/FontText遗.fefont"
+
+ALIGN 4
+Fonts(0x0091, 12)
+	#incbin "../FontData/FontText酗.fefont"
+
+ALIGN 4
+Fonts(0x0095, 12)
+	#incbin "../FontData/FontText镗.fefont"
+
+ALIGN 4
+Fonts(0x009E, 12)
+	#incbin "../FontData/FontText鹗.fefont"
 

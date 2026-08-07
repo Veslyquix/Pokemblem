@@ -240,8 +240,6 @@ SkillAccessory_DescEntry(AmaterasuID, LeftoversDesc)
 SkillAccessory_NameEntry(GaleforceID, SN_Galeforce)
 SkillAccessory_DescEntry(GaleforceID, Acc_Galeforce)
 
-SkillAccessory_NameEntry(VoiceOfPeaceID, SN_VoiceOfPeace)
-SkillAccessory_DescEntry(VoiceOfPeaceID, SD_VoiceOfPeace)
 
 SkillAccessory_NameEntry(BlossomID, LuckyEggName)
 SkillAccessory_DescEntry(BlossomID, LuckyEggDesc)

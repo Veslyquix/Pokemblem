@@ -184,7 +184,8 @@ int ReorderMovesEffect(struct MenuProc * menu, struct MenuCommandProc * command)
     // StartFace(0, GetUnitPortraitId(proc->unit), 72, 16, 3);
     return ME_DISABLE | ME_END | ME_PLAY_BEEP | ME_CLEAR_GFX;
 }
-
+extern int NoMoveText_Link;
+extern int OrderMovesText_Link;
 static void MoveListCommandDraw(struct MenuProc * menu, struct MenuCommandProc * command)
 {
     struct ReorderMovesProc * const proc = (void *)menu->parent;
@@ -216,7 +217,7 @@ static void MoveListCommandDraw(struct MenuProc * menu, struct MenuCommandProc *
     else
     {
         Text_SetColorId(&command->text, TEXT_COLOR_GRAY);
-        Text_DrawString(&command->text, " No Move");
+        Text_DrawString(&command->text, GetStringFromIndex(NoMoveText_Link));
     }
     EnableBgSyncByMask(BG0_SYNC_BIT);
 }
@@ -300,7 +301,7 @@ static void ReplaceMoveCommandDraw(struct MenuProc * menu, struct MenuCommandPro
 
     Text_SetXCursor(&command->text, title_offset);
     Text_SetColorId(&command->text, TEXT_COLOR_BLUE);
-    Text_DrawString(&command->text, "Order Moves");
+    Text_DrawString(&command->text, GetStringFromIndex(OrderMovesText_Link));
     Text_Display(&command->text, out);
 }
 

@@ -1,4 +1,5 @@
-// PROTECT $35728
+
+// PROTECT $44d4 
 // PROTECT $267fc $2713c
 // PROTECT $27330 $2734c
 //PROTECT $144F944
@@ -7,8 +8,14 @@
 // post action events? 1-2 frames? 
 // 7BBB8 MapAnim_EndBattle 
 //#define FreeSpace 0x012a49a8 // after music, some gfx, and fonts
-#define FreeSpace 0x01300000 // after music, some gfx, and fonts
+// #define FreeSpace 0x1056E98 // after music, some gfx, and fonts
+#define FreeSpace 0x1081420 // after music, some gfx, and fonts
 #define FreeSpace_Low 0xb2a610
+#define FreeSpace_Low2 0xE78490 // currently goes until 8FA608C 
+//#define FreeSpace2_End 0xFFFFFF
+#define FreeSpace_Low_End 0x9000000
+//#define FreeSpaceBLRange 0x1c1ec0
+
 #define POKEMBLEM
 
 #define AI_USE_WEXP_AS_WEPS
@@ -20,9 +27,7 @@
 //#define SkillSys_HookAiTryDoOffensiveAction
 // Shade+ (in AiSkills), Steal+, and Barricade hook this function so I've disabled them 
 
-//#define FreeSpace2_End 0xFFFFFF
-#define FreeSpace_Low_End 0x8C00000
-//#define FreeSpaceBLRange 0x1c1ec0
+
 
 // Comment out for public releases
 // #define DEBUG_MODE 
@@ -49,6 +54,7 @@
 // #define ENABLE_DAMAGE_REDUCTION
 #define INSTALL_OTHER_LANGUAGES
 #define INSTALL_SPANISH 
+#define INSTALL_CHINESE
 #define USE_HGSS_SPRITES
 //#define USE_PMD_SPRITES
 
@@ -129,11 +135,6 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 #define Ves_SkillBlockThree_ItemID 0xFE
 #define Ves_SkillBlockFour_ItemID 0xFF 
 
-
-
-#ifndef ClassAnimTable
-    #define ClassAnimTable (0xc00008-0x20)
-#endif
 
 
 #define MuscleBand_BoostIndex 1 
@@ -227,8 +228,17 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 #define BuffTableEntrySize 4 
 
 #define FaintCounter 0x30017a0 // SHORT 
+
 #define GlobalFaintCounter 0xE000050 // SHORT, but sram packing is byte  
-#define FreeRamByte1 0x30017A2 // - 0x30017A6 
+
+//0xE000053 unused 
+// 0xE000054, 0xE000058, and 0xE00005C set bit 1 if used debugger 
+// which makes Retroachievements show "tainted" 
+// it probably reads the whole byte  
+#define CurrentLanguage 0x300000F // so we're not reading from SRAM constantly 
+#define SavedLanguage 0xE000052 // on boot, copy into CurrentLanguage
+
+#define FreeRamByte1 0x30017A3 // - 0x30017A6 
 #define FreeMoveRamByte 0x30017A7 
 
 #define TempRamWhileExpShare 0x2026E30 // used in pc boxes too 
@@ -247,7 +257,7 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 //#define RetreatChapter 		0x30017b0
 #define PlayerAvatarClass 0x30017b0
 //#define DigChapter 			0x30017b1 
-#define CurrentLanguage 0x30017b1 
+// #define CurrentLanguage 0x30017b1 // saved on suspend 
 #define GaryStarterClass 		0x30017b2 //we can set this at the beginning and then add 1 a couple times to evolve, maybe? 
 #define PostTrainerBattleRamLocat 0x30017b3 
 #define DisableMenuOptionsRam 0x30017b4 // byte bitflags: gaiden, capture, submenu, (guard & call use definitions)  
@@ -459,6 +469,7 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 #define GrampsFlag 0x100
 #define HagFlag 0x101
 #define DoppelgangerFlag 0x102 // see yourself 
+#define CannotSkipEventFlag 0x103  
 
  
 
@@ -616,7 +627,9 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 
 
 #define jumpToHack_r0(offset) "SHORT 0x4800 0x4700 ; POIN (offset|1)"
+#ifndef jumpToHack_r1 
 #define jumpToHack_r1(offset) "SHORT 0x4900 0x4708 ; POIN (offset|1)"
+#endif 
 #define jumpToHack_r2(offset) "SHORT 0x4A00 0x4710 ; POIN (offset|1)"
 #define jumpToHack_r3(offset) "SHORT 0x4B00 0x4718 ; POIN (offset|1)"
 

@@ -43,12 +43,6 @@ if /I not [%1]==[quick] (
   echo: | ("%c2ea%" "%source_rom%" -installer "%base_dir%Tables/TableInstaller.event")
 
   echo:
-  echo Processing text
-
-  cd "%base_dir%Text"
-  echo: | ("%textprocess%" text_buildfile.txt --parser-exe "%parsefile%" --installer "InstallTextData.event" --definitions "TextDefinitions.event")
-
-  echo:
   echo Processing maps
 
   cd "%base_dir%Maps"

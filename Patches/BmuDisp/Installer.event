@@ -71,7 +71,10 @@ PlaytimeGfx:
 
 #define BattleForecast2x 0x2C8 // 0x2D8 vanilla 
 
+
+
 PUSH 
+
 
 
 // BattleForecast_LoopSlideIn 803710c

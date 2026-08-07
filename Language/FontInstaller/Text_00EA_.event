@@ -1,49 +1,105 @@
 // Sub Font Installer
 ALIGN 4
-Fonts(0x004E, 13)
+Fonts(0x004E, 12)
 	#incbin "../FontData/FontText仪.fefont"
 
 ALIGN 4
-Fonts(0x0053, 13)
+Fonts(0x004F, 12)
+	#incbin "../FontData/FontText俪.fefont"
+
+ALIGN 4
+Fonts(0x0053, 12)
 	#incbin "../FontData/FontText只.fefont"
 
 ALIGN 4
-Fonts(0x0054, 13)
+Fonts(0x0054, 12)
 	#incbin "../FontData/FontText哪.fefont"
 
 ALIGN 4
-Fonts(0x005F, 13)
+Fonts(0x0055, 12)
+	#incbin "../FontData/FontText嗪.fefont"
+
+ALIGN 4
+Fonts(0x005C, 12)
+	#incbin "../FontData/FontText峪.fefont"
+
+ALIGN 4
+Fonts(0x005E, 12)
+	#incbin "../FontData/FontText廪.fefont"
+
+ALIGN 4
+Fonts(0x005F, 12)
 	#incbin "../FontData/FontText忪.fefont"
 
 ALIGN 4
-Fonts(0x0063, 13)
+Fonts(0x0063, 12)
 	#incbin "../FontData/FontText揪.fefont"
 
 ALIGN 4
-Fonts(0x006C, 13)
+Fonts(0x006B, 12)
+	#incbin "../FontData/FontText毪.fefont"
+
+ALIGN 4
+Fonts(0x006C, 12)
 	#incbin "../FontData/FontText泪.fefont"
 
 ALIGN 4
-Fonts(0x007E, 13)
+Fonts(0x0073, 12)
+	#incbin "../FontData/FontText珪.fefont"
+
+ALIGN 4
+Fonts(0x0075, 12)
+	#incbin "../FontData/FontText痪.fefont"
+
+ALIGN 4
+Fonts(0x007B, 12)
+	#incbin "../FontData/FontText篪.fefont"
+
+ALIGN 4
+Fonts(0x007E, 12)
 	#incbin "../FontData/FontText绪.fefont"
+
+ALIGN 4
+Fonts(0x0080, 12)
+	#incbin "../FontData/FontText胪.fefont"
 
 ALIGN 4
 Fonts(0x0081, 11)
 	#incbin "../FontData/FontText自.fefont"
 
 ALIGN 4
-Fonts(0x008D, 13)
+Fonts(0x0083, 12)
+	#incbin "../FontData/FontText菪.fefont"
+
+ALIGN 4
+Fonts(0x0087, 12)
+	#incbin "../FontData/FontText蟪.fefont"
+
+ALIGN 4
+Fonts(0x008D, 12)
 	#incbin "../FontData/FontText跪.fefont"
 
 ALIGN 4
-Fonts(0x008F, 13)
+Fonts(0x008F, 12)
 	#incbin "../FontData/FontText迪.fefont"
 
 ALIGN 4
-Fonts(0x0095, 13)
+Fonts(0x0094, 12)
+	#incbin "../FontData/FontText铪.fefont"
+
+ALIGN 4
+Fonts(0x0095, 12)
 	#incbin "../FontData/FontText闪.fefont"
 
 ALIGN 4
 Fonts(0x0096, 12)
 	#incbin "../FontData/FontText雪.fefont"
+
+ALIGN 4
+Fonts(0x0097, 12)
+	#incbin "../FontData/FontText韪.fefont"
+
+ALIGN 4
+Fonts(0x009E, 12)
+	#incbin "../FontData/FontText黪.fefont"
 

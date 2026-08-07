@@ -137,8 +137,8 @@ void InitBaseTilesBmMap(void)
             gBmMapBaseTiles[iy][ix] = *tiles++;
     }
 
-    // this is for StartSubtitleHelp. If you are against the edge of the screen, it shifts the map up and draws a black
-    // line under the text
+    // this is for StartSubtitleHelp. If you are against the edge of the screen, it shifts the map up and draws a
+    // black line under the text
 
     tiles = gBmMapBaseTiles[iy - 1];
 
@@ -230,7 +230,8 @@ void RegisterFillTile(const void * src, void * dst, int size)
 // [2037c10]!!
 
 void sub_809A114(
-    struct PrepItemScreenProc * proc, u8 row, s8 flag) // fix the last row in prep item menu from showing an extra name
+    struct PrepItemScreenProc * proc, u8 row,
+    s8 flag) // fix the last row in prep item menu from showing an extra name
 {
     int i;
     int idx;
@@ -2033,8 +2034,8 @@ void PutUnitSpritesOam(void)
 
             case 2:
                 CallARM_PushToSecondaryOAM(
-                    OAM1_X((x - 8) + r3 + 0x200), OAM0_Y(0x100 + y - 16), gObject_32x32, it->oam2Base + OAM2_LAYER(2));
-                break;
+                    OAM1_X((x - 8) + r3 + 0x200), OAM0_Y(0x100 + y - 16), gObject_32x32, it->oam2Base +
+OAM2_LAYER(2)); break;
 
             case 3:
                 CallARM_PushToSecondaryOAM(
@@ -2049,8 +2050,8 @@ void PutUnitSpritesOam(void)
 
             case 5:
                 CallARM_PushToSecondaryOAM(
-                    OAM1_X((x - 8) + r3 + 0x200), OAM0_Y(0x100 + y - 16), gObject_32x32, it->oam2Base + OAM2_LAYER(3));
-                break;
+                    OAM1_X((x - 8) + r3 + 0x200), OAM0_Y(0x100 + y - 16), gObject_32x32, it->oam2Base +
+OAM2_LAYER(3)); break;
         }
     }
 }
@@ -2339,13 +2340,13 @@ void PutUnitSprite(int layer, int x, int y, struct Unit * unit)
     switch (GetInfo(id).size)
     {
         case UNIT_ICON_SIZE_16x16:
-            PutSprite(layer, x, y, gObject_16x16, (GetUnitDisplayedSpritePalette(unit) & 0xf) * 0x1000 + 0x880 + chr);
-            break;
+            PutSprite(layer, x, y, gObject_16x16, (GetUnitDisplayedSpritePalette(unit) & 0xf) * 0x1000 + 0x880 +
+chr); break;
 
         case UNIT_ICON_SIZE_16x32:
             PutSprite(
-                layer, x, y - 16, gObject_16x32, (GetUnitDisplayedSpritePalette(unit) & 0xf) * 0x1000 + 0x880 + chr);
-            break;
+                layer, x, y - 16, gObject_16x32, (GetUnitDisplayedSpritePalette(unit) & 0xf) * 0x1000 + 0x880 +
+chr); break;
 
         case UNIT_ICON_SIZE_32x32:
             PutSprite(
@@ -2455,8 +2456,8 @@ void sub_8027E4C(int layer, int x, int y, int oam2, struct Unit * unit)
             break;
 
         case UNIT_ICON_SIZE_32x32:
-            PutSprite(layer, x - 8, y - 16, gObject_32x32, oam2 + (GetUnitSpritePalette(unit) & 0xf) * 0x1000 + chr);
-            break;
+            PutSprite(layer, x - 8, y - 16, gObject_32x32, oam2 + (GetUnitSpritePalette(unit) & 0xf) * 0x1000 +
+chr); break;
     }
 }
 

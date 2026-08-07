@@ -2,7 +2,16 @@
 @@ TODO: fix skirmish text
 .thumb
 .include "header.h"
+.global Font_Graphic_Ptr
+.global FontDimensionsTable
+.global AltChapterTitleTable
+.global ChapterID_Ram
+.global SaveslotSize
+.global Utf8FindGlyph
+.global Utf8DrawGlyph
+.global ChapterTitleDrawText
 @main
+ChapterTitleDrawText:
 sub_8082308:
 @r0 is 0xb40 (position?)
 @r1 is chapter number. 0x54 is no data?
@@ -64,9 +73,11 @@ beq VanillaBehaviour
 @mov r11, r11 
 
 
-ldr r0, SaveslotSize 
+ldr r0, =SaveslotSize
+ldr r0, [r0]
 mul r0, r1 
-ldr r1, ChapterID_Ram
+ldr r1, =ChapterID_Ram
+ldr r1, [r1]
 add r0, r1 
 ldrb r5, [r0] @ chapter we last saved at 
 VanillaBehaviour: 
@@ -99,7 +110,8 @@ mov     r1,r8               @@ 08082342 4641
 @bl      0x80BFA0C                @@ 08082344 F03DFB62 
 swi #0xC
 
-ldr     r0, Font_Graphic_Ptr                @@ 08082348 4805  @font graphic - compressed 
+ldr     r0, =Font_Graphic_Ptr
+ldr     r0, [r0]                            @ font graphic - compressed
 ldr     r1,=0x2020188               @@ 0808234A 4906  @unknown - buffer , was 2020140
 blh      0x8012f50                @@ 0808234C F790FF0C @decompress image to buffer
 b       loc_80823C6               @@ 08082350 E039     
@@ -110,7 +122,11 @@ mov     r0,r7               @@ 08082368 1C38
 bl      MapTextCharacterToFont               @@ 0808236A F7FFFEBD 
 mov     r2,r0               @@ 0808236E 1C02     
 cmp     r2,#0x80                @@ 08082370 2A80     
-bne     loc_8082386               @@ 08082372 D108     
+beq     ChapterTitleSpace
+cmp     r2,#0x80
+bhi     DrawUtf8TitleGlyph
+b       loc_8082386
+ChapterTitleSpace:
 cmp     r6,r5               @@ 08082374 42AE     
 bls     loc_808237C               @@ 08082376 D901     
 add     r0,r6,#3                @@ 08082378 1CF0     
@@ -122,9 +138,38 @@ lsl     r0,r0,#0x18               @@ 0808237E 0600
 lsr     r5,r0,#0x18               @@ 08082380 0E05     
 mov     r6,r5               @@ 08082382 1C2E     
 b       loc_80823C4               @@ 08082384 E01E   
+DrawUtf8TitleGlyph:
+cmp     r6,r5
+bhs     GotUtf8DrawPosition
+mov     r6,r5
+GotUtf8DrawPosition:
+mov     r0,r2
+mov     r1,r8
+mov     r2,r6
+ldr     r3,=Utf8DrawGlyph
+ldr     r3,[r3]
+mov     lr,r3
+.short  0xF800
+add     r6,r0
+mov     r5,r6
+ldrb    r0,[r7]
+mov     r1,#0
+cmp     r0,#0xC0
+blo     AdvancedUtf8DrawPointer
+mov     r1,#1
+cmp     r0,#0xE0
+blo     AdvancedUtf8DrawPointer
+mov     r1,#2
+cmp     r0,#0xF0
+blo     AdvancedUtf8DrawPointer
+mov     r1,#3
+AdvancedUtf8DrawPointer:
+add     r7,r1
+b       loc_80823C4
 loc_8082386:  
 lsl     r1,r2,#0x3                @@ 08082386 00D1     
-ldr     r0, FontDimensionsTable     @=0x8CC2784  
+ldr     r0, =FontDimensionsTable
+ldr     r0, [r0]
 add     r4,r1,r0                @@ 0808238A 180C     
 ldrb    r3,[r4]               @@ 0808238C 7823     
 sub     r1,r6,r3                @@ 0808238E 1AF1     
@@ -223,7 +268,8 @@ b		CopyTitleText
 
 LoadAltTitle:
 lsl		r0,#1
-ldr		r1,AltChapterTitleTable
+ldr		r1,=AltChapterTitleTable
+ldr     r1,[r1]
 ldrh	r0,[r1,r0]
 
 @at this point we should expect to have the chapter title text ID (160 fe8, 58c fe7) 
@@ -247,7 +293,11 @@ loop_808222E:
 mov     r0,r6               @@ 0808222E 1C30     
 bl      MapTextCharacterToFont               @@ 08082230 F7FFFF5A 
 cmp     r0,#0x80                @@ 08082234 2880     
-bne     loc_8082250               @@ 08082236 D10B     
+beq     ChapterTitleMeasureSpace
+cmp     r0,#0x80
+bhi     MeasureUtf8TitleGlyph
+b       loc_8082250
+ChapterTitleMeasureSpace:
 cmp     r4,r5               @@ 08082238 42AC     
 bls     loc_8082246               @@ 0808223A D904     
 add     r0,r4,#3                @@ 0808223C 1CE0     
@@ -261,9 +311,36 @@ lsl     r0,r0,#0x18               @@ 08082248 0600
 lsr     r5,r0,#0x18               @@ 0808224A 0E05     
 mov     r4,r5               @@ 0808224C 1C2C     
 b       loc_8082286               @@ 0808224E E01A   
+MeasureUtf8TitleGlyph:
+ldrb    r0,[r0,#5]
+add     r0,#1
+cmp     r4,r5
+bls     MeasureUtf8FromRight
+add     r4,r0
+mov     r5,r4
+b       AdvanceUtf8MeasurePointer
+MeasureUtf8FromRight:
+add     r5,r0
+mov     r4,r5
+AdvanceUtf8MeasurePointer:
+ldrb    r0,[r6]
+mov     r1,#0
+cmp     r0,#0xC0
+blo     AdvancedUtf8MeasurePointer
+mov     r1,#1
+cmp     r0,#0xE0
+blo     AdvancedUtf8MeasurePointer
+mov     r1,#2
+cmp     r0,#0xF0
+blo     AdvancedUtf8MeasurePointer
+mov     r1,#3
+AdvancedUtf8MeasurePointer:
+add     r6,r1
+b       loc_8082286
 loc_8082250:  
 lsl     r1,r0,#0x3                @@ 08082250 00C1     
-ldr     r0,FontDimensionsTable @0x8CC2784               @@ 08082252 4805     
+ldr     r0,=FontDimensionsTable
+ldr     r0,[r0]
 add     r2,r1,r0                @@ 08082254 180A     
 ldrb    r0,[r2]               @@ 08082256 7810     
 sub     r1,r4,r0                @@ 08082258 1A21     
@@ -312,7 +389,7 @@ bx      r1                @@ 080822A0 4708
 
 MapTextCharacterToFont:
 push    {r14}    
-add     sp,#-0x20   
+add     sp,#-0x24
 mov     r3,r0    
 ldrb    r2,[r3]    
 mov     r0,r2    
@@ -375,9 +452,20 @@ b       GotTextCharacterIndex
 		
 	Check_Colon:
 	cmp     r1,#0x3A     
-	bne     Check_CD     
+	bne     CheckUtf8Fallback
 	mov     r0,#0x43     
 	b       GotTextCharacterIndex  
+
+	CheckUtf8Fallback:
+	cmp     r2,#0xC0
+	blo     Check_CD
+	mov     r0,r3
+	ldr     r3,=Utf8FindGlyph
+	ldr     r3,[r3]
+	mov     lr,r3
+	.short  0xF800
+	cmp     r0,#0
+	bne     GotTextCharacterIndex
 	
 	Check_CD:        @Í
 	cmp     r1,#0xCD
@@ -495,12 +583,22 @@ b       GotTextCharacterIndex
 	mov     r0,#0x55
 	b       GotTextCharacterIndex
 	
-@anything unrecognized is now a space.
+@ Anything without a large-font mapping falls back to the normal UTF-8 font.
 
-MapToSpaceChar:   
+MapToSpaceChar:
+cmp     r2,#0x20
+bls     MapToSpace
+mov     r0,r3
+ldr     r3,=Utf8FindGlyph
+ldr     r3,[r3]
+mov     lr,r3
+.short  0xF800
+cmp     r0,#0
+bne     GotTextCharacterIndex
+MapToSpace:
 mov     r0,#0x80
 GotTextCharacterIndex:  
-add     sp,#0x20     
+add     sp,#0x24
 pop     {r1}    
 bx      r1
 .align 
@@ -526,7 +624,8 @@ asr     r0,r0,#0x8                @@ 08082188 1200
 lsl     r0,r0,#0x4                @@ 0808218A 0100     
 str     r0,[sp,#0x10]               @@ 0808218C 9004     
 lsl     r4,r4,#0x3                @@ 0808218E 00E4     
-ldr     r0,FontDimensionsTable @0x8CC2784               @@ 08082190 4801     
+ldr     r0,=FontDimensionsTable
+ldr     r0,[r0]
 add     r6,r4,r0                @@ 08082192 1826     
 ldrb    r2,[r6,#0x6]                @@ 08082194 79B2     
 b       loc_808220E               @@ 08082196 E03A     
@@ -613,7 +712,8 @@ bx      r0                @@ 08082222 4700
 
 sub_80820CC:
 mov     r2,#0x0               @@ 080820CC 2200     
-ldr     r1,FontDimensionsTable @=0x8CC2784                @@ 080820CE 4905     
+ldr     r1,=FontDimensionsTable
+ldr     r1,[r1]
 cmp     r0,#0x0               @@ 080820D0 2800     
 beq     loc_80820E0               @@ 080820D2 D005  
 loc_80820D4:   
@@ -629,8 +729,3 @@ bx      r14               @@ 080820E2 4770
 .ltorg
 
 .align
-Font_Graphic_Ptr:
-.set FontDimensionsTable, Font_Graphic_Ptr+4
-.set AltChapterTitleTable, FontDimensionsTable+4
-.set ChapterID_Ram, AltChapterTitleTable+4 
-.set SaveslotSize, ChapterID_Ram+4 

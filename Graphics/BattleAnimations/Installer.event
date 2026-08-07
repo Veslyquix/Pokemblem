@@ -1,5 +1,53 @@
 
 
+PUSH 
+
+ORG $59bd8 
+POIN NewAnimTable
+ORG $5a600 
+POIN NewAnimTable
+ORG $5a694 
+POIN NewAnimTable
+ORG $5a82c 
+POIN NewAnimTable
+ORG $6f6a8 
+POIN NewAnimTable
+ORG $70940 
+POIN NewAnimTable
+ORG $70a60 
+POIN NewAnimTable
+
+ORG $51e48 
+POIN NewBattleTerrainTable // battle_terrain_table
+ORG $5aad0 
+POIN NewBattleTerrainTable
+ 
+
+POP 
+
+#define TemplePlatform "0 0 0 TemplePlatformImg TemplePlatform_Pal 0" 
+#define TemplePlatform_16 "TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform TemplePlatform" 
+#define TemplePlatform_128 "TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16 TemplePlatform_16"
+ALIGN 4 
+NewBattleTerrainTable: 
+POIN TemplePlatform_128 
+
+ALIGN 4 
+WORD 0 0 0 0 
+
+TemplePlatformImg:
+#incbin "platform/Platform3F.png.dmp" 
+ALIGN 4 
+TemplePlatform_Pal:
+#incbin "platform/Platform3F.png.pal.dmp" 
+
+
+
+ALIGN 4 
+NewAnimTable: 
+FILL (160*32) 0 
+// ORG NewAnimTable + (160 * 32) 
+
 #define classAnim(classID,animPointer)  "ORG classTable +classID*(72)  + 48; WORD $08000000 + animPointer"
 
 
@@ -660,7 +708,8 @@ weaponAnimEnd
 
 
 
-#define AnimTableEntry(index)  "ORG ClassAnimTable + ((index)  * 0x20)"
-
+#define ClassAnimTable NewAnimTable
+#define AnimTableEntry(index) "ORG NewAnimTable + ((index-1) * 0x20)"
+// #define ClassAnimTable (0xc00008-0x20)
 #include "_Master Animation Installer.event"
 #include "handaxs_wildcard/Installer.event"

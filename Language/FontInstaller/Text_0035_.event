@@ -4,30 +4,106 @@ Fonts(0x0000, 6)
 	#incbin "../FontData/FontText5.fefont"
 
 ALIGN 4
-Fonts(0x0054, 13)
+Fonts(0x0054, 12)
 	#incbin "../FontData/FontText吵.fefont"
 
 ALIGN 4
-Fonts(0x0058, 13)
+Fonts(0x0058, 12)
 	#incbin "../FontData/FontText堵.fefont"
 
 ALIGN 4
-Fonts(0x0067, 13)
+Fonts(0x0060, 12)
+	#incbin "../FontData/FontText怵.fefont"
+
+ALIGN 4
+Fonts(0x0065, 12)
+	#incbin "../FontData/FontText攵.fefont"
+
+ALIGN 4
+Fonts(0x0066, 12)
+	#incbin "../FontData/FontText昵.fefont"
+
+ALIGN 4
+Fonts(0x0067, 12)
 	#incbin "../FontData/FontText朵.fefont"
 
 ALIGN 4
-Fonts(0x0075, 13)
+Fonts(0x006A, 12)
+	#incbin "../FontData/FontText樵.fefont"
+
+ALIGN 4
+Fonts(0x006C, 4)
+	#incbin "../FontData/FontText氵.fefont"
+
+ALIGN 4
+Fonts(0x006D, 12)
+	#incbin "../FontData/FontText洵.fefont"
+
+ALIGN 4
+Fonts(0x0070, 12)
+	#incbin "../FontData/FontText瀵.fefont"
+
+ALIGN 4
+Fonts(0x0072, 12)
+	#incbin "../FontData/FontText爵.fefont"
+
+ALIGN 4
+Fonts(0x0074, 12)
+	#incbin "../FontData/FontText琵.fefont"
+
+ALIGN 4
+Fonts(0x0075, 12)
 	#incbin "../FontData/FontText电.fefont"
 
 ALIGN 4
-Fonts(0x008D, 13)
+Fonts(0x0076, 12)
+	#incbin "../FontData/FontText瘵.fefont"
+
+ALIGN 4
+Fonts(0x0077, 12)
+	#incbin "../FontData/FontText眵.fefont"
+
+ALIGN 4
+Fonts(0x007F, 12)
+	#incbin "../FontData/FontText缵.fefont"
+
+ALIGN 4
+Fonts(0x0080, 12)
+	#incbin "../FontData/FontText耵.fefont"
+
+ALIGN 4
+Fonts(0x0082, 12)
+	#incbin "../FontData/FontText舵.fefont"
+
+ALIGN 4
+Fonts(0x0083, 12)
+	#incbin "../FontData/FontText茵.fefont"
+
+ALIGN 4
+Fonts(0x008C, 12)
+	#incbin "../FontData/FontText谵.fefont"
+
+ALIGN 4
+Fonts(0x008D, 12)
 	#incbin "../FontData/FontText贵.fefont"
 
 ALIGN 4
-Fonts(0x008E, 13)
+Fonts(0x008E, 12)
 	#incbin "../FontData/FontText踵.fefont"
 
 ALIGN 4
-Fonts(0x0096, 13)
+Fonts(0x0090, 12)
+	#incbin "../FontData/FontText逵.fefont"
+
+ALIGN 4
+Fonts(0x0095, 12)
+	#incbin "../FontData/FontText锵.fefont"
+
+ALIGN 4
+Fonts(0x0096, 12)
 	#incbin "../FontData/FontText阵.fefont"
+
+ALIGN 4
+Fonts(0x009E, 12)
+	#incbin "../FontData/FontText鸵.fefont"
 

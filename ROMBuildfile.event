@@ -1,4 +1,17 @@
 #ifdef _FE8_
+
+// 81aed30 - 8205714 Vanilla maps, breaking stone anim, vanilla sms/mms 
+// 82263b4 - 85876c8 vanilla sound data 3.3 mb! but we use some of these 
+// 85d4e60 - 8801c14 vanilla spells/staff anims 2 mb we might not need 
+// 880d3f8 - 88acbe0 vanilla portraits 
+// 88b3bc4 - 88d1f54 vanilla unit defs 
+// 88d2700 - 895d75c vanilla BGs 
+// 89e858c - 89ec3b0 vanilla events 
+
+// 0xb2a610 as free space, no limit 
+
+// 8c02000 - 
+
 // PROTECT $1A38C $1A78C
 //PROTECT $273cc 
 //PROTECT $27318 
@@ -9,7 +22,7 @@
 	#include "Music/MusicTrackDefinitions.event" 
 	#include "Maps/Definitions.event"
 	#include "Maps/MapMacros.event" 
-ORG FreeSpace_Low
+ORG FreeSpace_Low2
     //CSV tables
 	//#include "Text/Text Definitions.event" 
     
@@ -64,10 +77,12 @@ POIN SkillAnimationTable
 	//#undef TEXT_INSTALLER_TEXT_BUILDFILE_TXT
 
     #include "Text/InstallTextData.event"
-	#include "Languages.event" 
-    MESSAGE Used text space ends at currentOffset
+	
+   
 	
 	#include "Language/TextTableCode/Installer.event" 
+    #include "Languages.event" 
+    MESSAGE Used text space ends at currentOffset
 	
 PUSH 
 ORG FreeSpace
@@ -86,8 +101,10 @@ ORG FreeSpace
 		#include "Patches/An_Installer_of_Patches.event"
 	#endif 
 	#include "Maps/Master Map Installer.event"
+
     
 #ifdef INCLUDE_FLYING
+MESSAGE Soaring starts at currentOffset
   	//Soaring outside bl range includes
     ALIGN 4
     #include "EngineHacks/Soaring/src/hostable.lyn.event"
@@ -99,6 +116,7 @@ ORG FreeSpace
     #incbin "EngineHacks/Soaring/src/pleftmatrix.dmp"
     ALIGN 4
     #include "EngineHacks/Soaring/Graphics/Master Graphics Installer.event"
+MESSAGE Soaring ends at currentOffset
 #endif 
     ALIGN 4
     MESSAGE Used hax space ends at currentOffset

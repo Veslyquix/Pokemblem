@@ -24,6 +24,22 @@ enum
 extern u16 gBG0MapBuffer[32][32];
 extern u16 gBG1MapBuffer[32][32]; // 0x020234A8.
 
+extern u16 ReplaceMoveMenuStrText_Link;
+extern u16 ReplaceMoveMenuMagText_Link;
+extern u16 ReplaceMoveMenuRngText_Link;
+extern u16 ReplaceMoveMenuWtText_Link;
+extern u16 ReplaceMoveMenuDmgText_Link;
+extern u16 ReplaceMoveMenuHitText_Link;
+extern u16 ReplaceMoveMenuCritText_Link;
+extern u16 ReplaceMoveMenuNoMoveText_Link;
+extern u16 ReplaceMoveMenuYesText_Link;
+extern u16 ReplaceMoveMenuNoText_Link;
+
+static char * GetReplaceMoveMenuText(const u16 * textIdLink)
+{
+    return GetStringFromIndex(*textIdLink);
+}
+
 #define item_name_offset 16
 #define new_item_name_offset 48
 #define new_item_icon_offset 0 // 13
@@ -349,19 +365,6 @@ void DrawItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, stru
 
     // u16 tile = menu->tileBase+20;
 
-    // PrepareText(&handles[i], " Rng");
-    // Text_Display(&handles[i], &gBG0MapBuffer[15][7+x]); i++;
-    //
-    // PrepareText(&handles[i], " Wt");
-    // Text_Display(&handles[i], &gBG0MapBuffer[15][14+x]); i++;
-    //
-    // PrepareText(&handles[i], "Dmg");
-    // Text_Display(&handles[i], &gBG0MapBuffer[17][0+x]); i++;
-    // PrepareText(&handles[i], " Hit");
-    // Text_Display(&handles[i], &gBG0MapBuffer[17][7+x]); i++;
-    // PrepareText(&handles[i], " Crit");
-    // Text_Display(&handles[i], &gBG0MapBuffer[17][14+x]); i++;
-
     // u8* const moves = UnitGetMoveList(proc->unit);
     u16 * const out = gBg0MapBuffer + TILEMAP_INDEX(2, 1);
     LoadIconPalettes(4);
@@ -495,7 +498,7 @@ void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, st
     Text_Display(&handles[i], &gBG0MapBuffer[9][11]);
     i++;
 
-    char * strName = (void *)&"Str";
+    char * strName = GetReplaceMoveMenuText(&ReplaceMoveMenuStrText_Link);
     width = (Text_GetStringTextWidth(strName) + 8 + 8) / 8;
     Text_InitClear(&handles[i], width);
     handles[i].tileWidth = width;
@@ -505,7 +508,7 @@ void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, st
     Text_Display(&handles[i], &gBG0MapBuffer[11][11]);
     i++;
 
-    char * magName = (void *)&"Mag";
+    char * magName = GetReplaceMoveMenuText(&ReplaceMoveMenuMagText_Link);
     width = (Text_GetStringTextWidth(magName) + 8 + 8) / 8;
     Text_InitClear(&handles[i], width);
     handles[i].tileWidth = width;
@@ -538,21 +541,21 @@ void UpdateItemInfo(struct MenuProc * menu, struct MenuCommandProc * command, st
     // handles[i].unk07 = 0;
     // }
 
-    PrepareText(&handles[i], " Rng");
+    PrepareText(&handles[i], GetReplaceMoveMenuText(&ReplaceMoveMenuRngText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[15][7 + x]);
     i++;
 
-    PrepareText(&handles[i], " Wt");
+    PrepareText(&handles[i], GetReplaceMoveMenuText(&ReplaceMoveMenuWtText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[15][14 + x]);
     i++;
 
-    PrepareText(&handles[i], "Dmg");
+    PrepareText(&handles[i], GetReplaceMoveMenuText(&ReplaceMoveMenuDmgText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[17][0 + x]);
     i++;
-    PrepareText(&handles[i], " Hit");
+    PrepareText(&handles[i], GetReplaceMoveMenuText(&ReplaceMoveMenuHitText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[17][7 + x]);
     i++;
-    PrepareText(&handles[i], " Crit");
+    PrepareText(&handles[i], GetReplaceMoveMenuText(&ReplaceMoveMenuCritText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[17][14 + x]);
     i++;
 
@@ -659,7 +662,7 @@ static void MoveListCommandDraw(struct MenuProc * menu, struct MenuCommandProc *
     else
     {
         Text_SetColorId(&command->text, TEXT_COLOR_GRAY);
-        Text_DrawString(&command->text, " No Move");
+        Text_DrawString(&command->text, GetReplaceMoveMenuText(&ReplaceMoveMenuNoMoveText_Link));
     }
 
     EnableBgSyncByMask(BG0_SYNC_BIT);
@@ -678,19 +681,35 @@ static int MoveListCommandSelect(struct MenuProc * menu, struct MenuCommandProc 
 u8 ClearYesNoBox(struct MenuProc * menu, struct MenuCommandProc * command);
 static int MoveCommandConfirm(struct MenuProc * menu, struct MenuCommandProc * command);
 static int MoveCommandDecline(struct MenuProc * menu, struct MenuCommandProc * command);
+static void DrawReplaceMoveYesNoCommand(struct MenuProc * menu, struct MenuCommandProc * command);
 MenuProc * StartOrphanMenuAt(const MenuDefinition *, MenuGeometry);
 MenuProc * StartOrphanMenu(const MenuDefinition *);
+
+static void DrawReplaceMoveYesNoCommand(struct MenuProc * menu, struct MenuCommandProc * command)
+{
+    (void)menu;
+
+    u16 * const out = gBg0MapBuffer + TILEMAP_INDEX(command->xDrawTile, command->yDrawTile);
+    const u16 * textIdLink = command->commandDefinitionIndex == 0
+        ? &ReplaceMoveMenuYesText_Link
+        : &ReplaceMoveMenuNoText_Link;
+
+    Text_Clear(&command->text);
+    Text_SetColorId(&command->text, TEXT_COLOR_NORMAL);
+    Text_DrawString(&command->text, GetReplaceMoveMenuText(textIdLink));
+    Text_Display(&command->text, out);
+}
 
 static const struct MenuCommandDefinition MenuCommands_Confirmation[] = {
     {
         .isAvailable = MenuCommandAlwaysUsable,
+        .onDraw = DrawReplaceMoveYesNoCommand,
         .onEffect = MoveCommandConfirm,
-        .rawName = " Yes",
     },
     {
         .isAvailable = MenuCommandAlwaysUsable,
+        .onDraw = DrawReplaceMoveYesNoCommand,
         .onEffect = MoveCommandDecline,
-        .rawName = " No",
     },
     {},
 };
@@ -728,13 +747,13 @@ static int AbandonMove(struct MenuProc * menu, struct MenuCommandProc * command)
 static const struct MenuCommandDefinition MenuCommands_GiveUpOnMove[] = {
     {
         .isAvailable = MenuCommandAlwaysUsable,
+        .onDraw = DrawReplaceMoveYesNoCommand,
         .onEffect = AbandonMove,
-        .rawName = " Yes",
     },
     {
         .isAvailable = MenuCommandAlwaysUsable,
+        .onDraw = DrawReplaceMoveYesNoCommand,
         .onEffect = MoveCommandDecline,
-        .rawName = " No",
     },
     {},
 

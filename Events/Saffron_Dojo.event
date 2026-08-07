@@ -39,8 +39,8 @@ LocationBasedEvents:
 END_MAIN
 
 CheckIfNoEnemiesLeft:
-CHECK_ENEMIES
 SVAL s1 1 
+CHECK_ENEMIES
 BNE 0 sC s1 
 CALL EndingScene 
 GOTO 99 

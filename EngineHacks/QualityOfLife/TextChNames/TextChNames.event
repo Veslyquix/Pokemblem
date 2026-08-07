@@ -9,7 +9,8 @@
 
 
 #ifdef _FE8_
-
+  ALIGN 4
+  #include "asm/chapter_title_utf8.lyn.event"
   {
 
   #include "EAstdlib.event"
@@ -23,13 +24,24 @@
       jumpToHack(Chname)
   POP
 
+
+
   Chname:
-    #incbin "asm/fe8_chapter_names.dmp"
+    #include "asm/fe8_chapter_names.lyn.event"
+  Font_Graphic_Ptr:
     POIN ChFont
+  FontDimensionsTable:
     POIN ChTable
+	AltChapterTitleTable:
 	POIN ChTable 
+	ChapterID_Ram:
 	WORD 0xE000000 + $352F // Savefile 1 + offset to chapter ID 
+	SaveslotSize:
 	WORD $1344 // size 
+	Utf8FindGlyph:
+	POIN ChapterTitleFindUtf8Glyph
+	Utf8DrawGlyph:
+	POIN ChapterTitleDrawUtf8Glyph
 	// savefile 2: 4873 
 	// savefile 3: 5BB7 
 // suspend: E00015A 

@@ -183,6 +183,7 @@
 #include "TutorialDisabler.event"
 //#include "LessAnnoyingFog/Installer.event"
 
+#include "LanguageSelect/Installer.event"
 #include "SkipOpening.event"
 #include "DifficultySelection.event"
 

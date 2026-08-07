@@ -20,6 +20,10 @@ QuicksaveToggleFlagLink:
 WORD QuicksaveToggleFlag
 
 ALIGN 4
+LanguageCurrentLanguageLink:
+WORD CurrentLanguage
+
+ALIGN 4
 GameOptionsTable:
 //	Item Name	Selector 1 Help	Selector 1 Text	Selector 1 Display Position	Selector 1 Unknown 2	Selector 2 Help	Selector 2 Text	Selector 2 Display position	Selector 2 Unknown 2	Selector 3 Help	Selector 3 Text	Selector 3 Display Position	Selector 3 Unknown 2	Selector 4 Help	Selector 4 Text	Selector 4 Display position	Selector 4 Unknown 2	Icon (value * 8)	ASM Function
 WORD 0x90;SHORT 0xA1 0xBF 368 0x00 0xA2 0xC0 383 0x00 0xA3 0xBE 654 0x00 0xA4 0xC7 677 0x00;WORD 0x00;POIN 0x0B1D15 //00 Animation
@@ -74,6 +78,7 @@ ORG GameOptionsEffectTable+4*(GameOptionsMaxEntries+1)
 
 // GameOptTable + (x+1)*8 + $2c*TableEntryID 
 #define GameOptionsEntry(EntryID, MainText, Selection1HelpText, Selection1Text, Pos_Sel1, Selection2HelpText, Selection2Text, Pos_Sel2, IconID, CurrOptionFunc, EffectFunction)"PUSH; ORG GameOptionsTable+44*EntryID; WORD MainText; SHORT Selection1HelpText Selection1Text Pos_Sel1 0 Selection2HelpText Selection2Text Pos_Sel2 0 0 0 190 0 0 0 189 0; WORD IconID; POIN 0x80B1D15|1; ORG GameOptionsEffectTable+4*EntryID; POIN CurrOptionFunc|1; ORG GameOptionsCheckCurrentJumpTable+4*EntryID; POIN EffectFunction|1; POP"
+#define GameOptionsEntry3(EntryID, MainText, HelpText, Selection1Text, Pos_Sel1, Selection2Text, Pos_Sel2, Selection3Text, Pos_Sel3, IconID, CurrOptionFunc, EffectFunction)"PUSH; ORG GameOptionsTable+44*EntryID; WORD MainText; SHORT HelpText Selection1Text Pos_Sel1 0 HelpText Selection2Text Pos_Sel2 0 HelpText Selection3Text Pos_Sel3 0 0 0 189 0; WORD IconID; POIN 0x80B1D15|1; ORG GameOptionsEffectTable+4*EntryID; POIN CurrOptionFunc|1; ORG GameOptionsCheckCurrentJumpTable+4*EntryID; POIN EffectFunction|1; POP"
 
 #define GenericToggleFunctionCode "SHORT $4B01 $4718 $46C0; POIN GenericToggleFunc"
 #define GenericCheckCurrentOptionCode "SHORT $4B01 $4718 $46C0; POIN GenericCheckOption"

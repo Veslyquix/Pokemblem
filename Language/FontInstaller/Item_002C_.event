@@ -1,41 +1,209 @@
 // Sub Font Installer
 ALIGN 4
-Fonts(0x0054, 9)
+Fonts(0x004E, 6)
+	#incbin "../FontData/FontItem丬.fefont"
+
+ALIGN 4
+Fonts(0x004F, 8)
+	#incbin "../FontData/FontItem伬.fefont"
+
+ALIGN 4
+Fonts(0x0050, 8)
+	#incbin "../FontData/FontItem倬.fefont"
+
+ALIGN 4
+Fonts(0x0052, 8)
+	#incbin "../FontData/FontItem刬.fefont"
+
+ALIGN 4
+Fonts(0x0054, 8)
 	#incbin "../FontData/FontItem听.fefont"
 
 ALIGN 4
-Fonts(0x0055, 11)
+Fonts(0x0055, 8)
 	#incbin "../FontData/FontItem唬.fefont"
 
 ALIGN 4
-Fonts(0x0064, 11)
+Fonts(0x0056, 8)
+	#incbin "../FontData/FontItem嘬.fefont"
+
+ALIGN 4
+Fonts(0x0057, 8)
+	#incbin "../FontData/FontItem圬.fefont"
+
+ALIGN 4
+Fonts(0x0059, 8)
+	#incbin "../FontData/FontItem夬.fefont"
+
+ALIGN 4
+Fonts(0x005B, 8)
+	#incbin "../FontData/FontItem嬬.fefont"
+
+ALIGN 4
+Fonts(0x005C, 8)
+	#incbin "../FontData/FontItem尬.fefont"
+
+ALIGN 4
+Fonts(0x005D, 8)
+	#incbin "../FontData/FontItem崬.fefont"
+
+ALIGN 4
+Fonts(0x0061, 8)
+	#incbin "../FontData/FontItem愬.fefont"
+
+ALIGN 4
+Fonts(0x0062, 8)
+	#incbin "../FontData/FontItem戬.fefont"
+
+ALIGN 4
+Fonts(0x0064, 8)
 	#incbin "../FontData/FontItem搬.fefont"
 
 ALIGN 4
-Fonts(0x0067, 9)
+Fonts(0x0065, 8)
+	#incbin "../FontData/FontItem攬.fefont"
+
+ALIGN 4
+Fonts(0x0067, 8)
 	#incbin "../FontData/FontItem本.fefont"
+
+ALIGN 4
+Fonts(0x006B, 8)
+	#incbin "../FontData/FontItem欬.fefont"
+
+ALIGN 4
+Fonts(0x006C, 8)
+	#incbin "../FontData/FontItem氬.fefont"
+
+ALIGN 4
+Fonts(0x006E, 8)
+	#incbin "../FontData/FontItem測.fefont"
+
+ALIGN 4
+Fonts(0x006F, 8)
+	#incbin "../FontData/FontItem漬.fefont"
+
+ALIGN 4
+Fonts(0x0070, 8)
+	#incbin "../FontData/FontItem瀬.fefont"
 
 ALIGN 4
 Fonts(0x0072, 8)
 	#incbin "../FontData/FontItem爬.fefont"
 
 ALIGN 4
-Fonts(0x007B, 9)
+Fonts(0x0073, 8)
+	#incbin "../FontData/FontItem猬.fefont"
+
+ALIGN 4
+Fonts(0x0074, 8)
+	#incbin "../FontData/FontItem琬.fefont"
+
+ALIGN 4
+Fonts(0x0075, 8)
+	#incbin "../FontData/FontItem甬.fefont"
+
+ALIGN 4
+Fonts(0x0077, 8)
+	#incbin "../FontData/FontItem眬.fefont"
+
+ALIGN 4
+Fonts(0x0078, 8)
+	#incbin "../FontData/FontItem砬.fefont"
+
+ALIGN 4
+Fonts(0x0079, 8)
+	#incbin "../FontData/FontItem礬.fefont"
+
+ALIGN 4
+Fonts(0x007B, 8)
 	#incbin "../FontData/FontItem第.fefont"
 
 ALIGN 4
-Fonts(0x0082, 9)
+Fonts(0x007D, 8)
+	#incbin "../FontData/FontItem紬.fefont"
+
+ALIGN 4
+Fonts(0x007F, 8)
+	#incbin "../FontData/FontItem缬.fefont"
+
+ALIGN 4
+Fonts(0x0080, 8)
+	#incbin "../FontData/FontItem耬.fefont"
+
+ALIGN 4
+Fonts(0x0081, 8)
+	#incbin "../FontData/FontItem脬.fefont"
+
+ALIGN 4
+Fonts(0x0082, 8)
 	#incbin "../FontData/FontItem般.fefont"
 
 ALIGN 4
-Fonts(0x0083, 11)
+Fonts(0x0083, 8)
 	#incbin "../FontData/FontItem茬.fefont"
 
 ALIGN 4
-Fonts(0x008C, 11)
+Fonts(0x0084, 8)
+	#incbin "../FontData/FontItem萬.fefont"
+
+ALIGN 4
+Fonts(0x0085, 8)
+	#incbin "../FontData/FontItem蔬.fefont"
+
+ALIGN 4
+Fonts(0x008B, 8)
+	#incbin "../FontData/FontItem謬.fefont"
+
+ALIGN 4
+Fonts(0x008C, 8)
 	#incbin "../FontData/FontItem谬.fefont"
 
 ALIGN 4
-Fonts(0x008D, 0)
+Fonts(0x008D, 8)
 	#incbin "../FontData/FontItem贬.fefont"
+
+ALIGN 4
+Fonts(0x008E, 8)
+	#incbin "../FontData/FontItem踬.fefont"
+
+ALIGN 4
+Fonts(0x008F, 8)
+	#incbin "../FontData/FontItem輬.fefont"
+
+ALIGN 4
+Fonts(0x0092, 8)
+	#incbin "../FontData/FontItem鈬.fefont"
+
+ALIGN 4
+Fonts(0x0093, 8)
+	#incbin "../FontData/FontItem錬.fefont"
+
+ALIGN 4
+Fonts(0x0095, 8)
+	#incbin "../FontData/FontItem锬.fefont"
+
+ALIGN 4
+Fonts(0x0096, 8)
+	#incbin "../FontData/FontItem阬.fefont"
+
+ALIGN 4
+Fonts(0x0098, 8)
+	#incbin "../FontData/FontItem頬.fefont"
+
+ALIGN 4
+Fonts(0x0099, 8)
+	#incbin "../FontData/FontItem餬.fefont"
+
+ALIGN 4
+Fonts(0x009D, 8)
+	#incbin "../FontData/FontItem鴬.fefont"
+
+ALIGN 4
+Fonts(0x009E, 8)
+	#incbin "../FontData/FontItem鸬.fefont"
+
+ALIGN 4
+Fonts(0x009F, 8)
+	#incbin "../FontData/FontItem鼬.fefont"
 

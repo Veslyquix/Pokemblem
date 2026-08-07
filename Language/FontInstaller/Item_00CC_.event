@@ -1,41 +1,225 @@
 // Sub Font Installer
 ALIGN 4
-Fonts(0x0051, 11)
+Fonts(0x0039, 8)
+	#incbin "../FontData/FontItem㧌.fefont"
+
+ALIGN 4
+Fonts(0x004A, 8)
+	#incbin "../FontData/FontItem䫌.fefont"
+
+ALIGN 4
+Fonts(0x004E, 8)
+	#incbin "../FontData/FontItem仌.fefont"
+
+ALIGN 4
+Fonts(0x0051, 8)
 	#incbin "../FontData/FontItem凌.fefont"
 
 ALIGN 4
-Fonts(0x0053, 9)
+Fonts(0x0053, 8)
 	#incbin "../FontData/FontItem双.fefont"
 
 ALIGN 4
-Fonts(0x005A, 11)
+Fonts(0x0054, 8)
+	#incbin "../FontData/FontItem哌.fefont"
+
+ALIGN 4
+Fonts(0x0055, 8)
+	#incbin "../FontData/FontItem嗌.fefont"
+
+ALIGN 4
+Fonts(0x0056, 8)
+	#incbin "../FontData/FontItem囌.fefont"
+
+ALIGN 4
+Fonts(0x0057, 8)
+	#incbin "../FontData/FontItem埌.fefont"
+
+ALIGN 4
+Fonts(0x0058, 8)
+	#incbin "../FontData/FontItem壌.fefont"
+
+ALIGN 4
+Fonts(0x005A, 8)
 	#incbin "../FontData/FontItem嫌.fefont"
 
 ALIGN 4
-Fonts(0x005B, 9)
+Fonts(0x005B, 8)
 	#incbin "../FontData/FontItem富.fefont"
+
+ALIGN 4
+Fonts(0x005D, 8)
+	#incbin "../FontData/FontItem巌.fefont"
 
 ALIGN 4
 Fonts(0x005F, 8)
 	#incbin "../FontData/FontItem忌.fefont"
 
 ALIGN 4
+Fonts(0x0061, 8)
+	#incbin "../FontData/FontItem懌.fefont"
+
+ALIGN 4
 Fonts(0x0062, 8)
 	#incbin "../FontData/FontItem拌.fefont"
 
 ALIGN 4
-Fonts(0x006D, 9)
+Fonts(0x0063, 8)
+	#incbin "../FontData/FontItem揌.fefont"
+
+ALIGN 4
+Fonts(0x0065, 8)
+	#incbin "../FontData/FontItem旌.fefont"
+
+ALIGN 4
+Fonts(0x0066, 8)
+	#incbin "../FontData/FontItem曌.fefont"
+
+ALIGN 4
+Fonts(0x0069, 8)
+	#incbin "../FontData/FontItem槌.fefont"
+
+ALIGN 4
+Fonts(0x006B, 8)
+	#incbin "../FontData/FontItem毌.fefont"
+
+ALIGN 4
+Fonts(0x006C, 8)
+	#incbin "../FontData/FontItem泌.fefont"
+
+ALIGN 4
+Fonts(0x006D, 8)
 	#incbin "../FontData/FontItem淌.fefont"
 
 ALIGN 4
-Fonts(0x0080, 9)
+Fonts(0x006E, 8)
+	#incbin "../FontData/FontItem滌.fefont"
+
+ALIGN 4
+Fonts(0x0070, 8)
+	#incbin "../FontData/FontItem烌.fefont"
+
+ALIGN 4
+Fonts(0x0072, 8)
+	#incbin "../FontData/FontItem狌.fefont"
+
+ALIGN 4
+Fonts(0x0073, 8)
+	#incbin "../FontData/FontItem珌.fefont"
+
+ALIGN 4
+Fonts(0x0074, 8)
+	#incbin "../FontData/FontItem瓌.fefont"
+
+ALIGN 4
+Fonts(0x0075, 8)
+	#incbin "../FontData/FontItem痌.fefont"
+
+ALIGN 4
+Fonts(0x0076, 8)
+	#incbin "../FontData/FontItem盌.fefont"
+
+ALIGN 4
+Fonts(0x007B, 8)
+	#incbin "../FontData/FontItem篌.fefont"
+
+ALIGN 4
+Fonts(0x007C, 8)
+	#incbin "../FontData/FontItem糌.fefont"
+
+ALIGN 4
+Fonts(0x007D, 8)
+	#incbin "../FontData/FontItem緌.fefont"
+
+ALIGN 4
+Fonts(0x007E, 8)
+	#incbin "../FontData/FontItem绌.fefont"
+
+ALIGN 4
+Fonts(0x007F, 8)
+	#incbin "../FontData/FontItem翌.fefont"
+
+ALIGN 4
+Fonts(0x0080, 8)
 	#incbin "../FontData/FontItem背.fefont"
 
 ALIGN 4
-Fonts(0x008D, 11)
+Fonts(0x0081, 8)
+	#incbin "../FontData/FontItem臌.fefont"
+
+ALIGN 4
+Fonts(0x0082, 8)
+	#incbin "../FontData/FontItem苌.fefont"
+
+ALIGN 4
+Fonts(0x0083, 8)
+	#incbin "../FontData/FontItem菌.fefont"
+
+ALIGN 4
+Fonts(0x0088, 8)
+	#incbin "../FontData/FontItem裌.fefont"
+
+ALIGN 4
+Fonts(0x0089, 8)
+	#incbin "../FontData/FontItem觌.fefont"
+
+ALIGN 4
+Fonts(0x008A, 8)
+	#incbin "../FontData/FontItem諌.fefont"
+
+ALIGN 4
+Fonts(0x008B, 8)
+	#incbin "../FontData/FontItem诌.fefont"
+
+ALIGN 4
+Fonts(0x008D, 8)
 	#incbin "../FontData/FontItem跌.fefont"
 
 ALIGN 4
-Fonts(0x0091, 9)
+Fonts(0x008E, 8)
+	#incbin "../FontData/FontItem軌.fefont"
+
+ALIGN 4
+Fonts(0x008F, 8)
+	#incbin "../FontData/FontItem迌.fefont"
+
+ALIGN 4
+Fonts(0x0091, 8)
 	#incbin "../FontData/FontItem里.fefont"
+
+ALIGN 4
+Fonts(0x0092, 8)
+	#incbin "../FontData/FontItem鋌.fefont"
+
+ALIGN 4
+Fonts(0x0093, 8)
+	#incbin "../FontData/FontItem鏌.fefont"
+
+ALIGN 4
+Fonts(0x0094, 8)
+	#incbin "../FontData/FontItem铌.fefont"
+
+ALIGN 4
+Fonts(0x0095, 8)
+	#incbin "../FontData/FontItem闌.fefont"
+
+ALIGN 4
+Fonts(0x0096, 8)
+	#incbin "../FontData/FontItem雌.fefont"
+
+ALIGN 4
+Fonts(0x0097, 8)
+	#incbin "../FontData/FontItem韌.fefont"
+
+ALIGN 4
+Fonts(0x009A, 8)
+	#incbin "../FontData/FontItem髌.fefont"
+
+ALIGN 4
+Fonts(0x009C, 8)
+	#incbin "../FontData/FontItem鳌.fefont"
+
+ALIGN 4
+Fonts(0x009E, 8)
+	#incbin "../FontData/FontItem黌.fefont"
 

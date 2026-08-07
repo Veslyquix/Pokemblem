@@ -5,7 +5,7 @@
 
 pResistanceModifiers: // Resistance
 	POIN prAddUnitResistance AssaultVestEffect EvioliteEffect prHalveIfCapturing 
-	POIN PoisonStatus FreezeStatus AcidArmorEffect
+	POIN ResDebuff_Status
 	POIN prAddEquipResistance
     POIN prDebuffRes  
 	POIN prItemPassiveResistance prRallyRes prAddPureWaterBarrierMod prLifeAndDeathMinus prSkillFuryDefRes prFortressResistanceRes prDefiantRes prPushRes

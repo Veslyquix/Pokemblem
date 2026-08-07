@@ -4,9 +4,8 @@
 #include "_Common.event"
 
 pDefenseModifiers: // Defense
-	POIN prAddUnitDefense TacticalVestEffect EvioliteEffect prHalveIfCapturing 
-	POIN PoisonStatus AcidArmorEffect
-	POIN SleepStatus FreezeStatus WeakArmorDefEffect
+	POIN prAddUnitDefense DefDebuff_Status TacticalVestEffect EvioliteEffect prHalveIfCapturing 
+	POIN WeakArmorDefEffect
     POIN prAddEquipDefense
 	POIN prDebuffDef  
 	POIN prItemPassiveDefense prRallyDef prLifeAndDeathMinus VigorDanceCheck prSkillFuryDefRes prFortressDefenseDef prDefiantDef prPushDef

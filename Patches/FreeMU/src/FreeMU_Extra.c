@@ -394,15 +394,17 @@ void NewPlayerPhaseEvaluationFunc(struct Proc * ParentProc)
     BreakProcLoop(ParentProc);
     return;
 }
-
+extern void MapMain_StartPhaseController(struct Proc * proc);
 void NewMakePhaseControllerFunc(struct Proc * ParentProc)
 {
     const ProcCode * pTmpProcCode = FreeMovementControlProc;
     if (0 == GetFreeMovementState())
     {
         // if not FMU, start PlayerPhase or AiPhase
-        if (0 == gChapterData.currentPhase || FreeMoveRam->silent)
+        if (0 == gChapterData.currentPhase || FreeMoveRam->silent ||
+            (gChapterData.unk43_1 & 1)) // gPlaySt.config.debugControlRed
         {
+
             pTmpProcCode = gProc_PlayerPhase;
             // FreeMoveRam->silent = false;
             // gChapterData.currentPhase = 0;
@@ -414,7 +416,8 @@ void NewMakePhaseControllerFunc(struct Proc * ParentProc)
         else
         {
             pTmpProcCode = gProc_CpPhase; // ai phase
-            ProcStartBlocking(pTmpProcCode, ParentProc);
+            // MapMain_StartPhaseController(ParentProc);
+            ProcStartBlocking(pTmpProcCode, ParentProc); // BmMain_StartPhase does these two
             BreakProcLoop(ParentProc);
             // if ai phase, ensure FMU is not running
             struct FMUProc * proc = (struct FMUProc *)ProcFind(FreeMovementControlProc);
@@ -435,8 +438,13 @@ void NewMakePhaseControllerFunc(struct Proc * ParentProc)
     }
     else
     {
-        ProcStartBlocking(pTmpProcCode, ParentProc);
+        // ProcStartBlocking(pTmpProcCode, ParentProc);
+        // MapMain_StartPhaseController(ParentProc);
+        ProcStartBlocking(pTmpProcCode, ParentProc); // BmMain_StartPhase does these two
+        BreakProcLoop(ParentProc);
+
         FMU_EnableDR();
+        return;
     }
     BreakProcLoop(ParentProc);
     return;

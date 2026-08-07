@@ -5,8 +5,7 @@
 
 pSpeedModifiers: // Speed
 	POIN prAddUnitSpeed prHalveIfRescuing prHalveIfCapturing 
-	POIN TrappedStatus QuickFeetEffect SwiftSwimEffect
-	POIN ParalyzeStatus
+	POIN SpdDebuff_Status SwiftSwimEffect
     POIN ChlorophyllEffect UnburdenEffect
     POIN prAddEquipSpeed WeakArmorSpdEffect 
 	POIN prDebuffSpd 

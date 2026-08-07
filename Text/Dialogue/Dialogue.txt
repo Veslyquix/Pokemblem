@@ -598,36 +598,6 @@ without using up your action.[N]
         - Trainer's Tips.[A][X]
 
 
-
-
-// UNUSED trainer tips below 
-## TrainerTip_TMs
-Upgrade your moves via TMs.[N]
-        - Trainer's Tips.[A][X]
-
-			
-## UnusedTrainerTips1
-Manage your party at a Pokecenter.[N]
-          - Trainer's Tips[A][X]
-
-
-
-
-
-// UNUSED 
-//Repels reduce the amount[N]
-//of wild Pokémon found.[A][X]
-
-## UnusedTrainerTips2
-You can carry up to 6 Pokémon[N]
-with you at once.[N]
-            - Trainer's Tips.[A][X]
-
-## UnusedTrainerTips3
-Hold Down after Wait to[N]
-quickly jump down ledges.[N]
-      - Trainer's Tips.[A][X]
-
 ## SetNameTest
 Mewtwo[N]
 Placeholder text[N]

@@ -17,7 +17,7 @@ pMovModifiers: // Movement
 	//POIN StairsMoveDebuff
 	#endif
 	POIN prNullifyIfFreeze
-	POIN TrappedStatus
+	POIN MovDebuff_Status
 	POIN TrainerMovementBane
 	POIN DebuffIfRepel
 	// POIN DebuffIfRematch // no longer necessary 2026 

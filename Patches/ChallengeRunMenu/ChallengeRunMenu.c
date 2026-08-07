@@ -1,5 +1,5 @@
 #include "gbafe.h" // headers
-
+// [0x02023CA8..0x020244a8]!!
 #define PUREFUNC __attribute__((pure))
 #define ARMFUNC __attribute__((target("arm")))
 int Div(int a, int b) PUREFUNC;
@@ -61,6 +61,7 @@ typedef struct
     u8 displayedBadgeOption;
     u8 displayedRulesState;
     u8 pkmn[7];
+    u16 timer;
     u16 badgePalBase[CR_BADGE_PALETTE_COLOR_COUNT];
     // s8 Option[15];
 } ChallengeRunProc;
@@ -143,6 +144,8 @@ enum
 #define CR_BADGE_TILE_BASE 0x440
 #define CR_BADGE_TILE_WIDTH 17
 #define CR_BADGE_TILE_HEIGHT 17
+#define CR_TILEMAP_WIDTH 32
+#define CR_TILEMAP_HEIGHT 32
 #define CR_BADGE_PAL_SLOT 7
 #define CR_BADGE_X 8
 #define CR_BADGE_Y (-1)
@@ -161,8 +164,8 @@ enum
 #define CR_UIFRAME_BG 2
 #define CR_UIFRAME_TILE_ABS_BASE 0x2E0
 #define CR_UIFRAME_TILE_BASE 0xE0
-#define CR_UIFRAME_TILE_WIDTH 30
-#define CR_UIFRAME_TILE_HEIGHT 20
+#define CR_UIFRAME_TILE_WIDTH 32 // so it fills the entire bg for scrolling, not the screen size of 30x20
+#define CR_UIFRAME_TILE_HEIGHT 32
 #define CR_UIFRAME_PAL_SLOT 6
 #define CR_UIFRAME_TILE_DATA_OFFSET 0x4000
 
@@ -303,19 +306,61 @@ void DrawCR_Sprites(ChallengeRunProc * proc, int bg)
     SyncUnitSpriteSheet();
 }
 void ClearLine(int);
-static const char * const ChallengeRunInfoText[CR_TEXT_COUNT] = {
-    "Challenge Runs",
-    "",
-    "No additional restrictions.",
-    "Cannot evolve Pokémon.",
-    "Cannot capture certain Pokémon.",
-    "Cannot capture Pokémon.",
-    "Cannot gain EXP.",
-    "All randomizer options enabled.",
-    "Enemies take half damage and",
-    "have random, powerful skills.",
-    "Fainted Pokémon are released.",
-    "Not recommended.",
+
+extern u16 CRText_Title_Link;
+extern u16 CRText_RuleHeader_Link;
+extern u16 CRText_RuleNone_Link;
+extern u16 CRText_RuleCannotEvolve_Link;
+extern u16 CRText_RuleCannotCaptureCertain_Link;
+extern u16 CRText_RuleCannotCapture_Link;
+extern u16 CRText_RuleCannotGainExp_Link;
+extern u16 CRText_RuleRandomizer_Link;
+extern u16 CRText_RuleEnemySkills_Link;
+extern u16 CRText_RuleEnemySkills2_Link;
+extern u16 CRText_RuleNuzlocke_Link;
+extern u16 CRText_RuleNuzlocke2_Link;
+
+extern u16 CRText_OptionNewName_Link;
+extern u16 CRText_OptionLittleCup_Link;
+extern u16 CRText_OptionVoid_Link;
+extern u16 CRText_OptionChaos_Link;
+extern u16 CRText_OptionPlus_Link;
+extern u16 CRText_OptionNuzlocke_Link;
+extern u16 CRText_OptionAsh_Link;
+extern u16 CRText_OptionGary_Link;
+extern u16 CRText_OptionLeaf_Link;
+extern u16 CRText_OptionOak_Link;
+extern u16 CRText_OptionBill_Link;
+extern u16 CRText_OptionJames_Link;
+extern u16 CRText_OptionJessie_Link;
+extern u16 CRText_OptionBrock_Link;
+extern u16 CRText_OptionMisty_Link;
+extern u16 CRText_OptionLtSurge_Link;
+extern u16 CRText_OptionErika_Link;
+extern u16 CRText_OptionKoga_Link;
+extern u16 CRText_OptionSabrina_Link;
+extern u16 CRText_OptionBlaine_Link;
+extern u16 CRText_OptionGiovanni_Link;
+extern u16 CRText_OptionLorelei_Link;
+extern u16 CRText_OptionBruno_Link;
+extern u16 CRText_OptionAgatha_Link;
+extern u16 CRText_OptionLance_Link;
+extern u16 CRText_OptionVesly_Link;
+extern u16 CRText_OptionCheater_Link;
+
+static const u16 * const ChallengeRunInfoTextIds[CR_TEXT_COUNT] = {
+    &CRText_Title_Link,
+    &CRText_RuleHeader_Link,
+    &CRText_RuleNone_Link,
+    &CRText_RuleCannotEvolve_Link,
+    &CRText_RuleCannotCaptureCertain_Link,
+    &CRText_RuleCannotCapture_Link,
+    &CRText_RuleCannotGainExp_Link,
+    &CRText_RuleRandomizer_Link,
+    &CRText_RuleEnemySkills_Link,
+    &CRText_RuleEnemySkills2_Link,
+    &CRText_RuleNuzlocke_Link,
+    &CRText_RuleNuzlocke2_Link,
 };
 
 const char SpecialNames[CR_OPTION_COUNT][10] = {
@@ -352,6 +397,36 @@ const char SpecialNames[CR_OPTION_COUNT][10] = {
     "Lance",
     "Vesly",
     "Cheater",
+};
+
+static const u16 * const ChallengeRunOptionTextIds[CR_OPTION_COUNT] = {
+    &CRText_OptionNewName_Link,
+    &CRText_OptionLittleCup_Link,
+    &CRText_OptionVoid_Link,
+    &CRText_OptionChaos_Link,
+    &CRText_OptionPlus_Link,
+    &CRText_OptionNuzlocke_Link,
+    &CRText_OptionAsh_Link,
+    &CRText_OptionGary_Link,
+    &CRText_OptionLeaf_Link,
+    &CRText_OptionOak_Link,
+    &CRText_OptionBill_Link,
+    &CRText_OptionJames_Link,
+    &CRText_OptionJessie_Link,
+    &CRText_OptionBrock_Link,
+    &CRText_OptionMisty_Link,
+    &CRText_OptionLtSurge_Link,
+    &CRText_OptionErika_Link,
+    &CRText_OptionKoga_Link,
+    &CRText_OptionSabrina_Link,
+    &CRText_OptionBlaine_Link,
+    &CRText_OptionGiovanni_Link,
+    &CRText_OptionLorelei_Link,
+    &CRText_OptionBruno_Link,
+    &CRText_OptionAgatha_Link,
+    &CRText_OptionLance_Link,
+    &CRText_OptionVesly_Link,
+    &CRText_OptionCheater_Link,
 };
 
 static bool StringEquals(const char * left, const char * right)
@@ -815,7 +890,7 @@ void DrawChallengeRunUiFrameBg(void)
         for (x = 0; x < CR_UIFRAME_TILE_WIDTH; x++)
         {
             TILEMAP_LOCATED(bg_table[CR_UIFRAME_BG], x, y)
-            [0] = (CR_UIFRAME_TILE_BASE + CR_FRLGUiFrameBG_map[(y * CR_UIFRAME_TILE_WIDTH) + x]) |
+            [0] = (CR_UIFRAME_TILE_BASE + CR_FRLGUiFrameBG_map[((y * CR_UIFRAME_TILE_WIDTH) + x)]) |
                 (CR_UIFRAME_PAL_SLOT << 12);
         }
     }
@@ -842,14 +917,31 @@ void DrawChallengeRunBadge(ChallengeRunProc * proc)
     StoreBadgePaletteBase(proc);
     ApplyBadgePaletteCycle(proc);
 
-    TileMap_FillRect(
-        TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X, CR_BADGE_Y), CR_BADGE_TILE_WIDTH, CR_BADGE_TILE_HEIGHT, 0);
+    for (y = 0; y < CR_BADGE_TILE_HEIGHT; y++)
+    {
+        for (x = 0; x < CR_BADGE_TILE_WIDTH; x++)
+        {
+            int dstX = CR_BADGE_X + x;
+            int dstY = CR_BADGE_Y + y;
+
+            if (dstX < 0 || dstX >= CR_TILEMAP_WIDTH || dstY < 0 || dstY >= CR_TILEMAP_HEIGHT)
+                continue;
+
+            TILEMAP_LOCATED(bg_table[CR_BADGE_BG], dstX, dstY)[0] = 0;
+        }
+    }
 
     for (y = 0; y < CR_BADGE_TILE_HEIGHT; y++)
     {
         for (x = 0; x < CR_BADGE_TILE_WIDTH; x++)
         {
-            TILEMAP_LOCATED(bg_table[CR_BADGE_BG], CR_BADGE_X + x, CR_BADGE_Y + y)
+            int dstX = CR_BADGE_X + x;
+            int dstY = CR_BADGE_Y + y;
+
+            if (dstX < 0 || dstX >= CR_TILEMAP_WIDTH || dstY < 0 || dstY >= CR_TILEMAP_HEIGHT)
+                continue;
+
+            TILEMAP_LOCATED(bg_table[CR_BADGE_BG], dstX, dstY)
             [0] = ((CR_BADGE_TILE_BASE & 0x3FF) + (y * CR_BADGE_TILE_WIDTH) + x) | (CR_BADGE_PAL_SLOT << 12);
         }
     }
@@ -869,31 +961,35 @@ void DrawChallengeRun(ChallengeRunProc * proc)
 
     for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
     {
-        InitLine(i, x, y + (2 * i), white, 0, SpecialNames[i + proc->offset]);
+        const char * str = GetStringFromIndex(*ChallengeRunOptionTextIds[i + proc->offset]);
+        InitLine(i, x, y + (2 * i), white, 0, str);
     }
 
     proc->handleID = CR_VISIBLE_OPTIONS;
 
     for (i = 0; i < CR_TEXT_COUNT; i++)
     {
+        const char * str = GetStringFromIndex(*ChallengeRunInfoTextIds[i]);
         int color = (i == CR_TEXT_TITLE) ? green : white;
-        int width = 1 + ((GetStringTextLen(ChallengeRunInfoText[i]) + 8) / 8);
-        InitLine(i + proc->handleID, 12, 1, color, width, ChallengeRunInfoText[i]);
+        int width = 1 + ((GetStringTextLen(str) + 8) / 8);
+        InitLine(i + proc->handleID, 12, 1, color, width, str);
     }
 
     for (i = 0; i < CR_VISIBLE_OPTIONS; i++)
     {
-        PrepareLine(i, SpecialNames[i + proc->offset], 6);
+        const char * str = GetStringFromIndex(*ChallengeRunOptionTextIds[i + proc->offset]);
+        PrepareLine(i, str, 6);
         DrawLine(i, x, y + (2 * i), bg);
     }
 
     for (i = 0; i < CR_TEXT_COUNT; i++)
     {
+        const char * str = GetStringFromIndex(*ChallengeRunInfoTextIds[i]);
         int cursor = (i == CR_TEXT_TITLE) ? 0 : RULES_TEXT_CURSOR_X;
-        PrepareLine(i + proc->handleID, ChallengeRunInfoText[i], cursor);
+        PrepareLine(i + proc->handleID, str, cursor);
     }
 
-    DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 0, bg); // "Challenge Runs" // 22 1
+    DrawLine(proc->handleID + CR_TEXT_TITLE, 12, 0, bg); // 22 1
     DrawAdditionalRulesText(proc);
     BG_EnableSyncByMask(BG_SYNC_BIT(bg));
 }
@@ -918,6 +1014,7 @@ void StartChallengeRun(ProcPtr parent)
     {
         proc->id = 0;
         proc->offset = 0;
+        proc->timer = 0;
         proc->redraw = false;
         proc->cannotCatch = false;
         proc->cannotEvolve = false;
@@ -976,7 +1073,9 @@ void SetTactNameFromCase(int id)
 extern struct KeyStatusBuffer sKeyStatusBuffer;
 static void ChallengeRunLoop(ChallengeRunProc * proc)
 {
+    proc->timer++;
 
+    BG_SetPosition(BG_2, 0 - (proc->timer >> 1), 0 - (proc->timer >> 1));
     DrawChallengeRunBadge(proc);
     ApplyBadgePaletteCycle(proc);
     DrawCR_Sprites(proc, 0);

@@ -145,10 +145,10 @@ POP
   #include "ExternalHacks/Stairs/Stairs.event"
 
   //Raid
-  #include "ExternalHacks/Raid/Raid.event"
+  // #include "ExternalHacks/Raid/Raid.event"
   
   //Escape-Arrive
-  #include "ExternalHacks/EscapeArrive/EscapeArrive.event"
+  // #include "ExternalHacks/EscapeArrive/EscapeArrive.event"
   
   //Debuffs
   #include "Necessary/Debuffs/Debuffs.event"

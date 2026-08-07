@@ -335,7 +335,8 @@ int ShedSkinEffect(struct Unit * unit) // Shed Skin: at the start of the turn, c
 {
     if (unit->statusDuration)
     {
-        unit->statusDuration = 1;
+        unit->statusDuration = 0;
+        unit->statusIndex = 0;
     }
     return 0;
 }
@@ -1528,51 +1529,6 @@ void AdaptabilityEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     // }
 }
 
-// Acid Armor / Marvel Scale: Boost Def/Res by 25% when inflicted by status.
-// Vaporeon
-extern int AcidArmorID_Link;
-int AcidArmorEffect(int stat, struct Unit * unit)
-{
-    if (unit->statusDuration)
-    {
-        if (SkillTester(unit, AcidArmorID_Link))
-        {
-            stat += ((stat + 2) >> 2);
-        }
-    }
-    return stat;
-}
-
-// Quick Feet: +25% speed when inflicted by status.
-// Jolteon
-extern int QuickFeetID_Link;
-int QuickFeetEffect(int stat, struct Unit * unit)
-{
-    if (unit->statusDuration)
-    {
-        if (SkillTester(unit, QuickFeetID_Link))
-        {
-            stat += ((stat + 2) >> 2);
-        }
-    }
-    return stat;
-}
-
-// Guts: +25% str when inflicted by status.
-// Flareon
-extern int GutsID_Link;
-int GutsEffect(int stat, struct Unit * unit)
-{
-    if (unit->statusDuration)
-    {
-        if (SkillTester(unit, GutsID_Link))
-        {
-            stat += ((stat + 2) >> 2);
-        }
-    }
-    return stat;
-}
-
 extern int ThickClubSkillID_Link;
 int ThickClubSkillEffect(int stat, struct Unit * unit)
 {
@@ -1676,11 +1632,25 @@ void SynchronizeEffect(struct BattleUnit * bunitA, struct BattleUnit * bunitB)
     {
         if (bunitB->unit.statusDuration)
         {
-            bunitA->unit.statusDuration = bunitB->unit.statusDuration;
-            bunitA->unit.statusIndex = bunitB->unit.statusIndex;
-            struct Unit * unit = GetUnit(bunitA->unit.index);
-            unit->statusDuration = bunitB->unit.statusDuration;
-            unit->statusIndex = bunitB->unit.statusIndex;
+            if (bunitB->unit.statusIndex == UNIT_STATUS_SLEEP)
+            {
+                if (AreNoEnemiesAsleep())
+                {
+                    bunitA->unit.statusDuration = bunitB->unit.statusDuration;
+                    bunitA->unit.statusIndex = bunitB->unit.statusIndex;
+                    struct Unit * unit = GetUnit(bunitA->unit.index);
+                    unit->statusDuration = bunitB->unit.statusDuration;
+                    unit->statusIndex = bunitB->unit.statusIndex;
+                }
+            }
+            else
+            {
+                bunitA->unit.statusDuration = bunitB->unit.statusDuration;
+                bunitA->unit.statusIndex = bunitB->unit.statusIndex;
+                struct Unit * unit = GetUnit(bunitA->unit.index);
+                unit->statusDuration = bunitB->unit.statusDuration;
+                unit->statusIndex = bunitB->unit.statusIndex;
+            }
         }
     }
 }

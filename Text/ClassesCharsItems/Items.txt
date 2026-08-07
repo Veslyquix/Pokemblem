@@ -7,8 +7,6 @@
 // [#] 0x[0-9]{3,4}.*[\n]{1}([^{\s]*)[\s]([^\s[]*)[[]*X]
 // ## $1$2Name\n$1 $2[X]
 
-# 0x1329
-FirstEntry[X]
 
 ## WarpCrystalName
 Warp Crystal[X]
@@ -1836,7 +1834,19 @@ Shock Wave[X]
 ## ShockWaveDesc
 [SI] Perfect accuracy.[X]
 
-
+## HoplonGuardName 
+Hoplon Guard[X]
+## HoplonGuardDesc
+A device that negates[.][NL]
+enemy critical attacks.[.][X]
+## HoplonGuardUseText
+Negates enemies'[NL]
+critical attacks.[.][X]
+## ExoticCandyName ^
+Exotic Candy[X]
+## ExoticCandyDesc
+Boost your stats[NL]
+by 1 level's worth.[X]
 
 
 

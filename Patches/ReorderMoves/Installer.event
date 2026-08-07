@@ -2,5 +2,9 @@
 
 #include "ReorderMoves.lyn.event"
 
-
+ALIGN 4 
+NoMoveText_Link:
+WORD NoMoveText 
+OrderMovesText_Link:
+WORD OrderMovesText 
 

@@ -4,8 +4,8 @@
 #include "_Common.event"
 
 pSkillModifiers: // Skill
-	POIN prAddUnitSkill prHalveIfRescuing prHalveIfCapturing 
-	POIN prAddEquipSkill
+	POIN prAddUnitSkill SklDebuff_Status prHalveIfRescuing prHalveIfCapturing 
+	POIN prAddEquipSkill 
     POIN prDebuffSkl 
 	POIN prItemPassiveSkl prRallySkl prResolve prDefiantSkl prPushSkl
 	//POIN prSklBuff

@@ -16,19 +16,6 @@ Learned  [X]
 
 #include "statscreen_text.txt"
 
-#0xd4c LikesText
-//#first text ID in the free block
-Likes:[X]
-
-#0xd4d DislikesText
-[0x9E]i[0x90]li[0x8A][0x85][0x90]:[X]
-
-#0xd4e HeightText
-Height:[X]
-
-#0xd4f AgeText
-Age:[X]
-
 
 #0x9E TxtData0x09E
 [OpenRight][X]
@@ -56,9 +43,6 @@ tough simulations.[X]
 #0x9B8 PlaceUnitsHelpText
 Freely place units.[X]
 
-#0xF17 TxtData0xF17
- Wait >>[X]
-
 #0xD4B TxtData0x0D4B
 Debug Error[X]
 
@@ -68,20 +52,6 @@ Debug Error[X]
 
 ## VillageText
 [MidRight][LoadFace][0xFF][0xFF]These look useful.[A][X]
-
-## DV1Desc
-Freeze all enemies[N]
-for one turn[X]
-
-## nameCamus
-//#for identity problems
-Camus[X]
-
-## nameSirius
-Sirius[X]
-
-## nameZeke
-Zeke[X]
 
 ## StairsNameText
  Teleport[X]
@@ -94,29 +64,6 @@ somewhere...[X]
 The teleporter is blocked[N]
 from the other side.[X]
 
-## RaidNameText
- Raid[X]
-
-## RaidDescText
-Destroy this village[N]
-for items and gold.[X]
-
-## EscapeName
- Escape[X]
-
-## EscapeDesc
-Have this unit[N]
-leave this chapter.[X]
-
-## ArriveName
- Arrive[X]
-
-## ArriveDesc
-Complete this chapter[N]
-by having this unit arrive.[X]
-
-## LordMustEscapeLastText
-This unit must escape last.[X]
 
 ## Mov_Text_ID
 Mov[X]
@@ -150,7 +97,8 @@ Cost[X]
 # this iterates automatically, so if the last one with a fixed address is 0x1500, the first free is 1501 
  Skill learned[X]
  
- #include "unitinfo_text.txt"
+#0xF17 TxtData0xF17
+ Wait >>[X]
  
  
  

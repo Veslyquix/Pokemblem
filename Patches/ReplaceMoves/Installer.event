@@ -7,6 +7,26 @@ GiveUpOnMoveTextLink:
 WORD GiveUpOnMoveText 
 ReplaceMoveTextLink:
 WORD ReplaceMoveText
+ReplaceMoveMenuStrText_Link:
+WORD MoveMenuStrText
+ReplaceMoveMenuMagText_Link:
+WORD MoveMenuMagText
+ReplaceMoveMenuRngText_Link:
+WORD MoveMenuRngText
+ReplaceMoveMenuWtText_Link:
+WORD MoveMenuWtText
+ReplaceMoveMenuDmgText_Link:
+WORD MoveMenuDmgText
+ReplaceMoveMenuHitText_Link:
+WORD MoveMenuHitText
+ReplaceMoveMenuCritText_Link:
+WORD MoveMenuCritText
+ReplaceMoveMenuNoMoveText_Link:
+WORD NoMoveText
+ReplaceMoveMenuYesText_Link:
+WORD MoveMenuYesText
+ReplaceMoveMenuNoText_Link:
+WORD MoveMenuNoText
 
 PUSH 
 ORG $2c292 

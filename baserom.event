@@ -11,20 +11,31 @@ PUSH
 ORG FreeSpace
 #include "Maps/MapTables.event" 
 NewChapterDataTable: // so we can see this for maps 
-MESSAGE Used free space will end at currentOffset
+
 MESSAGE please wait a while
 POP 
 #endif 
 ORG FreeSpace_Low
-FILL(0xD59F0) 0 // 0 out where we'll write to: 0xD59F0 bytes of space 
+// FILL(0xD59F0) 0 // 0 out where we'll write to: 0xD59F0 bytes of space 
+FILL(0x1000000-FreeSpace_Low) 0 
+ORG FreeSpace_Low
+#include "Language/Installer.event" // 0x12a3dd0
+#ifndef INSTALL_VIA_FEBUILDER_EXPORT_EA 
+    //Maps
+    #include "Maps/SplitPList.event"
+	//Graphics
+	#include "Graphics/GraphicsInstaller.event"
+#endif 
+	ASSERT (FreeSpace - (currentOffset&0x1FFFFFF)) // So that you don't overwrite vanilla tables if using default freespace
+MESSAGE Chunk 2 free space ends at currentOffset and equal to FreeSpace_Low2
 
-
+ASSERT 0x9000000-CURRENTOFFSET 
 	ORG 0x01000000
 	#include "Music/MusicInstaller.event" 
+	ORG $1081420 // export undo buffer will not put you in freespace 
+    // don't edit this 
 	
-	ORG 0x1081420 // export undo buffer will not put you in freespace 
-	
-	#include "Language/Installer.event" // 0x12a3dd0
+	// #include "Language/Installer.event" // 0x12a3dd0
 	//#include "Fonts/UTF-8/Installer.event" 
 	//#include "Fonts/chinese.event" 
 	
@@ -35,14 +46,7 @@ FILL(0xD59F0) 0 // 0 out where we'll write to: 0xD59F0 bytes of space
 	
 	//ORG FreeSpace 
 	
-#ifndef INSTALL_VIA_FEBUILDER_EXPORT_EA 
-    //Maps
-    #include "Maps/SplitPList.event"
-	//Graphics
-	#include "Graphics/GraphicsInstaller.event"
-#endif 
-	ASSERT (FreeSpace - (currentOffset&0x1FFFFFF)) // So that you don't overwrite vanilla tables if using default freespace
-MESSAGE Chunk 2 free space ends at currentOffset
+
 
 
 

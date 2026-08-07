@@ -6,7 +6,7 @@ static int  PokedexDrawIdle(MenuProc* menu, MenuCommandProc* command);
 static void PokedexDraw(struct MenuProc* menu, struct MenuCommandProc* command);
 
 static int CallPokedexMenuEnd(struct MenuProc* menu, struct MenuCommandProc* command);
-static void PokedexMenuEnd(struct MenuProc* menu, struct MenuCommandProc* command);
+static u8 PokedexMenuEnd(struct MenuProc* menu, struct MenuCommandProc* command);
 static void PrepareText(TextHandle* handle, char* string);
 static void DrawWorldMap(void);
 static void DrawMultiline(TextHandle* handles, char* string, int lines);
@@ -18,6 +18,19 @@ extern u8 gSpecialUiCharAllocationTable[]; // 02028E78.
 extern u16 gBG0MapBuffer[32][32]; // 0x02022CA8. Snek: Ew why does FE-CLib-master not do it like this?
 extern u16 gBG1MapBuffer[32][32]; // 0x020234A8.
 extern u16 gBG2MapBuffer[32][32]; // 0x020234A8.
+
+extern u16 PokedexUnknownEntryText_Link;
+extern u16 PokedexMissingDataDotsText_Link;
+extern u16 PokedexMissingDataText_Link;
+extern u16 PokedexNoDataText_Link;
+extern u16 PokedexBlankText_Link;
+extern u16 PokedexSeenText_Link;
+extern u16 PokedexCaughtText_Link;
+
+static char* GetPokedexText(const u16* textIdLink)
+{
+	return GetStringFromIndex(*textIdLink);
+}
 
 extern const u16 MyPalette[]; 
 extern u8 gPaletteSyncFlag;
@@ -338,7 +351,7 @@ static int PokedexDrawIdle(MenuProc* menu, MenuCommandProc* command) {
 	
     Text_SetColorId(&command->text, TEXT_COLOR_NORMAL);
     if (!className) {
-		PrepareText(&command->text, " ???        ");
+		PrepareText(&command->text, GetPokedexText(&PokedexUnknownEntryText_Link));
     }
 	
 
@@ -398,15 +411,15 @@ static int PokedexDrawIdle(MenuProc* menu, MenuCommandProc* command) {
 
 	if (seen & (!caught)) { 
 		DrawMultiline(handles, string, lines);
-		PrepareText(&handles[1], "   ...   ...   ...   ...   ...   ...   ...   ...   ...");
-		PrepareText(&handles[2], "              MISSING DATA");
+		PrepareText(&handles[1], GetPokedexText(&PokedexMissingDataDotsText_Link));
+		PrepareText(&handles[2], GetPokedexText(&PokedexMissingDataText_Link));
 	}
 	
 	if (!(seen | caught)) { 
 		DrawMultiline(handles, string, lines);
-		PrepareText(&handles[0], " No Data");
-		PrepareText(&handles[1], "");
-		PrepareText(&handles[2], "");
+		PrepareText(&handles[0], GetPokedexText(&PokedexNoDataText_Link));
+		PrepareText(&handles[1], GetPokedexText(&PokedexBlankText_Link));
+		PrepareText(&handles[2], GetPokedexText(&PokedexBlankText_Link));
 	} 
 	
 	if (caught) {
@@ -441,9 +454,9 @@ static int PokedexDrawIdle(MenuProc* menu, MenuCommandProc* command) {
 	BgMap_ApplyTsa(&gBG1MapBuffer[0][2], &PokedexNumberBox, 0);
 	
 	TextHandle caughtNameHandle = {};
-	PrepareText(&caughtNameHandle, " Seen");
+	PrepareText(&caughtNameHandle, GetPokedexText(&PokedexSeenText_Link));
 	TextHandle seenNameHandle = {};
-	PrepareText(&seenNameHandle, " Caught");
+	PrepareText(&seenNameHandle, GetPokedexText(&PokedexCaughtText_Link));
 	
 	proc->commandText = &command->text;
 	proc->caughtNameHandle = &caughtNameHandle;
@@ -630,7 +643,7 @@ static int CallPokedexMenuEnd(struct MenuProc* menu, struct MenuCommandProc* com
 }
 */
 
-static void PokedexMenuEnd(struct MenuProc* menu, struct MenuCommandProc* command) {
+static u8 PokedexMenuEnd(struct MenuProc* menu, struct MenuCommandProc* command) {
 	EndFaceById(0);
 	UnpackChapterMapPalette(gChapterData.chapterIndex); 
 	FillBgMap(gBg0MapBuffer,0);
@@ -649,7 +662,7 @@ static void PokedexMenuEnd(struct MenuProc* menu, struct MenuCommandProc* comman
 	//MU_EndAll();
 	//LoadMapSpritePalettes();
 
-    return;
+    return ME_END | ME_PLAY_BEEP;
 }
 
 

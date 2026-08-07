@@ -66,10 +66,6 @@ Building[X]
 Shop[X]
 # 0x1CB
 Shop[X]
-# 0x1CC
-Arena[X]
-# 0x1CD
-C.Room[X]
 
 # 0x1CE
 Cover[X]
