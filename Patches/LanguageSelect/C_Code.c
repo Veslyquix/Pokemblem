@@ -247,10 +247,11 @@ static void DrawLanguageSelector(LanguageSelectProc * proc)
     BG_EnableSyncByMask(BG_SYNC_BIT(1));
 }
 extern void DrawChallengeRunUiFrameBg();
+extern u8 * LanguageSelect_SavedLanguageLink;
 static void LanguageSelect_Init(LanguageSelectProc * proc)
 {
     ResetKeyStatus(gKeyStatusPtr); // PrepareHealthAndSafetyScreen calls SetKeyStatus_IgnoreMask(0x3FF);
-    int selected = *LanguageSelect_CurrentLanguageLink;
+    int selected = *LanguageSelect_SavedLanguageLink;
     StartGreenText(proc);
 
     if (selected < 0 || selected >= LS_LANGUAGE_COUNT)
@@ -292,6 +293,7 @@ static void LanguageSelect_Init(LanguageSelectProc * proc)
 static void LanguageSelect_End(LanguageSelectProc * proc)
 {
     *LanguageSelect_CurrentLanguageLink = proc->selected;
+    *LanguageSelect_SavedLanguageLink = proc->selected;
     EndGreenText();
     BG_Fill(gBG0TilemapBuffer, 0);
     BG_Fill(gBG1TilemapBuffer, 0);

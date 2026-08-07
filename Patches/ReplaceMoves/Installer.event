@@ -22,7 +22,7 @@ WORD MoveMenuHitText
 ReplaceMoveMenuCritText_Link:
 WORD MoveMenuCritText
 ReplaceMoveMenuNoMoveText_Link:
-WORD MoveMenuNoMoveText
+WORD NoMoveText
 ReplaceMoveMenuYesText_Link:
 WORD MoveMenuYesText
 ReplaceMoveMenuNoText_Link:

@@ -11,51 +11,51 @@
 
 __TEXTPROCESS001:
 #incbin ".TextEntries/text_buildfileEnableRandomizerText.fetxt.dmp"
-setText($15C6, __TEXTPROCESS001)
+setText($FE1, __TEXTPROCESS001)
 
 __TEXTPROCESS002:
 #incbin ".TextEntries/text_buildfileGenericUnitDesc.fetxt.dmp"
-setText($15CA, __TEXTPROCESS002)
+setText($FE5, __TEXTPROCESS002)
 
 __TEXTPROCESS003:
 #incbin ".TextEntries/text_buildfileErrorText.fetxt.dmp"
-setText($15CB, __TEXTPROCESS003)
+setText($FE6, __TEXTPROCESS003)
 
 __TEXTPROCESS004:
 #incbin ".TextEntries/text_buildfileWhosTheKidText.fetxt.dmp"
-setText($15CC, __TEXTPROCESS004)
+setText($FE7, __TEXTPROCESS004)
 
 __TEXTPROCESS005:
 #incbin ".TextEntries/text_buildfileGaryTakesBothText.fetxt.dmp"
-setText($15CD, __TEXTPROCESS005)
+setText($FE8, __TEXTPROCESS005)
 
 __TEXTPROCESS006:
 #incbin ".TextEntries/text_buildfileOakJustOneText.fetxt.dmp"
-setText($15CF, __TEXTPROCESS006)
+setText($FEA, __TEXTPROCESS006)
 
 __TEXTPROCESS007:
 #incbin ".TextEntries/text_buildfileFirstGaryDefeat.fetxt.dmp"
-setText($15D0, __TEXTPROCESS007)
+setText($FEB, __TEXTPROCESS007)
 
 __TEXTPROCESS008:
 #incbin ".TextEntries/text_buildfileOakFirstGaryDefeat.fetxt.dmp"
-setText($15D1, __TEXTPROCESS008)
+setText($FEC, __TEXTPROCESS008)
 
 __TEXTPROCESS009:
 #incbin ".TextEntries/text_buildfileSpeedRunnerText.fetxt.dmp"
-setText($15D2, __TEXTPROCESS009)
+setText($FED, __TEXTPROCESS009)
 
 __TEXTPROCESS00A:
 #incbin ".TextEntries/text_buildfilePlaytesterMessage.fetxt.dmp"
-setText($15D3, __TEXTPROCESS00A)
+setText($FEE, __TEXTPROCESS00A)
 
 __TEXTPROCESS00B:
 #incbin ".TextEntries/text_buildfileNiceTryText.fetxt.dmp"
-setText($15DD, __TEXTPROCESS00B)
+setText($FF8, __TEXTPROCESS00B)
 
 __TEXTPROCESS00C:
 #incbin ".TextEntries/text_buildfileLtSurgeName.fetxt.dmp"
-setText($1608, __TEXTPROCESS00C)
+setText($1023, __TEXTPROCESS00C)
 
 }
 

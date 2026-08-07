@@ -52,19 +52,51 @@ BYTE 0 0 0 0; ALIGN 4
 
 #include "MakeThumb.lyn.event"
 
+ALIGN 4
+CharacterSelectLevelText_Link:
+WORD CharacterSelectLevelText
+CharacterSelectGoldText_Link:
+WORD CharacterSelectGoldText
+CharacterSelectPercentText_Link:
+WORD CharacterSelectPercentText
+CharacterSelectCostText_Link:
+WORD CharacterSelectCostText
+CharacterSelectBaseText_Link:
+WORD CharacterSelectBaseText
+CharacterSelectGrowthText_Link:
+WORD CharacterSelectGrowthText
+CharacterSelectHpText_Link:
+WORD CharacterSelectHpText
+CharacterSelectStrText_Link:
+WORD MoveMenuStrText
+CharacterSelectMagText_Link:
+WORD MoveMenuMagText
+CharacterSelectSklText_Link:
+WORD CharacterSelectSklText
+CharacterSelectSpdText_Link:
+WORD CharacterSelectSpdText
+CharacterSelectDefText_Link:
+WORD CharacterSelectDefText
+CharacterSelectResText_Link:
+WORD CharacterSelectResText
+CharacterSelectYesText_Link:
+WORD MoveMenuYesText
+CharacterSelectNoText_Link:
+WORD MoveMenuNoText
+
 ALIGN 4 
 UnitGroupExample_A:
 UNIT 0x10  BulbasaurID 0x1 Level(1,Ally,True)  [5,6] 0b 0x0 0x0 0x0 [0x0,0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
-UNIT 
+UNIT
 
 UnitGroupExample_B:
 UNIT 0x11  CharmanderID 0x1 Level(1,Ally,True)  [5,6] 0b 0x0 0x0 0x0 [SuperPotion,0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
-UNIT 
+UNIT
 
 UnitGroupExample_C:
 UNIT 0x12  SquirtleID 0x1 Level(1,Ally,True)  [5,6] 0b 0x0 0x0 0x0 [Berry,DryingPan,Ember,0x0] [0x0,0x0,0x0,0x0]
-UNIT 
+UNIT
 
 UnitGroupExample_D:
 UNIT 0x13  PikachuID 0x1 Level(1,Ally,True)  [5,6] 0b 0x0 0x0 0x0 [Tackle, 0x0,0x0,0x0] [0x0,0x0,0x0,0x0]
-UNIT 
+UNIT

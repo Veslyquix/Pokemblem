@@ -228,9 +228,17 @@ String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the
 #define BuffTableEntrySize 4 
 
 #define FaintCounter 0x30017a0 // SHORT 
+
 #define GlobalFaintCounter 0xE000050 // SHORT, but sram packing is byte  
-#define CurrentLanguage 0xE000052 
-#define FreeRamByte1 0x30017A2 // - 0x30017A6 
+
+//0xE000053 unused 
+// 0xE000054, 0xE000058, and 0xE00005C set bit 1 if used debugger 
+// which makes Retroachievements show "tainted" 
+// it probably reads the whole byte  
+#define CurrentLanguage 0x300000F // so we're not reading from SRAM constantly 
+#define SavedLanguage 0xE000052 // on boot, copy into CurrentLanguage
+
+#define FreeRamByte1 0x30017A3 // - 0x30017A6 
 #define FreeMoveRamByte 0x30017A7 
 
 #define TempRamWhileExpShare 0x2026E30 // used in pc boxes too 

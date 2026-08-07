@@ -129,92 +129,19 @@ extern u16 OptionsCommand4_Text_Link;
 extern u16 OptionsCommand5_Text_Link;
 extern u16 OptionsCommand6_Text_Link;
 extern u16 OptionsCommand7_Text_Link;
-extern u16 Command0_Option0_Text_Link;
-extern u16 Command0_Option1_Text_Link;
-extern u16 Command0_Option2_Text_Link;
-extern u16 Command0_Option3_Text_Link;
-extern u16 Command0_Option4_Text_Link;
-extern u16 Command0_Option5_Text_Link;
-extern u16 Command0_Option6_Text_Link;
-extern u16 Command0_Option7_Text_Link;
-extern u16 Command1_Option0_Text_Link;
-extern u16 Command1_Option1_Text_Link;
-extern u16 Command1_Option2_Text_Link;
-extern u16 Command1_Option3_Text_Link;
-extern u16 Command1_Option4_Text_Link;
-extern u16 Command1_Option5_Text_Link;
-extern u16 Command1_Option6_Text_Link;
-extern u16 Command1_Option7_Text_Link;
-extern u16 Command2_Option0_Text_Link;
-extern u16 Command2_Option1_Text_Link;
-extern u16 Command2_Option2_Text_Link;
-extern u16 Command2_Option3_Text_Link;
-extern u16 Command2_Option4_Text_Link;
-extern u16 Command2_Option5_Text_Link;
-extern u16 Command2_Option6_Text_Link;
-extern u16 Command2_Option7_Text_Link;
-extern u16 Command3_Option0_Text_Link;
-extern u16 Command3_Option1_Text_Link;
-extern u16 Command3_Option2_Text_Link;
-extern u16 Command3_Option3_Text_Link;
-extern u16 Command3_Option4_Text_Link;
-extern u16 Command3_Option5_Text_Link;
-extern u16 Command3_Option6_Text_Link;
-extern u16 Command3_Option7_Text_Link;
-extern u16 Command4_Option0_Text_Link;
-extern u16 Command4_Option1_Text_Link;
-extern u16 Command4_Option2_Text_Link;
-extern u16 Command4_Option3_Text_Link;
-extern u16 Command4_Option4_Text_Link;
-extern u16 Command4_Option5_Text_Link;
-extern u16 Command4_Option6_Text_Link;
-extern u16 Command4_Option7_Text_Link;
-extern u16 Command5_Option0_Text_Link;
-extern u16 Command5_Option1_Text_Link;
-extern u16 Command5_Option2_Text_Link;
-extern u16 Command5_Option3_Text_Link;
-extern u16 Command5_Option4_Text_Link;
-extern u16 Command5_Option5_Text_Link;
-extern u16 Command5_Option6_Text_Link;
-extern u16 Command5_Option7_Text_Link;
-extern u16 Command6_Option0_Text_Link;
-extern u16 Command6_Option1_Text_Link;
-extern u16 Command6_Option2_Text_Link;
-extern u16 Command6_Option3_Text_Link;
-extern u16 Command6_Option4_Text_Link;
-extern u16 Command6_Option5_Text_Link;
-extern u16 Command6_Option6_Text_Link;
-extern u16 Command6_Option7_Text_Link;
-extern u16 Command7_Option0_Text_Link;
-extern u16 Command7_Option1_Text_Link;
-extern u16 Command7_Option2_Text_Link;
-extern u16 Command7_Option3_Text_Link;
-extern u16 Command7_Option4_Text_Link;
-extern u16 Command7_Option5_Text_Link;
-extern u16 Command7_Option6_Text_Link;
-extern u16 Command7_Option7_Text_Link;
+extern u16 NormalText_Link;
+extern u16 RandomizedText_Link;
+extern u16 BlankText_Link;
 extern u16 StartingOptionsNA_Text_Link;
 
 static const u16 * const StartingOptionsCommandTextIds[8] = {
-    &OptionsCommand0_Text_Link,
-    &OptionsCommand1_Text_Link,
-    &OptionsCommand2_Text_Link,
-    &OptionsCommand3_Text_Link,
-    &OptionsCommand4_Text_Link,
-    &OptionsCommand5_Text_Link,
-    &OptionsCommand6_Text_Link,
-    &OptionsCommand7_Text_Link,
+    &OptionsCommand0_Text_Link, &OptionsCommand1_Text_Link, &OptionsCommand2_Text_Link, &OptionsCommand3_Text_Link,
+    &OptionsCommand4_Text_Link, &OptionsCommand5_Text_Link, &OptionsCommand6_Text_Link, &OptionsCommand7_Text_Link,
 };
 
-static const u16 * const StartingOptionsOptionTextIds[8][8] = {
-    { &Command0_Option0_Text_Link, &Command0_Option1_Text_Link, &Command0_Option2_Text_Link, &Command0_Option3_Text_Link, &Command0_Option4_Text_Link, &Command0_Option5_Text_Link, &Command0_Option6_Text_Link, &Command0_Option7_Text_Link },
-    { &Command1_Option0_Text_Link, &Command1_Option1_Text_Link, &Command1_Option2_Text_Link, &Command1_Option3_Text_Link, &Command1_Option4_Text_Link, &Command1_Option5_Text_Link, &Command1_Option6_Text_Link, &Command1_Option7_Text_Link },
-    { &Command2_Option0_Text_Link, &Command2_Option1_Text_Link, &Command2_Option2_Text_Link, &Command2_Option3_Text_Link, &Command2_Option4_Text_Link, &Command2_Option5_Text_Link, &Command2_Option6_Text_Link, &Command2_Option7_Text_Link },
-    { &Command3_Option0_Text_Link, &Command3_Option1_Text_Link, &Command3_Option2_Text_Link, &Command3_Option3_Text_Link, &Command3_Option4_Text_Link, &Command3_Option5_Text_Link, &Command3_Option6_Text_Link, &Command3_Option7_Text_Link },
-    { &Command4_Option0_Text_Link, &Command4_Option1_Text_Link, &Command4_Option2_Text_Link, &Command4_Option3_Text_Link, &Command4_Option4_Text_Link, &Command4_Option5_Text_Link, &Command4_Option6_Text_Link, &Command4_Option7_Text_Link },
-    { &Command5_Option0_Text_Link, &Command5_Option1_Text_Link, &Command5_Option2_Text_Link, &Command5_Option3_Text_Link, &Command5_Option4_Text_Link, &Command5_Option5_Text_Link, &Command5_Option6_Text_Link, &Command5_Option7_Text_Link },
-    { &Command6_Option0_Text_Link, &Command6_Option1_Text_Link, &Command6_Option2_Text_Link, &Command6_Option3_Text_Link, &Command6_Option4_Text_Link, &Command6_Option5_Text_Link, &Command6_Option6_Text_Link, &Command6_Option7_Text_Link },
-    { &Command7_Option0_Text_Link, &Command7_Option1_Text_Link, &Command7_Option2_Text_Link, &Command7_Option3_Text_Link, &Command7_Option4_Text_Link, &Command7_Option5_Text_Link, &Command7_Option6_Text_Link, &Command7_Option7_Text_Link },
+static const u16 * const StartingOptionsOptionTextIds[8] = {
+    &NormalText_Link, &RandomizedText_Link, &BlankText_Link, &BlankText_Link,
+    &BlankText_Link,  &BlankText_Link,      &BlankText_Link, &BlankText_Link,
 };
 
 static const char * GetStartingOptionsText(const u16 * textIdLink)
@@ -247,7 +174,7 @@ void updateOptionsPage(OptionsProc * CurrentProc)
             if (option < 0 || option >= 8)
                 string = GetStartingOptionsText(&StartingOptionsNA_Text_Link);
             else
-                string = GetStartingOptionsText(StartingOptionsOptionTextIds[i][option]);
+                string = GetStartingOptionsText(StartingOptionsOptionTextIds[option]);
 
             DrawStartingOptionsText(15, 3 + (i * 2), 2, string);
         }

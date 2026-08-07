@@ -42,6 +42,22 @@ ALIGN 4
 PokedexNumberBox:
 #incbin "NumberBox.dmp"
 
+ALIGN 4
+PokedexUnknownEntryText_Link:
+WORD PokedexUnknownEntryText
+PokedexMissingDataDotsText_Link:
+WORD PokedexMissingDataDotsText
+PokedexMissingDataText_Link:
+WORD PokedexMissingDataText
+PokedexNoDataText_Link:
+WORD PokedexNoDataText
+PokedexBlankText_Link:
+WORD BlankText
+PokedexSeenText_Link:
+WORD PokedexSeenText
+PokedexCaughtText_Link:
+WORD PokedexCaughtText
+
 
 ALIGN 4
 gWorldMapPaletteCount:

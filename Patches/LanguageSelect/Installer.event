@@ -47,6 +47,8 @@ POP
 ALIGN 4
 LanguageSelect_CurrentLanguageLink:
 WORD CurrentLanguage
+LanguageSelect_SavedLanguageLink:
+WORD SavedLanguage
 
 ALIGN 4
 LanguageSelectFlagGfxEnglish:

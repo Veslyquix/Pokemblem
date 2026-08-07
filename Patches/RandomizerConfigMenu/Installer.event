@@ -54,24 +54,24 @@ ALIGN 4
 Title_Text_Link:
 WORD Title_Text
 OptionsCommand0_Text_Link:
-WORD OptionsCommand0_Text
+WORD WildPkmn_Text
 OptionsCommand1_Text_Link:
-WORD OptionsCommand1_Text
+WORD TrainerPkmn_Text
 OptionsCommand2_Text_Link:
-WORD OptionsCommand2_Text
+WORD GymBosses_Text
 OptionsCommand3_Text_Link:
-WORD OptionsCommand3_Text
+WORD ItemsFound_Text
 OptionsCommand4_Text_Link:
-WORD OptionsCommand4_Text
+WORD MoveStats_Text
 OptionsCommand5_Text_Link:
-WORD OptionsCommand5_Text
+WORD PkmnStats_Text
 OptionsCommand6_Text_Link:
-WORD OptionsCommand6_Text
+WORD GrowthCaps_Text
 OptionsCommand7_Text_Link:
-WORD OptionsCommand7_Text
-Command0_Option0_Text_Link:
-WORD NormalText
-Command0_Option1_Text_Link:
+WORD InnateSkills_Text
+NormalText_Link:
+WORD NormalMenuText
+RandomizedText_Link:
 WORD RandomizedText
 BlankText_Link:
 WORD BlankText

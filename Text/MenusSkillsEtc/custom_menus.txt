@@ -118,31 +118,31 @@ Cheater[X]
 ## Title_Text
 Settings[X]
 
-## OptionsCommand0_Text
+## WildPkmn_Text
 Wild Pokemon:[X]
 
-## OptionsCommand1_Text
+## TrainerPkmn_Text
 Trainer Pokemon:[X]
 
-## OptionsCommand2_Text
+## GymBosses_Text
 Gyms/Bosses:[X]
 
-## OptionsCommand3_Text
+## ItemsFound_Text
 Items Found:[X]
 
-## OptionsCommand4_Text
+## MoveStats_Text
 Move Stats:[X]
 
-## OptionsCommand5_Text
+## PkmnStats_Text
 Pokemon Stats:[X]
 
-## OptionsCommand6_Text
+## GrowthCaps_Text
 Growths/Caps:[X]
 
-## OptionsCommand7_Text
+## InnateSkills_Text
 Innate Skills:[X]
 
-## NormalText
+## NormalMenuText
 Normal[X]
 
 ## RandomizedText
@@ -178,7 +178,7 @@ Dmg[X]
 ## MoveMenuCritText
  Crit[X]
 
-## MoveMenuNoMoveText
+## NoMoveText
  No Move[X]
  
 ## OrderMovesText
@@ -189,3 +189,54 @@ Dmg[X]
 
 ## MoveMenuNoText
  No[X]
+
+## CharacterSelectLevelText
+L.[X]
+
+## CharacterSelectGoldText
+G[X]
+
+## CharacterSelectPercentText
+%[X]
+
+## CharacterSelectCostText
+Cost:[X]
+
+## CharacterSelectBaseText
+Base[X]
+
+## CharacterSelectGrowthText
+Growth[X]
+
+## CharacterSelectHpText
+HP[X]
+
+## CharacterSelectSklText
+Skl[X]
+
+## CharacterSelectSpdText
+Spd[X]
+
+## CharacterSelectDefText
+Def[X]
+
+## CharacterSelectResText
+Res[X]
+
+## PokedexUnknownEntryText
+ ???        [X]
+
+## PokedexMissingDataDotsText
+   ...   ...   ...   ...   ...   ...   ...   ...   ...[X]
+
+## PokedexMissingDataText
+              MISSING DATA[X]
+
+## PokedexNoDataText
+ No Data[X]
+
+## PokedexSeenText
+ Seen[X]
+
+## PokedexCaughtText
+ Caught[X]

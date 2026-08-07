@@ -18,4 +18,4 @@ WORD MoveMenuHitText
 RelearnMoveMenuCritText_Link:
 WORD MoveMenuCritText
 RelearnMoveMenuNoMoveText_Link:
-WORD MoveMenuNoMoveText
+WORD NoMoveText

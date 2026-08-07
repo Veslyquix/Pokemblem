@@ -113,6 +113,27 @@ extern TSA gSkillsRanksUIBoxTSA;
 extern u16 gBG0MapBuffer[32][32]; // 0x02022CA8. Snek: Ew why does FE-CLib-master not do it like this?
 extern u16 gBG1MapBuffer[32][32]; // 0x020234A8.
 
+extern u16 CharacterSelectLevelText_Link;
+extern u16 CharacterSelectGoldText_Link;
+extern u16 CharacterSelectPercentText_Link;
+extern u16 CharacterSelectCostText_Link;
+extern u16 CharacterSelectBaseText_Link;
+extern u16 CharacterSelectGrowthText_Link;
+extern u16 CharacterSelectHpText_Link;
+extern u16 CharacterSelectStrText_Link;
+extern u16 CharacterSelectMagText_Link;
+extern u16 CharacterSelectSklText_Link;
+extern u16 CharacterSelectSpdText_Link;
+extern u16 CharacterSelectDefText_Link;
+extern u16 CharacterSelectResText_Link;
+extern u16 CharacterSelectYesText_Link;
+extern u16 CharacterSelectNoText_Link;
+
+static char * GetCharacterSelectText(const u16 * textIdLink)
+{
+    return GetStringFromIndex(*textIdLink);
+}
+
 extern void StartMovingPlatform(int always0x9, int always0x118, int height); // 0x080CD408.
 extern void
 SetupMovingPlatform(int always0x0, int alwaysNeg1, int always0x1F6, int always0x58, int always0x6); // 0x080CD47C.
@@ -537,7 +558,7 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
     TextHandle levelHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 2 };
     tile += 2;
     Text_InitClear(&levelHandle, 1);
-    DrawStatNames(levelHandle, "L.", 1, 1);
+    DrawStatNames(levelHandle, GetCharacterSelectText(&CharacterSelectLevelText_Link), 1, 1);
     DrawUiNumber(&gBG0MapBuffer[1][3], TEXT_COLOR_GOLD, (unit->level));
 
     // Draw stats / growths
@@ -579,20 +600,21 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
         Text_SetColorId(&GoldSymbolHandle, TEXT_COLOR_GOLD);
         // void DrawTextInline(struct TextHandle*, u16* bg, int color, int xStart, int tileWidth, const char* cstring);
         // //! FE8U = 0x800443D
-        DrawTextInline(&GoldSymbolHandle, &gBG0MapBuffer[11][29], TEXT_COLOR_GOLD, 0, 1, "G");
+        DrawTextInline(&GoldSymbolHandle, &gBG0MapBuffer[11][29], TEXT_COLOR_GOLD, 0, 1,
+            GetCharacterSelectText(&CharacterSelectGoldText_Link));
         Text_Display(&GoldSymbolHandle, &gBG0MapBuffer[11][29]);
     }
 
     TextHandle percentHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 1 };
     tile += 1;
     Text_InitClear(&percentHandle, 1);
-    DrawStatNames(percentHandle, "%", 11, 5);
-    DrawStatNames(percentHandle, "%", 11, 7);
-    DrawStatNames(percentHandle, "%", 11, 9);
-    DrawStatNames(percentHandle, "%", 11, 11);
-    DrawStatNames(percentHandle, "%", 11, 13);
-    DrawStatNames(percentHandle, "%", 11, 15);
-    DrawStatNames(percentHandle, "%", 11, 17);
+    DrawStatNames(percentHandle, GetCharacterSelectText(&CharacterSelectPercentText_Link), 11, 5);
+    DrawStatNames(percentHandle, GetCharacterSelectText(&CharacterSelectPercentText_Link), 11, 7);
+    DrawStatNames(percentHandle, GetCharacterSelectText(&CharacterSelectPercentText_Link), 11, 9);
+    DrawStatNames(percentHandle, GetCharacterSelectText(&CharacterSelectPercentText_Link), 11, 11);
+    DrawStatNames(percentHandle, GetCharacterSelectText(&CharacterSelectPercentText_Link), 11, 13);
+    DrawStatNames(percentHandle, GetCharacterSelectText(&CharacterSelectPercentText_Link), 11, 15);
+    DrawStatNames(percentHandle, GetCharacterSelectText(&CharacterSelectPercentText_Link), 11, 17);
 
     TextHandle GoldCostHandle = {
         .tileIndexOffset = gpCurrentFont->tileNext + tile,
@@ -621,7 +643,8 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
         Text_SetColorId(&GoldNameHandle, TEXT_COLOR_GOLD);
         // void DrawTextInline(struct TextHandle*, u16* bg, int color, int xStart, int tileWidth, const char* cstring);
         // //! FE8U = 0x800443D
-        DrawTextInline(&GoldNameHandle, &gBG0MapBuffer[11][20], TEXT_COLOR_GOLD, 4, 4, "Cost:");
+        DrawTextInline(&GoldNameHandle, &gBG0MapBuffer[11][20], TEXT_COLOR_GOLD, 4, 4,
+            GetCharacterSelectText(&CharacterSelectCostText_Link));
         Text_Display(&GoldNameHandle, &gBG0MapBuffer[11][20]);
     }
 
@@ -743,8 +766,8 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
     Text_SetColorId(&baseHandle, TEXT_COLOR_GOLD);
     // void DrawTextInline(struct TextHandle*, u16* bg, int color, int xStart, int tileWidth, const char* cstring); //!
     // FE8U = 0x800443D
-    DrawTextInline(&baseHandle, &gBG0MapBuffer[3][4], TEXT_COLOR_GOLD, 0, 3, "Base");
-    // Text_InsertString(&baseHandle,0,TEXT_COLOR_GOLD,"Base");
+    DrawTextInline(&baseHandle, &gBG0MapBuffer[3][4], TEXT_COLOR_GOLD, 0, 3,
+        GetCharacterSelectText(&CharacterSelectBaseText_Link));
     Text_Display(&baseHandle, &gBG0MapBuffer[3][4]);
 
     TextHandle growthHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 4 };
@@ -752,43 +775,43 @@ void SwitchInCharacter(void) // Whenever you scroll or exit / confirm the charac
     Text_InitClear(&growthHandle, 4);
     Text_Clear(&growthHandle);
     Text_SetColorId(&growthHandle, TEXT_COLOR_GOLD);
-    // Text_InsertString(&growthHandle,0,TEXT_COLOR_GOLD,"Growth");
-    DrawTextInline(&growthHandle, &gBG0MapBuffer[3][8], TEXT_COLOR_GOLD, 0, 4, "Growth");
+    DrawTextInline(&growthHandle, &gBG0MapBuffer[3][8], TEXT_COLOR_GOLD, 0, 4,
+        GetCharacterSelectText(&CharacterSelectGrowthText_Link));
     Text_Display(&growthHandle, &gBG0MapBuffer[3][8]);
 
     TextHandle hpHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 2 };
     tile += 2;
-    DrawStatNames(hpHandle, "HP", 2, 5);
+    DrawStatNames(hpHandle, GetCharacterSelectText(&CharacterSelectHpText_Link), 2, 5);
 
     TextHandle strHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 2 };
     tile += 2;
     // Text_InitClear(&strHandle,2);
-    DrawStatNames(strHandle, "Str", 2, 7);
+    DrawStatNames(strHandle, GetCharacterSelectText(&CharacterSelectStrText_Link), 2, 7);
 
     TextHandle magHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 3 };
     tile += 3;
     Text_InitClear(&magHandle, 3);
-    DrawStatNames(magHandle, "Mag", 2, 9);
+    DrawStatNames(magHandle, GetCharacterSelectText(&CharacterSelectMagText_Link), 2, 9);
 
     TextHandle sklHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 2 };
     tile += 2;
     Text_InitClear(&sklHandle, 2);
-    DrawStatNames(sklHandle, "Skl", 2, 11);
+    DrawStatNames(sklHandle, GetCharacterSelectText(&CharacterSelectSklText_Link), 2, 11);
 
     TextHandle spdHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 2 };
     tile += 2;
     Text_InitClear(&spdHandle, 2);
-    DrawStatNames(spdHandle, "Spd", 2, 13);
+    DrawStatNames(spdHandle, GetCharacterSelectText(&CharacterSelectSpdText_Link), 2, 13);
 
     TextHandle defHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 2 };
     tile += 2;
     Text_InitClear(&defHandle, 2);
-    DrawStatNames(defHandle, "Def", 2, 15);
+    DrawStatNames(defHandle, GetCharacterSelectText(&CharacterSelectDefText_Link), 2, 15);
 
     TextHandle resHandle = { .tileIndexOffset = gpCurrentFont->tileNext + tile, .tileWidth = 2 };
     tile += 2;
     Text_InitClear(&resHandle, 2);
-    DrawStatNames(resHandle, "Res", 2, 17);
+    DrawStatNames(resHandle, GetCharacterSelectText(&CharacterSelectResText_Link), 2, 17);
     tile += 2;
 
     EnableBgSyncByMask(0);
@@ -878,8 +901,7 @@ static void DrawNo(struct MenuProc * menu, struct MenuCommandProc * command)
     Text_Clear(currHandle);
     Text_SetColorId(currHandle, TEXT_COLOR_NORMAL);
 
-    Text_DrawString(currHandle, " No");
-    // Text_InsertString(currHandle,0,TEXT_COLOR_NORMAL," No");
+    Text_DrawString(currHandle, GetCharacterSelectText(&CharacterSelectNoText_Link));
     Text_Display(currHandle, out);
 }
 
@@ -891,8 +913,7 @@ static void DrawYes(struct MenuProc * menu, struct MenuCommandProc * command)
     Text_Clear(currHandle);
     Text_SetColorId(currHandle, TEXT_COLOR_NORMAL);
 
-    Text_DrawString(currHandle, " Yes");
-    // Text_InsertString(currHandle,0,TEXT_COLOR_NORMAL," Yes");
+    Text_DrawString(currHandle, GetCharacterSelectText(&CharacterSelectYesText_Link));
     Text_Display(currHandle, out);
 }
 

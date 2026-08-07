@@ -722,33 +722,6 @@ taken to damage dealt.[N]
 Synchronize: Statuses are also[N]
 applied to the attacker.[X]
 
-## SD_SK1
-My Skill1: Has an effect.[X]
-
-## SD_SK2
-My Skill2: Has an effect.[X]
-
-## SD_SK3
-My Skill3: Has an effect.[X]
-
-## SD_SK4
-My Skill4: Has an effect.[X]
-
-## SD_SK5
-My Skill5: Has an effect.[X]
-
-## SD_SK6
-My Skill6: Has an effect.[X]
-
-## SD_SK7
-My Skill7: Has an effect.[X]
-
-## SD_SK8
-My Skill8: Has an effect.[X]
-
-## SD_SK9
-My Skill9: Has an effect.[X]
-
 ## SD_Absorb
 Absorb: Heal for 25%[N]
 of damage dealt.[X]
