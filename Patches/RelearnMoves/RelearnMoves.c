@@ -24,6 +24,21 @@ enum
 extern u16 gBG0MapBuffer[32][32];
 extern u16 gBG1MapBuffer[32][32]; // 0x020234A8.
 
+extern u16 RelearnMoveMenuStrText_Link;
+extern u16 RelearnMoveMenuMagText_Link;
+extern u16 RelearnMoveMenuLvlText_Link;
+extern u16 RelearnMoveMenuRngText_Link;
+extern u16 RelearnMoveMenuWtText_Link;
+extern u16 RelearnMoveMenuDmgText_Link;
+extern u16 RelearnMoveMenuHitText_Link;
+extern u16 RelearnMoveMenuCritText_Link;
+extern u16 RelearnMoveMenuNoMoveText_Link;
+
+static char * GetRelearnMoveMenuText(const u16 * textIdLink)
+{
+    return GetStringFromIndex(*textIdLink);
+}
+
 #define item_name_offset 16
 #define new_item_name_offset 48
 #define new_item_icon_offset 0 // 13
@@ -265,19 +280,6 @@ void DrawItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * comma
     // [2028E6a..2028E6b]!!
     // 0x8004a9e
 
-    // PrepareText(&handles[i], " Rng");
-    // Text_Display(&handles[i], &gBG0MapBuffer[15][7+x]); i++;
-    //
-    // PrepareText(&handles[i], " Wt");
-    // Text_Display(&handles[i], &gBG0MapBuffer[15][14+x]); i++;
-    //
-    // PrepareText(&handles[i], "Dmg");
-    // Text_Display(&handles[i], &gBG0MapBuffer[17][0+x]); i++;
-    // PrepareText(&handles[i], " Hit");
-    // Text_Display(&handles[i], &gBG0MapBuffer[17][7+x]); i++;
-    // PrepareText(&handles[i], " Crit");
-    // Text_Display(&handles[i], &gBG0MapBuffer[17][14+x]); i++;
-
     LoadIconPalettes(4);
 
     // asm("mov r11, r11");
@@ -378,7 +380,7 @@ void UpdateItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * com
     Text_Display(&handles[i], &gBG0MapBuffer[9][11]);
     i++;
 
-    char * strName = "Str";
+    char * strName = GetRelearnMoveMenuText(&RelearnMoveMenuStrText_Link);
     width = (Text_GetStringTextWidth(strName) + 8 + 8) / 8;
     Text_InitClear(&handles[i], width);
     handles[i].tileWidth = width;
@@ -388,7 +390,7 @@ void UpdateItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * com
     Text_Display(&handles[i], &gBG0MapBuffer[11][11]);
     i++;
 
-    char * magName = "Mag";
+    char * magName = GetRelearnMoveMenuText(&RelearnMoveMenuMagText_Link);
     width = (Text_GetStringTextWidth(magName) + 8 + 8) / 8;
     Text_InitClear(&handles[i], width);
     handles[i].tileWidth = width;
@@ -398,7 +400,7 @@ void UpdateItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * com
     Text_Display(&handles[i], &gBG0MapBuffer[11][17]);
     i++;
 
-    char * lvlName = "Lvl";
+    char * lvlName = GetRelearnMoveMenuText(&RelearnMoveMenuLvlText_Link);
     width = (Text_GetStringTextWidth(lvlName) + 8 + 8) / 8;
     Text_InitClear(&handles[i], width);
     handles[i].tileWidth = width;
@@ -415,21 +417,21 @@ void UpdateItemInfo_Relearn(struct MenuProc * menu, struct MenuCommandProc * com
 
     item = UnitGetMoveList(proc->unit, proc->offset)[(hover * 2) + 1];
 
-    PrepareText(&handles[i], " Rng");
+    PrepareText(&handles[i], GetRelearnMoveMenuText(&RelearnMoveMenuRngText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[15][7 + x]);
     i++;
 
-    PrepareText(&handles[i], " Wt");
+    PrepareText(&handles[i], GetRelearnMoveMenuText(&RelearnMoveMenuWtText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[15][14 + x]);
     i++;
 
-    PrepareText(&handles[i], "Dmg");
+    PrepareText(&handles[i], GetRelearnMoveMenuText(&RelearnMoveMenuDmgText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[17][0 + x]);
     i++;
-    PrepareText(&handles[i], " Hit");
+    PrepareText(&handles[i], GetRelearnMoveMenuText(&RelearnMoveMenuHitText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[17][7 + x]);
     i++;
-    PrepareText(&handles[i], " Crit");
+    PrepareText(&handles[i], GetRelearnMoveMenuText(&RelearnMoveMenuCritText_Link));
     Text_Display(&handles[i], &gBG0MapBuffer[17][14 + x]);
     i++;
 
@@ -584,7 +586,7 @@ Text_DrawString(&command->text, GetStringFromIndex(GetItemDescId(moves[i])));
     else
     {
         Text_SetColorId(&command->text, TEXT_COLOR_GRAY);
-        Text_DrawString(&command->text, " No Move");
+        Text_DrawString(&command->text, GetRelearnMoveMenuText(&RelearnMoveMenuNoMoveText_Link));
     }
 
     EnableBgSyncByMask(BG0_SYNC_BIT);

@@ -54,7 +54,7 @@ extern void FadeOutExists();
 extern void SetEventId(u16 flagID);
 extern void UnsetEventId(u16 flagID);
 extern void Font_ResetAllocation();
-extern void LZ77UnCompVram();
+extern void LZ77UnCompVram(void * source, void * dest);
 //extern const SpinProc[];
 extern void nullsub_64();
 

@@ -1,1 +1,21 @@
 #include "RelearnMoves.lyn.event" 
+
+ALIGN 4
+RelearnMoveMenuStrText_Link:
+WORD MoveMenuStrText
+RelearnMoveMenuMagText_Link:
+WORD MoveMenuMagText
+RelearnMoveMenuLvlText_Link:
+WORD MoveMenuLvlText
+RelearnMoveMenuRngText_Link:
+WORD MoveMenuRngText
+RelearnMoveMenuWtText_Link:
+WORD MoveMenuWtText
+RelearnMoveMenuDmgText_Link:
+WORD MoveMenuDmgText
+RelearnMoveMenuHitText_Link:
+WORD MoveMenuHitText
+RelearnMoveMenuCritText_Link:
+WORD MoveMenuCritText
+RelearnMoveMenuNoMoveText_Link:
+WORD MoveMenuNoMoveText

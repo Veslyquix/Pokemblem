@@ -114,3 +114,78 @@ Vesly[X]
 
 ## CRText_OptionCheater
 Cheater[X]
+
+## Title_Text
+Settings[X]
+
+## OptionsCommand0_Text
+Wild Pokemon:[X]
+
+## OptionsCommand1_Text
+Trainer Pokemon:[X]
+
+## OptionsCommand2_Text
+Gyms/Bosses:[X]
+
+## OptionsCommand3_Text
+Items Found:[X]
+
+## OptionsCommand4_Text
+Move Stats:[X]
+
+## OptionsCommand5_Text
+Pokemon Stats:[X]
+
+## OptionsCommand6_Text
+Growths/Caps:[X]
+
+## OptionsCommand7_Text
+Innate Skills:[X]
+
+## NormalText
+Normal[X]
+
+## RandomizedText
+Randomized[X]
+
+## BlankText
+ [X]
+
+## StartingOptionsNA_Text
+N/A[X]
+
+## MoveMenuStrText
+Str[X]
+
+## MoveMenuMagText
+Mag[X]
+
+## MoveMenuLvlText
+Lvl[X]
+
+## MoveMenuRngText
+ Rng[X]
+
+## MoveMenuWtText
+ Wt[X]
+
+## MoveMenuDmgText
+Dmg[X]
+
+## MoveMenuHitText
+ Hit[X]
+
+## MoveMenuCritText
+ Crit[X]
+
+## MoveMenuNoMoveText
+ No Move[X]
+ 
+## OrderMovesText
+ Order[X]
+
+## MoveMenuYesText
+ Yes[X]
+
+## MoveMenuNoText
+ No[X]
