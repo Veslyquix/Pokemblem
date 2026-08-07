@@ -53,10 +53,6 @@ __TEXTPROCESS00B:
 #incbin ".TextEntries/text_buildfileNiceTryText.fetxt.dmp"
 setText($FF8, __TEXTPROCESS00B)
 
-__TEXTPROCESS00C:
-#incbin ".TextEntries/text_buildfileLtSurgeName.fetxt.dmp"
-setText($1023, __TEXTPROCESS00C)
-
 }
 
 #endif // TEXT_INSTALLER_TEXT_BUILDFILE_TXT
