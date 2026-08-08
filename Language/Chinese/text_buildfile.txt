@@ -516,7 +516,7 @@ P-35[X]
 P-36[X]
 
 # 0x250 NSlashAText
-P-37[X]
+--[X]
 
 # 0x253 OaksPikachuDescText
 训练家[X]

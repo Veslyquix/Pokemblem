@@ -1436,6 +1436,7 @@ UNIT 0x06 MewID BonusUnitParameters
 UNIT 0x07 ArticunoID BonusUnitParameters
 UNIT 0x08 ZapdosID BonusUnitParameters
 UNIT 0x09 MoltresID BonusUnitParameters
+UNIT 0x0A DragoniteID BonusUnitParameters
 UNIT
 
 

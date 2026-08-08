@@ -139,7 +139,7 @@ Pow[X]
 # 0x4F5 // Previously Avoid
 Avo[X]
 # 0x548 
-Fighting skill. Improves unit's
+Fighting skill. Improves unit's[N]
 Hit and Crit rate.[X]
 
 # 0x549
