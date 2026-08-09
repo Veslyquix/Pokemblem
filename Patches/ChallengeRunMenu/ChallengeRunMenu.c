@@ -363,70 +363,24 @@ static const u16 * const ChallengeRunInfoTextIds[CR_TEXT_COUNT] = {
     &CRText_RuleNuzlocke2_Link,
 };
 
-const char SpecialNames[CR_OPTION_COUNT][10] = {
-    "New Name",
-    "LittleCup",
-    "Void",
-    "Chaos",
-    "Plus",
-    "Nuzlocke",
-    "Ash",
-    "Gary",
-    "Leaf",
-    //"UnderUsed",
-    //"OverUsed",
-    //"Red",
-    //"Blue",
-    //"Green",
-    //"Yellow",
-    "Oak",
-    "Bill",
-    "James",
-    "Jessie",
-    "Brock",
-    "Misty",
-    "Lt. Surge",
-    "Erika",
-    "Koga",
-    "Sabrina",
-    "Blaine",
-    "Giovanni",
-    "Lorelei",
-    "Bruno",
-    "Agatha",
-    "Lance",
-    "Vesly",
-    "Cheater",
+static const u16 * const SpecialNames[CR_OPTION_COUNT] = {
+    &CRText_OptionNewName_Link,  &CRText_OptionLittleCup_Link, &CRText_OptionVoid_Link,    &CRText_OptionChaos_Link,
+    &CRText_OptionPlus_Link,     &CRText_OptionNuzlocke_Link,  &CRText_OptionAsh_Link,     &CRText_OptionGary_Link,
+    &CRText_OptionLeaf_Link,     &CRText_OptionOak_Link,       &CRText_OptionBill_Link,    &CRText_OptionJames_Link,
+    &CRText_OptionJessie_Link,   &CRText_OptionBrock_Link,     &CRText_OptionMisty_Link,   &CRText_OptionLtSurge_Link,
+    &CRText_OptionErika_Link,    &CRText_OptionKoga_Link,      &CRText_OptionSabrina_Link, &CRText_OptionBlaine_Link,
+    &CRText_OptionGiovanni_Link, &CRText_OptionLorelei_Link,   &CRText_OptionBruno_Link,   &CRText_OptionAgatha_Link,
+    &CRText_OptionLance_Link,    &CRText_OptionVesly_Link,     &CRText_OptionCheater_Link,
 };
 
 static const u16 * const ChallengeRunOptionTextIds[CR_OPTION_COUNT] = {
-    &CRText_OptionNewName_Link,
-    &CRText_OptionLittleCup_Link,
-    &CRText_OptionVoid_Link,
-    &CRText_OptionChaos_Link,
-    &CRText_OptionPlus_Link,
-    &CRText_OptionNuzlocke_Link,
-    &CRText_OptionAsh_Link,
-    &CRText_OptionGary_Link,
-    &CRText_OptionLeaf_Link,
-    &CRText_OptionOak_Link,
-    &CRText_OptionBill_Link,
-    &CRText_OptionJames_Link,
-    &CRText_OptionJessie_Link,
-    &CRText_OptionBrock_Link,
-    &CRText_OptionMisty_Link,
-    &CRText_OptionLtSurge_Link,
-    &CRText_OptionErika_Link,
-    &CRText_OptionKoga_Link,
-    &CRText_OptionSabrina_Link,
-    &CRText_OptionBlaine_Link,
-    &CRText_OptionGiovanni_Link,
-    &CRText_OptionLorelei_Link,
-    &CRText_OptionBruno_Link,
-    &CRText_OptionAgatha_Link,
-    &CRText_OptionLance_Link,
-    &CRText_OptionVesly_Link,
-    &CRText_OptionCheater_Link,
+    &CRText_OptionNewName_Link,  &CRText_OptionLittleCup_Link, &CRText_OptionVoid_Link,    &CRText_OptionChaos_Link,
+    &CRText_OptionPlus_Link,     &CRText_OptionNuzlocke_Link,  &CRText_OptionAsh_Link,     &CRText_OptionGary_Link,
+    &CRText_OptionLeaf_Link,     &CRText_OptionOak_Link,       &CRText_OptionBill_Link,    &CRText_OptionJames_Link,
+    &CRText_OptionJessie_Link,   &CRText_OptionBrock_Link,     &CRText_OptionMisty_Link,   &CRText_OptionLtSurge_Link,
+    &CRText_OptionErika_Link,    &CRText_OptionKoga_Link,      &CRText_OptionSabrina_Link, &CRText_OptionBlaine_Link,
+    &CRText_OptionGiovanni_Link, &CRText_OptionLorelei_Link,   &CRText_OptionBruno_Link,   &CRText_OptionAgatha_Link,
+    &CRText_OptionLance_Link,    &CRText_OptionVesly_Link,     &CRText_OptionCheater_Link,
 };
 
 static bool StringEquals(const char * left, const char * right)
@@ -451,10 +405,11 @@ int GetSpecialNameID(void)
 {
     int i;
     char * tacticianName = GetTacticianName();
+    char buffer[32] = { 0 };
 
     for (i = 1; i < CR_OPTION_COUNT; i++)
     {
-        if (StringEquals(tacticianName, SpecialNames[i]))
+        if (StringEquals(tacticianName, GetStringFromIndexInBuffer(*SpecialNames[i], (void *)&buffer)))
         {
             return i;
         }
@@ -1066,7 +1021,7 @@ void SetTactNameFromCase(int id)
 {
     if (id >= 1)
     {
-        SetTacticianName(SpecialNames[id]);
+        SetTacticianName(GetStringFromIndex(*SpecialNames[id]));
     }
 }
 
