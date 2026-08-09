@@ -68,7 +68,7 @@ PUSH; ORG $D74D0	//{U}
 #ifdef CLEAN_TITLE_SCREEN 
 String("                        ") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 #else 
-String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+String("V1.24.00             Aug 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 #endif 
 
 

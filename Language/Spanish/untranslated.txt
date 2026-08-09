@@ -684,7 +684,7 @@ Avo[X]
 
 // Source: Text/Vanilla/statscreen_text.txt
 # 0x548 
-Fighting skill. Improves unit's
+Fighting skill. Improves unit's[N]
 Hit and Crit rate.[X]
 
 // Source: Text/Vanilla/statscreen_text.txt
@@ -1807,6 +1807,10 @@ Brock[X]
 // Source: Text/Dialogue/OaksLab.txt
 ## MistyName
 Misty[X]
+
+// Source: Text/Dialogue/OaksLab.txt
+## LtSurgeName
+Lt. Surge[X]
 
 // Source: Text/Dialogue/OaksLab.txt
 ## ErikaName

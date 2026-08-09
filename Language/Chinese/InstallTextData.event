@@ -9,6 +9,18 @@
 
 {
 
+__TEXTPROCESS1D7:
+#incbin ".TextEntries/text_buildfile1D7.fetxt.dmp"
+setText($1D7, __TEXTPROCESS1D7)
+
+__TEXTPROCESS1D8:
+#incbin ".TextEntries/text_buildfile1D8.fetxt.dmp"
+setText($1D8, __TEXTPROCESS1D8)
+
+__TEXTPROCESS1DF:
+#incbin ".TextEntries/text_buildfile1DF.fetxt.dmp"
+setText($1DF, __TEXTPROCESS1DF)
+
 __TEXTPROCESS002:
 #incbin ".TextEntries/text_buildfiletextWeaponRankIncreasedTo.fetxt.dmp"
 setText($2, __TEXTPROCESS002)
@@ -12324,6 +12336,670 @@ setText($1813, __TEXTPROCESS19C6)
 __TEXTPROCESS19C7:
 #incbin ".TextEntries/text_buildfileErrorOccurredMessageID.fetxt.dmp"
 setText($1A16, __TEXTPROCESS19C7)
+
+__TEXTPROCESS19C8:
+#incbin ".TextEntries/text_buildfileStairsBlockedText.fetxt.dmp"
+setText($EA4, __TEXTPROCESS19C8)
+
+__TEXTPROCESS19C9:
+#incbin ".TextEntries/text_buildfileMov_Text_ID.fetxt.dmp"
+setText($EA5, __TEXTPROCESS19C9)
+
+__TEXTPROCESS19CA:
+#incbin ".TextEntries/text_buildfileCaptureUMErrorText.fetxt.dmp"
+setText($EA9, __TEXTPROCESS19CA)
+
+__TEXTPROCESS19CB:
+#incbin ".TextEntries/text_buildfileGaidenMagicHPCostText.fetxt.dmp"
+setText($EAC, __TEXTPROCESS19CB)
+
+__TEXTPROCESS19CC:
+#incbin ".TextEntries/text_buildfilePlayerPokemonDescText.fetxt.dmp"
+setText($F19, __TEXTPROCESS19CC)
+
+__TEXTPROCESS19CD:
+#incbin ".TextEntries/text_buildfileOaksPikachuText.fetxt.dmp"
+setText($F1A, __TEXTPROCESS19CD)
+
+__TEXTPROCESS19CE:
+#incbin ".TextEntries/text_buildfileTrainerPokemonText.fetxt.dmp"
+setText($F1F, __TEXTPROCESS19CE)
+
+__TEXTPROCESS19CF:
+#incbin ".TextEntries/text_buildfileVoidMessageText.fetxt.dmp"
+setText($FF1, __TEXTPROCESS19CF)
+
+__TEXTPROCESS19D0:
+#incbin ".TextEntries/text_buildfileChaosMessageText.fetxt.dmp"
+setText($FF2, __TEXTPROCESS19D0)
+
+__TEXTPROCESS19D1:
+#incbin ".TextEntries/text_buildfilePlusMessageText.fetxt.dmp"
+setText($FF3, __TEXTPROCESS19D1)
+
+__TEXTPROCESS19D2:
+#incbin ".TextEntries/text_buildfileNuzlockeMessageText.fetxt.dmp"
+setText($FF4, __TEXTPROCESS19D2)
+
+__TEXTPROCESS19D3:
+#incbin ".TextEntries/text_buildfileCheaterMessageText.fetxt.dmp"
+setText($FF5, __TEXTPROCESS19D3)
+
+__TEXTPROCESS19D4:
+#incbin ".TextEntries/text_buildfileVoidName.fetxt.dmp"
+setText($FF9, __TEXTPROCESS19D4)
+
+__TEXTPROCESS19D5:
+#incbin ".TextEntries/text_buildfileChaosName.fetxt.dmp"
+setText($FFA, __TEXTPROCESS19D5)
+
+__TEXTPROCESS19D6:
+#incbin ".TextEntries/text_buildfileNuzlockeName.fetxt.dmp"
+setText($FFB, __TEXTPROCESS19D6)
+
+__TEXTPROCESS19D7:
+#incbin ".TextEntries/text_buildfilePlusName.fetxt.dmp"
+setText($FFC, __TEXTPROCESS19D7)
+
+__TEXTPROCESS19D8:
+#incbin ".TextEntries/text_buildfileCheaterName.fetxt.dmp"
+setText($FFD, __TEXTPROCESS19D8)
+
+__TEXTPROCESS19D9:
+#incbin ".TextEntries/text_buildfileLeafName.fetxt.dmp"
+setText($1007, __TEXTPROCESS19D9)
+
+__TEXTPROCESS19DA:
+#incbin ".TextEntries/text_buildfileJamesName.fetxt.dmp"
+setText($1008, __TEXTPROCESS19DA)
+
+__TEXTPROCESS19DB:
+#incbin ".TextEntries/text_buildfileJessieName.fetxt.dmp"
+setText($1009, __TEXTPROCESS19DB)
+
+__TEXTPROCESS19DC:
+#incbin ".TextEntries/text_buildfileAshName.fetxt.dmp"
+setText($101D, __TEXTPROCESS19DC)
+
+__TEXTPROCESS19DD:
+#incbin ".TextEntries/text_buildfileDebugText.fetxt.dmp"
+setText($102F, __TEXTPROCESS19DD)
+
+__TEXTPROCESS19DE:
+#incbin ".TextEntries/text_buildfileCannotPurchasePkmnText.fetxt.dmp"
+setText($1034, __TEXTPROCESS19DE)
+
+__TEXTPROCESS19DF:
+#incbin ".TextEntries/text_buildfileGM_TipsTitle.fetxt.dmp"
+setText($1059, __TEXTPROCESS19DF)
+
+__TEXTPROCESS19E0:
+#incbin ".TextEntries/text_buildfileGM_AoEIntro_SH.fetxt.dmp"
+setText($1063, __TEXTPROCESS19E0)
+
+__TEXTPROCESS19E1:
+#incbin ".TextEntries/text_buildfileGM_ResistTitle.fetxt.dmp"
+setText($1068, __TEXTPROCESS19E1)
+
+__TEXTPROCESS19E2:
+#incbin ".TextEntries/text_buildfileGM_ResistHeaderText.fetxt.dmp"
+setText($1069, __TEXTPROCESS19E2)
+
+__TEXTPROCESS19E3:
+#incbin ".TextEntries/text_buildfileGM_Resist_SH.fetxt.dmp"
+setText($106A, __TEXTPROCESS19E3)
+
+__TEXTPROCESS19E4:
+#incbin ".TextEntries/text_buildfileGM_Resist.fetxt.dmp"
+setText($106B, __TEXTPROCESS19E4)
+
+__TEXTPROCESS19E5:
+#incbin ".TextEntries/text_buildfileGM_AoERotate_SH.fetxt.dmp"
+setText($106E, __TEXTPROCESS19E5)
+
+__TEXTPROCESS19E6:
+#incbin ".TextEntries/text_buildfileGM_RotateAoE.fetxt.dmp"
+setText($106F, __TEXTPROCESS19E6)
+
+__TEXTPROCESS19E7:
+#incbin ".TextEntries/text_buildfileGM_LevelupsHeaderText.fetxt.dmp"
+setText($1070, __TEXTPROCESS19E7)
+
+__TEXTPROCESS19E8:
+#incbin ".TextEntries/text_buildfileGM_Items_Title.fetxt.dmp"
+setText($107D, __TEXTPROCESS19E8)
+
+__TEXTPROCESS19E9:
+#incbin ".TextEntries/text_buildfileGM_Equipment_SH.fetxt.dmp"
+setText($107E, __TEXTPROCESS19E9)
+
+__TEXTPROCESS19EA:
+#incbin ".TextEntries/text_buildfileGM_Equipment.fetxt.dmp"
+setText($107F, __TEXTPROCESS19EA)
+
+__TEXTPROCESS19EB:
+#incbin ".TextEntries/text_buildfileTrainerTip_Bushes.fetxt.dmp"
+setText($1083, __TEXTPROCESS19EB)
+
+__TEXTPROCESS19EC:
+#incbin ".TextEntries/text_buildfileTrainerTip_Trainers.fetxt.dmp"
+setText($1084, __TEXTPROCESS19EC)
+
+__TEXTPROCESS19ED:
+#incbin ".TextEntries/text_buildfileSkipLabTutorial.fetxt.dmp"
+setText($109B, __TEXTPROCESS19ED)
+
+__TEXTPROCESS19EE:
+#incbin ".TextEntries/text_buildfileOaksLabTut_1.fetxt.dmp"
+setText($109C, __TEXTPROCESS19EE)
+
+__TEXTPROCESS19EF:
+#incbin ".TextEntries/text_buildfileOaksLabTut_2.fetxt.dmp"
+setText($109D, __TEXTPROCESS19EF)
+
+__TEXTPROCESS19F0:
+#incbin ".TextEntries/text_buildfileOaksLabTut_3.fetxt.dmp"
+setText($109E, __TEXTPROCESS19F0)
+
+__TEXTPROCESS19F1:
+#incbin ".TextEntries/text_buildfileOaksLabTut_4.fetxt.dmp"
+setText($109F, __TEXTPROCESS19F1)
+
+__TEXTPROCESS19F2:
+#incbin ".TextEntries/text_buildfileOaksLabTut_5.fetxt.dmp"
+setText($10A0, __TEXTPROCESS19F2)
+
+__TEXTPROCESS19F3:
+#incbin ".TextEntries/text_buildfileOaksLabTut_6.fetxt.dmp"
+setText($10A1, __TEXTPROCESS19F3)
+
+__TEXTPROCESS19F4:
+#incbin ".TextEntries/text_buildfileOaksLabTut_7.fetxt.dmp"
+setText($10A2, __TEXTPROCESS19F4)
+
+__TEXTPROCESS19F5:
+#incbin ".TextEntries/text_buildfileOaksLabTut_8.fetxt.dmp"
+setText($10A3, __TEXTPROCESS19F5)
+
+__TEXTPROCESS19F6:
+#incbin ".TextEntries/text_buildfileOaksLabTut_9.fetxt.dmp"
+setText($10A4, __TEXTPROCESS19F6)
+
+__TEXTPROCESS19F7:
+#incbin ".TextEntries/text_buildfileCaptainLostGlassesText.fetxt.dmp"
+setText($11B2, __TEXTPROCESS19F7)
+
+__TEXTPROCESS19F8:
+#incbin ".TextEntries/text_buildfileGaveCaptainGlassesText.fetxt.dmp"
+setText($11B3, __TEXTPROCESS19F8)
+
+__TEXTPROCESS19F9:
+#incbin ".TextEntries/text_buildfileCaptainDepartForFuschiaText.fetxt.dmp"
+setText($11B4, __TEXTPROCESS19F9)
+
+__TEXTPROCESS19FA:
+#incbin ".TextEntries/text_buildfileCaptainDepartForVermilionText.fetxt.dmp"
+setText($11B5, __TEXTPROCESS19FA)
+
+__TEXTPROCESS19FB:
+#incbin ".TextEntries/text_buildfileCaptainArrivedFuschiaText.fetxt.dmp"
+setText($11B6, __TEXTPROCESS19FB)
+
+__TEXTPROCESS19FC:
+#incbin ".TextEntries/text_buildfileCaptainArrivedVermilionText.fetxt.dmp"
+setText($11B7, __TEXTPROCESS19FC)
+
+__TEXTPROCESS19FD:
+#incbin ".TextEntries/text_buildfileObtainedCaptainsGlassesText.fetxt.dmp"
+setText($11B8, __TEXTPROCESS19FD)
+
+__TEXTPROCESS19FE:
+#incbin ".TextEntries/text_buildfileTauntName.fetxt.dmp"
+setText($1372, __TEXTPROCESS19FE)
+
+__TEXTPROCESS19FF:
+#incbin ".TextEntries/text_buildfileTauntDesc.fetxt.dmp"
+setText($1373, __TEXTPROCESS19FF)
+
+__TEXTPROCESS1A00:
+#incbin ".TextEntries/text_buildfileAssaultVestName.fetxt.dmp"
+setText($1376, __TEXTPROCESS1A00)
+
+__TEXTPROCESS1A01:
+#incbin ".TextEntries/text_buildfileAssaultVestDesc.fetxt.dmp"
+setText($1377, __TEXTPROCESS1A01)
+
+__TEXTPROCESS1A02:
+#incbin ".TextEntries/text_buildfileTacticalVestName.fetxt.dmp"
+setText($1378, __TEXTPROCESS1A02)
+
+__TEXTPROCESS1A03:
+#incbin ".TextEntries/text_buildfileTacticalVestDesc.fetxt.dmp"
+setText($1379, __TEXTPROCESS1A03)
+
+__TEXTPROCESS1A04:
+#incbin ".TextEntries/text_buildfileEvioliteName.fetxt.dmp"
+setText($137A, __TEXTPROCESS1A04)
+
+__TEXTPROCESS1A05:
+#incbin ".TextEntries/text_buildfileEvioliteDesc.fetxt.dmp"
+setText($137B, __TEXTPROCESS1A05)
+
+__TEXTPROCESS1A06:
+#incbin ".TextEntries/text_buildfileFireStoneUse.fetxt.dmp"
+setText($15B8, __TEXTPROCESS1A06)
+
+__TEXTPROCESS1A07:
+#incbin ".TextEntries/text_buildfileHoplonGuardName.fetxt.dmp"
+setText($15CD, __TEXTPROCESS1A07)
+
+__TEXTPROCESS1A08:
+#incbin ".TextEntries/text_buildfileHoplonGuardDesc.fetxt.dmp"
+setText($15CE, __TEXTPROCESS1A08)
+
+__TEXTPROCESS1A09:
+#incbin ".TextEntries/text_buildfileHoplonGuardUseText.fetxt.dmp"
+setText($15CF, __TEXTPROCESS1A09)
+
+__TEXTPROCESS1A0A:
+#incbin ".TextEntries/text_buildfileExoticCandyName.fetxt.dmp"
+setText($15D0, __TEXTPROCESS1A0A)
+
+__TEXTPROCESS1A0B:
+#incbin ".TextEntries/text_buildfileExoticCandyDesc.fetxt.dmp"
+setText($15D1, __TEXTPROCESS1A0B)
+
+__TEXTPROCESS1A0C:
+#incbin ".TextEntries/text_buildfileUM_ProvokeName.fetxt.dmp"
+setText($15D2, __TEXTPROCESS1A0C)
+
+__TEXTPROCESS1A0D:
+#incbin ".TextEntries/text_buildfileUM_ProvokeDesc.fetxt.dmp"
+setText($15D3, __TEXTPROCESS1A0D)
+
+__TEXTPROCESS1A0E:
+#incbin ".TextEntries/text_buildfileUM_RestName.fetxt.dmp"
+setText($1648, __TEXTPROCESS1A0E)
+
+__TEXTPROCESS1A0F:
+#incbin ".TextEntries/text_buildfileAttackStatsText.fetxt.dmp"
+setText($1654, __TEXTPROCESS1A0F)
+
+__TEXTPROCESS1A10:
+#incbin ".TextEntries/text_buildfileUM_Pickup.fetxt.dmp"
+setText($1681, __TEXTPROCESS1A10)
+
+__TEXTPROCESS1A11:
+#incbin ".TextEntries/text_buildfileUM_PickupDesc.fetxt.dmp"
+setText($1682, __TEXTPROCESS1A11)
+
+__TEXTPROCESS1A12:
+#incbin ".TextEntries/text_buildfileUM_Use.fetxt.dmp"
+setText($1685, __TEXTPROCESS1A12)
+
+__TEXTPROCESS1A13:
+#incbin ".TextEntries/text_buildfileUM_UseDesc.fetxt.dmp"
+setText($1686, __TEXTPROCESS1A13)
+
+__TEXTPROCESS1A14:
+#incbin ".TextEntries/text_buildfileUM_EditSkill.fetxt.dmp"
+setText($169D, __TEXTPROCESS1A14)
+
+__TEXTPROCESS1A15:
+#incbin ".TextEntries/text_buildfileUM_EditSkillDesc.fetxt.dmp"
+setText($169E, __TEXTPROCESS1A15)
+
+__TEXTPROCESS1A16:
+#incbin ".TextEntries/text_buildfileCRText_Title.fetxt.dmp"
+setText($1723, __TEXTPROCESS1A16)
+
+__TEXTPROCESS1A17:
+#incbin ".TextEntries/text_buildfileCRText_RuleHeader.fetxt.dmp"
+setText($1724, __TEXTPROCESS1A17)
+
+__TEXTPROCESS1A18:
+#incbin ".TextEntries/text_buildfileCRText_RuleNone.fetxt.dmp"
+setText($1725, __TEXTPROCESS1A18)
+
+__TEXTPROCESS1A19:
+#incbin ".TextEntries/text_buildfileCRText_RuleCannotEvolve.fetxt.dmp"
+setText($1726, __TEXTPROCESS1A19)
+
+__TEXTPROCESS1A1A:
+#incbin ".TextEntries/text_buildfileCRText_RuleCannotCaptureCertain.fetxt.dmp"
+setText($1727, __TEXTPROCESS1A1A)
+
+__TEXTPROCESS1A1B:
+#incbin ".TextEntries/text_buildfileCRText_RuleCannotCapture.fetxt.dmp"
+setText($1728, __TEXTPROCESS1A1B)
+
+__TEXTPROCESS1A1C:
+#incbin ".TextEntries/text_buildfileCRText_RuleCannotGainExp.fetxt.dmp"
+setText($1729, __TEXTPROCESS1A1C)
+
+__TEXTPROCESS1A1D:
+#incbin ".TextEntries/text_buildfileCRText_RuleRandomizer.fetxt.dmp"
+setText($172A, __TEXTPROCESS1A1D)
+
+__TEXTPROCESS1A1E:
+#incbin ".TextEntries/text_buildfileCRText_RuleEnemySkills.fetxt.dmp"
+setText($172B, __TEXTPROCESS1A1E)
+
+__TEXTPROCESS1A1F:
+#incbin ".TextEntries/text_buildfileCRText_RuleEnemySkills2.fetxt.dmp"
+setText($172C, __TEXTPROCESS1A1F)
+
+__TEXTPROCESS1A20:
+#incbin ".TextEntries/text_buildfileCRText_RuleNuzlocke.fetxt.dmp"
+setText($172D, __TEXTPROCESS1A20)
+
+__TEXTPROCESS1A21:
+#incbin ".TextEntries/text_buildfileCRText_RuleNuzlocke2.fetxt.dmp"
+setText($172E, __TEXTPROCESS1A21)
+
+__TEXTPROCESS1A22:
+#incbin ".TextEntries/text_buildfileCRText_OptionNewName.fetxt.dmp"
+setText($172F, __TEXTPROCESS1A22)
+
+__TEXTPROCESS1A23:
+#incbin ".TextEntries/text_buildfileCRText_OptionLittleCup.fetxt.dmp"
+setText($1730, __TEXTPROCESS1A23)
+
+__TEXTPROCESS1A24:
+#incbin ".TextEntries/text_buildfileCRText_OptionVoid.fetxt.dmp"
+setText($1731, __TEXTPROCESS1A24)
+
+__TEXTPROCESS1A25:
+#incbin ".TextEntries/text_buildfileCRText_OptionChaos.fetxt.dmp"
+setText($1732, __TEXTPROCESS1A25)
+
+__TEXTPROCESS1A26:
+#incbin ".TextEntries/text_buildfileCRText_OptionPlus.fetxt.dmp"
+setText($1733, __TEXTPROCESS1A26)
+
+__TEXTPROCESS1A27:
+#incbin ".TextEntries/text_buildfileCRText_OptionNuzlocke.fetxt.dmp"
+setText($1734, __TEXTPROCESS1A27)
+
+__TEXTPROCESS1A28:
+#incbin ".TextEntries/text_buildfileCRText_OptionAsh.fetxt.dmp"
+setText($1735, __TEXTPROCESS1A28)
+
+__TEXTPROCESS1A29:
+#incbin ".TextEntries/text_buildfileCRText_OptionGary.fetxt.dmp"
+setText($1736, __TEXTPROCESS1A29)
+
+__TEXTPROCESS1A2A:
+#incbin ".TextEntries/text_buildfileCRText_OptionLeaf.fetxt.dmp"
+setText($1737, __TEXTPROCESS1A2A)
+
+__TEXTPROCESS1A2B:
+#incbin ".TextEntries/text_buildfileCRText_OptionOak.fetxt.dmp"
+setText($1738, __TEXTPROCESS1A2B)
+
+__TEXTPROCESS1A2C:
+#incbin ".TextEntries/text_buildfileCRText_OptionBill.fetxt.dmp"
+setText($1739, __TEXTPROCESS1A2C)
+
+__TEXTPROCESS1A2D:
+#incbin ".TextEntries/text_buildfileCRText_OptionJames.fetxt.dmp"
+setText($173A, __TEXTPROCESS1A2D)
+
+__TEXTPROCESS1A2E:
+#incbin ".TextEntries/text_buildfileCRText_OptionJessie.fetxt.dmp"
+setText($173B, __TEXTPROCESS1A2E)
+
+__TEXTPROCESS1A2F:
+#incbin ".TextEntries/text_buildfileCRText_OptionBrock.fetxt.dmp"
+setText($173C, __TEXTPROCESS1A2F)
+
+__TEXTPROCESS1A30:
+#incbin ".TextEntries/text_buildfileCRText_OptionMisty.fetxt.dmp"
+setText($173D, __TEXTPROCESS1A30)
+
+__TEXTPROCESS1A31:
+#incbin ".TextEntries/text_buildfileCRText_OptionLtSurge.fetxt.dmp"
+setText($173E, __TEXTPROCESS1A31)
+
+__TEXTPROCESS1A32:
+#incbin ".TextEntries/text_buildfileCRText_OptionErika.fetxt.dmp"
+setText($173F, __TEXTPROCESS1A32)
+
+__TEXTPROCESS1A33:
+#incbin ".TextEntries/text_buildfileCRText_OptionKoga.fetxt.dmp"
+setText($1740, __TEXTPROCESS1A33)
+
+__TEXTPROCESS1A34:
+#incbin ".TextEntries/text_buildfileCRText_OptionSabrina.fetxt.dmp"
+setText($1741, __TEXTPROCESS1A34)
+
+__TEXTPROCESS1A35:
+#incbin ".TextEntries/text_buildfileCRText_OptionBlaine.fetxt.dmp"
+setText($1742, __TEXTPROCESS1A35)
+
+__TEXTPROCESS1A36:
+#incbin ".TextEntries/text_buildfileCRText_OptionGiovanni.fetxt.dmp"
+setText($1743, __TEXTPROCESS1A36)
+
+__TEXTPROCESS1A37:
+#incbin ".TextEntries/text_buildfileCRText_OptionLorelei.fetxt.dmp"
+setText($1744, __TEXTPROCESS1A37)
+
+__TEXTPROCESS1A38:
+#incbin ".TextEntries/text_buildfileCRText_OptionBruno.fetxt.dmp"
+setText($1745, __TEXTPROCESS1A38)
+
+__TEXTPROCESS1A39:
+#incbin ".TextEntries/text_buildfileCRText_OptionAgatha.fetxt.dmp"
+setText($1746, __TEXTPROCESS1A39)
+
+__TEXTPROCESS1A3A:
+#incbin ".TextEntries/text_buildfileCRText_OptionLance.fetxt.dmp"
+setText($1747, __TEXTPROCESS1A3A)
+
+__TEXTPROCESS1A3B:
+#incbin ".TextEntries/text_buildfileCRText_OptionVesly.fetxt.dmp"
+setText($1748, __TEXTPROCESS1A3B)
+
+__TEXTPROCESS1A3C:
+#incbin ".TextEntries/text_buildfileCRText_OptionCheater.fetxt.dmp"
+setText($1749, __TEXTPROCESS1A3C)
+
+__TEXTPROCESS1A3D:
+#incbin ".TextEntries/text_buildfileTitle_Text.fetxt.dmp"
+setText($174A, __TEXTPROCESS1A3D)
+
+__TEXTPROCESS1A3E:
+#incbin ".TextEntries/text_buildfileWildPkmn_Text.fetxt.dmp"
+setText($174B, __TEXTPROCESS1A3E)
+
+__TEXTPROCESS1A3F:
+#incbin ".TextEntries/text_buildfileTrainerPkmn_Text.fetxt.dmp"
+setText($174C, __TEXTPROCESS1A3F)
+
+__TEXTPROCESS1A40:
+#incbin ".TextEntries/text_buildfileGymBosses_Text.fetxt.dmp"
+setText($174D, __TEXTPROCESS1A40)
+
+__TEXTPROCESS1A41:
+#incbin ".TextEntries/text_buildfileItemsFound_Text.fetxt.dmp"
+setText($174E, __TEXTPROCESS1A41)
+
+__TEXTPROCESS1A42:
+#incbin ".TextEntries/text_buildfileMoveStats_Text.fetxt.dmp"
+setText($174F, __TEXTPROCESS1A42)
+
+__TEXTPROCESS1A43:
+#incbin ".TextEntries/text_buildfilePkmnStats_Text.fetxt.dmp"
+setText($1750, __TEXTPROCESS1A43)
+
+__TEXTPROCESS1A44:
+#incbin ".TextEntries/text_buildfileGrowthCaps_Text.fetxt.dmp"
+setText($1751, __TEXTPROCESS1A44)
+
+__TEXTPROCESS1A45:
+#incbin ".TextEntries/text_buildfileInnateSkills_Text.fetxt.dmp"
+setText($1752, __TEXTPROCESS1A45)
+
+__TEXTPROCESS1A46:
+#incbin ".TextEntries/text_buildfileNormalMenuText.fetxt.dmp"
+setText($1753, __TEXTPROCESS1A46)
+
+__TEXTPROCESS1A47:
+#incbin ".TextEntries/text_buildfileRandomizedText.fetxt.dmp"
+setText($1754, __TEXTPROCESS1A47)
+
+__TEXTPROCESS1A48:
+#incbin ".TextEntries/text_buildfileBlankText.fetxt.dmp"
+setText($1755, __TEXTPROCESS1A48)
+
+__TEXTPROCESS1A49:
+#incbin ".TextEntries/text_buildfileStartingOptionsNA_Text.fetxt.dmp"
+setText($1756, __TEXTPROCESS1A49)
+
+__TEXTPROCESS1A4A:
+#incbin ".TextEntries/text_buildfileMoveMenuStrText.fetxt.dmp"
+setText($1757, __TEXTPROCESS1A4A)
+
+__TEXTPROCESS1A4B:
+#incbin ".TextEntries/text_buildfileMoveMenuMagText.fetxt.dmp"
+setText($1758, __TEXTPROCESS1A4B)
+
+__TEXTPROCESS1A4C:
+#incbin ".TextEntries/text_buildfileMoveMenuLvlText.fetxt.dmp"
+setText($1759, __TEXTPROCESS1A4C)
+
+__TEXTPROCESS1A4D:
+#incbin ".TextEntries/text_buildfileMoveMenuRngText.fetxt.dmp"
+setText($175A, __TEXTPROCESS1A4D)
+
+__TEXTPROCESS1A4E:
+#incbin ".TextEntries/text_buildfileMoveMenuWtText.fetxt.dmp"
+setText($175B, __TEXTPROCESS1A4E)
+
+__TEXTPROCESS1A4F:
+#incbin ".TextEntries/text_buildfileMoveMenuDmgText.fetxt.dmp"
+setText($175C, __TEXTPROCESS1A4F)
+
+__TEXTPROCESS1A50:
+#incbin ".TextEntries/text_buildfileMoveMenuHitText.fetxt.dmp"
+setText($175D, __TEXTPROCESS1A50)
+
+__TEXTPROCESS1A51:
+#incbin ".TextEntries/text_buildfileMoveMenuCritText.fetxt.dmp"
+setText($175E, __TEXTPROCESS1A51)
+
+__TEXTPROCESS1A52:
+#incbin ".TextEntries/text_buildfileNoMoveText.fetxt.dmp"
+setText($175F, __TEXTPROCESS1A52)
+
+__TEXTPROCESS1A53:
+#incbin ".TextEntries/text_buildfileOrderMovesText.fetxt.dmp"
+setText($1760, __TEXTPROCESS1A53)
+
+__TEXTPROCESS1A54:
+#incbin ".TextEntries/text_buildfileMoveMenuYesText.fetxt.dmp"
+setText($1761, __TEXTPROCESS1A54)
+
+__TEXTPROCESS1A55:
+#incbin ".TextEntries/text_buildfileMoveMenuNoText.fetxt.dmp"
+setText($1762, __TEXTPROCESS1A55)
+
+__TEXTPROCESS1A56:
+#incbin ".TextEntries/text_buildfileCharacterSelectLevelText.fetxt.dmp"
+setText($1763, __TEXTPROCESS1A56)
+
+__TEXTPROCESS1A57:
+#incbin ".TextEntries/text_buildfileCharacterSelectGoldText.fetxt.dmp"
+setText($1764, __TEXTPROCESS1A57)
+
+__TEXTPROCESS1A58:
+#incbin ".TextEntries/text_buildfileCharacterSelectPercentText.fetxt.dmp"
+setText($1765, __TEXTPROCESS1A58)
+
+__TEXTPROCESS1A59:
+#incbin ".TextEntries/text_buildfileCharacterSelectCostText.fetxt.dmp"
+setText($1766, __TEXTPROCESS1A59)
+
+__TEXTPROCESS1A5A:
+#incbin ".TextEntries/text_buildfileCharacterSelectBaseText.fetxt.dmp"
+setText($1767, __TEXTPROCESS1A5A)
+
+__TEXTPROCESS1A5B:
+#incbin ".TextEntries/text_buildfileCharacterSelectGrowthText.fetxt.dmp"
+setText($1768, __TEXTPROCESS1A5B)
+
+__TEXTPROCESS1A5C:
+#incbin ".TextEntries/text_buildfileCharacterSelectHpText.fetxt.dmp"
+setText($1769, __TEXTPROCESS1A5C)
+
+__TEXTPROCESS1A5D:
+#incbin ".TextEntries/text_buildfileCharacterSelectSklText.fetxt.dmp"
+setText($176A, __TEXTPROCESS1A5D)
+
+__TEXTPROCESS1A5E:
+#incbin ".TextEntries/text_buildfileCharacterSelectSpdText.fetxt.dmp"
+setText($176B, __TEXTPROCESS1A5E)
+
+__TEXTPROCESS1A5F:
+#incbin ".TextEntries/text_buildfileCharacterSelectDefText.fetxt.dmp"
+setText($176C, __TEXTPROCESS1A5F)
+
+__TEXTPROCESS1A60:
+#incbin ".TextEntries/text_buildfileCharacterSelectResText.fetxt.dmp"
+setText($176D, __TEXTPROCESS1A60)
+
+__TEXTPROCESS1A61:
+#incbin ".TextEntries/text_buildfilePokedexUnknownEntryText.fetxt.dmp"
+setText($176E, __TEXTPROCESS1A61)
+
+__TEXTPROCESS1A62:
+#incbin ".TextEntries/text_buildfilePokedexMissingDataDotsText.fetxt.dmp"
+setText($176F, __TEXTPROCESS1A62)
+
+__TEXTPROCESS1A63:
+#incbin ".TextEntries/text_buildfilePokedexMissingDataText.fetxt.dmp"
+setText($1770, __TEXTPROCESS1A63)
+
+__TEXTPROCESS1A64:
+#incbin ".TextEntries/text_buildfilePokedexNoDataText.fetxt.dmp"
+setText($1771, __TEXTPROCESS1A64)
+
+__TEXTPROCESS1A65:
+#incbin ".TextEntries/text_buildfilePokedexSeenText.fetxt.dmp"
+setText($1772, __TEXTPROCESS1A65)
+
+__TEXTPROCESS1A66:
+#incbin ".TextEntries/text_buildfilePokedexCaughtText.fetxt.dmp"
+setText($1773, __TEXTPROCESS1A66)
+
+__TEXTPROCESS1A67:
+#incbin ".TextEntries/text_buildfileSD_AssaultVest.fetxt.dmp"
+setText($1815, __TEXTPROCESS1A67)
+
+__TEXTPROCESS1A68:
+#incbin ".TextEntries/text_buildfileSD_TacticalVest.fetxt.dmp"
+setText($1816, __TEXTPROCESS1A68)
+
+__TEXTPROCESS1A69:
+#incbin ".TextEntries/text_buildfileSD_Eviolite.fetxt.dmp"
+setText($1817, __TEXTPROCESS1A69)
+
+__TEXTPROCESS1A6A:
+#incbin ".TextEntries/text_buildfileAcc_Galeforce.fetxt.dmp"
+setText($1912, __TEXTPROCESS1A6A)
+
+__TEXTPROCESS1A6B:
+#incbin ".TextEntries/text_buildfileSN_AssaultVest.fetxt.dmp"
+setText($1A13, __TEXTPROCESS1A6B)
+
+__TEXTPROCESS1A6C:
+#incbin ".TextEntries/text_buildfileSN_TacticalVest.fetxt.dmp"
+setText($1A14, __TEXTPROCESS1A6C)
+
+__TEXTPROCESS1A6D:
+#incbin ".TextEntries/text_buildfileSN_Eviolite.fetxt.dmp"
+setText($1A15, __TEXTPROCESS1A6D)
 
 }
 
