@@ -5,7 +5,7 @@ Vesly
   
   
 # Translations  
-Simplified Chinese - Xiaocai  
+Simplified Chinese - 小丑の梦, Xiaocai  
   
   
 
