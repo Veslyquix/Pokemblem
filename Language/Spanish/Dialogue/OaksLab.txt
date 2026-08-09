@@ -35,7 +35,7 @@ Te mencioné que estaba llegando, [NL]
 [ToggleColorInvert][OpenLeft][ClearFace][OpenMidRight][MoveRight][OpenRight]Seas bienvenido al mundo de  Pokémblem.[A][2NL]
 ¡Mi nombre es OAK![NL]
 ¡La gente me llama el profesor de  Pokémblem![A][CloseSpeechFast][NL]
-[OpenLeft][LoadGaryPoint][OpenLeft][ToggleColorInvert]¿"Bienvenido al mundo"?[NL]
+[OpenLeft][LoadGaryPoint][OpenLeft][ToggleColorInvert]¿“Bienvenido al mundo”?[NL]
 ¿Pero qué dices, anciano?[A][NL]
 [ToggleColorInvert][OpenRight]Cállate un momento, Gary.[A][CloseSpeechSlow][NL]
 [OpenLeft][ClearFace][OpenRight]¡Tu propia leyenda en Pokémblem[NL]
@@ -133,9 +133,3 @@ Buen intento.[A][X]
 
 
 
-
-
-
-
-## LtSurgeName
-Lt Surge[X]

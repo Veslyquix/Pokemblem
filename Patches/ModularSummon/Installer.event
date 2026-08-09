@@ -1,6 +1,13 @@
 // Modular Summon 
 // By Vesly       :-] 
 
+
+// Stop AI from using staves 
+PUSH 
+ORG $3a224 // 803a204 
+SHORT $46c0 $46c0 
+POP 
+
 ALIGN 4
 TrainerDifficultyBonusLink_Hard:
 WORD TrainerDifficultyBonusDef_Hard

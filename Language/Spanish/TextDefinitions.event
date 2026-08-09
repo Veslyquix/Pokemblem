@@ -15,6 +15,5 @@
 #define SpeedRunnerText $009
 #define PlaytesterMessage $00A
 #define NiceTryText $00B
-#define LtSurgeName $00C
 
 #endif // TEXT_DEFINITIONS_TEXT_BUILDFILE_TXT

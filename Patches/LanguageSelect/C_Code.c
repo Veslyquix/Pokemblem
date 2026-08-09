@@ -356,10 +356,10 @@ void LanguageSelect_Loop(LanguageSelectProc * proc)
 
 const struct ProcCmd LanguageSelectProcCmd[] = {
     PROC_NAME("LanguageSelect"),
-    PROC_CALL(PrepareHealthAndSafetyScreen),
-    PROC_LABEL(0x3E7),
+    PROC_CALL(PrepareHealthAndSafetyScreen), // prep graphics, if soft reset, go to 0x3E7
     PROC_CALL(LanguageSelect_Init),
     PROC_REPEAT(LanguageSelect_Loop),
     PROC_CALL(LanguageSelect_End),
+    PROC_LABEL(0x3E7),
     PROC_END,
 };

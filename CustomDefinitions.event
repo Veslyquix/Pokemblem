@@ -23,6 +23,9 @@
 // ^(?!.*[\\/](Language|Maps|Music|Text|Tools|wip Maps)[\\/]).*[\\/](EventAssembler)([\\/]|$)
 
 
+// death to explosion counter att left actor with 0 hp 
+
+
 #define ProtagMug 179 
 //#define SkillSys_HookAiTryDoOffensiveAction
 // Shade+ (in AiSkills), Steal+, and Barricade hook this function so I've disabled them 
@@ -65,7 +68,7 @@ PUSH; ORG $D74D0	//{U}
 #ifdef CLEAN_TITLE_SCREEN 
 String("                        ") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 #else 
-String("V1.23.03             Aug 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
+String("V1.24.00             Aug 2026") ; BYTE 0; POP // this overflows into the date but I don't use the date so whatever 
 #endif 
 
 
