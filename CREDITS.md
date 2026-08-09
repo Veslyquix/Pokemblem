@@ -2,18 +2,13 @@
 
 # Development
 Vesly
+  
+  
+# Translations  
+Simplified Chinese - Xiaocai  
+  
+  
 
-
-# Systems
-DangerRadius - Huichelaar
-Capture - Tequila
-EffectivenessRework - Tequila
-SkillSystems - circles, Sme, & others
-Trap Rework - Sme
-Gaiden Magic - Snek, Gamma 
-Equippable Accessories - Kirb 
-FreeMovement - Mokha, Sme
-Map/chapter transitions - Huichelaar
 
 # Special Thanks
 7743, without whom this project would not be possible. He’s added many features and patches to FEBuilder that I greedily requested, and has always offered support when I was having trouble.
@@ -73,6 +68,18 @@ EventParameters - Snek
 Full Heal item - MintX
 Hide portraits during promotion - Tequila
 CheckInDanger - Stanh
+
+
+# Systems
+DangerRadius - Huichelaar
+Capture - Tequila
+EffectivenessRework - Tequila
+SkillSystems - circles, Sme, & others
+Trap Rework - Sme
+Gaiden Magic - Snek, Gamma 
+Equippable Accessories - Kirb 
+FreeMovement - Mokha, Sme
+Map/chapter transitions - Huichelaar
 
 # Playtesters
 Akim
