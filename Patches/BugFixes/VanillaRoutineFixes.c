@@ -30,12 +30,12 @@ void EndFaceById(int slot)
 }
 
 //! FE8U = 0x080057A4
-int GetFaceDisplayBits(struct FaceProc * proc)
-{
-    if (proc)
-        return proc->displayBits;
-    return 0;
-}
+// int GetFaceDisplayBits(struct FaceProc * proc)
+// {
+// if (proc)
+// return proc->displayBits;
+// return 0;
+// }
 
 void AnimDelete(struct Anim * anim)
 {
