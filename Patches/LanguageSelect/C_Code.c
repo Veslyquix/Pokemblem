@@ -155,13 +155,19 @@ typedef struct
     u8 textHandleBase;
     u8 pad;
     u16 timer;
-    struct Text text[LS_LANGUAGE_COUNT + 2];
+    struct Text text[LS_LANGUAGE_COUNT + 3];
 } LanguageSelectProc;
 
 static u16 * const sLanguageTextLinks[LS_LANGUAGE_COUNT] = {
     &EnglishText_Link,
     &SpanishText_Link,
     &ChineseText_Link,
+};
+
+static const u8 sLanguageCompletionPercent[LS_LANGUAGE_COUNT] = {
+    100, // English
+    1,   // Spanish
+    100, // Chinese
 };
 
 static const u8 * const sFlagGfxTable[LS_LANGUAGE_COUNT] = {
@@ -209,6 +215,20 @@ static void InitLine(struct Text * text, int x, int y, int color, int width, con
     PutText(text, TILEMAP_LOCATED(gBG0TilemapBuffer, x, y));
 }
 
+static void InitCompletionLine(struct Text * text, int x, int y, int color, int width, int percent)
+{
+    ClearText(text);
+    InitText(text, width);
+    Text_SetColor(text, color);
+    Text_SetCursor(text, 0);
+
+    PutNumber(TILEMAP_LOCATED(gBG0TilemapBuffer, x, y), color, percent);
+    // Text_DrawNumber(text, percent);
+    Text_InsertDrawString(text, Text_GetCursor(text), color, "% ");
+    Text_InsertDrawString(text, Text_GetCursor(text), color, " Translated");
+    PutText(text, TILEMAP_LOCATED(gBG0TilemapBuffer, x + 1, y));
+}
+
 static void DrawLanguageText(LanguageSelectProc * proc)
 {
     int i;
@@ -227,6 +247,13 @@ static void DrawLanguageText(LanguageSelectProc * proc)
     }
 
     InitLine(&proc->text[LS_LANGUAGE_COUNT + 1], LS_OPTION_X - 2, 15, TEXT_COLOR_SYSTEM_GREEN, 11, " Press A/START");
+
+    if (proc->selected)
+    {
+        InitCompletionLine(
+            &proc->text[LS_LANGUAGE_COUNT + 2], LS_OPTION_X - 2, LS_OPTION_Y - 2, TEXT_COLOR_SYSTEM_WHITE, 11,
+            sLanguageCompletionPercent[proc->selected]);
+    }
 
     BG_EnableSyncByMask(BG_SYNC_BIT(0));
 }
