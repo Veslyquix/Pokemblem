@@ -39,9 +39,9 @@ ClassRoute9WWildA 0x24,PidgeottoID,FarfetchdID,RaticateID,FearowID,0x00,25,25,25
 ClassRoute9WWildB 0x25,PidgeyID,OddishID,RattataID,SpearowID,0x00,25,25,25,25,0,Route9WCh,0
 ClassRoute5WildA 0x26,CharmanderID,SquirtleID,BulbasaurID,EeveeID,ChanseyID,20,20,20,20,20,Route5Ch,0
 ClassRoute5WildB 0x27,0x00,0x00,0x00,0x00,0x00,0,0,0,0,0,Route5Ch,0
-ClassRoute6WildA 0x28,DrowzeeID,VulpixID,MeowthID,VoltorbID,0x00,25,25,25,25,0,Route6Ch,0
+ClassRoute6WildA 0x28,DrowzeeID,VulpixID,MeowthID,PonytaID,GrimerID,20,20,20,20,20,Route6Ch,0
 ClassRoute6WildB 0x29,0x00,0x00,0x00,0x00,0x00,0,0,0,0,0,Route6Ch,0
-ClassRoute11WildA 0x2A,VoltorbID,MeowthID,DrowzeeID,VulpixID,0x00,25,25,25,25,0,Route11Ch,0
+ClassRoute11WildA 0x2A,DrowzeeID,VulpixID,MeowthID,PonytaID,GrimerID,20,20,20,20,20,Route11Ch,0
 ClassRoute11WildB 0x2B,0x00,0x00,0x00,0x00,0x00,0,0,0,0,0,Route11Ch,0
 ClassDiglettsCaveWildA 0x2C,DiglettID,SandshrewID,0x00,0x00,0x00,80,20,0,0,0,DiglettsCaveCh,0
 ClassDiglettsCaveWildB 0x2D,0x00,0x00,0x00,0x00,0x00,0,0,0,0,0,DiglettsCaveCh,0
@@ -49,7 +49,7 @@ ClassRoute9EWildA 0x2E,SpearowID,FarfetchdID,PidgeottoID,FearowID,RaticateID,20,
 ClassRoute9EWildB 0x2F,0x00,0x00,0x00,0x00,0x00,0,0,0,0,0,Route9ECh,0
 ClassRoute10WildA 0x30,VoltorbID,MagnemiteID,PikachuID,0x00,0x00,65,20,15,0,0,Route10Ch,0
 ClassRoute10WildB 0x31,0x00,0x00,0x00,0x00,0x00,0,0,0,0,0,Route10Ch,0
-ClassRockTunnelWildA 0x32,ZubatID,MachopID,GeodudeID,OnixID,KoffingID,40,15,15,15,15,RockTunnelB1Ch,0
+ClassRockTunnelWildA 0x32,ZubatID,MachopID,GeodudeID,OnixID,KoffingID,20,20,20,20,20,RockTunnelB1Ch,0
 ClassRockTunnelWildB 0x33,0x00,0x00,0x00,0x00,0x00,0,0,0,0,0,RockTunnelB1Ch,0
 ClassPokeTowerWildA 0x34,GastlyID,CuboneID,0x00,0x00,0x00,90,10,0,0,0,PokemonTowerF2Ch,0
 ClassPokeTowerWildB 0x35,0x00,0x00,0x00,0x00,0x00,0,0,0,0,0,PokemonTowerF2Ch,0

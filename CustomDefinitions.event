@@ -1,3 +1,5 @@
+// ^(?!.*[\\/](Language|Maps|Music|Text|Tools|wip Maps)[\\/]).*[\\/](EventAssembler)([\\/]|$)
+// ^(?!.*[\\/](include|src)[\\/]).*[\\/](_site|asm|banim|build|changelog_fragments|config|docs|fonts|githooks|graphics|linker|mgfembp|preview|reference|reports|scripts|sound|tests|texts|tools)([\\/]|$)
 
 // PROTECT $57a4 
 // PROTECT $267fc $2713c
